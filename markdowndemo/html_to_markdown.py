@@ -133,11 +133,16 @@ def clean_markdown_spacing(markdown):
     for pattern, replacement in formatting_punctuation_patterns:
         markdown = re.sub(pattern, replacement, markdown)
     
-    # 7. Geschützte Inhalte wiederherstellen
+    # 7. WICHTIG: Listen korrekt von vorangehendem Text trennen
+    # Das muss vor der Wiederherstellung geschützter Inhalte passieren
+    markdown = re.sub(r'(\*\*[^*\n]+\*\*)\s*(\d+\.)', r'\1\n\n\2', markdown)  # **Text** 1. -> **Text**\n\n1.
+    markdown = re.sub(r'(\*\*[^*\n]+\*\*)\s*(-)', r'\1\n\n\2', markdown)      # **Text** - -> **Text**\n\n-
+    
+    # 8. Geschützte Inhalte wiederherstellen
     for i, content in enumerate(protected_content):
         markdown = markdown.replace(f"__PROTECTED_{i}__", content)
     
-    # 8. Mehrfache Leerzeichen reduzieren (außer am Zeilenanfang für Einrückung)
+    # 9. Mehrfache Leerzeichen reduzieren (außer am Zeilenanfang für Einrückung)
     markdown = re.sub(r'(?<!^)(?<!  ) {2,}', ' ', markdown, flags=re.MULTILINE)
     
     return markdown
@@ -768,12 +773,18 @@ def html_to_markdown(html_content):
             result = ""
             if hasattr(element, 'children'):
                 for child in element.children:
-                    result += process_element(child, depth + 1)
+                    child_result = process_element(child, depth + 1)
+                    if child_result.strip():
+                        # Für Listen-Container (procedure) sicherstellen, dass Listen korrekt getrennt werden
+                        if 'procedure' in classes and child.name == 'ol':
+                            result += "\n" + child_result + "\n"
+                        else:
+                            result += child_result
             return result
         
         # Prozeduren und Schritte (DocBook)
         if element.name == 'ol' and 'procedure' in classes:
-            return process_list(element) + "\n"
+            return "\n" + process_list(element) + "\n"
         
         # Standard-Verarbeitung für alle anderen Elemente
         result = ""
