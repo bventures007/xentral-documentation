@@ -210,7 +210,20 @@ def process_element_inline(element):
     """Verarbeitet Inline-Elemente für bessere Formatierung"""
     if isinstance(element, str):
         text = element.strip()
-        return text + " " if text else ""
+        if text:
+            # Prüfe ursprüngliches Element für führende/folgende Leerzeichen
+            leading_space = ""
+            trailing_space = " "
+            
+            # Wenn das Original-Element mit Leerzeichen beginnt/endet, beibehalten
+            if len(element) > len(text):
+                if element.startswith(' ') or element.startswith('\n') or element.startswith('\t'):
+                    leading_space = " "
+                if element.endswith(' ') or element.endswith('\n') or element.endswith('\t'):
+                    trailing_space = " "
+            
+            return leading_space + text + trailing_space
+        return ""
     
     if element.name in ['strong', 'b']:
         text = clean_text(element.get_text())
@@ -232,13 +245,15 @@ def process_element_inline(element):
             strong_elem = element.find(['strong', 'b'])
             if strong_elem:
                 text = clean_text(strong_elem.get_text())
+                # Prüfe ob nach dem span ein Leerzeichen folgt (durch nächstes Sibling)
                 return f"**{text}** " if text else ""
         
         # Normale span - Inhalt rekursiv verarbeiten
         result = ""
         for child in element.children:
             result += process_element_inline(child)
-        return result
+        # Bei spans immer ein Leerzeichen anhängen, da sie oft vor nachfolgendem Text stehen
+        return result + " " if result.strip() else ""
     
     # Links verarbeiten
     if element.name == 'a':
@@ -342,13 +357,27 @@ def process_table(table):
                     # Info-Box als kompaktes Inline-Element hinzufügen
                     compact_info = f"{emoji} **{title_text}:** {content_text}"
                     cell_parts.append(compact_info)
+                elif hasattr(child, 'name') and child.name == 'div' and 'itemizedlist' in child.get('class', []):
+                    # DocBook itemizedlist - Listen in Tabellenzellen
+                    list_elem = child.find(['ul', 'ol'])
+                    if list_elem:
+                        list_content = process_list_in_table_cell(list_elem)
+                        if list_content.strip():
+                            cell_parts.append(list_content.strip())
+                elif hasattr(child, 'name') and child.name in ['ul', 'ol']:
+                    # Direkte Listen in Tabellenzellen
+                    list_content = process_list_in_table_cell(child)
+                    if list_content.strip():
+                        cell_parts.append(list_content.strip())
                 elif child.name == 'p':
                     # Normaler Paragraph
                     p_content = ""
                     for grandchild in child.children:
                         p_content += process_element_inline(grandchild)
-                    if p_content.strip():
-                        cell_parts.append(p_content.strip())
+                    # Nur führende/abschließende Leerzeichen entfernen, aber Zwischen-Leerzeichen beibehalten
+                    p_content_cleaned = re.sub(r' {2,}', ' ', p_content).strip()
+                    if p_content_cleaned:
+                        cell_parts.append(p_content_cleaned)
                 elif isinstance(child, str):
                     text = child.strip()
                     if text:
@@ -365,6 +394,9 @@ def process_table(table):
             else:
                 cell_content = clean_text(td.get_text())
             
+            # Fix für fehlendes Leerzeichen nach **text** (alle Varianten)
+            cell_content = re.sub(r'\*\*\s*([^*]+)\*\*([a-zA-ZäöüÄÖÜß])', r'**\1** \2', cell_content)
+            
             # Pipe-Zeichen in Zellen escapen
             cell_content = cell_content.replace('|', '\\|')
             cells.append(cell_content)
@@ -374,6 +406,63 @@ def process_table(table):
     
     markdown += "\n"
     return markdown
+
+def process_list_in_table_cell(list_element):
+    """Verarbeitet Listen innerhalb von Tabellenzellen - kompakte Darstellung mit korrekten Leerzeichen"""
+    result = ""
+    
+    for li in list_element.find_all('li', recursive=False):
+        # List-Item Inhalt verarbeiten
+        li_content = ""
+        
+        # Alle Paragraphen und Text im List-Item sammeln
+        for child in li.children:
+            if isinstance(child, str):
+                text = child.strip()
+                if text:
+                    li_content += text + " "
+            elif child.name == 'p':
+                # Paragraph-Inhalt mit Inline-Formatierung verarbeiten
+                p_content = ""
+                for p_child in child.children:
+                    p_content += process_element_inline(p_child)
+                # Entferne nur mehrfache Leerzeichen, aber behalte Einzelleerzeichen
+                p_content = re.sub(r' {2,}', ' ', p_content.strip())
+                if p_content:
+                    li_content += p_content + " "
+            elif child.name in ['strong', 'b']:
+                # Fett markierte Texte mit korrekten Leerzeichen
+                text = clean_text(child.get_text())
+                if text:
+                    li_content += f"**{text}** "
+            elif child.name in ['em', 'i']:
+                # Kursive Texte mit korrekten Leerzeichen
+                text = clean_text(child.get_text())
+                if text:
+                    li_content += f"*{text}* "
+            elif child.name == 'code':
+                # Code mit korrekten Leerzeichen
+                text = child.get_text()
+                if text:
+                    li_content += f"`{text}` "
+            elif hasattr(child, 'children'):
+                # Verschachtelte Elemente rekursiv verarbeiten mit process_element_inline
+                for nested_child in child.children:
+                    li_content += process_element_inline(nested_child)
+            elif hasattr(child, 'get_text'):
+                text = clean_text(child.get_text())
+                if text:
+                    li_content += text + " "
+        
+        # Entferne nur führende Leerzeichen, aber behalte die abschließenden
+        li_content = li_content.strip()
+        if li_content:
+            if list_element.name == 'ol':
+                result += f"• {li_content}<br>"
+            else:
+                result += f"• {li_content}<br>"
+    
+    return result.rstrip('<br>')
 
 def process_info_box(element):
     """Konvertiert Xentral Info-Boxen (tip, important, warning, note) zu Markdown"""
