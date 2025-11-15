@@ -12,8 +12,36 @@ from datetime import datetime
 
 def process_text_formatting(text, in_table_cell=False):
     """Verarbeitet Text-Formatierung (Bold, Italic, Links)"""
-    # Links [text](url) verarbeiten - ZUERST vor anderen Formatierungen
-    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
+    
+    # YouTube-Videos erkennen und als iframe einbetten - VOR normaler Link-Verarbeitung
+    def convert_youtube_link(match):
+        link_text = match.group(1)
+        url = match.group(2)
+        
+        # Prüfe ob es ein YouTube-Link ist (verschiedene Formate)
+        if 'youtube.com/embed/' in url or 'youtu.be/' in url or 'youtube.com/watch' in url:
+            # Extrahiere Video-ID
+            video_id = None
+            if 'youtube.com/embed/' in url:
+                video_id = url.split('youtube.com/embed/')[1].split('?')[0]
+            elif 'youtu.be/' in url:
+                video_id = url.split('youtu.be/')[1].split('?')[0]
+            elif 'youtube.com/watch?v=' in url:
+                video_id = url.split('v=')[1].split('&')[0]
+            
+            if video_id:
+                # Erstelle iframe-Einbettung wie im Original
+                return f'''<div class="mediaobject">
+<div class="video-container">
+<div class="videoobject"><iframe allowfullscreen="true" frameborder="0" src="https://www.youtube.com/embed/{video_id}" style="" title="{link_text}"><!-- iframe instead of embed for d:videodata --></iframe></div>
+</div>
+</div>'''
+        
+        # Kein YouTube-Link - normaler Link
+        return f'<a href="{url}">{link_text}</a>'
+    
+    # YouTube-Links und normale Links verarbeiten
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', convert_youtube_link, text)
     
     # Bold text **text** oder __text__
     text = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', text)
@@ -596,6 +624,32 @@ def create_simple_html(title, content, timestamp):
                 background: #ffe6e6;
                 border-left-color: #e53e3e;
                 color: #1a202c;
+            }}
+            
+            /* YouTube Video Styling */
+            .content .mediaobject {{
+                margin: 20px 0;
+                text-align: center;
+            }}
+            
+            .content .video-container {{
+                position: relative;
+                padding-bottom: 56.25%; /* 16:9 aspect ratio */
+                height: 0;
+                overflow: hidden;
+                max-width: 100%;
+                background: #f0f0f0;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }}
+            
+            .content .videoobject iframe {{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
             }}
         </style>
         
