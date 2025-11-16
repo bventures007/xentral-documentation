@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amainvoice - Rechnungen und Gutschriften für Amazon erstellen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016809359
+    Titel: Amainvoice - Rechnungen und Gutschriften für Amazon erstellen
+    URL: https://help.xentral.com/hc/de/articles/360016809359-Amainvoice-Rechnungen-und-Gutschriften-f%C3%BCr-Amazon-erstellen
+    Erstellt: 2020-09-30T08:47:08Z
+    Aktualisiert: 2025-02-21T15:13:09Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415581229724
+    Export-Zeitpunkt: 2025-11-16 19:08:26
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<p>Amainvoice ist ein Drittanbieter, der eine Buchhaltungssoftware für Amazon-Verkäufer anbietet. Mit dieser Software kannst du steuerkonforme Rechnungen und Gutschriften für deine Kunden erstellen. Zusätzlich kannst du bei Bedarf Aufträge zusammen mit deinen Amainvoice-Rechnungen importieren.</p>
+<p><span class="phrase">Xentral</span> bietet eine Schnittstelle zu Amainvoice.</p>
+<p>Es gibt zwei allgemeine Vorgehensweisen, denen du folgen kannst</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="phrase">Xentral</span> importiert die Aufträge von Amazon ohne Rechnungen zu erstellen. Du kannst dies in der Amazon-Schnittstelle einrichten. In diesem Fall kannst du <span class="phrase">Xentral</span> für den Versandprozess und Lageranpassungen verwenden, während Amainvoice gleichzeitig die Rechnung erstellt. Die Rechnungen werden dann in <span class="phrase">Xentral</span> importiert.</p>
+</li>
+<li class="listitem">
+<p>Wenn <span class="phrase">Xentral</span> die Aufträge nicht von Amazon importiert, können diese durch Amainvoice ebenfalls angelegt und zusammen mit den Rechnungen importiert werden. Wenn du diese Vorgehensweise anwendest, hast du den Hauptverkaufsfall in deinem System und so Zugriff auf alle Statistiken.</p>
+</li>
+</ul>
+</div>
+<p>Du kannst jedoch die Einrichtung frei nach deinen Geschäftsanforderungen vornehmen.</p>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-ee7098ef-13f3-c6f2-4d6b-a83929ffe393" id="UUID-ee7098ef-13f3-c6f2-4d6b-a83929ffe393_section-idm4629716416216033242245236326"></a>Amainvoice mit <span class="phrase">Xentral</span> verbinden und konfigurieren</h2>
+</div>
+<p>Um Amainvoice mit <span class="phrase">Xentral</span> verbinden zu können, benötigst du einen Authentifizierungstoken von Amainvoice und deine Amainvoice-Kundennummer.</p>
+<p>Du kannst deinen <span class="phrase">Xentral</span>-Authentifizierungstoken wie folgt in Amainvoice generieren:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Melde dich in Amainvoice an und navigiere zu <span class="guilabel">Einstellungen &gt; Fimendaten &gt; Amainvoice-API &gt; <span class="phrase">Xentral</span> API</span>.</p>
+</li>
+<li class="step">
+<p>Verschiebe den Schieber bei <span class="guilabel">Xentral API inaktiv</span> nach rechts. Dadurch wird die <span class="phrase">Xentral</span>-API aktiviert.</p>
+</li>
+</ol>
+</div>
+<p>Der Authentifizierungstoken wird erstellt und unter dem Schieber angezeigt. Klicke auf das <span class="guilabel">Kopier</span>symbol deines Tokens, um ihn zu kopieren.</p>
+<p>Deine Kundennummer findest du oben rechts in Amainvoice neben deinem Firmennamen.</p>
+<p>Gehe wie folgt vor, um Amainvoice mit <span class="phrase">Xentral</span> zu verbinden und zu konfigurieren:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere in <span class="phrase">Xentral</span> zu <span class="guilabel">App Center &gt; Buchhaltung &gt; amainvoice</span>. Der Amainvoice-Reiter <span class="guilabel">Einstellungen</span> wird angezeigt.</p>
+</li>
+<li class="step">
+<p>Gib deine Amainvoice-Kundennummer in das Feld <span class="guilabel">AmaInvoice Kundennummer</span> ein.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Bitte achte darauf, dass du die Kundennummer nicht mit der Clientnummer verwechselst. Deine Kundennummer wird in deinem Amainvoice-Konto rechts oben angezeigt.</p>
+</div>
+</li>
+<li class="step">
+<p>Gib den Authentifizierungstoken aus Amainvoice in das Feld <span class="guilabel"><span class="phrase">Xentral</span> Auth Token</span> ein.</p>
+</li>
+<li class="step">
+<p>Im Feld <span class="guilabel">Rechnungen abholen ab</span> kannst du das Datum auswählen, ab dem du Rechnungen und Gutschriften aus Amainvoice importieren möchtest. Wenn du auf das Feld klickst, wird ein Kalender angezeigt. Wähle das gewünschte Datum im Kalender aus.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Das Datum darf maximal 2 Monate zurückliegen. Rechnungen und Gutschriften, die vor diesem Zeitpunkt erstellt wurden, können nicht importiert werden.</p>
+</div>
+</li>
+<li class="step">
+<p>Falls du unterschiedliche Projekte für FBA (Versand durch Amazon) und/oder FBM (Versand durch Händler) angelegt hast, wähle die entsprechenden Projekte in den Feldern <span class="guilabel">Projekt FBA</span> und <span class="guilabel">Projekt FBM</span>.</p>
+</li>
+<li class="step">
+<p>Optional:</p>
+<p>Mit Setzen eines Häkchens bei <span class="guilabel">Experten Modus</span> wird das Kontrollkästchen <span class="guilabel">Aufträge</span> angezeigt. Im Allgemeinen erstellt Amainvoice nur Rechnungen und Gutschriften für bestehende Aufträge. Setzt du ein Häkchen bei <span class="guilabel">Aufträge</span>, erstellt Amainvoice auch den Auftrag, der dann zusammen mit der Rechnung in <span class="phrase">Xentral</span> importiert wird.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Wähle diese Option nicht, wenn Aufträge direkt von Amazon in <span class="phrase">Xentral</span> importiert werden.</p>
+</div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+</ol>
+</div>
+<p>Deine Amainvoice-Verbindung kann nun verwendet werden.</p>
+<p>Stelle sicher, dass der <span class="guilabel">AmaInvoice</span>-Prozessstarter eingerichtet und aktiv ist, um deine Schnittstelle korrekt nutzen zu können. Weitere Informationen zum Thema Prozessstarter findest du <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">hier</a>.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Daten werden oft zeitverzögert versendet, d.h. Rechnungen werden nicht immer mit dem nächsten Import übermittelt.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-ee7098ef-13f3-c6f2-4d6b-a83929ffe393" id="UUID-ee7098ef-13f3-c6f2-4d6b-a83929ffe393_section-idm4569984349284833242496381397"></a>Rechnungen/Gutschriften nachladen</h2>
+</div>
+<p>In <span class="phrase">Xentral</span> kannst du Amainvoice-Daten der letzten beiden Monate nachladen, wenn Rechnungen, Gutschriften oder Aufträge fehlen.</p>
+<p>Du kannst deine Amainvoice-Daten folgendermaßen nachladen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere in <span class="phrase">Xentral</span> zu <span class="guilabel">App Center &gt; Buchhaltung &gt; amainvoice</span>. Der Amainvoice-Reiter <span class="guilabel">Einstellungen</span> wird angezeigt. Öffne den Reiter <span class="guilabel">Logs</span>.</p>
+</li>
+<li class="step">
+<p>Wenn du die Daten eines bestimmten Datums, für den ein Logeintrag existiert, nachladen möchtest, setze auf der linken Seite ein Häkchen bei dem entsprechenden Eintrag und klicke dann auf <span class="guilabel">Rechnungen/Gutschriften nachladen</span>.</p>
+<p>Wenn du die Daten eines bestimmten Zeitraums nachladen möchtest, definiere den Zeitraum über die Felder <span class="guilabel">von</span> und <span class="guilabel">bis</span> im Bereich <span class="guilabel">Aktionen</span> und klicke auf <span class="guilabel">Daten erneut von AmaInvoice herunterladen</span>. Die Daten werden über die API geladen. Dieser Prozess kann mehrere Stunden dauern.</p>
+</li>
+</ol>
+</div>
+<p>Die Daten werden nachgeladen und du kannst sie wie gewohnt verarbeiten.</p>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Belegnachladung und Importdauer:</p>
+<p>Beim Nachladen von Belegen sollte der Import idealerweise wochenweise, maximal monatsweise erfolgen, um lange Ladezeiten zu vermeiden. Eine Begrenzung gibt es nicht, jedoch sind etwa 300 Belege pro Import eine empfohlene Richtlinie.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Der Prozessstarter läuft standardmäßig alle 60 Minuten.</p>
+</li>
+<li class="listitem">
+<p>Pro Durchlauf wird nur eine Datei importiert.</p>
+</li>
+<li class="listitem">
+<p>Ein vollständiger Tagesimport umfasst drei Dateien (.tax, .inv, .rem), weshalb größere Reimporte mehrere Tage dauern können.</p>
+</li>
+<li class="listitem">
+<p>Der Nachlade-Button kann den Importprozess erheblich verlangsamen.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adapterbox (Legacy)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016721320
+    Titel: Adapterbox (Legacy)
+    URL: https://help.xentral.com/hc/de/articles/360016721320-Adapterbox-Legacy
+    Erstellt: 2020-09-28T12:07:11Z
+    Aktualisiert: 2025-08-16T06:57:25Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 11291544329756
+    Export-Zeitpunkt: 2025-11-16 19:10:04
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-727c25e1-f7b2-bc40-3b4a-2814891c3b68_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component" href="https://help.xentral.com/hc/de/articles/6948113024412#UUID-330a3461-7c13-6974-5c82-68629050f3a6" title="Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?">Warum stuft <span class="phrase">Xentral</span> einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<p>Die Adapterbox ist ein kleiner Server, der als Verbindungsstück zwischen xentral und Hardware dient. Um eine Verbindung von xentral mit einem externen Gerät (Etikettendrucker, Waage, Bondrucker, Kassendisplays etc.) herzustellen, benötigst du eine Adapterbox als kleinen "Zwischen-Server".</p>
+<p>Aus technischen Gründen ist dazu derzeit ein Raspberry Pi bis max. Version 3B notwendig.</p>
+<p>Sobald du die Adapterbox erworben hast, kannst du diese mit folgenden Schritten konfigurieren:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Schließe die Adapterbox an einen Monitor sowie an eine Tastatur und Maus an. Stelle außerdem sicher, dass eine Internetverbindung besteht.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996409555228" style="" alt="ZEBRA-9.png"></div>
+</li>
+<li class="step">
+<p>Installiere das Betriebssystem und bestätige den darauffolgenden Hinweis mit <span class="guilabel">OK</span>.</p>
+</li>
+<li class="step">
+<p>Navigiere auf <span class="guilabel">LX Terminal</span> (Taskleiste dunkles Icon) und gib folgende Befehle ein. Dann bestätige diese jeweils mit der ENTER Taste:</p>
+<pre class="programlisting">sudo apt-get --yes install libcurl3 php7.0-curl php7.0-cli php7.0-xml
+sudo usermod -a -G lpadmin pi
+sudo systemctl enable ssh
+wget http://www.wawision.de/adapterbox.deb 
+sudo dpkg -i adapterbox.deb
+echo "Enter serial number followed by [ENTER]:"
+read seriennummer
+echo "&lt;?php \$config['serial'] = '$seriennummer'; ?&gt;" &gt; /tmp/config.php
+sudo mv /tmp/config.php /root/config.php
+sudo halt</pre>
+<p>Die echo-Befehle dienen mit Ausnahme des letzten Aufrufs nur der Anschaulichkeit.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Die Debian-Datei (.deb-Datei) für den wget-Befehl kannst du im <a class="link" href="https://github.com/xentral-erp-software-gmbh/downloads" target="_blank" rel="noopener">GitHub-Downloadverzeichnis</a> herunterladen.</p>
+</div>
+</li>
+</ol>
+</div>
+<p>Wenn die Ausführung des Skripts nicht funktionieren sollte, musst du ggf. noch die PHP-Version mit dazugehörigen Extensions installieren und aktivieren.</p>
+<p><span class="bold"><strong>Installation php</strong></span></p>
+<pre class="programlisting">sudo apt -y install php php-common</pre>
+<p><span class="bold"><strong>Installation PHP-Extension</strong></span></p>
+<pre class="programlisting">sudo apt -y install php-cli php-fpm php-json php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear php-bcmath</pre>
+<p>Warte, bis die Aufforderung kommt, eine Seriennummer einzugeben. Gib eine 9-stellige Nummer ein und bestätige mit der ENTER Taste - diese Seriennummer wird dann später in xentral gebraucht. Die Box schaltet sich danach automatisch aus. Die Adapterbox ist nun konfiguriert und du kannst mit dem nächsten Schritt beginnen.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Sollte dein Drucker nicht drucken, dann stelle den Treiber von cpcl auf zpl (Zebra zb 230) um. Weitere Informationen findest du auf diesen Seiten:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><a class="link" href="https://supportcommunity.zebra.com/s/article/CPCL-Manual-for-Zebra-Mobile-Printers?language=en_US" target="_blank" rel="noopener">https://supportcommunity.zebra.com/s/article/CPCL-Manual-for-Zebra-Mobile-Printers?language=de</a></p>
+</li>
+<li class="listitem">
+<p><a class="link" href="https://supportcommunity.zebra.com/s/article/ZPL-Command-Information-and-DetailsV2?language=en_US" target="_blank" rel="noopener">https://supportcommunity.zebra.com/s/article/ZPL-Command-Information-and-DetailsV2?language=de</a></p>
+</li>
+<li class="listitem">
+<p><a class="link" href="https://webcache.googleusercontent.com/search?q=cache:lNK8FCp4gMsJ:https://community.xentral.com/hc/de/community/posts/360010646660-Adapterbox-einrichten-auf-PI+&amp;cd=1&amp;hl=de&amp;ct=clnk&amp;gl=de" target="_blank" rel="noopener">https://webcache.googleusercontent.com/search?q=cache:lNK8FCp4gMsJ:https://community.xentral.com/hc/de/community/posts/360010646660-Adapterbox-einrichten-auf-PI+&amp;cd=1&amp;hl=de&amp;ct=clnk&amp;gl=de</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serverumzug von Xentral</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360018524479
+    Titel: Serverumzug von Xentral
+    URL: https://help.xentral.com/hc/de/articles/360018524479-Serverumzug-von-Xentral
+    Erstellt: 2020-12-21T10:36:32Z
+    Aktualisiert: 2023-11-03T03:21:48Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254835385116
+    Export-Zeitpunkt: 2025-11-16 19:10:10
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-f0aa2bc6-d019-74a9-1053-60e773da2da7_UUID-9cc378f5-71f8-3d61-37ab-664e0f2b2827"></a>End-of-Life für On-Premise-Instanzen</h3>
+<p>Ende März 2023 beenden wir die Unterstützung von <span class="phrase">Xentral</span>-Instanzen, die „On-Premise“ von unseren Kunden selbst gehostet werden. Wir empfehlen dir daher, deine <span class="phrase">Xentral</span>-Instanz in unsere Cloud zu migrieren. Kontaktiere uns gerne jederzeit unter <a class="link" href="mailto:account@xentral.com" target="_blank">account@xentral.com</a>, um diesbezügliche Fragen zu klären oder einen Termin für deine Migration zu buchen. Alternativ kannst du weitere Informationen auf <a class="link" href="https://xentral.com/artikel/faq-xentral-cloud-migration/" target="_blank" rel="noopener">unserer Website</a> oder in <a class="link" href="https://xentral.community/updates-zur-xentral-plattform-17/wichtig-end-of-life-on-premise-ende-maerz-2023-2611" target="_blank" rel="noopener">unserer Community</a> finden.</p>
+<p>Beachte bitte, dass wir Ende März 2023 jegliche Supportleistungen für On-Premise-Instanzen beenden. Wir stellen dann keine weiteren Bug-Fixes oder Updates mehr zur Verfügung. Außerdem wird es keine weitere Open-Source-Version mehr geben.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-f0aa2bc6-d019-74a9-1053-60e773da2da7" id="UUID-f0aa2bc6-d019-74a9-1053-60e773da2da7_id_360018524479_id_toc-0"></a>Ablauf</h2>
+</div>
+<p>Der Ablauf eines Xentral-Server-Umzuges (Verschieben eines Xentral-Systems auf einen anderen Server oder Provider) besteht aus 10 Schritten. Hier zunächst ein Überblick über den Ablauf - im Folgenden ist jeder Schritt noch einmal detaillierter erklärt.</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Prozessstarter des Altsystems global deaktivieren</p>
+</li>
+<li class="step">
+<p>Daten des Altsystems sichern</p>
+</li>
+<li class="step">
+<p>Neues System installieren</p>
+</li>
+<li class="step">
+<p>CRON-Job einrichten</p>
+</li>
+<li class="step">
+<p>Datenbank in das neue System einspielen</p>
+</li>
+<li class="step">
+<p>Dateidaten in das neue System einspielen (userdata) und ggf. Korrekturen vornehmen</p>
+</li>
+<li class="step">
+<p>Neues System updaten</p>
+</li>
+<li class="step">
+<p>Hardware an das neue System anbinden</p>
+</li>
+<li class="step">
+<p>Abschließende Prüfungen</p>
+</li>
+<li class="step">
+<p>Prozessstarter des neuen Systems aktivieren</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-f0aa2bc6-d019-74a9-1053-60e773da2da7" id="UUID-f0aa2bc6-d019-74a9-1053-60e773da2da7_id_360018524479_id_toc-1"></a>Ablauf im Detail</h3>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Prozessstarter des Altsystems deaktivieren: Die Prozessstarter des Altsystems werden global deaktiviert. Diese Option finden Sie unter <span class="bold"><strong>Administration &gt; Einstellungen &gt; System &gt; Prozessstarter</strong></span> rechts im Aktionsmenü <span class="bold"><strong>Prozessstarter global deaktivieren</strong></span>.</p>
+</li>
+<li class="step">
+<p>Daten des Altsystems sichern: Die Daten werden mit einem Systembackup gesichert. Alternativ können die Daten auch per DB-Dump und Kopie des userdata-Ordners gesichert werden. Es empfiehlt sich, sowohl den userdata-Ordner als auch die Datenbank in einem Archivformat zu packen (z.B. tar.gz oder zip).</p>
+<p>Details hierzu finden sich im Artikel Datenumzug.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die php-Datei “cache_service.php” muss nicht mitgenommen werden. Dies ist eine Cache-Datei, die mit dem nächsten Update automatisch wieder erstellt wird. Mehr Informationen zur PHP und CLI Anpassung findest du <a class="link linktype-component" href="https://help.xentral.com/hc/articles/4401914544146#UUID-588e6b9e-b51e-54e7-257e-87af8b39cb0e" title="PHP und CLI Anpassung">hier</a>.</p>
+</div>
+</li>
+<li class="step">
+<p>Neues System installieren: Auf dem neuen Server wird das neue System installiert. Bitte dazu die OperSource-Version (OS-Version) im Downloadbereich der Webseite (herunterladen) und nach Anleitung installieren. Durch das spätere Einspielen des Lizenzschlüssels wird die korrekte Version und Lizenz später wieder hergestellt.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Wenn möglich sollte der gleiche Datenbankname wie beim Altsystem verwendet werden. Siehe dazu auch Punkt 6.</p>
+</div>
+</li>
+<li class="step">
+<p>CRON-Job einrichten: Auf dem neuen Server sollte nun sichergestellt werden, dass der sog. Heartbeat-Cronjobs läuft, dahinter verbirgt sich der Trigger für den Prozessstarter-Mechanismus in Xentral. Alle Informationen dazu finden sich im Artikel: Einrichten des Heartbeat-Cronjobs.</p>
+</li>
+<li class="step">
+<p>Datenbank in das neue System einspielen: Die Datenbank aus dem Altsystem wird nun in das neue System eingespielt. Dabei sollte folgendes nach dem Import die Anzahl der Tabellen überprüft werden um sicherzustellen, dass alle Tabellen kortrekt exportiert und importiert wurden. Aussder sollte stichprobentartig die Anzahl der Zeilen wichtiger Tabellen geprüft werden (z.B. adresse, artikel, auftrag).</p>
+<p>Die Lizenzdaten wurden mit der Datenbank auch in das neue System übertragen.</p>
+<p>Weitere Hinweise zu diesem Punkt siehe auch Artikel Datenumzug.</p>
+</li>
+<li class="step">
+<p>Dateidaten in das neue System einspielen: Die Daten des Ordners userdata werden in das neue System eingespielt. Wenn möglich, ist es sinnvoll für die Übertragung dieser Daten eine Server-zu-Server Verbindung (z.B. mit scp) zu verwenden anstatt die Daten erst lokal (auf dem eigenen Rechner) zu speichern und dann auf den neuen Rechner hochzuladen.</p>
+<p>Nach der Übertragung sollte an Hand der Gesamtgröße des Ordners (du -hs) und der Anzahl der Dateien überprüft werden ob die Übertragung vollständig ist.</p>
+<p>Durch die Übertragung des Ordners sind oftmals die Besitz-/ Schreibrechte der Ordnerstruktur nicht korrekt. Diese können dann rasch angepasst werden. Detailliertere Informationen dazu liefert auch der Artikel <span class="bold"><strong>Datenumzug</strong></span>.</p>
+<p><span class="bold"><strong>Einfluss des Datenbank-Namens</strong></span> Im userdata-Ordner befinden sich Unterordner in denen wiederum Unterordner liegen, deren Namen von der alten Datenbank abhängen. Diese Ordner müssen in den neuen Datenbanknamen umbenannt werden.</p>
+<p>Meistens sind folgende Ordner betroffen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Im Ordner dms</p>
+</li>
+<li class="listitem">
+<p>Im Ordner emailbackup (Falls vorhanden)</p>
+</li>
+<li class="listitem">
+<p>Im Ordner pdfarchiv</p>
+</li>
+<li class="listitem">
+<p>Im Ordner pdfmirror</p>
+</li>
+</ul>
+</div>
+<p>Falls weitere Ordner vorhanden sind, müssen diese ebenfalls überprüft werden. Auch vorhandene Dateien, die den Datenbanknamen im Dateinamen führen müssen umbenannt werden wie z.B. das Briefpapier. sinf ggf. anzupassen oder neu zu konfigurieren.</p>
+<p>Eigens angelegte Schriftarten werden durch den Umzug aus dem Ordner www/lib/pdf/font/unifont nicht mitkopiert. Die Schriften sollten daher nun manuell im System nachgetragen werden. Hinweis zum Vorgehen finden sich in Artikel Briefpapier.</p>
+<p>Detailliertere Informationen dazu liefert auch der Artikel <span class="bold"><strong>Datenumzug</strong></span>.</p>
+</li>
+<li class="step">
+<p>Neues System updaten Nun kann das neue System zum ersten Mal upgedated werden, dabei wird auf Basis der Lizenzdaten auch die korrekte Lizenz aktiviert und ggf. fehlende Module nachgeladen.</p>
+<p>Siehe Artikel Zugang zum Updateserver</p>
+<p><span class="bold"><strong>Bitte beachten Sie:</strong></span> Das Altsystem hat nun keine gültige Lizenz mehr.</p>
+</li>
+<li class="step">
+<p>Hardware an das neue System anbinden Nach der Umstellung einer Serverinstallation müssen bei einem Wechsel der Adresse (Suddomain oder DOmain) ggf. auch die lokalen Anbindungen der Hardware umgestellt werden. Dazu gehören z.B. Scanner / Kameras oder Etikettedrucker an Adapterboxen oder Druckerspooler.</p>
+<p>Im Grunde sind dazu dieselben Schritte nötig wie bei einer Installation der Geräte, nur dass die ersten Schritte übersprungen werden können. Siehe dazu auch Artikel Drucker Schnelleinstieg.</p>
+<p>Grundsätzlich müssen aber nur die URLs und ggf. key angepasst werden, die beim Spooler in den Einstellungen hinterlegt sind, und bei der Adapterbox über die Konfig-Datei vorgegeben ist.</p>
+</li>
+<li class="step">
+<p>Abschließende Prüfungen Es ist sinnvoll einige abschließende Prüfungen vorzunehmen, bevor das System wieder in den produktiven Betrieb geht:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Prüfen Sie ob ggf. Benutzer in den persönlichen Einstellungen noch auf das Altsystem referenzieren (Startseite)</p>
+</li>
+<li class="listitem">
+<p>Prüfen Sie ob der Webserver Zugriff auf das Dateisystem (userdata) hat: Dazu über die Oberfläche eine Datei (z.B. einer Adresse). Wenn diese im Anschluß heruntergeladen wird und eine Dateigröße von 0 Byte hat stimmen vermutlich die Zugriffsrechte nicht. Kann man die Datei allerdings öffnen, hat alles geklappt. Ansonsten siehe Artikel Datenumzug z.B. unter Finale Anpassungen.</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="step">
+<p>Prozessstarter des neuen Systems aktivieren Die Prozessstarter des neuen Systems werden global aktiviert. Diese Option finden Sie unter Administration → Einstellungen → System → Prozessstarter rechts im Aktionsmenü Prozessstarter global aktivieren.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

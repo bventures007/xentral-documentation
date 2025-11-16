@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migration einer klassischen Shop-Anbindung in eine Xentral Connect Schnittstelle</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 15467552891676
+    Titel: Migration einer klassischen Shop-Anbindung in eine Xentral Connect Schnittstelle
+    URL: https://help.xentral.com/hc/de/articles/15467552891676-Migration-einer-klassischen-Shop-Anbindung-in-eine-Xentral-Connect-Schnittstelle
+    Erstellt: 2024-08-19T07:50:56Z
+    Aktualisiert: 2025-10-02T12:52:28Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 12747501628700
+    Export-Zeitpunkt: 2025-11-16 19:06:30
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-berblick"></a>Überblick</h2>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die hier beschriebene Funktion ist ausschließlich für Kunden relevant, die derzeit eine klassische Shop-Anbindung nutzen und auf die Xentral Connect Schnittstelle umstellen möchten.</p>
+</div>
+<p>In dieser Anleitung erfährst du, wie du in wenigen Schritten eine bestehende klassische Shop-Schnittstelle (Shopimporter) in die neue Xentral Connect-Schnittstelle migrieren kannst. Die Übernahme der Einstellungen aus der alten Schnittstelle in die Connect-Schnittstelle durchläuft folgende Schritte, die wir in den nächsten Abschnitten im Detail erläutern:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<a id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_N1724052929978"></a>
+<p><a class="link" href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-1AppinXentralinstallieren" title="1. Connect App in Xentral installieren">Connect App in Xentral installieren</a></p>
+</li>
+<li class="step">
+<a id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_N1724052942396"></a>
+<p><a class="link" href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-2bernahmewizarddurchfhren" title="2. Übernahmewizard durchführen">Übernahmewizard starten</a></p>
+</li>
+<li class="step">
+<p><a class="link" href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-3bernommeneEinstellungenprfenundtesten" title="3. Übernommene Einstellungen prüfen und testen">Übernommene Einstellungen prüfen und testen</a></p>
+<ol type="a" class="substeps">
+<li class="step">
+<p><a class="link" href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-aArtikelzuordnungprfenoderneuanlegen" title="a. Artikelzuordnung prüfen oder neu anlegen">Artikelzuordnung prüfen oder neu anlegen</a></p>
+</li>
+<li class="step">
+<p><a class="link" href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-bWorkflow-Einstellungenprfen" title="b. Workflow-Einstellungen prüfen">Workflow-Einstellungen prüfen</a></p>
+</li>
+<li class="step">
+<p><a class="link" href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-cWorkflowstesten" title="c. Workflows testen">Workflows testen</a></p>
+</li>
+</ol>
+</li>
+<li class="step">
+<p><a class="link" href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-4AltenShopimporterdeaktivieren" title="4. Alten Shopimporter deaktivieren">Alten Shopimporter deaktivieren</a></p>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Stelle sicher, dass du den Livemodus der alten Shop-Anbindung <span class="bold"><strong>deaktivierst</strong></span>, bevor du die Connect-Schnittstelle live schaltest, um Konflikte und doppelte Auftragsimporte zu vermeiden!</p>
+<p><span class="bold"><strong>Die alte Shop-Integration</strong></span> muss weiterhin im System verbleiben und <span class="bold"><strong>darf nicht gelöscht werden</strong></span>!</p>
+</div>
+</li>
+<li class="step">
+<p><a class="link" href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-5ConnectSchnittstelleliveschalten" title="5. Connect-Schnittstelle testen und produktiv schalten">Connect-Schnittstelle testen und produktiv schalten</a></p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_section-idm234789127007724"></a>Voraussetzungen</h2>
+</div>
+<p>Um eine reibungslose Übernahme und Funktionalität der Schnittstelle zu gewährleisten, ist es wichtig, zunächst einige allgemeine Einstellungen in Xentral durchzuführen. Beachte dazu diesen <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/13235039280796#UUID-efc2789d-fff6-f3d6-8a10-5c87f55efd62" title="Xentral für Connect-Anbindung vorbereiten">Handbuchabschnitt</a>. Prüfe deine Einstellungen insbesondere dann, wenn deine bisherige Shop-Schnittstelle individuell angepasst war, z. B. über Smarty.</p>
+<p>Die Connect-Schnittstelle bietet eine hohe Standardisierung, was die Wartbarkeit und die Upgradefähigkeit deines Systems erhöht. Viele Funktionen, die in der klassischen Schnittstelle nur über einer individuelle Anpassung möglich waren, sind in Connect im Standard bereits enthalten. Bei der Übernahme einer individuell angepassten klassischen Schnittstelle musst du die Einstellungen jedoch sorgsam vornehmen und auf das korrekte Verknüpfen von Datenfeldern (sog. Mapping) achten. Nimm im Zweifel vorher Kontakt zu deinem Solution Consultant auf.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-1AppinXentralinstallieren"></a>1. Connect App in Xentral installieren</h2>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Dieser Schritt ist nur für die erste Anbindung eines Shops erforderlich und entfällt bei weiteren Integrationen desselben Shop-Anbieters.</p>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Wir schalten die Funktion schrittweise frei, um eine maximale Stabilität und die reibungslose Migration zu gewährleisten. Du bekommst von uns aktiv in der Software Bescheid, sobald die Xentral Connect-Schnittstelle für Dich zur Verfügung steht. Möchtest du vorzeitig Zugriff haben, wende dich gerne an deinen Solution Consultant.</p>
+</div>
+<div class="procedure">
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610398620" style="" alt="Shared_NeueAnbindung_Pfad.png"></div>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Klicke in deinem Xentral auf das Zahnrädchen oben rechts, um zu den Systemeinstellungen zu gelangen:</p>
+</li>
+<li class="step">
+<p>Folge dem Menüpfad <span class="bold"><strong>Einstellungen &gt; Verkaufen &gt; […] Connector</strong></span> (hier als Beispiel: WooCommerce Connector)</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:736px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467544255004" style="max-width: 736px;" alt="2968354828.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Klicke jetzt auf <span class="bold"><strong>Install App</strong></span> um das System vorzubereiten:</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:736px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467556016412" style="max-width: 736px;" alt="WooNeu03Installapp_0314p.png"></td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<p>Sobald die Connect-Schnittstelle angelegt wurde, kannst du mit dem Übernahmewizard fortfahren.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-2bernahmewizarddurchfhren"></a>2. Übernahmewizard durchführen</h2>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="id785"></a>Für Shopify-Anbindungen</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="id785_body">
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Integration übernehmen</strong></span>, um den Wizard zu starten:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680627171356" style="" alt="Shopify_Migrationswizard_IntegrationUbernehmen.png"></div>
+</li>
+<li class="step">
+<p>Wähle die bestehende Shop-Anbindung, aus der du die Einstellungen zu Xentral Connect übernehmen möchtest und klicke auf <span class="bold"><strong>Weiter</strong></span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610404252" style="" alt="Shopify_Migrationswizard_WelcheIntegration.png"></div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es werden dir jeweils nur die zur Connect Schnittstelle passenden Shops angeboten. Befindest du dich z.B. im Shopify-Connector, siehst du nur vorhandene Shopify-Anbindungen.</p>
+</div>
+</li>
+<li class="step">
+<p>Du kannst die Anbindung ganz bequem über die Shopify Public App aufsetzen und sparst dir so das manuelle Setzen von so keine Berechtigungen. Alternativ kannst du einen bestehenden API Token oder eine Custom App mit neuem Token verwenden:</p>
+<ol type="a" class="substeps">
+<li class="step">
+<p>Um die Anbindung über die Public App aufzusetzen, belasse die ersten beiden Schaltflächen deaktiviert (links):</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680627177244" style="" alt="Migration_Shopimporter-Connect_PublicApp.png"></div>
+</li>
+<li class="step">
+<p>Wenn deine vorhandene App alle Berechtigungen gesetzt hat und du diese weiter nutzen möchtest, kannst du den bestehenden API Token weiter verwenden. Setze dazu die erste Schaltfläche nach rechts:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680627181468" style="" alt="Migration_Shopimporter-Connect_vorhandenerToken.png"></div>
+</li>
+<li class="step">
+<p>Wenn du eine Custom App mit neuem Token nutzen möchtest, lasse die erste Schaltfläche deaktiviert (links) und setze die zweite Schaltfläche nach rechts. Du kannst dann im nächsten Feld den Token einfügen:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610412316" style="" alt="Migration_Shopimporter-Connect_CustomApp.png"></div>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Falls es in deinem Shop Artikel gibt, für die ein reduzierter Steuersatz und/oder eine Steuerbefreiung gilt, wähle in den nächsten beiden Feldern die entsprechende Kollektion aus Shopify aus, um die richtige Steuerberechnung sicherzustellen:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610413084" style="" alt="Migration_Shopimporter-Connect_Steuersatze.png"></div>
+</li>
+<li class="step">
+<p>Wähle anschließend die Art der Artikelzuordnung. Du kannst…</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:400px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467578330908" style="max-width: 400px;" alt="Migration_Shopimporter5.png"></td>
+</tr>
+</table>
+</div>
+<ol type="a" class="substeps">
+<li class="step">
+<p>… die Artikelzuordnung von deiner bestehenden Anbindung übernehmen oder</p>
+</li>
+<li class="step">
+<p>… eine neue Artikelzuordnung anhand selbst gewählter Kriterien einrichten. Wenn du diese Option wählst, kannst du die Filterkriterien für die Artikelzuordnung nach Abschluss des Wizards eintragen.</p>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Belasse den Schalter <span class="bold"><strong>Bilderübertragung</strong></span> auf links, wenn Bilder aus dem Onlineshop weiter verwendet werden sollen. Du kannst die Synchronisierung von Bilddateien zwischen Xentral und Shop später in den Workflows aktivieren. (Nur falls du sichergestellt hast, dass die Artikelbilder in Xentral vollständig und aktuell sind, kannst du den Schalter nach rechts setzen. In diesem Fall werden alle im Shop vorhandenen Bilder von den Bildern in Xentral ersetzt.)</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610414620" style="" alt="Shared_Migrationswizard_Bildubertragung.png"></div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p><span class="bold"><strong>Belasse den Schalter “Bilderübertragung” auf links, wenn Bilder aus dem Onlineshop weiter verwendet werden sollen.</strong></span> Wenn du den Schalter nach rechts setzt und Bilder in Xentral unvollständig und/oder veraltet sind, droht Datenverlust! Dies schließt z. B. auch SEO-Informationen ein, sofern sie in den Xentral-Bildern nicht enthalten sind. Im Shop vorhandene Bilder werden bei aktivierter Schaltfläche von Xentral überschrieben. Orientiere dich am besten an der bisherigen Bildquelle: Kommen die Bilder bisher auch oder ausschließlich aus dem Shop, lasse die Schaltfläche deaktiviert.</p>
+</div>
+</li>
+<li class="step">
+<p>Bestätige die Übernahme der Schnittstellen-Konfiguration und beachte die Hinweise:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610417436" style="" alt="Migration_Shopimporter7.png"></div>
+</li>
+<li class="step">
+<p>Markiere deinen Shopify-Account in der Liste und warte einen Moment:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680627195420" style="" alt="Migration_Shopimporter-Connect_PublicApp_AccountWahlen.png"></div>
+</li>
+<li class="step">
+<p>Im Hintergrund werden nun die Shopify-App installiert und alle benötigten Rechte automatisch gesetzt. Sobald die Anbindung erfolgreich abgeschlossen ist, erhälst du eine Bestätigung auf deinem Bildschirm:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610426908" style="" alt="Migration_Shopimporter-Connect_PublicApp_ErfolgreichUbernommen.png"></div>
+</li>
+</ol>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="id786"></a>Für Shopware 6-Anbindungen</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="id786_body">
+<div class="procedure">
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680627201052" style="" alt="SW6_Migrationswizard_IntegrationUbernehmen.png"></div>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Integration übernehmen</strong></span>, um den Wizard zu starten:</p>
+</li>
+<li class="step">
+<p>Wähle die bestehende Shop-Anbindung, aus der du die Einstellungen zu Xentral Connect übernehmen möchtest und klicke auf <span class="bold"><strong>Weiter</strong></span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680627205148" style="" alt="SW6_Migrationswizard_WelcheIntegration.png"></div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es werden dir jeweils nur die zur Connect Schnittstelle passenden Shops angeboten. Befindest du dich z.B. im Shopware 6-Connector, siehst du nur vorhandene Shopware 6-Anbindungen.</p>
+</div>
+</li>
+<li class="step">
+<p>Gib anschließend deine Shopware 6-Zugangsdaten ein (bestätige die Daten im sich öffnenden Shopware 6-Fenster, sobald du dazu aufgefordert wirst) ...</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680627210652" style="" alt="SW6_Migrationswizard_Zugangsdaten.png"></div>
+</li>
+<li class="step">
+<p>... und wähle die Art der Artikelzuordnung. Du kannst…</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:400px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467578330908" style="max-width: 400px;" alt="Migration_Shopimporter5.png"></td>
+</tr>
+</table>
+</div>
+<ol type="a" class="substeps">
+<li class="step">
+<p>… die Artikelzuordnung von deiner bestehenden Anbindung übernehmen oder</p>
+</li>
+<li class="step">
+<p>… eine neue Artikelzuordnung anhand selbst gewählter Kriterien einrichten. Wenn du diese Option wählst, kannst du die Filterkriterien für die Artikelzuordnung nach Abschluss des Wizards eintragen.</p>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Belasse den Schalter <span class="bold"><strong>Bilderübertragung</strong></span> auf links, wenn Bilder aus dem Onlineshop weiter verwendet werden sollen. Du kannst die Synchronisierung von Bilddateien zwischen Xentral und Shop später in den Workflows aktivieren. (Nur falls du sichergestellt hast, dass die Artikelbilder in Xentral vollständig und aktuell sind, kannst du den Schalter nach rechts setzen. In diesem Fall werden alle im Shop vorhandenen Bilder von den Bildern in Xentral ersetzt.)</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610414620" style="" alt="Shared_Migrationswizard_Bildubertragung.png"></div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p><span class="bold"><strong>Belasse den Schalter “Bilderübertragung” auf links, wenn Bilder aus dem Onlineshop weiter verwendet werden sollen.</strong></span> Wenn du den Schalter nach rechts setzt und Bilder in Xentral unvollständig und/oder veraltet sind, droht Datenverlust! Dies schließt z. B. auch SEO-Informationen ein, sofern sie in den Xentral-Bildern nicht enthalten sind. Im Shop vorhandene Bilder werden bei aktivierter Schaltfläche von Xentral überschrieben. Orientiere dich am besten an der bisherigen Bildquelle: Kommen die Bilder bisher auch oder ausschließlich aus dem Shop, lasse die Schaltfläche deaktiviert.</p>
+</div>
+</li>
+<li class="step">
+<p>Bestätige die Übernahme der Schnittstellen-Konfiguration und beachte die Hinweise:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680627213084" style="" alt="Shared_Migrationswizard_WichtigeHinweise.png"></div>
+</li>
+<li class="step">
+<p>Die Integration wird angelegt:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610448668" style="" alt="Shared_Migrationswizard_WirdAngelegt.png"></div>
+</li>
+<li class="step">
+<p>Nach Abschluss erhälst du eine Erfolgsmeldung:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610452892" style="" alt="Shared_Migrationswizard_Erfolgreich.png"></div>
+</li>
+</ol>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="id787"></a>Für WooCommerce-Anbindungen</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="id787_body">
+<div class="procedure">
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680627213084" style="" alt="Shared_Migrationswizard_WichtigeHinweise.png"></div>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Integration übernehmen</strong></span>, um den Wizard zu starten:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610459036" style="" alt="WooCommerce_Migrationswizard_IntegrationUbernehmen.png"></div>
+</li>
+<li class="step">
+<p>Wähle die bestehende Shop-Anbindung, aus der du die Einstellungen zu Xentral Connect übernehmen möchtest und klicke auf <span class="bold"><strong>Weiter</strong></span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680627232540" style="" alt="WooCommerce_Migrationswizard_WelcheIntegration.png"></div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es werden dir jeweils nur die zur Connect Schnittstelle passenden Shops angeboten. Befindest du dich z.B. im WooCommerce-Connector, siehst du nur vorhandene WooCommerce-Anbindungen.</p>
+</div>
+</li>
+<li class="step">
+<p>Wähle anschließend die Art der Artikelzuordnung. Du kannst…</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:400px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467578330908" style="max-width: 400px;" alt="Migration_Shopimporter5.png"></td>
+</tr>
+</table>
+</div>
+<ol type="a" class="substeps">
+<li class="step">
+<p>… die Artikelzuordnung von deiner bestehenden Anbindung übernehmen oder</p>
+</li>
+<li class="step">
+<p>… eine neue Artikelzuordnung anhand selbst gewählter Kriterien einrichten. Wenn du diese Option wählst, kannst du die Filterkriterien für die Artikelzuordnung nach Abschluss des Wizards eintragen.</p>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Belasse den Schalter <span class="bold"><strong>Bilderübertragung</strong></span> auf links, wenn Bilder aus dem Onlineshop weiter verwendet werden sollen. Du kannst die Synchronisierung von Bilddateien zwischen Xentral und Shop später in den Workflows aktivieren. (Nur falls du sichergestellt hast, dass die Artikelbilder in Xentral vollständig und aktuell sind, kannst du den Schalter nach rechts setzen. In diesem Fall werden alle im Shop vorhandenen Bilder von den Bildern in Xentral ersetzt.)</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:736px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467573223196" style="max-width: 736px;" alt="Migration_Shopimporter4.png"></td>
+</tr>
+</table>
+</div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p><span class="bold"><strong>Belasse den Schalter “Bilderübertragung” auf links, wenn Bilder aus dem Onlineshop weiter verwendet werden sollen.</strong></span> Wenn du den Schalter nach rechts setzt und Bilder in Xentral unvollständig und/oder veraltet sind, droht Datenverlust! Dies schließt z. B. auch SEO-Informationen ein, sofern sie in den Xentral-Bildern nicht enthalten sind. Im Shop vorhandene Bilder werden bei aktivierter Schaltfläche von Xentral überschrieben. Orientiere dich am besten an der bisherigen Bildquelle: Kommen die Bilder bisher auch oder ausschließlich aus dem Shop, lasse die Schaltfläche deaktiviert.</p>
+</div>
+</li>
+<li class="step">
+<p>Bestätige die Übernahme der Schnittstellen-Konfiguration und beachte die Hinweise:</p>
+</li>
+<li class="step">
+<p>Die Integration wird angelegt:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610448668" style="" alt="Shared_Migrationswizard_WirdAngelegt.png"></div>
+</li>
+<li class="step">
+<p>Nach Abschluss erhälst du eine Erfolgsmeldung:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18680610452892" style="" alt="Shared_Migrationswizard_Erfolgreich.png"></div>
+</li>
+</ol>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-3bernommeneEinstellungenprfenundtesten"></a>3. Übernommene Einstellungen prüfen und testen</h2>
+</div>
+<p>Bevor du die Liveschaltung aktivierst, solltest du alle übernommenen Einstellungen gründlich überprüfen. Dazu gehören die Artikelzuordnung und die Workflow-Konfiguration.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-aArtikelzuordnungprfenoderneuanlegen"></a>a. Artikelzuordnung prüfen oder neu anlegen</h3>
+</div>
+<p>Um die Artikelzuordnung zu prüfen oder neu anzulegen, klicke auf diese Schaltfläche:</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:760px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467586979228" style="max-width: 760px;" alt="Migration_Shopimporter8.png"></td>
+</tr>
+</table>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-Artikelzuordnungprfen"></a>Artikelzuordnung prüfen</h4>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Dieser Abschnitt ist relevant, falls du im Wizard <span class="bold"><strong>Artikelzuordnung aus der bestehenden Integration übernehmen</strong></span> gewählt hast.</p>
+</div>
+<p>Die vorhandene Zuordnung ist hier bereits eingetragen. Stelle sicher, dass die gefundene Anzahl der Artikel korrekt ist. Falls sie nicht deinen Erwartungen entspricht, überprüfe die <span class="bold"><strong>Online-Shop Optionen</strong></span> in den Artikeln oder lege deine Artikelzuordnung neu an, wie im nächsten Abschnitt beschrieben.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:760px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467556320284" style="max-width: 760px;" alt="Migration_Shopimporter10.png"></td>
+</tr>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-Artikelzuordnungneuanlegen"></a>Artikelzuordnung neu anlegen</h4>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Dieser Abschnitt ist relevant, falls du im Wizard <span class="bold"><strong>Artikel anhand einer definierten Regel (z. B. Projekt, Freifeld etc. zuordnen</strong></span> gewählt hast oder dich später entscheidest, eine neue Artikelzuordnung zu definieren.</p>
+</div>
+<p>Richte dir die Filterkriterien nach deinem Bedarf ein. Schaue dir dazu den Handbuchabschnitt <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/13235023557532#UUID-2e1a76ae-2150-3aca-98cf-7f80d6c6f0b7" title="WooCommerce Connector: Artikel zuordnen">Artikel zuordnen</a> an.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Link hier verweist beispielhaft auf WooCommerce. Die Artikelzuordnung erfolgt in allen Shop-Schnittstellen gleich.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-bWorkflow-Einstellungenprfen"></a>b. Workflow-Einstellungen prüfen</h3>
+</div>
+<p>Um die Workflows zu prüfen oder anzupassen, klicke auf diese Schaltfläche:</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:760px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467578596252" style="max-width: 760px;" alt="Migration_Shopimporter9.png"></td>
+</tr>
+</table>
+</div>
+<p>Überprüfe in allen Reitern, ob die übernommenen Einstellungen deiner Erwartung entsprechen, falls nicht, nehme Änderungen vor und speichere sie. Detaillierte Anleitungen zu den Workflows findest du in den einzelnen Shop-Handbüchern:</p>
+<p><a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/13235060220444#UUID-55e1cf94-dd5f-eb68-4337-cabda5e7ee49" title="Shopify Connector: Workflows konfigurieren">Shopify: Workflows konfigurieren</a></p>
+<p><a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/13234992002460#UUID-2da1fca7-0bf6-4ed1-5caa-064075c28cd0" title="WooCommerce Connector: Workflows konfigurieren">Woo-Commerce: Workflows konfigurieren</a></p>
+<p><a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/14528034840732#UUID-b0386169-a59f-1d8d-1375-62b9ba1825d5" title="Shopware6-Connector: Workflows konfigurieren">Shopware6: Workflows konfigurieren</a></p>
+<p>Falls du die Bilderübertragung beim Übernahmewizard deaktiviert hattest und Bilder zwischen Xentral und Shop synchronisieren möchtest, aktiviere die entsprechende Schaltfläche. Du findest sie in den <span class="bold"><strong>Workflows &gt; Reiter Artikel &gt; Datentypen</strong></span>:</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:760px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467587160732" style="max-width: 760px;" alt="Migration_Shopimporter14.png"></td>
+</tr>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-cWorkflowstesten"></a>c. Workflows testen</h3>
+</div>
+<p>Mit Hilfe des Journals kannst du einzelne Testdaten anstoßen und deren korrekte Übertragung testen. Um zum Journal zu gelangen, klicke auf diese Schaltfläche:</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:760px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467578702108" style="max-width: 760px;" alt="Migration_Shopimporter16.png"></td>
+</tr>
+</table>
+</div>
+<p>Stoße für jeden Datentyp, den du nutzen möchtest - also z. B. Artikel und Aufträge - einzelne Datensätze zur Synchronisierung an, indem du beispielsweise bei einem Artikel auf <span class="bold"><strong>Artikel synchronisieren</strong></span> oder bei den Aufträgen auf <span class="bold"><strong>Workflow starten</strong></span> klickst und eine Auftragsnummer eingibst. Anschließend aktualisierst du den Status durch die <span class="bold"><strong>Neu laden</strong></span>-Schaltfläche und prüfst, ob die Datenübertragung funktioniert. Falls nicht, orientiere dich an den Fehlerhinweisen im Journal und nimm Korrekturen vor. Nähere Informationen zur Nutzung des Journals findest du in den einzelnen Shop-Handbüchern:</p>
+<p><a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/13921857699612#UUID-d8ed9992-afac-447b-5f28-2e5f96fd98ac" title="Shopify Connector: Journal">Shopify: Journal</a></p>
+<p>Die Schnittstelle synchronisiert nach der Produktiv-Schaltung - je nach Feature Artikel, Bestände, Preise, Aufträge und Auftragsstatus - automatisch zwischen <span class="phrase">Xentral</span> und deinem Shop. Der Prozessstarter ist dafür nicht mehr erforderlich.</p>
+<p><a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/13921840987036#UUID-24f64971-99da-b968-5ba9-ff6a97dfabb5" title="WooCommerce Connector: Journal">WooCommerce: Journal</a></p>
+<p><a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/14528034952476#UUID-0748de4e-37e4-85a3-21a3-6a2c51fcb42b" title="Shopware6-Connector: Journal">Shopware6: Journal</a></p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-4AltenShopimporterdeaktivieren"></a>4. Alten Shopimporter deaktivieren</h2>
+</div>
+<p>Nachdem du alle Einstellungen erfolgreich geprüft hast, ist deine neue Xentral Connect Schnittstelle grundsätzlich bereit zur Liveschaltung.</p>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Stelle sicher, dass du den Livemodus der alten Shop-Anbindung <span class="bold"><strong>deaktivierst</strong></span>, bevor du die Connect-Schnittstelle live schaltest, um Konflikte und doppelte Auftragsimporte zu vermeiden!</p>
+<p><span class="bold"><strong>Die alte Shop-Integration</strong></span> muss weiterhin im System verbleiben und <span class="bold"><strong>darf nicht gelöscht werden</strong></span>!</p>
+</div>
+<p>Um die alte Shop-Anbindung zu deaktivieren, führe folgendes aus:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zur Übersicht der Shops &amp; Marktplätze: <span class="bold"><strong>Systemeinstellungen (Zahnrädchen) &gt; Verkaufen &gt; Shops &amp; Marktplätze Übersicht</strong></span>. Öffne die zu deaktivierende Schnittstelle:</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:736px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467573647260" style="max-width: 736px;" alt="Migration_Shopimporter11.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Entferne den Haken <span class="bold"><strong>Aktiv</strong></span>, entferne die Einträge in den Feldern <span class="bold"><strong>URL</strong></span>, <span class="bold"><strong>API-Key</strong></span>, <span class="bold"><strong>Passwort</strong></span>, <span class="bold"><strong>Token</strong></span> und klicke unten auf der Seite auf <span class="bold"><strong>Speichern</strong></span>:</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:736px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20961694331932" style="max-width: 736px;" alt="Shopmigration_AltenShopDeaktivieren.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Stelle in der Übersicht sicher, dass die alte Schnittstelle deaktiviert ist:</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:736px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/15467563498652" style="max-width: 736px;" alt="Migration_Shopimporter15.png"></td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" id="UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-5ConnectSchnittstelleliveschalten"></a>5. Connect-Schnittstelle testen und produktiv schalten</h2>
+</div>
+<p>Mehr Informationen zur Xentral Connect-Schnittstelle und ihrer Konfiguration, findest du in den Handbuch-Artikel des jeweiligen Shop-Systems. Hier ist auch beschrieben, wie du die Schnittstelle vor der Produktiv-Schaltung testen kannst:</p>
+<p><a class="xref linktype-component" href="https://help.xentral.com/hc/de/articles/13235060016796#UUID-ececee00-f23a-e3d2-f4be-6a460247b779" title="Shopify Connector: Überblick">Shopify Connector: Überblick</a></p>
+<p><a class="xref linktype-component" href="https://help.xentral.com/hc/de/articles/14528018649244#UUID-9a01cf3b-a21b-b87d-fef7-25e98b30175a" title="Shopware6-Connector: Überblick">Shopware6-Connector: Überblick</a></p>
+<p><a class="xref linktype-component" href="https://help.xentral.com/hc/de/articles/13235023397404#UUID-37643e86-d675-5eb3-89cb-8885a658df23" title="WooCommerce Connector: Überblick">WooCommerce Connector: Überblick</a></p>
+<div dir="ltr" class="warning warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Stelle sicher, dass die alte Schnittstelle wie im vorherigen Abschnitt beschrieben <span class="bold"><strong>deaktiviert</strong></span> ist, bevor du die Connect-Schnittstelle produktiv schaltest, um Konflikte und doppelte Auftragsimporte zu vermeiden!</p>
+<p><span class="bold"><strong>Die alte Shop-Integration</strong></span> muss jedoch weiterhin im System verbleiben und <span class="bold"><strong>darf nicht gelöscht werden</strong></span>!</p>
+</div>
+<p>Nach Überprüfung der Konfiguration kannst du den Produktiv-Modus aktivieren. Wie du dabei vorgehst, erfährst du in diesen Artikeln:</p>
+<p><a class="xref linktype-fork" href="https://help.xentral.com/hc/de/articles/18589752911516#UUID-e51cce39-191a-dec1-8f90-44b0af01a9f4" title="Shopify Connector: Produktiv schalten">Shopify Connector: Produktiv schalten</a></p>
+<p><a class="xref linktype-fork" href="https://help.xentral.com/hc/de/articles/18589763018012#UUID-51edb066-e697-e70b-6116-829fdd05e479" title="Shopware6-Connector: Produktiv schalten">Shopware6-Connector: Produktiv schalten</a></p>
+<p><a class="xref linktype-fork" href="https://help.xentral.com/hc/de/articles/18589740730012#UUID-3482c0db-0cbb-26a5-6a44-9a82f4cfb81a" title="WooCommerce Connector: Produktiv schalten">WooCommerce Connector: Produktiv schalten</a></p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

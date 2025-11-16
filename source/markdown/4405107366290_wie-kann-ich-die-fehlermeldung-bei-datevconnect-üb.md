@@ -1,0 +1,2 @@
+- Zuerst natürlich prüfen ob die Login-Daten wirklich korrekt sind (achte auf Leerzeichnen bei Copy+Paste)
+- Als nächstes, melde dich bei deinen Steuerberater, er soll alle Berechtigungen deine Firma/Benutzer löschen und neu vergeben.

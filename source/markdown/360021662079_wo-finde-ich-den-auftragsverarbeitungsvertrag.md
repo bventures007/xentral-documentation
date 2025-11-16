@@ -1,0 +1,1 @@
+Den Auftragsverarbeitungsvertrag (AVV) findest du zum Download auf dieser[Seite](https://xentral.com/de/agb/).

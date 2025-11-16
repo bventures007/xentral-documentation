@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Druckereinrichtung unter CUPS</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360018080940
+    Titel: Druckereinrichtung unter CUPS
+    URL: https://help.xentral.com/hc/de/articles/360018080940-Druckereinrichtung-unter-CUPS
+    Erstellt: 2020-12-08T09:04:50Z
+    Aktualisiert: 2023-11-03T03:21:47Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254392668700
+    Export-Zeitpunkt: 2025-11-16 19:09:58
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Diese Einrichtung wird von Xentral nicht supportet.</p>
+</div>
+<p>Wie Sie Drucker generell an Xentral anschließen können erfahren Sie im Drucker Schnelleinstieg.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-2c664083-a0df-8313-e101-e1564d03bee9" id="UUID-2c664083-a0df-8313-e101-e1564d03bee9_id_360018080940_id_toc-0"></a>Installation bzw. Aktivierung von CUPS</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2c664083-a0df-8313-e101-e1564d03bee9" id="UUID-2c664083-a0df-8313-e101-e1564d03bee9_id_360018080940_id_toc-1"></a>Weboberfläche für CUPS unter macOS aktivieren</h3>
+</div>
+<p>Aktivieren lässt sich das Interface mit folgender Eingabe im Terminal:</p>
+<p>cupsctl WebInterface=yes</p>
+<p>Deaktivieren:</p>
+<p>cupsctl WebInterface=no</p>
+<p>Quelle und weitere Dokumentation: https://www.cups.org/</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2c664083-a0df-8313-e101-e1564d03bee9" id="UUID-2c664083-a0df-8313-e101-e1564d03bee9_id_360018080940_id_toc-2"></a>CUPS unter Linux Debian bzw. Ubuntu installieren</h3>
+</div>
+<p>Sollte CUPS unter Linux nicht vorhanden sein (Server-Version), können Sie dies mit diesen Befehlen installieren:</p>
+<p>Server/Client Komponenten:</p>
+<p>sudo apt-get install cups cups-client cups-bsd</p>
+<p>Druckertreiber Bibliotheken:</p>
+<p>sudo apt-get install hplip hpijs printer-driver-gutenprint</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2c664083-a0df-8313-e101-e1564d03bee9" id="UUID-2c664083-a0df-8313-e101-e1564d03bee9_id_360018080940_id_toc-3"></a>Weboberfläche für CUPS unter Linux aktivieren</h3>
+</div>
+<p>Aktivieren lässt sich die Weboberfläche und die Freigabe der Netzwerkdrucker mit folgender Eingabe im Terminal:</p>
+<p>sudo cupsctl --share-printers --remote-admin</p>
+<p>Jetzt müssen Sie den Dienst neu starten:</p>
+<p>systemctl restart cups</p>
+<p>Quelle und weitere Informationen zu CUPS unter Linux: <a class="link" href="https://wiki.ubuntuusers.de/CUPS/" target="_blank" rel="noopener">https://wiki.ubuntuusers.de/CUPS/</a></p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-2c664083-a0df-8313-e101-e1564d03bee9" id="UUID-2c664083-a0df-8313-e101-e1564d03bee9_id_360018080940_id_toc-4"></a>Arbeiten mit CUPS</h2>
+</div>
+<p>Öffnen sie einen Webbrowser und rufen Sie CUPS auf. Der Aufruf erfolgt im unseren Beispiel lokal auf dem System, in welchem CUPS installiert ist: https://127.0.0.1:631**</p>
+<p>Sollten Sie nach Benutzernamen und Passwort gefragt werden, geben Sie diesen entsprechend ein (den Benutzernamen findet man über die Kommandozeile heraus).</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2c664083-a0df-8313-e101-e1564d03bee9" id="UUID-2c664083-a0df-8313-e101-e1564d03bee9_id_360018080940_id_toc-5"></a>Dokumentendrucker anlegen</h3>
+</div>
+<p>Um einen neuen Drucker anzulegen, gehen Sie auf Administration und dann auf → Add Printer:</p>
+<p>Im Beispiel installieren wir den "Brother MFC-7440N (Brother MFC-7440N)". Markieren Sie den Drucker und klicken Sie auf Continue:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996407937820" style="" alt="drucker-cups_3.png"></div>
+<p>Vergeben Sie den Drucker eine eindeutige Bezeichnung:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996369791260" style="" alt="drucker-cups_4.png"></div>
+<p>Wählen Sie den passenden Treiber aus:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996404318620" style="" alt="drucker-cups_5.png"></div>
+<p>Im letzten Schritt können Sie noch zusätzliche Einstellungen am Drucker vornehmen:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996408094876" style="" alt="drucker-cups_6.png"></div>
+<p>Im Bereich Printers können Sie den angelegten Drucker jetzt sehen und verwalten:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996369888284" style="" alt="drucker-cups_7.png"></div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-2c664083-a0df-8313-e101-e1564d03bee9" id="UUID-2c664083-a0df-8313-e101-e1564d03bee9_id_360018080940_id_toc-6"></a>Eine bestimmte Papierzufuhr ansprechen</h4>
+</div>
+<p>Um eine bestimmte Papierzufuhr bzw. Papierkassette anzusprechen, müssen Sie diesen Drucker einfach nochmals neu anlegen und entsprechend auch neu bezeichnen. Gehen Sie in der Einrichtung genau so vor wie im Punkt "Dokumentendrucker anlegen" beschrieben und passen Sie die Druckereinstellungen entsprechend an.</p>
+<p>Beispiel für die Bezeichnung:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996431897756" style="" alt="drucker-cups_8.png"></div>
+<p>Beispiel für eine manuelle Papierzufuhr um A5 Versandlabel zu drucken:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996369943452" style="" alt="drucker-cups_9.png"></div>
+<p>Ergebnis in der Printer Übersicht:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996369966364" style="" alt="drucker-cups_10.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2c664083-a0df-8313-e101-e1564d03bee9" id="UUID-2c664083-a0df-8313-e101-e1564d03bee9_id_360018080940_id_toc-7"></a>Versandlabel Drucker anlegen</h3>
+</div>
+<p>Generell müssen ZEBRA Versandlabel Drucker immer über CUPS angelegt bzw. konfiguriert werden. Die Konfiguration über die Standard Druckerverwaltung in macOS bzw. Linux führt in 99% der Fälle nicht zum gewünschten Ergebnis.</p>
+<p>Beispiel für: ZEBRA GK420t</p>
+<p>Öffnen sie einen Webbrowser und rufen Sie CUPS auf. Der Aufruf erfolgt im unseren Beispiel lokal auf dem System wo CUPS installiert ist.</p>
+<p>{wikilink https://127.0.0.1:631** {{:entwickler:cups_01.jpg?nolink}} |https://127.0.0.1:631** {{:entwickler:cups_01.jpg?nolink}} }</p>
+<p>Um einen neuen Drucker anzulegen, gehen Sie auf Administration und dann auf → Add Printer:</p>
+<p>Im Beispiel installieren wir den "Zebra Technologies ZTC GK420t Labeldrucker“. Markieren Sie den Drucker und klicken Sie auf Continue:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996404516380" style="" alt="drucker-cups_12.png"></div>
+<p>Vergeben Sie eine eindeutige Bezeichnung für den Drucker:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996370000924" style="" alt="drucker-cups_13.png"></div>
+<p>Wählen Sie den passenden Treiber aus, als Model markieren Sie bitte "Zebra ZPL Label Printer":</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996393421212" style="" alt="drucker-cups_14.png"></div>
+<p>Jetzt müssen Sie noch das Papierformat für das Versandlabel einstellen. Klicken Sie hier auf die Mediengröße und stellen Sie diese auf Custom um, beachten Sie bitte auch die Umstellung der Einheiten auf mm:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996432009628" style="" alt="drucker-cups_15.png"></div>
+<p>Tragen Sie jetzt die Breite und Höhe für das von Ihnen verwendete Versandlabel ein. Für DHL-Versandlabels tragen Sie bitte 100 für die Breite ein und 200 für die Höhe ein:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996408443420" style="" alt="drucker-cups_16.png"></div>
+<p>Papierformate:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>DHL: B:100mm x H:200mm → Bitte auch entsprechend unter https://www.dhl-geschaeftskundenportal.de das Labelformat auswählen.</p>
+</li>
+<li class="listitem">
+<p>UPS, DPD: B:100mm x H:150mm</p>
+</li>
+</ul>
+</div>
+<p>Nachdem der Versandlabel Drucker eingerichtet wurde, können Sie unter Maintenance eine Testseite drucken → "Print Test Page":</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996449546396" style="" alt="drucker-cups_17.png"></div>
+<p>Damit ist die Einrichtung der Drucker unter CUPS abgeschlossen. Die Anbindung an Xentral erfolgt hier: Drucker in Xentral</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

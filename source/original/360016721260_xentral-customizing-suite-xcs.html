@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xentral Customizing Suite (XCS)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016721260
+    Titel: Xentral Customizing Suite (XCS)
+    URL: https://help.xentral.com/hc/de/articles/360016721260-Xentral-Customizing-Suite-XCS
+    Erstellt: 2020-09-28T12:06:57Z
+    Aktualisiert: 2024-08-29T11:58:11Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254392668700
+    Export-Zeitpunkt: 2025-11-16 19:09:58
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Zentrale App für viele Anpassungen an <span class="phrase">Xentral</span> ist die xentral Customizing Suite (XCS). Hier können bestehende Datenstrukturen erweitert und neue, eigene Datenstrukturen angelegt werden. Zusätzlich bietet die XCS Optionen für die Verwaltung von Anpassungen. Dieser Bereich wird in naher Zukunft stark ausgebaut werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5" id="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5_id_360016721260_id_toc-0"></a>Beschreibung XCS</h2>
+</div>
+<p>Neue Tabellen können z.B. schnell als Daten-Container für Anpassungen verwendet werden, z.B. wenn eine dynamische Liste von PLZ oder Versandarten erstellt werden soll, die dann im Prozess eine Entscheidung für eine Versandart pro PLZ ermöglicht. Diese wäre dann - bei geeigneter Programmierung - auch durch den Benutzer direkt erweiterbar ohne die Programmierung neu anstossen zu müssen. Es lassen sich beliebig viele Tabellen anlegen, die Speicherung solcher Listen kann also auch in mehreren Tabellen geschehen. Die Tabellen sind mit dem Prefix xcs_ einfach im Code ansprechbar.</p>
+<p>Beispiel:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Tabellenname in XCS: custom_table</p>
+</li>
+<li class="listitem">
+<p>Tabellenname in Datenbank: xcs_custom_table</p>
+</li>
+</ul>
+</div>
+<p>Vorhandene System-Tabellen können mit Hilfe eigener Spalten erweitert werden. Diese werden zunächst nur in der Datenbank erweitert, eine Auswirkung auf die Benutzeroberfläche ergibt sich nicht automatisch. Spalten können in eigene oder bereits vorhandene Datenbanktabellen eingefügt werden.</p>
+<p><span class="guilabel">Bespiel</span>: Erweiterung der Tabelle auftrag um zusätzliche Spalte 'Ablehnungsgrund'</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5" id="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5_id_360016721260_id_toc-1"></a>Datenbanktabellen definieren</h3>
+</div>
+<p>Die Übersicht der Tabellen bildet den Einstiegspunkt zur Bearbeitung der Definition und der Daten in den Tabellen.</p>
+<p>Folgende Funktionen sind verfügbar:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Stift-Icon: zum Bearbeiten der Tabellendefinitiondefinition</p>
+</li>
+<li class="listitem">
+<p>gebogener Pfeil: zum Bearbeiten der Inhalte der Tabelle (siehe unten)</p>
+</li>
+<li class="listitem">
+<p>X: zum Löschen der Tabelle und aller gespeicherten Datendata</p>
+</li>
+</ul>
+</div>
+<p>Datenbanktabellen können durch Klick auf <span class="guilabel">+ NEU</span> angelegt werden.</p>
+<p>Es sind lediglich die Angaben für den Tabellennamen und eine optionale Beschreibung einzugeben. Eine Änderung des Tabellennamens führt auch im Nachhinein zu einer Änderung des Namens in der Datenbank.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5" id="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5_id_360016721260_id_toc-2"></a>Spalten anlegencolumns</h3>
+</div>
+<p>Im Reiter <span class="guilabel">Spalten</span> können alle verfügbaren Spalten aller Tabellen bearbeitet werden. Bitte beachten Sie, dass beim Verändern von Spaltendefinitionen die Inhalte der Spalten in der Datenbank gelöscht werden können.</p>
+<p><span class="guilabel">Best Practise</span>: Finales Definieren &amp;amp; Anlegen von Tabellen und Spalten vor der ersten Verwendung oder Befüllung mit Daten.</p>
+<p>Neue Spalten können durch Klick auf <span class="guilabel">+ Neuer Eintrag</span> angelegt werden.</p>
+<p>Beispiel für das Anlegen einer Ganzzahl-Spalte:</p>
+<p><a class="link" href="https://xentral-wiki-assets.s3.eu-central-1.amazonaws.com/images2/xcs_7.png" target="_blank" rel="noopener">
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5078195197340" style="" alt="xcs_7.png"></div>
+</a></p>
+<p>Wichtig ist hierbei der Typ <span class="guilabel">Ganzzahl</span>. Soll ein Text in der Spalte gespeichert werden, ist als Typ <span class="guilabel">Text</span> zu wählen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5" id="idm45620588296512"></a>Daten bearbeiten</h3>
+</div>
+<p>Wird eine Tabelle über das Pfeil-Icon aufgerufen, können die Inhalte der Tabelle bearbeitet werden. Neue Inhalte (Zeilen) können durch Klick auf + NEU angelegt werden.</p>
+<p>Der angezeigte Dialog verwendet die hinterlegten technischen Spaltennamen und ist daher zur Bearbeitung durch nicht eingewiesene Endbenutzer nur bedingt geeignet.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5078180119708" style="" alt="xcs_9.png"></div>
+<p>Die hinzugefügten Zeilen werden wie gewohnt angezeigt und können über das Stift-Icon editiert und über das X gelöscht werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5" id="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5_id_360016721260_id_toc-4"></a>Systemtabellen erweitern</h3>
+</div>
+<p>Auch zu vorhandenen Systemtabellen können neue Spalten hinzugefügt werden. Diese Methode sollte sparsam verwendet werden, auch weil die maximale Beschränkung der Zeilengröße in MySQL / MariaDB vor allem bei Verwendung der InnoDB (siehe MySQL-Dokumentation für Row Size Limits) zu Problemen führen kann. Die Erweiterung von Systemtabellen könnte zu Seiteneffekten innerhalb anderer Bereiche der Software führen.</p>
+<p>Best Practise: Erstellen einer neuen Tabelle und Erweiterung der Systemtabelle lediglich um eine Referenz auf die neue Tabelle. Hierfür muss bei <span class="phrase">Xentral</span> Tabelle erweitern ein Haken gesetzt werden.</p>
+<p><a class="link" href="https://xentral-wiki-assets.s3.eu-central-1.amazonaws.com/images2/xcs_11.png" target="_blank" rel="noopener">
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5078147021468" style="" alt="xcs_11.png"></div>
+</a></p>
+<p>Die folgenden Systemtabellen können erweitert werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>adresse</p>
+</li>
+<li class="listitem">
+<p>artikel</p>
+</li>
+<li class="listitem">
+<p>angebot und angebot_position</p>
+</li>
+<li class="listitem">
+<p>auftrag und auftrag_position</p>
+</li>
+<li class="listitem">
+<p>rechnung und rechnung_position</p>
+</li>
+<li class="listitem">
+<p>gutschrift und gutschrift_position</p>
+</li>
+<li class="listitem">
+<p>lieferschein und lieferschein_position</p>
+</li>
+<li class="listitem">
+<p>bestellung und bestellung_position</p>
+</li>
+<li class="listitem">
+<p>produktion und produktion_position</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5" id="UUID-7480d5f0-866b-6fc8-8c86-e000c48220b5_id_360016721260_id_toc-5"></a>Datenbank: Browsen und Strukturen einsehen</h2>
+</div>
+<p>Im Reiter SQL-Viewer können alle Datenbanktabellen des eigenen Systems live aufgerufen werden. Dort ist aus Performancegründen in einigen Fällen eine verkleinerte Ansicht der Tabellen verfügbar (nicht alle Zeilen oder Spalten).</p>
+<p>Weitere Informationen zum Umgang mit der Datenbank (u.a. XAMPP zum lokalen Test) finden Sie auch unter<a class="link" href="https://help.xentral.com/hc/de/articles/360017383780" target="_blank" rel="noopener"> Report Scripts.</a></p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

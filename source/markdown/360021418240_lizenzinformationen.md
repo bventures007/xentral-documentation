@@ -1,0 +1,3 @@
+Deine Xentral System Lizenz kannst du als Admin über das Login-Icon rechts oben über "Meine Lizenz" aufrufen und einsehen. Deine Lizenznummer ist eine eindeutige Kennung, die deinem Kundenkonto zugeordnet ist und deinen damit verbundenen[Abonnements](https://help.xentral.com/hc/de/articles/10597989845660#UUID-d8691953-58e1-6ee3-576e-3a007d645925)oder Verträgen.
+
+![lizenz_001.png](https://help.xentral.com/hc/article_attachments/14565515971100)

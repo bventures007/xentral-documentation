@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etikettendrucker einrichten (Legacy)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017382100
+    Titel: Etikettendrucker einrichten (Legacy)
+    URL: https://help.xentral.com/hc/de/articles/360017382100-Etikettendrucker-einrichten-Legacy
+    Erstellt: 2020-11-10T09:44:09Z
+    Aktualisiert: 2025-09-01T09:13:27Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 9395528337180
+    Export-Zeitpunkt: 2025-11-16 19:07:40
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Etikettendrucker kann, wie ein Dokumentendrucker, ohne Adapterbox über den Druckerspooler an <span class="phrase">Xentral</span> angeschlossen werden. Die Anbindung wird in diesem Artikel beschrieben: <a class="xref linktype-component" href="https://help.xentral.com/hc/de/articles/360016756299#UUID-1440617b-112e-f4eb-2b29-788c46c17996" title="Deinen Drucker mit Xentral verbinden">Deinen Drucker mit <span class="phrase">Xentral</span> verbinden</a>.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Diese Anleitung zeigt Schritt für Schritt die Einrichtung eines Etikettendruckers, der über eine Adapterbox an xentral angebunden wird. Für die Einrichtung werden folgende Dinge benötigt:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Etikettendrucker Zebra GK420t, inkl. Netzgerät (Link zum Shop)</p>
+</li>
+<li class="listitem">
+<p>Raspberry PI (im Folgenden Adapterbox genannt) konifiguriert laut Anleitung.</p>
+</li>
+<li class="listitem">
+<p>USB-Kabel zum Anschluss des Druckers an die Adapterbox</p>
+</li>
+<li class="listitem">
+<p>Netzwerkkabel (oder WLAN-USB-Stick bei Drahtloser Netzwerkanbindung) zur Anbindung der Adapterbox an das Netzwerk</p>
+</li>
+<li class="listitem">
+<p>USB-Stick (leer, FAT formatiert)</p>
+</li>
+<li class="listitem">
+<p>Etiketten</p>
+</li>
+<li class="listitem">
+<p>Thermofolie, passend für Zebra GK420t</p>
+</li>
+</ul>
+</div>
+<p>Etiketten Drucker sind auch mit dem xentral Spooler anbindbar, dann wird vorzugsweise ein netzwerkfähigen Etikettendrucker verwendet.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-0"></a>Schritt 1: Entpacken und Überprüfen auf Vollständigkeit</h2>
+</div>
+<p>Der Etikettendrucker ist zu entpacken und es ist sicherzustellen, dass alle Teile vorhanden und unbeschädigt sind. Für die Durchführung der ersten 5 Schritte dieser Anleitung ist die Adapterbox noch nicht notwendig.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="id797"></a>Schritt 2: Einlegen der Thermofolie</h2>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Der Deckel des Etikettendruckers ist zu öffnen, indem die seitlich angebrachten grünen Verriegelungen in Richtung der Gerätevorderseite aufgedrückt werden.</p>
+</li>
+<li class="listitem">
+<p>Die Thermofolie ist zu entpacken und die mitgelieferte Papprolle zur Hand abzulösen.</p>
+</li>
+<li class="listitem">
+<p>Der Anfang der Thermofolie ist von der Rolle zu lösen und auf die Papprolle zu wickeln - zwei bis drei Wicklungen genügen. Die Papprolle dient als Träger zum Aufwickeln der verbrauchten Thermofolie während des Druckens (im folgenden auch Leer-Rolle).</p>
+</li>
+<li class="listitem">
+<p>Die beiden Rollen im Deckel des Etikettendruckers sind in die vorgesehenen Halter einzulegen. Zu beachten ist, dass die volle Rolle von unten her eingelegt wird, und die Leer-Rolle von oben her (siehe Fotos). Zum Einlegen sind die Papprollen gegen die gefederten konischen Naben zu drücken und in der gegenüberliegenden Nabe einzurasten.</p>
+</li>
+<li class="listitem">
+<p>Wenn beide Rollen eingelegt sind, ist der korrekte Sitz zu prüfen, indem mit Hilfe des grünen Rades neben der Leer-Rolle ein bis zwei Wicklungen aufgedreht werden.</p>
+</li>
+</ul>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996393589916" style="" alt="ZEBRA1.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996408554908" style="" alt="ZEBRA-2.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996449654812" style="" alt="ZEBRA-3.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996404809116" style="" alt="ZEBRA-4.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-2"></a>Schritt 3: Einlegen der Etiketten</h2>
+</div>
+<p>Die Etiketten-Rolle ist zur Hand zu nehmen und, wie auf der Abbildung zu sehen, in das Unterteil des Etikettendruckers einzulegen. Die Rolle wird zwischen den beiden grünen Naben durch Federdruck gehalten. Der Rollen Anfang ist, wie abgebildet zum Ausgabe-Schlitz des Geräts, einzuführen. Danach ist der Deckel des Druckers zu schließen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996449691292" style="" alt="ZEBRA-5.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996393777180" style="" alt="ZEBRA-6.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-3"></a>Schritt 4: Automatische Kalibrierung des Druckbereichs</h2>
+</div>
+<p>Der Etikettendrucker muss sich auf die Etikettengröße kalibrieren. Die Kalibrierung muss jedes mal nach dem Einlegen einer Etikettenrolle durchgeführt werden! Um die Kalibrierung durchzuführen sind diese Schritte zu befolgen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>ggf. den Deckel des Druckers schließen</p>
+</li>
+<li class="listitem">
+<p>Die Stromversorgung des Geräts herstellen und den Netzschalter auf der Geräterückseite unten links betätigen</p>
+</li>
+<li class="listitem">
+<p>Die Taste auf der Gehäuseoberseite des Etikettendruckers ist zu drücken und zu halten, bis die LED neben der Taste 2 Mal (4 Mal blinken → Drucker wird auf die Werkseinstellungen zurückgesetzt.) hintereinander blinkt. Dann ist die Taste loszulassen – der Drucker kalibriert sich nun auf die Größe der eingelegten Etiketten.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Beim Halten der Taste blinkt die LED zunächst einmal, nach einer kurzen Pause zweimal, dann dreimal und so weiter...</p>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996449729564" style="" alt="ZEBRA-7.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-4"></a>Schritt 5: Kalibrierung der Druckintensität</h2>
+</div>
+<p>Die Druckintensität sollte so konfiguriert werden, dass die Etiketten, insbesondere auch für Barcode-Scanner, gut lesbar sind. Die Taste auf der Gehäuseoberseite des Etikettendruckers ist zu drücke und zu halten, bis die LED neben der Taste 6 Mal hintereinander blinkt. Dann ist sofort die Taste loszulassen. Das Gerät beginnt darauf hin mehrere Testausdrucke auszugeben, wobei die Druckintensität schrittweise erhöht wird. Sobald das Druckbild sauber und gut lesbar ist, die Taste auf der Gehäuseoberseite einmal kurz drücken, um die Einstellung zu bestätigen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996404887452" style="" alt="ZEBRA-8.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-5"></a>Schritt 6: Einrichtung der Adapterbox</h2>
+</div>
+<p>Um die Verbindung von xentral mit dem externen Gerät (Etikettendrucker, Waage, Bondrucker, Kassendisplays etc.) herzustellen, benötigt es einen kleinen "Zwischen-Server" (Adapterbox), den man käuflich erwerben kann. Lösungen hierfür findest du bei unserem Partner Ruhr Agency.</p>
+<p>Aus technischen Gründen ist dazu derzeit ein Raspberry Pi bis max. Version 3B notwendig</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-6"></a>Adapterbox konfigurieren</h3>
+</div>
+<p>Sobald die Adapterbox erworben wurde, kann diese mit folgenden Schritten konfiguriert werden:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Die Adapterbox ist an einen Monitor sowie an Tastatur und Maus anzuschließen. Außerdem ist sicherzustellen, dass eine Internetverbindung besteht.</p>
+</li>
+<li class="step">
+<p>Das Betriebssystem ist zu installieren und den darauffolgenden Hinweis mit OK zu bestätigen.</p>
+</li>
+<li class="step">
+<p>Es ist auf LX Terminal (Taskleiste dunkles Icon) zu gehen und folgende Befehle einzugeben. Dann sind diese jeweils mit der ENTER Taste zu bestätigen.</p>
+</li>
+</ol>
+</div>
+<pre class="programlisting"><code class="code">sudo apt-get --yes install libcurl3 php7.0-curl php7.0-cli php7.0-xml
+sudo usermod -a -G lpadmin pi
+sudo systemctl enable ssh
+wget http://www.wawision.de/adapterbox.deb 
+sudo dpkg -i adapterbox.deb
+echo "Seriennummer eingeben gefolgt von einem [ENTER]:"
+read seriennummer
+echo "&lt;?php \$config['serial'] = '$seriennummer'; ?&gt;" &gt; /tmp/config.php
+sudo mv /tmp/config.php /root/config.php
+sudo halt
+</code></pre>
+<p>Die echo-Befehle dienen mit Ausnahme des letzten Aufrufs nur der Anschaulichkeit.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Die Debian-Datei (deb-Datei) für den wget-Befehl können Sie im <a class="link" href="https://github.com/xentral-erp-software-gmbh/downloads" target="_blank" rel="noopener">GitHub-Downloadverzeichnis</a> herunterladen.</p>
+</div>
+<p>Wenn die Ausführung des Skripts nicht funktionieren sollte, muss ggf. noch die PHP-Version mit dazugehörigen Extensions installiert und aktiviert werden.</p>
+<p><span class="bold"><strong>Installation php</strong></span></p>
+<pre class="programlisting"><code class="code">sudo apt -y install php php-common
+</code></pre>
+<p><span class="bold"><strong>Installation PHP-Extension</strong></span></p>
+<pre class="programlisting"><code class="code">sudo apt -y install php-cli php-fpm php-json php-mysql php-zip php-gd        php-mbstring php-curl php-xml php-pear php-bcmath
+</code></pre>
+<p>Es ist zu warten, bis die Aufforderung kommt eine Seriennummer einzugeben. Es ist eine 9-stellige Nummer einzugeben und zu bestätigen mit der ENTER Taste - diese Seriennummer wird dann später in xentral gebraucht. Die Box schaltet sich danach automatisch aus. Danach ist die Adapterbox konfiguriert und es kann mit dem nächsten Schritt fortgefahren werden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Sollte dein Drucker nicht drucken, dann stelle den Treiber von cpcl auf zpl (Zebra zb 230) um. Weitere Informationen findest du auf diesen Seiten:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><a class="link" href="https://supportcommunity.zebra.com/s/article/CPCL-Manual-for-Zebra-Mobile-Printers?language=en_US" target="_blank" rel="noopener">https://supportcommunity.zebra.com/s/article/CPCL-Manual-for-Zebra-Mobile-Printers?language=de</a></p>
+</li>
+<li class="listitem">
+<p><a class="link" href="https://supportcommunity.zebra.com/s/article/ZPL-Command-Information-and-DetailsV2?language=en_US" target="_blank" rel="noopener">https://supportcommunity.zebra.com/s/article/ZPL-Command-Information-and-DetailsV2?language=de</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-7"></a>Schritt 7: Einrichtung in xentral</h2>
+</div>
+<p>Um die Einrichtung des Etikettendruckers fortzuführen, ist mit der Adapterbox an einen Computerarbeitsplatz zu gehen und sich mit einem Account mit ausreichenden Rechten in xentral anzumelden. In der Ansicht Administration → Einstellungen → System sind die ‚Grundeinstellungen’ zu öffnen</p>
+<p>Der Reiter 'API’s' ist zu öffnen und die markierte Option zu auszuwählen. Dann ist auf „Key generieren“ zu klicken und zu speichern.</p>
+<p>In der Ansicht Administration → Einstellungen → System ist der Punkt ‚Adapterbox’ zu öffnen.</p>
+<p>In der Adapterbox-Ansicht ist ,NEU' auszuwählen. Danach wird von xentral in 3 Schritten durch die Einrichtung geführt.</p>
+<p>Zunächst können, falls nötig, die Netzwerkeinstellungen manuell festgelegt werden. Sollten hier Änderungen vorgenommen werden, sind diese zu speichern. Um zum nächsten Schritt zu gelangen, ist auf 'weiter mit Schritt 2' zu klicken.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>xentral empfiehlt den Betrieb über ein Netzwerkkabel, da es so am besten und stabilsten läuft. Betrieb über WLAN ist prinzipiell möglich, wird aber von xentral nicht supported, da dies eher fehleranfällig ist und die möglichen Probleme vor allem in den Netzwerkeinstellungen zu finden sind.</p>
+</div>
+<p>Für diesen Schritt stellt xentral eine Liste von durchzuführenden Aktionen bereit. Diese Liste ist in der vorgegebenen Reihenfolge sorgfältig abzuarbeiten. Dann wird der FAT-formatierten USB-Stick benötigt.</p>
+<p>Wenn Sie die Liste abgearbeitet haben. Nehmen Sie die vom Drucker ausgegebene Etikette mit zurück zu Ihrem Computerarbeitsplatz und Klicken Sie in xentral auf 'weiter mit Schritt 3'.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996404910492" style="" alt="ZEBRA-17.png"></div>
+<p>Vergeben Sie nun einen Namen für den gerade eingerichteten Etikettendrucker und geben Sie die Seriennummer ein, die Ihr Drucker im vorigen Schritt auf die Etikette gedruckt hat (dritte Zeile auf dem Etikett in der Abbildung oben).</p>
+<p>In der Ansicht Administration → Einstellungen → System ist der Punkt 'Drucker' zu öffnen.</p>
+<p>In der Liste erscheint nun der eingerichtete Etikettendrucker. Es ist auf das Bearbeiten-Symbol zu klicken, um Einstellungen für den Drucker vorzunehmen.</p>
+<p>Als Geräteart ist 'Etikettendrucker' einzustellen. Bei Format ist die Größe der Etiketten einzustellen, die in den Drucker eingelegt wurden. Die Anbindungsart muss noch auf 'Adapterbox' eingestellt werden.</p>
+<p>Nun ist sicherzustellen, dass die USB-Verbindung zwischen Drucker und Adapterbox sowie die Netzwerkverbindung der Adapterbox hergestellt ist. Die Geräte sind mit Spannung zu versorgen und der Drucker einzuschalten, um im Folgenden den Drucker zu testen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996408861084" style="" alt="ZEBRA-21.png"></div>
+<p>Jetzt ist ein Testdruck durchzuführen, um zu prüfen ob die Einbindung des Druckers korrekt funktioniert hat. Dazu ist in xentral die Ansicht Lager &amp; Logistik → Etikettendrucker zu öffnen. Im obersten Textfeld ist ein beliebiger kurzer Text anzugeben und auf 'Drucken' zu klicken. Wenn der eingegebene Text vom Etikettendrucker gedruckt wird, war die Einrichtung erfolgreich.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Bis Version 21.1 unter Verwaltung → Etikettendrucker.</p>
+</div>
+<p>Die Erstellung von Etiketten-Layouts ist hier beschrieben.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-8"></a>PDF-Etikettendrucker einrichten</h2>
+</div>
+<p>Etiketten können einzeln auch direkt als PDF ausgegeben werden. Der Abruf der Etiketten erfolgt über den Spooler (direkt in den Druckereinstellungen) Oder das PDF kann an eine E-Mail-Adresse gesendet werden Die Art der Anbindung kann direkt ausgewählt werden:</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-9"></a>PDF in Verzeichnis</h3>
+</div>
+<p>Anbindung über Kommandozeilenbefehl/PDF in Verzeichnis:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Verzeichnis → das Verzeichnis angeben (z.B. kann bei Linux /tmp/ verwendet werden)</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-10"></a>PDF als E-Mail</h3>
+</div>
+<p>Bei der Anbindung an eine E-Mail Adresse noch folgende Felder ausfüllen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>E-Mail Drucker Empfänger → E-Mail Adresse, an die das PDF gesendet wird</p>
+</li>
+<li class="listitem">
+<p>E-Mail Drucker Betreff → Betreff, den diese o.g. E-Mail erhält</p>
+</li>
+<li class="listitem">
+<p>E-Mail Drucker Text → Zusatztext, der in der o.g. E-Mail mit übermittelt wird :entwickler:etikettendrucker_email.png</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-11"></a>Etikettenerstellung für PDF-Etiketten</h3>
+</div>
+<p>Die Etiketten können ebenso als XML erstellt werden. Einziger Unterschied zum Drucker ist, dass die Etikettengrößen nicht fest vorgegeben sind und beliebig eingestellt werden können. Einstellung der beliebigen Größe direkt im Etikettengenerator: :entwickler:etikettendrucker_anbindung_einstellung.png</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-12"></a>Versandlabel-Etikettendrucker einrichten</h3>
+</div>
+<p>Ein Etikettendrucker kann auch für Versandlabels verwendet werden. Dieser ist im Logistikprozess für die Paketmarkenlabels auszuwählen. Im Drucker selbst sind folgende Einstellungen vorzunehmen (Anbindung per Kommandozeilenbefehl):</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Geräteart → Drucker (Etikettendrucker wird nur in Verbindung mit den xentral Etiketten verwendet)</p>
+</li>
+<li class="listitem">
+<p>Format → DinA5</p>
+</li>
+<li class="listitem">
+<p>Anbindung → Kommandozeilenbefehl</p>
+</li>
+<li class="listitem">
+<p>Befehl oder Verzeichnis → lpr -o fit-to-page -o media=A6 -H 192.168.0.XXX -P ZebraGC420d</p>
+</li>
+<li class="listitem">
+<p>Seriennummer → bitte tragen Sie hier Ihre Seriennummer ein (für den Spooler entsprechend die Seriennummer für die Niederlassung)</p>
+</li>
+</ul>
+</div>
+<p>lpr -o fit-to-page -o media=A6 -H 192.168.0.XXX -P ZebraGC420d</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die fettgedruckten Bereiche (s.o.) müssen durch eigene Bezeichnungen ersetzt werden :entwickler:kurzanleitung_etikettendrucker_versandlabels.png</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="UUID-7093d366-0a7d-c197-44f6-08cb948daefa_id_360017382100_id_toc-13"></a>Benutzerdefiniertes Etiketten Label-Format einrichten</h3>
+</div>
+<p>Um ein benutzerdefiniertes Etiketten Label-Format einzurichten, ist zuerst in die Einstellungen des Labeldruckers unter xentral zu gehen. Dies ist zu finden unter → Administration → Einstellungen → Drucker → “Ihren Labeldrucker auswählen“. Das Format ist auf “leer“ umzustellen.</p>
+<p>Im nächsten Schritt muss der CUPS-Server auf den Linux-Druckerserver aufgerufen werden. Hierzu ist folgende Adresse im Webbrowser einzutragen:127.0.0.1:631</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7093d366-0a7d-c197-44f6-08cb948daefa" id="id798"></a>Druckerempfehlung</h2>
+</div>
+<p>Wir unterstützen gängige Etikettendrucker von Zebra. Hierbei bitte darauf achten, dass es sich um einen Netzwerkdrucker via LAN/WLAN handelt, und nicht via USB.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

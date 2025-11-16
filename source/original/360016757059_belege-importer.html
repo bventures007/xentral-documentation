@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belege Importer</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016757059
+    Titel: Belege Importer
+    URL: https://help.xentral.com/hc/de/articles/360016757059-Belege-Importer
+    Erstellt: 2020-09-28T12:17:46Z
+    Aktualisiert: 2025-08-12T12:46:27Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4407497060764
+    Export-Zeitpunkt: 2025-11-16 19:08:38
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Mit dem <span class="bold"><strong>Belegeimporter</strong></span> kannst du <span class="bold"><strong>Belege</strong></span> aus externen Quellen oder anderen Systemen per <span class="bold"><strong>CSV-Datei</strong></span> direkt in Xentral importieren. Das eignet sich z. B. für den Datentransfer aus einer anderen ERP- oder Buchhaltungssoftware, von Dienstleistern oder externen Abrechnungssystemen – etwa für Aufträge, Lieferscheine, Rechnungen oder Gutschriften. Der Import wird über einen Prozessstarter ausgeführt, sodass die Belege nach dem Hochladen automatisch im ERP weiterverarbeitet werden können.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Wenn du <span class="bold"><strong>Stammdaten</strong></span> importieren möchtest (z. B. Artikel, Adressen), verwende den <a class="link" href="https://help.xentral.com/hc/de/articles/17467558761372-NEU-CSV-Importer-Connect-%C3%9Cberblick" target="_blank" rel="noopener">CSV-Importer (Connect)</a>.</p>
+<p>Für <span class="bold"><strong>Shopbestellungen</strong></span> nutze die <a class="link" href="https://help.xentral.com/hc/de/articles/13235039238428-Xentral-Connect-%C3%9Cbersicht" target="_blank" rel="noopener">Standardisierten Connect-Shop-Schnittstellen mit No-Code-Import</a>, um <span class="bold"><strong>Aufträge direkt und automatisiert</strong></span> zu übernehmen.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3b675639-8080-d9e2-0112-464bfae6af42" id="UUID-3b675639-8080-d9e2-0112-464bfae6af42_section-idm235099928073489"></a>Belegeimporter Funktionsumfang</h2>
+</div>
+<p>Der Belege Importer unterstützt den Import folgender Belegarten: <span class="bold"><strong>Angebote</strong></span>, <span class="bold"><strong>Aufträge</strong></span>, <span class="bold"><strong>Lieferscheine</strong></span>, <span class="bold"><strong>Rechnungen</strong></span>, <span class="bold"><strong>Gutschriften</strong></span>, Preisanfragen, <span class="bold"><strong>Bestellungen</strong></span>, <span class="bold"><strong>Produktionen</strong></span>, Proforma-Rechnungen, Adressen (dafür ist die Importzentrale besser geeignet).</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Du kannst mehrere Belege in einer CSV-Datei hochladen – jede Zeile entspricht dabei einer Belegposition.</p>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Vielfältige Belegarten importieren</strong></span>: Aufträge, Angebote, Bestellungen, Rechnungen, Gutschriften, Proforma-Rechnungen u. v. m.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Direkte Kundenzuordnung</strong></span>: Kundennummern oder Lieferantennummern direkt im Import festlegen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Abweichende Lieferadressen automatisch übernehmen</strong></span>: inkl. Name, Abteilung, Straße, Ort, Postleitzahl und Land.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Komplette Beleg- und Zahlungsdetails importieren</strong></span>: Belegnummern, Wunsch- oder Auslieferungsdatum, Zahlungsweise, Zahlungsziel und Skonto.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versand- und Lieferbedingungen setzen</strong></span>: Versandart, Lieferbedingung und Belegstatus individuell vorgeben.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Belegverknüpfungen herstellen</strong></span>: z. B. Rechnungen mit Aufträgen oder Lieferscheinen verknüpfen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Detaillierte Artikelpositionen importieren</strong></span>: Artikelnummer, Bezeichnung, Menge, Preis, Rabatt, Währung, Steuersatz, Herkunftsland, Zolltarifnummer u. v. m.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Flexible Belegstruktur</strong></span>: Gruppierung von Positionen zu einem Beleg per PARENT- und NEW-Logik.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Individuelle Texte einfügen</strong></span>: Freitexte und Kopftexte direkt in den Beleg übernehmen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Adressdaten komplett anlegen</strong></span>: inkl. Ansprechpartner, Abteilungen, Telefonnummer, E-Mail, USt-IdNr. und Anrede.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3b675639-8080-d9e2-0112-464bfae6af42" id="UUID-3b675639-8080-d9e2-0112-464bfae6af42_section-idm235099934489174"></a>Bedienung und Workflow</h2>
+</div>
+<p>Die folgenden Schritte zeigen dir den genauen Ablauf von der CSV-Auswahl bis zur Übertragung der Daten ins System.</p>
+<p><span class="bold"><strong>Schritte im Belegeimporter:</strong></span></p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p><span class="bold"><strong>Datei auswählen</strong></span> – Wähle deine vorbereitete CSV-Datei aus.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Belegart festlegen</strong></span> – Bestimme, ob du z. B. Aufträge, Rechnungen oder Gutschriften importierst.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Status zuweisen</strong></span> – Lege fest, welchen Status die Belege nach dem Import haben sollen (z. B. angelegt, freigegeben).</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Upload starten</strong></span> – Starte den Importprozess. <span class="emphasis"><em>Optional</em></span>: Zwischenspeicher leeren – Falls du den Import abbrechen oder Änderungen vornehmen möchtest.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Im Reiter <span class="bold"><strong>Formate</strong></span> findest du eine Liste aller möglichen Feldnamen. Die erste Zeile deiner CSV muss exakt diese Spaltenüberschriften enthalten, und es gilt: eine Position = eine Zeile.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3b675639-8080-d9e2-0112-464bfae6af42" id="UUID-3b675639-8080-d9e2-0112-464bfae6af42_section-idm235099938819838"></a>Wichtige Felder im Belegeimporter</h2>
+</div>
+<p>Die folgende Tabelle listet alle unterstützten Feldbezeichnungen des Belegeimporters mit ihrer jeweiligen Bedeutung auf. Sie dient als Referenz, um deine CSV-Datei korrekt zu strukturieren und sicherzustellen, dass alle Daten den richtigen Feldern im System zugeordnet werden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>In der <span class="bold"><strong>ersten Zeile</strong></span> der hochzuladenden CSV-Datei müssen die <span class="bold"><strong>Spaltenüberschriften gemäß den Felddefinitionen in Xentral</strong></span> stehen. Die Datei muss als CSV mit <span class="bold"><strong>Semikolon-separierten Werten</strong></span> (;) vorliegen.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Kundennummer fehlt</strong></span>: Xentral legt automatisch eine neue Adresse und einen neuen Kundendatensatz an.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Artikelnummer fehlt</strong></span>: Xentral legt automatisch einen neuen Artikel an.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Steuersatz in Prozent</strong></span>: Entspricht dem Feld Individueller Steuersatz in Xentral.</p>
+</li>
+</ul>
+</div>
+</div>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Der Import verändert keine bestehenden Stammdaten. Abweichungen zu gespeicherten Adress- oder Artikeldaten werden nur für den importierten Beleg übernommen.</p>
+</div>
+<div class="informaltable table-responsive">
+<table width="100%">
+<thead>
+<tr>
+<th>
+<p>Feldbezeichnung</p>
+</th>
+<th>
+<p>Beschreibung</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>art</p>
+</td>
+<td>
+<p>Beleg-Typ (z. B. Auftrag, Angebot, Bestellung, Rechnung, Adresse etc.)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>beleg_belegnr</strong></span></p>
+</td>
+<td>
+<p>Manuell vergebene Belegnummer</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_datum</p>
+</td>
+<td>
+<p>Manuell vergebenes Belegdatum</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_lieferdatum</p>
+</td>
+<td>
+<p>Manuell vergebenes Wunschlieferdatum</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_tatsaechlicheslieferdatum</p>
+</td>
+<td>
+<p>Manuelle Auslieferung Lager im Auftrag</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_versandart</p>
+</td>
+<td>
+<p>Manuell vergebene Versandart</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_status</p>
+</td>
+<td>
+<p>Manuell vergebener Belegstatus. Ersetzt den beim Dateiupload ausgewählten Status</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_hauptbelegnr</p>
+</td>
+<td>
+<p>Haupt-Belegnummer, falls Teilauftrag</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>beleg_kundennummer</strong></span> / <span class="bold"><strong>adresse_kundennummer</strong></span></p>
+</td>
+<td>
+<p>Kundennummer</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>beleg_lieferantennummer</strong></span></p>
+</td>
+<td>
+<p>Lieferantennummer</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_name / adresse_name</p>
+</td>
+<td>
+<p>Name des Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_abteilung / adresse_abteilung</p>
+</td>
+<td>
+<p>Abteilung des Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_unterabteilung / adresse_unterabteilung</p>
+</td>
+<td>
+<p>Unterabteilung des Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_adresszusatz / adresse_adresszusatz</p>
+</td>
+<td>
+<p>Adresszusatz des Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_ansprechpartner / adresse_ansprechpartner</p>
+</td>
+<td>
+<p>Ansprechpartner beim Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_telefon / adresse_telefon</p>
+</td>
+<td>
+<p>Telefonnummer des Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_email / adresse_email</p>
+</td>
+<td>
+<p>E-Mail-Adresse des Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_land / adresse_land</p>
+</td>
+<td>
+<p>Land des Kunden (ISO-3166, z. B. DE, AT, FR)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_strasse / adresse_strasse</p>
+</td>
+<td>
+<p>Straße inkl. Hausnummer des Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_plz / adresse_plz</p>
+</td>
+<td>
+<p>Postleitzahl des Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_ort / adresse_ort</p>
+</td>
+<td>
+<p>Ort des Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_projekt / adresse_projekt</p>
+</td>
+<td>
+<p>Abkürzung aus Xentral</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_ihrebestellnummer</p>
+</td>
+<td>
+<p>Bestellnummer / Kommission aus Xentral</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_aktion</p>
+</td>
+<td>
+<p>Aktionscode aus Xentral</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_internebemerkung</p>
+</td>
+<td>
+<p>Interne Bemerkung aus Xentral</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_internebezeichnung</p>
+</td>
+<td>
+<p>Interne Bezeichnung aus Xentral</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_zahlungsweise</p>
+</td>
+<td>
+<p>Zahlungsweise (Bitte die Spalte "Typ" verwenden)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_zahlungszieltage</p>
+</td>
+<td>
+<p>Beleg-Zahlungsziel</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_zahlungszieltageskonto</p>
+</td>
+<td>
+<p>Beleg-Zahlungsziel Skonto</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_zahlungszielskonto</p>
+</td>
+<td>
+<p>Beleg-Skonto</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_freitext</p>
+</td>
+<td>
+<p>Freitext aus Xentral</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_bodyzusatz</p>
+</td>
+<td>
+<p>Kopftext aus Xentral</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_lieferbedingung</p>
+</td>
+<td>
+<p>Lieferbedingung aus Xentral</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_art</p>
+</td>
+<td>
+<p>Belege im Auto-Versand erstellen (Standardauftrag, Lieferung, Rechnung)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_auftragsnummer</p>
+</td>
+<td>
+<p>Verknüpfung von Rechnungen und Lieferscheinen mit dem Auftrag</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_rechnungsnumer</p>
+</td>
+<td>
+<p>Verknüpfung von Aufträgen, Lieferscheinen und Gutschriften mit der Rechnung</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_bearbeiter</p>
+</td>
+<td>
+<p>Bearbeiter des Beleges</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_sprache</p>
+</td>
+<td>
+<p>Sprache des Belegs</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_liefername</p>
+</td>
+<td>
+<p>Abweichende Lieferadresse – Name</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_lieferabteilung</p>
+</td>
+<td>
+<p>Abweichende Lieferadresse – Abteilung</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_lieferunterabteilung</p>
+</td>
+<td>
+<p>Abweichende Lieferadresse – Unterabteilung</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_lieferland</p>
+</td>
+<td>
+<p>Abweichende Lieferadresse – Land</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_lieferstrasse</p>
+</td>
+<td>
+<p>Abweichende Lieferadresse – Straße</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_lieferort</p>
+</td>
+<td>
+<p>Abweichende Lieferadresse – Ort</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_lieferplz</p>
+</td>
+<td>
+<p>Abweichende Lieferadresse – Postleitzahl</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_lieferadresszusatz</p>
+</td>
+<td>
+<p>Abweichende Lieferadresse – Adresszusatz</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_lieferansprechpartner</p>
+</td>
+<td>
+<p>Abweichende Lieferadresse – Ansprechpartner</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_abschlagauftrag</p>
+</td>
+<td>
+<p>Zur Abschlagsrechnung zugehörige Auftragsnummer</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_abschlagauftragbezeichnung</p>
+</td>
+<td>
+<p>Bezeichnung der Abschlagsrechnung</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_waehrung</p>
+</td>
+<td>
+<p>Währung (z. B. EUR, USD)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_bundesstaat</p>
+</td>
+<td>
+<p>Bundesland / Bundesstaat (ISO-codiert, z. B. BY für Bayern)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>beleg_internet</p>
+</td>
+<td>
+<p>Shopbestellnummer oder Fremdnummer</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>artikel_nummer</strong></span></p>
+</td>
+<td>
+<p>Artikelnummer für Position</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_bezeichnung</p>
+</td>
+<td>
+<p>Bezeichnung für Position</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_beschreibung</p>
+</td>
+<td>
+<p>Beschreibung für Position</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>artikel_menge</strong></span></p>
+</td>
+<td>
+<p>Mengenangabe für Position</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_preis</p>
+</td>
+<td>
+<p>Einzelpreis (netto) für Position</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_preisfuermenge</p>
+</td>
+<td>
+<p>Preis bezieht sich auf folgende Menge (leer = 1)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_waehrung</p>
+</td>
+<td>
+<p>Währung für Position</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_lieferdatum</p>
+</td>
+<td>
+<p>Lieferdatum für Position</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_sort</p>
+</td>
+<td>
+<p>Reihenfolge in Positionstabelle</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_umsatzsteuer</p>
+</td>
+<td>
+<p>Umsatzsteuer (leer = normal, sonst "ermaessigt")</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_steuersatz</p>
+</td>
+<td>
+<p>Steuersatz</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_einheit</p>
+</td>
+<td>
+<p>Einheit für Position</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_rabatt</p>
+</td>
+<td>
+<p>Rabatt für Position (in %)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_zolltarifnummer</p>
+</td>
+<td>
+<p>Zolltarifnummer für Position</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_herkunftsland</p>
+</td>
+<td>
+<p>Herkunftsland für Position</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_artikelnummerkunde</p>
+</td>
+<td>
+<p>Artikelnummer beim Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>artikel_freifeld1 – artikel_freifeld10</p>
+</td>
+<td>
+<p>Freifelder 1 bis 10</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>adresse_typ</p>
+</td>
+<td>
+<p>Anrede des Kunden (firma, herr, frau)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>adresse_ustid</p>
+</td>
+<td>
+<p>USt-IdNr. des Kunden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>adresse_anschreiben</p>
+</td>
+<td>
+<p>Anschreiben bei Kunde</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>adresse_freifeld1 – adresse_freifeld20</p>
+</td>
+<td>
+<p>Freifelder 1 bis 20</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3b675639-8080-d9e2-0112-464bfae6af42" id="UUID-3b675639-8080-d9e2-0112-464bfae6af42_section-idm23509995084027"></a>Schlüsselworte für dynamische Belegnummern (Belegeimporter)</h2>
+</div>
+<p>Der Belegeimporter kennt zwei besondere Steuerworte:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>NEW</strong></span> – Erstellt eine neue Belegnummer auf Basis der Belegart. Beispiel: Jede Zeile mit <span class="bold"><strong>NEW</strong></span> erzeugt einen neuen Beleg.</p>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Keine Mischung mit festen Belegnummern in derselben Datei!</p>
+</div>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>PARENT</strong></span> – Nutzt die Belegnummer der vorherigen Zeile, um mehrere Positionen zu einem Beleg zu gruppieren.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Wenn die erste Zeile <span class="bold"><strong>PARENT</strong></span> ist - also keine Belegnummer mitgegeben wird - wird automatisch <span class="bold"><strong>NEW</strong></span> verwendet.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3b675639-8080-d9e2-0112-464bfae6af42" id="UUID-3b675639-8080-d9e2-0112-464bfae6af42_section-idm235099957415668"></a>Beispielstruktur (Belegeimporter)</h2>
+</div>
+<p><span class="bold"><strong>Beispiel:</strong></span></p>
+<pre class="programlisting">beleg_belegnr;beleg_kundennummer;artikel_bezeichnung;artikel_nummer;artikel_preis;artikel_menge
+203567;10456;Artikel A;A_100001;19.90;1
+PARENT;10456;Artikel B;A_100002;29.90;2
+NEW;10456;Artikel C;A_100003;15.50;1</pre>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>203567</strong></span> = erste Belegnummer (z.B. Rechnung oder Auftrag).</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>PARENT</strong></span> = Artikel B wird dem vorherigen Beleg zugeordnet (gleiche Belegnummer wie Artikel A).</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>NEW</strong></span> = erstellt einen neuen Beleg für Artikel C.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>10456</strong></span> = Kundennummer.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>A_100001</strong></span> / <span class="bold"><strong>A_100002</strong></span> = Artikelnummern aus deinem Beispiel.</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Die erzeugte Belegstruktur basierend auf dem CSV-Beispiel:</strong></span></p>
+<pre class="programlisting">Beleg 203567
+  - Artikel A (A_100001, 19.90 €, Menge 1)
+  - Artikel B (A_100002, 29.90 €, Menge 2)
+
+Beleg 30001  (neu erstellt durch NEW)
+  - Artikel C (A_100003, 15.50 €, Menge 1)</pre>
+<p>So funktioniert’s:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Der erste Artikel bestimmt den Startbeleg (<span class="bold"><strong>203567</strong></span>).</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>PARENT</strong></span> hängt den nächsten Artikel an denselben Beleg an.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>NEW</strong></span> startet einen komplett neuen Beleg mit einer automatisch vergebenen Nummer (hier z. B. <span class="bold"><strong>30001</strong></span>).</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note notice" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Hinweis</h3>
+<p><span class="bold"><strong>Hinweis zu NEW</strong></span>: Nach der ersten Zeile mit <span class="bold"><strong>NEW</strong></span> dürfen <span class="bold"><strong>keine statischen Belegnummern</strong></span> mehr folgen – sonst landen Positionen auf falschen Belegen.</p>
+<p><span class="bold"><strong>Status 'angelegt'</strong></span>: Wenn der Zielstatus '<span class="bold"><strong>angelegt</strong></span>' ist, wird jede Belegnummer ≠ PARENT als NEW behandelt; die temporären <span class="bold"><strong>ENTWURF_X_</strong></span>-Nummern dienen nur der Zuordnung und werden beim finalen Import verworfen.</p>
+<p><span class="bold"><strong>PARENT in der ersten Zeile</strong></span>: Wird wie NEW behandelt (es wird eine neue Belegnummer erzeugt).</p>
+<p><span class="bold"><strong>CSV-Struktur</strong></span>: Eine Position = eine Zeile; die erste Zeile enthält exakt die Feldnamen (aus dem Reiter Formate).</p>
+<p><span class="bold"><strong>Voransicht &amp; Freigabe</strong></span>: Nach Upload Zuweisungen prüfen und erst dann auf „Belege jetzt importieren“ klicken..</p>
+<p><span class="bold"><strong>Stammdaten bleiben unverändert</strong></span>: Abweichungen zu Artikel-/Adress-Stammdaten werden rot angezeigt und gelten nur für den importierten Beleg.</p>
+<p><span class="bold"><strong>Prozessstarter</strong></span>: Der Import wird über einen Prozessstarter ausgeführt – dieser muss aktiv laufen, sonst werden die hochgeladenen Belege nicht verarbeitet.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3b675639-8080-d9e2-0112-464bfae6af42" id="UUID-3b675639-8080-d9e2-0112-464bfae6af42_section-idm235099977193747"></a>Best Practices für den Import (Belegeimporter)</h2>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Vorher CSV in <span class="bold"><strong>Excel oder LibreOffice prüfen</strong></span>, um Formatfehler zu vermeiden.</p>
+</li>
+<li class="listitem">
+<p>Immer die offiziellen Feldnamen aus dem Reiter <span class="bold"><strong>Formate</strong></span> verwenden.</p>
+</li>
+<li class="listitem">
+<p>Bei vielen Belegen den Import zunächst mit einer <span class="bold"><strong>kleinen Testdatei</strong></span> durchführen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Prozessstarter</strong></span> beim Import regelmäßig überwachen - checken, um sicherzustellen, dass der Import läuft.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p><span class="bold"><strong>Technischer Hinweis zu großen Datenmengen:</strong></span></p>
+<p>Für sehr hohe Beleg- und Positionsvolumina empfiehlt sich die Verarbeitung über die <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/6618896113820#UUID-111b6679-d25f-f139-f468-9380f9e785b1">Xentral API</a>, die <a class="link" href="https://help.xentral.com/hc/de/articles/13235039238428-Xentral-Connect-%C3%9Cbersicht" target="_blank" rel="noopener">Shop-Importer</a> oder das <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/16164850902428#UUID-8975f07c-756b-3cdf-6500-9cd416962345">Übertragungsmodul (3PL)</a>. Der Belegeimporter ist nicht für High-Volume-Datenimporte optimiert.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

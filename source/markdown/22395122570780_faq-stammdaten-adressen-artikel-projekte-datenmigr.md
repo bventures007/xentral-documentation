@@ -1,0 +1,11 @@
+## Wie finde ich in Xentral die interne System-ID (z. B. von Artikeln, Projekten, Kategorien, Kunden oder Belegen) – egal ob der Datensatz geöffnet ist oder ich ihn nur in der Liste sehe?
+
+Die **System-ID** ist die interne, eindeutige Kennung eines Datensatzes in Xentral. Sie bleibt stabil und sorgt dafür, dass Einträge eindeutig identifiziert werden – unabhängig von Namen, Artikelnummern oder Projektcodes. Verwechsele sie daher nicht mit fachlichen Kennungen wie SKU oder Projektcode: Die System-ID ist rein intern, aber für viele Abläufe zentral.
+
+Für **Datenimporte ** (z. B. CSV/Excel) hilft die System-ID, Aktualisierungen und Zuordnungen punktgenau auf den richtigen Datensatz zu spielen – etwa Preise einem bestimmten Artikel, Einträge einer Kategorie oder Zeiten einem Projekt zuordnen. In API & Integrationen dient sie als verlässlicher Anker: Externe Systeme können Datensätze damit sicher finden, lesen und aktualisieren sowie Beziehungen zwischen ihnen herstellen. ** Was & wofür?** Die System-ID ist eine interne, eindeutige Zahl je Datensatz (z. B. Artikel, Projekte, Kategorien). Du brauchst sie für zuverlässige Datenimporte, API/Integrationen, Verknüpfungen in Xentral und für Support/Fehlersuche. ** So findest du sie schnell:**
+
+-** Wie finde ich die ID bei einem geöffneten Datensatz?** Oben in der Browser-Adresse (URL) nachsehen – die Zahl am Ende ist die ID. Z.B. Artikel-Datensatz. Adressdatensatz.
+- **Wie finde ich die ID in einer Liste, ohne etwas zu öffnen? ** Über das Stift-/Bearbeiten-Icon hovern; unten im Browser wird die Ziel-Adresse eingeblendet. Oder Rechtsklick → „Link-Adresse kopieren“ und die Zahl am Ende ablesen. (Ich sehe unten keine Adresse. Was tun? Wenn die Statusleiste ausgeblendet ist, einfach Rechtsklick → „Link-Adresse kopieren“ verwenden und dort die Zahl herauslesen.). Z.B. Artikelkategorie, Projekt-ID.** Wichtig zu wissen:**
+
+- Ist die System-ID dasselbe wie Artikelnummer/SKU/Projektcode? Nein. Die System-ID ist eine interne Kennung und unabhängig von fachlichen Nummern.
+- Kann ich die ID ändern? Nein, sie ist fest vergeben.

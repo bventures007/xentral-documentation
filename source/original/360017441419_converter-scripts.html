@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter Scripts</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017441419
+    Titel: Converter Scripts
+    URL: https://help.xentral.com/hc/de/articles/360017441419-Converter-Scripts
+    Erstellt: 2020-11-10T10:41:16Z
+    Aktualisiert: 2023-12-05T10:05:02Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 360004832920
+    Export-Zeitpunkt: 2025-11-16 19:08:45
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Unter Converter Scripts werden in xentral alle Erweiterungen zusammengefasst, die zur Konvertierung von Daten verwendet werden. Darin enthalten sind u.a.:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Dateiimport und -export</p>
+</li>
+<li class="listitem">
+<p>Datentransfer über das Übertragen-Modul in vielen Formaten (CSV, XML, PDF, EDI)</p>
+</li>
+<li class="listitem">
+<p>Datenaustausch über Shopschnittstellen</p>
+</li>
+<li class="listitem">
+<p>Belegimport und Datenmigration</p>
+</li>
+</ul>
+</div>
+<p>xentral bietet bereits viele Connectoren zu externen Diensten. Diese sind meistens über eine proprietäre API-Schnittstelle umgesetzt und daher nicht veränderbar. Daten können aber an verschiedenen Stellen in xentral aus dem System heraus exportiert und anderen Diensten zur Verfügung gestellt werden. Dabei sind die Möglichkeiten für Ausgabeformate beinahe unbegrenzt, eingehende Nachrichten sind jedoch meist von korrekter Interpretation der Datenstrukturen abhängig und daher nur bedingt anpassbar.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-0"></a>Modul Übertragungen (CSV/XML/EDI/PDF)</h2>
+</div>
+<p>Ein Tool zur Verarbeitung aus- und eingehender Daten ist das <a class="link linktype-component" href="https://help.xentral.com/hc/articles/360016738020#UUID-88dc60e8-820c-bd05-95e8-2d31e5ff7ec9" title="Übertragungen (CSV/XML/EDI/PDF)">Modul Übertragungen (CSV/XML/EDI/PDF)</a>. Dort stehen diverse Ein- und Ausgabeformate zur Verfügung, es lassen sich aber eigene Formate definieren. Die flexibelste Lösung zum Datentransfer von Listen bietet das CSV-Format. Da die Spalten durch die Spaltenbeschriftung eindeutig zuordenbar sind, kann dieses Format auch flexibel auf eingehende Daten reagieren.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-1"></a>Ausgehende Daten manipulieren</h3>
+</div>
+<p>Mit Hilfe der integrierten <a class="link" href="https://www.smarty.net/" target="_blank" rel="noopener">Template-Engine Smarty</a> können flexibel zeichenbasierte Ausgabestrukturen von Datenformaten wie CSV, XML oder JSON an die Bedürfnisse des Kunden angepasst werden. Es muss lediglich das vorhandene Zielformat in eine Textdatei kopiert und mit den entsprechenden Variablen gefüllt werden. Diese können dabei noch umformatiert werden.</p>
+<p>Belegdaten befinden sich z.B. in der Smarty-Variable $beleg und werden in gewohnter PHP-Objektschreibweise angesprochen, z.B. $beleg-&gt;kundennummer oder $beleg-&gt;belegnr. Die Namensgebung gleicht der Benennung von Datenbank-Spaltennamen. Auch ein Zugriff auf komplexere Strukturen ist je nach Beleg möglich. So kann im Lieferschein auf den zugrundeliegenden Auftrag zugegriffen werden: $beleg-&gt;auftrag-&gt;lieferdatum.</p>
+<p><span class="bold bold"><strong>Verkürztes Beispiel mit fiktivem Format</strong></span></p>
+<pre class="programlisting"><code class="code">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;lieferschein&gt;
+
+         {* Beleg-Stammdaten -------------------------------- *} 
+         &lt;status&gt;{$beleg-&gt;status}&lt;/status&gt;
+         &lt;datum&gt;{$beleg-&gt;datum|date_format:'%d.%m.%Y'}&lt;/datum&gt;
+         &lt;belegnummer&gt;{$beleg-&gt;belegnr}&lt;/belegnr&gt;
+         &lt;kundennummer&gt;{$beleg-&gt;kundennummer}&lt;/kundennummer&gt;
+         &lt;kundenname&gt;{$beleg-&gt;name}&lt;/kundenname&gt;
+
+         {* Zugriff auf Daten des zugrundeliegenden Auftrages *} 
+         &lt;lieferdatum&gt;{$beleg-&gt;auftrag-&gt;lieferdatum}&lt;/lieferdatum&gt;
+         {* Weitere Felder entfernt *} 
+
+         {* Positionen - Beginn ------------------------------ *} 
+         &lt;positionen&gt;
+
+                {* Schleife durchläuft alle verfügbaren Positionen *} 
+                {foreach from=$beleg-&gt;positionen key=keypos item=position}
+                &lt;position&gt;
+                        &lt;artikelnummer&gt;{$position-&gt;nummer}&lt;/artikelnummer&gt;
+                        &lt;artikelbezeichnung&gt;{$position-&gt;bezeichnung}&lt;/artikelbezeichnung&gt;
+                        &lt;artikelbeschreibung&gt;{$position-&gt;beschreibung}&lt;/artikelbeschreibung&gt;
+                        &lt;menge&gt;{$position-&gt;menge}&lt;/menge&gt;
+                        &lt;preis&gt;{$position-&gt;preis}&lt;/preis&gt;
+                        &lt;ean&gt;{$position-&gt;articledata-&gt;ean}&lt;/ean&gt;
+                        {* Weitere Felder entfernt *} 
+                 &lt;/position&gt;
+                {/foreach}
+
+        &lt;/positionen&gt;
+        {* Positionen - Ende -------------------------------- *} 
+&lt;/lieferschein&gt;
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-2"></a>Zusatzdaten aus den Stammdaten</h3>
+</div>
+<p>Über die übermittelten Daten hinaus, kann auch auf zusätzliche Daten, z.B. aus den Artikelstammdaten, zugegriffen werden. Diese sind über das Objekt articledata referenzierbar, wie im obigen Beispiel durch die EAN dargestellt. Alle Spalten der Artikeltabelle sind über diese Notation ansprechbar, also z.B. auch die Freifelder des Artikels, die im Auftrag selbst ggf. mit anderen Werten belegt sein können.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="idm45965079246720"></a>Formatumwandlung</h3>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-4"></a>Datumswerte</h4>
+</div>
+<p>Datumswerte können nach Anforderung ausgegeben werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Int. Datumsformat (ISO 8601):</p>
+<pre class="programlisting"><code class="code">  {$beleg-&gt;datum|date_format:'%Y-%m-%d'}
+</code></pre>
+</li>
+<li class="listitem">
+<p>Deutsches Datumsformat (DIN 5008):</p>
+<pre class="programlisting"><code class="code">  {$beleg-&gt;datum|date_format:'%d.%m.%Y'}
+</code></pre>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-5"></a>Zahlen</h4>
+</div>
+<p>Zahlen können nach Bedarf formatiert werden. Hier am Beispiel der Spalte "Menge":</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Ausgabe ohne Nachkommastellen (als Ganzzahl):</p>
+<pre class="programlisting"><code class="code">  {$position-&gt;menge|string_format:'%d'}
+</code></pre>
+</li>
+<li class="listitem">
+<p>Ausgabe mit einer Nachkommastelle:</p>
+<pre class="programlisting"><code class="code">  {$position-&gt;menge|string_format:'%.1f'}
+</code></pre>
+</li>
+<li class="listitem">
+<p>Ausgabe mit zwei Nachkommastellen:</p>
+<pre class="programlisting"><code class="code">  {$position-&gt;menge|string_format:'%.2f'}
+</code></pre>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-6"></a>Texte</h4>
+</div>
+<p>Bei einigen Ausgabeformaten sind die Textlängen für ausgegebene Texte zu formatieren. Dazu eignet sich die</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Ausgabe fester Länge mit führenden Leerzeichen:</p>
+<pre class="programlisting"><code class="code">  {$position-&gt;nummer|string_format:'%10s'}, Ausgabe: " abcdef"
+</code></pre>
+</li>
+<li class="listitem">
+<p>Ausgabe fester Länge mit führenden Nullen:</p>
+<pre class="programlisting"><code class="code">  {$position-&gt;nummer|string_format:'%010s'}, Ausgabe: "0000abcdef"
+</code></pre>
+</li>
+</ul>
+</div>
+<p>Grundsätzlich können alle Formate ausgegeben werden, die durch die <a class="link" href="https://www.php.net/manual/de/function.sprintf.php" target="_blank" rel="noopener">Funktion sprintf</a> in PHP verfügbar sind.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-7"></a>Beispiele</h3>
+</div>
+<p>Im Folgenden sind einige Beispiele zusammengefasst, die die Ausgabe verschiedener Lieferscheinformate in den Formaten EDI, CSV und XML ermöglichen. Dabei sind die Spaltenbeschriftungen (CSV), Tagnamen (XML) und EDI-Spezifikationen zu prüfen. Weitere Ausgabeformate wie z.B. JSON sind denkbar.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-8"></a>Beispiel Lieferschein CSV (ausführlich)</h4>
+</div>
+<p>Im Folgenden wird ein ausführliches Beispiel für den Export eines Lieferscheines in verschiedenen Formaten aufgelistet.</p>
+<p>Format EDI</p>
+<pre class="programlisting"><code class="code">- wird ergänzt -
+</code></pre>
+<p><span class="bold bold"><strong>Format CSV</strong></span></p>
+<p><code class="code">"tracking";"beleg_status";"beleg_datum";"beleg_lieferdatum";"beleg_tatsaechlicheslieferdatum";"beleg_versandart";"beleg_zahlungsweise";"beleg_belegnr";"beleg_hauptbelegnr";"beleg_kundennummer";"beleg_name";"beleg_abteilung";"beleg_unterabteilung";"beleg_adresszusatz";"beleg_ansprechpartner";"beleg_telefon";"beleg_email";"beleg_land";"beleg_strasse";"beleg_plz";"beleg_ort";"beleg_projekt";"beleg_aktion";"beleg_internebemerkung";"beleg_internebezeichnung";"beleg_freitext";"beleg_ihrebestellnummer";"beleg_lieferbedingung";"beleg_art";"artikel_nummer";"artikel_bezeichnung";"artikel_beschreibung";"artikel_menge";"artikel_preis";"artikel_rabatt";"artikel_waehrung";"artikel_lieferdatum";"artikel_sort";"artikel_umsatzsteuer";"artikel_einheit";"artikel_zolltarifnummer";"artikel_herkunftsland";"artikel_artikelnummerkunde";"wunschlieferdatum";"artikel_freifeld1";"artikel_freifeld2";"artikel_freifeld3";"artikel_freifeld40"</code></p>
+<pre class="programlisting"><code class="code">{foreach from=$beleg-&gt;positionen key=keyrow item=position}{* Positionen *}\
+"{$position-&gt;tracking}";\
+"{$beleg-&gt;status}";\
+"{$beleg-&gt;datum|date_format:'%d.%m.%Y'}";\
+"{$beleg-&gt;lieferdatum}";\
+"{$beleg-&gt;tatsaechlicheslieferdatum}";\
+"{$beleg-&gt;versandart}";\
+"{$beleg-&gt;zahlungsweise}";\
+"{$beleg-&gt;belegnr}";\
+"{$beleg-&gt;hauptbelegnr}";\
+"{$beleg-&gt;kundennummer}";\
+"{$beleg-&gt;name}";\
+"{$beleg-&gt;abteilung}";\
+"{$beleg-&gt;unterabteilung}";\
+"{$beleg-&gt;adresszusatz}";\
+"{$beleg-&gt;ansprechpartner}";\
+"{$beleg-&gt;telefon}";\
+"{$beleg-&gt;email}";\
+"{$beleg-&gt;land}";\
+"{$beleg-&gt;strasse}";\
+"{$beleg-&gt;plz}";\
+"{$beleg-&gt;ort}";\
+"{$beleg-&gt;projekt}";\
+"{$beleg-&gt;aktion}";\
+"{$beleg-&gt;internebemerkung}";\
+"{$beleg-&gt;internebezeichnung}";\
+"{$beleg-&gt;freitext}";\
+"{$beleg-&gt;ihrebestellnummer}";\
+"{$beleg-&gt;lieferbedingung}";\
+"{$beleg-&gt;art}";\
+"{$position-&gt;nummer}";\
+"{$position-&gt;bezeichnung}";\
+"{$position-&gt;beschreibung}";\
+"{$position-&gt;menge|string_format:'%.2f'}";\
+"{$position-&gt;preis}";\
+"{$position-&gt;rabatt}";\
+"{$position-&gt;waehrung}";\
+"{$position-&gt;lieferdatum}";\
+"{$position-&gt;sort}";\
+"{$position-&gt;umsatzsteuer}";\
+"{$position-&gt;einheit}";\
+"{$position-&gt;zolltarifnummer}";\
+"{$position-&gt;herkunftsland}";\
+"{$position-&gt;artikelnummerkunde}";\
+"{$beleg-&gt;auftrag-&gt;lieferdatum}";\
+"{$position-&gt;freifeld1}";\
+"{$position-&gt;freifeld2}";\
+"{$position-&gt;freifeld3}";\
+{* Ggf. weitere Freifelder *}";\
+"{$position-&gt;freifeld40}";\
+
+{/foreach}
+</code></pre>
+<p><span class="bold bold"><strong>Format XML</strong></span></p>
+<pre class="programlisting"><code class="code">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;lieferschein&gt;
+
+        &lt;status&gt;{$beleg-&gt;status}&lt;/status&gt;
+        &lt;datum&gt;{$beleg-&gt;datum|date_format:'%d.%m.%Y'}&lt;/datum&gt;
+        &lt;lieferdatum&gt;{$beleg-&gt;lieferdatum}&lt;/lieferdatum&gt;
+        &lt;tatsaechlicheslieferdatum&gt;{$beleg-&gt;tatsaechlicheslieferdatum}&lt;/tatsaechlicheslieferdatum&gt;
+        &lt;versandart&gt;{$beleg-&gt;versandart}&lt;/versandart&gt;
+        &lt;zahlungsweise&gt;{$beleg-&gt;zahlungsweise}&lt;/zahlungsweise&gt;
+        &lt;belegnr&gt;{$beleg-&gt;belegnr}&lt;/belegnr&gt;
+        &lt;hauptbelegnr&gt;{$beleg-&gt;hauptbelegnr}&lt;/hauptbelegnr&gt;
+        &lt;kundennummer&gt;{$beleg-&gt;kundennummer}&lt;/kundennummer&gt;
+        &lt;name&gt;{$beleg-&gt;name}&lt;/name&gt;
+        &lt;abteilung&gt;{$beleg-&gt;abteilung}&lt;/abteilung&gt;
+        &lt;unterabteilung&gt;{$beleg-&gt;unterabteilung}&lt;/unterabteilung&gt;
+        &lt;adresszusatz&gt;{$beleg-&gt;adresszusatz}&lt;/adresszusatz&gt;
+        &lt;ansprechpartner&gt;{$beleg-&gt;ansprechpartner}&lt;/ansprechpartner&gt;
+        &lt;telefon&gt;{$beleg-&gt;telefon}&lt;/telefon&gt;
+        &lt;email&gt;{$beleg-&gt;email}&lt;/email&gt;
+        &lt;land&gt;{$beleg-&gt;land}&lt;/land&gt;
+        &lt;strasse&gt;{$beleg-&gt;strasse}&lt;/strasse&gt;
+        &lt;plz&gt;{$beleg-&gt;plz}&lt;/plz&gt;
+        &lt;ort&gt;{$beleg-&gt;ort}&lt;/ort&gt;
+        &lt;projekt&gt;{$beleg-&gt;projekt}&lt;/projekt&gt;
+        &lt;aktion&gt;{$beleg-&gt;aktion}&lt;/aktion&gt;
+        &lt;internebemerkung&gt;{$beleg-&gt;internebemerkung}&lt;/internebemerkung&gt;
+        &lt;internebezeichnung&gt;{$beleg-&gt;internebezeichnung}&lt;/internebezeichnung&gt;
+        &lt;freitext&gt;{$beleg-&gt;freitext}&lt;/freitext&gt;
+        &lt;ihrebestellnummer&gt;{$beleg-&gt;ihrebestellnummer}&lt;/ihrebestellnummer&gt;
+        &lt;lieferbedingung&gt;{$beleg-&gt;lieferbedingung}&lt;/lieferbedingung&gt;
+        &lt;art&gt;{$beleg-&gt;art}&lt;/art&gt;
+        &lt;positionen&gt;
+
+        {foreach from=$beleg-&gt;positionen key=keypos item=position}
+                &lt;position&gt;
+                &lt;nummer&gt;{$position-&gt;nummer}&lt;/nummer&gt;
+                &lt;bezeichnung&gt;{$position-&gt;bezeichnung}&lt;/bezeichnung&gt;
+                &lt;beschreibung&gt;{$position-&gt;beschreibung}&lt;/beschreibung&gt;
+                &lt;menge&gt;{$position-&gt;menge}&lt;/menge&gt;
+                &lt;preis&gt;{$position-&gt;preis}&lt;/preis&gt;
+                &lt;rabatt&gt;{$position-&gt;rabatt}&lt;/rabatt&gt;
+                &lt;waehrung&gt;{$position-&gt;waehrung}&lt;/waehrung&gt;
+                &lt;lieferdatum&gt;{$position-&gt;lieferdatum}&lt;/lieferdatum&gt;
+                &lt;sort&gt;{$position-&gt;sort}&lt;/sort&gt;
+                &lt;umsatzsteuer&gt;{$position-&gt;umsatzsteuer}&lt;/umsatzsteuer&gt;
+                &lt;einheit&gt;{$position-&gt;einheit}&lt;/einheit&gt;
+                &lt;zolltarifnummer&gt;{$position-&gt;zolltarifnummer}&lt;/zolltarifnummer&gt;
+                &lt;herkunftsland&gt;{$position-&gt;herkunftsland}&lt;/herkunftsland&gt;
+                &lt;artikelnummerkunde&gt;{$position-&gt;artikelnummerkunde}&lt;/artikelnummerkunde&gt;
+                &lt;freifeld1&gt;{$position-&gt;freifeld1}&lt;/freifeld1&gt;
+                &lt;freifeld2&gt;{$position-&gt;freifeld2}&lt;/freifeld2&gt;
+                &lt;freifeld3&gt;{$position-&gt;freifeld3}&lt;/freifeld3&gt;
+                {* Ggf. weitere Freifelder *} 
+                &lt;freifeld40&gt;{$position-&gt;freifeld40}&lt;/freifeld40&gt;
+        &lt;/position&gt;
+ {/foreach}
+
+        &lt;/positionen&gt;
+        {if $beleg-&gt;versand}
+{foreach from=$beleg-&gt;versand key=keyversand item=tracking} {* Versand *}
+        &lt;tracking&gt;{$tracking-&gt;tracking}&lt;/tracking&gt;
+{/foreach}
+{/if}
+&lt;/lieferschein&gt;
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-9"></a>Beispiel Lieferschein mit MHD</h4>
+</div>
+<p>Im Folgenden werden Beispiele als Ergänzung zu obigen Code-Beispielen gezeigt, die nur Besonderheiten in Bezug auf MHDs in einer Position berücksichtigen.</p>
+<p><span class="bold bold"><strong>Format CSV</strong></span></p>
+<pre class="programlisting"><code class="code">- wird ergänzt -
+</code></pre>
+<p><span class="bold bold"><strong>Format XML</strong></span></p>
+<pre class="programlisting"><code class="code">- wird ergänzt -
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-10"></a>Beispiel Lieferschein mit Charge</h4>
+</div>
+<p>Nachstehend werden Beispiele als Ergänzung zu obigen Code-Beispielen angegeben, die nur die Besonderheiten in Bezug auf Chargen in einer Position berücksichtigen.</p>
+<p><span class="bold bold"><strong>Format CSV</strong></span></p>
+<pre class="programlisting"><code class="code">- wird ergänzt -
+</code></pre>
+<p><span class="bold bold"><strong>Format XML</strong></span></p>
+<pre class="programlisting"><code class="code">- wird ergänzt -
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-11"></a>Beispiel Lieferschein mit Charge und MHD</h4>
+</div>
+<p>Im Folgenden werden Beispiele als Ergänzung zu obigen Code-Beispielen gezeigt, die nur die Besonderheiten in Bezug auf MHDs und Chargen in einer Position berücksichtigen.</p>
+<p><span class="bold bold"><strong>Format CSV</strong></span></p>
+<pre class="programlisting"><code class="code">- wird ergänzt -
+</code></pre>
+<p><span class="bold bold"><strong>Format XML</strong></span></p>
+<pre class="programlisting"><code class="code">- wird ergänzt -
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-12"></a>Beispiel Auftrag</h4>
+</div>
+<p>Die Option ist nur bei direktem Fulfillment ohne Autoversand anwendbar. Diese sollte genau geprüft werden, meist ist die Übertragung von Lieferscheinen der optimale Weg.</p>
+<p><span class="bold bold"><strong>Format EDI</strong></span></p>
+<pre class="programlisting"><code class="code">- wird ergänzt -
+</code></pre>
+<p><span class="bold bold"><strong>Format CSV</strong></span></p>
+<pre class="programlisting"><code class="code">- wird ergänzt -
+</code></pre>
+<p><span class="bold bold"><strong>Format XML</strong></span></p>
+<pre class="programlisting"><code class="code">- wird ergänzt -
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-13"></a>Shop Importer Script</h2>
+</div>
+<p>Shop-Schnittstellen (sog. "Importer") können kundenspezifisch erstellt oder überladen werden. Bereits im Import-Prozess können Daten verändert oder angereichert werden, auch die komplexere Umwandlung von Datenstrukturen ist möglich.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-14"></a>Einleitung</h3>
+</div>
+<p>Bei xentral wird großer Wert auf die Anbindung sowie die automatische Verarbeitung von Bestellungen in Online-Shops gelegt. Daher bietet xentral Schnittstellen zu diversen Shops an. Obwohl fast jeder Shop eine Schnittstelle besitzt, treten manchmal Probleme mit der Kompatibilität der anzubindenden Schnittstellen auf. Ein Importer, der als Adapter zwischen xentral und der Online-Shops-Schnittstelle dient, kann entwickelt werden. Dieser tritt als Middleware auf und übersetzt die Daten der Bestellungen aus dem Shop in ein Format, aus dem xentral wiederum Aufträge erstellen kann. Umgekehrt ist der Importer auch dafür zuständig, den Bestellstatus, Artikeldaten und Lagerzahlen an den Shop zu übertragen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-16"></a>Der Ablauf innerhalb des Shop-Importers</h3>
+</div>
+<p>Der Ablauf innerhalb des Importers folgt immer einem festen Schema. Wenn bspw. Aufträge aus dem Shop abzuholen sind, wird zunächst geprüft, ob eine Verbindung zur Shop-Schnittstelle besteht. Anschließend wird ermittelt ob bzw. wie viele Aufträge im Shop abgeholt werden sollen. Wenn es Aufträge zur Abholung vorhanden sind, werden diese importiert und anschließend im Shop als „In Bearbeitung“ markiert. Wenn Artikel aus dem Shop importiert oder in den Shop exportiert werden, gilt ein ähnliches Schema. Zunächst erfolgt die Prüfung, ob eine Verbindung zwischen xentral und dem Shop besteht, anschließend werden die Daten übertragen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996448869916" style="" alt="ShopImporterScript-1.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-17"></a>Grundlagen</h3>
+</div>
+<p>Es ist die vorgegebene Struktur einzuhalten, wenn ein Importer geschrieben wird. Einige Punkte sind im Vorfeld festzulegen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Name</p>
+<p>Per Konvention wird der Klassenname aus „Shopimporter_XXX“ zusammengesetzt. In diesem Beispiel wird ein spezieller Importer für Shopware entwickelt, weshalb die Klasse auch den Namen Shopimporter_Shopwarespecial trägt. Die Datei selbst entspricht dem Klassenname in Kleinbuchstaben und wird im www/pages/ Verzeichnis der xentral-Installation abgelegt, also beispielsweise /var/home/www/html/xentral/www/pages/shopimporter_shopwarespecial.php.</p>
+</li>
+<li class="step">
+<p>Datenbankeintrag</p>
+<p>Wird ein neuer Importer über die Oberfläche zum System hinzugefügt, wird in der Datenbank in der Tabelle „Shopexport“ ein neuer Eintrag angelegt. Da dieser Importer jedoch eine Spezialanfertigung ist, muss in diesem Fall der Name des Importers selbst in diese Tabelle eingetragen werden. Wichtig ist dabei, dass der Modulname dem Namen der PHP-Datei entspricht.</p>
+</li>
+<li class="step">
+<p>ShopimporterBase</p>
+<p>Allen internen Importern liegt die Klasse „ShopimporterBase“ zugrunde. Die Klasse beinhaltet systemrelevante Funktionen, welche die Ausführung des Importers gewährleisten. Prinzipiell sollte jeder Importer von der Basisklasse ShopimporterBase abgeleitet sein, um sicherzustellen, dass diese Funktionen auch tatsächlich vorhanden sind:</p>
+<pre class="programlisting"><code class="code">class Shopimporter_Shopwarespecial extends ShopimporterBase
+{
+</code></pre>
+</li>
+<li class="step">
+<p>Boilerplate</p>
+<p>Zwei Variablen sind für die Verwendung der Importer relevant:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>$app beinhaltet die Applikation xentrals selbst und wird im Konstruktor übergeben. Der Importer kann, ohne zusätzliche Aktionen, die Kernfunktionalität von xentral nutzen.</p>
+</li>
+<li class="listitem">
+<p>$intern gibt an, ob die Actionhandler für das Objekt initialisiert werden müssen. Dadurch ist es möglich, das Objekt anderweitig zu instanziieren und zu verwenden</p>
+<p>/** * @var bool */ public $intern = false;</p>
+<p>/** * @var Application */ public $app;</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="step">
+<p>Konstruktor</p>
+<p>Im Konstruktor werden zwei Parameter übergeben; $app und $intern werden direkt im Objekt hinterlegt, um später bei Bedarf angesprochen zu werden. Als erste Logik im Modul wird geprüft, ob für das Modul Actionhandler registriert werden sollen.</p>
+<p>Es gibt einige Actionhandler, die registiert werden können – in diesem Beispiel findet eine Orientierung an den grundlegenden Funktionen statt, die jeder Shopimporter beinhalten sollte. Es empfiehlt sich, die Funktionsnamen wie vorgegeben zu übernehmen, um die Kompatibilität zu gewährleisten. Eine Auflistung der Funktionen sowie die Rolle, die sie im Importer übernehmen, folgt im weiteren Verlauf.</p>
+<pre class="programlisting"><code class="code">public function __construct($app, $intern = false)
+{
+        $this-&gt;app=$app;
+        $this-&gt;intern = true;
+        if($intern)
+{
+        return;
+}
+$this-&gt;app-&gt;ActionHandlerInit($this);
+
+$this-&gt;app-&gt;ActionHandler('auth','ImportAuth');
+$this-&gt;app-&gt;ActionHandler('sendlist','ImportSendList');
+$this-&gt;app-&gt;ActionHandler('sendlistlager','ImportSendListLager');
+$this-&gt;app-&gt;ActionHandler('getauftraegeanzahl','ImportGetAuftraegeAnzahl');
+$this-&gt;app-&gt;ActionHandler('getauftrag','ImportGetAuftrag');
+$this-&gt;app-&gt;ActionHandler('deleteauftrag','ImportDeleteAuftrag');
+$this-&gt;app-&gt;ActionHandler('updateauftrag','ImportUpdateAuftrag');
+
+$this-&gt;app-&gt;DefaultActionHandler('list');
+$this-&gt;app-&gt;ActionHandlerListen($app);
+}
+</code></pre>
+</li>
+<li class="step">
+<p>EinstellungenStruktur</p>
+<p>Da jede Shop-Schnittstelle eigene Einstellungsmöglichkeiten hat, ist es notwendig, dem Importer diese Einstellungsmöglichkeiten über die Funktion EinstellungenStruktur() zu geben. Hier übergebene Felder werden im Oberflächen-Formular des Importers angezeigt. Bei Bedarf können auch weitere Felder angelegt werden.</p>
+<pre class="programlisting"><code class="code">public function EinstellungenStruktur()
+{
+        return
+        array(
+                'felder'=&gt;array(
+        'APIUser'=&gt;array('typ'=&gt;'text','bezeichnung'=&gt;'{|API User:','size'=&gt;40),
+        'APIKey'=&gt;array('typ'=&gt;'text','bezeichnung'=&gt;'{|API Key|}:','size'=&gt;40),
+        'APIUrl'=&gt;array('typ'=&gt;'text','bezeichnung'=&gt;'{|API Url|}:','size'=&gt;40),
+        ));
+}
+</code></pre>
+</li>
+<li class="step">
+<p>getKonfig</p>
+<p>Die letzte Funktion ist getKonfig(). Diese übergibt die Daten aus den Einstellungen sowie die ID des Shopimporters an das Objekt. Im Parameter $data sind Anweisungen für die einzelnen Funktionen vorhanden. Diese Funktion wird vom System bei der Initialisierung des Objekts aufgerufen.</p>
+<pre class="programlisting"><code class="code">public function getKonfig($shopid, $data)
+{
+        $this-&gt;shopid = $shopid;
+        $this-&gt;data = $data;
+        $einstellungen = $this-&gt;app-&gt;DB-&gt;Select("SELECT einstellungen_json FROM shopexport WHERE id = '$shopid' LIMIT 1");
+        if($einstellungen){
+                $einstellungen = json_decode($einstellungen,true);
+                $this-&gt;apiUser = $einstellungen['felder']['APIUser'];
+                $this-&gt;apiKey = $einstellungen['felder']['APIKey'];
+                $this-&gt;apiUrl = $einstellungen['felder']['APIUrl'];
+        }
+}
+</code></pre>
+<p>Nachdem die Grundlagen für den Importer vorhanden sind, kommt es zur eigentlichen Verbindung zu Shopware. Es ist möglich, die komplette Kommunikation in eine eigene Klasse auszulagern oder, im Falle von Shopware, die Klasse aus der Dokumentation zu kopieren. Zur Vereinfachung ist für dieses Beispiel aber eine kurze Funktion ausreichend, welche die Antwort der API zurückgibt:</p>
+<pre class="programlisting"><code class="code">protected function call($endpoint, $method, $data=array(),$params=array()){
+        $queryString = '';
+        if (!empty($params)) {
+                $queryString = '?'.http_build_query($params);
+        }
+        $url = $this-&gt;apiUrl.$endpoint.$queryString;
+        $dataString = json_encode($data);
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false);
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        curl_setopt($curl, CURLOPT_USERPWD, $this-&gt;apiUser . ':' . $this-&gt;apiKey);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, ['Content-Type: application/json; charset=utf-8']);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $dataString);
+        return curl_exec($curl);
+}
+</code></pre>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-18"></a>Funktion ImportAuth</h3>
+</div>
+<p>Es sind alle Voraussetzungen zu erfüllen: Zunächst ist die Funktion ImportAuth() zu verwenden. Im externen Importer ist diese Funktion für die Authentifizierung von xentral zum Importer notwendig, in internen Importern prüft die Funktion den Verbindungsaufruf zur API. Da diese Funktion jedes Mal aufgerufen wird, wenn der Importer in Aktion treten soll, liegt hier eine Anfrage oder ein Mechanismus zum Erstellen eines Tokens zugrunde. Wichtig ist dabei die Rückgabe von success, um mitzuteilen, dass der Importer bereit ist, Anweisungen entgegenzunehmen und an die Shop API weiterzuleiten.</p>
+<pre class="programlisting"><code class="code">public function ImportAuth()
+{
+        $params = ['limit' =&gt; 1];
+        $responseJson  =$this-&gt;call('articles','GET',null, $params);
+        $response = json_decode($responseJson,true);
+
+        if($response['success']){
+                return 'success';
+        }
+
+        return '';
+}
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-19"></a>Funktion ImportSendListLager</h3>
+</div>
+<p>Die Funktion ImportSendListLager() wird zusätzlich hinzugefügt. Wenn die Option für das Übertragen von Lagerzahlen in den Importeinstellungen aktiviert ist, führt diese Funktion zu einer Synchronisation der Bestände im Shop mit den Beständen in xentral. In diesem Beispiel geschieht das über die Artikelnummer. Es ist zu beachten, dass für diese Funktion im data-Parameter des Importer-Objekts die Daten für den zu aktualisierenden Artikel vorhanden sind.</p>
+<pre class="programlisting"><code class="code">public function ImportSendListLager()
+{
+        $updatedArticles = 0;
+        $tmp = $this-&gt;CatchRemoteCommand('data');
+        foreach ($tmp as $article){
+                $nummer = $article['nummer'];
+                $lageranzahl = $article['anzahl_lager'];
+
+                $updateInStock = [
+                        'mainDetail' =&gt; [
+                'inStock' =&gt; $lageranzahl
+                        ]
+                ];
+
+                $params = [
+                        'useNumberAsId'=&gt;true
+                ];
+
+                $result = $this-&gt;call('articles/'.$nummer, 'PUT',$updateInStock, $params);
+                if($result['success']){
+                        $updatedArticles++;
+                }
+        }
+        return $updatedArticles;
+}
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-20"></a>Funktion ImportSendList</h3>
+</div>
+<p>Die Funktion ImportSendList() ist eine Version von ImportSendListLager(). Diese Funktion überträgt Artikel an den Shop bzw. aktualisiert deren Daten. So können Artikeleigenschaften oder Bilder an den Shop übertragen werden. Von der jeweiligen Shop-Schnittstelle hängt ab, wie und welche Daten übertragen werden können.</p>
+<p>Es sollte auf die Trennung der beiden Funktionen geachtet werden, da ImportSendList nur in zwei Fällen aufgerufen wird:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Manueller Export des Artikels</p>
+</li>
+<li class="step">
+<p>Export des Artikels über die Artikel-Übertragung im Importer</p>
+<pre class="programlisting"><code class="code"> $articleData = [
+    'name' =&gt; $name,
+        'lastStock' =&gt; $laststock,
+        'tax' =&gt; $tax, // alternativ 'taxId' =&gt; 1,
+        'supplier' =&gt; $supplier, // alternativ 'supplierId' =&gt; 2,
+        'description' =&gt; $description,
+        'descriptionLong' =&gt; $description_long,
+        'keywords' =&gt; $keywords,
+        'metaTitle' =&gt; $metatitle,
+        'highlight' =&gt; $topseller,
+        'mainDetail' =&gt; [
+                'number' =&gt; $articleNumber,
+                'active' =&gt; $active,
+                'ean' =&gt; $ean,
+                'weight' =&gt; $weight,
+                'width' =&gt; $width,
+                'len' =&gt; $length,
+                'height' =&gt; $height,
+                'supplierNumber' =&gt; $supplierNumber,
+                'inStock' =&gt; $lageranzahl,
+                'prices' =&gt; $prices
+        ]
+ ];
+</code></pre>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-21"></a>Funktion ImportGetAuftraegeAnzahl</h3>
+</div>
+<p>In der Funktion ImportGetAuftraegeAnzahl wird ermittelt, wie viele offene Bestellungen im Shop vorhanden sind und abgeholt werden müssen. Denkbar ist das Abholen über den Status, ab einer bestimmten Bestellnummer oder aber auch über das Bestelldatum. Je nach Shopschnittstelle sind nicht alle Optionen realisierbar.</p>
+<pre class="programlisting"><code class="code">public function ImportGetAuftraegeAnzahl()
+{
+        $result = $this-&gt;getOrders($this-&gt;data);
+
+        return count($result['data']);
+}
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-22"></a>Funktion ImportGetAuftrag</h3>
+</div>
+<p>Die wichtigste Grundfunktion aller Importer ist das Abholen und Übersetzen der Bestellungen aus dem Shop in das Warenkorbformat von xentral. Nachdem die Bestellung von der Shop API abgeholt wurde, werden im ersten Schritt die Adressdaten des Kunden an den Warenkorb übergeben:</p>
+<pre class="programlisting"><code class="code">$cart['anrede'] = 'herr';
+$cart['strasse'] = $order['data']['billing']['street'];
+$cart['plz'] = $order['data']['billing']['zipCode'];
+$cart['ort'] = $order['data']['billing']['city'];
+$cart['land'] = $order['data']['billing']['country']['iso'];
+$cart['email'] = $order['data']['customer']['email'];
+$cart['name'] = $order['data']['billing']['firstName'] . ' ' . $order['data']['billing']['lastName'];
+</code></pre>
+<p>Falls eine abweichende Lieferadresse vorliegt, muss diese ebenfalls übergeben werden und das Feld abweichendelieferadresse ist mit true zu befüllen, um zu gewährleisten, dass der Auftrag beim richtigen Empfänger ankommt. Zudem gibt es wichtige Daten, die für die weitere Verarbeitung von Bedeutung sind.</p>
+<pre class="programlisting"><code class="code">$cart['auftrag'] = $orderFromCollection['id'];
+$cart['gesamtsumme'] = $orderFromCollection['invoiceAmount'];
+$cart['transaktionsnummer'] = $orderFromCollection['transactionId'];
+$cart['onlinebestellnummer'] = $orderFromCollection['number'];
+...
+$cart['zahlungsweise'] = $order['data']['payment']['name'];
+$cart['lieferung'] = $order['data']['dispatch']['name'];
+$cart['bestelldatum'] = substr($order['data']['orderTime'],0,10);
+$cart['versandkostennetto'] = $order['data']['invoiceShippingNet'];
+</code></pre>
+<p><span class="bold bold"><strong>Gesamtsumme:</strong></span></p>
+<p>Die Gesamtsumme des Auftrags dient als Absicherung gegen einen falsch zusammengesetzten Warenkorb. Falls Artikeldaten nicht richtig übergeben wurden oder ein Problem mit der Besteuerung auftritt, weicht die Gesamtsumme des Auftrags von der Gesamtsumme des Warenkorbs ab und die Auto-Versandoption wird für die Bestellung deaktiviert. Dadurch wird sichergestellt, dass keine Lieferung das Lager verlässt, die nicht mit der Bestellung übereinstimmt.</p>
+<p><span class="bold bold"><strong>Transaktionsnummer:</strong></span></p>
+<p>Die Transaktionsnummer ist für die Automatisierung des Rechnungswesens relevant und hilft, bezahlte Bestellungen zuzuordnen.</p>
+<p><span class="bold bold"><strong>Auftrag:</strong></span></p>
+<p>In diesem Feld wird die eindeutige Kennzeichnung des Auftrags für den Shop übergeben. Nicht jede Shop-Schnittstelle erlaubt, den Versandstatus einer Bestellung über die Bestellnummer zu ändern. Gelegentlich wird eine interne ID benötigt, die an dieser Stelle übergeben werden kann. Auf den hier übergebenen Wert wird später Bezug genommen, wenn eine Änderung des Bestellstatus aus dem Shop übermittelt wird.</p>
+<p><span class="bold bold"><strong>Onlinebestellnummer:</strong></span></p>
+<p>In diesem Feld ist die Bestellnummer einzupflegen. Diese erleichtert die Zuordnung und bei Rückfragen kann eine Bestellung aus dem Shop direkt einem Auftrag in xentral zugeordnet werden.</p>
+<p><span class="bold bold"><strong>Zahlungsweise:</strong></span></p>
+<p>Das Übertragen der Zahlungsweise erlaubt es, Einstellungen wie Autoversand, Fast-Lane oder das Anlegen von Rechnungen spezifisch für bestimmte Zahlungsweisen in xentral zu aktivieren oder zu deaktivieren.</p>
+<p><span class="bold bold"><strong>Lieferung:</strong></span></p>
+<p>Bei übergebener Lieferweise kann ein Matching in xentral vorgenommen werden, ähnlich wie bei der Zahlungsweise.</p>
+<p><span class="bold bold"><strong>Versandkostenbrutto:</strong></span></p>
+<p>Bei einer Bestellung können die Versandkosten wie ein Artikel im Warenkorb übergeben werden. Durch dieses Spezialfeld werden die Versandkosten allerdings auf den, im Importer eingestellten, Portoartikel gebucht und in den Auftrag übernommen.</p>
+<p><span class="bold bold"><strong>Bestelldatum:</strong></span> Das Bestelldatum zeigt das Datum des Bestellungseingangs an.</p>
+<pre class="programlisting"><code class="code">foreach ($order['data']['details'] as $article)
+{
+        $articlearray[] = [
+                'articleid' =&gt; $article['articleNumber'],
+                'name' =&gt; $article['articleName'],
+                'price' =&gt; $article['price'],
+                'quantity' =&gt; $article['quantity']
+        ];
+}
+
+...
+
+$orderData =[
+        'id' =&gt; $cart['auftrag'],
+        'warenkorb' =&gt; base64_encode(serialize($cart)),
+        'warenkorbjson' =&gt; base64_encode(json_encode($cart))
+];
+</code></pre>
+<p>Wenn die benötigten Grunddaten der Bestellung an den Warenkorb übergeben wurden, sind die einzelnen Positionen zum Warenkorb hinzuzufügen. Im Feld articleid wird die Artikelnummer übergeben. In den anderen Feldern steht ihr jeweiliges Äquivalent aus der Bestellposition.</p>
+<p>Nachdem der Warenkorb mit allen Daten aus der Bestellung befüllt wurde, gibt die Funktion die Daten zurück.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-23"></a>Funktionen ImportDeleteAuftrag / ImportUpdateAuftrag</h3>
+</div>
+<p>Die Funktion ImportDeleteAuftrag ist dafür zuständig, eine offene Bestellung als „In Bearbeitung“ zu kennzeichnen. Die Partnerfunktion ImportUpdateAuftrag kennzeichnet die Bestellung als „Versendet“.</p>
+<pre class="programlisting"><code class="code">public function ImportDeleteAuftrag()
+{
+  $orderId = $this-&gt;data['auftrag'];
+  $update = [
+    'orderStatusId' =&gt; 1
+  ];
+
+  $this-&gt;call('orders/'.$orderId, 'PUT',$update);
+
+  return true;
+}
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-24"></a>Code des Beispiels</h2>
+</div>
+<p>Im Folgenden ist der gesamte Code des beschriebenen Beispiels zur eigenen Verwendung gelistet. Dieser dient als Startpunkt für die Entwicklung - ohne Gewähr für Fehlerfreiheit oder erwartete Funktionalität.</p>
+<pre class="programlisting"><code class="code">&lt;?php
+
+class Shopimporter_Shopwarespecial extends ShopimporterBase
+{
+  /**
+   * @var bool
+   */
+  public $intern = false;
+
+  /**
+   * @var Application
+   */
+  public $app;
+
+  /** @var string*/
+  public $apiUrl;
+
+  /** @var string*/
+  public $apiKey;
+
+  /**  @var string*/
+  public $apiUser;
+
+  /** @var int */
+  public $shopid;
+
+  /** @var mixed */
+  public $data;
+
+  /**
+   * Shopimporter_Shopwarespecial constructor.
+   *
+   * @param      $app
+   * @param bool $intern
+   */
+  public function __construct($app, $intern = false)
+  {
+        $this-&gt;app=$app;
+        $this-&gt;intern = true;
+        if($intern)
+        {
+                return;
+        }
+        $this-&gt;app-&gt;ActionHandlerInit($this);
+
+        $this-&gt;app-&gt;ActionHandler('auth','ImportAuth');
+        $this-&gt;app-&gt;ActionHandler('sendlist','ImportSendList');
+        $this-&gt;app-&gt;ActionHandler('sendlistlager','ImportSendListLager');
+        $this-&gt;app-&gt;ActionHandler('getauftraegeanzahl','ImportGetAuftraegeAnzahl');
+        $this-&gt;app-&gt;ActionHandler('getauftrag','ImportGetAuftrag');
+        $this-&gt;app-&gt;ActionHandler('deleteauftrag','ImportDeleteAuftrag');
+        $this-&gt;app-&gt;ActionHandler('updateauftrag','ImportUpdateAuftrag');
+
+        $this-&gt;app-&gt;DefaultActionHandler('list');
+        $this-&gt;app-&gt;ActionHandlerListen($app);
+}
+
+/**
+ * @return array
+ */
+public function EinstellungenStruktur()
+{
+        return
+                array(
+        'felder'=&gt;array(
+                'APIUser'=&gt;array('typ'=&gt;'text','bezeichnung'=&gt;'{|API User:','size'=&gt;40),
+                'APIKey'=&gt;array('typ'=&gt;'text','bezeichnung'=&gt;'{|API Key|}:','size'=&gt;40),
+                'APIUrl'=&gt;array('typ'=&gt;'text','bezeichnung'=&gt;'{|API Url|}:','size'=&gt;40),
+        ));
+}
+
+
+/**
+ * @param $shopid
+ * @param $data
+ */
+public function getKonfig($shopid, $data)
+{
+        $this-&gt;shopid = $shopid;
+        $this-&gt;data = $data;
+        $einstellungen = $this-&gt;app-&gt;DB-&gt;Select("SELECT einstellungen_json FROM shopexport WHERE id = '$shopid' LIMIT 1");
+                if($einstellungen){
+                        $einstellungen = json_decode($einstellungen,true);
+                        $this-&gt;apiUser = $einstellungen['felder']['APIUser'];
+                        $this-&gt;apiKey = $einstellungen['felder']['APIKey'];
+                        $this-&gt;apiUrl = $einstellungen['felder']['APIUrl'];
+                }
+        }
+
+/**
+ * @param       $endpoint
+ * @param       $method
+ * @param array $data
+ * @param array $params
+ *
+ * @return bool|string
+ */
+protected function call($endpoint, $method, $data=array(),$params=array()){
+        $queryString = '';
+        if (!empty($params)) {
+                $queryString = '?'.http_build_query($params);
+        }
+        $url = $this-&gt;apiUrl.$endpoint.$queryString;
+        $dataString = json_encode($data);
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false);
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        curl_setopt($curl, CURLOPT_USERPWD, $this-&gt;apiUser . ':' . $this-&gt;apiKey);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, ['Content-Type: application/json; charset=utf-8']);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $dataString);
+        return curl_exec($curl);
+}
+
+
+/**
+ * @return int
+ */
+public function ImportSendListLager()
+{
+        $updatedArticles = 0;
+        $tmp = $this-&gt;CatchRemoteCommand('data');
+        foreach ($tmp as $article){
+          $nummer = $article['nummer'];
+          $lageranzahl = $article['anzahl_lager'];
+
+      $updateInStock = [
+            'mainDetail' =&gt; [
+              'inStock' =&gt; $lageranzahl
+            ]
+          ];
+
+          $params = [
+            'useNumberAsId'=&gt;true
+          ];
+
+          $result = $this-&gt;call('articles/'.$nummer, 'PUT',$updateInStock, $params);
+          if($result['success']){
+            $updatedArticles++;
+          }
+        }
+        return $updatedArticles;
+}
+
+
+/**
+ * @return int|string
+ */
+public function ImportSendList()
+{
+  $tmp = $this-&gt;CatchRemoteCommand('data');
+  $successCount = 0;
+
+  foreach ($tmp as $article){
+    $name = $article['name_de'];
+    $articleNumber = $article['nummer'];
+    $active = !$article['inaktiv'];
+    $length = $article['laenge'];
+    $width = $article['breite'];
+    $height = $article['hoehe'];
+    $weight = $article['gewicht'];
+    $tax = $article['steuersatz'];
+    $ean = $article['ean'];
+
+    $lageranzahl = $article['anzahl_lager'];
+    $laststock = $article['restmenge'];
+    $supplier = $article['hersteller'];
+    $supplierNumber = $article['herstellernummer'];
+    $description = $article['metadescription_de'];
+    $description_long = htmlspecialchars_decode($article['uebersicht_de']);
+    $keywords = $article['metakeywords_de'];
+    $metatitle = $article['metatitle_de'];
+
+    $preis = $article['bruttopreis'];
+
+        $topseller=0;
+        if($article['topseller'])
+        {
+          $topseller=1;
+        }
+
+
+        $prices[] = [
+          'customerGroupKey' =&gt; 'EK',
+          'price' =&gt; $preis
+        ];
+
+        $articleData = [
+          'name' =&gt; $name,
+          'lastStock' =&gt; $laststock,
+          'tax' =&gt; $tax, // alternativ 'taxId' =&gt; 1,
+          'supplier' =&gt; $supplier, // alternativ 'supplierId' =&gt; 2,
+          'description' =&gt; $description,
+          'descriptionLong' =&gt; $description_long,
+      'keywords' =&gt; $keywords,
+          'metaTitle' =&gt; $metatitle,
+      'highlight' =&gt; $topseller,
+      'mainDetail' =&gt; [
+        'number' =&gt; $articleNumber,
+        'active' =&gt; $active,
+        'ean' =&gt; $ean,
+        'weight' =&gt; $weight,
+        'width' =&gt; $width,
+        'len' =&gt; $length,
+        'height' =&gt; $height,
+        'supplierNumber' =&gt; $supplierNumber,
+        'inStock' =&gt; $lageranzahl,
+        'prices' =&gt; $prices
+     ]
+   ];
+
+   $params = [
+     'useNumberAsId' =&gt; true
+   ];
+   $responseJson = $this-&gt;call('articles/'.$articleNumber, 'GET',null,$params);
+   $response = json_decode($responseJson,true);
+
+   if(empty($response['data']['id'])){
+     $responseJson = $this-&gt;call('articles', 'POST' ,$articleData);
+   }else{
+     $responseJson = $this-&gt;call('articles/'.$articleNumber, 'PUT' ,$articleData,$params);
+   }
+
+   $response = json_decode($responseJson,true);
+   if($response['success']){
+     $successCount++;
+   }else{
+     return 'error: '.print_r($response,true);
+   }
+ }
+
+ return $successCount;
+}
+
+
+ /**
+  * @return int
+  */
+ public function ImportGetAuftraegeAnzahl()
+ {
+   $result = $this-&gt;getOrders($this-&gt;data);
+
+   return count($result['data']);
+ }
+
+ /**
+  * @return bool
+  */
+ public function ImportUpdateAuftrag()
+ {
+   $orderId = $this-&gt;data['auftrag'];
+   $update = [
+     'orderStatusId' =&gt; 2
+   ];
+
+   $this-&gt;call('orders/'.$orderId, 'PUT',$update);
+
+   return true;
+ }
+
+ /**
+  * @return bool
+  */
+ public function ImportDeleteAuftrag()
+ {
+   $orderId = $this-&gt;data['auftrag'];
+   $update = [
+     'orderStatusId' =&gt; 1
+   ];
+
+   $this-&gt;call('orders/'.$orderId, 'PUT',$update);
+
+   return true;
+ }
+
+ /**
+  * @param $data
+  *
+  * @return array
+  */
+ protected function getOrders($data){
+   $toNumber = $data['bis_nummer'];
+
+   if(empty($toNumber)){
+     $filter[] = [
+       'property' =&gt; 'status',
+       'value' =&gt; 0,
+     ];
+   }else{
+     $filter[] = [
+       'property' =&gt; 'number',
+       'expression' =&gt; '&lt;=',
+       'value' =&gt; $toNumber,
+     ];
+   }
+
+   $params = [
+     'filter' =&gt; $filter
+   ];
+   $resultJson = $this-&gt;call('orders', 'GET', null, $params);
+   return json_decode($resultJson,true);
+ }
+
+ /**
+  * @return array
+  */
+ public function ImportGetAuftrag()
+ {
+   $result = $this-&gt;getOrders($this-&gt;data);
+
+   $allOrders = [];
+   foreach ($result['data'] as $orderFromCollection){
+     $cart = [];
+     $cart['auftrag'] = $orderFromCollection['id'];
+     $cart['gesamtsumme'] = $orderFromCollection['invoiceAmount'];
+     $cart['transaktionsnummer'] = $orderFromCollection['transactionId'];
+     $cart['onlinebestellnummer'] = $orderFromCollection['number'];
+     $orderJson = $this-&gt;call('orders/'.$orderFromCollection['id'],'GET');
+     $order = json_decode($orderJson,true);
+
+     $cart['anrede'] = 'herr';
+     $cart['strasse'] = $order['data']['billing']['street'];
+     $cart['plz'] = $order['data']['billing']['zipCode'];
+     $cart['ort'] = $order['data']['billing']['city'];
+     $cart['land'] = $order['data']['billing']['country']['iso'];
+     $cart['email'] = $order['data']['customer']['email'];
+     $cart['name'] = $order['data']['billing']['firstName'] . ' ' . $order['data']['billing']['lastName'];
+
+     $cart['zahlungsweise'] = $order['data']['payment']['name'];
+     $cart['lieferung'] = $order['data']['dispatch']['name'];
+     $cart['bestelldatum'] = substr($order['data']['orderTime'],0,10);
+     $cart['versandkostennetto'] = $order['data']['invoiceShippingNet'];
+
+
+         $articlearray = [];
+
+         foreach ($order['data']['details'] as $article)
+         {
+          $articlearray[] = [
+            'articleid' =&gt; $article['articleNumber'],
+            'name' =&gt; $article['articleName'],
+            'price' =&gt; $article['price'],
+            'quantity' =&gt; $article['quantity']
+          ];
+        }
+
+        $cart['articlelist']=$articlearray;
+
+        $orderData =[
+        'id' =&gt; $cart['auftrag'],
+        'warenkorb' =&gt; base64_encode(serialize($cart)),
+        'warenkorbjson' =&gt; base64_encode(json_encode($cart))
+        ];
+
+        $allOrders[] = $orderData;
+        }
+
+return $allOrders;
+}
+
+ /**
+  * @return string
+  */
+ public function ImportAuth()
+ {
+   $params = ['limit' =&gt; 1];
+   $responseJson  =$this-&gt;call('articles','GET',null, $params);
+   $response = json_decode($responseJson,true);
+
+   if($response['success']){
+     return 'success';
+   }
+
+   return '';
+ }
+}
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-25"></a>EDI-Verbindung</h2>
+</div>
+<p>EDI Messages sind in Codezeilen unterteilt, in welchen genau definierte Daten übermittelt werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-26"></a>UNB: Kommunikationspartner</h3>
+</div>
+<p>Die UNB Zeile definiert unter anderem den Empfänger und Absender. Hier ist ein eindeutiges Kennzeichen für den Kommunikationspartner einzutragen. Dafür existieren verschiedene Möglichkeiten:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Quasi-Standard ist hier eine GLN (Global Location Number, früher auch ILN) aus dem GS1 System (vormals EAN System), die in Deutschland von der GS1.de verwaltet wird. Diese GLN UNB ID Typ "14" ist jedoch nur eine von vielen Möglichkeiten.</p>
+</li>
+<li class="listitem">
+<p>Für einen schnellen Start und wenn die Schnittstellte selbst entwickelt wird, kann als UNB-ID auch der Typ "9" gewählt werden. Dort wird die DUNS Nummer (auch D-U-N-S, kurz für Data Universal Numbering System) erwartet, die unter https://www.upik.de/upik_suche.cgi abgefragt werden kann. Alle Kapitalgesellschaften bekommen nach Anmeldung bei den entsprechenden Behörden automatisch eine DUNS-Nummer zugewiesen.</p>
+</li>
+<li class="listitem">
+<p>Die Telefonnummer mit internationaler Vorwahl kann als UNB-ID Typ "12" verwendet werden.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-27"></a>Übertragungsstandard EDI / EDIFACT</h3>
+</div>
+<p>Bei EDI/EDIFACT wird nahezu alles mit Codelisten übertragen. Dafür existieren einige Quellen, die das Format erläutern und den Umgang damit aufzeigen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Einen guten Einstieg ist unter https://www.stylusstudio.com/edifact/ zu bekommen.</p>
+</li>
+<li class="listitem">
+<p>Eine etwas kompliziertere, aber dafür sehr umfangreiche Einleitung ist unter https://service.unece.org/trade/untdid/d96a/trmd/orders_t.htm zu finden.</p>
+</li>
+</ul>
+</div>
+<p>Die Datenübertragung erfolgt z.B. mit SFTP ausschließlich per keyfile (ssh pub-key), alternativ wird AS2 verwendet. Bei Bedarf stellt xentral einen AS2-Server bereit, hierfür ist der Vertrieb oder der Partner-Betreuer bei xentral zu kontaktieren.</p>
+<p>Die EDI-Datei ist eine reine Textdatei, idealerweise codiert in UTF8; dies ist aber nicht zwingend im Standard vorgeschrieben. Wird eine Datei mit nur einer Zeile gesendet, kann das EDI Satzendzeichen ' (einfaches Anführungszeichen, wird im UNA Segment definiert) durch ein LF bzw. CR/LF ersetzen.</p>
+<p>Bestimmte Segmente können in EDI mehrfach vorkommen und haben dann evtl. eine unterschiedliche Bedeutung, z.B. Daten im Kopf (Header) und auf Positions-Ebene.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916" id="UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916_id_360017441419_id_toc-28"></a>Beispiel ORDER</h3>
+</div>
+<p>Es wurden einige Segmente in einer ORDER zusammengefasst um zu zeigen, wie eine ORDER zu parsen wäre.</p>
+<pre class="programlisting"><code class="code">BGM+220+4HQ7EBLG+9'   --&gt; Bestellung mit PO Nummer 4HQ7EBLG, 
+                      --&gt; die 9 am Schluss bedeutet es werden die EAN/GS1 Codelisten verwendet
+DTM+137:20190107:102' --&gt; Belegdatum im Format 102
+DTM+63:20190111:102'  --&gt; Lieferdatum spätestens im format 102
+DTM+64:20190107:102'  --&gt; Lieferdatum frühstens im Format 102
+Benötigt wird das GLN Verzeichnis aus dem Vendor-Central, damit die Lieferadressen zugeordnet werden können.
+NAD+BY+5450534000017::9'          --&gt; Käufer, GLN Codiert
+NAD+SU+4016428000009::9'          --&gt; Lieferant, hier wird die eigene UNB-ID wieder angegeben
+NAD+DP+5450534002325::9+++++++DE' --&gt; Lieferadresse mit Land
+NAD+IV+5450534005838::9++AMAZON EU SARL:NIEDERLASSUNG DEUTSCHLAND+MARCEL-BREUER-STR. 12+MUENCHEN++80807+DE' 
+                                  --&gt; Rechnungsadresse als GLN und Klartext muss in der INVOICE Message auch komplett 
+                                  --&gt; im Klartext übertragen werden.
+</code></pre>
+<p>Im Folgenden (ab LIN) beginnen die Positionen. Zwischen NAD und LIN sind weitere Zeilen möglich, zb. RFF (Referenz jeweils zum aktuellen Element) oder CUX (hier wird die Währung definiert).</p>
+<p>Jedes LIN definiert den Beginn einer neuen Position(LIN+1, LIN+2, LIN+3 usw.):</p>
+<pre class="programlisting"><code class="code">LIN+1++4016428352115:EN'          --&gt; Artikel Pos 1 mit Artikel EAN, EN=Datenherkunft EAN, könnte evtl. auch SA sein
+QTY+21:52'                        --&gt; Pos Menge in Stück
+PRI+AAA:55.9'                     --&gt; Preis pro Stück netto
+</code></pre>
+<p>Im Anschluss folgen Rahmendaten, die vor allem der Validierung dienen: Mit UMS+S beginnt der Summenblock, der mithilfe verschiedener Summen eine Validierung ermöglicht.</p>
+<p>Sollten mehrere Belege einer UNB Übertragung enthalten sein, folgen diese nun durch ein UNH bzw. BGM, mit dem Belegkopf getrennt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

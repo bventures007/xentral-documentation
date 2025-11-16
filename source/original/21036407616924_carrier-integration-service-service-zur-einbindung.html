@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrier Integration Service (Service zur Einbindung von Versanddienstleistern)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 21036407616924
+    Titel: Carrier Integration Service (Service zur Einbindung von Versanddienstleistern)
+    URL: https://help.xentral.com/hc/de/articles/21036407616924-Carrier-Integration-Service-Service-zur-Einbindung-von-Versanddienstleistern
+    Erstellt: 2025-07-08T16:58:19Z
+    Aktualisiert: 2025-09-29T10:57:54Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 17840276803868
+    Export-Zeitpunkt: 2025-11-16 19:06:27
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<p>Mit dem Carrier Integration Service können Partner eigene Versanddienstleister (Carrier) direkt mit Xentral integrieren. Dies ermöglicht Unternehmen, maßgeschneiderte Logistiklösungen zu schaffen und spezifische Anforderungen an Versand, Steuerregeln und internationale Lieferungen abzubilden.</p>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-de65b017-3130-584d-afb2-02becd0cc014" id="UUID-de65b017-3130-584d-afb2-02becd0cc014_section-idm234815057092318"></a>Überblick &amp; Möglichkeiten der Carrier-Integration</h2>
+</div>
+<p>Es gibt zwei Wege, um Carrier ausserhalb des Xentral Standards zu integrieren:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>API-Integration</strong></span> (Direkte Anbindung über individuelle Schnittstellen)</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Connect-Integration</strong></span> (Geplante Erweiterung für native Carrier-Implementierungen in Xentral)</p>
+</li>
+</ul>
+</div>
+<p>Beide Methoden ermöglichen es, Versandlabel zu generieren, Carrier-Services zu nutzen und Xentral um individuelle Versandoptionen zu erweitern.</p>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Die Carrier-Integration deckt nicht alle Felder und Anforderungen sämtlicher Usecases ab. Je nach Zielsetzung – ob lediglich ein Versandlabel erzeugt oder ein komplexerer Prozess abgebildet werden soll – kann es notwendig sein, bestimmte Systemwerte an anderer Stelle über die API abzurufen.</p>
+<p>Du solltest im Vorfeld entscheiden, ob du den gewünschten Workflow eher mit Connect innerhalb des Frameworks modellieren oder stattdessen ein eigenes Konstrukt über die API umsetzen möchtest. Beide Ansätze sind möglich – abhängig vom konkreten Usecase, aber auch davon, welche Technologie dir als Developer mehr liegt.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-de65b017-3130-584d-afb2-02becd0cc014" id="UUID-de65b017-3130-584d-afb2-02becd0cc014_section-idm234815059187856"></a>Technischer Ablauf einer Carrier-Integration</h2>
+</div>
+<p>Ein neu angebundener Carrier verhält sich wie ein bestehender Xentral-Carrier:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Authentifizierung</strong></span> – Partner-Credentials werden hinterlegt, um die Carrier-API anzusprechen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Konfiguration</strong></span> – Nach der Authentifizierung werden Carrier-spezifische Felder automatisch geladen (z. B. Versandlabel-Optionen, Altersprüfung, zusätzliche Services).</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Aufruf des Partner-Services</strong></span> – Xentral sendet eine Anfrage an den Partner-Service, dieser generiert die Versanddaten (z. B. für UPS, Post Swiss).</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Rückgabe der Versandinformationen</strong></span> – Das Label und Tracking-Informationen werden an Xentral übermittelt und für den Kunden verfügbar gemacht.</p>
+</li>
+</ul>
+</div>
+<p>Je nach Carrier können unterschiedliche Services (z. B. Expressversand, internationale Optionen) hinterlegt werden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>In der Xentral Entwicklerdokumentation findest du alle Informationen zur <a class="link" href="https://developer.xentral.com/docs/carrier-integration" target="_blank" rel="noopener">Carrier-Integration</a>.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-de65b017-3130-584d-afb2-02becd0cc014" id="UUID-de65b017-3130-584d-afb2-02becd0cc014_section-idm234815060377588"></a>Nutzung für Endkunden</h2>
+</div>
+<p>Sobald ein Partner einen Carrier erfolgreich integriert hat, funktioniert dieser nahtlos in Xentral:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Carrier kann in Verkaufsaufträgen als Versanddienstleister gewählt werden.</p>
+</li>
+<li class="listitem">
+<p>Automatische Label-Erstellung &amp; Tracking-Informationen sind möglich.</p>
+</li>
+<li class="listitem">
+<p>Je nach Anwendungsfall kann der Partner weitere Carrier-spezifische Funktionen bereitstellen.</p>
+</li>
+</ul>
+</div>
+<p>Kunden, die einen bestimmten Carrier wünschen, können diesen über einen Partner-Request anfragen oder im Xentral Marketplace nach einer passenden Lösung suchen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-de65b017-3130-584d-afb2-02becd0cc014" id="UUID-de65b017-3130-584d-afb2-02becd0cc014_section-idm234815062079694"></a>Connect-Integration für eine skalierbare Lösung</h2>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Während aktuell individuelle API-Integrationen umgesetzt werden, wird die Carrier-Integration mit Connect in Q2 getestet. Ziel ist es, dass Carrier direkt in Xentral als native Lösung eingebunden werden können, ohne manuelle Konfiguration von Service-URLs und Tokens.</p>
+<p>Dies bedeutet:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Bessere Skalierbarkeit für Partner</p>
+</li>
+<li class="listitem">
+<p>Einheitliche Carrier-Verwaltung in Xentral</p>
+</li>
+<li class="listitem">
+<p>Integration über den Xentral Marketplace</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-de65b017-3130-584d-afb2-02becd0cc014" id="UUID-de65b017-3130-584d-afb2-02becd0cc014_section-idm234815063496675"></a>Entwicklung &amp; Zeithorizont (Stand 06/2025)</h2>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Manuelle API-Integration ist bereits möglich – erste Carrier können in wenigen Wochen angebunden werden.</p>
+</li>
+<li class="listitem">
+<p>Connect-Integration &amp; native Carrier sind für Ende Q2/Q3 geplant.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Die Implementierung einer neuen Carrier-Anbindung erfordert technisches Know-how und kann je nach Komplexität variieren. Ein detailliertes Kickoff-Gespräch hilft, den Aufwand realistisch einzuschätzen.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-de65b017-3130-584d-afb2-02becd0cc014" id="UUID-de65b017-3130-584d-afb2-02becd0cc014_section-idm234815065391928"></a>Fazit: Carrier-Service für Partner &amp; Kunden</h2>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Partner können eigene Carrier über API oder Connect in Xentral integrieren.</p>
+</li>
+<li class="listitem">
+<p>Kunden erhalten eine erweiterte Carrier-Auswahl &amp; flexible Versandoptionen.</p>
+</li>
+<li class="listitem">
+<p>Die zukünftige Integration in den Xentral Marketplace erleichtert die Verwaltung und Nutzung.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>🚀 Interesse an einer eigenen Carrier-Anbindung? Jetzt mit Xentral oder einem Partner abstimmen!</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

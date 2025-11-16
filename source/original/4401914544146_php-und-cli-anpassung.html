@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP und CLI Anpassung</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 4401914544146
+    Titel: PHP und CLI Anpassung
+    URL: https://help.xentral.com/hc/de/articles/4401914544146-PHP-und-CLI-Anpassung
+    Erstellt: 2021-06-04T09:56:12Z
+    Aktualisiert: 2023-11-03T03:21:51Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254835385116
+    Export-Zeitpunkt: 2025-11-16 19:10:09
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-588e6b9e-b51e-54e7-257e-87af8b39cb0e_UUID-9cc378f5-71f8-3d61-37ab-664e0f2b2827"></a>End-of-Life für On-Premise-Instanzen</h3>
+<p>Ende März 2023 beenden wir die Unterstützung von <span class="phrase">Xentral</span>-Instanzen, die „On-Premise“ von unseren Kunden selbst gehostet werden. Wir empfehlen dir daher, deine <span class="phrase">Xentral</span>-Instanz in unsere Cloud zu migrieren. Kontaktiere uns gerne jederzeit unter <a class="link" href="mailto:account@xentral.com" target="_blank">account@xentral.com</a>, um diesbezügliche Fragen zu klären oder einen Termin für deine Migration zu buchen. Alternativ kannst du weitere Informationen auf <a class="link" href="https://xentral.com/artikel/faq-xentral-cloud-migration/" target="_blank" rel="noopener">unserer Website</a> oder in <a class="link" href="https://xentral.community/updates-zur-xentral-plattform-17/wichtig-end-of-life-on-premise-ende-maerz-2023-2611" target="_blank" rel="noopener">unserer Community</a> finden.</p>
+<p>Beachte bitte, dass wir Ende März 2023 jegliche Supportleistungen für On-Premise-Instanzen beenden. Wir stellen dann keine weiteren Bug-Fixes oder Updates mehr zur Verfügung. Außerdem wird es keine weitere Open-Source-Version mehr geben.</p>
+</div>
+<p>xentral ist eine serverseitige Software, d.h. sie läuft primär über einen Server und nicht über einen Client. Das Grundgerüst für Basisfunktionen bildet für xentral die Skriptsprache <span class="bold"><strong>PHP</strong></span>, während die meisten Apps mit Cronjobs über die <span class="bold"><strong>Command Line Input (CLI)</strong></span> Sprache ablaufen.</p>
+<p>PHP und CLI haben verschiedene Versionen und immer wieder neue Release Zyklen, um Bugs o.ä. zu beseitigen, weshalb du ab und an eine neue Version installieren musst. Zusätzlich wird noch Ioancube zur Verschlüsselung der Skriptdateien verwendet sowie der <span class="bold"><strong>Ioncube Loader</strong></span>, um Schlüssel aufzurufen. Auf den Ioncube Loader musst du manchmal aktualisieren, da sonst unter Umständen xentral nicht geöffnet werden kann. Nach einem Update der PHP Version empfiehlt sich ein Serverneustart.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-588e6b9e-b51e-54e7-257e-87af8b39cb0e" id="UUID-588e6b9e-b51e-54e7-257e-87af8b39cb0e_id_4401914544146_id_h_01F7BGGA2C89YBNWZV6WJEDGJH"></a>Überprüfung der Versionen</h2>
+</div>
+<p>Du kannst überprüfen, welche Versionen von PHP und CLI installiert sind. Das machst du in der App <span class="bold"><strong>Systemlog</strong></span>. Navigiere dazu auf <span class="bold"><strong>Administration &gt; Einstellungen &gt; System &gt; Systemlog</strong></span> oder nutze die Super-Search.</p>
+<p>Die <span class="emphasis"><em>PHP-Versionsnummer</em></span> findest du im Tab <span class="bold"><strong>PHP-Info</strong></span>.</p>
+<p>Die <span class="emphasis"><em>CLI-Versionsnummer</em></span> findest du im Tab <span class="bold"><strong>PHP-Info (CLI)</strong></span> an oberster Stelle.</p>
+<p>Idealerweise solltest du PHP und CLI auf derselben Version halten. Neben der Versionsnummer sind im Systemlog auch weitere Informationen wie das Verzeichnis der Konfigurationsdatei (.ini) angegeben. Es wird hier immer die gleiche Datei aus dem angegebenen Verzeichnis ausgelesen, auch wenn du die PHP oder CLI Version aufgrund eines neuen Features aktualisierst. Möchtest du eine andere Konfigurationsdatei verwenden, so muss diese serverseitig ausgetauscht werden.</p>
+<p>Unter <span class="bold"><strong>Systemlog &gt; Aktualisieren &gt; Systemlogs</strong></span> kannst du z.B. sehen, welche Datei aktuell ausgelesen wird. Das kannst du für das Live-Debugging verwenden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-588e6b9e-b51e-54e7-257e-87af8b39cb0e" id="UUID-588e6b9e-b51e-54e7-257e-87af8b39cb0e_id_4401914544146_id_h_01F7BGGEMFR5RGF9N24PGT5WHG"></a>Einlesen von Konfigurationsdateien</h2>
+</div>
+<p>Beim Start von PHP wird die Konfigurationsdatei (php.ini) eingelesen. Dir stehen verschiedene Optionen zur Auswahl, um die Konfigurationsdatei einzulesen.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Option 1:</strong></span> Einlesen mit <span class="bold"><strong>Umgebungsvariablen</strong></span>. Ein Pfad, aus dem die Konfigurationsdatei eingelesen werden kann, könnte so aussehen:</p>
+</li>
+</ul>
+</div>
+<pre class="programlisting">PHPRC=/home/USER/etc/php72/php.ini /usr/local/bin/php -f /home/USER/www/ERP/cronjobs/starter2.php</pre>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Option 2:</strong></span> Einlesen zusätzlicher Pfade über <span class="bold"><strong>Direktiven</strong></span>.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Option 3:</strong></span> Arbeiten mit einer <span class="bold"><strong>.htaccess Datei</strong></span>: Solche Dateien werden primär bei der Webserverkonfiguration genutzt. Du kannst hier vorgeben, welche Benutzer standardmäßig in welchem Verzeichnis aufgerufen werden. Zudem kannst du blockieren, dass ein alter Pfad ausgelesen wird.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Option 4:</strong></span> Eine weitere Möglichkeit ist es, zunächst eine <span class="bold"><strong>neue Version</strong></span> von PHP zu installieren, um anschließend die alte Version zu deinstallieren.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Oft wird die PHP-Version über die App <a class="link" href="#">System Health</a> ausgelesen. Diese wird allerdings über den gleichnamigen Prozessstarter System Health aktualisiert, weshalb nach einem Update hier nicht direkt die neuste Version angezeigt wird, sondern erst, nachdem der Prozessstarter einmal gelaufen ist.</p>
+</div>
+<p>Informationen zu den Systemvoraussetzungen für die Installation bei Webhosting-Anbietern findest du <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/13955#UUID-515f84e5-d62e-7591-21b4-2ff95951a2d0">hier</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

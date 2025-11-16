@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anforderungen an das On-Premise-Hosting</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017436039
+    Titel: Anforderungen an das On-Premise-Hosting
+    URL: https://help.xentral.com/hc/de/articles/360017436039-Anforderungen-an-das-On-Premise-Hosting
+    Erstellt: 2020-11-10T07:24:40Z
+    Aktualisiert: 2024-08-29T13:31:53Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254835385116
+    Export-Zeitpunkt: 2025-11-16 19:10:07
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_UUID-9cc378f5-71f8-3d61-37ab-664e0f2b2827"></a>End-of-Life für On-Premise-Instanzen</h3>
+<p>Ende März 2023 beenden wir die Unterstützung von <span class="phrase">Xentral</span>-Instanzen, die „On-Premise“ von unseren Kunden selbst gehostet werden. Wir empfehlen dir daher, deine <span class="phrase">Xentral</span>-Instanz in unsere Cloud zu migrieren. Kontaktiere uns gerne jederzeit unter <a class="link" href="mailto:account@xentral.com" target="_blank">account@xentral.com</a>, um diesbezügliche Fragen zu klären oder einen Termin für deine Migration zu buchen. Alternativ kannst du weitere Informationen auf <a class="link" href="https://xentral.com/artikel/faq-xentral-cloud-migration/" target="_blank" rel="noopener">unserer Website</a> oder in <a class="link" href="https://xentral.community/updates-zur-xentral-plattform-17/wichtig-end-of-life-on-premise-ende-maerz-2023-2611" target="_blank" rel="noopener">unserer Community</a> finden.</p>
+<p>Beachte bitte, dass wir Ende März 2023 jegliche Supportleistungen für On-Premise-Instanzen beenden. Wir stellen dann keine weiteren Bug-Fixes oder Updates mehr zur Verfügung. Außerdem wird es keine weitere Open-Source-Version mehr geben.</p>
+</div>
+<p>Dieser Artikel beschreibt die Hardware- und Software-Anforderungen für das Hosting von <span class="phrase">Xentral</span> On-Premise sowie die erforderliche Konfiguration auf dem Server. Hier werden auch die Anforderungen beschrieben, die erforderlich sind, um Support für deine On-Premise gehostete <span class="phrase">Xentral</span>-Instanz zu erhalten. Sollten diese Anforderungen nicht erfüllt sein, läuft <span class="phrase">Xentral</span>unter Umständen nicht richtig und wir bieten keine Unterstützung.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p><span class="phrase">Xentral</span> bietet Neukunden nur Cloud-Hosting an und möchte Altkunden motivieren, in die <span class="phrase">Xentral</span>-Cloud zu migrieren.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm4634252973969633230013920673"></a>Hardware-Anforderungen</h2>
+</div>
+<p>Mindestanforderung an deinen Server:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>8 CPU-Kerne</p>
+</li>
+<li class="listitem">
+<p>16 GB Arbeitsspeicher (RAM)</p>
+</li>
+<li class="listitem">
+<p>500 GB verfügbarer SSD-Festplattenspeicher</p>
+</li>
+</ul>
+</div>
+<p>Sind diese Anforderungen nicht erfüllt, kann das zu Leistungsproblemen deiner <span class="phrase">Xentral</span>-Instanz führen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm4672549305609633230021101924"></a>Software-Anforderungen</h2>
+</div>
+<p>Zur Sicherstellung, dass deine <span class="phrase">Xentral</span>-Instanz korrekt eingerichtet und ausgeführt werden kann, müssen die folgenden Software-Anforderungen erfüllt werden.</p>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm4672549308188833230022929085"></a>Betriebssystem</h3>
+</div>
+<p>Auf deinem Server ist eine der folgenden Linux-Distributionen als Betriebssystem erforderlich:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Ubuntu</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle;">
+<li class="listitem">
+<p>64-Bit</p>
+</li>
+<li class="listitem">
+<p>Version 18.04 oder höher (<code class="code">&gt;=18.04</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+<p>Debian</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle;">
+<li class="listitem">
+<p>64-Bit</p>
+</li>
+<li class="listitem">
+<p>Version 10.3 oder höher (<code class="code">&gt;=10.3</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Du musst SSH-Zugriff auf dein Betriebssystem haben, um die erforderlichen Cronjobs einrichten zu können.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm4672549291048033230023348002"></a>PHP</h3>
+</div>
+<p>Du musst PHP-FPM und PHP-CLI auf deinem Server mit der folgenden Version, Konfiguration und den folgenden Erweiterungen installieren.</p>
+<div class="informaltable table-responsive">
+<table frame="border" rules="rows">
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Version</strong></span></p>
+</td>
+<td>
+<p>PHP 7.4 oder höher (<code class="code">PHP^7.4</code>), aber noch nicht 8.0</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Konfiguration</strong></span></p>
+</td>
+<td>
+<p>Stelle sicher, dass die folgenden <code class="code">php.ini</code>-Werte definiert sind:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><code class="code">max_execution_time = 600</code></p>
+<p>Wert in Sekunden, d.h. 600 entspricht 10 Minuten.</p>
+</li>
+<li class="listitem">
+<p><code class="code">max_input_time = 1000</code></p>
+<p>Wert in Sekunden, d.h. 1000 entspricht ungefähr einer Viertelstunde.</p>
+</li>
+<li class="listitem">
+<p><code class="code">memory_limit = 512M</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Erweiterungen</strong></span></p>
+</td>
+<td>
+<p>Die nachfolgend beschriebenen PHP-Erweiterungen sind erforderlich, wobei "*" bedeutet, dass jede Version verwendet werden kann und z.B. "&gt;=10.4" bedeutet, dass Version 10.4 oder höher erforderlich ist:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/6203776512796" style="" alt="PHPextensions.png"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm4672549230152033230023610479"></a>Webserver</h3>
+</div>
+<p>Wir unterstützen offiziell nur den folgenden Webserver:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Nginx Version 1.18 oder höher (<code class="code">&gt;=1.18</code>)</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm4672549280524833230023989756"></a>Datenbank</h3>
+</div>
+<p>Wir unterstützen offiziell nur die folgende Datenbank:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>MySQL 5.7</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>MySQL 8.0 wird <span class="bold"><strong>nicht</strong></span> unterstützt.</p>
+</div>
+<p>Einige andere Datenbank-Systeme können funktionieren, ein Funktionieren wird von uns aber nicht garantiert und eine Nutzung solcher Systeme kann die Support-Dienstleistungen, die wir unterstützen, beeinflussen, siehe <a class="xref" href="#UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm467254917197763323003201353" title="Support-Anforderungen">Support-Anforderungen</a></p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm456199455816803323003177397"></a>Anforderungen an die Konfiguration</h2>
+</div>
+<p>Stelle sicher, dass du dich bei Einrichtung deines <span class="phrase">Xentral</span>-Systems an die folgenden Konfigurationsanforderungen hältst.</p>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm4634253036291233230207954163"></a>Dokumentenstamm</h3>
+</div>
+<p>Der Dokumentenstamm des Webservers muss auf die Ordner <code class="code">www</code> des <span class="phrase">Xentral</span>-Repositories verweisen.</p>
+<pre class="programlisting">server {
+2  location / {
+3    # ...
+4    root /xentral/www
+5    # ...
+6    }  
+7}</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm4520563295272033230208156473"></a>SSL-Zertifikat</h3>
+</div>
+<p>Der Server muss über ein gültiges SSL-Zertifikat verfügen, um die Kommunikation mit dem <span class="phrase">Xentral</span>-System zu ermöglichen.</p>
+<p>Du kannst gratis SSL-Zertifikate über <a class="link" href="https://letsencrypt.org/" target="_blank" rel="noopener">Let's Encrypt</a> erhalten.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm467254917197763323003201353"></a>Support-Anforderungen</h2>
+</div>
+<p>Bitte beachte, dass unsere Support-Dienstleistungen für <span class="phrase">Xentral</span>-Systeme, die On-Premise gehostet werden, an spezielle Bedingungen geknüpft sind.</p>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm4561994565998433230312316059"></a>Prüfung der Hosting-Anforderungen</h3>
+</div>
+<p>Stelle sicher, dass du die tatsächliche Systemkonfiguration mit der aktuellen Hardware, Software und Konfigurationsanforderungen dieses Artikels vergleichst, bevor du den <span class="phrase">Xentral</span>-Support kontaktierst.</p>
+<p>Sollte es Abweichungen geben, nenne diese bitte zu Beginn deiner Support-Anfrage.</p>
+<p>Bitte beachte, dass wir für abweichende Systeme und Konfigurationen unter Umständen keinen Support leisten können.</p>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Hast es du unterlassen, uns in deinem Support-Ticket über ein abweichendes Set-up zu unterrichten und dies führt zu einem Mehraufwand bei der Prüfung auf unserer Seite, können wir dir diesen Mehraufwand in Rechnung stellen.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac" id="UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm4520563291470433230433266068"></a>Zugriff auf dein On-Premise-System</h3>
+</div>
+<p>Um dir Support anbieten zu können, brauchen wir Zugriff auf dein <span class="phrase">Xentral</span>-System und den Server, auf dem es gehostet wird.</p>
+<p>Stelle bitte Folgendes sicher:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Du hast einen Support-Benutzer mit Admin-Rechten auf deiner <span class="phrase">Xentral</span>-Instanz eingerichtet und stellst diesen dem <span class="phrase">Xentral</span>-Support-Team zur Verfügung.</p>
+</li>
+<li class="listitem">
+<p>Du hast SSH-Zugriff auf deinem Server mit <code class="code">sudo</code>-Berechtigungen eingerichtet und stellst diesen dem <span class="phrase">Xentral</span>-Support-Team zur Verfügung.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

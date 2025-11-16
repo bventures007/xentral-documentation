@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daten in Business Intelligence Tools exportieren</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 22090403619996
+    Titel: Daten in Business Intelligence Tools exportieren
+    URL: https://help.xentral.com/hc/de/articles/22090403619996-Daten-in-Business-Intelligence-Tools-exportieren
+    Erstellt: 2025-09-02T11:10:40Z
+    Aktualisiert: 2025-09-03T13:17:27Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4418158723868
+    Export-Zeitpunkt: 2025-11-16 19:07:19
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<p>In diesem Artikel zeigen wir euch einen schnellen und einfachen Weg, um in <span class="phrase">Xentral</span> vorhandene Daten an separate Tools zur Datenaufbereitung, wie beispielsweise Power BI oder Google Sheets zu nutzen. Um eure Daten in diesen externen Anwendungen nach euren Bedürfnissen strukturiert und grafisch aufgearbeitet darzustellen, sind einige vorbereitende Einstellungen notwendig, die im Folgenden beschrieben werden.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Die im Folgenden beschriebenen Methoden erfordern fortgeschrittene Kenntnisse zum Thema Datenstrukturen, -aufbereitung und -analyse. Du solltest sie nur nutzen, wenn es unabdingbar ist, dass externe Tools deine Daten aus <span class="phrase">Xentral</span> auswerten. Außerdem solltest du über das entsprechende Know-How verfügen, wie du deine sensiblen Geschäftsdaten sicher behandelst und lagerst.</p>
+<p>Schau dir vorher unbedingt den Artikel <a class="xref linktype-component" href="https://help.xentral.com/hc/de/articles/10913632734620#UUID-3b23c5e3-4342-b571-bc5d-1b52fe862861" title="Übersicht: Berichtswesen - Controlling, Statistiken und Reports">Übersicht: Berichtswesen - Controlling, Statistiken und Reports</a> an, um zu sehen, ob deine Anforderungen auch mit dem Modul <span class="bold"><strong>Berichte</strong></span> direkt in <span class="phrase">Xentral</span> erfüllt werden können.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8" id="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8_section-id235136292069811"></a>Welche Optionen zum Datenexport gibt es?</h2>
+</div>
+<p><span class="phrase">Xentral</span> bietet dir die folgenden Optionen, um deine Daten in externe Tools zu überführen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Daten über <span class="phrase">Xentral</span>-API anfordern</strong></span>: Du kannst die Daten über einen dedizierten API-Call abrufen.</p>
+<pre class="programlisting">https://{xentralId}.xentral.biz/api/v1/analytics/collection/{id}</pre>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Weitere Informationen zu diesem API-Call findest du <a class="link" href="https://developer.xentral.com/reference/analyticscollectionlist" target="_blank" rel="noopener">in der Xentral API-Dokumentation</a>.</p>
+</div>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Daten auf FTP-Server sichern</strong></span>: Du kannst einen FTP-Server mit <span class="phrase">Xentral</span> verbinden, sodass später in fest definierten Abständen aktuelle Daten auf diesem Server abgelegt werden.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Daten per Permalink bereitstellen</strong></span>: Du kannst in <span class="phrase">Xentral</span> einen so genannten Permalink mit stets aktuellen Daten erstellen, den du in anderen Tools hinterlegst.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Daten in Google Sheets überführen</strong></span>: Werte deine Berichtsdaten in Google Tabellen aus, indem du ein bestimmtes Skript ausführst.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Alle drei genannten Vorgehensweisen verbrauchen Abfragen aus deinem monatlichen Kontingent, das je nach Tarifmodell (Basis oder Premium) limitiert ist. Falls du regelmäßig vollständige und umfangreiche Datenexporte benötigst, musst du die <span class="bold"><strong>Premium</strong></span>-Version des Berichtesmoduls buchen!</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8" id="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8_section-id235137913056046"></a>Verfügbare Berichtsvorlagen in <span class="phrase">Xentral</span>
+</h2>
+</div>
+<p>Speziell für den Einsatz externer BI-Tools haben wir in <span class="phrase">Xentral</span> eine vorgefertigte Sammlung mit den am häufigsten benötigten Daten erstellt.</p>
+<p>Schau dir vor der Erstellung eines Datenexports diese Sammlung an, um zu sehen, welche enthaltenen Daten für dich relevant sind.</p>
+<div class="procedure">
+<a id="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8_procedure-id235137919146136"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Logge dich in <span class="phrase">Xentral</span> ein.</p>
+</li>
+<li class="step">
+<p>Öffne das Menü <span class="bold"><strong>Berichtswesen &gt; Berichte (Neu)</strong></span>.</p>
+<div class="result">
+<p>Die Übersicht im Tab <span class="bold"><strong>Deine Berichte</strong></span> wird geöffnet.</p>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22117283286940" style="" alt="report-uebersicht-1-de.png"></div>
+</li>
+<li class="step">
+<p>Klicke auf den Eintrag <span class="bold"><strong>[8] FTP-Backup und BI-Reports</strong></span>.</p>
+<div class="result">
+<p>Die verfügbaren Berichte werden angezeigt.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22117298657564" style="" alt="report-uebersicht-2-de.png"></div>
+</div>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Findest du in der Liste nicht genau den Bericht, den du benötigst? Dann kannst du dir ganz einfach mithilfe des <span class="bold"><strong>No-Code Editors</strong></span> eigene Berichte konfigurieren. Für fortgeschrittene Nutzer findest du zusätzlich einen <span class="bold"><strong>SQL-Editor</strong></span>, den du für die Erstellung komplexer Abfragen nutzen kannst.</p>
+<p>Alle wichtigen Informationen zur Erstellung individueller Berichte findest du im Kapitel <a class="xref linktype-component" href="https://help.xentral.com/hc/de/articles/14743167748252#UUID-0c282c1c-34bb-ff63-e4f5-88fc343e49a2_id_reportNEW-HandbookDraft-XentralBerichtswesen-Berichteneu-IndividuelleBerichteerstellen" title="Individuelle Berichte erstellen">Individuelle Berichte erstellen</a>.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8" id="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8_section-id235137941741631"></a>Liste aller verfügbaren Berichtsvorlagen</h3>
+</div>
+<p>Im Folgenden findest du eine Auflistung aller verfügbaren Berichtsvorlagen der Sammlung <span class="bold"><strong>[8] FTP-Backup und BI-Reports</strong></span> inklusive einer kurzen Beschreibung der enthaltenen Daten.</p>
+<div class="informaltable table-responsive">
+<table width="100%">
+<colgroup>
+<col width="40%">
+<col width="60%">
+</colgroup>
+<thead>
+<tr>
+<th>
+<p>Berichtsname</p>
+</th>
+<th>
+<p>Daten</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Adressen</strong></span></p>
+</td>
+<td>
+<p>Liste aller Kunden- und Lieferadressen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Alle EKs</strong></span></p>
+</td>
+<td>
+<p>Alle Einkaufspreise mit Artikelinformationen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Alle VKs</strong></span></p>
+</td>
+<td>
+<p>Alle Verkaufspreise mit Artikelinformationen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Angebots_Position + Angebote</strong></span></p>
+</td>
+<td>
+<p>Artikelpositionen inklusive zugehöriger Angebote</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Artikel</strong></span></p>
+</td>
+<td>
+<p>Stammdate aller Produkte/Artikel</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Auftrag_Position + Aufträge</strong></span></p>
+</td>
+<td>
+<p>Auftragspositionen und zugehörige Aufträge</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Bestellung_Position + Bestellungen</strong></span></p>
+</td>
+<td>
+<p>Bestellpositionen und Bestellungen mit Lieferanteninformationen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Gutschrift_Position + Gutschriften</strong></span></p>
+</td>
+<td>
+<p>Gutschriften und deren Positionen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Kategorien</strong></span></p>
+</td>
+<td>
+<p>Produktkategorien mit Hierarchie</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lager_Reservierungen</strong></span></p>
+</td>
+<td>
+<p>Reservierungen im Lager</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lagerbestand inkl. Charge/MHD</strong></span></p>
+</td>
+<td>
+<p>Aktueller Lagerbestand inklusive Chargen- und MHD-Information</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lagerbewegung inkl. MHD/Charge</strong></span></p>
+</td>
+<td>
+<p>Alle Lagerbewegungen mit MHD- und Chargenverfolgung</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lagerwerte</strong></span></p>
+</td>
+<td>
+<p>Warenwerte im Lagerbestand</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lieferschein_Position + Lieferschein</strong></span></p>
+</td>
+<td>
+<p>Lieferscheine und deren Positionen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Produktion_Position + Produktion</strong></span></p>
+</td>
+<td>
+<p>Produktionspositionen und zugehörige Produktionsaufträge</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Projekte inkl. Teilprojekte</strong></span></p>
+</td>
+<td>
+<p>Projektstammdaten inklusive Teilprojekten</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Rechnung_Position + Rechnungen</strong></span></p>
+</td>
+<td>
+<p>Rechnungspositionen und zugehörige Rechnungen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Retouren_Position + Retouren</strong></span></p>
+</td>
+<td>
+<p>Retouren und deren Positionen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Verbindlichkeit_Positionen + Verbindlichkeiten</strong></span></p>
+</td>
+<td>
+<p>Verbindlichkeiten und deren Positionen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Zeiterfassung mit Projektzuweisung</strong></span></p>
+</td>
+<td>
+<p>Erfasste Zeiten mit Bezug zu Projekten</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8" id="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8_section-id23513797111145"></a>Berichtsdaten per Permalink bereitstellen</h2>
+</div>
+<p>Nachdem du den für dich passenden Bericht ausgewählt hast, kannst du damit fortfahren, den Datenexport zu konfigurieren.</p>
+<p>Die einfachste und schnellste Möglichkeit ist meist die Erstellung eines Permalinks (Kurzform für <span class="bold"><strong><span class="emphasis"><em>permanenter Link</em></span></strong></span>). Permalinks sorgen dafür, dass jederzeit zuverlässig auf dieselbe Datenquelle verwiesen wird. Dies kannst du dir wie folgt zu Nutze machen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Du öffnest den gewünschen Bericht in <span class="phrase">Xentral</span> und generierst im Tab <span class="bold"><strong>Exporteinstellungen</strong></span> einen Permalink zu diesem Bericht.</p>
+</li>
+<li class="listitem">
+<p>Den so erstellten Permalink hinterlegst du dann in externen BI-Tools wie z.B. <span class="bold"><strong>PowerBI</strong></span>.</p>
+</li>
+<li class="listitem">
+<p>Einmal täglich (über Nacht) werden die Berichtsdaten, auf die der Permalink verweist, durch <span class="phrase">Xentral</span> neu berechnet.</p>
+</li>
+<li class="listitem">
+<p>Anschließend kannst du die aktuellsten Geschäftsdaten in deinem externen BI-Tool einsehen.</p>
+</li>
+</ul>
+</div>
+<p>Gehe wie folgt vor, um einen Permalink zu den Daten eines Berichts zu erstellen.</p>
+<div class="procedure">
+<a id="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8_procedure-id235137996878653"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne das Menü <span class="bold"><strong>Berichtswesen &gt; Berichte (Neu)</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf den Eintrag <span class="bold"><strong>[8] FTP-Backup und BI-Reports</strong></span>.</p>
+</li>
+<li class="step">
+<p>Öffne den gewünschten Bericht, indem du auf den Berichtsnamen klickst.</p>
+</li>
+<li class="step">
+<p>Öffne das Tab <span class="bold"><strong>Exporteinstellungen</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Permalink (URL)</strong></span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22117298659356" style="" alt="permalink-erstellen-de.png"></div>
+</li>
+<li class="step">
+<p>Nimm die gewünschten Einstellungen für den Permalink vor.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Permalink erstellen</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:450px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22117298661916" style="max-width: 450px;" alt="permalink-einstellungen-button-de.png"></td>
+</tr>
+</table>
+</div>
+<div class="result">
+<p>Der Permalink wird angezeigt. Du kannst ihn jetzt kopieren und in einem externen BI-Tool deiner Wahl hinterlegen.</p>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:450px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22117298663964" style="max-width: 450px;" alt="permalink-fertig-erstellt-de.png"></td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8" id="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8_section-id235138041533194"></a>Berichtsdaten auf FTP-Server exportieren</h2>
+</div>
+<p>Wenn du in regelmäßigen Abständen deine Berichtsdaten auf einem eigenen FTP-Server ablegen willst, müssen folgende Bedingungen erfüllt sein:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Du verfügst über alle Zugangsdaten zu deinem FTP-Server und über das notwendige Wissen, wie dieser funktioniert</p>
+</li>
+<li class="listitem">
+<p>Du hast die Verbindung zu deinem FTP-Server im Menü <span class="bold"><strong>Einstellungen &gt; Administration &gt; Datenaustausch &gt; FTP</strong></span> angelegt, also deine Zugangsdaten eingegeben</p>
+</li>
+</ul>
+</div>
+<p>Gehe wie folgt vor, um Berichtsdaten auf deinem FTP-Server abzulegen.</p>
+<div class="procedure">
+<a id="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8_procedure-id235138048209338"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne das Menü <span class="bold"><strong>Berichtswesen &gt; Berichte (Neu)</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf den Eintrag <span class="bold"><strong>[8] FTP-Backup und BI-Reports</strong></span>.</p>
+</li>
+<li class="step">
+<p>Öffne den gewünschten Bericht, indem du auf den Berichtsnamen klickst.</p>
+</li>
+<li class="step">
+<p>Öffne das Tab <span class="bold"><strong>Exporteinstellungen</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>FTP-Export</strong></span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22117298666268" style="" alt="exporteinstellungen-ftp-auswahl-de.png"></div>
+</li>
+<li class="step">
+<p>Nimm die genauen Einstellungen für den FTP-Export vor.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Die mit Sternchen (<span class="bold"><strong>*</strong></span>) gekennzeichneten Felder sind Pflichtfelder!</p>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:500px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22117283313308" style="max-width: 500px;" alt="ftp_export_settings_1_de.png"></td>
+</tr>
+</table>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:500px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22117283317916" style="max-width: 500px;" alt="ftp_export_settings_2_de.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Export anlegen</strong></span>.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8" id="UUID-575e0eed-2f19-9da5-255e-3b4918afd1a8_section-id235138027913435"></a>Berichtsdaten in Google Sheets bereitstellen</h2>
+</div>
+<p>Wenn du kein separates BI-Tool verwendest, kannst du deine Berichtsdaten aus <span class="phrase">Xentral</span> auch alternativ in Google Sheets (auch Google Tabellen) aufbereiten.</p>
+<p>Klicke auf den folgenden Link, um Schritt für Schritt durch die Anbindung an Google Sheets geführt zu werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><a class="link" href="https://github.com/xentral/xentral-gsheet-connection" target="_blank" rel="noopener">Xentral Google Sheets Connection</a></p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+In diesem Bereich finden sich Antworten auf häufige Fragen rund um die Bearbeitung von Aufträgen, die Steuerung von Freigaben und Prozessen sowie die Übergabe an die Logistik für Versand und weitere Verarbeitung.
+
+## Wie können Aufträge durchgelassen werden, obwohl die Zahlungsampel nicht grün ist?
+
+Die Steuerung erfolgt über die **Zahlungsart **. Bei Vorkasse-Zahlungsarten wird der Auftrag standardmäßig blockiert, bis die Zahlung eingegangen ist (z.B. wenn der Auftrag manuell als bezahlt markiert oder durch eine Zahlungsbuchung ausgeglichen wird). Wenn stattdessen die Zahlungsart ** Rechnung **gewählt wird, springt die Zahlungsampel automatisch auf grün und der Auftrag kann direkt weiterverarbeitet werden. Zusätzlich besteht die Möglichkeit, eine ** eigene Zahlweise anzulegen**, die sich wie die Zahlweise Rechnung verhält. Damit können Aufträge ebenfalls automatisch mit grüner Zahlungsampel weiterlaufen, ohne dass ein manueller Eingriff notwendig ist.
+
+Alternativ lässt sich ein Auftrag auch manuell im Beleg auf „**vorab als bezahlt markieren **“ setzen. Dadurch wird die Zahlungsampel ebenfalls ** auf grün gestellt **und automatische Prozesse wie Versand oder Weiterbearbeitung können gestartet werden, auch wenn noch kein Zahlungseingang verbucht wurde. Die Option „** vorab als bezahlt **“ kann außerdem direkt ** über den Shop mitgegeben werden**, wenn ein manuelles Setzen in Xentral nicht möglich ist.

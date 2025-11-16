@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magento 1.9</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016717280
+    Titel: Magento 1.9
+    URL: https://help.xentral.com/hc/de/articles/360016717280-Magento-1-9
+    Erstellt: 2020-09-28T09:46:43Z
+    Aktualisiert: 2023-11-03T03:21:35Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254071221532
+    Export-Zeitpunkt: 2025-11-16 19:09:37
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc" id="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc_id_360016717280_id_h_01FAFHGMF6KNZ9AJ328ZB7E5TM"></a>Features der Schnittstelle</h2>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Aufträge abholen</p>
+</li>
+<li class="listitem">
+<p>Auftragsstatus bei Versand umstellen inkl. Meldung Trackingnummer</p>
+</li>
+<li class="listitem">
+<p>Artikel einzeln von xentral nach Magento oder von Magento nach xentral übertragen</p>
+</li>
+<li class="listitem">
+<p>Meldung aktueller Lagerzahlen</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc" id="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc_id_360016717280_id_h_01FAFHGR4MEY7DZHS5W8651N5S"></a>Geschwindigkeitsanpassung</h2>
+</div>
+<p>Um Magento erfolgreich mit xentral zu verbinden, ist eine Geschwindigkeitsanpassung des Shops notwendig. Stellen Sie im Magento-Backend folgende Option auf Enable:</p>
+<p><span class="bold"><strong>System &gt; Configuration &gt; Magento Core Api &gt; Enable WSDL Cache</strong></span></p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc" id="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc_id_360016717280_id_h_01FAFHGVR8FCXPCYKHG3E5FGZE"></a>Installation &amp; Einrichtung</h3>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Anlegen eines Magento 1.9-Shops in xentral</p>
+</li>
+<li class="step">
+<p>Erstellen eines SOAP-Users im Magento-Backend unter <span class="bold"><strong>System &gt; Webservices &gt; SOAP/XML-RPC Users</strong></span></p>
+</li>
+<li class="step">
+<p>SOAP-User allgemeine Rechte geben unter <span class="bold"><strong>System &gt; Webservices &gt; SOAP/XML-RPC Roles</strong></span></p>
+</li>
+<li class="step">
+<p>Angeben in xentral zur Magento-API (https://ihredomain.de/api/soap/?wsdl))</p>
+</li>
+<li class="step">
+<p>Klicke auf die API-Domain, bei erfolgreicher Anbindung landest du auf einer XML. Landest du stattdessen auf deiner Website ist i.d.R das Suchmaschinenmodul (mod redirect) verantwortlich (siehe unten stehenden Hinweis).</p>
+</li>
+<li class="step">
+<p>Test der Übertragung</p>
+</li>
+<li class="step">
+<p>Individuelle Konfiguration (z.B. wie Versand importiert wird, ob die Preise aus xentral oder vom Shop übernommen werden, usw.)</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>mod redirect sollte auf gar keinen Fall deaktiviert werden, das kann zu großen Problemen führen. Das redirect Modul führt u.a. dazu, dass es für den Shop nur eine Startseite gibt. Egal ob der Kunde <span class="emphasis"><em>www.eigeneURL.de</em></span> oder <span class="emphasis"><em>eigeneURL.de</em></span> eingibt, er landet immer auf <span class="emphasis"><em>https://www.eigeneURL.de</em></span>. So etwas sollte bei jeder Webseite getan werden um das Problem des "Duplicate Content" zu vermeiden. Anfragen auf eigeneURL.de werden aber umgeleitet auf <span class="emphasis"><em>www.eigeneURL.de</em></span>. Um das zu vermeiden muss folgender Link verwendet werden: <span class="emphasis"><em>https://www.eigeneURL.de/api/soap/?wsdl</em></span></p>
+</div>
+<p>Die Lösung des Problems mod-redirect: Ob es überhaupt ein Problem gibt oder nicht hängt davon ab, wie der jeweilige Webmaster die Standard-URL seiner Webseite konfiguriert hat.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc" id="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc_id_360016717280_id_h_01FAFHH0TAR91H4Y1FVE2G6X27"></a>Zugangsdaten eintragen</h3>
+</div>
+<p>Unter <span class="bold"><strong>Administration &gt; Shop Schnittstelle &gt; Magento 1.9</strong></span> können Sie Ihre Zugangsdaten eintragen und speichern.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Bis Version 21.1 unter <span class="bold"><strong>Administration &gt; Einstellungen &gt; Online-Shops &gt; Magento 1.9</strong></span></p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc" id="UUID-4dfb49bb-afd1-49dd-5720-789cb68760bc_id_360016717280_id_h_01FAFHH4DM4F8SC55F9PYEJE4E"></a>Aufträge zu xentral übertragen</h2>
+</div>
+<p>Das Importieren von Aufträgen aus Online Shops ist <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360017612920#UUID-261d26b3-4119-fdc4-df27-ba7054e67b4b">hier</a> beschrieben.</p>
+<p>Import, Export und Synchronisierung von Artikeln ist <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016756799#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">hier</a> beschrieben.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lizenz - Update-Server (PA)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360020681180
+    Titel: Lizenz - Update-Server (PA)
+    URL: https://help.xentral.com/hc/de/articles/360020681180-Lizenz-Update-Server-PA
+    Erstellt: 2021-03-24T15:08:15Z
+    Aktualisiert: 2023-11-03T03:21:49Z
+    Draft: True
+    User Segment ID: 360000493960
+    Section ID: 360005176880
+    Export-Zeitpunkt: 2025-11-16 19:06:21
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <p> </p>
+<h1>Hilfestellung bei Lizenzkonflikten</h1>
+<p>Wenn ein Kunde in xentral zwei Systeme über eine Lizenz laufen lässt, dann ist dies seit der 20.3 ein großes Problem.</p>
+<p>Dadurch wird zum einen</p>
+<p>1. die Lizenz fest mit der neuen Version verknüpft,</p>
+<p>2. zum anderen wird eine Doppelnutzung der Systeme unterbunden.</p>
+<p> </p>
+<p>Wie erkenne ich dies?</p>
+<p>Aufruf des xentral-Systems (index.php) ist nicht möglich. Es wird ein weißer Bildschirm gezeigt. In der Browser-Konsole wird Serverfehler (Fehler 500) ausgegeben. Guckt man in die Serverlogs wird angezeigt, das ein ungültige key.php verwendet wird.</p>
+<p> </p>
+<h2>1. Verknüpfung der Lizenz mit einer Version</h2>
+<p>In der Vergangenheit war es möglich, das eine Lizenz für mehrere Versionen verwendet werden konnte. Ein Downgrade war in der Regel nicht möglich, jedoch konnte in einem frischen System mit einer beliebigen Version von xentral gearabeitet werden. Dies ist nun nicht mehr möglich.</p>
+<p>D.h. wenn ein Kunde von einem Testsystem auf ein Live-System gewechselt hat, dann muss dieser im Live-System auch zwingend auf die Version 20.3 upgraden. Für manche Kunden ist dies aber nicht ohne Weiteres möglich, weshalb hier in der Regel immer Probleme vorprogrammiert sind.</p>
+<p>Möglichkeiten:</p>
+<p>-Kunde geht mit dem Live-System auf die Version 20.3 oder höher</p>
+<p>-Lizenz wird von Entwickler mit Zugang zum Update-Server (z.B. Bruno oder Manu) auf die Version 20.2 zurückgesetzt</p>
+<p>-Kunde bezahlt für einen neue Lizenz für das Testsystem. Zusätzlich muss die Lizenz aber dennoch zurückgestuft werden</p>
+<p> </p>
+<p>Konkretes Doing:</p>
+<p>-Lizenz aus dem Testsystem entfernen</p>
+<p>-Direktes Update des Live-Systems über liveURL.de/update.php aufrufen und Update für die 20.2 ziehen. Hier wird dann eine neue key.php ausgeliefert.</p>
+<p> </p>
+<p>Sonderfall:</p>
+<p>Es gab zeitweise einen Bug, das die update.php, welche sonst immer unverschlüsselt ist, verschlüsselt ausgeliefert wurde. Dadurch war auch der Aufruf der /update.php nicht möglich, aufgrund der key.php-Fehlermeldung.</p>
+<p>Hier muss dann folgendes Update-Skript auf dem Server hinterlegt werden.</p>
+<p>-UpdateSkript-</p>
+<p>Wichtig ist, das dieses z.B. nicht in var/xentral/ abgelegt wird sondern in var/xentral/www/ .</p>
+<p> </p>
+<h2>2. Unterbindung der Doppelnutzung:</h2>
+<p>Wenn beide Lizenzen aktiv genutzt werden, dann wird innerhalb von wenigen Minuten die Arbeit im zweiten System unterbunden werden. Hier dürfte zumindest in den Serverlogs dann eine Fehlermeldung gezeigt werden.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+    </div>
+</body>
+</html>

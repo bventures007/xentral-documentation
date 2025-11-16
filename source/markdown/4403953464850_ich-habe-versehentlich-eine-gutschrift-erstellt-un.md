@@ -1,0 +1,5 @@
+Du hast hier zwei Möglichkeiten:
+
+1. Falls die versehentlich erstelle Gutschrift die Rechnung komplett storniert (über den gesamten Betrag), gleichen sich die Dokumente buchhalterisch aus. Falls die Rechnung also eigentlich gar nicht storniert werden hätte sollen, kannst du dem Kunden einfach eine neue Rechnung über den gleichen Betrag ausstellen. Die alte Rechnung und die falsche Gutschrft heben sich dann gegenseitig auf und die neue Rechnung hat den Status offen.
+
+2. Führe die Rechnung ein zweites Mal als Gutschrift weiter und setze vor die Beträge ein Minus ("Minusgutschrift"). Die ursprüngliche (versehentlich erstellte) Gutschrift wird dann wiederum durch die Minusbeträge der Minusgutschrift ausgeglichen, sodass weiterhin eine offene Forderung an den Kunden in Höhe der ursprünglichen Rechnung vorhanden ist.

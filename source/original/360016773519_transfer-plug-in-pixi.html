@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Plug-In Pixi</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016773519
+    Titel: Transfer Plug-In Pixi
+    URL: https://help.xentral.com/hc/de/articles/360016773519-Transfer-Plug-In-Pixi
+    Erstellt: 2020-09-28T16:50:11Z
+    Aktualisiert: 2023-11-03T03:21:44Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254433288476
+    Export-Zeitpunkt: 2025-11-16 19:10:00
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d" id="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d_id_360016773519_id_toc-0"></a>Anbindung von Descartes Pixi (Warehouse Management System)</h2>
+</div>
+<p>Durch die Anbindung von Xentral ist es möglich das Warehouse Management System (WMS) Pixi mit Xentral als ERP zu betreiben. So wird die Auftragsbearbeitung mit Hilfe eines umfangreichen WMS möglich. Gleichzeitig führt Xentral immer aktuelle Lagerzahlen und gibt diese zuverlässig in der Folge auch an alle angeschlossenen Shops und Marktplätzen weiter. Xentral bietet mit der vorhandenen Schnittstelle die folgenden Übertragungswege an: Xentral → Pixi</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Übertragung der Aufträge</p>
+</li>
+<li class="listitem">
+<p>Übertragung von Artikeln</p>
+</li>
+</ul>
+</div>
+<p>Pixi → Xentral</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Übertragung aktueller Lagerzahlen</p>
+</li>
+<li class="listitem">
+<p>Übertragen der Trackingnummern inkl. Seriennummern, MHDs und Chargen</p>
+</li>
+</ul>
+</div>
+<p>Für die Anbindung an Pixi wird das <a class="link" href="https://xentral.com/helpdesk/edi-xml-pdf" target="_blank" rel="noopener">Übertragungen Modul</a> benötigt.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d" id="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d_id_360016773519_id_toc-1"></a>Einstellungen</h3>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d" id="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d_id_360016773519_id_toc-2"></a>API-Zugang</h4>
+</div>
+<p>Zunächst muss ein neue API-Zugang angelegt werden, diesen beinhaltet jedoch selbst noch keine Zugangsdaten und dient nur einer korrekten Zuordnung im System.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d" id="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d_id_360016773519_id_toc-3"></a>Modul Übertragungen</h4>
+</div>
+<p>Die Einstellungen werden im Modul Übertragungen vorgenommen. Dazu ist lediglich ein neuer Account anzulegen und der Übertragungstyp Pixi zu wählen.</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Erstelle ein neues Konto mit +NEU.</p>
+</li>
+<li class="step">
+<p>Aktiviere unter Einstellungen das Kontrollkästchen Aktiv und gib eine Bezeichnung ein (z. B. "Descartes Pixi").</p>
+</li>
+<li class="step">
+<p>Wähle unter Kommunikation das zuvor für Pixi erstellte API-Konto und in der Dropdown-Liste Übertragungsformat die Option "Pixi".</p>
+</li>
+<li class="step">
+<p>Gib die Zugangsdaten für den API-Zugang im Pixi-Backend in den folgenden Feldern im Abschnitt Kommunikation an:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Server</p>
+</li>
+<li class="listitem">
+<p>Port</p>
+</li>
+<li class="listitem">
+<p>Username</p>
+</li>
+<li class="listitem">
+<p>Passwort</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="step">
+<p>Wähle im Abschnitt Belege versenden die Belegart "Auftrag" und den Belegstatus "Freigegeben".</p>
+</li>
+<li class="step">
+<p>Aktiviere im Bereich Belege empfangen das Kontrollkästchen "Lagerzahlen empfangen" und das Kontrollkästchen "Tracking empfangen".</p>
+</li>
+<li class="step">
+<p>Definiere übertragungsspezifische Einstellungen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>WSDL → Pfad zur WDSL-Definition</p>
+</li>
+<li class="listitem">
+<p>Channel → Kanalsauswahl. Die Kanäle stehen nach der ersten erfolgreichen Verbindung zu Pixi austomatisch zur Auswahl bereit.</p>
+</li>
+<li class="listitem">
+<p>ShopId → Eintrag der festgelegten Shop ID</p>
+</li>
+<li class="listitem">
+<p>Pixi-Datenbank → Pixi-Datenbank (Setting im Backend von Pixi)</p>
+</li>
+<li class="listitem">
+<p>Kundennummer → Bitte fragen Sie unseren Support</p>
+</li>
+<li class="listitem">
+<p>Zahlungsweise überschreiben → Zahlungsweise wird grundsätzlich mit dem hier enthaltenen Wert überschrieben</p>
+</li>
+<li class="listitem">
+<p>pixiImportProcessXML ausführen → Führt die unter pixiImportProcessXML hinterlegten Daten aus</p>
+</li>
+<li class="listitem">
+<p>Interne Bemerkung in Pixi-GiftMessage → Interne Bemerkung</p>
+</li>
+<li class="listitem">
+<p>Auftragspositionen mit Subpositionen nummerieren → Bitte fragen Sie unseren Support</p>
+</li>
+<li class="listitem">
+<p>Stücklistenelemente nicht übertragen → Stücklistenelemente werden nicht übertragen</p>
+</li>
+<li class="listitem">
+<p>Debugfunktionen → Erweitertes Logging um fehlerhafte Werte in der Übertragung zu identifizieren</p>
+</li>
+<li class="listitem">
+<p>UTF-8 → Sprachabhängig</p>
+</li>
+<li class="listitem">
+<p>Artikel Catalog-ID → Aus Pixi Backend</p>
+</li>
+<li class="listitem">
+<p>Artikel Catalog-Version → Aus Pixi Backend</p>
+</li>
+<li class="listitem">
+<p>Artikelnummer statt EAN wenn EAN leer → Bei leerer Artikelnummer werden EANs übertragen</p>
+<p>Nur Lagerartikel übertragen → Es werden nur Lagerartikel übertragen</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<p>Bei den Einstellungen zur Pixi-API unterstützt Sie gerne auch unser Support-Team. Wir empfehlen die Buchung eines unserer Supportpakete zur Schnittstellenanbindung. Nähere Informationen dazu bekommen Sie von unserem Support.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d" id="UUID-1dbb0a9c-5e56-2751-7c9a-0230d514609d_id_360016773519_id_toc-9"></a>Monitoring</h3>
+</div>
+<p>Bitte sichten Sie regelmäßig den Monitor im Übertragungen Modul. Mögliche Fehlermeldungen werden dort dargestellt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

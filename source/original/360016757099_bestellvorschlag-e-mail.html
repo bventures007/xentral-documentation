@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestellvorschlag E-Mail</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016757099
+    Titel: Bestellvorschlag E-Mail
+    URL: https://help.xentral.com/hc/de/articles/360016757099-Bestellvorschlag-E-Mail
+    Erstellt: 2020-09-28T12:17:54Z
+    Aktualisiert: 2024-08-29T13:41:23Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4406078051868
+    Export-Zeitpunkt: 2025-11-16 19:07:28
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Mit der App "Bestellvorschlag E-Mail" kann eingestellt werden, dass in regelmäßigen Abständen E-Mails mit einem Bestellvorschlag an den xentral User gesendet werden. Falls die Lagermenge geringer als der Mindestbestand ist, prüft das System, welche Menge im Vergleich zum Mindestbestand fehlt. Zudem wird kontrolliert, ob verplante Artikel von offenen Aufträgen ausreichend auf Lager sind, um die Aufträge abzufertigen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-e98f7e7a-ab1f-62d4-bc08-838426bc44ce" id="UUID-e98f7e7a-ab1f-62d4-bc08-838426bc44ce_id_360016757099_id_h_01FBM5DMVHGRXD0XPRGESP0W39"></a>Übersicht</h2>
+</div>
+<p>Über App Center → Bestellvorschlag E-Mail kann die E-Mail-Adresse hinterlegt werden, an welche die Bestellvorschläge geschickt werden sollen:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5037947365660" style="" alt="order_proposal_email.png"></div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Modul aktivieren → Anhaken, um die App zu nutzen</p>
+</li>
+<li class="listitem">
+<p>Empfänger für Mail aus Cronjob → E-Mail-Adresse eintragen, an welche der Bestellvorschlag gesendet wird. Um mehrere Adressen einzutragen, ist ein Semikolon zu verwenden</p>
+</li>
+<li class="listitem">
+<p>Benachrichtigungen nur an Werktagen → Anhaken, um E-Mails nur an Werktagen zu erhalten</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-e98f7e7a-ab1f-62d4-bc08-838426bc44ce" id="UUID-e98f7e7a-ab1f-62d4-bc08-838426bc44ce_id_360016757099_id_h_01FBM5DRSS6Q4KJSGY1ESH1H0A"></a>Prozessstarter</h2>
+</div>
+<p>Das automatische Verschicken der E-Mails funktioniert über den Prozessstarter "Bestellvorschlag Mail". Dazu muss ein neuer Prozessstarter angelegt werden, aktiviert sein und den richtigen Parameter besitzen.</p>
+<p>In folgendem Beispiel wird der Prozessstarter neu angelegt: Er läuft immer montags um 17 Uhr und verschickt die E-Mail mit dem Bestellvorschlag, falls Positionen in diesem vorhanden sind:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5037961749788" style="" alt="process_starter_ope.png"></div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Bezeichung</span> → Hier ist "Bestellvorschlag Mail" einzugeben</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Art</span> → Aus dem Dropdown-Menü ist die gewünschte Art auszuwählen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Wochentag</span> → Der entsprechende Wochentag ist einzustellen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Startzeit</span> → Die Startzeit sowie das Startdatum sind anzugeben</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Letzte Ausführung</span> → Die Zeit sowie das Datum der letzten Ausführung können eingegeben werden</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Typ</span> → Typ "Cronjob" ist aus dem Dropdown-Menü auszuwählen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Parameter</span> → Als Parameter ist "bestellvorschlagemail" einzupflegen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Aktiv</span> → Um den Prozessstarter zu verwenden, ist der Haken zu setzen</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-e98f7e7a-ab1f-62d4-bc08-838426bc44ce" id="UUID-e98f7e7a-ab1f-62d4-bc08-838426bc44ce_id_360016757099_id_h_01FBM5DVXYZWBPE25ZKDJTSG04"></a>E-Mail</h2>
+</div>
+<p>Die jeweilige E-Mail zeigt das gleiche Ergebnis wie die Oberfläche "Bestellvorschlag". In der Spalte ganz rechts wird angezeigt, wie viele Einheiten der jeweiligen Artikel im Lager im Vergleich fehlen, sodass kontrolliert werden kann, ob offene Aufträge bedient bzw. der Mindestbestand eingehalten werden kann.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

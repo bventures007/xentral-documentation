@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Plug-In Amazon Vendor</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016737660
+    Titel: Transfer Plug-In Amazon Vendor
+    URL: https://help.xentral.com/hc/de/articles/360016737660-Transfer-Plug-In-Amazon-Vendor
+    Erstellt: 2020-09-28T16:50:09Z
+    Aktualisiert: 2023-11-03T03:21:39Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254433288476
+    Export-Zeitpunkt: 2025-11-16 19:10:00
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-0707887a-8ff2-3c05-d581-4ca46364c580_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-0707887a-8ff2-3c05-d581-4ca46364c580" id="UUID-0707887a-8ff2-3c05-d581-4ca46364c580_id_360016737660_id_h_01FAMEXTZKJ8VQ3WBBFMSAHP06"></a>Amazon Vendor</h2>
+</div>
+<p>Mit Hilfe der Amazon Vendor-Schnittstelle können Lieferungen für das Amazon Vendorenprogramm bearbeitet werden. Voraussetzung ist das Übertragungen Modul.</p>
+<p>Dazu ist es möglich Bestellungen von Amazon zu empfangen und zu verarbeiten (ORDER). Nach Abschluss der Lieferung kann gegenüber Amazon angerechnet werden (INVOICE).</p>
+<p>Die Datenübertragung erfolgt z.B. mit SFTP.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-0707887a-8ff2-3c05-d581-4ca46364c580" id="UUID-0707887a-8ff2-3c05-d581-4ca46364c580_id_360016737660_id_h_01FAMEY1DBACE44G4KQH89MA9W"></a>EDI-Verbindung</h2>
+</div>
+<p>EDI Messages sind in in Codezeilen unterteilt, in denen jeweils genau definierte Daten übermittelt werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-0707887a-8ff2-3c05-d581-4ca46364c580" id="UUID-0707887a-8ff2-3c05-d581-4ca46364c580_id_360016737660_id_h_01FAMEY5N0GMR5C04KBWYAMBPH"></a>UNB: Kommunikationspartner</h3>
+</div>
+<p>Die UNB Zeile definiert unter anderem den Empfänger und Absender. Das "Gegenüber" erwartet hier meist ein "weltweit" eindeutiges Kennzeichen für den Kommunikationspartner. Dafür existieren verschiedene Möglichkeiten:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Quasi-Standard ist hier eine GLN (Global Location Number, früher auch ILN) aus dem GS1 System (vormals EAN System), die in Deutschland von der <a class="link" href="https://gs1.de/" target="_blank" rel="noopener">GS1.de</a> verwaltet wird. Diese GLN UNB ID Typ "14" ist aber nur eine Möglichkeit von vielen.</p>
+</li>
+<li class="listitem">
+<p>Für einen schnellen Start und wenn die Schnittstellte selbst entwickelt wird kann als UNB-ID auch der Typ "9" gewählt werden, dort wird die DUNS Nummer (auch D-U-N-S, kurz für Data Universal Numbering System) erwartet, die unter <a class="link" href="https://www.upik.de/upik_suche.cgi" target="_blank" rel="noopener">https://www.upik.de/upik_suche.cgi</a> abgefragt werden kann. Alle Kapitalgesellschaften bekommen nach Anmeldung bei den entsprechenden Behörden automatisch eine DUNS-Nummer zugewiesen.</p>
+</li>
+<li class="listitem">
+<p>Zuletzt besteht auch die Möglichkeit die Telefonnummer mit intl. Vorwahl und als UNB-ID Typ "12" zu verwenden.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-0707887a-8ff2-3c05-d581-4ca46364c580" id="UUID-0707887a-8ff2-3c05-d581-4ca46364c580_id_360016737660_id_h_01FAMEYARAF7ZNZKRE0ZEPQY5C"></a>Übertragungsstandard EDI / EDIFACT</h3>
+</div>
+<p>Bei EDI/EDIFACT wird so gut wie alles mit Codelisten übertragen, denn das Protokoll stammt aus den 1980er Jahren wo jedes Byte noch teuer war. Dafür existieren einige Quellen, die das Format erläutern und den Umgang damit aufzeigen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Einen guten Einstieg bekommt man unter <a class="link" href="https://www.stylusstudio.com/edifact/" target="_blank" rel="noopener">https://www.stylusstudio.com/edifact/</a></p>
+</li>
+<li class="listitem">
+<p>etwas komplizierter aber dafür sehr umfangreich <a class="link" href="https://service.unece.org/trade/untdid/d96a/trmd/orders_t.htm" target="_blank" rel="noopener">https://service.unece.org/trade/untdid/d96a/trmd/orders_t.htm</a></p>
+</li>
+</ul>
+</div>
+<p>Die Datenübertragung erfolgt z.B. mit SFTP ausschließlich per keyfile (ssh pub-key). Die EDI-Datei an sich ist eine reine Textdatei, idealerweise codiert in UTF8 - das ist aber nicht zwingend im Standard vorgeschrieben. Wird eine Datei vom Gegenüber gesendet die nur eine eine Zeile enthält, kann das EDI Satzendzeichen ' (einfaches Anführungszeichen, das wird im UNA Segment definiert) durch ein LF bzw. CR/LF ersetzen damit wird die Struktur sehr gut lesbar. Bestimme Segmente können in EDI mehrfach vorkommen und haben dann evtl. eine unterschiedliche Bedeutung z.B. Daten im Kopf (Header) und auf Positions-Ebene.</p>
+<p>Beispiel ORDER</p>
+<p>Zum schnellen Start in das Thema haben wir ein paar Segmente in einer ORDER zusammengefasst - so lässt sich schnell verstehen, wie eine ORDER zu parsen wäre.</p>
+<p>BGM+220+4HQ7EBLG+9' → Bestellung mit PO Nummer 4HQ7EBLG, → die 9 am Schluss bedeutet es werden die EAN/GS1 Codelisten verwendet DTM+137:20190107:102' → Belegdatum im Format 102 DTM+63:20190111:102' → Lieferdatum spätestens im Format 102 DTM+64:20190107:102' → Lieferdatum frühestens im Format 102</p>
+<p>Benötigt wird das GLN Verzeichnis aus dem Vendor-Central, damit die Lieferadressen zugeordnet werden können.</p>
+<p>NAD+BY+5450534000017::9' → Käufer, GLN Codiert NAD+SU+4016428000009::9' → Lieferant, hier wird die eigene UNB-ID wieder angegeben NAD+DP+5450534002325::9+++++++DE' → Lieferadresse mit Land NAD+IV+5450534005838::9++AMAZON EU SARL:NIEDERLASSUNG DEUTSCHLAND+MARCEL-BREUER-STR. 12+MUENCHEN++80807+DE' → Rechnungsadresse als GLN und Klartext muss in der INVOICE Message auch komplett → im Klartext übertragen werden.</p>
+<p>Im Folgenden (ab LIN) beginnen die Positionen, zwischen NAD und LIN können noch weitere Zeilen kommen z.B. RFF (Referenz jeweils zum aktuellen Element) und CUX (hier wird die Währung definiert).</p>
+<p>Jedes LIN definiert den Beginn einer neuen Position an (LIN+1, LIN+2, LIN+3 usw.) LIN+1++4016428352115:EN' → Artikel Pos 1 mit Artikel EAN, EN=Datenherkunft EAN, könnte evtl. auch SA sein QTY+21:52' → Pos Menge in Stück PRI+AAA:55.9' → Preis pro Stück netto</p>
+<p>Im Anschluss folgen noch Rahmendaten die vor allem der Validierung dienen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Mit UMS+S beginnt der Summenblock, der mit Hilfe verschiedener Summen eine Validierung ermöglicht.</p>
+</li>
+<li class="listitem">
+<p>Sollten mehrere Belege ein einer UNB Übertragung enthalten sein, folgen diese nun durch ein UNH bzw. BGM getrennt wieder mit dem Belegkopf.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

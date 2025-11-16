@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ebay</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 4405748464156
+    Titel: ebay
+    URL: https://help.xentral.com/hc/de/articles/4405748464156-ebay
+    Erstellt: 2022-02-08T12:58:16Z
+    Aktualisiert: 2023-11-03T03:21:54Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 360005017119
+    Export-Zeitpunkt: 2025-11-16 19:08:00
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <h2>eBay Verdindung OK, keine Bestellungen importiert --&gt; Versionen 22.x</h2>
+<p><span>Wenn beim Verbindung überprüfen ein "OK" bzw. "Erfolgreich" kommt. </span></p>
+<p><span>Da soll auch die Gültigkeit der Token angezeigt werden, <span class="wysiwyg-underline">falls der Token eine Gültigkeit hat, die länger als einen Tag ist, dann ist die Anbindung leider falsch gelaufen</span>.</span><br><span> </span><br><span>Grundsätzlich ist es wichtig, das:</span></p>
+<ul dir="auto">
+<li>der Haken bei "Auftragsimport über alternative API" gesetzt ist (habt ihr!)</li>
+<li>die im eBay Developer Account hinterlegte "Your auth accepted URL"muss in der Form<span> </span><a href="https://deine_instanz:URL/index.php?module=ebay&amp;action=rest&amp;cmd=getToken" rel="noopener noreferrer">https://DEINE_INSTANZ_URL/index.php?module=ebay&amp;action=rest&amp;cmd=getToken</a><span> </span>hinterlegt sein.<br><img src="/attachments/token/ZDugrS95fDSMd058RtSrlwAW4/?name=Screenshot+2022-08-25+at+14.21.24.png"><br><br> </li>
+<li>Der neue REST Token darf<span> </span><strong>ausschließlich</strong><span> </span>über den blauen Button geholt werden (nicht über den Link, der teilweise oben auftaucht!):<br><img src="/attachments/token/ATKWYfS9oIue637QEysFEWhgd/?name=Screenshot+2022-08-25+at+14.24.21.png"><br><br> </li>
+<li>Die Gültigkeit des Tokens, die nach einem Klick auf "Verbindung prüfen" angezeigt wird, darf nicht länger als ein paar Stunden sein (Screenshot zeigt also den Zustand, wie es<span> </span><strong>nicht</strong><span> </span>sein sollte!)<br><br><img src="/attachments/token/3ddmZVFm3fvLOeCx9Yba19uTe/?name=screencapture-620b8e5ce5a7d-xentral-biz-index-php-2022-08-25-14_16_59.png">
+</li>
+</ul>
+<h2> </h2>
+<h2>Nicht funktionierender Lagersync durch Fehler</h2>
+<p>Die Ursache für einen nicht funktionierenden Lagersync bei bestimmten Artikeln kann an Fehlern liegen, die beim Versuch des Lagersyncs angezeigt werden. Über eBay App &gt; Stapelverarbeitung &gt; Protokoll kann man nach dem heutigen Datum und/oder der eBay Artikelnummer suchen und findet ggf. einen Error. Dieser Error verhindert den Lagersync. (Quelle: DigitalXL/eigenes Testing, AB, 01.07.22)</p>
+<p><img src="https://help.xentral.com/hc/article_attachments/5230277063324/mceclip0.png" alt="mceclip0.png"></p>
+<p>  </p>
+<h2>FAQs</h2>
+<p><em>Sollten alte Angebot auch abgeholt werden und bei den Listing erscheinen?</em></p>
+<p>Alle aktiven Angebote sollten angezeigt werden sowie ausgeblendete für max. 90 Tage. Bei beendeten Angeboten ist der Zeitraum unbekannt, wird aber von ebay vorgegeben und bestimmt.</p>
+<p> </p>
+<p><em>Welche Prozessstarter sind für den Lagersync bei eBay verantwortlich?</em></p>
+<p>lagerzahlen (für das Überprüfen einer Änderung des Bestands und schreiben dieser Änderung in eine für ebay wichtige Tabelle) und ebay_bulkjobs (für die Übertragung der Lagerzahlen)</p>
+<p> </p>
+<p><em>Für wie viele Ebenen sollte der Abruf der Kategorien funktionieren?</em></p>
+<p>Bis zur dritten Ebene.</p>
+<p><span class="wysiwyg-font-size-small">(AB, 08.02.22, Quelle: DigitalXL)</span></p>
+<p> </p>
+<h2>Listings/Auktionsübersicht/Zuordnung</h2>
+<p><strong>Zuordnung:</strong> beinhaltet auch beendete Listings; eine korrekte Zuordnung ist für den Abgleich unter Listings essentiell;</p>
+<p><strong>Listings:</strong> dort sollten alle Artikel gefunden werden können und korrekt hinterlegt sein</p>
+<p>Wie erscheint ein Angebot unter Listings? Bei den Zuordnung muss man zuerst die Artikelliste abholen und überprüfen. Anschließen wenn die Zuordnung korrekt ist müssen die Artikel automatisch zugeordnet werden und sollten dann unter Listings erscheinen.</p>
+<p> </p>
+<p><strong>Auktionsübersicht</strong>: eine nicht zu Ende entwickelte Vorschau der Gebühren, die alle aktiven Artikel anzeigen sollte. Zusätzlich sind Aktualisierungen hierüber möglich.</p>
+<p><span class="wysiwyg-font-size-small">(AB, 08.02.22, Quelle: DigitalXL)</span></p>
+    </div>
+</body>
+</html>

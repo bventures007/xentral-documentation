@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logger in Xentral</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 8019521254300
+    Titel: Logger in Xentral
+    URL: https://help.xentral.com/hc/de/articles/8019521254300-Logger-in-Xentral
+    Erstellt: 2023-03-09T14:29:55Z
+    Aktualisiert: 2025-02-12T19:25:20Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4419694476444
+    Export-Zeitpunkt: 2025-11-16 19:08:36
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Logger sind dafür zuständig, die Ereignisse und Statusinformationen während des Betriebs von <span class="phrase">Xentral</span> automatisch zu protokollieren. Bei den protokollierten Ereignissen und Informationen handelt es sich zum Beispiel um Systemnachrichten, Fehlermeldungen oder Statusmeldungen. In diesem Artikel bekommst du eine kurze Übersicht über die Logger in <span class="phrase">Xentral</span>.</p>
+<p>In den folgenden Abschnitten werden die verschiedenen Logger erläutert.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-19444a47-ada2-0d86-745c-00d0565c63fb" id="idm11605"></a>Log File</h2>
+</div>
+<p>Hierbei handelt es sich um den Systemlog. Der Logfile wird als Datei auf dem Server gespeichert und kann gegebenenfalls durch Ingenieure für Debugging Zwecke genutzt werden. Das Modul <span class="guilabel">Log File</span> (Logviewer) ließt den Logfile aus und macht die Informationen für den Nutzer in <span class="phrase">Xentral</span> sichtbar. Der Logger ist immer aktiv und muss nicht extra aktiviert werden. In den Einstellungen (<span class="guilabel">Log File &gt; Einstellungen</span>) kannst du wählen, welche Arten von Logleveln angezeigt werden sollen.</p>
+<p>Hier eine kurze Übersicht zu den Logleveln</p>
+<div class="informaltable table-responsive">
+<table style="border-collapse: collapse; width: 100%; height: 198px;" border="1">
+<tbody>
+<tr>
+<td>
+<p>Loglevel</p>
+</td>
+<td>
+<p>Beschreibung</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="guilabel">Warning</span></p>
+</td>
+<td>
+<p>Außergewöhnliche Ereignisse, die keine Fehler sind.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Dinge, die es noch nicht gibt, die aber in Zukunft zu Problemen werden können</p>
+</li>
+<li class="listitem">
+<p>Fallback-Szenario wegen unvollständiger Konfiguration verwenden</p>
+</li>
+<li class="listitem">
+<p>Schlechte Performance</p>
+</li>
+<li class="listitem">
+<p>Neben einer Warnmeldung auf dem Bildschirm könnte eine Warnprotokollmeldung erscheinen</p>
+</li>
+</ul>
+</div>
+<p>Es funktioniert so, aber es ist nicht ideal - das solltest du ändern.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="guilabel">Notice</span></p>
+</td>
+<td>
+<p>Bemerkenswerte Ereignisse, mit denen Sie die Absicht eines Benutzers verstehen können.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Keine technischen Details oder Dumps!</p>
+</li>
+<li class="listitem">
+<p>Max. eine pro Benutzeraktion</p>
+</li>
+<li class="listitem">
+<p>Ein Cronjob gestartet/beendet</p>
+</li>
+<li class="listitem">
+<p>z.B. "Benutzer XY hat einen neuen Lead erstellt."</p>
+</li>
+</ul>
+</div>
+<p>Was der Benutzer versucht hat, bevor die Anwendung abgestürzt ist.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="guilabel">Info</span></p>
+</td>
+<td>
+<p>Häufige Ereignisse, die die Absicht eines Benutzers detaillierter beschreiben.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Ausführlichere Form von NOTICE.</p>
+</li>
+</ul>
+</div>
+<p>Kann hilfreich sein, um die genauen Aktionen des Benutzers zu reproduzieren.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="guilabel">Error</span></p>
+</td>
+<td>
+<p>Abfangbarer Fehler, der die Anwendung nicht unterbricht.</p>
+<p>Fehlerprotokollmeldungen sollten dem Entwickler einen Hinweis geben, wo er nach einem Problem suchen kann.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Vorübergehendes Problem</p>
+</li>
+<li class="listitem">
+<p>Fehlerantwort von einer anderen API</p>
+</li>
+<li class="listitem">
+<p>Fehler, der vom Benutzer behoben werden könnte</p>
+</li>
+<li class="listitem">
+<p>Eine Fehlerprotokollmeldung könnte zusammen mit einer „Fehler“-Meldung auf dem Bildschirm erscheinen</p>
+</li>
+<li class="listitem">
+<p>Kann nach dem Neuladen der Seite behoben werden</p>
+</li>
+</ul>
+</div>
+<p>Diese Informationen sollten zumindest im Protokoll erscheinen, wenn ein Fehler gemeldet wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="guilabel">Emergency</span></p>
+</td>
+<td>
+<p>Ein Notfallfehler sollte dazu führen, dass der Kunde den Support wegen „Notfallproblem“ anruft.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Sofortiges Handeln erforderlich</p>
+</li>
+<li class="listitem">
+<p>Drohender Datenverlust</p>
+</li>
+<li class="listitem">
+<p>Software ist nicht mehr lauffähig</p>
+</li>
+<li class="listitem">
+<p>Nur ein erfahrener Systemadministrator oder unser Support kann das Problem lösen</p>
+</li>
+</ul>
+</div>
+<p>Der letzte Hilferuf, bevor die Anwendung stirbt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="guilabel">Debug</span></p>
+</td>
+<td>
+<p>Detaillierte Debug-Informationen.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Verfolge den Code bei Bedarf Zeile für Zeile</p>
+</li>
+<li class="listitem">
+<p>Variable Dumps</p>
+</li>
+<li class="listitem">
+<p>Technische Information</p>
+</li>
+</ul>
+</div>
+<p>Ich möchte ihr Produktionssystem nicht debuggen, also sage ich ihnen, sie sollen den DEBUG-Level einschalten und mir das Protokoll schicken.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="guilabel">Critical</span></p>
+</td>
+<td>
+<p>Unbehandelte/unbekannte Fehler und Fehler, die dazu führen, dass eine Software nicht mehr funktioniert.</p>
+<p>Idealerweise sollten alle CRITICALs im Laufe der Zeit in ERRORs umgewandelt werden.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Komponente oder Abhängigkeit fehlt</p>
+</li>
+<li class="listitem">
+<p>Unbehandelte Ausnahme (Ausnahmefehlerseite)</p>
+</li>
+<li class="listitem">
+<p>Einzelne Seite/Modul/Cronjob kann nicht dauerhaft arbeiten</p>
+</li>
+</ul>
+</div>
+<p>Irgendetwas an diesem Modul ist dauerhaft kaputt - Aufmerksamkeit des Entwicklers erforderlich.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="guilabel">Alert</span></p>
+</td>
+<td>
+<p>Verwenden Sie die Benachrichtigung in Fällen, in denen ein Administrator eine Benachrichtigung per E-Mail oder SMS wünscht.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Weniger schwerwiegend als ein Notfall</p>
+</li>
+<li class="listitem">
+<p>Problem ist hartnäckig</p>
+</li>
+<li class="listitem">
+<p>Der Systemadministrator kann das Problem beheben</p>
+</li>
+<li class="listitem">
+<p>z.B. Datenbank kann nicht verbunden werden</p>
+</li>
+<li class="listitem">
+<p>z.B. userdata hat keinen Speicher mehr</p>
+</li>
+</ul>
+</div>
+<p>Hey DevOps, du musst das beheben! Anderenfalls sind einige/viele Menschen nicht arbeitsfähig.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-19444a47-ada2-0d86-745c-00d0565c63fb" id="idm11743"></a>Protokoll</h2>
+</div>
+<p>Hierbei handelt es sich um eine Liste mit Aktionen, die der eingeloggte Nutzer in <span class="phrase">Xentral</span> ausführt. Sie kann über das Modul <span class="guilabel">Protokoll</span> eingesehen werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-19444a47-ada2-0d86-745c-00d0565c63fb" id="idm11748"></a>Mailausgang Log</h2>
+</div>
+<p>Der Mailausgang Log ist ein Logger für alle versendeten Mails und Fehler. Mehr Informationen erhältst du <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/8718596261532#UUID-0209e297-82f9-2aa0-91f0-4a7b87bdd5b4" title="E-Mail-Konten anbinden">hier</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-19444a47-ada2-0d86-745c-00d0565c63fb" id="idm11752"></a>Systemlog</h2>
+</div>
+<p>Die Logdatei des Systems mit allen wichtigen Informationen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-19444a47-ada2-0d86-745c-00d0565c63fb" id="idm11755"></a>System Health</h2>
+</div>
+<p>Der Logger <span class="guilabel">System Health</span> zeigt den "Gesundheitszustand" des Systems an. Entdeckt das System an verschiedenen Stellen Unstimmigkeiten, wie etwa doppelte Nummern, Fehler beim Ausführen von Prozessstartern, einen vollgelaufenen Speicher o.Ä. wird eine Warn- oder Fehlermeldung in der System Health Übersicht erzeugt. Mehr Informationen zum Modul erhältst du <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/360016725020#UUID-c4d97aa6-3ed1-272b-146c-bf5f28819ff3" title="System Status">hier</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

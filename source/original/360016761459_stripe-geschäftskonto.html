@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe (Geschäftskonto)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016761459
+    Titel: Stripe (Geschäftskonto)
+    URL: https://help.xentral.com/hc/de/articles/360016761459-Stripe-Gesch%C3%A4ftskonto
+    Erstellt: 2020-09-28T13:16:17Z
+    Aktualisiert: 2024-08-29T12:53:55Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415729714460
+    Export-Zeitpunkt: 2025-11-16 19:06:41
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4869205f-8168-2f09-4a2d-b77c662d5f71" id="UUID-4869205f-8168-2f09-4a2d-b77c662d5f71_id_360016761459_id_toc-0"></a>Stripe (API)</h2>
+</div>
+<p>Für Stripe können Live-Importe eingestellt werden. Darüber hinaus können auch Rückzahlungen von Stripe via API importiert werden.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492894967708" style="" alt="AccStripe1.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492895021852" style="" alt="AccStripe2.png"></div>
+<p>Die Payouts können über den Schalter API_SKIPPAYOUTS=&gt;1; ausgelassen werden. Dadurch werden diese nicht abgeholt.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4869205f-8168-2f09-4a2d-b77c662d5f71" id="UUID-4869205f-8168-2f09-4a2d-b77c662d5f71_id_360016761459_id_toc-1"></a>API Key eintragen</h3>
+</div>
+<p>Unter <a class="link" href="https://dashboard.stripe.com/account/apikeys" target="_blank" rel="noopener">https://dashboard.stripe.com/account/apikeys</a> können Sie die API Keys einsehen. Der Secret Key wird benötigt, damit Xentral die Zahlungen von Stripe abholen kann. Im Geschäftskonto unter dem Punkt Live-Import können Sie diesen wie folgt eingeben:</p>
+<p>API_USERNAME=&gt;sk_live_xxxxxx;API_DAYS=&gt;3;API_ALLPAYMENTS=&gt;1;USE_PAYMENT_INTENT=&gt;1;</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>API_USERNAME → Secret Key aus dem Stripe Dashboard</p>
+</li>
+<li class="listitem">
+<p>API_DAYS → Zahlungen aus vergangenen x Tage abholen</p>
+</li>
+<li class="listitem">
+<p>API_ALLPAYMENTS → Kann 0 oder 1 sein. Bei 0 werden nur die Einzahlungen importiert. Wird der Parameter hingegen auf 1 gesetzt, werden auch Rückzahlungen importiert.</p>
+</li>
+<li class="listitem">
+<p>USE_PAYMENT_INTENT=&gt;1; → Als Buchungstext wird die last_trans_id eingetragen.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4869205f-8168-2f09-4a2d-b77c662d5f71" id="UUID-4869205f-8168-2f09-4a2d-b77c662d5f71_id_360016761459_id_toc-2"></a>Stripe (CSV)</h2>
+</div>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p>id</p>
+</td>
+<td>
+<p>Description</p>
+</td>
+<td>
+<p>Created (UTC)</p>
+</td>
+<td>
+<p>Amount</p>
+</td>
+<td>
+<p>Amount Refunded</p>
+</td>
+<td>
+<p>Currency Converted</p>
+</td>
+<td>
+<p>Amount Converted</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Amount Refunded</p>
+</td>
+<td>
+<p>Fairy</p>
+</td>
+<td>
+<p>Tax Converted</p>
+</td>
+<td>
+<p>Currency</p>
+</td>
+<td>
+<p>Fashion</p>
+</td>
+<td>
+<p>Status</p>
+</td>
+<td>
+<p>Statement</p>
+</td>
+<td>
+<p>Descriptor</p>
+</td>
+<td>
+<p>Customer ID</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Customer Description</p>
+</td>
+<td>
+<p>Customer Email</p>
+</td>
+<td>
+<p>Captured</p>
+</td>
+<td>
+<p>Card ID</p>
+</td>
+<td>
+<p>Card Last4</p>
+</td>
+<td>
+<p>Card Brand</p>
+</td>
+<td>
+<p>Card Funding</p>
+</td>
+<td>
+<p>Card Exp Month</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Card Exp Year</p>
+</td>
+<td>
+<p>Card Name</p>
+</td>
+<td>
+<p>Card Address</p>
+</td>
+<td>
+<p>Zip</p>
+</td>
+<td>
+<p>Card Issue Country</p>
+</td>
+<td>
+<p>Card Fingerprint</p>
+</td>
+<td>
+<p>Card CVC Status</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Card AVS Zip Status</p>
+</td>
+<td>
+<p>Card AVS Line1 Status</p>
+</td>
+<td>
+<p>Card Tokenization Method</p>
+</td>
+<td>
+<p>Disputed Amount</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Dispute status</p>
+</td>
+<td>
+<p>Dispute Reason</p>
+</td>
+<td>
+<p>Dispute Date (UTC)</p>
+</td>
+<td>
+<p>Dispute Evidence Due (UTC)</p>
+</td>
+<td>
+<p>Invoice ID</p>
+</td>
+<td>
+<p>Payment Source</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Type</p>
+</td>
+<td>
+<p>Destination</p>
+</td>
+<td>
+<p>Transfer</p>
+</td>
+<td>
+<p>Interchange Costs</p>
+</td>
+<td>
+<p>Merchant</p>
+</td>
+<td>
+<p>Service Charge</p>
+</td>
+<td>
+<p>Transfer Group</p>
+</td>
+<td>
+<p>email (metadata)</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>order_id (metadata)</p>
+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

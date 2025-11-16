@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erstellung eines CSV-Importers</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017437459
+    Titel: Erstellung eines CSV-Importers
+    URL: https://help.xentral.com/hc/de/articles/360017437459-Erstellung-eines-CSV-Importers
+    Erstellt: 2020-11-10T08:37:45Z
+    Aktualisiert: 2023-12-05T10:10:38Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 11291544329756
+    Export-Zeitpunkt: 2025-11-16 19:10:06
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Im Folgenden wird erklärt, wie eine CSV-Datei per Kommandozeile eingelesen werden kann.</p>
+<p>Sowohl das PHP Script als auch die CSV-Datei liegen in diesem Beispiel im Ordner Importer des xentral Ordners.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1" id="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1_id_360017437459_id_toc-0"></a>Kopf des Scripts</h2>
+</div>
+<p>Damit das Script auf die eigenen Funktionen von xentral zugreifen kann, müssen ein paar Klassen eingebunden und Objekte erstellt werden. Dies geschieht mit folgendem Code:</p>
+<pre class="programlisting">&lt;?php
+// Report simple errors only
+
+<a class="link" href="http://www.php.net/error_reporting" target="_blank" rel="noopener">error_reporting</a>(E_ERROR | E_WARNING | E_PARSE);
+
+include_once("../conf/main.conf.php");
+include_once("../phpwf/plugins/class.mysql.php");
+include_once("../phpwf/plugins/class.string.php");
+include_once("../phpwf/plugins/class.user.php");
+include_once("../www/lib/class.erpapi.php");
+
+class app_t {
+ var $DB;
+ var $String;
+ var $User;
+}
+
+$app = new app_t();
+$app-&gt;User = new User($app);
+$conf = new Config();
+$app-&gt;DB = new DB($conf-&gt;WFdbhost,$conf-&gt;WFdbname,$conf-&gt;WFdbuser,$conf-&gt;WFdbpass);
+$app-&gt;string = new string();
+$erp = new erpAPI($app);
+$app-&gt;erp = $erp;</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1" id="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1_id_360017437459_id_toc-1"></a>Parameter übergeben</h2>
+</div>
+<p>Wird in der Konsole ein Script aufgerufen mit</p>
+<pre class="programlisting">php script.php file</pre>
+<p>werden die Parameter in das Array $argv gespeichert. Es ist sinnvoll zu prüfen, ob überhaupt ein Parameter gegeben ist und ob die im Aufruf angegebene Datei existiert:</p>
+<pre class="programlisting">if(!<a class="link" href="http://www.php.net/isset" target="_blank" rel="noopener">isset</a>($argv[1]))
+{
+  <a class="link" href="http://www.php.net/die" target="_blank" rel="noopener">the</a>("No file specified for import");
+}
+if(!<a class="link" href="http://www.php.net/file_exists" target="_blank" rel="noopener">file_exists</a>($argv[1]))
+{
+  <a class="link" href="http://www.php.net/die" target="_blank" rel="noopener">the</a>("file ".$argv[1]." does not exist");
+}
+if(!<a class="link" href="http://www.php.net/is_file" target="_blank" rel="noopener">is_file</a>($argv[1]))
+{
+  <a class="link" href="http://www.php.net/die" target="_blank" rel="noopener">the</a>($argv[1]." is not a file");
+}</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1" id="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1_id_360017437459_id_toc-2"></a>Einlesen der Datei</h2>
+</div>
+<p>Hier wird gezeigt, wie die Datei eingelesen werden kann:</p>
+<pre class="programlisting">$csvimport = new CSVImport($app, $argv[1]);
+
+
+class CSVImport
+{
+ var $app;
+ var $file;
+
+ function __construct(&amp;$app, $file)
+ {
+   $this-&gt;app = $app;
+   $this-&gt;file = $file;
+
+ }
+
+ function read()
+ {
+   if($this-&gt;file &amp;&amp; <a class="link" href="http://www.php.net/file_exists" target="_blank" rel="noopener">file_exists</a>($this-&gt;file) &amp;&amp; <a class="link" href="http://www.php.net/is_file" target="_blank" rel="noopener">is_file</a>($this-&gt;file))
+   {
+     if (($handle = <a class="link" href="http://www.php.net/fopen" target="_blank" rel="noopener">fopen</a>($this-&gt;file, "r")) !== FALSE) {
+       $row = 0;
+       while (($csv = <a class="link" href="http://www.php.net/fgetcsv" target="_blank" rel="noopener">fgetcsv</a>($handle, 0, ";")) !== FALSE) {
+         //$line = iconv("ISO-8859-1", "UTF-8", $line); //If script is stored in UTF-8 and CSVin ANSI the string will be converted
+         foreach($csv as $k =&gt; $el)$csv[$k] = <a class="link" href="http://www.php.net/iconv" target="_blank" rel="noopener">iconv</a>("ISO-8859-1","UTF-8", $el);
+         $row++;
+         //$csv = str_getcsv($line,"\t","\""); //When CSVis tab delimited and individual elements are enclosed with ".
+         //$csv = str_getcsv($line, ";",""); //separated with ;.
+         if($row &lt; 5) { //If the header of the file has 4 lines this can be used for debugging e.g . 
+
+         } else {
+           //From here on the actual data will be processed
+
+           $this-&gt;process($csv);
+
+
+         }
+       }
+     }
+   } else {
+     return false;
+   }
+ }
+ function process(&amp;$csv)
+ {
+   //Process the individual data
+
+   ...
+ }
+}</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1" id="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1_id_360017437459_id_toc-3"></a>Verarbeiten der Daten mit Wawifunktionen</h2>
+</div>
+<p>Die erpAPI-Klasse bietet viele Funktionen zum Import bzw. zum Verarbeiten der Daten. Im vorliegenden Beispiel wird der Import von Artikeln erklärt:</p>
+<pre class="programlisting">function process(&amp;$csv){//Process the individual data
+if($csv[30]){$data['number']=$csv[2];//If article number is 3rd column$data['name_en']=$csv[0];//If article name is in first column$data['short_text_en']=$csv[22];/*$data['description_en'] = ....
+      $data['manufacturer'] = ...
+      $data['manufacturer_link'] = ...*/$data['weight']=$csv[48];if($scv[32]=='D1')$data['sales-tax']='ermaessigt';//data will be saved with the erpAPI
+$artikelid=true;$artikelid=$this-&gt;app-&gt;erp-&gt;InsertUpdateArticle($data);//Now the sales prices
+$pricegross=$csv[30];$nettoprice=$pricegross/(1+($scv[32]=='D1'?7:19)/100);//print_r($data);//echo $netprice;
+$this-&gt;app-&gt;erp-&gt;AddSellPrice($artikelid,1,0,$nettoprice);}if($csv[31]){//downloadarticle$data2['number']=$csv[2].'D';//If item number is 3rd column$data2['name_en']=$csv[0].' Download';//If article name in first column is$data2['short_text_en']=$csv[22];/*$data['description_en'] = ....
+      $data['manufacturer'] = ...
+      $data['manufacturer_link'] = ...*/if($scv[32]=='D1')$data2['sales_tax']='reduced';if(<a class="link" href="http://www.php.net/isset" target="_blank" rel="noopener">isset</a>($articleid)){$data2['variante']=1;$data2['variant_of']=$artikelid;}$artikelid2=$this-&gt;app-&gt;erp-&gt;InsertUpdateArticle($data2);$pricegross=$csv[31];$nettoprice=$pricegross/(1+($scv[32]=='D1'?7:19)/100);//print_r($data2);//echo $netprice;
+$this-&gt;app-&gt;erp-&gt;AddSellPrice($artikelid2,1,0,$nettoprice);
+    } 
+ }</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1" id="idm45965079591056"></a>Gesamte Datei</h2>
+</div>
+<p>Die gesamte Datei gestaltet sich wie folgt:</p>
+<pre class="programlisting">&lt;?php
+// Report simple errors only
+
+<a class="link" href="http://www.php.net/error_reporting" target="_blank" rel="noopener">error_reporting</a>(E_ERROR | E_WARNING | E_PARSE);
+
+include_once("../conf/main.conf.php");
+include_once("../phpwf/plugins/class.mysql.php");
+include_once("../phpwf/plugins/class.string.php");
+include_once("../phpwf/plugins/class.user.php");
+include_once("../www/lib/class.erpapi.php");
+
+class app_t {
+ var $DB;
+ var $String;
+ var $User;
+}
+
+$app = new app_t();
+$app-&gt;User = new User($app);
+$conf = new Config();
+$app-&gt;DB = new DB($conf-&gt;WFdbhost,$conf-&gt;WFdbname,$conf-&gt;WFdbuser,$conf-&gt;WFdbpass);
+$app-&gt;string = new string();
+$erp = new erpAPI($app);
+$app-&gt;erp = $erp;
+
+if(!<a class="link" href="http://www.php.net/isset" target="_blank" rel="noopener">isset</a>($argv[1]))
+{
+  <a class="link" href="http://www.php.net/die" target="_blank" rel="noopener">the</a>("No file specified for import");
+}
+if(!<a class="link" href="http://www.php.net/file_exists" target="_blank" rel="noopener">file_exists</a>($argv[1]))
+{
+  <a class="link" href="http://www.php.net/die" target="_blank" rel="noopener">the</a>("File ".$argv[1]." does not exist");
+}
+if(!<a class="link" href="http://www.php.net/is_file" target="_blank" rel="noopener">is_file</a>($argv[1]))
+{
+  <a class="link" href="http://www.php.net/die" target="_blank" rel="noopener">the</a>($argv[1]." is not a file");
+}
+
+$csvimport = new CSVImport($app, $argv[1]);
+$csvimport-&gt;read();
+
+class CSVImport
+{
+ var $app;
+ var $file;
+
+ function __construct(&amp;$app, $file)
+ {
+   $this-&gt;app = $app;
+   $this-&gt;file = $file;
+
+ }
+
+ function read()
+ {
+   if($this-&gt;file &amp;&amp; <a class="link" href="http://www.php.net/file_exists" target="_blank" rel="noopener">file_exists</a>($this-&gt;file) &amp;&amp; <a class="link" href="http://www.php.net/is_file" target="_blank" rel="noopener">is_file</a>($this-&gt;file))
+   {
+     if (($handle = <a class="link" href="http://www.php.net/fopen" target="_blank" rel="noopener">fopen</a>($this-&gt;file, "r")) !== FALSE) {
+       $row = 0;
+       while (($csv = <a class="link" href="http://www.php.net/fgetcsv" target="_blank" rel="noopener">fgetcsv</a>($handle, 0, ";")) !== FALSE) {
+         //$line = iconv("ISO-8859-1", "UTF-8", $line); //If script is stored in UTF-8 and CSVin ANSI the string will be converted
+         foreach($csv as $k =&gt; $el)$csv[$k] = <a class="link" href="http://www.php.net/iconv" target="_blank" rel="noopener">iconv</a>("ISO-8859-1","UTF-8", $el);
+         $row++;
+         //$csv = str_getcsv($line,"\t","\""); //When CSVis tab delimited and individual elements are enclosed with ".
+         //$csv = str_getcsv($line, ";",""); //separated with ;.
+         if($row &lt; 5) { //If the header of the file has 4 lines this can be used for debugging e.g . 
+
+
+         } else {
+           //From here on the actual data will be processed
+
+           $this-&gt;process($csv);
+
+
+         }
+       }
+       return true;
+     } else <a class="link" href="http://www.php.net/die" target="_blank" rel="noopener">the</a>("Could not open file ".$this-&gt;file."! \r\n");
+   } else {
+     echo $this-&gt;file." not found\r\n";
+     return false;
+   }
+ }
+ function process(&amp;$csv)
+ {
+
+     //Process the individual data
+
+     if($csv[30])
+     {
+
+     $data['number'] = $csv[2]; //If article number is 3rd column
+     $data['name_en'] = $csv[0]; //If article name is in first column
+     $data['short_text_en'] = $csv[22];
+     /*$data['description_en'] = ....
+      $data['manufacturer'] = ...
+      $data['manufacturer_link'] = ...*/
+     $data['weight'] = $csv[48];
+     if($scv[32] == 'D1')$data['sales-tax'] = 'ermaessigt';
+
+     //data will be saved with the erpAPI
+
+     $artikelid = true;
+     $artikelid = $this-&gt;app-&gt;erp-&gt;InsertUpdateArticle($data);
+
+     //Now the sales prices
+
+     $pricegross = $csv[30];
+     $nettoprice = $pricegross / (1+($scv[32]=='D1'?7:19)/100);
+     //print_r($data);
+     //echo $netprice;
+
+     $this-&gt;app-&gt;erp-&gt;AddSellPrice($artikelid,1,0,$nettoprice);
+   }
+   if($csv[31])
+   {
+     //downloadarticle
+     $data2['number'] = $csv[2].'D'; //If item number is 3rd column
+     $data2['name_en'] = $csv[0].' Download'; //If article name in first column is
+     $data2['short_text_en'] = $csv[22];
+     /*$data['description_en'] = ....
+      $data['manufacturer'] = ...
+      $data['manufacturer_link'] = ...*/
+     if($scv[32] == 'D1')$data2['sales_tax'] = 'reduced';
+     if(<a class="link" href="http://www.php.net/isset" target="_blank" rel="noopener">isset</a>($articleid))
+     {
+       $data2['variante'] = 1;
+       $data2['variant_of'] = $artikelid;
+     }
+     $artikelid2 = $this-&gt;app-&gt;erp-&gt;InsertUpdateArticle($data2);
+     $pricegross = $csv[31];
+     $netprice = $pricegross / (1+($scv[32]=='D1'?7:19)/100);
+     //print_r($data2);
+     //echo $netprice;
+
+     $this-&gt;app-&gt;erp-&gt;AddSellPrice($artikelid2,1,0,$nettoprice);
+   }
+
+ }
+}</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1" id="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1_id_360017437459_id_toc-5"></a>Import Datei einmalig ausführen</h2>
+</div>
+<p>Die Datei, welche die CSV Datei verarbeitet (.php Datei), muss im xentral Ordner in den Ordner importer gespeichert sein. Hier werden auch die benötigten CSV Dateien zum Verarbeiten abgelegt. In diesem Beispiel ist die PHP Datei beispielimporter.php und die CSV Datei beispieldaten.csv.</p>
+<p>Im Anschluss wird die Konsole aufgerufen und in den importer Ordner gewechselt, z.B. mit</p>
+<pre class="programlisting"> cd /var/www/html/wawision/importer </pre>
+<p>Der Pfad kann, je nachdem wie die Verzeichnisstruktur aufgebaut ist, abweichen.</p>
+<p>Mit</p>
+<pre class="programlisting"> php exampleimporter.php exampledata.csv </pre>
+<p>wird die PHP Datei aufgerufen und der Code darin ausgeführt.</p>
+<p>Die Dateinamen müssen durch die jeweiligen Dateinamen ersetzt werden.</p>
+<p>Es kann sein, dass ein Typ angegeben werden muss, hier wird die Konsole jedoch darauf aufmerksam machen und die möglichen Typen nennen. Dann erfolgt der Aufruf mit</p>
+<pre class="programlisting">php exampleimporter.php exampletype exampledata.csv </pre>
+<p>Je nach Dateigröße der CSV Datei, kann der Ablauf mehrere Minuten in Anspruch nehmen. Der Code wurde komplett ausgeführt, wenn in der Kommandozeile wieder der Benutzernamen und Pfad in einer neuen Zeile erscheint.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1" id="UUID-11d5c919-ae2b-90a1-7798-9043d8e89ce1_id_360017437459_id_toc-6"></a>Import Datei mehrmals manuell ausführen</h2>
+</div>
+<p>Die Datei, welche die CSV Datei verarbeitet (.php Datei), muss im xentral Ordner in den Ordner importer abgelegt werden. Hier werden auch die benötigten CSV Dateien zum Verarbeiten abgelegt. In diesem Beispiel ist die PHP Datei beispielimporter.php und die CSV Datei beispieldaten.csv.</p>
+<p>Im Anschluss wird die Konsole aufgerufen und in den importer Ordner gewechselt, z.B. mit</p>
+<pre class="programlisting">cd /var/www/html/wawision/importer </pre>
+<p>Der Pfad kann je nachdem wie die Verzeichnisstruktur aufgebaut ist abweichen.</p>
+<p>Mit</p>
+<pre class="programlisting">php exampleimporter.php </pre>
+<p>wird die PHP Datei aufgerufen und der Code darin ausgeführt. Der Dateinamen muss durch den jeweiligen Dateinamen ersetzt werden. Je nach Dateigröße der CSV Datei, kann der Ablauf mehrere Minuten in Anspruch nehmen. Der Code wurde komplett ausgeführt, wenn in der Kommandozeile wieder der Benutzernamen und Pfad in einer neuen Zeile erscheint.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Du findest unsere allgemeinen Geschäftsbedingungen (AGB) zum Download auf dieser[Seite](https://xentral.com/de/agb/).

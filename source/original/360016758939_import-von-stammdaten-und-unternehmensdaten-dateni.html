@@ -1,0 +1,3574 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import von Stammdaten und Unternehmensdaten (Datenimport)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016758939
+    Titel: Import von Stammdaten und Unternehmensdaten (Datenimport)
+    URL: https://help.xentral.com/hc/de/articles/360016758939-Import-von-Stammdaten-und-Unternehmensdaten-Datenimport
+    Erstellt: 2020-09-28T12:42:06Z
+    Aktualisiert: 2025-02-17T10:59:00Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4406064186908
+    Export-Zeitpunkt: 2025-11-16 19:08:40
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Der Stammdaten Import ermöglicht es, Datenbestände aus anderen Systemen in die Datenbank von <span class="phrase">Xentral</span> einzufügen. Dazu müssen die Daten aus den fremden Systemen als CSV-Datei (Textdateien, die sämtliche Informationen als kommaseparierte Listen enthalten) exportiert werden. Weitere Informationen stehen in der Dokumentation der entsprechenden Systeme zur Verfügung.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Einen Leitfaden zum ersten Datenimport findest du in diesem Artikel <span class="bold"><strong><a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/11739100947868#UUID-8bf97f4c-41d0-d546-9d17-4bbdc5deada1">Stammdaten Import - Adressen, Artikel (Einrichtung)</a></strong></span>.</p>
+<p>Der Artikel enthält eine Anleitung zum Stammdatenimport in <span class="phrase">Xentral</span>. Du erfährst dort, wie du CSV-Dateien aus externen Systemen erstellst und welche Überlegungen du vor dem Import anstellen solltest. Wir erklären dir die Schritte für den manuellen Datenimport und geben dir Hinweise zur Vorbereitung und Durchführung eines erfolgreichen Datenimports, einschließlich der Bewertung der Datenqualität und der Auswahl relevanter Felder.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SEFCNMCV8AKV8X8A8YFJ5H"></a>Funktionsumfang des Stammdaten-Imports</h2>
+</div>
+<p>Es können folgende Datensätze in <span class="phrase">Xentral</span> hinzugefügt oder aktualisiert werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><a class="link linktype-component" href="#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKFGKXQKBDSFMRSZGA3VTY" title="Adressen Import">Adressen: Kunden, Lieferanten, Mitarbeiter, Ansprechpartner</a></p>
+</li>
+<li class="listitem">
+<p><a class="link linktype-component" href="#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKJHAEBR6YE51M590DJQBF" title="Artikel Import">Artikel: Einzelartikel und Stücklisten</a></p>
+</li>
+<li class="listitem">
+<p><a class="link linktype-component" href="#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKQ218FCZ5F7TGVBNPTEZ0" title="Zeiterfassung">Erfasste Arbeitszeiten</a></p>
+</li>
+<li class="listitem">
+<p><a class="link linktype-component" href="#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKQKDJAV9ECWV27NXATTB9" title="Wiedervorlagen">Wiedervorlagen auf Kunden</a></p>
+</li>
+<li class="listitem">
+<p><a class="link linktype-component" href="#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKQRNCPDEXH8TTXK27523H" title="Notizen">Kundennotizen</a></p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKEGVEZ1Y7YYWHFXHMWPB5"></a>Stammdaten importieren</h2>
+</div>
+<p>Der Import von Stammdaten wird in <span class="phrase">Xentral</span> grundsätzlich über Import-Vorlagen durchgeführt. Diese Vorlagen können jederzeit wieder verwendet werden, sofern ein weiterer Import von Daten mit der gleichen Struktur notwendig ist.</p>
+<p>Nutze zunächst die Smart Search, um das Modul <span class="bold"><strong>Import/Export Zentrale</strong></span> zu öffnen. Klicke dann auf <span class="bold"><strong>Stammdaten Import</strong></span>.</p>
+<p>Klicke oben rechts auf <span class="bold"><strong>+ NEU</strong></span>, um eine neue Vorlage für den Import von Stammdaten anzulegen. Nimm dann die folgenden Einstellungen vor. Klicke am Ende auf <span class="bold"><strong>Speichern</strong></span>.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Bezeichnung</strong></span>: Beliebiger Name für die Import-Vorlage</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Ziel</strong></span>: Auswahl der Art des Datenuploads (werden eingespielt: Adresse, Artikel, Einkaufspreise, Zeiterfassung, Wiedervorlagen, Notizen)</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>CSV-Daten ab Zeile</strong></span>: Zeilennummer in der CSV-Datei, in der die Auflistung der eigentlichen Daten beginnt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>CSV-Trennzeichen</strong></span>: In der CSV-Datei verwendetes Trennzeichen, mit dem Daten von einander getrennt sind</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>CSV-Maskierung</strong></span>: In der CSV-Datei verwendetes Maskierungszeichen (optional)</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Auswahl Charset</strong></span>: Codierung für die CSV-Datei. Bei CSVs aus Excel heraus auch ISO-8859-1 probieren</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Charset</strong></span>: Falls eine andere Codierung als im Dropdown-Menü <span class="bold"><strong>Auswahl Charset</strong></span> angegeben genutzt wird, kannst du diese hier eintragen. Lasse das Feld andernfalls leer.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>CSV-Felder</strong></span>: Trage hier die Spaltennummern in der CSV und die Importvariablen einzutragen. Format = SpaltenNrCSV:XentralVariable;</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Interne Bemerkung</strong></span>: Hier kann für die firmeninterne Kommunikation eine Bemerkung eingetragen werden</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Ein sorgfältiger Umgang bei der Zuordnung der Datenfelder ist sehr wichtig, da ansonsten der Datenbestand durcheinander gerät. Teste deshalb vorab den Import, selbst wenn nur kleine Datenmengen verarbeitet werden.</p>
+</div>
+<p>Um die Daten in einer CSV-Datei zu importieren, öffnest du das Tab <span class="bold"><strong>Import starten: CSV Datei hochladen</strong></span>. Klicke auf <span class="bold"><strong>Datei auswählen</strong></span>, um die gewünschte CSV-Datei auf deinem Computer auszuwählen und anschließend auf <span class="bold"><strong>CSV hochladen</strong></span>.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Falls Schwierigkeiten bei der Darstellungsform auftreten, überprüfe die Trennzeichen vorliegende CSV-Datei.</p>
+</div>
+<p><span class="bold"><strong>Hinweise für die CSV-Datei:</strong></span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Die Daten werden beim Import nicht bereinigt. Stelle zuvor sicher, dass sich keine doppelten Daten in der CSV-Datei befinden</p>
+</li>
+<li class="listitem">
+<p>Für die CSV-Datei empfiehlt es sich, als Feldtrenner ein Semikolon ( ; ) und als Texttrenner ein Anführungszeichen ( " ) zu verwenden</p>
+</li>
+</ul>
+</div>
+<p>Falls eine Variable in der Importvorlage verwendet wird und kein Inhalt in der CSV-Datei vorhanden ist, überschreibt <span class="phrase">Xentral</span> einen möglicherweise vorhandenen Inhalt mit einem leeren Textfeld. Sobald die Datei vollständig übertragen wurde, erscheint eine Auflistung der enthaltenen Daten, die überprüfbar ist. Wichtig ist, dass in der Spalte <span class="bold"><strong>Aktion</strong></span> entweder <span class="bold"><strong>Neu</strong></span> oder <span class="bold"><strong>Update</strong></span> steht, da sonst ein Fehler in der Importvorlage vorliegt. Klicke auf <span class="bold"><strong>Importieren</strong></span>, um den Import der Daten anzustoßen und zu warten, bis der Vorgang abgeschlossen ist. Wenn der Vorgang erfolgreich war, erscheinen die importierten Daten anschließend in <span class="phrase">Xentral</span>. Die zuletzt vergebene Artikelnummer bzw. Adressnummer muss noch in die Nummernkreise eingetragen werden. Das verhindert, dass beim Inkrementieren um 1 eine bereits vergebene Nummer doppelt erstellt wird.</p>
+<p>Weiterführende Informationen zu Nummernkreise findest du in diesem Artikel: <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/54702#UUID-8477d892-3065-03ad-d893-9bbb3372737a">Nummernkreise verwenden</a>.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="idm7312"></a>Workflow</h3>
+</div>
+<p>Um Stammdaten in der Importzentrale hochzuladen, wird zunächst eine der Vorlagen ausgewählt.</p>
+<p>In der Vorlage kann über den Reiter "Import starten: CSV Datei heraufladen" eine Datei für den Upload ausgewählt und hochgeladen werden.</p>
+<p>Anschließend wird auf "importieren" geklickt und die Datei wandert in die Warteschlange. Es gibt 2 unterschiedliche Warteschlangen in der Importzentrale. Es gibt die Möglichkeit, sich die Dokumente in der Warteschlange für eine bestimmte Importvorlage anzusehen (*Importvorlage wählen* → Import starten: CSV Datei heraufladen → Warteschlange). Außerdem können alle wartenden Dokumente aller Importvorlagen anzeigt werden, indem direkt in der Importzentrale auf den Reiter Warteschlange geklickt wird.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Falls Importaufträge dauerhaft in der Warteschlange verbleiben und der Fortschritt bei 0% stehen bleibt, kannst du versuchen, die Warteschlange zu löschen und den Import erneut durchzuführen. Beachte, dass der Import je nach Datenmenge etwas Zeit in Anspruch nehmen kann.</p>
+</div>
+<p>Der ganze Ablauf der Importvorlagen ist statusgetrieben. Der genau Statusablauf sieht folgendermaßen aus:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>'created' bzw. 'nicht freigegeben': Den Zustand hat ein Import, bevor die "importieren" Schaltfläche geklickt wurde. Ein Import in diesem Zustand kann freigegeben werden indem in der Übersicht auf den Pfeil nach rechts geklickt wird</p>
+</li>
+<li class="step">
+<p>'in_queue' bzw. 'freigegeben': Diesen Zustand nimmt der Import ein wenn auf die Importieren-Schaltfläche, oder in der Übersicht auf den Pfeil nach rechts geklickt wird. Sobald ein Import freigegeben ist wird er vom Prozessstarter 'importvorlage' verarbeitet sobald er an der Reihe ist</p>
+</li>
+<li class="step">
+<p>'canceled' bzw. 'abgebrochen': Der Import wurde vom Benutzer abgebrochen</p>
+</li>
+<li class="step">
+<p>'in_progress' bzw. 'wird ausgeführt': Der Prozessstarter verarbeitet den Import aktuell</p>
+</li>
+<li class="step">
+<p>'done' bzw. 'abgeschlossen': Der Import wurde vom Prozessstarter vollständig verarbeitet</p>
+</li>
+<li class="step">
+<p>'complete' bzw. 'abgeschlossen': Ein Synonym für 'done'</p>
+</li>
+<li class="step">
+<p>'error' bzw. 'Fehler': Bei einem Import in diesem Zustand ist während der Verarbeitung durch den Prozessstarter ein Fehler aufgetreten.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKENNBSBQC6VCAEQPCWTVK"></a>Prozessstarter</h3>
+</div>
+<p>Um auch große Dateien ohne Server-Timeout importieren zu können, wird nach dem Klick auf "Importieren" die Datei im Hintergrund bearbeitet und die Meldung "Import an Prozessstarter übergeben" erscheint.</p>
+<p>Der Import findet somit erst statt, wenn der Prozessstarter neu angelaufen ist.</p>
+<p>Unter "Administration → Einstellungen → System → Prozessstarter → Suche nach Importvorlage" kann das Intervall und der letzte Ausführungszeitpunkt überprüft werden:</p>
+<p>Werden nur kleine Datenmengen importiert, kann der Prozessstarter auch deaktiviert werden, um den Import unmittelbar durchzuführen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKETA6RK00DFS1Z8X0G35X"></a>xentral Praxistipps Import</h2>
+</div>
+<p>Folgende Tipps sind hilfreich, um Dateien bei xentral richtig zu importieren.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKEZTCGMWEAJBS17GM8DRJ"></a>Tipps im Umgang mit Excel und CSV-Dateien</h3>
+</div>
+<p>Es ist wichtig, die richtigen Einstellungen beim Exportieren, Bearbeiten und Speichern der CSV Datei zu beachten. Sonst kommt es zu Formatfehlern, wie z.B. "?" in den Werten statt Umlauten.</p>
+<p>Vor dem Bearbeiten der Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wenn die Daten aus dem Alt-System exportiert werden → Hier ist bereits die Kodierungs-Option → UTF-8 und als Trennzeichen eine Semikolon (;) auszuwählen</p>
+</li>
+<li class="listitem">
+<p>Excel will oft Spalteninhalte "interpretieren" und ändert dafür das Format der Werte. Dies ist ein Grund, warum xentral für Importe Open Office verwendet</p>
+</li>
+<li class="listitem">
+<p>Beim Öffnen der Datei in Open Office ist sicherzustellen, dass der Zeichensatz auf "Unicode (UTF-8)" steht</p>
+</li>
+<li class="listitem">
+<p>Im selben Fenster ist auf das 1. Rechteck der Tabelle (siehe Screenshot unten) zu klicken, damit alles markiert wird. Danach ist im Drop-Down "Text" auszuwählen, um keine Formatveränderung zu bewirken</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755190500380" style="" alt="importexport_1.png"></div>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKFAVYNFPGTT015RZDVM6E"></a>Beim Speichern der CSV Datei</h4>
+</div>
+<p>Nachdem die Änderungen vorgenommen und als CSV Datei gespeichert wurden, ist im Popup unten die Option "Filtereinstellungen bearbeiten" zu wählen. Danach ist im nächsten Popup das Format beizubehalten und auf folgende Werte zu achten:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755179534748" style="" alt="importexport_2.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_section-idm4598088025118433095497963161"></a>Excel Datei in eine CSV speichern</h4>
+</div>
+<p>Im Dropdown "Auswahl Charset" muss hier ISO-8859-1 ausgewählt werden. Falls die Umlaute immer noch nicht funktionieren, ist für UTF-8 unten ein Workaround beschrieben: Manchmal werden Excel-Dateien von der Struktur nur richtig in Excel angezeigt (in Open Office z.B. mit Zeilenumbrüchen). Will man aber direkt aus Excel diese Datei als CSV speichern, gibt es ohne einen Workaround oft Probleme mit den Umlauten.</p>
+<p>Für den Workaround wird benötigt:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Excel</p>
+</li>
+<li class="listitem">
+<p>Open Office</p>
+</li>
+<li class="listitem">
+<p>Einen guter Texteditor (z.B. Notepad++)</p>
+</li>
+<li class="listitem">
+<p>Datei in Excel als Format "UTF-16 Unicode-Text (.txt)" Datei speichern</p>
+</li>
+<li class="listitem">
+<p>Die Textdatei im Texteditor öffnen und dort als CSV Datei speichern (einfach .csv am Dateinamen anhängen)</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755158187420" style="" alt="importexport_3.png"></div>
+</li>
+<li class="listitem">
+<p>Die neue CSV Datei mit Open Office öffnen und folgenden Einstellungen tätigen:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755173600156" style="" alt="importexport_4.png"></div>
+</li>
+<li class="listitem">
+<p>Die CSV in Open Office neu abspeichern</p>
+</li>
+<li class="listitem">
+<p>Filtereinstellungen bearbeiten → Für die Bearbeitung ist der Haken zu setzen</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755164586396" style="" alt="importexport_5.png"></div>
+</li>
+</ul>
+</div>
+<p>Nun sollte die CSV Datei für den Import mit dem richtigen Format geeignet sein.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKFGKXQKBDSFMRSZGA3VTY"></a>Adressen Import</h2>
+</div>
+<p>Adressen sollten immer vor den Artikeldaten importiert werden. Im Idealfall sind verschiedene CSV Dateien für Kunden und Lieferanten vorhanden. Mitarbeiter werden meist per Hand eingepflegt, könnten jedoch auf die gleiche Weise importiert werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKFP1ETN5N5HS97X8G9W4N"></a>Kunden</h3>
+</div>
+<p>Um Kunden in der CSV-Datei korrekt anzulegen, sind nachstehende Informationen zu beachten.</p>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: name und kundennummer</p>
+</li>
+<li class="listitem">
+<p>Pro Kunde nur eine Zeile</p>
+</li>
+<li class="listitem">
+<p>Jede Kundennummer ist nur einmal vorhanden</p>
+</li>
+<li class="listitem">
+<p>Alle Felder ohne Inhalt werden auf den Standard gestellt (z.B. Land, Sprache, etc.)</p>
+</li>
+</ul>
+</div>
+<p>Beispiel für eine Importvorlage:</p>
+<p>1:kundennummer; 2:name; 3:typ; 4:strasse; 5:plz; 6:ort; 7:telefon; 8:telefax; 9:ustid; 10:land;</p>
+<p>Beispielinhalt für die CSV Datei:</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p>kundennummer</p>
+</td>
+<td>
+<p>name</p>
+</td>
+<td>
+<p>typ</p>
+</td>
+<td>
+<p>strasse</p>
+</td>
+<td>
+<p>plz</p>
+</td>
+<td>
+<p>ort</p>
+</td>
+<td>
+<p>telefon</p>
+</td>
+<td>
+<p>telefax</p>
+</td>
+<td>
+<p>ustid</p>
+</td>
+<td>
+<p>land</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>10001</p>
+</td>
+<td>
+<p>Anton Ansberger</p>
+</td>
+<td>
+<p>Herr</p>
+</td>
+<td>
+<p>Untere Talstr. 13</p>
+</td>
+<td>
+<p>12345</p>
+</td>
+<td>
+<p>Augsburg</p>
+</td>
+<td>
+<p>555-555-5555</p>
+</td>
+<td>
+<p>555-555-5556</p>
+</td>
+<td>
+<p>123456789</p>
+</td>
+<td>
+<p>DE</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es ist möglich, die Kundennummer automatisch von xentral aus den hinterlegten Nummernkreisen vergeben zu lassen. In der CSV Datei ist in der Spalte für die Kundennummer als Inhalt für jeden Kunden das Wort "NEU" (ohne Anführungszeichen) zu schreiben.</p>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755158413340" style="" alt="importexport_6.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKFXZ044F4ZC9EXDR3WRR8"></a>Lieferanten</h3>
+</div>
+<p>Hier ist analog zum Vorgang der Kunden vorzugehen, nur ist statt der Variable 'kundennummer' die Variable 'lieferantennummer' zu verwenden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKG2HTGVT6N072YCG0CX6P"></a>Rolle vergeben beim Import</h3>
+</div>
+<p>Soll die Kundennummer oder die Lieferantennummer mit der Rolle bei der Neuanlage von Adressen vergeben werden, werden mindestens folgende Informationen in der Importdatei benötigt:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755158485660" style="" alt="importexport_7.png"></div>
+<p>CSV-Datei, die für das Importbeispiel angelegt wurde:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755190983964" style="" alt="importexport_8.png"></div>
+<p>Du kannst dir eine Vorschau des Imports anzeigen lassen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755179968796" style="" alt="importexport_9.png"></div>
+<p>Die Rolle wird in der Adresse wird über das entsprechende Auswahlmenü vergeben:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755158672668" style="" alt="importexport_10.png"></div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Für die Vergabe einer neuen Kundennummer aus dem Nummernkreis des Projektes wird das betreffende Projekt und "neu" als Kundennummer angegeben.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKG6RGJ75PZ6E35MM8S4GC"></a>Ansprechpartner</h3>
+</div>
+<p>Es gibt auch die Möglichkeit, Ansprechpartner am Stück zu importieren. Hier werden die Ansprechpartner einem Kunden zugeordnet und in einer eigenen Zeile in der CSV-Datei dargestellt (siehe CSV-Beispielinhalt weiter unten).</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Dieser Import ist nur zum einmaligen Importieren der Ansprechpartner gedacht. Ein "Updaten" einzelner Ansprechpartner ist nicht vorgesehen und muss manuell über Stammdaten → Adresse → Edit → Ansprechpartner geschehen.</p>
+</div>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: name und lieferantennummer</p>
+</li>
+<li class="listitem">
+<p>Pro Kunde nur eine Zeile</p>
+</li>
+<li class="listitem">
+<p>Ansprechpartner müssen in der CSV Datei in der Spalte "Lieferantennummer" mit "ANSPRECHPARTNER:Lieferantennummer" gekennzeichnet werden, wobei die Lieferantennummer die in xentral hinterlegte Nummer für den Lieferanten ist</p>
+</li>
+</ul>
+</div>
+<p>Alle Felder ohne Inhalt werden auf den Standard gestellt (z.B. Land, Sprache, etc.)</p>
+<p>Beispiel für eine Importvorlage: 1:lieferantennummer; 2:name; 3:typ; 4:email; 5:telefon; 6:telefax; 7:mobil; 8:strasse; 9:plz; 10:ort; 11:abteilung; 12:anschreiben;</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es ist zu beachten, dass die Ansprechpartner in der Spalte "Lieferantennummer" mit dem Inhalt "ANSPRECHPARTNER:Lieferantennummer" gekennzeichnet werden müssen</p>
+</div>
+<p><span class="bold"><strong>Beispielinhalt für die CSV Datei</strong></span>: Hier werden 2 Kunden mit jeweils 2 Ansprechpartnern nach xentral importiert.</p>
+<div class="informaltable table-responsive">
+<table style="width: 813px;" border="1">
+<tbody>
+<tr>
+<td>
+<p>Lieferantennummer</p>
+</td>
+<td>
+<p>Name</p>
+</td>
+<td>
+<p>Typ (firma, frau, herr)</p>
+</td>
+<td>
+<p>E-Mail</p>
+</td>
+<td>
+<p>Telefon</p>
+</td>
+<td>
+<p>Telefax</p>
+</td>
+<td>
+<p>Mobil</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>11223456</p>
+</td>
+<td>
+<p>Max Muster GmbH</p>
+</td>
+<td>
+<p>firma</p>
+</td>
+<td>
+<p>muster@email.de</p>
+</td>
+<td>
+<p>555-555-5555</p>
+</td>
+<td>
+<p>555-555-5556</p>
+</td>
+<td>
+<p>555-555-4444</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>ANSPRECHPARTNER:11223456</p>
+</td>
+<td>
+<p>Alex Adler</p>
+</td>
+<td>
+<p>herr</p>
+</td>
+<td>
+<p>alexadler@email.de</p>
+</td>
+<td>
+<p>555-555-5555</p>
+</td>
+<td>
+<p>555-555-5556</p>
+</td>
+<td>
+<p>555-555-4433</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>ANSPRECHPARTNER:11223456</p>
+</td>
+<td>
+<p>Berthold Bracht</p>
+</td>
+<td>
+<p>herr</p>
+</td>
+<td>
+<p>bertholdbracht@email.de</p>
+</td>
+<td>
+<p>555-555-5555</p>
+</td>
+<td>
+<p>555-555-5556</p>
+</td>
+<td>
+<p>555-555-4422</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>33445677</p>
+</td>
+<td>
+<p>Schrauben GmbH</p>
+</td>
+<td>
+<p>firma</p>
+</td>
+<td>
+<p>schraube@email.de</p>
+</td>
+<td>
+<p>444-444-4444</p>
+</td>
+<td>
+<p>444-444-4445</p>
+</td>
+<td>
+<p>444-444-3333</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>ANSPRECHPARTNER:33445677</p>
+</td>
+<td>
+<p>Doris</p>
+<p>Dagobert</p>
+</td>
+<td>
+<p>frau</p>
+</td>
+<td>
+<p>dorisdagobert@email.de</p>
+</td>
+<td>
+<p>444-444-4444</p>
+</td>
+<td>
+<p>444-444-4445</p>
+</td>
+<td>
+<p>444-444-3322</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>ANSPRECHPARTNER:33445677</p>
+</td>
+<td>
+<p>Emil Entlin</p>
+</td>
+<td>
+<p>herr</p>
+</td>
+<td>
+<p>emilentlin@email.de</p>
+</td>
+<td>
+<p>444-444-4444</p>
+</td>
+<td>
+<p>444-444-4445</p>
+</td>
+<td>
+<p>444-444-3311</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Danach kann der Ansprechpartner unter der Adresse im Reiter "Ansprechpartner" eingesehen werden:</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKGCNPZMYKZ7BGDYS5NJMM"></a>Gruppen</h2>
+</div>
+<p>Adressen können auch Gruppen über den Import zugeordnet werden.</p>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: kundennummer oder lieferantennummer und gruppe1 - falls Adresse neu erstellt wird, wird zudem name und typ benötigt</p>
+</li>
+<li class="listitem">
+<p>Alle Gruppen müssen vor dem Import schon in xentral unter Administration → Einstellungen → Buchhaltung → Gruppen angelegt sein</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong><span class="bold"><strong><span class="bold"><strong>Beispiel</strong></span> für eine Importvorlage bei Adressupdate:</strong></span></strong></span></p>
+<p>1:kundennummer; 2:gruppe1; 3:gruppe2;</p>
+<p><span class="bold"><strong>Beispielinhalt für die CSV Datei:</strong></span></p>
+<p>10001;Geschäftskunde;Elektronikbranche;</p>
+<p>10002;Endkunde;Elektronikbranche;</p>
+<p>10003;Geschäftskunde;Kommunikationsbranche;</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Es können bis zu 5 Gruppen pro Adresse übergeben werden: Variablen → gruppe1, gruppe2, gruppe3, gruppe4, gruppe5</p>
+</li>
+<li class="listitem">
+<p>In der CSV Datei wird entweder der Gruppenname oder die Gruppenkennziffer erwartet</p>
+</li>
+<li class="listitem">
+<p>Falls keine Rolle (Kunde, Mitarbeiter, Lieferant) angelegt werden soll: Variable kundennummer verwenden aber die Spalte dafür in der CSV Datei leer lassen</p>
+</li>
+</ul>
+</div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKH2HWTT584ZS9RK9P4H3R"></a>Lead Adressen</h3>
+</div>
+<p>Adressen können auch als Lead über den Import angelegt werden.</p>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: lead, name und typ</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage:</strong></span></p>
+<p>1:name; 2:lead; 3:ort;</p>
+<p><span class="bold"><strong>Beispielinhalt für die CSV Datei:</strong></span></p>
+<p>Anton Adler;1;Augsburg;</p>
+<p>Berta Bussard;1;Berlin;</p>
+<p>Catrin Cathlin;1;Cottbus;</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKHJ9RZ7J6945CB0PJ22MA"></a>Vertrieb</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKHRS606G492R96W77F2T4"></a>Zuordnung der Kunden zu einem Vertriebsmitarbeiter</h3>
+</div>
+<p>Um allen Kunden aus einem Projekt X eine Vertriebsadresse bzw. einen Vertriebsmitarbeiter Y zuzuordnen, ist es ausreichend, eine CSV Datei im Stammdatenimport hochzuladen mit folgenden Spalten:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Kundennummer</p>
+</li>
+<li class="listitem">
+<p>AdressID der Vertriebsadresse</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die AdressID unterscheidet sich von den im Nummernkreis vergebenen Nummern (Kunden-, Mitarbeiter-, Lieferantennummer). Bei der Auswahl eines Vertriebsmitarbeiters aus einer Liste befindet sich die ID auf der linken Seite vor dem Namen. Alternativ kann die Adresse des entsprechenden Mitarbeiters geöffnet und die ID aus der URL abgelesen werden.</p>
+</div>
+<p>Die Adressen können im ersten Schritt exportiert werden. Der Export der Liste aller Kundennummern eines Projektes ist <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/360018921560#UUID-33498ffb-2f7f-2ef3-e568-702f17699b77" title="Export von Stammdaten und Unternehmensdaten (Datenexport)">hier</a> erklärt.</p>
+<p>Im Anschluss wird diese Datei bearbeitet und wieder in einem Importformat hochgeladen. Relevant für den Import sind Spalte 1 und Spalte 3 (Spalte 2 kann ausgelassen werden, sofern die Kundennummer im System eindeutig vorliegt, ansonsten ist die SystemID die eindeutige Adress ID): kundennummersystemidvertrieb10000381000148100025810003781000498</p>
+<p>Die Importvorlage sieht passend zu Spalte 1 und 3 folgendermassen aus:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755180104732" style="" alt="importexport_11.png"></div>
+<p>Der Upload der CSV Datei erfolgt über den Tab " Import starten: CSV Datei heraufladen".</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Der Upload zeigt die gefundenen Daten an. Hier werden bei großen Datenmengen nur die ersten Seiten als Vorschau angezeigt. Über die Schaltfläche "Import" wird die Änderung in die Adressdaten geladen. Im Beispiel sind die erfolgreichen Daten (GRÜN) markiert. Die leeren Datensätze (nicht markiert) sollten in der Datei vollständig entfernt sein. Diese sind in der CSV Datei durch unvollständige Löschung und Bearbeitung der Datei entstanden. Die Datei ist ggf. nochmal nachzuarbeiten, korrekt zu speichern und neu hochzuladen.</p>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Für Importe, die eine Änderung des Adressstammes, relevanter Daten und großer Datenmengen nach sich ziehen, sollte der Import von Daten zuvor mit einer kleinen Datensatzmenge getätigt und genau kontrolliert werden.</p>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755152002716" style="" alt="importexport_12.png"></div>
+<p><span class="bold"><strong>Ergebnis:</strong></span> Adresse Vertrieb: Die Vertriebsadresse ist bei den ausgewählten Kunden im Adresstamm hinterlegt:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755158856092" style="" alt="importexport_13.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKJ0V0FANAE5EGY0730CSA"></a>Versandart</h3>
+</div>
+<p>Allen Kunden ist eine Versandart Y zuzuordnen.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die Versandart muss nicht zwangsläufig der Kundenadresse zugewiesen werden. Die Standardversandart kann auch in den Systemeinstellungen unter Administration → Einstellungen → System → Grundeinstellungen → Steuer/Währung hinterlegt werden. Nur für abweichende Fälle wird dann die andere Versandart in der Kundenadresse direkt eingefügt.</p>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755165070364" style="" alt="importexport_14.png"></div>
+<p>Bei der Versandart die Typbezeichnung unter "Administration → Einstellungen → Versandarten → Übersicht" verwenden:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755152197404" style="" alt="importexport_15.png"></div>
+<p>Beispieltabelle für die Versandart: kundennummerversandart10000express_dpd10001express_dpd10002express_dpd10003express_dpd10004express_dpd</p>
+<p>Vor dem Import einer neuen Versandart in alle Kunden ist Folgendes zu prüfen: Wenn die Versandart A in allen Kunden gespeichert ist und diese firmenweit auf Versandart B geändert werden soll, kann direkt in der Versandart das "Modul" von Versandart A auf Versandart B umgestellt werden. Dies sollte jedoch nur vorgenommen werden, wenn Versandart A wirklich komplett eliminiert werden soll. In diesem Fall eines Modul-Wechsels wird die Versandart ID in der Adresse, im Projekt und in allen Einstellungen für die Logistik beibehalten und wechselt auf die neue Versandart B.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKJBS9R6SQ7WQK6F0GAWDF"></a>Die wichtigsten Importvariablen für Adressen</h2>
+</div>
+<p>Nachstehend sind die wichtigsten Importvariablen für Adressen zu sehen:</p>
+<div class="informaltable table-responsive">
+<table style="border-collapse: collapse; width: 739px;" border="1">
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Name in Xentral</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Importvariable</strong></span></p>
+</td>
+<td>
+<p>Beispielinhalt CSV</p>
+</td>
+<td>
+<p><span class="bold"><strong>Position in Xentral</strong></span></p>
+</td>
+<td>
+<p>Anmerkung</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Typ</p>
+</td>
+<td>
+<p>typ</p>
+</td>
+<td>
+<p>Firma</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td>
+<p>Anrede, möglich: Herr, Frau, Firma, Mr, Mrs, Company</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Sprache für Belege</p>
+</td>
+<td>
+<p>sprache</p>
+</td>
+<td>
+<p>deutsch</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td>
+<p>möglich in CSV: deutsch, englisch</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Name</p>
+</td>
+<td>
+<p>name</p>
+</td>
+<td>
+<p>Max Mustermann</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td>
+<p>Pflichtfeld - Bei Firmen: Firmenname, bei Personen: Vor- und Nachname</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Straße</p>
+</td>
+<td>
+<p>strasse</p>
+</td>
+<td>
+<p>Untere Talstr. 13</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Adresszusatz</p>
+</td>
+<td>
+<p>adresszusatz</p>
+</td>
+<td>
+<p>Apartment 1</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td>
+<p>Adresszusatz</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Ort</p>
+</td>
+<td>
+<p>ort</p>
+</td>
+<td>
+<p>Augsburg</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>PLZ</p>
+</td>
+<td>
+<p>plz</p>
+</td>
+<td>
+<p>10001</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td>
+<p>Postleitzahl</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Land</p>
+</td>
+<td>
+<p>land</p>
+</td>
+<td>
+<p>DE</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td>
+<p>Wichtig: Nur ISO-Code (DE, AT, NL, etc.)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Telefon</p>
+</td>
+<td>
+<p>telefon</p>
+</td>
+<td>
+<p>0123456789</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Mobil</p>
+</td>
+<td>
+<p>mobil</p>
+</td>
+<td>
+<p>0170123456</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Anschreiben</p>
+</td>
+<td>
+<p>anschreiben</p>
+</td>
+<td>
+<p>Sehr geehrter Herr Mustermann</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>E-Mail</p>
+</td>
+<td>
+<p>email</p>
+</td>
+<td>
+<p>max-mustermann@email.de</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Internetseite</p>
+</td>
+<td>
+<p>internetseite</p>
+</td>
+<td>
+<p><a class="link" href="http://example.com/" target="_blank" rel="noopener">http://example.com</a></p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>USt-ID</p>
+</td>
+<td>
+<p>ustid</p>
+</td>
+<td>
+<p>12354567</p>
+</td>
+<td>
+<p>Adressen / Details / Zahlungskonditionen</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Kundennummer</p>
+</td>
+<td>
+<p>kundennummer</p>
+</td>
+<td>
+<p>100001</p>
+</td>
+<td>
+<p>Adressen / Details / Zahlungskonditionen</p>
+</td>
+<td>
+<p>Pflichtfeld (bei Kunden) - Nicht doppelt vergeben</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Lieferantennummer</p>
+</td>
+<td>
+<p>lieferantennummer</p>
+</td>
+<td>
+<p>200001</p>
+</td>
+<td>
+<p>Adressen / Details / Zahlungskonditionen</p>
+</td>
+<td>
+<p>Pflichtfeld (bei Lieferanten) - Nicht doppelt vergeben</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Mitarbeiternummer</p>
+</td>
+<td>
+<p>mitarbeiternummer</p>
+</td>
+<td>
+<p>30001</p>
+</td>
+<td>
+<p>Adressen / Details / Zahlungskonditionen</p>
+</td>
+<td>
+<p>Pflichtfeld (bei Mitarbeitern) - Nicht doppelt vergeben</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Ansprechpartner</p>
+</td>
+<td>
+<p>ansprechpartner</p>
+</td>
+<td>
+<p>Hildegard Müller</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Sonstiges</p>
+</td>
+<td>
+<p>sonstiges</p>
+</td>
+<td>
+<p>Ein sehr treuer Kunde</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Eine vollständige Liste der Importvariablen findet sich in xentral innerhalb der Importvorlage.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Alle Felder in der CSV-Datei, für die es kein entsprechendes Feld in xentral gibt, können in sogenannte Freifelder geladen werden. Von diese sind bei einer Adresse 20 Stück, unter dem Tab "Sonstige Daten", vorhanden, die aufsteigend mit der Importvariable freifeld1, freifeld2, etc importiert werden können.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01FX2GZ87NY41C948NT3CNVREZ"></a>Besteuerung</h3>
+</div>
+<p>Für den Import der Besteuerung von Kunden kannst du mit der Variable ust_befreit arbeiten und folgende Werte nutzen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>0 (für Inland)</p>
+</li>
+<li class="listitem">
+<p>1 (für EU-Lieferung)</p>
+</li>
+<li class="listitem">
+<p>2 (für Export)</p>
+</li>
+<li class="listitem">
+<p>3 (für Steuerfrei Inland)</p>
+</li>
+</ul>
+</div>
+<p>Sollte es sich bei der Adresse um einen Lieferanten handeln und sollte die Beteuerung Verbindlichkeiten rechts unter "Zahlungskonditionen beim Lieferant bei Bestellungen" importiert werden, heißt die Variable umsatzsteuer_lieferant und folgende Werte können genutzt werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>import</p>
+</li>
+<li class="listitem">
+<p>eulieferung</p>
+</li>
+<li class="listitem">
+<p>inland</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKJHAEBR6YE51M590DJQBF"></a>Artikel Import</h2>
+</div>
+<p>Die Artikelnummer wird meistens als Index oder Schlüssel verwendet. Das Leerzeichen ist immer das Ende der Artikelnummer und wird von anderen Systemen auch so interpretiert. Weiterführende Systeme und andere interne Prozesse in xentral, z.B. Packtischprozesse, benötigen Artikelnummern ohne Sonderzeichen und Leerstellen für die Verarbeitung via Scanner, Barcodescanner oder Mobilen Devices. Leerzeichen sollten deshalb z.B. durch Minuszeichen oder Unterstriche ersetzt werden. Können die Artikelnummern auf Plattformen nicht geändert werden, kann die Plattformnummer via Fremdnummer in der xentral Artikelnummer hinterlegt werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKJQY1QTPM10F029WT9KGR"></a>Artikel</h3>
+</div>
+<p>Um Artikel korrekt zu importieren, sind folgende Punkte zu beachten:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Checkliste für die CSV Datei:</p>
+</li>
+<li class="listitem">
+<p>Pflichtfelder: name_de und nummer</p>
+</li>
+<li class="listitem">
+<p>Pro Artikel nur eine Zeile → jede Artikelnummer ist nur einmal vorhanden</p>
+</li>
+<li class="listitem">
+<p>Alle Felder ohne Inhalt werden auf den Standard gestellt (z.B. Währung auf Euro)</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage:</strong></span> 1:nummer; 2:name_de; 3:artikelbeschreibung_de; 4:kurztext_de; 5:internerkommentar; 6:ean; 7:gewicht; 8:lieferantennummer; 9:lieferanteinkaufnetto; 10:lieferanteinkaufmenge; 11:verkaufspreis1netto;</p>
+<p>12:verkaufspreis1menge; 13:lagerartikel; 14:lager_platz; 15:lager_menge_total; 16:mindestlager;</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Mit der Variable “lager_platz” wird das Standardlager geändert, wenn kein Lagerbestand in der Importdatei vorhanden ist. Wenn ein Lagerbestand vorhanden ist, wird der Bestand geändert, nicht das Standardlager.</p>
+</div>
+<p><span class="bold"><strong>Beispielinhalt für die CSV Datei:</strong></span></p>
+<p>200001;Rennrad Cross X;Rennrad Cross X von Rennprofis empfohlen;Rennrad Cross X für Profis.;Unser Bestseller;1234567;3,5;300001;1300;1;1900;1;1;HL001A;3;2; 200002;Rahmen Rennrad Cross X;Rahmen für das Rennrad Cross X zum selber montieren.;Rahmen Cross X in grün.;Verkauft sich gut.;1231234;2;300001;500;1;700;1;1;HL001A;5;3; 200003;Reifen Rennrad Cross X;Reifen für das Rennrad Cross X zum selber montieren.;Reifen Cross X 28 Zoll.;;1231231;0,3;300003;10;1;30;1;1;HL001B;20;10; 200004;Sattel Rennrad Cross X;Sattel für das Rennrad Cross X zum selber montieren.;Sattel Cross X in schwarz.;;12312312;0,2;300003;15;1;25;1;1;HL001B;10;3;</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKJXFVWYJPGS15ZEFXDBKW"></a>Stückliste</h3>
+</div>
+<p>Um eine Stückliste zu erstellen, sind folgende Punkte zu beachten:</p>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: nummer, stuecklistevonartikel und stuecklistemenge</p>
+</li>
+<li class="listitem">
+<p>Alle Artikel in der Stückliste (auch der Hauptartikel) sind zuvor über den Artikelimport angelegt worden und haben die richtige Artikelnummer</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage:</strong></span> 1:nummer; 2:stuecklistevonartikel; 3:stuecklistemenge;</p>
+<p>Der Haken im Hauptartikel bei Stückliste wird durch den Import automatisch gesetzt.</p>
+<p><span class="bold"><strong>Beispielinhalt für die CSV Datei:</strong></span></p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p>nummer</p>
+</td>
+<td>
+<p>stuecklistevonartikel</p>
+</td>
+<td>
+<p>stuecklistemenge</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200002</p>
+</td>
+<td>
+<p>200001</p>
+</td>
+<td>
+<p>1</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200003</p>
+</td>
+<td>
+<p>200001</p>
+</td>
+<td>
+<p>2</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200004</p>
+</td>
+<td>
+<p>200001</p>
+</td>
+<td>
+<p>1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Bedeutet im vorliegenden Beispiel: Ein Rennrad (Art.Nr. 200001) setzt sich zusammen aus 1 x Rahmen (Art.Nr. 200002), 2 x Reifen (Art.Nr. 200003), 1 x Sattel (Art.Nr.200004) Alle Unterartikel einer Stückliste können auch separat verkauft werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKK8T6K8190CKP5ZNJ7H4W"></a>Fremdnummern</h3>
+</div>
+<p>Wenn Fremdnummern für externe Verkaufsplattformen importieren werden sollen, kann dies mit Hilfe der internen Artikelnummer in xentral und der externen Nummer, z.B. Amazon SKU, vorgenommen werden. Via CSV-Import kann also die Beziehung zwischen interner und externer Nummer hergestellt werden.</p>
+<p>Die Importvorlage würde wie folgt aussehen: 1:nummer; 2:fremdnummerX_shopid;</p>
+<p>Anbei ein Beispiel für einen Fremdnummern Import:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>der Shop hat im Beispiel die ID=3 → für die Shop-ID in die Shopschnittstelle klicken (Administration → Einstellungen → Online-Shops → Shop anklicken und oben in der URL die ID ablesen)</p>
+</li>
+<li class="listitem">
+<p>die Artikelnummer lautet: 1000004</p>
+</li>
+<li class="listitem">
+<p>die Fremdnummer lautet: 1234567</p>
+</li>
+</ul>
+</div>
+<p>Die .csv Datei mit der Fremdnummer wurde folgendermassen definiert, die Reihenfolge der Spalten kann, wie bei jedem Import, beliebig gewählt werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Spalte 1 ist die Artikelnummer → 1000004</p>
+</li>
+<li class="listitem">
+<p>Spalte 2 ist die Fremdnummer → 1234567</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755152266908" style="" alt="importexport_16.png"></div>
+</li>
+</ul>
+</div>
+<p>Die Importvorlage sieht folgendermaßen aus:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755191728412" style="" alt="importexport_17.png"></div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die 3 bei der Fremdnummer ist die jeweilige Shop-ID, die 1 für die erste Fremdnummer, welche für diesen Artikel importiert wird.</p>
+</div>
+<p>Die Fremdnummer wird dann im Artikel gespeichert.</p>
+<p>Shop-ID herausfinden:</p>
+<p>Für die Shop-ID ist in die Shopschnittstelle klicken, unter Administration → Shop Schnittstelle → Übersicht ist der betreffende Shop anzuklicken.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755191807132" style="" alt="importexport_19.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKKMT64G4M5ZVKYY1RMB53"></a>Eigenschaften</h3>
+</div>
+<p>Checkliste für die CSV Datei:</p>
+<p>Pflichtfelder: nummer und eigenschaft1name / eigenschaftnameeindeutig1 und eigenschaft1wert / eigenschaftwerteindeutig1</p>
+<p>Alle Artikel sind zuvor über den Artikelimport angelegt worden und haben die richtige Artikelnummer</p>
+<p>Hier gibt es 2 Varianten für die Variablen.</p>
+<p><span class="bold"><strong>Variante1:</strong></span> Eigenschaften nicht überschreiben eigenschaftname1 - eigenschaftname20</p>
+<p>Eigenschaften mit demselben Namen werden nicht überschrieben. Bsp: Es können 2 Eigenschaften mit dem Name "Farbe" hinterlegt werden, z.B. Farbe = Grün und Farbe = Blau</p>
+<p><span class="bold"><strong>Variante2:</strong></span> Eigenschaften überschreiben eigenschaftnameeindeutig1 - eigenschaftnameeindeutig20</p>
+<p>Eigenschaften mit demselben Namen werden überschrieben. Bsp: Wenn 2 x hintereinander Eigenschaften mit dem Name "Farbe" importiert werden, dann wird der erste Eigenschaftswert überschrieben.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Eigenschaftnameeindeutig1: Nur eine Eigenschaft mit dem gleichen Namen ist zugelassen</p>
+</li>
+<li class="listitem">
+<p>Eigenschaft1name: Mehrere Eigenschaften mit unterschiedlichen Werten können angelegt werden</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Variante1</strong></span></p>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage:</strong></span></p>
+<p>1:nummer; 2:eigenschaftname1; 3:eigenschaftwert1; 4:eigenschaftname2; 5:eigenschaftwert2; 6:eigenschaftname3; 7:eigenschaftwert3;</p>
+<p>Beispielinhalt für die CSV Datei:</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>nummer</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftname1</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftwert1</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftname2</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftwert2</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftname3</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftwert3</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200001</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Grün</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Blau</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>M</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200002</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Gelb</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Blau</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>S</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200003</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Grün</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Rot</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>L</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In diesem Fall sind es nach dem Import 3 Eigenschaften. Z.B. gibt es bei Artikel 200001 die Eigenschaften Farbe: Grün, Farbe: Blau und Größe: M.</p>
+<p><span class="bold"><strong>Variante2</strong></span></p>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage:</strong></span></p>
+<p>1:nummer; 2:eigenschaftnameeindeutig1; 3:eigenschaftwert1; 4:eigenschaftnameeindeutig2; 5:eigenschaftwert2; 6:eigenschaftnameeindeutig3; 7:eigenschaftwert3;</p>
+<p>Beispielinhalt für die CSV Datei:</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>nummer</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftnameeindeutig1</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftwert1</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftnameeindeutig2</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftwert2</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftnameeindeutig3</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>eigenschaftwert3</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200001</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Grün</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Blau</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>M</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200002</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Gelb</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Blau</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>S</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200003</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Grün</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Rot</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>L</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In diesem Fall sind es nach dem Import nur 2 Eigenschaften. z.B. gibt es bei Artikel 200001 die Eigenschaften Farbe: Blau und Größe: M</p>
+<p><span class="bold"><strong>Variante mit Übersetzungen</strong></span></p>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage:</strong></span></p>
+<p>1:nummer; 2:eigenschaftname1; 3:eigenschaftwert1; 4:eigenschaftname1_fr; 5:eigenschaftwert1_fr;</p>
+<p>Beispielinhalt für die CSV-Datei:</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p>nummer</p>
+</td>
+<td>
+<p>eigenschaft</p>
+</td>
+<td>
+<p>wert</p>
+</td>
+<td>
+<p>eigenschaft_fr</p>
+</td>
+<td>
+<p>wert_fr</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>700001</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Weiß</p>
+</td>
+<td>
+<p>Couleur</p>
+</td>
+<td>
+<p>Blanc</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>700002</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>L</p>
+</td>
+<td>
+<p>Taille</p>
+</td>
+<td>
+<p>L</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>700003</p>
+</td>
+<td>
+<p>Material</p>
+</td>
+<td>
+<p>Baumwolle</p>
+</td>
+<td>
+<p>Matériau</p>
+</td>
+<td>
+<p>Coton</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In diesem Fall wird für die Artikel jeweils die Eigenschaft mit der Übersetzung angelegt, z.B. hat der Artikel 700001 die Eigenschaft Farbe: Weiss und dazu die französische Übersetzung der Eigenschaft Couleur: Blanc.</p>
+<p><span class="bold"><strong>Eigenschaften</strong></span></p>
+<p>In den Einstellungen können verschiedene Eigenschaften für den Export angegeben werden.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755180599836" style="" alt="importexport_20.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKM0NWW1F36AE9YHG2SXGQ"></a>Charge und MHD</h2>
+</div>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: nummer und lager_platz und lager_menge_addieren und lager_mhd / lager_charge</p>
+</li>
+<li class="listitem">
+<p>Alle Artikel sind zuvor über den Artikelimport angelegt worden und haben die richtige Artikelnummer</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage:</strong></span> 1:nummer; 2:lager_platz; 3:lager_menge_addieren; 4:lager_mhd; 5:lager_charge;</p>
+<p>Beispielinhalt für die CSV Datei:</p>
+<div class="informaltable table-responsive">
+<table style="height: 88px;" border="1">
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>nummer</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lager_platz</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lager_menge_addieren</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lager_mhd</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lager_charge</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200001</p>
+</td>
+<td>
+<p>HL001A</p>
+</td>
+<td>
+<p>10</p>
+</td>
+<td>
+<p>13.10.2020</p>
+</td>
+<td>
+<p>123456</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200002</p>
+</td>
+<td>
+<p>HL001A</p>
+</td>
+<td>
+<p>15</p>
+</td>
+<td>
+<p>13.10.2020</p>
+</td>
+<td>
+<p>123456</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200003</p>
+</td>
+<td>
+<p>HL001A</p>
+</td>
+<td>
+<p>23</p>
+</td>
+<td>
+<p>23.10.2020</p>
+</td>
+<td>
+<p>456789</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Das Resultat des Imports lautet:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>10 x Artikel 200001 werden eingelagert mit MHD vom 13.10.2020 und Chargen Nr. 123456</p>
+</li>
+<li class="listitem">
+<p>15 x Artikel 200001 werden eingelagert mit MHD vom 13.10.2020 und Chargen Nr. 123456</p>
+</li>
+<li class="listitem">
+<p>23 x Artikel 200001 werden eingelagert mit MHD vom 23.10.2020 und Chargen Nr. 456789</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Import funktioniert nur mit der Variable lager_menge_addieren und nicht mit lager_menge_total. Mit der Variable “lager_platz” wird das Standardlager geändert, wenn kein Lagerbestand in der Importdatei vorhanden ist. Wenn ein Lagerbestand vorhanden ist, wird der Bestand geändert, nicht das Standardlager.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKM7XE05EEESS6JV43FMB3"></a>Shop Verknüpfungen</h2>
+</div>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: nummer und shop_x und aktiv_x</p>
+</li>
+<li class="listitem">
+<p>Alle Artikel sind zuvor über den Artikelimport angelegt worden und haben die richtige Artikelnummer</p>
+</li>
+</ul>
+</div>
+<p>Die Variablen shop_ und aktiv_ werden jeweils noch mit der ID des Shops ergänzt. Diese ist in der URL zu finden, wenn eine Shop-Schnittstelle unter Administration → Online-Shops editiert wird.</p>
+<p>z.B. ... index.php?module=onlineshops&amp;action=edit&amp;id=2</p>
+<p>Wäre shop_2 und aktiv_2</p>
+<p>Beispiel für eine Importvorlage: 1:nummer; "1":shop_2; "1":aktiv_2;</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>"1" ist ein fester Inhalt, damit werden keine weiteren Spalten in der CSV Datei benötigt, um die Option zu aktivieren.</p>
+</div>
+<p>Beispielinhalt für die CSV Datei:</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>nummer</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200001</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200002</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>200003</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKMWKBA5X7AHFF8MYBSCFR"></a>Die wichtigsten Importvariablen für Artikel</h3>
+</div>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Name in Xentral</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Importvariable</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Beispielinhalt CSV</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Position in Xentral</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Anmerkung</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Name</p>
+</td>
+<td>
+<p>name_de</p>
+</td>
+<td>
+<p>Rennrad Cross X</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td>
+<p>Pflichtfeld falls Artikel neu erstellt wird</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Artikel Nr.</p>
+</td>
+<td>
+<p>nummer</p>
+</td>
+<td>
+<p>200001</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td>
+<p>Pflichtfeld</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Artikelbeschreibung (DE)</p>
+</td>
+<td>
+<p>artikelbeschreibung_de</p>
+</td>
+<td>
+<p>Rennrad Cross X von Rennprofis empfohlen.</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Kurztext (DE)</p>
+</td>
+<td>
+<p>kurztext_de</p>
+</td>
+<td>
+<p>Rennrad Cross X für Profis.</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Artikelkategorie</p>
+</td>
+<td>
+<p>artikelkategorie_name</p>
+</td>
+<td>
+<p>Rennräder</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td>
+<p>Falls nicht vorhanden in den Einstellungen wird eine Neue angelegt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Interner Kommentar</p>
+</td>
+<td>
+<p>internerkommentar</p>
+</td>
+<td>
+<p>Das ist unser Bestseller!</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>EAN Nr.</p>
+</td>
+<td>
+<p>ean</p>
+</td>
+<td>
+<p>9783125171541</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Ermäßigte Umsatzsteuer</p>
+</td>
+<td>
+<p>umsatzsteuer</p>
+</td>
+<td>
+<p>ermaessigt</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td>
+<p>Möglich in CSV: ermaessigt, normal</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Gewicht (in kg)</p>
+</td>
+<td>
+<p>gewicht</p>
+</td>
+<td>
+<p>3,1</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Von Artikel</p>
+</td>
+<td>
+<p>variante_von</p>
+</td>
+<td>
+<p>200010</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Lager</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p>Lagerartikel</p>
+</td>
+<td>
+<p>lagerartikel</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td>
+<p>Möglich in CSV: 0, 1 (1 entspricht Lagerartikel, 0 entspricht kein Lagerartikel)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Lagerbestand</p>
+</td>
+<td>
+<p>lager_menge_total</p>
+</td>
+<td>
+<p>7</p>
+</td>
+<td>
+<p>Artikel / Lager</p>
+</td>
+<td>
+<p>Der Artikel muss ein Lagerartikel sein, s.o. lagerartikel = 1</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Min. Lagermenge</p>
+</td>
+<td>
+<p>mindestlager</p>
+</td>
+<td>
+<p>5</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Standardlager</p>
+</td>
+<td>
+<p>lager_platz</p>
+</td>
+<td>
+<p>HL001A</p>
+</td>
+<td>
+<p>Artikel / Details / Artikel</p>
+</td>
+<td>
+<p>Hier ist explizit nach dem Regalnamen und nicht dem Lagernamen gefragt</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Stückliste</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p>In Stückliste</p>
+</td>
+<td>
+<p>stuecklistevonartikel</p>
+</td>
+<td>
+<p>200020</p>
+</td>
+<td>
+<p>Artikel / In Stückliste</p>
+</td>
+<td>
+<p>Gibt Hauptartikel von diesen Stücklistenartikel an</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Stücklistenartikel Menge</p>
+</td>
+<td>
+<p>stuecklistemenge</p>
+</td>
+<td>
+<p>13</p>
+</td>
+<td>
+<p>Artikel / In Stückliste</p>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Einkaufspreis</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p>Lieferant</p>
+</td>
+<td>
+<p>lieferantennummer</p>
+</td>
+<td>
+<p>70001</p>
+</td>
+<td>
+<p>Artikel / Einkauf</p>
+</td>
+<td>
+<p>Pflichtfeld für Einkaufspreis - Lieferant muss mit Lieferantennr. in Xentral angelegt sein</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Preis pro Stück</p>
+</td>
+<td>
+<p>lieferanteinkaufnetto</p>
+</td>
+<td>
+<p>700</p>
+</td>
+<td>
+<p>Artikel / Einkauf</p>
+</td>
+<td>
+<p>Pflichtfeld für Einkaufspreis</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Ab Menge</p>
+</td>
+<td>
+<p>lieferanteinkaufmenge</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>Artikel / Einkauf</p>
+</td>
+<td>
+<p>Pflichtfeld für Einkaufspreis - Falls Standardpreis (kein Staffelpreis) → als Menge 1 angeben</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Währung</p>
+</td>
+<td>
+<p>lieferanteinkaufwaehrung</p>
+</td>
+<td>
+<p>EUR</p>
+</td>
+<td>
+<p>Artikel / Einkauf</p>
+</td>
+<td>
+<p>Pflichtfeld für Einkaufspreis</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Verkaufspreis</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p>Preis</p>
+</td>
+<td>
+<p>verkaufspreis1netto</p>
+</td>
+<td>
+<p>1100</p>
+</td>
+<td>
+<p>Artikel / Verkauf</p>
+</td>
+<td>
+<p>Pflichfeld für Verkaufspreis</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Ab Menge</p>
+</td>
+<td>
+<p>verkaufspreis1menge</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>Artikel / Verkauf</p>
+</td>
+<td>
+<p>Pflichtfeld für Verkaufspreis - Falls Standardpreis (kein Staffelpreis) → als Menge 1 angeben</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Charge &amp; MHD</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p>MHD</p>
+</td>
+<td>
+<p>lager_mhd</p>
+</td>
+<td>
+<p>13.10.2020</p>
+</td>
+<td>
+<p>Artikel / Charge + MHD</p>
+</td>
+<td>
+<p>Im Format: dd.mm.yyyy oder yyyy-mm-dd</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Charge</p>
+</td>
+<td>
+<p>lager_charge</p>
+</td>
+<td>
+<p>123456</p>
+</td>
+<td>
+<p>Artikel / Charge + MHD</p>
+</td>
+<td>
+<p>Erwartet die Chargen Nr.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Eine vollständige Liste der Importvariablen ist in xentral innerhalb der Importvorlage zu finden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Auch bei den Artikeln können Informationen, für welche es kein Feld in xentral gibt, in Freifelder laden. Im Artikel gibt es dazu 40 Stück (Details → Parameter und Freifelder), die mit freifeld1 - freifeld40 importiert werden können. Um diese Felder anzuzeigen müssen diese noch unter Administration → Einstellungen → System → Grundeinstellungen → Freifelder ganz oben bei "Freifelder im Artikel einblenden" aktiviert werden.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKN5V1J650AZK8WWV9TA0X"></a>Einkaufspreise (über Herstellernummer)</h3>
+</div>
+<p>Mit dem Import von Einkaufspreisen können Lieferantenlisten hinein geladen werden, die statt der Artikelnummer die Herstellernummer mitgegeben haben.</p>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: herstellernummer und lieferantennummer</p>
+</li>
+<li class="listitem">
+<p>Pro Einkaufspreis nur eine Zeile</p>
+</li>
+<li class="listitem">
+<p>Die Lieferanten und Artikel sind davor schon in xentral gepflegt, mit Lieferantennummer und Herstellernummer</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage:</strong></span> 1:herstellernummer; 2:lieferantennummer; 3:lieferanteinkaufnetto; 4:lieferanteinkaufmenge; 5:lieferanteinkaufwaehrung; 6:lieferanteinkaufnetto2; 7:lieferanteinkaufmenge2; 8:lieferanteinkaufwaehrung2;</p>
+<p>Beispielinhalt für die CSV Datei:</p>
+<div class="informaltable table-responsive">
+<table style="width: 852px;" border="1">
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>herstellernummer</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lieferantennummer</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lieferanteinkaufnetto</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lieferanteinkaufmenge</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lieferanteinkaufwaehrung</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lieferanteinkaufnetto2</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lieferanteinkaufmenge2</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lieferanteinkaufwaehrung2</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>123456</p>
+</td>
+<td>
+<p>70000</p>
+</td>
+<td>
+<p>10</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>EUR</p>
+</td>
+<td>
+<p>8</p>
+</td>
+<td>
+<p>10</p>
+</td>
+<td>
+<p>EUR</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>234567</p>
+</td>
+<td>
+<p>70000</p>
+</td>
+<td>
+<p>11</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>EUR</p>
+</td>
+<td>
+<p>9</p>
+</td>
+<td>
+<p>10</p>
+</td>
+<td>
+<p>EUR</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>345678</p>
+</td>
+<td>
+<p>70000</p>
+</td>
+<td>
+<p>14</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>EUR</p>
+</td>
+<td>
+<p>10</p>
+</td>
+<td>
+<p>100</p>
+</td>
+<td>
+<p>EUR</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>456789</p>
+</td>
+<td>
+<p>70000</p>
+</td>
+<td>
+<p>15</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>EUR</p>
+</td>
+<td>
+<p>10</p>
+</td>
+<td>
+<p>13</p>
+</td>
+<td>
+<p>EUR</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKNDYFV48YNRV2KWB7E6PS"></a>Artikelimport Beispiele</h2>
+</div>
+<p>Hier finden sich Beispiele für einen Artikeldaten-Import. In der Praxis hat es sich bewährt, die Artikeldaten nacheinander in mehreren Tabellenlisten und Importformaten einzuspielen. Die Reihenfolge war hier z.B.:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Import 1: Anlegen der Artikel mit Nummer und Bezeichnung</p>
+</li>
+<li class="listitem">
+<p>Import 2: Einspielen der Verkaufspreise (ggf. Staffeln) auf die bestehenden Artikelnummern</p>
+</li>
+<li class="listitem">
+<p>Import 3: Einspielen der Einkaufspreise mit Lieferantendaten</p>
+</li>
+<li class="listitem">
+<p>Import 4: Nachimport von Artikeldaten → Optional, kann auch in Import 1 direkt mit angelegt werden oder am Ende, wenn alle Preisstrukturen stehen. Wenn zuvor eine Datenbank-Sicherung (Snapshot) gemacht wurde, kann der letze Artikeldaten-Nachimport am Schluss so oft eingespielt und zurückgesetzt werden (Snapshot), bis er endgültig passt.</p>
+</li>
+<li class="listitem">
+<p>Import 5: Import von Gruppenpreisen, wenn dies benötigt wird</p>
+</li>
+</ul>
+</div>
+<p>Bei Staffelpreisen und komplizierteren Strukturen empfiehlt sich folgender Ablauf:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Importvorlage in xentral anlegen mit allen relevanten Feldern + speInfo: die Felder der Importvorlage als Text direkt, z.B. als Office Datei, abspeichern und die Einstellungen als Screenshot sichern</p>
+</li>
+<li class="listitem">
+<p>Datenbanksnapshot anlegen. Dabei ist beim Download zu prüfen, ob dieser auch &gt;0Byte ist. Nicht alle Webserver haben die Fähigkeit der Snapshotfunktion. Wenn dies der Fall ist, wird auf dem Server das Programm MySQLDump benötigt</p>
+</li>
+<li class="listitem">
+<p>Import durchführen, jedoch nur im nicht produktiven System</p>
+</li>
+<li class="listitem">
+<p>Wenn der Import nicht komplett passt, kann direkt der Snapshot (s.o.) zurück eingespielt werden. Wenn dieser nach dem Anlegen der Vorlage erstellt wurde, sind alle Daten noch vorhanden. Auf diese Weise können mehrere Iterationen im Import durchgeführt werden.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKNP16WWK2CW5XDH9JN4AK"></a>Import 1: Artikel anlegen</h3>
+</div>
+<p>Artikel können mit einem Schnellimport mit einer bestehenden Nummer oder einer neuen Nummer aus einem Nummernkreis angelegt werden. Sind Artikel von Hand selbst nach zu pflegen, reicht hier auch die Artikelnummer, die Artikelbezeichnung und ggf. das Setzen des Lagerhakens über Lagerartikel → Artikel, welcher im Lager auf Bestand liegt: Folgende Felder sind hier sinnvoll, je nachdem welche Artikelebenen zu bewältigen sind:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Artikelnummer → Die bestehende Nummer ist in die Spalte eintragen oder aus zentralen Nummernkreis fortlaufend neu zu vergeben (Spalteninhalt: NEU)</p>
+</li>
+<li class="listitem">
+<p>"Artikelnummer neu vergeben aus Artikelkategorie" setzt voraus, dass die Artikelkategorie angelegt wurde und hier eine nächste, zu vergebene Artikelnummer eingetragen wurde</p>
+</li>
+<li class="listitem">
+<p>Projekt für Artikel vergeben → Projekt ID in einer Spalte mit aufnehmen</p>
+</li>
+<li class="listitem">
+<p>Artikelkategorie vergeben → Artikelkategorie ID in einer Spalte mit aufnehmen</p>
+</li>
+<li class="listitem">
+<p>Haken → Artikel ist Lagerartikel. 1=Artikel wird im Lager geführt. Leer bei Dienstleistungsartikeln</p>
+</li>
+<li class="listitem">
+<p>Umsatzsteuersatz → Ohne Angabe werden die Artikel auf 19% gesetzt (Steuer Inland Standard), für den ermässigten Satz z.B. 7% hier in die Spalte "ermaessigt" angeben</p>
+</li>
+</ul>
+</div>
+<p>Wenn es keine Artikelnummern gibt und diese neu fortlaufend vergeben werden sollen, kann in die Spalte der Artikelnummer "NEU" eingetragen werden. Alternativ kann auch direkt im Tabellenprogramm die erste Nummer angegeben und in der Spalte die fortlaufenden Nummern nach unten gezogen werden. Dadurch liegen diese für den Import in die Tabelle bereits vor.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755159255964" style="" alt="importexport_21.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755152694044" style="" alt="importexport_22.png"></div>
+<p>Beispiel für eine Importvorlage: 1:nummer; 2:name_de; 3:projekt; 4:artikelkategorie; 5:lagerartikel;</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKNV3B1KXW6F99HAA5GQ76"></a>Import 2: Verkaufspreise</h3>
+</div>
+<p>Verkaufspreise können in einem weiteren Import direkt auf bestehende Artikelnummern importiert werden. Die wichtigsten Felder sind folgende:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Artikelnummer</p>
+</li>
+<li class="listitem">
+<p>Verkaufspreis (netto)</p>
+</li>
+<li class="listitem">
+<p>Menge (meist "1")</p>
+</li>
+</ul>
+</div>
+<p>Für einen Artikel können auch Staffelpreise importiert werden (z.B. 1, 10, 100, 1000). Wenn du beim Import eines neuen Preises ein Gültigkeitsdatum vergeben möchtest, achte bitte darauf, dass das Datumsformat in der CSV-Datei yyyy-mm-dd sein muss. Da je nach Programm beim Erstellen der CSV-Datei dieses Format häufig automatisch überschrieben wird, solltest du die Formatierung umstellen auf "Text".</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Verkaufspreis wird als Standardpreis für alle Kunden importiert. Jede Menge darf hier für einen Artikel nur einmal vorhanden sein.</p>
+</div>
+<p>Beispiel für eine Importvorlage: 1:nummer; 2:verkaufspreis1netto; 3:verkaufspreis1menge; 4:verkaufspreis2netto; 5:verkaufspreis2menge; 6:verkaufspreis3netto; 7:verkaufspreis3menge; 8:verkaufspreis4netto; 9:verkaufspreis4menge;</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Wenn du einen Verkaufspreis aktualisieren willst, kannst du durch den CSV Import von einem geänderten Preis mit den ansonsten gleichen Parametern wie Menge, Gruppenzuordnung und Währung einen neuen Preis erzeugen. Der alte Preis mit den gleichen Parametern wird dadurch inaktiv gesetzt.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKP15SHFPQEFVMRD2KAD6Y"></a>Import 3: Einkaufspreis/ Lieferantendaten</h3>
+</div>
+<p>Einkaufspreise können in einem weiteren Import ebenso auf bestehende Artikelnummern importiert werden. Die wichtigsten Felder sind folgende:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Artikelnummer</p>
+</li>
+<li class="listitem">
+<p>Lieferantennummer aus xentral</p>
+</li>
+<li class="listitem">
+<p>Netto Einkaufspreis bei entsprechendem Lieferanten</p>
+</li>
+<li class="listitem">
+<p>Menge (im Standard 1 Stck.)</p>
+</li>
+<li class="listitem">
+<p>Artikel Bestellnummer bei entsprechendem Lieferanten</p>
+</li>
+</ul>
+</div>
+<p>Beispiel für eine Importvorlage: 1:nummer; 2:lieferantennummer; 3:lieferanteinkaufnetto; 4:lieferanteinkaufmenge; 5:lieferantbestellnummer;</p>
+<p>Soll ein Artikel bei allen Lieferanten einkaufbar sein, muss im Artikel der Haken "Einkauf bei allen Lieferanten" gesetzt werden. Ein Preis wird in diesem Fall nicht importiert.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKP7QFKSEHSPK5932T60AA"></a>Einkaufspreise mit neuen Preisen ersetzen</h4>
+</div>
+<p>EK Preise können aktualisiert werden und der "alte" EK Preis erhält automatisch ein Gültigkeitsdatum, das bis zum gestrigen Datum eingetragen ist.</p>
+<p>Dafür müssen aber folgende Daten vom alten und neuen EK übereinstimmen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Menge (ab)</p>
+</li>
+<li class="listitem">
+<p>Währung</p>
+</li>
+<li class="listitem">
+<p>Bezeichnung (falls vorhanden)</p>
+</li>
+<li class="listitem">
+<p>Bestellnummer (falls vorhanden)</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKPDF1VE0014GTE25XXYF3"></a>Import 4: Nachimport Artikeldaten</h3>
+</div>
+<p>Folgende Artikeldaten können z.B. auch in einem Nachimport später importiert werden, wobei ein sofortiger Import in Schritt 1 möglich wäre:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Artikelbeschreibung, welche z.B. dann auch bei Dokumenten (Rechnung, Auftrag, etc.) angezeigt wird</p>
+</li>
+<li class="listitem">
+<p>Kurztext → Ein optionaler, zusätzlicher Text kann eingegeben werden</p>
+</li>
+<li class="listitem">
+<p>Interner Kommentar → Dieser ist optional, z.B. für die Suche durchsuchbar</p>
+</li>
+<li class="listitem">
+<p>EAN → Die EAN Nummer des Artikels ist zu einzutragen</p>
+</li>
+<li class="listitem">
+<p>Gewicht → Das Gewicht, das z.B. bei der Paketmarke mit ausgewertet werden kann, wie das Gesamtgewicht der Lieferung, ist anzugeben</p>
+</li>
+<li class="listitem">
+<p>Lagerplatz → Der Lagerplatz, z.B. Standardlager und Lager für die Einlagerung, wie Lagerplatz Ebene 2, "Regal" in xentral, ist anzugeben</p>
+</li>
+<li class="listitem">
+<p>Lagermenge → Die absolute Menge für die Einlagerung in ein Lager ist anzugeben</p>
+</li>
+<li class="listitem">
+<p>Mindestlager → Die Mindestlagermenge, z.B. für den Bestellvorschlag, ist anzugeben</p>
+</li>
+</ul>
+</div>
+<p>Grundsätzlich können alle Eigenschaften eines Artikels überschrieben werden, zu welchen Variablen in der Import-Zentrale vorhanden sind. Notwendig ist hierbei, dass die Nummer als Referenz angegeben wird. Andernfalls entsteht kein Update, sondern nur eine Artikelneuanlage.</p>
+<p>Beispiel für eine Importvorlage: 1:nummer; 3:artikelbeschreibung_de; 4:kurztext_de; 5:internerkommentar; 6:ean; 7:gewicht; 14:lager_platz; 15:lager_menge_total; 16:mindestlager;</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKPJYRKYGRMX2X8GGFMDAW"></a>Import 5: Gruppenpreise Beispiel</h3>
+</div>
+<p>Im Folgenden ist ein Beispiel für Gruppenpreise aufgezeigt:</p>
+<p>Beispiel für eine Importvorlage: 1:nummer; 2:verkaufspreis1netto; 3:verkaufspreis1menge; 4:verkaufspreis1gruppe; 5:verkaufspreis2netto; 6:verkaufspreis2menge; 7:verkaufspreis2gruppe; 8:verkaufspreis3netto; 9:verkaufspreis3menge; 10:verkaufspreis3gruppe;</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKPWTBN5P5RT5QBY65AKAR"></a>Artikel Lagermengen importieren</h2>
+</div>
+<p>Für den Import von Artikelmengen wird die Artikelnummer, die Lagermenge, d.h. die absolute Bestandsmenge für diesen Platz oder die neu hinzukommende Menge, d.h. die additive Bestandsmenge für diesen Lagerplatz, und der Lagerplatz selbst benötigt. Für den Import der Lagermenge kann die EAN statt der Artikelnummer zur Zuordnung verwendet werden.</p>
+<p>Beispiel für eine Importvorlage:</p>
+<p>1:nummer;</p>
+<p>2:lager_platz2;</p>
+<p>3:lager_menge_total2;</p>
+<p>4:lager_platz3;</p>
+<p>5:lager_menge_total3;</p>
+<p>6:lager_platz4;</p>
+<p>7:lager_menge_total4;</p>
+<p>Folgende Angaben sind zudem möglich:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>lager_menge_addieren2 → Bucht die Menge des Artikels auf die bestehende Menge in diesem Lagerplatz auf</p>
+</li>
+<li class="listitem">
+<p>lager_menge_total2 → Bucht die Menge (total) des Artikels komplett neu ein</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKQ218FCZ5F7TGVBNPTEZ0"></a>Zeiterfassung</h2>
+</div>
+<p>Mit dem Import für die Zeiterfassung, können Zeiten auf einen Kunden gebucht werden. Diese sind danach an 3 Stellen wiederzufinden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Im Zeitkonto Modul: Team → Zeitkonten → Zeitkonto → Zeiten abrechnen</p>
+</li>
+<li class="listitem">
+<p>In den Stammdaten des Kunden: Stammdaten → Adressen → Kunden auswählen → Zeitkonto</p>
+</li>
+<li class="listitem">
+<p>In der eigenen Zeiterfassung: Team → Zeiterfassung → Eigene Zeiterfassung Übersicht</p>
+</li>
+</ul>
+</div>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: datum_von, zeit_von, datum_bis, zeit_bis, taetigkeit, kundennummer</p>
+</li>
+<li class="listitem">
+<p>Der Kunde muss mit der entsprechenden Kundennummer in Xentral angelegt sein</p>
+</li>
+<li class="listitem">
+<p>Falls auf Mitarbeiter gebucht wird muss der Mitarbeiter in Xentral angelegt sein</p>
+</li>
+</ul>
+</div>
+<p>Beispiel für eine Importvorlage: 1:datum_von; 2:zeit_von; 3:datum_bis; 4:zeit_bis; 5:taetigkeit; 6:details; 7:kundennummer; 8:mitarbeiternummer;</p>
+<p>Beispielinhalt für die CSV Datei:</p>
+<p>20.09.2016;09:00;20.09.2016;18:00;Außentermin bei Kunden.;Neue Produkte vorgestellt.;10000;2500;</p>
+<p>21.09.2016;09:00;21.09.2016;17:30;Präsentation erarbeitet.;Präsentation über neue Produktpalette XY.;10002;2500;</p>
+<p>22.09.2016;09:30;22.09.2016;18:30;Workshop geben im Auftrag vom Kunden; Workshop zur besseren Einarbeitung der Mitarbeiter.;10003;2500;</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKQCS8M49S18GGM4T6MQD9"></a>Eigene Zeiterfassung Übersicht</h3>
+</div>
+<p>Die Übersicht der eigenen Zeiterfassung kann sich so gestalten:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755165617180" style="" alt="importexport_23.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKQKDJAV9ECWV27NXATTB9"></a>Wiedervorlagen</h2>
+</div>
+<p>Es können auch Wiedervorlagen nach xentral importiert werden.</p>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: datum_faellig, kundennummer, mitarbeiternummer, betreff</p>
+</li>
+<li class="listitem">
+<p>Der Kunde muss mit der entsprechenden Kundennummer in xentral angelegt sein</p>
+</li>
+<li class="listitem">
+<p>Der Mitarbeiter muss mit der entsprechenden Mitarbeiternummer in xentral angelegt sein</p>
+</li>
+<li class="listitem">
+<p>Das "Ziel" in der Importvorlage muss auf "Wiedervorlagen" stehen.</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage:</strong></span> 1:datum_faellig; 2:uhrzeit_faellig; 3:kundennummer; 4:mitarbeiternummer; 5:betreff; 6:text; 7:abgeschlossen;</p>
+<p>Beispielinhalt für die CSV Datei:</p>
+<p>25.01.2017;14:00;10000;90000;Kunden anrufen wegen Angebot;Nochmal nachfragen wegen des letzten Angebots;0;</p>
+<p>13.01.2017;10:30;10001;90006;Bei der Entwicklung nachfragen;Status des neuen Features bei der Entwicklung nachfragen;1;</p>
+<p>Nach dem Import können die Wiedervorlagen unter Stammdaten → Adressen → Korrespondenz → Wiedervorlage eingesehen werden:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755165683868" style="" alt="importexport_24.png"></div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKQRNCPDEXH8TTXK27523H"></a>Notizen</h3>
+</div>
+<p>Notizen können ebenfalls nach xentral importiert werden.</p>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: datum, kundennummer, mitarbeiternummer, betreff</p>
+</li>
+<li class="listitem">
+<p>Der Kunde muss mit der entsprechenden Kundennummer in xentral angelegt sein</p>
+</li>
+<li class="listitem">
+<p>Der Mitarbeiter muss mit der entsprechenden Mitarbeiternummer in xentral angelegt sein</p>
+</li>
+<li class="listitem">
+<p>Das "Ziel" in der Importvorlage muss auf "Notiz" stehen.</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage:</strong></span> 1:datum; 2:uhrzeit; 3:kundennummer; 4:mitarbeiternummer; 5:betreff; 6:text;</p>
+<p>Beispielinhalt für die CSV Datei:</p>
+<p>25.01.2017;14:00;10000;90000;Kunden angerufen wegen Angebot;Nochmal nachgefragt wegen des letzten Angebots;</p>
+<p>13.01.2017;10:30;10001;90006;</p>
+<p>Bei der Entwicklung nachgefragt;Status des neuen Features bei der Entwicklung: Fertigstellung in KW2;</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755180864156" style="" alt="importexport_25.png"></div>
+<p>Nach dem Import können die Wiedervorlagen unter Stammdaten → Adressen → Korrespondenz → Notizen eingesehen werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKR02P6SQJFNA7XGPSGZEG"></a>Artikel-Provisionen</h2>
+</div>
+<p>Über den Stammdatenimport können auch Provisionen auf einen bestehenden Artikel importiert werden.</p>
+<p>Hinweis: Provisionsabrechnung ist ein extra Modul.</p>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder (nur Vertreter): artikel , vertreter_provision und vertreter_provisionsart</p>
+</li>
+<li class="listitem">
+<p>Pflichtfelder (Vertreter &amp; Vertriebsleiter): artikel , vertreter_provision , vertreter_provisionsart , vertriebsleiter_provision , vertriebsleiter_provisionsart</p>
+</li>
+<li class="listitem">
+<p>Pro Artikel-Provision nur eine Zeile</p>
+</li>
+<li class="listitem">
+<p>Jede Artikelnummer ist nur einmal vorhanden und bereits in xentral angelegt</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Beispiel für eine Importvorlage (Vertreter und Vertriebsleiter):</strong></span> 1:artikel; 2:vertreter; 3:vertreter_provision; 4:vertreter_provisionsart; 5:vertriebsleiter_provision; 6:vertriebsleiter_provisionsart; 7:gueltig_von; 8:gueltig_bis;</p>
+<p>Beispielinhalt für die CSV Datei:</p>
+<p>700010;6;6;vk;1;vk;01.01.2019;31.12.2019;</p>
+<p>700007;6;6;vk;1;vk;01.01.2019;31.12.2019;</p>
+<p>700002;4;5;ek;1;ek;01.01.2019;31.12.2019</p>
+<p>Bedeutet im vorliegenden Beispiel: Unter Buchhaltung → Provisionen → Provisionen pro Artikel können die importierten Provisionen betrachtet werden:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755192392092" style="" alt="importexport_26.png"></div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Um zusätzlich die Provision des Vertriebsleiters anzugeben, sind die Importvariablen 'vertriebsleiter_provision' und 'vertriebsleiter_provisionsart' nötig. Zuvor muss der Vertriebsleiter einem Vertreter zugeordnet werden, dies kann auch über einen CSV Import erfolgen. Die Vertreter- und Vertriebsleiter Verknüpfung wird direkt im Modul "Provisionen" angelegt/importiert.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKR5DG4HV0NC27ERPCT98E"></a>Die wichtigsten Importvariablen für Artikel-Provisionen</h3>
+</div>
+<p>Die nachstehenden Variablen sind die wichtigsten Importvariablen für Artikel-Provisionen:</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Name in Xentral</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Importvariable</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Beispielinhalt CSV</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Position in Xentral</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Anmerkung</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Name</p>
+</td>
+<td>
+<p>name</p>
+</td>
+<td>
+<p>Max Mustermann</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td>
+<p>Pflichtfeld - Kann auch für Firma genommen werden</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Anrede</p>
+</td>
+<td>
+<p>typ</p>
+</td>
+<td>
+<p>Herr</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td>
+<p>Erwartet: Herr, Frau, Firma, Mr, Mrs, Company</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Kundennummer</p>
+</td>
+<td>
+<p>kundennummer</p>
+</td>
+<td>
+<p>100001</p>
+</td>
+<td>
+<p>Adressen / Details / Zahlungskonditionen/Besteuerung (16.3+)</p>
+</td>
+<td>
+<p>Pflichtfeld (bei Kunden) - Nicht doppelt vergeben</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Lieferantennummer</p>
+</td>
+<td>
+<p>lieferantennummer</p>
+</td>
+<td>
+<p>200001</p>
+</td>
+<td>
+<p>Adressen / Details / Zahlungskonditionen/Besteuerung (16.3+)</p>
+</td>
+<td>
+<p>Pflichtfeld (bei Lieferanten) - Nicht doppelt vergeben</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Mitarbeiternummer</p>
+</td>
+<td>
+<p>mitarbeiternummer</p>
+</td>
+<td>
+<p>30001</p>
+</td>
+<td>
+<p>Adressen / Details / Zahlungskonditionen/Besteuerung (16.3+)</p>
+</td>
+<td>
+<p>Pflichtfeld (bei Mitarbeiter) - Nicht doppelt vergeben</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Ansprechpartner</p>
+</td>
+<td>
+<p>ansprechpartner</p>
+</td>
+<td>
+<p>Hildegard Müller</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Adresszusatz</p>
+</td>
+<td>
+<p>adresszusatz</p>
+</td>
+<td>
+<p>Apartment</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Straße</p>
+</td>
+<td>
+<p>strasse</p>
+</td>
+<td>
+<p>Untere Talstr. 13</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Ort</p>
+</td>
+<td>
+<p>ort</p>
+</td>
+<td>
+<p>Augsburg</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>PLZ</p>
+</td>
+<td>
+<p>plz</p>
+</td>
+<td>
+<p>86159</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Land</p>
+</td>
+<td>
+<p>land</p>
+</td>
+<td>
+<p>DE</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td>
+<p>Wichtig: Nur ISO Code (DE, AT, NL, etc.)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Telefon</p>
+</td>
+<td>
+<p>telefon</p>
+</td>
+<td>
+<p>0123456789</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Telefax</p>
+</td>
+<td>
+<p>telefax</p>
+</td>
+<td>
+<p>0987654321</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Anschreiben</p>
+</td>
+<td>
+<p>anschreiben</p>
+</td>
+<td>
+<p>Sehr geehrter Herr Mustermann</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>E-Mail</p>
+</td>
+<td>
+<p>email</p>
+</td>
+<td>
+<p>max-mustermann@email.de</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Mobil</p>
+</td>
+<td>
+<p>mobil</p>
+</td>
+<td>
+<p>0170123456</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Internetseite</p>
+</td>
+<td>
+<p>internetseite</p>
+</td>
+<td>
+<p><a class="link" href="http://example.com/" target="_blank" rel="noopener">http://example.com</a></p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Ust-Id</p>
+</td>
+<td>
+<p>ustid</p>
+</td>
+<td>
+<p>12354567</p>
+</td>
+<td>
+<p>Adressen / Details / Zahlungskonditionen/Besteuerung (16.3+)</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>Sprache für Belege</p>
+</td>
+<td>
+<p>sprache</p>
+</td>
+<td>
+<p>deutsch</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td>
+<p>Möglich in CSV: deutsch, englisch</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Gruppen</p>
+</td>
+<td>
+<p>gruppe1</p>
+</td>
+<td>
+<p>Geschäftskunde</p>
+</td>
+<td>
+<p>Adressen / Gruppen</p>
+</td>
+<td>
+<p>Die Gruppe muss zuvor in Xentral angelegt sein</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Sonstiges</p>
+</td>
+<td>
+<p>sonstiges</p>
+</td>
+<td>
+<p>Ein sehr treuer Kunde</p>
+</td>
+<td>
+<p>Adressen / Details / Adressdaten</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Name in Xentral</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Importvariable</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Beispielinhalt CSV</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Position in Xentral</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Anmerkung</strong></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Hinweis: Sollten Änderungen an den Provisionen per Import erfolgen, ist es notwendig, alle bisherigen Provisionen zu löschen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKR9ZT0SYCZ3VRHVHT423A"></a>Matrix Produkte</h2>
+</div>
+<p>Alle Informationen zur Bedienung von Matrixprodukten sind unter <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/360016725120#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29" title="Matrixprodukt - Artikelvarianten erstellen">Matrixprodukt</a> zu finden. Zunächst ist ein Matrixprodukt als Artikel anzulegen, falls noch nicht vorhanden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Über die Importzentrale können maximal zwei Dimensionen importiert werden. Artikel mit mehr Dimensionen können direkt über die Oberfläche des Matrixprodukts erzeugt werden. Informationen dazu findest du <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/360016725120#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29" title="Matrixprodukt - Artikelvarianten erstellen">hier</a>.</p>
+</div>
+<p>Checkliste für die CSV Datei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Pflichtfelder: nummer, matrixprodukt, matrixproduktvon, matrixproduktgruppe1 und matrixproduktwert1</p>
+</li>
+<li class="listitem">
+<p>Ein Hauptartikel (Matrixartikel) muss davor bereits in xentral angelegt sein und in der CSV in der Spalte matrixproduktvon stehen</p>
+</li>
+<li class="listitem">
+<p>Es empfiehlt sich, die Unterartikel ebenfalls als normale Artikel schon in xentral angelegt zu haben, um mit dem Matrixartikel-Import nur noch die Artikel in ein Matrixprodukt zu verknüpfen. Andernfalls ist ein Namen anzugeben, da sonst alle Matrixunterprodukte gleich heißen.</p>
+</li>
+</ul>
+</div>
+<p>Beispiel für eine Importvorlage:</p>
+<p>1:nummer;</p>
+<p>2:matrixprodukt;</p>
+<p>3:name_de;</p>
+<p>4:matrixproduktvon;</p>
+<p>5:matrixproduktgruppe1;</p>
+<p>6:matrixproduktwert1;</p>
+<p>7:matrixproduktgruppe2;</p>
+<p>8:matrixproduktwert2;</p>
+<p>Beispielinhalt für die CSV-Datei:</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p>nummer</p>
+</td>
+<td>
+<p>matrixprodukt</p>
+</td>
+<td>
+<p>name_de</p>
+</td>
+<td>
+<p>matrixproduktvon</p>
+</td>
+<td>
+<p>matrixproduktgruppe1</p>
+</td>
+<td>
+<p>matrixproduktwert1</p>
+</td>
+<td>
+<p>matrixproduktgruppe2</p>
+</td>
+<td>
+<p>matrixproduktwert2</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>201313-BS</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>T-Shirt Farbe: Blau - Größe: S</p>
+</td>
+<td>
+<p>201313</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Blau</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>S</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>201313-BM</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>T-Shirt Farbe: Blau - Größe: M</p>
+</td>
+<td>
+<p>201313</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Blau</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>M</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>201313-BL</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>T-Shirt Farbe: Blau - Größe: L</p>
+</td>
+<td>
+<p>201313</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Blau</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>L</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>201313-RS</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>T-Shirt Farbe: Rot - Größe: S</p>
+</td>
+<td>
+<p>201313</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Rot</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>S</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>201313-RM</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>T-Shirt Farbe: Rot - Größe: M</p>
+</td>
+<td>
+<p>201313</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Rot</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>M</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>201313-RL</p>
+</td>
+<td>
+<p>1</p>
+</td>
+<td>
+<p>T-Shirt Farbe: Rot - Größe: L</p>
+</td>
+<td>
+<p>201313</p>
+</td>
+<td>
+<p>Farbe</p>
+</td>
+<td>
+<p>Rot</p>
+</td>
+<td>
+<p>Größe</p>
+</td>
+<td>
+<p>L</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Das bedeutet im vorliegenden Beispiel: Ein Matrixprodukt (201313) wird erstellt, die Unterartikel (201313-BS, 201313-BM, etc) als Artikel dieses Matrixprodukts markiert. Für diese Unterartikel werden 2 Matrixeigenschaften (Farbe, Größe) vergeben und verschiedene Werte mitgegeben. Wenn du bei der Variable Matrixprodukt 1 angibst, dann wird bei diesem Artikel der Haken bei Matrixprodukt gesetzt. Im Beispiel würden dann alle Varianten selbst auch als Matrixprodukt gekennzeichnet werden, nicht nur 201313.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755166011548" style="" alt="importexport_27.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_UUID-fca5cf5e-2230-4155-1d41-3fa58014783d"></a>Artikelkategorien im Artikelbaum mehreren Artikeln über die Importzentrale zuweisen</h2>
+</div>
+<p>Du kannst gleichzeitig mehrere Kategorien im Artikelbaum mehreren Artikeln in deinen Stammdaten zuweisen, indem du die Importzentrale verwendest. Um die Kategorien korrekt zuzuweisen, müssen die folgenden Voraussetzungen erfüllt sein:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Die Artikel sind bereits in den Stammdaten angelegt</p>
+</li>
+<li class="listitem">
+<p>Die benötigten <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/13755178574748#UUID-eb54ff2b-e31a-4c0a-9e21-47b7c87bc184_N1713367556954" title="Eine Kategorie dem Artikelbaum hinzufügen">Kategorien und Unterkategorien wurden im Artikelbaum</a> angelegt.</p>
+</li>
+</ul>
+</div>
+<p>Gehe wie folgt vor, um Kategorien mehreren Artikeln zuzuweisen:</p>
+<div class="procedure">
+<a id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_procedure-idm4564000717398434268517518231"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Erstelle eine Tabelle in einem Tabellenkalkulationsprogramm deiner Wahl, welches die folgenden Spalten enthält:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">nummer</span>: Gib deine Artikelnummern in dieser Spalte ein.</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">artikelkategorie_name</span>: Gib den Namen der Root-Kategorie, die du bearbeiten möchtest, z.B. Handelsware oder Produktionsmaterial, in dieser Spalte an.</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">artikelbaum1</span>: Gib den kompletten Pfad für die gewünschte Unterkategorie in dieser Spalte an. Die einzelnen Einträge im Pfad werden durch das Pipe-Zeichen | getrennt. Möchten wir, z.B. einen Artikel in der Kategorie Frauenkleidung einordnen, könnte der Pfad so aussehen: Handelsware|Kleidung|Damen.</p>
+<p>Um deinem ausgewählten Artikel eine zweite Kategorie zuzuweisen, musst du eine weitere Spalte mit dem Titel <span class="guilabel">artikelbaum2</span> hinzufügen, für eine dritte Kategorie <span class="guilabel">artikelbaum3</span>, und so weiter. Du kannst auf diese Weise bis zu 20 Kategorien zuweisen.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Um alle Kategorien für einen Artikel zu löschen, schreibe CLEAR in die entsprechende Zeile der <span class="guilabel">artikelbaum1</span>-Spalte.</p>
+</div>
+</li>
+</ul>
+</div>
+<p>Auf dem folgenden Screen siehst du ein Beispiel, wie so eine Tabelle aussehen kann:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755203574684" style="" alt="itemtree_import_spreadsheet_example.png"></div>
+</li>
+<li class="step">
+<p>Exportiere die Tabelle in eine CSV-Datei. Du kannst als Separatoren Kommas oder Semikolons nutzen.</p>
+</li>
+<li class="step">
+<p>Melde dich in <span class="phrase">Xentral</span> an und öffne die <span class="guilabel">Import / Export Zentrale</span> über die <span class="guilabel">Smart Search</span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Stammdaten Import</span> und dann auf <span class="guilabel">+ Neuer Eintrag</span></p>
+</li>
+<li class="step">
+<p>Erstelle eine Importvorlage:</p>
+<div class="procedure">
+<a id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_procedure-idm4566518939075234268603677022"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Gib einen <span class="guilabel">Namen</span> für deine Vorlage ein, z.B. Artikelbaum Kategorien.</p>
+</li>
+<li class="step">
+<p>Wähle <span class="guilabel">Artikel</span> im Feld Modul.</p>
+</li>
+<li class="step">
+<p>Gib „2“ für <span class="guilabel">CSV Daten ab Zeile</span> ein, falls du Spaltentitel in deiner Tabelle verwendet hast. Sind nur Daten in deiner Tabelle enthalten, gib „1“ ein.</p>
+</li>
+<li class="step">
+<p>Wähle das <span class="guilabel">CSV Trennzeichen</span>, welches du beim Export der Tabelle zu CSV genutzt hast. In den meisten Fällen kannst du die Felder <span class="guilabel">CSV Maskierung</span> und <span class="guilabel">Auswahl Charset</span> bei ihren Standardwerten belassen.</p>
+</li>
+<li class="step">
+<p>Gib die Spaltentitel unter <span class="guilabel">CSV Felder</span> im folgenden Format an:</p>
+<p>1: nummer;</p>
+<p>2: artikelkategorie_name;</p>
+<p>3: artikelbaum1;</p>
+<p>4: artikelbaum2; etc.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/14846425128732" style="" alt="itemtree_importtemplate.png"></div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li class="step">
+<p>Öffne den Reiter <span class="guilabel">Import starten: CSV Datei heraufladen</span> in der Importvorlage.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Browse</span> und wähle die CSV-Datei von deinem Computer oder ziehe alternativ die CSV-Datei per Drag &amp; Drop auf die <span class="guilabel">Browse</span>-Schaltfläche. In den meisten Fällen kannst du den Standardwert unter <span class="guilabel">Kodierung</span> belassen.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">CSV jetzt heraufladen</span>. Du bekommst eine Vorschau der importierten Daten und kannst sie vor dem Import noch einmal prüfen.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Importieren</span>. Der Import wird in eine Warteschlange eingereiht und nach wenigen Minuten bearbeitet.</p>
+</li>
+</ol>
+</div>
+<p>Nachdem der Import abgeschlossen ist, werden alle Kategorien auf die Artikel deiner CSV-Datei angewendet.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKRQ5JZX9771VCGES50BBK"></a>Gambio Artikelimport Beispiel (Stand 04/2017 - Gambio Shop 3.1)</h2>
+</div>
+<p>Die fett gedruckten Felder sind Pflichtfelder/ bzw. die relevanten Felder für die Zuordnung der Artikel.</p>
+<p>Beispiel für einen Export aus Gambio:</p>
+<p>Feldeinstellungen:</p>
+<p>1: {products_model} → Artikelnummer des Produkts {p_model} → alternativ Artikelnummer des Produkts inkl. Eigenschaften</p>
+<p>2: {products_name.de} → Produktname {p_name.de} → alternativ Produktname inkl. Eigenschaften</p>
+<p>3: {p_description.de} → Produktbeschreibung</p>
+<p>4: {p_short_description.de} → Produktkurzbeschreibung</p>
+<p>5: {products_ean} → EAN{p_ean} → alternativ EAN mit Eigenschaften</p>
+<p>6: {p_weight_comma} → Produktgewicht</p>
+<p>7: {c_name.de} → Kategorie</p>
+<p>8: {p_manufacturer_name} → Hersteller</p>
+<p>Beispiel für einen Artikelimport in xentral:</p>
+<p>1:nummer;</p>
+<p>2:name_de;</p>
+<p>3:artikelbeschreibung_de;</p>
+<p>4:kurztext_de;</p>
+<p>5:ean;</p>
+<p>6:gewicht;</p>
+<p>7:artikelkategorie_name;</p>
+<p>8:hersteller;</p>
+<p>9:lagerartikel;</p>
+<p>10:umsatzsteuer;</p>
+<p>Beispielinhalt für die CSV-Datei:</p>
+<div class="informaltable table-responsive">
+<table border="1">
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>nummer</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>name_de</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>artikelbeschreibung_de</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>kurztext_de</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>ean</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>gewicht</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>artikelkategorie_name</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>hersteller</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>lagerartikel</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>umsatzsteuer</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>100001</p>
+</td>
+<td>
+<p>Schraube M10x20</p>
+</td>
+<td>
+<p>Bavaria ipsum dolor sit amet boarischer Ewig und drei Dog Gidarn. A so a Schmarn Gamsbart oba Enzian Haferl di Vergeltsgott middn.</p>
+</td>
+<td>
+<p>Bavaria ipsum dolor sit amet boarischer Ewig und drei Dog Gidarn.</p>
+</td>
+<td>
+<p>1234567891011</p>
+</td>
+<td>
+<p>0,1</p>
+</td>
+<td>
+<p>Metallwaren</p>
+</td>
+<td>
+<p>Bavaria ipsum</p>
+</td>
+<td>
+<p>1 (für ja, 0 für nein)</p>
+</td>
+<td>
+<p>ermaessigt (falls der Artikel eine ermäßigte UST hat, beim normalen UST - Satz einfach das Feld leer lassen)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKRVSQG5BFNR4G9022EM9P"></a>Hinzufügen von Shop-Texten</h2>
+</div>
+<p>Ab der Version 20.1 können über eine Zeile auch mehrere Texte zu einem Shop hinzugefügt werden. Es kann pro Shop nur eine Übersetzung hinterlegt werden. Darüber hinaus werden alle neu hinzugefügten Texte standardmäßig als inaktiv angelegt, d.h. der Binärwert für "active" muss mitgegeben werden, wenn diese direkt auch aktiv geschaltet sein sollen.</p>
+<p><span class="bold"><strong>Beispiel Importvorlage</strong></span></p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13755166178204" style="" alt="importexport_30.png"></div>
+<p>Beispiel für die CSV-Datei:</p>
+<p>Artikelnummer;Name_FR;Kurztext_FR;Beschreibung_FR;Shop;Shop-</p>
+<p>Text_FR;Name_IT;Kurztext_IT;Beschreibung_IT;Shop-Text_IT;Shop_IT; 700001;grenouille;Das ist ein</p>
+<p>Kurztext(FR);Hier sehen wir eine Beschreibung;5;Online-Text für</p>
+<p>Ebay(FR);rana;KurztextIT;BeschreibungIT;ShoptextIT;5;</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574" id="UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_section-idm4565954057475233104060541396"></a>Formate</h2>
+</div>
+<p>Wenn du in der <span class="bold"><strong>Import/Export Zentrale</strong></span> unter <span class="bold"><strong>Stammdaten Import</strong></span> einen neuen Eintrag anlegst, findest du im Reiter <span class="bold"><strong>Formate</strong></span> eine große Auswahl an verfügbaren Variablen. Mehr zu den Variablen, die du in <span class="phrase">Xentral</span> verwenden kannst, findest du im Artikel  <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/5091351567388#UUID-740920b3-8105-5183-b441-2c247de21390" title="Variablen für Datenimport und Datenexport">Variablen</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

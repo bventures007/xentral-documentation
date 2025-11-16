@@ -1,0 +1,1 @@
+Bei der Einrichtung des Produktions- und Übertragenmoduls kannst du dir Unterstützung von einem unserer[Partner](https://xentral.com/de/partner/)oder bei uns holen. Wende wende dich dazu über das Ticketsystem an uns und du erhältst ein Angebot oder eine Partnerempfehlung.

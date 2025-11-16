@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netstock CSV Export (Legacy)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016773679
+    Titel: Netstock CSV Export (Legacy)
+    URL: https://help.xentral.com/hc/de/articles/360016773679-Netstock-CSV-Export-Legacy
+    Erstellt: 2020-09-28T16:56:55Z
+    Aktualisiert: 2025-09-02T11:07:39Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 10235816100380
+    Export-Zeitpunkt: 2025-11-16 19:09:06
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component" href="https://help.xentral.com/hc/de/articles/6948113024412#UUID-330a3461-7c13-6974-5c82-68629050f3a6" title="Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?">Warum stuft <span class="phrase">Xentral</span> einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<p>Netstock ist eine Cloud-Lösung für professionelles Lagerbestandsmanagement im Online-Handel. Das Tool dient der Lagerbestandsoptimierung und wird über eine 2-Wege-Kommunikation an <span class="phrase">Xentral</span> angebunden. Informationen (z.B. Aufträge, Lagerbestände, Stücklisten) werden von <span class="phrase">Xentral</span> zunächst über die Netstock App an Netstock geschickt (Weg 1). Netstock verarbeitet diese und nutzt auch Informationen wie Daten aus den letzten Jahren oder Lagermindestbestände. Das Tool erstellt daraus neue Informationen wie Bestellvorschläge, Produktionsaufträge und weitere Ideen zur Optimierung des Lagerbestands, und schickt diese wiederum an <span class="phrase">Xentral</span>. Diese eingehenden Informationen kommen dann im <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016738020#UUID-72f37f06-2871-0785-7286-1f7a2707c88d">Übertragungen Modul</a> an (Weg 2), wo sie weiter verarbeitet werden. Dieses Modul ist notwendig, um eingehende Daten von Netstock zu empfangen und zu verarbeiten.</p>
+<p>Im folgenden Abschnitt wird der 1. Weg beschrieben, sprich die ausgehenden Informationen von <span class="phrase">Xentral</span> an Netstock über die Netstock App. Die Einrichtung wird zukünftig von Netstock unterstützt werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_h_01FGRX9GWDBG2D5FJ86AT1W4AK"></a>Netstock Anbindung</h2>
+</div>
+<p>Die App <span class="bold"><strong>Netstock CSV Export</strong></span> kann über die Super-Search oder über <span class="bold"><strong>App Center &gt; Netstock CSV Export</strong></span> gefunden werden.</p>
+<p>Die Netstock App erzeugt CSV-Dateien, die für die Übertragung von relevanten Informationen an Netstock dienen. Diese können dann entweder per FTP übertragen oder von einem definiertem Ordner auf dem Server abgeholt werden. Der zugehörige <span class="bold"><strong>Prozessstarter netstock</strong></span> muss aktiviert werden um die unten beschriebenen Dateien zu erzeugen und zu übertragen.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_h_01FGRXAAMFYGWW099M5C18CA5K"></a>Registerkarte Grundeinstellungen</h3>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_h_01FGRXAGT86WV9CXNS794DY8J0"></a>Zugangsdaten (FTP-Upload)</h4>
+</div>
+<p>Speicherung der Ausgangs-Dateien über eine FTP-Verbindung.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>FTP-Server:</strong></span> Hostname des Servers</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>FTP-Benutzer:</strong></span> Benutzername</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>FTP-Passwort:</strong></span> Passwort</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_h_01FGRXBCNNWW7E2FYHRE091A8X"></a>Konfiguration</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Lager für Intern (Beistellungen):</strong></span> Internes Lager für Beistellungen</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Lager für Extern:</strong></span> Externes Lager</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_h_01FGRXBQD0ZQMS2VQCWX74KKWA"></a>Über Netstock CSV Export</h4>
+</div>
+<p>Hier erhalten Sie einen Überblick über die erzeugten Dateien. Die Anwendung erzeugt csv-Dateien für:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Lager/Filialen (location.csv)</p>
+</li>
+<li class="listitem">
+<p>Lieferanten (supplier.csv)</p>
+</li>
+<li class="listitem">
+<p>Artikelstamm (master.csv)</p>
+</li>
+<li class="listitem">
+<p>Bestand je Lagerort (stock.csv)</p>
+</li>
+<li class="listitem">
+<p>Verkauf &amp; Verbrauch (sales.csv)</p>
+</li>
+<li class="listitem">
+<p>Offene Lieferanten oder Produktionsbestellungen (po.csv)</p>
+</li>
+</ul>
+</div>
+<p>Die Dateien werden per FTP übertragen und sind im Folgenden detailliert beschrieben.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_h_01FGRXC2H32PW40HJDBYH5PB6X"></a>Live Monitor FTP</h4>
+</div>
+<p>Im Monitor werden die letzten FTP-Übertragungen sichtbar. Hier können fehlerhafte Verbindungsversuche (z.B. durch Änderung von FTP-Zugangsdaten) erkannt werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_h_01FGRX49RMYYA8CG0C2MV0S1TQ"></a>Netstock Dateitypen</h3>
+</div>
+<p>Folgende Dateitypen finden in <span class="phrase">Xentral</span> Anwendung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>control.csv: Informationen über die Datenextraktionen</p>
+</li>
+<li class="listitem">
+<p>master.csv: Artikelinformationen (Stammdaten)</p>
+</li>
+<li class="listitem">
+<p>group.csv: Artikelkategorien (Stammdaten)</p>
+</li>
+<li class="listitem">
+<p>bom.csv: Stücklisten (Stammdaten)</p>
+</li>
+<li class="listitem">
+<p>supplier.csv: Aktive Lieferanten</p>
+</li>
+<li class="listitem">
+<p>location.csv: physische Lagerorte (Lager und Filialen)</p>
+</li>
+<li class="listitem">
+<p>stock.csv: Bestand je Lagerort</p>
+</li>
+<li class="listitem">
+<p>sales.csv: Rechnungen und Gutschriften jeweils ab dem 1. Tag des Vormonats</p>
+</li>
+<li class="listitem">
+<p>co.csv: Offene Aufträge</p>
+</li>
+<li class="listitem">
+<p>po.csv: Offene Bestellungen und Produktionen</p>
+</li>
+<li class="listitem">
+<p>pohist.csv: Erfüllte Bestellungen und Produktionen</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-10"></a>Datei: control.csv</h4>
+</div>
+<p>Übersicht über die Grundeinstellungen der Netstock-Schnittstelle. Die Datei umfasst immer nur die folgenden vier Zeilen.</p>
+<p>Beispielinhalt für die CSV</p>
+<p>Datei:KeyValueINTERFACE_VERSION2.0.8EXTRACTION_DATE2019/07/17EXTRACTION_TIME12:00:36HOST_SYSTEM_VERSION19.3</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-11"></a>Datei: master.csv</h4>
+</div>
+<p>Übersicht über alle Artikel.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Item Code: Artikelnummer</p>
+</li>
+<li class="listitem">
+<p>Beschreibung: Artikelname</p>
+</li>
+<li class="listitem">
+<p>NETSTOCK Unit of Measure: Artikeleinheit</p>
+</li>
+<li class="listitem">
+<p>Unit Volume: immer leer</p>
+</li>
+<li class="listitem">
+<p>Unit Weight: Artikelgewicht</p>
+</li>
+<li class="listitem">
+<p>Superseded Item Code: immer leer</p>
+</li>
+<li class="listitem">
+<p>Superseded Item Factor: immer leer</p>
+</li>
+<li class="listitem">
+<p>Not used: Artikelfeld 'gesperrt'</p>
+</li>
+<li class="listitem">
+<p>Unique Identifier: Interne ID des Artikels, sichtbar in der URL</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-12"></a>Datei: group.csv</h4>
+</div>
+<p>Umfasst derzeit die Artikelkategorien.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Identifier: Interne ID</p>
+</li>
+<li class="listitem">
+<p>Value: (Numerischer) Wert</p>
+</li>
+<li class="listitem">
+<p>Beschreibung: Name der Gruppe</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-13"></a>Datei: bom.csv</h4>
+</div>
+<p>Übersicht über die Stücklisten.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Finished Good Item: Artikelnummer</p>
+</li>
+<li class="listitem">
+<p>Finished Good Item Location: Lager-ID</p>
+</li>
+<li class="listitem">
+<p>Raw Material Item: Artikelnummer</p>
+</li>
+<li class="listitem">
+<p>Raw Material Location: Lager-ID</p>
+</li>
+<li class="listitem">
+<p>Ratio: Menge des Ausgangsartikels in der Stückliste</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-14"></a>Datei: supplier.csv</h4>
+</div>
+<p>Übersicht über die Lieferanten.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Supplier: Lieferantennummer</p>
+</li>
+<li class="listitem">
+<p>Beschreibung: Name des Lieferanten</p>
+</li>
+<li class="listitem">
+<p>Type: immer leer</p>
+</li>
+<li class="listitem">
+<p>Lead time: Durchnittslieferzeit aus den Einkaufspreisen</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-15"></a>Datei: location.csv</h4>
+</div>
+<p>Physische Bestandsorte / Filialen (nicht Lagerpositionen).</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Location Code: Interne Id des Lagers</p>
+</li>
+<li class="listitem">
+<p>Beschreibung: Bezeichnung des Lagers</p>
+</li>
+<li class="listitem">
+<p>Active: immer 1</p>
+</li>
+<li class="listitem">
+<p>Group: immer leer</p>
+</li>
+<li class="listitem">
+<p>Type: 'ST' (Laden/Filiale) oder 'CW' (Zentrallager, Projekt-ID = 1) abhängig vom Projekt</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-16"></a>Datei: stock.csv</h4>
+</div>
+<p>Der jetzige Bestand je Lagerort. Es werden alle Lagerplätze berücksichtigt, die zum konfigurierten 'Lager für Intern (Beistellungen)' gehören und solche die als Produktionslager gekennzeichnet sind.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Item Code: Artikelnummer</p>
+</li>
+<li class="listitem">
+<p>Location: Meistens Hauptlager, Konfiguriernbar in der Netstock App</p>
+</li>
+<li class="listitem">
+<p>Date Added: leer</p>
+</li>
+<li class="listitem">
+<p>Inventory Unit Cost: berechneter Einkaufspreis: wenn fehlt, dann "0"</p>
+</li>
+<li class="listitem">
+<p>Purchase Unit Cost: Standard Einkaufspreis 1er Menge, wenn fehlt dann "0"</p>
+</li>
+<li class="listitem">
+<p>Selling Price: Verkaufspreis für Menge 1, wird erst in zweiten Schritt erzeugt; Fallback? &gt; schaut komisch aus &gt; aber kommt der richtig im Schritt 2?</p>
+</li>
+<li class="listitem">
+<p>Stock On Hand: Lagerbestand</p>
+</li>
+<li class="listitem">
+<p>Allocated Stock: immer 0</p>
+</li>
+<li class="listitem">
+<p>Supply Type: Konstanter Wert 'EX'</p>
+</li>
+<li class="listitem">
+<p>Supply Code: Lieferantennummer, Standartlieferant kommt entweder aus EK Fallback Artikel</p>
+</li>
+<li class="listitem">
+<p>Vendor Code: Lieferantennummer, Standartlieferant kommt entweder aus EK Fallback Artikel</p>
+</li>
+<li class="listitem">
+<p>Purchase Unit of Measure: Artikel Einheit</p>
+</li>
+<li class="listitem">
+<p>Purchase Factor: bleibt leer</p>
+</li>
+<li class="listitem">
+<p>Purchase Currency Code: derzeit immer Euro; ggf. Wärung aus kalk. Ek nehmen (PASST, ist IMMER EUR)</p>
+</li>
+<li class="listitem">
+<p>Lead Time: Standard Lieferzeit aus EK in Tagen, Fallback: wenn nicht angegeben, dann "0"</p>
+</li>
+<li class="listitem">
+<p>Stocking Indicator: Ist ein konfigurierbares (Frei-)Feld in der Netstock App</p>
+</li>
+<li class="listitem">
+<p>Minimum Stock: Artikel Mindestlager: wenn leer dann 0</p>
+</li>
+<li class="listitem">
+<p>Minimum Order Qty: Artikel Mindestbestellmwnge → wenn leer dann 0</p>
+</li>
+<li class="listitem">
+<p>Order Multiple: Artikel Mindestbestellmwnge → wenn leer dann 0</p>
+</li>
+<li class="listitem">
+<p>Group 1: Artikelkategorie</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-17"></a>Datei: sales.csv</h4>
+</div>
+<p>Verbrauch- und Verkaufs-Historie. Eingeschränkt auf alle Einträge ab dem Ersten des Vormonats. Beispiel: Aktuelles Datum 15.07. - angezeigt werden Daten ab dem 01.06.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Item Code: RE/GS-Position Artikelnummer</p>
+</li>
+<li class="listitem">
+<p>Location: Übernommen aus den Modul-Einstellungen (Lager für Intern (Beistellungen))</p>
+</li>
+<li class="listitem">
+<p>Customer Code: Kundenummer von RE/GS; Fallback adresse.kundenummer</p>
+</li>
+<li class="listitem">
+<p>Order Date: Auftrag Datum; (Auftrag in Gutschrift über die Rechnung gejoint);Fallback RE/GS-Datum</p>
+</li>
+<li class="listitem">
+<p>Invoice/Issue Date: RE/GS-Datum</p>
+</li>
+<li class="listitem">
+<p>Sales Quantity: RE/GS-Position Menge</p>
+</li>
+<li class="listitem">
+<p>Cost of Sales: RE/GS-Position Menge * RE/GS-Position Einkaufspreis</p>
+</li>
+<li class="listitem">
+<p>Sales Value: RE/GS-Position.umsatz_netto_gesamt; Fallback Preis Menge und Rabatt der Position</p>
+</li>
+<li class="listitem">
+<p>Issues Quantity: immer leer</p>
+</li>
+<li class="listitem">
+<p>Transaction Type: 'S' für Rechnung, 'R' für Gutschrift</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-18"></a>Datei: co.csv</h4>
+</div>
+<p>Offene Kundenbestellungen. Enthält alle Lagerartikel oder Artikel die keine Lagerartikel sind aber Kopf-Artikel von 'Just in Time'-Stücklisten.Unterelemente von 'Just in Time'-Artikeln werden ausgeschlossen.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Item Code: Artikelnummer</p>
+</li>
+<li class="listitem">
+<p>Location: Übernommen aus den Modul-Einstellungen (Lager für Intern (Beistellungen))</p>
+</li>
+<li class="listitem">
+<p>Customer Code: Kundennummer aus AU; Fallback Kundennummer aus Adresse (über Adresse aus AU)</p>
+</li>
+<li class="listitem">
+<p>Order Number: AU Belegnummer</p>
+</li>
+<li class="listitem">
+<p>Line Number: Sortierung aus Position</p>
+</li>
+<li class="listitem">
+<p>Order Date: AU-Datum</p>
+</li>
+<li class="listitem">
+<p>Order Quantity: AU-Position Menge</p>
+</li>
+<li class="listitem">
+<p>Requested Date: Lieferdatum aus Position; Fallback Liefersdatum aus AU; Fallback Datum aus AU</p>
+</li>
+<li class="listitem">
+<p>Outstanding Quantity: AU-Position Menge - AU-Position Geliefert</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-19"></a>Datei: po.csv</h4>
+</div>
+<p>Enthält alle Positionen aller Produktionen deren Belegstatus nicht abgeschlossen, nicht storniert und nicht angelegt ist. Zusätzlich alle Bestellpositionen die nicht geliefert sind und deren Belegstatus nicht angelegt, nicht abgeschlossen und nicht storniert ist.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Item Code: Artikelnummer</p>
+</li>
+<li class="listitem">
+<p>Location: Übernommen aus den Modul-Einstellungen (Lager für Intern (Beistellungen))</p>
+</li>
+<li class="listitem">
+<p>Supplier Code: Lieferantennummer (bei Bestellungen: Lieferant der Bestellung, bei Produktionen: Standardlieferant des Artikels)</p>
+</li>
+<li class="listitem">
+<p>Order Number: BE/PROD-Belegnummer</p>
+</li>
+<li class="listitem">
+<p>Line Number: Sortierung aus Position</p>
+</li>
+<li class="listitem">
+<p>Order Date: BE/PROD-Datum</p>
+</li>
+<li class="listitem">
+<p>Order Quantity: Menge aus Position</p>
+</li>
+<li class="listitem">
+<p>Expected Arrival Date: BE/PROD-Datum + Artikel-Lieferzeit</p>
+</li>
+<li class="listitem">
+<p>Outstanding Quantity: BE/PROD-Menge aus Position - BE/PROD-Geliefert aus Position</p>
+</li>
+<li class="listitem">
+<p>Order Type: 'P' für Bestellung, 'M' für Produktion</p>
+</li>
+<li class="listitem">
+<p>Purchase Unit Cost: Wenn der Artikel ein Produktionsartikel ist dann Preis aus Position, ansonsten Kalkulierter EK</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c" id="UUID-df4cdf76-30b0-ecda-394f-d8a0bc140d4c_id_360016773679_id_toc-20"></a>Datei: pohist.csv</h4>
+</div>
+<p>Enthält alle Positionen aller Produktionen deren Belegstatus abgeschlossen ist. Und alle Bestellungspositionen die geliefert wurden aber auch alle Positonen die nicht geliefert wurden und deren Belegstatus abgeschlossen ist.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Item Code: Artikelnummer</p>
+</li>
+<li class="listitem">
+<p>Location: Übernommen aus den Modul-Einstellungen (Lager für Intern (Beistellungen))</p>
+</li>
+<li class="listitem">
+<p>Supplier Code: Lieferantennummer (gemappt über Lieferant aus BE oder PROD)</p>
+</li>
+<li class="listitem">
+<p>Order Number: BE/PROD-Belegnummer</p>
+</li>
+<li class="listitem">
+<p>Line Number: Sortierung aus Position</p>
+</li>
+<li class="listitem">
+<p>Order Date: BE/PROD-Datum</p>
+</li>
+<li class="listitem">
+<p>Order Quantity: Menge aus Position</p>
+</li>
+<li class="listitem">
+<p>Expected Arrival Date: BE/PROD-Datum + Artikel-Lieferzeit</p>
+</li>
+<li class="listitem">
+<p>Order Urgency: Derzeit immer leer; Definiert als entweder ST = Standardbestellung oder EM = Expressbestellung (Bestellung mit deutlich geringerer Lieferzeit)</p>
+</li>
+<li class="listitem">
+<p>Quantity Received: Das Feld 'Geliefert' aus BE/PROD-Position</p>
+</li>
+<li class="listitem">
+<p>Date of Receipt: BE/PROD-Lieferdatum</p>
+</li>
+<li class="listitem">
+<p>Purchase Unit Cost: Kalkulierter EK des Artikels</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

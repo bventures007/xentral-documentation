@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail und andere Google-Dienste mit Xentral verbinden (Legacy)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 5792785473180
+    Titel: Gmail und andere Google-Dienste mit Xentral verbinden (Legacy)
+    URL: https://help.xentral.com/hc/de/articles/5792785473180-Gmail-und-andere-Google-Dienste-mit-Xentral-verbinden-Legacy
+    Erstellt: 2022-08-31T08:54:41Z
+    Aktualisiert: 2024-08-13T15:03:01Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254392668700
+    Export-Zeitpunkt: 2025-11-16 19:09:57
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Diese Methode zur Anbindung von Gmail funktioniert, wird von uns jedoch als veraltet angesehen. Wir empfehlen dir dein Gmail-Konto in <span class="phrase">Xentral NextGen</span>, wie im folgenden Artikel beschrieben, anzubinden: <a class="xref linktype-component" href="https://help.xentral.com/hc/de/articles/8718596261532#UUID-0209e297-82f9-2aa0-91f0-4a7b87bdd5b4" title="E-Mail-Konten anbinden">E-Mail-Konten anbinden</a>.</p>
+</div>
+<p>Über Google APIs kannst du einige der Google-Dienste wie Gmail und Google Kalender mit <span class="phrase">Xentral</span> verbinden. Dafür benötigst du ein gültiges Google-Konto und musst <span class="phrase">Xentral</span> 20.1 oder höher verwenden. Der Vorgang besteht aus mehreren Schritten.</p>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-515957c1-ccdc-377b-2573-2aae43359182" id="UUID-515957c1-ccdc-377b-2573-2aae43359182_section-idm4570613515272033211367502241"></a>Ein neues Projekt in deinem Google-Konto anlegen</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-515957c1-ccdc-377b-2573-2aae43359182_section-idm4570613515272033211367502241_body">
+<p>Dies ist der erste Schritt, um Google-Dienste mit <span class="phrase">Xentral</span> zu verbinden. Projekte enthalten Einstellungen, Berechtigungen und weitere Metadaten, die zur Verbindung eines Google-Kontos mit <span class="phrase">Xentral</span> notwendig sind.</p>
+<div class="procedure">
+<a id="UUID-515957c1-ccdc-377b-2573-2aae43359182_procedure-idm4549683658270433211369405384"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Melde dich in deinem Google-Konto an und öffne die <a class="link" href="https://console.cloud.google.com/getting-started" target="_blank" rel="noopener">Google Cloud Console</a> im gleichen Browser.</p>
+</li>
+<li class="step">
+<p>Klicke zuerst auf <span class="guilabel">Projekt auswählen</span> und anschließend auf <span class="guilabel">Neues Projekt</span>.</p>
+</li>
+<li class="step">
+<p>Gib den Namen deines Projekts und deiner Organisation ein und klicke auf <span class="guilabel">Erstellen</span>.</p>
+<div class="result">
+<p>Das Projekt wird erstellt. Bitte beachte, dass dieser Prozess einige Minuten dauern kann. Die Erstellung des Projekts wird in den Benachrichtigungen bestätigt.</p>
+</div>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-515957c1-ccdc-377b-2573-2aae43359182" id="UUID-515957c1-ccdc-377b-2573-2aae43359182_section-idm4622657910750433338884363953"></a>Gmail API aktivieren</h3>
+</div>
+<p>Dies ist der zweite Schritt, um Google-Dienste mit <span class="phrase">Xentral</span> zu verbinden.</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Wähle das Projekt, welches du gerade erstellt hast, indem du in den Benachrichtigungen auf <span class="guilabel">PROJEKT AUSWÄHLEN</span> klickst oder das <span class="guilabel">Projekt</span> Dropdown-Menü nutzt.</p>
+</li>
+<li class="step">
+<p>Navigiere zu <span class="guilabel">APIs und Dienste</span> und klicke auf <span class="guilabel">Aktivierte APIs und Dienste</span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">+ APIS UND DIENSTE AKTIVIEREN</span>.</p>
+</li>
+<li class="step">
+<p>Gib <span class="emphasis"><em>Gmail API</em></span> in das Suchfeld ein. Alternativ kannst du auch nach unten scrollen und im Bereich <span class="guilabel">Google Workspace</span> die <span class="guilabel">Gmail API</span> auswählen.</p>
+</li>
+<li class="step">
+<p>Öffne die Gmail API und klicke auf <span class="guilabel">AKTIVIEREN</span>.</p>
+<div class="result">
+<p>Die Gmail API ist aktiviert und kann nun genutzt werden.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-515957c1-ccdc-377b-2573-2aae43359182" id="UUID-515957c1-ccdc-377b-2573-2aae43359182_section-idm4661057219038433212717642069"></a>Neuen Zustimmungsbildschirm anlegen</h3>
+</div>
+<p>Dies ist der zweite Schritt, um Google-Dienste mit <span class="phrase">Xentral</span> zu verbinden. Sobald du dein neues Projekt erstellt hast, musst du den OAuth-Zustimmungsbildschirm anlegen.</p>
+<div class="procedure">
+<a id="UUID-515957c1-ccdc-377b-2573-2aae43359182_procedure-idm4661057215364833214811189199"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zu <span class="guilabel">APIs und Dienste</span> und wähle <span class="guilabel">OAuth-Zustimmungsbildschirm</span>.</p>
+</li>
+<li class="step">
+<p>Wähle den bevorzugten Nutzertyp (intern) und klicke auf <span class="guilabel">Erstellen</span>.</p>
+</li>
+<li class="step">
+<p>Gib im Bildschirm <span class="guilabel">Anwendungsinformation</span> die folgenden Informationen ein:</p>
+<ol type="a" class="substeps">
+<li class="step">
+<p><span class="guilabel">Anwendungsname</span> - Der Name der App, die um Zustimmung bittet</p>
+</li>
+<li class="step">
+<p><span class="guilabel">Nutzersupport-E-Mail</span> - Für Nutzer, die dich wegen Fragen zu ihrer Zustimmung kontaktieren möchten</p>
+</li>
+<li class="step">
+<p><span class="guilabel">Anwendungslogo</span> - Lade ein Bild auf den Zustimmungsbildschirm, das nicht größer als 1 MB ist, damit Nutzer die Anwendung besser erkennen können</p>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Gib unter <span class="guilabel">Anwendungsdomain</span> die folgenden Informationen ein:</p>
+<ol type="a" class="substeps">
+<li class="step">
+<p><span class="guilabel">Startseite der Anwendung</span> - Gib einen Link zu deiner Startseite an</p>
+</li>
+<li class="step">
+<p><span class="guilabel">Link zur Datenschutzerklärung der Anwendung</span> - Gib einen Link zu deiner öffentlichen Datenschutzerklärung an (optional)</p>
+</li>
+<li class="step">
+<p><span class="guilabel">Link zu den Nutzungsbedingungen der Anwendung</span> - Gib einen Link zu deinen öffentlichen Nutzungsbedingungen an (optional)</p>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Gib im Bereich <span class="guilabel">Autorisierte Domains</span> die <span class="phrase">Xentral</span>-Domain an. Klicke auf <span class="guilabel">+Domain hinzufügen</span> und gib <span class="emphasis"><em>xentral.biz</em></span> ein.</p>
+</li>
+<li class="step">
+<p>Gib im Bereich <span class="guilabel">Kontaktdaten des Entwicklers</span> die E-Mail-Adresse an, die Google verwenden darf, um dich über Änderungen an deinem Projekt zu informieren.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern und Fortfahren</span>.</p>
+</li>
+<li class="step">
+<p>Im Bildschirm <span class="guilabel">Bereiche</span> kannst du Zugangsberechtigungen festlegen, die Nutzer autorisieren müssen, um deinem Projekt Zugriff auf spezifische private Nutzerdaten ihres Google-Kontos zu erlauben. Bereiche sind nicht verpflichtend. Klicke auf <span class="guilabel">Speichern und Fortfahren</span>, um auf den nächsten Bildschirm zu gelangen.</p>
+</li>
+<li class="step">
+<p>Überprüfe deine eingegebenen Daten und klicke auf <span class="guilabel">Zurück zum Dashboard</span>, falls du keine Änderungen vornehmen möchtest.</p>
+</li>
+</ol>
+</div>
+<p>Dies vervollständigt die Einrichtung deiner Google API und du kannst nun dein Gmail-Konto mit <span class="phrase">Xentral</span> verbinden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-515957c1-ccdc-377b-2573-2aae43359182" id="UUID-515957c1-ccdc-377b-2573-2aae43359182_section-idm4661057092584033214930428914"></a>OAuth Client ID anlegen</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-515957c1-ccdc-377b-2573-2aae43359182_section-idm4661057092584033214930428914_body">
+<p>Dies ist der dritte Schritt, um Google-Dienste mit <span class="phrase">Xentral</span> zu verbinden. Dieser Schritt ist notwendig, um <span class="phrase">Xentral</span> für OAuth-Server sichtbar zu machen.</p>
+<div class="procedure">
+<a id="UUID-515957c1-ccdc-377b-2573-2aae43359182_procedure-idm4568864426521633214937196853"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Logge dich in <span class="phrase">Xentral</span> ein und navigiere zu <span class="guilabel">Administration</span>&gt;<span class="guilabel">System</span>&gt;<span class="guilabel">Google API</span>.</p>
+</li>
+<li class="step">
+<p>Kopiere den Link aus dem Feld <span class="guilabel">Redirect URI</span>.</p>
+</li>
+<li class="step">
+<p>Navigiere zu <a class="link" href="https://console.cloud.google.com/getting-started" target="_blank" rel="noopener">Google Cloud Console</a> und öffne <span class="guilabel">Anmeldedaten</span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Anmeldedaten erstellen</span> und wähle <span class="guilabel">OAuth-Client-ID</span>.</p>
+</li>
+<li class="step">
+<p>Wähle <span class="guilabel">Webanwendung</span> in der <span class="guilabel">Anwendungstyp</span>-Auswahlliste. Gib nun den Namen der App ein, zum Beispiel <span class="emphasis"><em>Xentral ERP</em></span>.</p>
+</li>
+<li class="step">
+<p>Klicke im Bereich <span class="guilabel">Autorisierte Weiterleitungs-URIs</span> auf <span class="guilabel">URI hinzufügen</span>. Füge hier den zuvor kopierten Link aus <span class="phrase">Xentral</span> ein und klicke auf <span class="guilabel">Erstellen</span>.</p>
+</li>
+<li class="step">
+<p>Die Dialogbox <span class="guilabel">OAuth-Client erstellt</span> erscheint und zeigt die Informationen <span class="guilabel">Ihre Client-ID</span> und <span class="guilabel">Ihr Clientschlüssel</span> an. Kopiere diese Zeichenfolge und füge sie in die entsprechenden Felder im Modul Google API in <span class="phrase">Xentral</span> ein (<span class="guilabel">Administration</span> &gt; <span class="guilabel">System</span> &gt;<span class="guilabel">Google API</span>) .</p>
+<ol type="a" class="substeps">
+<li class="step">
+<p>Kopiere die Zeichenfolge <span class="guilabel">Ihre Client-ID</span> aus der Google Cloud Console in das Feld <span class="guilabel">Client ID</span> in <span class="phrase">Xentral</span> ein.</p>
+</li>
+<li class="step">
+<p>Kopiere die Zeichenfolge <span class="guilabel">Ihr Clientschlüssel</span> aus der Google Cloud Console in das Feld <span class="guilabel">Client Schlüssel</span> in <span class="phrase">Xentral</span> ein.</p>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Ok</span>, um die Dialogbox <span class="guilabel">OAuth-Client erstellt</span> in der Google Cloud Console zu schließen.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-515957c1-ccdc-377b-2573-2aae43359182" id="UUID-515957c1-ccdc-377b-2573-2aae43359182_section-idm4609450185686433215027305325"></a>Dein Gmail-Konto an <span class="phrase">Xentral</span> anbinden</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-515957c1-ccdc-377b-2573-2aae43359182_section-idm4609450185686433215027305325_body">
+<p>Nun da du die API-Verbindung zwischen der Google Cloud und deiner <span class="phrase">Xentral</span>-Instanz eingerichtet hast, musst du dein E-Mail-Konto in <span class="phrase">Xentral</span> einrichten.</p>
+<div class="procedure">
+<a id="UUID-515957c1-ccdc-377b-2573-2aae43359182_procedure-idm4542477316179233216201969845"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zu <span class="guilabel">Administration</span> &gt; <span class="guilabel">System</span> &gt; <span class="guilabel">Benutzer</span> und öffne das Konto des Administrators.</p>
+</li>
+<li class="step">
+<p>Füge die E-Mail-Adresse im Bereich <span class="guilabel">Bearbeiten Administrator</span> in das Feld <span class="guilabel">E-Mail</span> ein und klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+<li class="step">
+<p>Navigiere zu <span class="guilabel">Stammdaten</span> &gt; <span class="guilabel">Adressen</span> und öffne die Adresse des Administrators.</p>
+</li>
+<li class="step">
+<p>Füge die gleiche E-Mail-Adresse, die du zuvor benutzt hast, im Bereich <span class="guilabel">Kontaktdaten</span> ein und klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+<li class="step">
+<p>Navigiere zu <span class="guilabel">Administration</span> &gt; <span class="guilabel">System</span> &gt; <span class="guilabel">Email Accounts</span> und klicke auf <span class="guilabel">Neu</span>, um einen neuen Eintrag anzulegen.</p>
+</li>
+<li class="step">
+<p>Trage die folgenden Informationen ein:</p>
+<ol type="a" class="substeps">
+<li class="step">
+<p><span class="guilabel">E-Mail-Adresse</span> - die zuvor hinzugefügte E-Mail-Adresse</p>
+</li>
+<li class="step">
+<p><span class="guilabel">Benutzername</span> - optional</p>
+</li>
+<li class="step">
+<p><span class="guilabel">Passwort</span> - Passwort deines E-Mail-Kontos</p>
+</li>
+<li class="step">
+<p><span class="guilabel">IMAP-Server</span> - Der Standard IMAP-Server ist <span class="emphasis"><em>imap.gmail.com</em></span></p>
+</li>
+<li class="step">
+<p><span class="guilabel">IMAP-Port</span> - <span class="emphasis"><em>993</em></span> und wähle <span class="guilabel">IMAP für Google</span> in der Auswahlliste.</p>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Gib im Bereich <span class="guilabel">Einstellungen Senden SMTP (Optional)</span> die folgenden Informationen ein:</p>
+<ol type="a" class="substeps">
+<li class="step">
+<p><span class="guilabel">SMTP-Server</span>: <span class="emphasis"><em>smtp.gmail.com</em></span></p>
+</li>
+<li class="step">
+<p><span class="guilabel">SMTP-Port</span>: <span class="emphasis"><em>587</em></span></p>
+</li>
+<li class="step">
+<p><span class="guilabel">SMTP-SSL</span>: TLS</p>
+</li>
+<li class="step">
+<p><span class="guilabel">SMTP-Authentifizierung</span>: <span class="emphasis"><em>Google OAuth</em></span></p>
+</li>
+<li class="step">
+<p><span class="guilabel">SMTP-DEBUG aktivieren</span>: Setze hier ein Häkchen.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Weitere Informationen zu den Gmail IMAP- und SMTP-Einstellungen findest du auf dieser <a class="link" href="https://support.google.com/mail/answer/7126229?visit_id=637964110372798782-3088899010&amp;hl=en&amp;rd=1#zippy=%2Cstep-change-smtp-other-settings-in-your-email-client" target="_blank" rel="noopener">Seite</a>.</p>
+</div>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+<li class="step">
+<p>Nun musst du die E-Mail-Adresse autorisieren, um E-Mails in <span class="phrase">Xentral</span> senden und empfangen zu können. Klicke auf das Profil-Symbol in der rechten oberen Ecke des Bildschirms und klicke dann auf <span class="guilabel">Profil bearbeiten</span>.</p>
+</li>
+<li class="step">
+<p>Trage im Bereich <span class="guilabel">Mein GoogleMail Konto</span> deine E-Mail-Adresse ein und klicke auf <span class="guilabel">Autorisieren</span>.</p>
+</li>
+<li class="step">
+<p>Der Zustimmungsbildschirm, den du zuvor angelegt hast, erscheint und du musst die Bedingungen akzeptieren.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Test Email</span>, um deine Einstellungen zu überprüfen.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

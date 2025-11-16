@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infos zur AWS Cloud</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360020650839
+    Titel: Infos zur AWS Cloud
+    URL: https://help.xentral.com/hc/de/articles/360020650839-Infos-zur-AWS-Cloud
+    Erstellt: 2021-03-22T07:14:40Z
+    Aktualisiert: 2025-08-13T11:28:58Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4419497887388
+    Export-Zeitpunkt: 2025-11-16 19:08:53
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p><span class="phrase">Xentral</span> bietet seine Cloudservices über Amazon Web Services (AWS) an. Die <span class="phrase">Xentral</span> Cloud Server stehen in Frankfurt am Main.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die <span class="phrase">Xentral</span> Cloud ist zur Ausführung der Software vorgesehen. <span class="phrase">Xentral</span> stellt keinen Server, auf dem du Dateien per <span class="phrase">Xentral</span> Übertragungsmodul ablegen kannst und von dem dann andere Programme diese Daten abfragen können. Dazu brauchst du einen separaten FTP Server, auf den auch der Fulfiller zugreifen kann.</p>
+</div>
+<p>Unsere Tarife bieten eine garantierte Erreichbarkeit von 99,5% pro Jahr (EC2 SLA von AWS). Sie bieten Support für den Betrieb durch <span class="phrase">Xentral</span> und ein Rechenzentrum in Frankfurt, das nach ISO 27001 und ISO 27018 zertifiziert ist (Amazon AWS).</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Aus Leistungs- und Sicherheitsgründen ist der Zugriff auf lokale Serververzeichnisse oder auf die Datenbank nicht möglich.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28" id="idm11864"></a>Hinweise zum Datenschutz</h2>
+</div>
+<p>Alle <span class="phrase">Xentral</span> Clouds unterliegen einem strengen Sicherheitskonzept. Die Server der Kunden haben keinerlei direkte Verbindung mit dem Internet. Sie befinden sich in sogenannten VPC (VPN) Zonen und haben keine festen IP-Adressen. Der Zugriff erfolgt nur per https über einen Loadbalancer, der wiederum außer https keinerlei anderes Traffic annimmt. So sind die Server gut vor Hackerangriffen geschützt. Die Datenbanken haben zudem auch keinen Netzwerkport offen, sondern sind nur für die lokale PHP Software erreichbar. Außerdem werden die Server nach außen durch die Firewall gesichert.</p>
+<p>Um dich vor Datenverlust zu schützen, findet ein tägliches Backup der Instanzen statt. Dieses kann bis zu sieben Tage im Nachhinein wieder hergestellt werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm464583675802083385935895792"></a>FAQ</h2>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4636091056276833859359312691"></a>Wie gehe ich vor, wenn die AWS Cloud nicht erreichbar ist?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4636091056276833859359312691_body">
+<p>Wenn die Cloud Instanz nicht erreichbar ist, kann das daran liegen, dass dein Update nicht sauber durchgelaufen ist.</p>
+<p>Gehe wie folgt vor:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Rufe in diesem Fall folgende Seite auf: MEINEURL/update.php. Statt "MEINEURL" gibst du deine URL ein.</p>
+</li>
+<li class="step">
+<p>Logge dich ein und führe das Update nochmal durch. Danach sollte die Instanz wieder aufrufbar sein.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4636091038432033859366773128"></a>Kann ich auf die Datenbank zugreifen, wenn das Hosting direkt bei <span class="phrase">Xentral</span> ist?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4636091038432033859366773128_body">
+<p>Nein, das ist nicht möglich. Aus Sicherheitsgründen und zum Schutz der Datenintegrität können wir dir keinen Zugang zur Datenbank geben. Allerdings kannst du in deinem Xentral System im Modul "Datenbank Ansicht" (<span class="guilabel">Mein Bereich &gt; Meine Apps</span> oder über die Super Search) die Daten aus deiner Datenbank einsehen.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4542853301497633859368326132"></a>Kann ich auf der Cloud Daten aus <span class="phrase">Xentral</span> löschen lassen?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4542853301497633859368326132_body">
+<p>Nein, das ist nicht möglich. Grund dafür ist, dass die Datenintegrität sonst nicht mehr gewährleistet werden kann.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm456031505343843387648411983"></a>Kann die URL meiner <span class="phrase">Xentral</span>-Instanz individualisiert werden?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm456031505343843387648411983_body">
+<p>Nein, das ist leider nicht möglich. Aus Sicherheitsgründen bieten wir keine Individualisierung an.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4591382803428833876596255598"></a>Wie komme ich an die IP Adresse für die <span class="phrase">Xentral</span> Cloud?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4591382803428833876596255598_body">
+<p>Aufgrund von frei skalierbaren Ressourcen in unserer Cloud, können wir die IP Adresse der Cloud nicht herausgeben. Wenn es keinen anderen Weg gibt, außer einem Whitelisting der IP, dann musst du im Access log des Servers, zu welchem du transferieren möchtest, untersuchen und so die aktuelle IP in Erfahrung bringen.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es kann sein, dass sich pro Request die IP ändert - je nach Auslastung auf unserer Cloud.</p>
+</div>
+<p>Dieser Prozess sollte bestmöglich automatisiert sein, da diese IP sich oft ändern kann (pro Request).</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4556678500160033876606014032"></a>Wie gehe ich vor, wenn mein <span class="phrase">Xentral</span> System nicht erreichbar ist und ich 500, 502, oder 504 Fehlermeldungen erhalte?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4556678500160033876606014032_body">
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wenn dein <span class="phrase">Xentral</span> System auf unserer Cloud liegt, wende dich bitte an unseren Support über das Support Ticketsystem.</p>
+</li>
+<li class="listitem">
+<p>Wenn dein <span class="phrase">Xentral</span> System auf einem eigenen Server betrieben wird, wende dich an deinen Administrator.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4546051309251233876608763609"></a>Wie gehe ich bei der technischen Fehlermeldung "Xentral: Es ist ein unerwarteter Fehler aufgetreten” vor?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_section-idm4546051309251233876608763609_body">
+<div class="procedure">
+<a id="UUID-deb2d957-c7d6-d828-3d09-cc344131ed28_procedure-idm4636354581769633876611951159"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Führe erneut ein Update über deineurl.xentral.biz/update.php durch.</p>
+</li>
+<li class="step">
+<p>Sollte das Problem nach einem Update weiterhin bestehen und die Fehlermeldung wieder erscheinen, wende dich über das Ticketsystem an unseren Support.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDAP Anbindung</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017950519
+    Titel: LDAP Anbindung
+    URL: https://help.xentral.com/hc/de/articles/360017950519-LDAP-Anbindung
+    Erstellt: 2020-12-07T09:25:49Z
+    Aktualisiert: 2024-08-29T13:43:29Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254835385116
+    Export-Zeitpunkt: 2025-11-16 19:10:10
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Mit der LDAP Anbindung kann man den firmeninternen LDAP-Client mit xentral verbinden, um die Mitarbeiter über LDAP beim Einloggen in xentral identifizieren zu können.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die folgende Anleitung setzt das Wissen um den Umgang mit LDAP voraus. Unser Support kann Ihnen bei der Erstellung der Konfiguration nicht helfen - hier müssten Sie Ihren Systemadministrator fragen.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b81b729b-8a20-e650-0806-790260320199" id="UUID-b81b729b-8a20-e650-0806-790260320199_id_360017950519_id_toc-0"></a>Paket für LDAP nachinstallieren</h2>
+</div>
+<p>Als Erstes muss man am Server das Paket php7.x-ldap nachinstallieren (also z.B. php7.0-ldap wenn der Server mit PHP 7.0 läuft).</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b81b729b-8a20-e650-0806-790260320199" id="UUID-b81b729b-8a20-e650-0806-790260320199_id_360017950519_id_toc-1"></a>Einstellungen in den Firmendaten</h2>
+</div>
+<p>Unter Administration → Einstellungen → System → Grundeinstellungen → System gibt es die folgenden Einstellungsmöglichkeiten:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">LDAP URI</span> → Die URI um Ihren LDAP-Client zu erreichen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">LDAP RDN</span> → Hauptgruppe der Nutzer, die sich einloggen können</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">LDAP Basis DN</span> → Definiert, wo im Verzeichnisbaum abwärts die Suche nach bestimmten Objekten gestartet werden soll.</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">LDAP Filter</span> → Innerhalb der Verzeichnisse kann nach hinterlegten Daten gefiltert werden. Z.B. kann man prüfen ob der Benutzer der passenden Gruppe angehört und ob es sich überhaupt um eine Person handelt. (Die Angabe des LDAP Filters ist Pflicht sonst klappt die Authentifzierung nicht)</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Hinweis:</strong></span> Den entsprechenden Benutzernamen in Xentral können Sie auf 2 Weisen übergeben:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>%user%</p>
+</li>
+<li class="listitem">
+<p>{USER}</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Beispiel</strong></span> Beispiel für die Einstellungen auf einem Active Directory wäre z.B. Folgendes:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996396483740" style="" alt="LDAP-2.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b81b729b-8a20-e650-0806-790260320199" id="UUID-b81b729b-8a20-e650-0806-790260320199_id_360017950519_id_toc-2"></a>Einstellung im Benutzer</h2>
+</div>
+<p>Unter Administration → Einstellungen → Benutzer kann man innerhalb eines Benutzers dann das Anmeldeverfahren "LDAP Verzeichnis" ausgewählt werden.</p>
+<p>Der Benutzername muss dem Namen des Benutzers im LDAP Verzeichnis entsprechen. Das Passwort kann leer gelassen werden</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b81b729b-8a20-e650-0806-790260320199" id="UUID-b81b729b-8a20-e650-0806-790260320199_id_360017950519_id_toc-3"></a>Anmelden des Benutzers</h2>
+</div>
+<p>Damit sich der Benutzer nun anmelden kann, braucht er seinen LDAP Benutzernamen und das Passwort des Benutzers im LDAP Verzeichnis.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b81b729b-8a20-e650-0806-790260320199" id="UUID-b81b729b-8a20-e650-0806-790260320199_id_360017950519_id_toc-4"></a>Interner Ablauf (für Administration)</h2>
+</div>
+<p>Für ein besseres Verständnis ist im folgenden der interne Ablauf beschrieben.</p>
+<pre class="programlisting">
+      <code class="code">// Connect to the LDAP Server
+$ds = ldap_connect($this-&gt;app-&gt;erp-&gt;Firmendaten("ldap_host"));
+
+$search = $this-&gt;app-&gt;erp-&gt;Firmendaten("ldap_searchbase");
+$filter = $this-&gt;app-&gt;erp-&gt;Firmendaten("ldap_filter");
+
+$bind_name = str_replace('{USER}',$username,$this-&gt;app-&gt;erp-&gt;Firmendaten("ldap_bindname"));
+
+// Bind LDAP server
+$ldapbind = ldap_bind($ds, $bind_name, $password);
+
+// Search on LDAP server
+$sr=ldap_search($ds,$search, $filter);
+
+// if find then bind
+
+if(ldap_count_entries($ds,$sr) &gt; 0)
+if($ldapbind)</code>
+    </pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

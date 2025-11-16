@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispielmodule programmieren</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017436999
+    Titel: Beispielmodule programmieren
+    URL: https://help.xentral.com/hc/de/articles/360017436999-Beispielmodule-programmieren
+    Erstellt: 2020-11-10T08:17:51Z
+    Aktualisiert: 2023-12-05T10:10:10Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 11291544329756
+    Export-Zeitpunkt: 2025-11-16 19:10:05
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Das Beispiel geht ab Version 17.1 Ein Modul besteht aus mindestens einer PHP-Datei .php für den Code der im Hintergrund ablaufen soll und einer Template-Datei .tpl die für die Darstellung von HTML sorgt. Die PHP-Datei wird zuerst beschrieben, ganz unten befinden sich die Template-Dateien.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-f7ddfbc7-8570-68de-7e81-6012f7928e6f" id="UUID-f7ddfbc7-8570-68de-7e81-6012f7928e6f_id_360017436999_id_toc-0"></a>PHP-Datei beispielmodul.php</h2>
+</div>
+<p>Zuerst wird die Klasse für das Modul erstellt, wie hier das Beispielmodul. Mit der darin enthaltenen, statischen Funktion TableSearch werden alle Live Tabellen für das Modul definiert. Innerhalb von TableSearch() werden mit einem switch alle Live Tabellen aufgezählt. Live Tabellen können beliebig benannt werden. In der Variable $heading ist ein Array mit den Spaltennamen die in der Live Tabelle angezeigt werden. Mit der Variable $width werden die einzelnen Spaltenbreiten in prozentualer Angabe in einem Array festgelegt. Die Variable $findcols beinhaltet ein Array mit den Datenbankspalten die in der Live Tabelle sortierbar sind. $searchsql legt im Array die Datenbankspalten fest, die im Suchfenster durchsucht werden können. In der Variable $menue werden, falls benötigt, die Menüpunkte für die Einträge der Live Tabelle definiert, wie in diesem Beispiel edit und delete. Im dazugehörigen Link von ist hinter action der jeweiligen ActionHandler ersichtlich, der bei einem Klick auf ausgeführt wird. In der Variable $sql wird die SQL Abfrage eingetragen, von welcher das Ergebnis in der Live Tabelle gesehen werden so. Zu beachten ist, dass das WHERE der Abfrage in der Variable $where eingetragen werden muss. Dasselbe gilt für GROUP BY, was in der Variable $groupby steht. $count sorgt für die Darstellung der Anzahl der Einträge die angezeigt werden unterhalb der Live Tabelle.</p>
+<p>?php //WAWIFILEONLYON VERSION=ALL</p>
+<p>class Beispielmodul { var $app;</p>
+<p>static function TableSearch(&amp;amp;$app, $name, $erlaubtevars) { // in dieses switch alle lokalen Tabellen (diese Live Tabellen mit Suche etc.) für dieses Modul switch($name) { case "beispielmodul_list": $allowed['beispielmodul'] = array('list');</p>
+<pre class="programlisting"> $heading = array('Adresse', 'Datum', 'Beschreibung', 'Menü');
+    $width = array('40%', '30%', '20%', '10%');
+
+    $findcols = array('b.id', 'b.adresse', 'b.datum', 'b.beschreibung');
+    $searchsql = array('b.id', 'b.adresse', 'b.datum', 'b.beschreibung');
+
+    $defaultorder = 1;
+    $defaultorderdesc = 0;
+ 
+    $jahr = date("Y");
+
+    $menu = "&lt;a href=\"index.php?module=beispielmodul&amp;action=edit&amp;id=%value%\"&gt;&lt;img src=\"./themes/{$app-&gt;Conf-&gt;WFconf['defaulttheme']}/images/edit.png\" border=\"0\"&gt;&lt;/a&gt;";
+    
+    $sql = "SELECT SQL_CALC_FOUND_ROWS b.id, b.adresse, b.datum, b.beschreibung, b.id FROM beispielmodul b"; 
+
+    $where = " YEAR(b.datum) &lt; '$jahr'";
+
+    $groupby = "GROUP BY b.datum";
+
+
+    $count = "SELECT count(DISTINCT b.id) FROM beispielmodul b WHERE $where";
+    break;      
+}
+
+$erg = false;
+
+foreach($erlaubtevars as $k =&gt; $v)
+{
+  if(isset($$v))$erg[$v] = $$v;
+}
+return $erg;</pre>
+<p>Danach folgt die Funktion __construct() die den Konstruktor darstellt und alle ActionHandler festlegt. Der ActionHandler definiert im ersten Parameter welches Action gemeint ist und im zweiten Parameter die zugehörige Funktion die beim jeweiligen Action ausgeführt werden soll. Die ActionHandler können ebenfalls beliebig benannt werden. Außerdem wird die Funktion Install() aufgerufen.</p>
+<p>function __construct($app, $intern = false) { $this-&amp;gt;app=&amp;amp;$app; if($intern)return; $this-&amp;gt;app-&amp;gt;ActionHandlerInit($this); //Ab hier alle ActionHandler definieren die das Modul hat $this-&amp;gt;app-&amp;gt;ActionHandler("list", "BeispielmodulList"); $this-&amp;gt;app-&amp;gt;ActionHandler("create", "BeispielmodulCreate"); $this-&amp;gt;app-&amp;gt;ActionHandler("edit", "BeispielmodulEdit"); $this-&amp;gt;app-&amp;gt;ActionHandler("delete", "BeispielmodulDelete");</p>
+<p>$this-&amp;gt;app-&amp;gt;ActionHandlerListen($app); $this-&amp;gt;Install(); }</p>
+<p>Um neue Tabellen und Spalten in der Datenbank anzulegen, wird eine neue Funktion namens Install() angelegt. Innerhalb dieser Funktion werden die Funktionen CheckTable() und CheckColumn() verwendet. CheckTable() prüft, ob die Tabelle bereits in der Datenbank vorhanden ist und legt sie an falls das nicht der Fall ist. CheckColumn() prüft, ob die Spalten in der angegebenen Tabelle bereits existieren und legt sie an falls das nicht der Fall ist.</p>
+<p>function Install() { $this-&amp;gt;app-&amp;gt;erp-&amp;gt;CheckTable("beispielmodul"); $this-&amp;gt;app-&amp;gt;erp-&amp;gt;CheckColumn("id", "int(11)", "beispielmodul", "NOT NULL AUTO_INCREMENT"); $this-&amp;gt;app-&amp;gt;erp-&amp;gt;CheckColumn("adresse", "int(11)", "beispielmodul", "NOT NULL"); $this-&amp;gt;app-&amp;gt;erp-&amp;gt;CheckColumn("datum", "DATE", "beispielmodul", "NOT NULL"); $this-&amp;gt;app-&amp;gt;erp-&amp;gt;CheckColumn("beschreibung", "VARCHAR(255)", "beispielmodul", "NOT NULL"); }</p>
+<p>Als nächstes folgen die einzelnen Funktionen die durch die ActionHandler aufgerufen werden. BeispielmodulList() sorgt dafür, das alles angezeigt wird, was der Benutzer beim Aufruf des Moduls sehen soll. Die Funktionen MenuEintrag fügen neue Menüpunkte zur Navigation des Moduls hinzu. TableSearch gibt an, welche Live Tabelle zur Darstellung der Daten verwendet werden soll, in diesem Falle die Live Tabelle beispielmodul_list. Ohne die Angabe einer Template-Datei mit der Funktion Parse, kann kein Inhalt dargestellt werden.</p>
+<p>function BeispielmodulList() { $this-&amp;gt;app-&amp;gt;erp-&amp;gt;MenuEintrag("index.php?module=beispielmodul&amp;amp;action=create","Neuer Eintrag"); $this-&amp;gt;app-&amp;gt;erp-&amp;gt;MenuEintrag("index.php?module=beispielmodul&amp;amp;action=list","Übersicht");</p>
+<pre class="programlisting"><code class="code">$this-&gt;app-&gt;YUI-&gt;TableSearch('TAB1','example_module_list', "show","","",basename(__FILE__), __CLASS__);
+$this-&gt;app-&gt;Tpl-&gt;Parse("PAGE", "example_module_list.tpl");
+</code></pre>
+<p>Innerhalb der Funktion BeispielmodulEdit() wird der Code definiert, der bei einem Klick auf das Edit Symbol eines Eintrags der Live Tabelle ausgeführt werden soll. Zuerst wird mit MenuEintrag neue Menüpunkte zum Modul hinzugefügt. Einer der auf die aktuelle Seite verweist und einer der zurück auf die Live Tabelle verlinkt. Über GET wird in die Variable $id die ID von dem zu bearbeitenden Auftrag übertragen. Mit POST wird der Wert des Speichern Buttons geholt. Außerdem wird ein Array erstellt, dass über GetInput (weiteres weiter unten) die Werte aus den Eingabefeldern holt. Ist die ID gesetzt und eine Zahl und der Speichern Button wurde gedrückt, wird geprüft ob alle Pflichtfelder befüllt wurden. Ist dies nicht der Fall, erhält die Variable $error eine jeweilige Fehlermeldung. Ist die Variable $error nicht leer, sprich nicht alle Pflichtfelder wurden befüllt, wird eine Fehlermeldung im Templatefeldbereich MESSAGE angezeigt. Andernfalls wird der bisherige Eintrag mit UPDATE aktualisiert und eine Erfolgsmeldung wird angezeigt. Desweiteren wird das derzeitige für diesen Eintrag hinterlegte Datum aus der Datenbank geholt. Selbiges gilt für die Beschreibung. Mit Hilfe von Set werden diese Werte in die Eingabefelder voreingetragen, damit die Person, wenn sie die Einträge bearbeiten will sieht, welche Werte genau sie bearbeitet. Parse gibt zum Schluss an welche Template-Datei verwendet werden soll.</p>
+<p>function BeispielmodulEdit() { $this-&amp;gt;app-&amp;gt;erp-&amp;gt;MenuEintrag("index.php?module=beispielmodul&amp;amp;action=edit&amp;amp;id=$id","Details"); $this-&amp;gt;app-&amp;gt;erp-&amp;gt;MenuEintrag("index.php?module=beispielmodul&amp;amp;action=list","Zurück zur Übersicht");</p>
+<pre class="programlisting"><code class="code">$id = (int)$this-&gt;app-&gt;Secure-&gt;GetGET('id');
+$store = $this-&gt;app-&gt;Secure-&gt;GetPOST('store');
+
+$input = array();
+
+$input = $this-&gt;GetInput();
+
+if(is_numeric($id) &amp;&amp; $store!=''){
+
+  $error = '';
+  if($input['date']=='') $error .= 'Please enter a date.&lt;br&gt;';
+  if($input['description'] == '') $error .= 'Please enter a description.&lt;br&gt;';
+  
+  if($error!=''){
+    $this-&gt;app-&gt;Tpl-&gt;Set('MESSAGE',"&lt;div class=\"error\"&gt;$error&lt;/div&gt;");
+  }else{
+    if($error == ""){
+      $this-&gt;app-&gt;DB-&gt;Update("UPDATE example module SET date ='{$input['date']}', description='{$input['description']}' WHERE id = '$id' LIMIT 1");
+      
+      $this-&gt;app-&gt;Tpl-&gt;Set('MESSAGE', "&lt;div class=\"success\"&gt;The settings were successfully &amp;uuml;baccepted.&lt;/div&gt;");
+    }
+  }
+}
+$date = $this-&gt;app-&gt;DB-&gt;Select("SELECT date FROM example module WHERE id = '$id'");
+$description = $this-&gt;app-&gt;DB-&gt;Select("SELECT description FROM example module WHERE id = '$id'");
+
+$this-&gt;app-&gt;Tpl-&gt;Set('DATE', $date);
+$this-&gt;app-&gt;Tpl-&gt;Set('DESCRIPTION', $description);
+
+$this-&gt;app-&gt;Tpl-&gt;Parse('PAGE', "example_module_edit.tpl");
+}</code></pre>
+<p>BeispielmodulDelete() löscht den gewählten Eintrag aus der Live Tabelle bei Klick auf das Delete Symbol. Mittels der Variable $_SERVER['HTTP_REFERER'] kann ermittelt werden, von welcher Seite der Benutzer kam, also in diesem Fall die aktuelle Seite mit der Live Tabelle. Über GetGET wird die ID des zu löschenden Eintrages geholt und mit einem MySQL Statement wird der Eintrag anschließend gelöscht. Zum Schluss wird auf die bisherige Seite weitergeleitet.</p>
+<p>function BeispielmodulDelete() { $ref = $_SERVER['HTTP_REFERER']; $id = $this-&amp;gt;app-&amp;gt;Secure-&amp;gt;GetGET("id"); $this-&amp;gt;app-&amp;gt;DB-&amp;gt;DELETE("DELETE FROM beispielmodul WHERE id = '$id' LIMIT 1");</p>
+<pre class="programlisting"><code class="code">header("Location: $ref");
+exit;
+</code></pre>
+<p>Die Funktion BeispielmodulCreate() legt einen neuen Eintrag in der Datenbanktabelle beispielmodul an. Zuerst wird mit MenuEintrag ein neuer Menüpunkt zum Modul hinzugefügt, der zurück auf die Live Tabelle verweist. Mit der Funktion GetInput werden die Werte aus den Eingabefeldern geholt. Die Erklärung zu dieser Funktion erfolgt weiter unten. Über GetPOST wird der Wert des Speichern Buttons geholt. Wenn dieser Wert nicht leer ist, also gedrückt wurde, wird geprüft, ob die Pflichtfelder bei der Eingabe ausgefüllt wurden. Falls diese nicht ausgefüllt wurden, erhält die Variable $error eine jeweilige Fehlermeldung. Enthält die Variable $error nun also einen Wert, wird die Fehlermeldung im Templatefeldbereich MESSAGE ausgegeben. Andernfalls wird der neue Eintrag hinzugefügt und die Meldung des erfolgreichen Hinzufügens wird angezeigt. Ist der Speichern Button nicht gedrückt worden, werden die Eingabefelder mittels der Funktion SetInput (wird weiter unten erklärt) mit den bisherigen eingegebenen Werten gefüllt. BeispielmodulCreate() verweist am Ende auf ein anderes Template, da die Oberfläche eine andere ist als bei BeispielmodulList(), jedoch kann das selbe Template wie bei BeispielmodulEdit() verwendet werden, da die Oberflächen bei beiden gleich ist.</p>
+<p>function BeispielmodulCreate() { $this-&amp;gt;app-&amp;gt;erp-&amp;gt;MenuEintrag("index.php?module=beispielmodul&amp;amp;action=list","Zurück zur Übersicht");</p>
+<pre class="programlisting">$input = $this-&gt;GetInput();
+$speichern = $this-&gt;app-&gt;Secure-&gt;GetPOST("speichern");
+
+if($speichern != ""){
+  
+  $error = '';
+
+  if($input['datum']=='') $error .= 'Geben Sie bitte ein Datum ein.&lt;br&gt;';
+  if($input['beschreibung']=='') $error .= 'Geben Sie bitte eine Beschreibung ein.&lt;br&gt;';
+  
+  if($error!=''){
+    $this-&gt;app-&gt;Tpl-&gt;Set('MESSAGE', "&lt;div class=\"error\"&gt;$error&lt;/div&gt;");
+  }else{
+    $this-&gt;app-&gt;DB-&gt;Insert("INSERT INTO beispielmodul (datum, beschreibung) VALUES ('{$input['datum']}', '{$input['beschreibung']}')");
+    $newid = $this-&gt;app-&gt;DB-&gt;GetInsertID();
+    $msg = $this-&gt;app-&gt;erp-&gt;base64_url_encode("&lt;div class=\"success\"&gt;Der Eintrag wurde erfolgreich angelegt.&lt;/div&gt;");
+    header("Location: index.php?module=beispielmodul&amp;action=edit&amp;id=$newid&amp;msg=$msg");
+    exit;
+  }
+}
+
+$this-&gt;SetInput($input); 
+
+$this-&gt;app-&gt;Tpl-&gt;Parse('PAGE', "beispielmodul_edit.tpl");</pre>
+<p>Die Funktion GetInput erstellt eine Variable namens $input, welche ein Array beinhalten wird. Am Index datum des Arrays wird der Wert mittels POST aus der Variablen datum geholt. Selbiges geschieht für den Index beschreibung. Zum Schluss wird das Array bei return zurückgegeben.</p>
+<p>function GetInput(){ $input = array(); $input['datum'] = $this-&amp;gt;app-&amp;gt;Secure-&amp;gt;GetPOST('datum'); $input['beschreibung'] = $this-&amp;gt;app-&amp;gt;Secure-&amp;gt;GetPOST('beschreibung');</p>
+<pre class="programlisting"><code class="code">return $input;</code></pre>
+<p>Die Funktion SetInput erhält als Parameter ein Array. Mittels der Funktion Set werden die Textfelder für Datum und Beschreibung an der Stelle DATUM und BESCHREIBUNG gefüllt.</p>
+<p>[en-us] function SetInput($input){ function SetInput($input){ $this-&amp;gt;app-&amp;gt;Tpl-&amp;gt;Set('DATUM', $input['datum']); $this-&amp;gt;app-&amp;gt;Tpl-&amp;gt;Set('BESCHREIBUNG', $input['beschreibung']); }this-&gt;app-&gt;Tpl-&gt;Set('DATE', $input['date']); $this-&gt;app-&gt;Tpl-&gt;Set('DESCRIPTION', $input['description']); }</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-f7ddfbc7-8570-68de-7e81-6012f7928e6f" id="UUID-f7ddfbc7-8570-68de-7e81-6012f7928e6f_id_360017436999_id_toc-1"></a>Template-Datei beispielmodul_list.tpl</h3>
+</div>
+<pre class="programlisting"><code class="code">&lt;div id="tabs-1"&gt;
+    [MESSAGE]
+    [TAB1]
+    [TAB1NEXT]
+&lt;/div&gt;
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-f7ddfbc7-8570-68de-7e81-6012f7928e6f" id="UUID-f7ddfbc7-8570-68de-7e81-6012f7928e6f_id_360017436999_id_toc-2"></a>Template-Datei beispielmodul_edit.tpl</h3>
+</div>
+<pre class="programlisting">&lt;div id="tabs-1"&gt;
+    [MESSAGE]
+    &lt;form action="" method="post"&gt;
+        &lt;fieldset&gt;
+            &lt;legend&gt;Land&lt;/legend&gt;
+            &lt;table width="100%" border="0" class="mkTableFormular"&gt;
+                &lt;tr&gt;&lt;td&gt;Datum: &lt;/td&gt;&lt;td&gt;&lt;input type="text" name="datum" value="[DATUM]" size="40"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;Beschreibung: &lt;/td&gt;&lt;td&gt;&lt;input type="text" name="beschreibung" value="[BESCHREIBUNG]" size="40"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/fieldset&gt;
+        &lt;input type="submit" name="speichern" value="Speichern" style="float:right"/&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

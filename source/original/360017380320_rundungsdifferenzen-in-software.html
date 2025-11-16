@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rundungsdifferenzen in Software</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017380320
+    Titel: Rundungsdifferenzen in Software
+    URL: https://help.xentral.com/hc/de/articles/360017380320-Rundungsdifferenzen-in-Software
+    Erstellt: 2020-11-10T08:45:01Z
+    Aktualisiert: 2024-03-26T12:22:14Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415591462044
+    Export-Zeitpunkt: 2025-11-16 19:08:55
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Dieser Artikel behandelt Rundungsdifferenzen in einer Software. Nachstehend wird erläutert, wie Rundungsdifferenzen entstehen können und warum es schwierig ist, eine einheitliche Lösung zu finden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682" id="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682_id_360017380320_id_toc-0"></a>Verschiedene Berechnungsmethoden für die Steuer</h2>
+</div>
+<p>Der Hauptgrund für Rundungsdifferenzen sind die unterschiedlichen Methoden für die Addition der Mehrwertsteuer in den Belegpostionen. Es gibt zwei Methoden, die gesetzlich anerkannt sind.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682" id="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682_id_360017380320_id_toc-1"></a>Variante 1: Spaltenweise (vertikale) Berechnung</h3>
+</div>
+<p>Um spaltenweise zu berechnen, bestimme zunächst die Nettosumme pro Steuersatz für die gesamte Rechnung. Multipliziere dann die Nettosumme mit dem entsprechenden Steuersatz. Die Mehrwertsteuersumme wird auf der Rechnung pro Steuersatz getrennt ausgewiesen.</p>
+<p><span class="guilabel">Bespiel</span>: Es wird eine Kundenrechnung mit 3 Artikelzeilen ausgestellt. Jeder Artikel kostet netto 0,99 EUR. Der Steuersatz beträgt 19%.</p>
+<div class="procedure">
+<a id="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682_procedure-idm46004361298640337829714975"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Berechne die Nettosumme der Artikel: 0,99 EUR x 3 = 2,97 EUR</p>
+</li>
+<li class="step">
+<p>Multipliziere mit dem Steuersatz: 2,97 x 1,19 = 3,5343 EUR</p>
+</li>
+<li class="step">
+<p>Ergebnis mit Rundung: 3,53 EUR</p>
+</li>
+</ol>
+</div>
+<p>Berechnung: (0,99 EUR x 3) x 1,19 = 2,97 EUR x 1,19 = 3,5343 EUR = 3,53 EUR</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682" id="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682_id_360017380320_id_toc-2"></a>Variante 2: Zeilenweise (horizontale) Berechnung</h3>
+</div>
+<p>In diesem Fall wird für jede einzelne Artikelzeile die Mehrwertsteuer, unter Verwendung des entsprechenden Steuersatzes, berechnet. Die Summe ergibt sich als Summe aller einzelnen Artikelzeilen. Die Mehrwertsteuer wird auch hier auf der Rechnung pro Steuersatz getrennt ausgewiesen.</p>
+<p><span class="guilabel">Bespiel:</span> Es wird eine Kundenrechnung mit 3 Artikelzeilen ausgestellt. Jeder Artikel kostet netto 0,99 EUR. Der Steuersatz beträgt 19%.</p>
+<div class="procedure">
+<a id="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682_procedure-idm4515746506534433782977182219"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Multipliziere den Steuersatz mit jedem einzelnen Artikel: 0,99 EUR x 1,19 = 1,1781 EUR</p>
+</li>
+<li class="step">
+<p>Durch Rundung erhält man 1,18 EUR pro Artikel</p>
+</li>
+<li class="step">
+<p>Berechne die Summe aller Artikel mit Steuer: 1,18 EUR x 3 = 3,54 EUR</p>
+</li>
+</ol>
+</div>
+<p>Berechnung: (0,99 EUR x 1,19) x 3 = 1,18 EUR x 3 = 3,54 EUR</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682" id="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682_id_360017380320_id_toc-3"></a>Differenz bei der Berechnung in den Beispielen</h3>
+</div>
+<p>Je nach Berechnungsmethode, ergibt sich eine Rundungsdifferenz von 0,01 EUR. Das zeigt, dass Beträge mit Nachkommastellen ggf. zu Rundungsdifferenzen führen können.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682" id="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682_id_360017380320_id_toc-4"></a>Übernahme von Bestellungen aus dem Shop</h2>
+</div>
+<p>Auch bei bekannten Online-Shops gibt es Rundungsfehler. Wenn in Verbindung mit einem ERP-System gearbeitet wird, ist es denkbar, dass der Shop an sich bereits Rundungsfehler erstellt hat. In diesem Fall ist es möglich, dass der Kunde die Belegsumme des Shops bereits bezahlt hat. xentral würde die gerundeten Zahlen übernehmen und entsprechend weiterverarbeiten, um zu vermeiden, dass weitere Rundungsdifferenzen entstehen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682" id="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682_id_360017380320_id_toc-5"></a>Sehr kleine Preise</h2>
+</div>
+<p>Manche Branchen geben Preise unterhalb eines Cents an. Daher können bei der Arbeit mit zu kleinen Preisen ebenfalls Rundungsdifferenzen enstehen. Daher bilder xentral sehr viele Nachkommastellen ab. Dennoch können auch in xentral durch die Multiplikation mit Mengen Rundungsfehler entstehen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682" id="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682_id_360017380320_id_toc-6"></a>Vorgehen bei Rundungsdifferenzen</h2>
+</div>
+<p>Wenn Rundungsdifferenzen beim Zahlungsimport entstehen, sollten diese beseitigt werden. Das ist v.a. bei einem hohen Auftragsaufkommen wichtig. Dazu ist im Shop-System zu prüfen, zu welchem Zeitpunkt diese Differenzen auftreten.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682" id="UUID-e1d6bad2-4bf3-f68e-a0ab-29258da2c682_id_360017380320_id_toc-7"></a>Entfernen von Rundungsdifferenzen</h3>
+</div>
+<p>Teilweise ist es unvermeidbar, dass Differenzen in die Steuersoftware übernommen werden. Daher sind diese in der Software auf ein entsprechendes Konto zu buchen. Wichtig ist, dass sich die Rundungsbeträge im Cent Bereich bewegen. Andernfalls ist der Ursprung für größere Differenzen herauszufinden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

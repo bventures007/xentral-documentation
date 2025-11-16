@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV-Importer Fehlermeldungen und Abhilfe</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 23112320194204
+    Titel: CSV-Importer Fehlermeldungen und Abhilfe
+    URL: https://help.xentral.com/hc/de/articles/23112320194204-CSV-Importer-Fehlermeldungen-und-Abhilfe
+    Erstellt: 2025-10-22T10:18:34Z
+    Aktualisiert: 2025-10-22T10:18:48Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4406064186908
+    Export-Zeitpunkt: 2025-11-16 19:08:44
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Im folgenden haben wir mögliche Fehlermeldungen der CSV-Importer-Schnittstelle, deren Ursachen und mögliche Abhilfemaßnahmen zusammengestellt:</p>
+<div class="informaltable table-responsive">
+<table width="100%">
+<thead>
+<tr>
+<th>
+<p>Fehlermeldung</p>
+</th>
+<th>
+<p>Kategorie</p>
+</th>
+<th>
+<p>Ursache</p>
+</th>
+<th>
+<p>Abhilfe</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>Es konnte kein Artikel mit der Artikelnummer "XXX" gefunden werden.</p>
+</td>
+<td>
+<p>Verkaufspreise, Einkaufspreise, Medien, Freifelder, Stücklisten</p>
+</td>
+<td>
+<p>Es existiert kein Artikel mit der angegebenen Artikelnummer.</p>
+</td>
+<td>
+<p>Artikel mit angegebener Artikelnummer in Xentral anlegen, bevor zusätzliche Daten importiert werden.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Lieferant fehlt und kein Standardlieferant definiert.</p>
+</td>
+<td>
+<p>Einkaufspreise</p>
+</td>
+<td>
+<p>Es konnte kein Lieferant für den Einkaufspreis gesetzt werden.</p>
+</td>
+<td>
+<p>Um einen Einkaufspreis zu importieren, muss eine LIeferantenzuordnung erfolgen. Dies geht über zwei Wege:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Stelle sicher, dass du beim Preisimport die Lieferanten-ID eingetragen hast.</p>
+</li>
+<li class="listitem">
+<p>Wenn bereits Einkaufspreise des Artikels in Xentral vorhanden sind, überprüfe, dass dort auch ein Standardlieferant eingetragen ist.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p>Datei “XXX” konnte nicht importiert werden. Fehlermeldung: “File does not exist or is not readable.“</p>
+</td>
+<td>
+<p>Medien</p>
+</td>
+<td>
+<p>Die Datei aus der angegebenen URL kann nicht heruntergeladen werden. Dies kann verschiedene Gründe haben:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Datei existiert nicht (mehr)</p>
+</li>
+<li class="listitem">
+<p>Dateipfad ist falsch</p>
+</li>
+<li class="listitem">
+<p>Datei ist nicht öffentlich verfügbar / Zugriffsrechte fehlen</p>
+</li>
+</ul>
+</div>
+</td>
+<td>
+<p>Überprüfe deine URL. Versuche, die Datei im Browser herunterzuladen. Wenn dies auch nicht klappt, ist die URL nicht korrekt. Überprüfe ggf. die Zugriffsberechtigungen der Datei.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Freifeld "XXX" konnte nicht importiert werden, da die maximale Anzahl von 40 Freifeldern erreicht ist. Es muss zunächst ein vorhandenes Freifeld entfernt werden.</p>
+</td>
+<td>
+<p>Freifelder</p>
+</td>
+<td>
+<p>Die maximale Anzahl von 40 Freifeldern ist bereits belegt.</p>
+</td>
+<td>
+<p>Mind. ein vorhandenes Freifeld muss entfernt werden, dann kann die CSV-Datei erneut importiert werden.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Auftrags-ID "XXX" existiert bereits.</p>
+</td>
+<td>
+<p>Aufträge</p>
+</td>
+<td>
+<p>Es existiert bereits ein Auftrag mit derselben Auftrags-ID in Xentral. Um Duplikate zu vermeiden, wird der Auftrag nicht mit derselben Auftrags-ID angelegt.</p>
+</td>
+<td>
+<p>Lösche den vorhandenen Auftrag aus dem System oder ändere die Auftrags-ID.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Versandart "XXX" konnte nicht gefunden werden.</p>
+</td>
+<td>
+<p>Aufträge</p>
+</td>
+<td>
+<p>Es existiert keine Versandart mit dem angegebenen Namen.</p>
+</td>
+<td>
+<p>Versandart mit angegebenem Namen in Xentral anlegen. Achte darauf, dass die Bezeichnungen exakt übereinstimmen (Groß-/Kleinschreibung, Leerzeichen beachten!).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Zahlungsweise "XXX" konnte nicht gefunden werden.</p>
+</td>
+<td>
+<p>Aufträge</p>
+</td>
+<td>
+<p>Es existiert keine Zahlungsweise mit dem angegebenen Namen.</p>
+</td>
+<td>
+<p>Zahlungsweise mit angegebenem Namen in Xentral anlegen. Achte darauf, dass die Bezeichnungen exakt übereinstimmen (Groß-/Kleinschreibung, Leerzeichen beachten!).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Es konnte kein Kunde (anhand der E-Mail oder anhand von Name und Adresse) gefunden werden.</p>
+</td>
+<td>
+<p>Aufträge</p>
+</td>
+<td>
+<p>Es existiert kein Kunde mit der angegebenen E-Mail Adresse oder mit dem angegebenen Namen und Adresse.</p>
+</td>
+<td>
+<p>Kunde mit angegebenen Daten in Xentral anlegen. Es muss nur entweder die E-Mail Adresse oder der Name und die Adresse gleich sein.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Brutto Preis für Artikel mit Artikelnummer "XXX" ist größer als Netto Preis.</p>
+</td>
+<td>
+<p>Aufträge</p>
+</td>
+<td>
+<p>Bruttopreise enthalten den Nettopreis inkl. Steuern, entsprechend ist der Bruttopreis immer gleich oder größer als der Nettopreis.</p>
+</td>
+<td>
+<p>Überprüfe die Daten in deiner CSV-Datei und stelle sicher, dass die Preise korrekt sind.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Negative Steuer für Artikel mit Artikelnummer "XXX".</p>
+</td>
+<td>
+<p>Aufträge</p>
+</td>
+<td>
+<p>Der Steuerbetrag von Artikelpreisen ist immer eine positive Zahl.</p>
+</td>
+<td>
+<p>Überprüfe die Daten in deiner CSV-Datei und stelle sicher, dass die Steuersätze / Steuerbeträge korrekt sind.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Preis für Artikel mit Artikelnummer "XXX" fehlt.</p>
+</td>
+<td>
+<p>Aufträge</p>
+</td>
+<td>
+<p>Es ist kein Preis für den angegebenen Artikel gepflegt. Dies ist jedoch notwendig, um einen Auftrag in Xentral anzulegen.</p>
+</td>
+<td>
+<p>Überprüfe die Daten in deiner CSV-Datei und stelle sicher, dass du Preise für alle deine Artikelpositionen gepflegt hast.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Dazu gibt es bisher keine direkte Funktion in xentral, es ist allerdings als Workaround möglich. Du kannst für einen Artikel A über ein Freifeld den Nachfolgeartikel Artikel A Neu angeben. Dieser wird dann bei Netstock entsprechend ausgewertet.

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webhooks erstellen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 7317606468636
+    Titel: Webhooks erstellen
+    URL: https://help.xentral.com/hc/de/articles/7317606468636-Webhooks-erstellen
+    Erstellt: 2023-01-13T10:33:38Z
+    Aktualisiert: 2025-08-14T08:19:13Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 360004524139
+    Export-Zeitpunkt: 2025-11-16 19:08:08
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Das Webhooks-Feature ist ab Version 23.2.3 für alle Nutzer verfügbar.</p>
+<p>Da sich das Feature momentan in der Beta-Phase befindet, beobachten wir es genau und möchten sicherstellen, dass alle Events korrekt ausgelöst werden. Sind dir Probleme aufgefallen? Dann kontaktiere uns unter: api[at]xentral.com.</p>
+</div>
+<p>Ein Webhook erlaubt es dir, Informationen über Ereignisse in <span class="phrase">Xentral</span>, sogenannte Events, in einem externen System zu empfangen. Du kannst zum Beispiel eine Benachrichtigung in deiner Anwendung erhalten, sobald ein neuer Auftrag erstellt wird. Diese Information wird über eine HTTP POST-Anfrage an dein externes System gesendet.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Zusätzliche technische Informationen zu Webhooks und möglichen Events findest du in der <a class="link" href="https://developer.xentral.com/page/webhooks" target="_blank" rel="noopener">Entwicklerdokumentation</a>.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-e6dfd137-3fb0-9f95-4c83-a4235e2f6dea" id="UUID-e6dfd137-3fb0-9f95-4c83-a4235e2f6dea_section-idm4683686617040033468663009802"></a>Webhooks erstellen</h2>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Das Erstellen von Webhooks erfordert Administrator-Rechte.</p>
+</div>
+<p>Gehe wie folgt vor, um einen Webhook zu erstellen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zu <span class="guilabel"><span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/7952128515356" style="" alt="createbookmark_x21.png"></span> Einstellungen &gt; Integrationen &gt; Webhooks</span>. Eine Liste aller aktiv verwendeten Webhooks wird angezeigt.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">+ Webhook erstellen</span>. Sind keine Webhooks aktiv, findest du die Schaltfläche in der Mitte des Bildschirms. Ansonsten findest du sie auf der rechten Seite über deiner Liste.</p>
+</li>
+<li class="step">
+<p>Gib einen eindeutigen <span class="guilabel">Namen</span> für deinen Webhook ein. Der Name darf aus maximal 100 Zeichen bestehen.</p>
+</li>
+<li class="step">
+<p>Gib den <span class="guilabel">URL</span>-Endpunkt ein, der Informationen vom Webhook erhalten soll. Es sind nur sichere https-URLs erlaubt. Die URL darf aus maximal 255 Zeichen bestehen.</p>
+</li>
+<li class="step">
+<p>Achte auf den <span class="guilabel">Signaturschlüssel</span>. Er wird in deine Zwischenablage kopiert, sobald du die Erstellung des Webhooks abgeschlossen hast. Dieses Feld wird automatisch mit einer zufälligen 20-stelligen Zeichenfolge gefüllt, welche als Signaturschlüssel dient. Wenn du möchtest, kannst du ihn mit einer eigenen Zeichenfolge von 20 bis 255 Zeichen überschreiben oder den Schlüssel selbst in die Zwischenablage kopieren, indem du auf <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/7952128544668" style="" alt="x21_preview_icon.png"></span> im Feld <span class="guilabel">Signaturschlüssel</span> klickst und die Zeichenfolge kopierst.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Der Signaturschlüssel erlaubt es dem empfangenden System sicherzustellen, dass die Information auch wirklich von <span class="phrase">Xentral</span> ausgeht. Zeige den Schlüssel nicht öffentlich und baue ihn nicht in deinen Quellcode ein.</p>
+<p>Mithilfe des Signaturschlüssels kannst du auch manuell die Signatur deines Webhooks überprüfen. Informationen hierzu findest du im verlinkten Abschnitt: <a class="xref" href="#UUID-e6dfd137-3fb0-9f95-4c83-a4235e2f6dea_section-idm4590229783812834339853733483" title="Signatur des Webhooks überprüfen">Signatur des Webhooks überprüfen</a>.</p>
+</div>
+</li>
+<li class="step">
+<p>Wähle ein <span class="guilabel">Event</span> aus. Du kannst bei Bedarf auch mehrere Events auswählen. Der Webhook sendet immer dann Informationen an den Endpunkt, sobald eines der Events eintritt.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Erstellen</span>. Der Signaturschlüssel wird in die Zwischenablage kopiert und erscheint ein letztes Mal auf dem Bildschirm. Klicke auf  <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/7952128566428" style="" alt="CopyIcon.png"></span>, um sicher zu stellen, dass der Schlüssel kopiert wurde.</p>
+</li>
+<li class="step">
+<p>Schließe das Fenster.</p>
+</li>
+</ol>
+</div>
+<p>Dein neuer Webhook wird in der Liste der aktiven Webhooks angezeigt. In der Übersicht kannst du die URL-Endpunkte und zugehörigen Events deiner Webhooks schnell erkennen</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-e6dfd137-3fb0-9f95-4c83-a4235e2f6dea" id="UUID-e6dfd137-3fb0-9f95-4c83-a4235e2f6dea_section-idm4642139200576033470566882327"></a>Webhooks bearbeiten und löschen</h2>
+</div>
+<p>Alle Webhooks sind unter <span class="guilabel"><span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/7952128515356" style="" alt="createbookmark_x21.png"></span> Einstellungen &gt; Integrationen &gt; Webhooks</span> gelistet. Wenn du auf <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/7952128603676" style="" alt="PenIcon.png"></span> <span class="guilabel">Bearbeiten</span> klickst, hast du zwei Optionen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Einstellungen bearbeiten - Du kannst den Namen, URL-Endpunkt und Signaturschlüssel ändern sowie Events zum Webhook hinzufügen oder entfernen. Falls du den Signaturschlüssel änderst, musst du ihn auch in deiner externen Anwendung anpassen.</p>
+</li>
+<li class="listitem">
+<p>Webhook löschen - Klicke auf <span class="guilabel">Webhook löschen</span> unterhalb der Liste von Events und bestätige die Löschung. Das externe System wird nun keine neuen Informationen mehr über Events in <span class="phrase">Xentral</span> erhalten.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-e6dfd137-3fb0-9f95-4c83-a4235e2f6dea" id="UUID-e6dfd137-3fb0-9f95-4c83-a4235e2f6dea_section-idm4590229783812834339853733483"></a>Signatur des Webhooks überprüfen</h2>
+</div>
+<p>Der Header des HTTP-Requests des Webhooks besteht aus der <code class="code">xentral-signature</code> und dem <code class="code">xentral-request-timestamp</code>.</p>
+<p>Die <code class="code">xentral-signature</code> kannst du wie folgt überprüfen:</p>
+<div class="procedure">
+<a id="UUID-e6dfd137-3fb0-9f95-4c83-a4235e2f6dea_procedure-idm461802849131523433986831293"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Bilde die Nachricht aus dem <code class="code">RequestBody</code> und dem <code class="code">xentral-request-timestamp</code>. Hierzu gibst du den <code class="code">RequestBody</code> ein und fügst diesem den <code class="code">xentral-request-timestamp</code> ohne Leerzeichen oder ähnliches direkt an.</p>
+</li>
+<li class="step">
+<p>Generiere einen <code class="code">HMAC</code> aus der Nachricht und dem <span class="guilabel">Signaturschlüssel</span> mithilfe einer <code class="code">SHA-256</code> Hashfunktion. Der <span class="guilabel">Signaturschlüssel</span> dient hierbei als <code class="code">Secret Key</code>.</p>
+</li>
+<li class="step">
+<p>Vergleiche den hexadezimalen Output des HMAC mit der <code class="code">xentral-signature</code> im Header des HTTP-Requests. Diese sollten identisch sein.</p>
+</li>
+</ol>
+</div>
+<p>Wir können dies an einem Beispiel mit den folgenden Werten nachvollziehen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><code class="code">RequestBody</code>: <span class="emphasis"><em>{"type":"com.xentral.salesOrder.protocolCreated.v1","body":{"createdAt":"2024-05-28T17:30:07+02:00","salesOrderId":169,"salesOrderProtocolId":586}}</em></span></p>
+</li>
+<li class="listitem">
+<p><code class="code">xentral-request-timestamp</code>: <span class="emphasis"><em>1716910210</em></span></p>
+</li>
+<li class="listitem">
+<p><code class="code">Secret Key</code>: <span class="emphasis"><em>e4nRJ04Ss2m3EkQxn19V</em></span></p>
+</li>
+</ul>
+</div>
+<p>Dies führt zur folgenden Nachricht:</p>
+<p>Nachricht: <span class="emphasis"><em>{"type":"com.xentral.salesOrder.protocolCreated.v1","body":{"createdAt":"2024-05-28T17:30:07+02:00","salesOrderId":169,"salesOrderProtocolId":586}}1716910210</em></span></p>
+<p>Nachricht und <code class="code">Secret Key</code> ergeben die folgende <code class="code">xentral-signature</code> im Hexadezimal-Code bei Benutzung eines <code class="code">HMAC</code> mit <code class="code">SHA-256</code>: <span class="emphasis"><em>67b9db5fbe8add6c5b073f42091f593e994de32c83741573015442c154214bcf</em></span>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

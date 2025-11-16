@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klarna (Geschäftskonto)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016721160
+    Titel: Klarna (Geschäftskonto)
+    URL: https://help.xentral.com/hc/de/articles/360016721160-Klarna-Gesch%C3%A4ftskonto
+    Erstellt: 2020-09-28T12:02:42Z
+    Aktualisiert: 2024-08-29T13:41:21Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415729714460
+    Export-Zeitpunkt: 2025-11-16 19:06:41
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Der Zahlungsanbieter Klarna steht in verschiedenen Shops und Marktplätzen als Zahlungsweise zur Verfügung und kann für Verkäufer das Erstellen der Rechnung übernehmen. Neben der häufigen Zahlungsweise Klarna Rechnung gibt es auch Klarna Vorkasse für Vorkasse-Bestellungen.</p>
+<p>Mit dem Modul Klarna im Xentral AppStore können Sie eine direkte Anbindung an Klarna vornehmen. Damit ist es möglich, die Trackingnummer des Auftrags als Auslieferbestätigung über die API an Klarna zu übertragen, sobald der Auftrag in Xentral versendet wird. Klarna wird dann die Zahlung vom Kunden einfordern.</p>
+<p>Alternativ können Sie Klarna auch als Zahlungsweise anlegen, ohne Ihren Account anzubinden. Dann muss man manuell vorgehen, d.h. den Status der Aufträge in Klarna manuell als 'verschickt' markieren und in Klarna ggf. die Trackingnummer hinterlegen. Für manche Shops gibt es Plugins, die die Kommunikation an Klarna vollständig übernehmen. Dann muss eine Anbindung in Xentral nicht mehr vorgenommen werden.</p>
+<p>Zusätzlich kann Klarna als Geschäftskonto angebunden werden, um die Zahlungen per Live-Import zu importieren.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb" id="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb_id_360016721160_id_h_01EZF8CZ3DSAJ8STSXV7HP6AGN"></a>Klarna als Zahlungsweise anbinden</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb" id="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb_id_360016721160_id_toc-1"></a>Credentials eintragen</h3>
+</div>
+<p>Um Klarna direkt per API anzubinden, müssen die Zugangsdaten (Credentials) im System hinterlegt werden. Unter Administration → Einstellungen → Zahlungsweisen können Sie über den Button +NEU eine weitere Zahlungsweise in Xentral definieren. Als Modul muss dabei Klarna gewählt werden.</p>
+<p>Im Anschluss können Sie die Zahlungsweise aktiv setzen und Ihre Klarna-Accountdaten hinterlegen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492829149084" style="" alt="Klarna1.png"></div>
+<p>Benötigt wird der <span class="bold"><strong>Benutzername/Username</strong></span> (ehemals Merchant-ID) und das <span class="bold"><strong>Passwort</strong></span> (ehemals Shared Secret), welche du beide in deinem Klarna-Account findest. Benutzername und Passwort dienen für Anbindungen an Klarna als API Credentials, sie sind eine Form der Authentifizierung.</p>
+<p>Wo diese im Klarna-Backend gefunden werden, wird <a class="link" href="https://developers.klarna.com/api/#authenticationhttp://" target="_blank" rel="noopener">hier im Entwicklerportal von Klarna</a> erläutert.</p>
+<p>Bitte beachten Sie dass der Typ eindeutig sein muss, am besten kleingeschrieben klarna.</p>
+<p>In Xentral können Sie die Aufträge vorab als bezahlt markieren, damit diese nicht im Mahnwesen landen. Die Zahlungsabwicklung übernimmt Klarna.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb" id="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb_id_360016721160_id_toc-2"></a>Kontrolle der Rückmeldung</h3>
+</div>
+<p>Nachdem Sie die Daten erfolgreich hinterlegt haben, können Sie sich einen Auftrag in Xentral mit Zahlungsweise Klarna aussuchen, den Sie bis zum Versand, sprich bis zum Druck der Paketmarke und dem Erfassen der Trackingnummer, verfolgen.</p>
+<p>Sobald die Trackingnummer erfasst wurde, wird ein Request an Klarna übermittelt. Wenn dieser erfolgreich zurückgemeldet wurde, erhalten Sie im Auftrag einen Protokolleintrag zur Klarna Rückmeldung, den Sie über das Minidetail einsehen können.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb" id="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb_id_360016721160_id_toc-3"></a>Beispiel: Rückmeldung des Zahlungsstatus von Klarna</h3>
+</div>
+<p>In diesem Beispiel wird Klarna Rechnung direkt per API angebunden. Weil die Zahlungabwicklung vollständig von Klarna durchgeführt wird, werden die Aufträge in Xentral bereits vorab als bezahlt markiert.</p>
+<p>Im Autoversand erstellt Xentral für diesen Auftrag nur einen Lieferschein, da die Rechnung von Klarna gestellt und an den Kunden geschickt wird.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492845162908" style="" alt="Klarna2.png"></div>
+<p>Im Protokoll des Auftrags finden Sie die Rückmeldung von Klarna. Wurden Rechnung und Zahlungsrisiko positiv zurückgemeldet, so erhalten Sie eine solche Meldung.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492873928604" style="" alt="Klarna3.png"></div>
+<p>Sollte die Rückmeldung fehlschlagen, erhalten Sie an selber Stelle eine Fehlermeldung und können die Rechnung in Klarna von Hand prüfen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492829293084" style="" alt="Klarna4.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb" id="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb_id_360016721160_id_toc-4"></a>Stornos</h3>
+</div>
+<p>Bei Stornierungen über Klarna werden keine Einträge zurückgemeldet, und auch keine Stornos in das Rechnungsprotokoll mit aufgenommen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb" id="UUID-cdbbd77b-9f3c-5b8c-c2fe-7b68e0449bcb_id_360016721160_id_h_01EZF8CR8T97YR5FJFKT19WQKV"></a>Anbindung als Geschäftskonto</h2>
+</div>
+<p>Eine weitere Möglichkeit ist es, Klarna als Geschäftskonto anzubinden, um Zahlungen per Live-Import holen zu können. Dazu werden die API-Credentials von Klarna (API_USER, API_KEY, API_DAYS) benötigt.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Klarna kann im Live Import die Zahlungen nur alle 7 Tage abholen.</p>
+</div>
+<p>Die API-Credentials können auf der Seite von Klarna gefunden werden. Dazu wird in die Einstellungen-App im Händlerportal navigiert und dort auf "neue API-Credentials generieren" geklickt. Die neu erzeugten API-Anmeldeinformationen sollten unbedingt gespeichert werden, da diese nur einmal gesehen werden können.</p>
+<p>Das Modul "Geschäftskonten" findet sich unter Administration → Einstellungen → Buchhaltung → Geschäftskonten und zum Anlegen eines neuen Kontos wird auf "Neu" geklickt. Dort wird "Custom" ausgewählt und als Bezeichnung Klarna. Der Typ ist Konto:Klarna. Die API-Credentials werden in das Feld "Zugangsdaten" in folgender Form eingegeben:</p>
+<pre class="programlisting">API_USER=&gt;XX;
+API_KEY=&gt;XX;
+API_DAYS=&gt;X;</pre>
+<p>Zum Hinzufügen des Geschäftskontos wird nun gespeichert.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS Payone</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016724740
+    Titel: BS Payone
+    URL: https://help.xentral.com/hc/de/articles/360016724740-BS-Payone
+    Erstellt: 2020-09-28T13:02:24Z
+    Aktualisiert: 2024-08-29T13:34:47Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254236354332
+    Export-Zeitpunkt: 2025-11-16 19:09:50
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708" id="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708_id_360016724740_id_toc-0"></a>Anbindung an BS PayOne</h2>
+</div>
+<p>Mit dem Modul "Payone" können Sie die Zahlungsweise Payone anlegen und auswerten.</p>
+<p>Die Zahlungsweise holt die Rechnungsdetails von PayOne ab und erstellt den Rechnungsfreitext. Gleichzeitig meldet es die Ware als versendet. Es wird zur Zeit die "Payone" Zahlungweise "Rechnung" unterstützt.</p>
+<p>Des weiteren können Sie über die Geschäftskonten Payone im Zahlungseingang abholen.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708" id="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708_id_360016724740_id_toc-1"></a>Payone als Zahlungsweise</h3>
+</div>
+<p>Unter Administration → Einstellungen → Zahlungsweisen → NEU können Sie für PayOne eine neue Zahlungsweise anlegen.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708" id="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708_id_360016724740_id_toc-2"></a>Zahlungsweise Einstellungen</h4>
+</div>
+<p>Bei den allgemeinen Zahlungsweise Einstellungen ist es wichtig, dass unter Modul "Payone" ausgewählt wird. Alles andere können Sie wie gewünscht selber wählen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708" id="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708_id_360016724740_id_toc-3"></a>Payone Einstellungen</h3>
+</div>
+<p>Die benötigten Zugangsdaten / Einstellungen können unter https://pmi.pay1.de/ eingesehen werden. (Konfiguration → Zahlungsportale → API-Parameter / Konfiguration → Accounts), benötigt werden: Feld in XentralFeld in PayoneMerchant IDLogin: Account IDAccount IDConfiguration -&gt; Accounts IDPortal IDZahlungsportale: IDPayment Portal KeyKonfiguration -&gt; Zahlungsportale -&gt; editieren -&gt; Erweitert: Key</p>
+<p>Das Hash-Verfahren zur Authentifizierung kann sich seitens PayOne ändern. Deshalb kann das verwendete Verfahren in den Einstellungen von 'MD5' (aktuell unterstützt) auf 'SHA 384' geändert werden. Das genutzte Verfahren finden Sie unter Konfiguration → Zahlungsportale → editieren → Erweitert: Verfahren Hashwert-Prüfung.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5033318683292" style="" alt="Payone1.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708" id="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708_id_360016724740_id_toc-4"></a>Payone Einstellungen im Shopmodul</h3>
+</div>
+<p>Im Shopmodul muss die "Autorisierung" auf "Vorautorisierung" gestellt werden.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5033349837980" style="" alt="Payone2.png"></div>
+<p>Weitere Informationen findest du in der <a class="link" href="https://docs.payone.com/display/public/INT/Integrationsanleitung+WooCommerce" target="_blank" rel="noopener">Integrationsanleitung mit WooCommerce Shop</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708" id="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708_id_360016724740_id_toc-5"></a>PayOne als Geschäftskonto</h3>
+</div>
+<p>Administration → Einstellungen → Buchhaltung → Geschäftskonten</p>
+<p>Es gibt auch die Möglichkeit PayOne als Geschäftskonto anzulegen.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Für die Anbindung ist das Einrichten eines FTP Servers notwendig. Dieser ist allerdings selbst einzurichten. xentral bietet nur die Möglichkeit, einen solchen FTP Server abzuholen, kann aber keinen FTP Server für jeden Kunden stellen bzw. warten. Online gibt es einige Anbieter, die einen derartigen FTP Server zum Anmieten bereitstellen. Wenn ein solcher vorhanden ist, können die Zugänge an Payone übermittelt und in der Payone Schnittstelle in xentral eingetragen werden. Dieses Prozedere ist ausreichend, um die Anbindung erfolgreich abzuschließen.</p>
+</div>
+<p>Die Anbindung des Geschäftskontos ist vor allem dann sinnvoll, wenn im Payone-Modul die Option "Behandeln wie Rechnung" eingestellt wurde.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708" id="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708_id_360016724740_id_h_01F15JBAM6Q7Y1SJEM2QE0GT13"></a>Voraussetzungen</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Payone Report für Kunden freischalten lassen</p>
+</li>
+<li class="listitem">
+<p>Report wird bei Payone via FTP auf Server oder lokal abgelegt</p>
+</li>
+<li class="listitem">
+<p>Diese Daten müssen in Xentral regelmäßig abgeholt werden</p>
+</li>
+<li class="listitem">
+<p>Pro Live-Import wird eine Datei abgeholt und auf diese auch auf dem Server gelöscht. Falls mehrere Dateien abgeholt werden sollen, muss der Vorgang wiederholt werden, bis keine Buchungen mehr gefunden werden.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708" id="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708_id_360016724740_id_h_01F15JBFZR8MD9X7YNHV7XB4QZ"></a>Einstellungen in xentral</h4>
+</div>
+<p>Wähle als Kontoart den Punkt BS Payone.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5033340072092" style="" alt="Payone3.png"></div>
+<p>FTP Verzeichnis hinterlegen:</p>
+<p>Im Geschäftskonto unter dem Punkt Live-Import kannst diesen Zugang wie folgt eingeben:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5033340106780" style="" alt="Payone4.png"></div>
+<pre class="programlisting"><code class="code">FTP_HOST=&gt;192.165.0.21;
+</code><code class="code">FTP_USERNAME=&gt;username;
+FTP_PASSWORD=&gt;password;
+FTP_PORT=&gt;port;
+FTP_DEBUG=&gt;;
+FTP_SSL=&gt;1/0;
+FTP_SUBDIR=&gt;;
+</code></pre>
+<p>FTP_HOST=&gt; Der Server wo die FTP Datei abgelegt wird</p>
+<p>FTP_USERNAME=&gt; Benutzername vom FTP Host</p>
+<p>FTP_PASSWORD=&gt; Passwort vom FTP Host</p>
+<p>FTP_PORT=&gt; Server Port, falls Port anders als Port 21, falls leer wird Port 21 verwendet</p>
+<p>FTP_DEBUG=&gt;</p>
+<p>FTP_SSL=&gt; Mit Angabe von 1 kann man SSL aktivieren, falls leer wird SSL nicht verwendet</p>
+<p>FTP_SUBDIR=&gt; Unterverzeichnis von wo die Datei von BS Payone abgelegt wird</p>
+<p>Optional könnte man noch die Variable API_DAYS eintragen.</p>
+<pre class="programlisting"><code class="code">API_DAYS=&gt;n;
+DAYS=&gt;n;
+DAYS=&gt;n; 
+</code></pre>
+<p>API_DAYS (DAYS, TAGE)=&gt;n (mit n ist eine positive Zahl von 0 - 29 um den Zeitraum in Tagen die abgeholt werden sollen anzugeben. Standardwert ist 5)</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h5 class="title">
+<a data-zd-article="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708" id="UUID-be24d3d1-5ce6-629e-36df-1b28a9895708_id_360016724740_id_sftp-statt-ftp"></a>SFTP statt FTP</h5>
+</div>
+<p>Wenn du einen SFTP Server nutzt dann fügenoch folgende Zeile im Code drüber am Ende ein: SFTP=&gt;1;</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

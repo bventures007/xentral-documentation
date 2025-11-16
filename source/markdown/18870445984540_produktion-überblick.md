@@ -1,0 +1,17 @@
+Das Modul Produktion unterstützt dich, wenn du in deinem Unternehmen Fertigungs- oder Montageschritte durchführst und du diese im System abbilden möchtest. So kannst du z. B. ganz leicht nachvollziehen, welche Bauteile / Komponenten für welches hergestellte Produkt / Erzeugnis benötigt werden, welches Material im Rahmen der Fertigung wann gebraucht wird und wie lange einzelne Arbeitsschritte dauern. Es kann auch eingesetzt werden, wenn du Arbeitsschritte im Rahmen einer Fremdfertigung an externe Dienstleister auslagern möchtest. Im Produktionsmodul ist es außerdem möglich, verwendete und erzeugte Chargen- oder Seriennummern aufzuzeichnen.
+
+> **Anmerkung**
+>
+> Tipp: Wenn du “nur” eine bestimmte Kombination mehrerer Artikel als Set zusammenstellen und an Kunden versenden möchtest, ohne dass echte Montage- oder Fertigungsschritte stattfinden, empfehlen wir dir den schnellen Weg über dieJust-In-Time Stückliste. In diesem Fall brauchst du das Modul Produktion nicht.
+
+![Produktions-Workflow.png](https://help.xentral.com/hc/article_attachments/19368045348124)
+
+Wir haben das Handbuch für die Xentral Produktion kürzlich vollständig überarbeitet und erweitert. Du kannst dich nun über folgende Abschnitte ausführlich informieren:
+
+- [Einrichtung & Stammdaten](https://help.xentral.com/hc/de/articles/18870446011164#UUID-35a8b305-3e2a-255f-7831-4660e3d6d72f): Hier findest du alles rund um die Systemeinstellungen für die Produktion sowie Beispiele für die Anlage von Stammdaten.
+- Menüs & Funktionen: Die [Produktionsübersicht](https://help.xentral.com/hc/de/articles/18870429370140#UUID-20bfb91b-663a-e5ee-9dd1-e875d5b2cccb) und die [Produktionskarte](https://help.xentral.com/hc/de/articles/18870429387676#UUID-e0c9e80f-6be5-7a76-ac8d-996f628409e1). In diesen Artikeln geben wir dir einen Überblick über den grundsätzlichen Aufbau der Produktion in Xentral und erklären alle Details zu den Übersichten, Eingabemasken, Menüfunktionen und Aktionen der Xentral Produktion.
+- [Produktionsplanung](https://help.xentral.com/hc/de/articles/18870446128284#UUID-78e48b0c-91b7-3780-0e62-f7de4326197f): Hier bekommst du zunächst ein wenig theoretischen Hintergrund zum Thema Produktionsplanung, verschiedenen Methoden, wie make-to-order / make-to-stock oder Einzel- vs. Losfertigung. Anschließend zeigen wir dir die verschiedenen Verfahren, wie du eine Produktion in Xentral anlegen und planen kannst.
+- Im Handbuchteil zur [Produktionssteuerung](https://help.xentral.com/hc/de/articles/18870420757404#UUID-68222470-282c-fb58-d100-d91148e6f837) gehen wir auf Priorisierungsmöglichkeiten ein, zeigen die verschiedenen Vorgehensarten zur Materialentnahme und erklären ausführlich das Produktionszentrum.
+- Beim [Produktionsabschluss](https://help.xentral.com/hc/de/articles/18870451160988#UUID-29284617-b0fc-fc6e-2df7-284c68337605) werden die Optionen beim Beenden der Produktion aufgezeigt.
+- Schließlich findest du eine ausführliche Erläuterung, wie du eine [verlängerte Werkbank](https://help.xentral.com/hc/de/articles/18870429541788#UUID-46a11200-782c-e248-c999-2ec59fc42c17), also extern ausgeführte Produktionsschritte, mithilfe von Xentral steuern und verwalten kannst.
+- Mache dich hier mit den wichtigsten [FAQs](https://help.xentral.com/hc/de/articles/18870429568924#UUID-95ca8f8a-e780-c840-f2e9-54048b0b3a5c) aus dem Produktionsbereich vertraut.

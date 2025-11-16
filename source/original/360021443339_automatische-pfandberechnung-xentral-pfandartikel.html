@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatische Pfandberechnung (Xentral Pfandartikel)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360021443339
+    Titel: Automatische Pfandberechnung (Xentral Pfandartikel)
+    URL: https://help.xentral.com/hc/de/articles/360021443339-Automatische-Pfandberechnung-Xentral-Pfandartikel
+    Erstellt: 2021-04-30T13:50:21Z
+    Aktualisiert: 2024-10-30T12:07:06Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4406070938908
+    Export-Zeitpunkt: 2025-11-16 19:07:55
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Wenn du Pfand für bestimmte Artikel in deinen Aufträgen berücksichtigen musst, und du sicherstellen willst, dass nichts vergessen wird und der richtige Preis und Steuersatz angewendet wird, kannst du die Xentral Pfand Funktion verwenden.</p>
+<p>Dies gilt insbesondere für Produkte wie Behälter oder Spezialverpackungen, die ein Pfandsystem erfordern z.B. Lebensmittel in Pfand Behältern oder Spezialverpackungen für Laborgeräte, bei denen die Auflistung der Pfand-Position im Lieferschein oder Rückgabe der Verpackung gewünscht wird.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p><span class="bold"><strong>B2B Funktion</strong></span>: Die automatische Pfandberechnung ist für die B2B Auftragsabwicklung in Xentral optimiert. Wenn Pfandpositionen in Xentral hinzugefügt werden, bleiben die Preise der pfandpflichtigen Artikel unverändert. Die Pfandposition wird dem Auftrag zusätzlich hinzugefügt. So kannst du in manuell angelegten Großaufträgen, die evtl. später auch per EDI weiterverarbeitet werden, das Pfand automatisch einfügen lassen.</p>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Für Aufträge, die von einem B2C Kanal z.B. Onlineshop importiert werden, kannst du die Pfandartikel aus dem Shop bereits in Xentral übernehmen lassen. So stellst du sicher, dass für Endverbraucher mit bereits vollständig bezahlten Bestellungen der Auftragswert bereits im Shop berechnet wird und bestehen bleibt. Du benötigst in diesem Fall die Pfandfunktion in Xentral nicht.</p>
+<p><span class="bold"><strong>Voraussetzung</strong></span> für die Nutzung der Funktion ist, dass die Artikelnummer vom Shop im Xentral Standard wie ein normaler Artikel mit übernommen wird. Spezielle Artikelkonfigurationen im Shop und Abgleiche zu Drittsystemen (ausserhalb des Xentral Shop- und Marktplatz Standards) und deren Synchronisation fallen in den <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/13235039238428#UUID-546ae0b8-c716-3be9-8955-bfd2e8668830">Advanced Bereich</a>. Beachte, dass du hierfür die entsprechenden Schnittstellen oder IT-Unterstützung von deinem Partner benötigst.</p>
+<p><span class="bold"><strong>Tip für die Verwendung B2B und B2C</strong></span> (Die Xentral Pfandfunktion für manuelle Aufträge und Pfandartikel im Onlineshop): Für den Pfandartikel (Shopimport) solltest du im Artikelstamm einen separaten Artikel anlegen, der nicht in der Xentral Pfandfunktion hinterlegt ist. So stellst du sicher, dass bei der manuellen Bearbeitung von Shop-Aufträgen durch dein Team keine Pfadberechnung mehr in Xentral stattfindet.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_id_PfandartikelXentralPfandFunktionPaligoexport-AutomatischeIntegrationvonPfandartikelninAuftrge"></a>Automatische Integration von Pfandartikeln in Aufträge</h2>
+</div>
+<p>Die Pfand Funktion ermöglicht dir eine automatisierte Einbindung zusätzlicher Pfandartikel in bestehende Aufträge. Diese Funktion erkennt selbstständig, wenn ein Artikel, der einem Pfand unterliegt, zu einem Auftrag hinzugefügt wird, und fügt entsprechend die erforderlichen Pfandartikel dem Auftrag hinzu.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Diese Automatisierung optimiert deinen Workflow, reduziert manuelle Eingriffe für dich und dein Team und minimiert Fehlerquellen bei der Erfassung von Pfandartikeln.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_id_PfandartikelXentralPfandFunktionPaligoexport-KonfigurierbarePfandartikel-ZuweisungproProdukt"></a>Konfigurierbare Pfandartikel-Zuweisung pro Produkt</h2>
+</div>
+<p>Du hast die Möglichkeit, spezifische Zuordnungsregeln für Pfandartikel auf Basis einzelner Produkte zu definieren:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Du kannst festlegen, welcher Pfandartikel einem bestimmten Produkt zugeordnet ist.</p>
+</li>
+<li class="listitem">
+<p>Die Menge des Pfandartikels kann frei definiert werden und wird automatisch angepasst, basierend auf der bestellten Menge des Hauptprodukts.</p>
+</li>
+<li class="listitem">
+<p>Die Pfand Position kannst du unter dem Artikel oder alle Pfandartikel als gebündelten Block anzeigen lassen.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Beispielsweise kannst du für eine Verpackungseinheit z.B. Stückliste eines Produkts festlegen, dass automatisch eine höhere Anzahl an Pfandartikeln dem Auftrag zugebucht wird. Diese flexible Konfiguration ermöglicht eine präzise und bedarfsgerechte Abwicklung von Pfandartikeln, die sich nach den spezifischen Anforderungen des Unternehmens richtet.</p>
+</div>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Die beschriebenen Funktionalitäten zur automatischen Integration von Pfandartikeln in Aufträge sowie die konfigurierbare Pfandartikel-Zuweisung pro Produkt sind für dich automatisch in der Xentral Pro-Version enthalten.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_id_PfandartikelXentralPfandFunktionPaligoexport-WorkflowBeispiele"></a>Workflow Beispiele</h3>
+</div>
+<p>Für jeden Artikel kannst du eine spezifische Artikelnummer für den zugehörigen Pfandartikel in einem festgelegten Freifeld in der App hinterlegen. Zum Beispiel, wenn im Freifeld 39 der passende Pfandartikel eingetragen wird. Zusätzlich gibt es die Möglichkeit, in einem weiteren Freifeld (z.B. Freifeld 38) die Anzahl anzugeben, wie oft der Pfandartikel hinzugefügt werden soll – ideal, wenn du zum Beispiel eine Kiste hast und definieren möchtest, dass der Artikel sechsmal hinzugefügt wird.</p>
+<p>Es ist wichtig zu beachten, dass die Kombination aus Träger und Flaschen mit Pfand in der klassischen Getränkebranche nicht unterstützt wird.</p>
+<p>Eine neue Option in unserer Pfand-App erlaubt es dir, global einzustellen, ob das Pfand direkt unter den hinzugefügten Positionen, wie zum Beispiel bei einer Bierbank und deren Pfand, aufgelistet oder am Ende des Auftrags aufsummiert und als Liste dargestellt werden soll. Beim Einfügen wird der Name des Pfandartikels sowie der Verkaufspreis automatisch aus dem Zentralsystem übernommen, wobei auch Staffelpreise berücksichtigt werden können.</p>
+<p>Diese Funktionalitäten sind darauf ausgerichtet, die Verwaltung von Pfandartikeln in deinem ERP-System zu vereinfachen und zu automatisieren, wodurch du Zeit sparst und Fehler vermeidest.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_id_PfandartikelXentralPfandFunktionPaligoexport-IntegrationundVerwaltungvonPfandartikeln"></a>Integration und Verwaltung von Pfandartikeln</h3>
+</div>
+<p>Die Funktion '<span class="bold"><strong>Pfandartikel</strong></span>' findest du über <span class="bold"><strong>Einstellungen &gt; Lager &amp; Logistik &gt; Logistik &gt; Pfandartikel</strong></span>. Alternativ kannst du über die Smart-Suche '<span class="bold"><strong>Pfandartikel</strong></span>' eingeben.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_id_PfandartikelXentralPfandFunktionPaligoexport-Schritt1AnlegenvonPfandartikeln"></a>Schritt 1: Anlegen von Pfandartikeln</h4>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p><span class="bold"><strong>Stammdatenpflege</strong></span>: Starte mit dem Anlegen der Pfandartikel in den Stammdaten. Jeder Pfandartikel wird als echter Artikel angelegt, um eine eindeutige Identifikation und separate Einstellung der Artikeleigenschaften zu gewährleisten. Du kannst z.B. die Bezeichnung des Pfand-<span class="bold"><strong>Artikels</strong></span> allgemein halten oder spezifisch auf den zugeordneten Artikel anpassen. Auch den Steuersatz kannst du natürlich im Pfand-Artikel individuell frei wählen.</p>
+</li>
+<li class="step">
+<p><span class="bold"><strong>Pfandartikel-Kennzeichnung (Xentral Freifelder)</strong></span>: Bestimme ein Freifeld in den Artikel Einstellungen, das für die Verlinkung des Pfandartikels zu deinem Hauptartikel verwendet wird. In diesem Freifeld wird die Artikelnummer des Pfandartikels hinterlegt. Definiere ein Freifeld, das du aktuell noch nicht in Verwendung hast z.B. Freifeld 38.</p>
+</li>
+<li class="step">
+<p><span class="bold"><strong>Pfandartikel-Menge (Xentral Freifelder)</strong></span>: Bestimme ein weiteres Freifeld in den Artikel Einstellungen, das für die Menge des Pfandartikels zu deinem Hauptartikel verwendet wird. In diesem Freifeld wird die Stückzahl des Pfandartikels hinterlegt. Definiere ein Freifeld, das du aktuell noch nicht in Verwendung hast z.B. Freifeld 39.</p>
+</li>
+</ol>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:760px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/13364163931548" style="max-width: 760px;" alt="2823913603"></td>
+</tr>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_id_PfandartikelXentralPfandFunktionPaligoexport-Schritt2EinstellunginderPfandAppXentralPfandartikel"></a>Schritt 2: Einstellung in der Pfand App (= Xentral Pfandartikel)</h4>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p><span class="bold"><strong>Aktiv</strong></span>: Setze das Häkchen für <span class="bold"><strong>Aktiv</strong></span> um die Pfand-App zu aktivieren. Klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+<li class="step">
+<p><span class="bold"><strong>Pfand-Artikel Positionierung</strong></span>: Lege fest, ob die Positionierung des Pfandartikels jeweils unter deinem zugehörigen Hauptartikel oder als Block in einer Liste ausgegeben werden soll:</p>
+<p><span class="bold"><strong>Pfand immer ans Ende des Auftrags</strong></span>: Bündelt alle Pfandartikel am Ende der Positionstabelle.</p>
+<p><span class="bold"><strong>Pfandartikel nach jeder Position hinzufügen</strong></span>: Fügt jeden Pfandartikel unter den jeweils zugehörigen Hauptartikel ein.</p>
+</li>
+<li class="step">
+<p><span class="bold"><strong>Pfandartikel-Zuweisung (Xentral Feifelder)</strong></span>: Stelle die oben ausgewählten Freifelder ein und weise sie der Pfand App zu:</p>
+<p><span class="bold"><strong>Freifeld für Pfandartikel pro Artikel</strong></span>: Das Freifeld im Artikel, in das du in deinem Haupt-Artikel die Verlinkung zu deinem Pfand-Artikel eintragen kannst.</p>
+<p><span class="bold"><strong>Freifeld für Anzahl pro Pfand Artikel für Hauptartikel</strong></span>: Das Freifeld, in das du die Menge/ Stückzahl in deinem Haupt-Artikel einträgst, mit der der Pfand-Artikel im Auftrag eingefügt werden soll.</p>
+</li>
+</ol>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:760px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/13364149667356" style="max-width: 760px;" alt="image-20240403-084449.png"></td>
+</tr>
+</table>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:760px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/13364169143324" style="max-width: 760px;" alt="image-20240403-093332.png"></td>
+</tr>
+</table>
+</div>
+<p>In diesem Beispiel ist der Pfandartikel PFAND-17-1 aus Freifeld 1 dem Haupt-Artikel Schraube zugewiesen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_id_PfandartikelXentralPfandFunktionPaligoexport-Schritt3VerknpfungvonPfandartikeln"></a>Schritt 3: Verknüpfung von Pfandartikeln</h4>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p><span class="bold"><strong>Artikelverwaltung</strong></span>: Bei der Artikelanlage oder -bearbeitung kannst du einem Hauptartikel einen Pfandartikel zuweisen, indem du die Artikelnummer des Pfandartikels im zuvor definierten Freifeld einträgst.</p>
+</li>
+<li class="step">
+<p><span class="bold"><strong>Mengenangabe</strong></span>: Die Menge, wie oft ein Pfandartikel hinzugefügt werden soll (z.B. bei Verpackungseinheiten), trägst du im zweiten zuvor definierten Freifeld ein.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_id_PfandartikelXentralPfandFunktionPaligoexport-Schritt3Auftragsbearbeitung"></a>Schritt 4: Auftragsbearbeitung</h4>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p><span class="bold"><strong>Automatische Integration</strong></span>: Beim Hinzufügen eines Hauptartikels zu einem Auftrag liest das System automatisch die im Freifeld hinterlegte Artikelnummer des Pfandartikels und integriert diesen in den Auftrag.</p>
+</li>
+<li class="step">
+<p><span class="bold"><strong>Mengenanpassung</strong></span>: Die App fügt den Pfandartikel entsprechend der angegebenen Menge zum Auftrag hinzu. Bei Verpackungseinheiten wird der Pfandartikel somit in der korrekten Anzahl berücksichtigt.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_id_PfandartikelXentralPfandFunktionPaligoexport-Schritt4KonsolidierungvonPfandartikeln"></a>Schritt 5: Konsolidierung von Pfandartikeln</h4>
+</div>
+<p>Wenn weitere Hauptartikel zum Auftrag hinzugefügt werden, die denselben Pfandartikel nutzen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p><span class="bold"><strong>Mengenaktualisierung</strong></span>: Das System erhöht automatisch nur die Menge des bereits eingefügten Pfandartikels im Auftrag.</p>
+</li>
+<li class="step">
+<p><span class="bold"><strong>Vermeidung von Duplikaten</strong></span>: Es wird keine separate Position für denselben Pfandartikel angelegt. Stattdessen reflektiert die angepasste Menge im Auftrag die Gesamtzahl aller erforderlichen Pfandartikel. <span class="bold"><strong>Voraussetzung</strong></span>: die Pfand-Artikel werden am Ende des Auftrags als Block dargestellt.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_section-idm4540235759196834242920549397"></a>Alternativen - Artikel händisch einpflegen oder Pfand-Artikel in Stücklisten einfügen</h2>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_section-idm4540235696864034242926622302"></a>Pfand Artikel manuell anlegen und in einen Auftrag einfügen</h3>
+</div>
+<p>Wenn du selten Pfandartikel verwendest und nur eine einzelne Position einfügen möchtest, kannst du einen Artikel natürlich auch im Artikelstamm anlegen und als Pfandartikel benennen. Diesen Artikel fügst du manuell in einen Auftrag ein. Der Artikel wird behandelt wie ein normaler Lagerartikel oder Dienstleistungsartikel.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e" id="UUID-94c6da59-4c7c-903e-a4e7-92b7b2c5712e_section-idm4566068266803234242928839509"></a>Pfand Artikel in eine Stückliste einfügen</h3>
+</div>
+<p>Wenn ein Pfandartikel ein fester Bestandteil eines Produktes ist, kannst du den Artikel auch fest in der Stückliste hinterlegen. Dies gilt ebenso für andere Komponenten, die zu deinem Verkaufs-Set gehören.</p>
+<p><span class="bold"><strong>Beispiel für eine Just-in-time Stückliste</strong></span>:</p>
+<p>Du verkaufst Getränke in Pfandflaschen. Damit direkt Pfand mit aus dem Lager ausgebucht und zurückgegeben werden kann, musst du die Flasche wie folgt anlegen:</p>
+<p>Du legst eine Wasserflasche inkl. Pfand an und setzt folgende Einstellungen: Markierung des Artikels als JIT Stückliste, Auswahl: kein Lagerartikel</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wasserflasche: Bestandsgeführter Artikel (Markierung Lagerartikel), Bestandteil der Stückliste</p>
+</li>
+<li class="listitem">
+<p>Pfand: Bestandsgeführter Artikel (Markierung Lagerartikel), Bestandteil der Stückliste</p>
+</li>
+</ul>
+</div>
+<p>Nun kannst du in einen Auftrag den Artikel "Wasserflasche inkl. Pfand" einfügen. Wird das Pfand zurückgegeben, kannst du es entweder manuell ein buchen oder beispielsweise über die Stornofunktion in der POS Bestand einlagern.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

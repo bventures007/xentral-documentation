@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBay (Classic)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 18589763213980
+    Titel: eBay (Classic)
+    URL: https://help.xentral.com/hc/de/articles/18589763213980-eBay-Classic
+    Erstellt: 2025-02-19T17:01:41Z
+    Aktualisiert: 2025-09-10T09:18:43Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4408356112284
+    Export-Zeitpunkt: 2025-11-16 19:09:40
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Du kannst deinen eBay-Shop mit <span class="phrase">Xentral</span> verbinden und dann deine Aufträge importieren und in <span class="phrase">Xentral</span> weiter verarbeiten. Dieser Artikel bietet dir Hilfestellung bei der Einrichtung deiner eBay-Shopschnittstelle und hilft dir, die verfügbaren Einstellungen zu verstehen. Weiterhin findest du hier Beschreibungen und Erklärungen verschiedener Anwendungsfälle.</p>
+<p>Zusätzlich zur eBay-Shopschnittstelle bietet <span class="phrase">Xentral</span> auch die eBay App, die du im App Center findest.</p>
+<p>Die eBay App bietet viele verschiedene Features - von einer Übersicht aller Auktionen über Einstellungen zu Rahmenbedingungen bis hin zu Lagerinformationen. Die App kann für die Nutzung der eBay-Shopschnittstelle erforderlich sein. Mindestens bietet sie dir zusätzliche Features. Mehr Informationen zur eBay App und deren Vorteile findest du <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/18589749660316#UUID-c126d15b-0ebb-8a5b-cd0e-aa0d6d3c6fdf" title="eBay App - Übersicht und Verwaltung von Listings (Classic)">hier</a>.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEDYXZ030S1FMRHFEEHD0A"></a>Deine eBay-Shopschnittstelle einrichten</h2>
+</div>
+<p>Hier erfährst du, wie du deinen eBay-Shop an <span class="phrase">Xentral</span> anbinden kannst. Dazu müssen verschiedene Schritte ausgeführt werden:</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p><a class="xref" href="#UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm43369815705922" title="Dein eBay Developer-Konto einrichten und Keysets finden">Dein eBay Developer-Konto einrichten und Keysets finden</a> (obligatorisch)</p>
+</li>
+<li class="listitem">
+<p><a class="xref" href="#UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEECDDYDHSWPDSMYN2CMMG" title="Die Schnittstelle in Xentral einrichten">Die Schnittstelle in <span class="phrase">Xentral</span> einrichten</a> (obligatorisch)</p>
+</li>
+<li class="listitem">
+<p><a class="xref" href="#UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEEYC3KGK48XGP7WA06GM8" title="Die Einstellungen deiner Schnittstelle definieren (Unterreiter Schnittstelle)">Die Einstellungen deiner Schnittstelle definieren (Unterreiter Schnittstelle)</a></p>
+</li>
+<li class="listitem">
+<p><a class="xref" href="#UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm4537295791225633696582525906" title="Andere Einstellungen (andere Unterreiter) konfigurieren">Andere Einstellungen (andere Unterreiter) konfigurieren</a></p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm43369815705922"></a>Dein eBay Developer-Konto einrichten und Keysets finden</h3>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zur Seite des <span class="guilabel">eBay developers program</span> (<a class="link" href="https://developer.ebay.com/" target="_blank" rel="noopener">https://developer.ebay.com/</a>) und melde dich mit dem entsprechenden Developer-Konto an.</p>
+</li>
+<li class="step">
+<p>Klicke im Developer-Konto auf <span class="guilabel">Application Keys</span> und danach auf <span class="guilabel">User Tokens</span> neben der App-ID für das Produktivsystem .</p>
+</li>
+<li class="step">
+<p>Scrolle bis zum Bereich <span class="guilabel">Get a Token from eBay via Your Application</span>.</p>
+</li>
+<li class="step">
+<p>Gib eine URL an, an welche eBay den neuen Authentifizierungstoken senden kann. Kopiere dazu die URL der <span class="phrase">Xentral</span>-Installation und ersetze alles nach dem Fragezeichen mit <span class="emphasis"><em>module=ebay&amp;action=rest&amp;cmd=getToken</em></span>.</p>
+<p>Beispiel:</p>
+<pre class="programlisting">https://&lt;myxentral&gt;/index.php?module=ebay&amp;action=rest&amp;cmd=getToken</pre>
+</li>
+<li class="step">
+<p>Gib die URL in das Feld <span class="guilabel">Your auth accepted URL</span> ein. Stelle sicher, dass du hier die korrekte URL eingibst, da sonst <span class="phrase">Xentral</span> keine Token, die für die Verbindung erforderlich sind, empfangen wird.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590723444380" style="" alt="eBay-Alternative-2.png"></div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+</ol>
+</div>
+<p>Suche in deinem Developer-Konto nach folgenden Keysets:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590713460380" style="" alt="eBay-1.png"></div>
+<p>Zusätzlich zu den Keysets musst du noch den <span class="bold"><strong>RuName</strong></span> (eBay Redirect URL-Namen) suchen. Klicke dazu auf <span class="bold"><strong>User Tokens</strong></span>. Den <span class="bold"><strong>RuName</strong></span> findest du im Bereich <span class="bold"><strong>Get a Token from eBay via Your Application</strong></span>.</p>
+<p>Zur Verbindungsherstellung musst du die Keysets und den RuNamen in <span class="phrase">Xentral</span> eingeben. Dieser Prozess ist im nächsten Abschnitt beschrieben.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEECDDYDHSWPDSMYN2CMMG"></a>Die Schnittstelle in <span class="phrase">Xentral</span> einrichten</h3>
+</div>
+<p>Die Grundeinstellungen deiner eBay-Shopschnittstelle nimmst du wie folgt vor:</p>
+<div class="procedure">
+<a id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_procedure-idm4819148940464"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zu <span class="bold"><strong>Administration &gt; Shop Schnittstelle &gt; Klicke auf +NEU</strong></span>, um deine eBay-Shopschnittstelle einzurichten.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590723447196" style="" alt="eBay-3.png"></div>
+</li>
+<li class="step">
+<p>Setze ein Häkchen bei <span class="guilabel">Auftragsimport über alternative API</span>. Diese Option zu aktivieren ist extrem wichtig, da ohne sie keine Synchronisierung der Lagerzahlen zwischen <span class="phrase">Xentral</span> und eBay stattfinden kann.</p>
+</li>
+<li class="step">
+<p>Gib App ID, Dev ID, Cert ID und den RuName, den du aus deinem eBay Developer-Konto abgerufen hast, in die entsprechenden Felder im Abschnitt <span class="guilabel">Einstellungen für Shop oder Marktplatz &gt; Systemeinstellungen</span> ein.</p>
+</li>
+<li class="step">
+<p>Gib die entsprechenden Informationen in die Felder <span class="guilabel">Währung</span>, <span class="guilabel">Site</span>, <span class="guilabel">siteID</span> und <span class="guilabel">Zeitzone</span> ein.</p>
+</li>
+<li class="step">
+<a id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_N1684937515451"></a>
+<p>Klicke im Bereich <span class="guilabel">Aktion</span> auf <span class="guilabel">REST Token anfordern</span>. Du wirst zu eBay weitergeleitet.</p>
+</li>
+<li class="step">
+<p>Melde dich mit deinem Verkäufer-Konto an.</p>
+</li>
+<li class="step">
+<p>eBay bittet dich, die Authentifizierung zu bestätigen. Klicke auf <span class="guilabel">Ich stimme zu</span>. Du wirst zu <span class="phrase">Xentral</span> weitergeleitet.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern</span>. Die Verbindung über die REST API ist nun aktiviert.</p>
+</li>
+<li class="step">
+<p>Klicke im Bereich <span class="guilabel">Aktion</span> auf <span class="guilabel">Verbindung überprüfen</span>, um die Verbindung zu überprüfen.</p>
+</li>
+</ol>
+</div>
+<p>Wurde die Verbindung erfolgreich hergestellt, wird die Gültigkeit des Token in einer grauen Infobox über dem Unterreiter <span class="guilabel">Schnittstelle</span> angezeigt. Den Token selbst findest du im Feld <span class="guilabel">Token</span>.</p>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Hat der Token eine Gültigkeit von mehr als 6-7 Stunden oder wird dir ein Fehler bei der Authentifizierung angezeigt, wurde der Token nicht korrekt übertragen. Wiederhole in diesem Fall die Schritte 5 bis 9.</p>
+<p>Du kannst zusätzlich auch das Feld <span class="guilabel">Token</span> prüfen, um herauszufinden, ob der Token gültig ist. Der Token muss mit einem <span class="emphasis"><em>v</em></span> anfangen. Beginnt er mit einem <span class="emphasis"><em>A</em></span>, ist der Token nicht korrekt.</p>
+<p>Stelle sicher, dass du den Token rechtzeitig vor Ablauf erneuerst.</p>
+</div>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Änderst du das Passwort deines eBay-Kontos, musst du die Authentifizierung erneut durchlaufen, da die bestehende Authentifizierung dadurch ungültig wird.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEEYC3KGK48XGP7WA06GM8"></a>Die Einstellungen deiner Schnittstelle definieren (Unterreiter Schnittstelle)</h3>
+</div>
+<p>Dies ist das wichtigste Formular zum Einrichten deiner Shopschnittstelle.</p>
+<p>Nachfolgend findest du die wichtigsten Felder und Schaltflächen beschrieben:</p>
+<p>Bereich <span class="guilabel">Einstellungen</span>:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Bezeichnung</strong></span>: Bei Erstellung der Schnittstelle wird automatisch eine Bezeichnung angelegt. Du kannst jedoch auch eine eigene Bezeichnung wählen. Die Bezeichnung wird z.B. im Artikel oder Importmenü angezeigt.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Aktiv</strong></span>: Setze hier ein Häkchen, um die Schnittstelle zu aktivieren. Du kannst das Häkchen auch wieder entfernen, um die Schnittstelle zu deaktivieren.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Projekt</strong></span>: Möchtest du deinen eBay-Shop einem Projekt zuweisen, kannst du hier das passende Projekt auswählen. Im Projekt kannst du z.B. Logistikeinstellungen vornehmen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Abholmodus</strong></span>: Du kannst ab einem bestimmten Datum Aufträge von eBay abholen .</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Datum von</strong></span>: Das erste Datum, ab dem Aufträge abgeholt werden. Das Feld aktualisiert sich automatisch, sobald die Funktion Aufträge abholen genutzt wird.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Import-Modus</strong></span>: Wähle den Import-Modus, der auf den Import angewendet wird. Du kannst aus den folgenden Optionen wählen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle;">
+<li class="listitem">
+<p><span class="guilabel">Demo (zum Testen)</span>: Der Auftragsstatus im Shop wird nicht umgestellt. Es werden keine Artikel oder Lagerzahlen übertragen .</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Manuell (mit Importzentrale)</span>: Aufträge werden nur abgeholt, wenn du auf <span class="guilabel">Aufträge abholen</span> klickst.</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Automatisch (per Prozessstarter)</span>: Die Aufträge werden über den Prozessstarter in regelmäßigen Abständen automatisch vom Shop abgeholt. Weitere Informationen zu Prozessstartern und deren Einstellungen findest du <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">hier</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Nur 1 Auftrag pro Anfrage</strong></span>: Es wird nur 1 Auftrag pro Anfrage vom Shop übertragen .</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Aufträge in Zwischentabelle</strong></span>: Setze hier ein Häkchen, falls du Aufträge nicht direkt anlegen möchtest, sondern sie zuerst in einer Zwischentabelle speichern möchtest, in der du die Aufträge überprüfen kannst. In der Zwischentabelle kannst du wählen, welche Aufträge angelegt und welche später importiert werden sollen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Protokollierung im Logfile</strong></span>: Wähle ob ein Logfile erstellt werden soll. Die Nutzung eines Logfiles erleichtert es im Problemfall Fehler zu identifizieren.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Einrichtungsmodus</strong></span>: Setze hier ein Häkchen, um nur einen neuen Auftrag abzuholen. Bereits abgeholte Aufträge werden ignoriert (im Gegensatz zum Demo-Modus) .</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Verschickte Bestellungen übergehen</strong></span>: Setze hier ein Häkchen, um bereits verschickte Bestellungen beim Import zu ignorieren. Dadurch verringert sich das Risiko, dass ein Auftrag doppelt verschickt wird.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Sandbox benutzen</strong></span>: Setze hier ein Häkchen, um die Sandbox zu nutzen. Die Sandbox ist eine Testumgebung, die dir erlaubt Funktionen ohne Auswirkungen auf deine Produktionsumgebung (Live-Umgebung) zu testen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Auftragsimport über alternative API</strong></span>: Hier muss immer ein Häkchen gesetzt sein, um die Synchronisierung der Lagerzahlen zu gewährleisten. Durch diese Option wird die Nutzung der REST API aktiviert.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>eBay Name des Käufers in Auftrag übernehmen</strong></span>: Setze hier ein Häkchen, um den eBay-Namen des Kaufers in den Auftrag zu übernehmen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Rahmenbedingungen verwenden</strong></span>: Setze hier ein Häkchen, um Rahmenbedingungen zu verwenden. Rahmenbedingungen werden in der eBay App definiert. Weitere Informationen zu Rahmenbedingungen findest du <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/18589749660316#UUID-c126d15b-0ebb-8a5b-cd0e-aa0d6d3c6fdf_id_360016738940_id_h_01FAFG680EX17V4RGTQPMZEN5Y" title="Rahmenbedingungen">hier</a>.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Warnungen ausgeben</strong></span>: Setze hier ein Häkchen, um Warnungen zu Auktionen auszugeben. Warnungen sind Meldungen, die eine Auktionserstellung nicht verhindern, aber auf einen Umstand hinweisen, der überprüft und/ oder angepasst werden sollte</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Listing ohne Bestand automatisch beenden</strong></span>: Setze hier ein Häkchen, um Listings ohne Bestand automatisch zu beenden.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Beendete Listings bei neuem Bestand automatisch reaktivieren</strong></span>: Setze hier ein Häkchen, um wegen fehlendem Bestand beendete Listings automatisch wiedereinzustellen, sobald neuer Bestand vorliegt.</p>
+</li>
+</ul>
+</div>
+<p>Bereich <span class="guilabel">Aktion</span>:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Verbindung prüfen</strong></span>: Klicke hier, um die Verbindung zwischen <span class="phrase">Xentral</span> und eBay zu überprüfen. Dabei wird auch der Token überprüft und die Gültigkeit des Token in einer grauen Infobox über dem Unterreiter angezeigt.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590713466396" style="" alt="eBay-5.png"></div>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Aufträge abholen</strong></span>: Klicke hier, um Aufträge aus deinem eBay-Shop abzuholen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Shopimport Zwischentabelle</strong></span>: Klicke hier, um die Zwischentabelle mit deinen Aufträgen zu öffnen.</p>
+<p>Vorraussetzung, um die Zwischentabelle nutzen zu können: Wähle <span class="guilabel">Manuell (mit Importzentrale)</span> im <span class="guilabel">Import-Modus</span> Dropdown-Menü und setze ein Häkchen bei <span class="guilabel">Aufträge in Zwischentabelle</span>.</p>
+<p>In der linken Spalte der Zwischentabelle kannst du für jeden Auftrag aus den folgenden Optionen wählen:</p>
+<div class="informaltable table-responsive">
+<table>
+<tbody>
+<tr>
+<td>
+<p><span class="guilabel">Import</span></p>
+</td>
+<td>
+<p>Der Auftrag wird direkt importiert.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="guilabel">Müll</span></p>
+</td>
+<td>
+<p>Der Auftrag wird in den Müll verschoben und kann nicht mehr importiert werden.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="guilabel">Später</span></p>
+</td>
+<td>
+<p>Der Auftrag kann zu einem späteren Zeitpunkt importiert werden.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Zur eBay App</strong></span>: Du wirst zur eBay App weitergeleitet. Weitere Informationen zur eBay App findest du in <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/18589749660316#UUID-c126d15b-0ebb-8a5b-cd0e-aa0d6d3c6fdf" title="eBay App - Übersicht und Verwaltung von Listings (Classic)">diesem Artikel</a>.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>REST Token anfordern</strong></span>: Fordere einen neuen REST Token an. Du wirst zur Authentifizierung zu eBay weitergeleitet.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm4537295791225633696582525906"></a>Andere Einstellungen (andere Unterreiter) konfigurieren</h3>
+</div>
+<p>Informationen zu den Unterreitern <span class="guilabel">Einstellungen</span>, <span class="guilabel">Zahlweisen</span>, <span class="guilabel">Versandarten</span> und <span class="guilabel">Sprache-/Lieferland</span> findest du im Artikel <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/42450#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">Online-Shops</a>.</p>
+<p>Informationen zur Nutzung des Unterreiters <span class="guilabel">Smarty</span> findest du im Artikel <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/13979#UUID-e55a4c1d-d861-ef5d-741d-94856c3b5b50">Smarty im Shopimporter</a>.</p>
+<p>Die Funktionalitäten der Unterreiter <span class="guilabel">Subshop</span> und <span class="guilabel">Gruppenmapping</span> sind für eBay nicht verfügbar.</p>
+<p>Die Funktionalitäten des Unterreiters <span class="guilabel">Freifelder</span> sind für eBay nicht verfügbar. Es sind jedoch Freifelder für die Artikelbeschreibung verfügbar, die du über <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/18589749660316#UUID-c126d15b-0ebb-8a5b-cd0e-aa0d6d3c6fdf_id_360016738940_id_h_01FAFG5P916YYJNW74VMBY6DAZ" title="Templates">Templates</a> in der eBay App definieren kannst.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEH1P2ST32CP2QC5QQNYZV"></a>Workflows</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEHVXPP1ZTSNG333B5M6RE"></a>Lagerzahlen synchronisieren</h3>
+</div>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Stelle sicher, dass bei <span class="guilabel">Auftragsimport über alternative API</span> in der eBay-Schnittstelle ein Häkchen gesetzt ist. Dies ermöglicht die Synchronisierung der Lagerzahlen zwischen <span class="phrase">Xentral</span> und eBay. Ist hier kein Häkchen gesetzt, wird der Lagerbestand nicht synchronisiert.</p>
+</div>
+<p>Wie du die Lagerzahlen synchronisieren kannst, erfährst du <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/42450#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">hier</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEJRHEFC5SNHQA9TDB4VH1"></a>Aufträge importieren</h3>
+</div>
+<p>Tipps für den Import von Aufträgen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Ein zu früh gewählter Abholzeitpunkt bei einer sehr großen Menge an Aufträgen kann dazu führen, dass der Abholvorgang scheitert, da das Skript die serverseitige Timeoutgrenze erreicht und abgebrochen wird. In der Praxis kann sich das dadurch äußern, dass nach mehrminütiger Suche kein Auftrag zurückgemeldet wird .</p>
+</li>
+<li class="listitem">
+<p>Beim Abholen über den Demo-Modus wird maximal ein Auftrag abgeholt und die Abholzeit wird nicht geändert .</p>
+</li>
+<li class="listitem">
+<p>Der maximale Zeitraum für das Abholen von Aufträgen ist auf Seite von eBay auf 30 Tage begrenzt. Als Konsequenz daraus kann ein zu früh gesetztes Abholdatum, oder ein längerer Zeitraum ohne Bestellungen dazu führen, dass der Importer in ein Bottleneck gerät und keine neueren Aufträge abholen kann selbst wenn diese vorhanden sind. In einem solchen Fall musst du das Abholdatum manuell ändern .</p>
+</li>
+</ul>
+</div>
+<p>Das Importieren von Aufträgen aus Online Shops wird <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/42450#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">in diesem Artikel</a> beschrieben.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die Telefonnummer eines Endkunden <span class="bold"><strong>muss</strong></span> unbedingt im Shopauftrag eingetragen bzw. vom Endkunden angegeben sein, wenn die Lieferung eine Exportlieferung, d.h. eine Lieferung ins (Nicht)-EU-Ausland ist. Die Nummer wird beim Auftragsimport von eBay nach <span class="phrase">Xentral</span> mit übertragen und ist dann in <span class="phrase">Xentral</span> eindeutig einsehbar.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEM6MZVCYGFCAP0T2DV0CZ"></a>eBay-Einstellungen im Artikel definieren</h3>
+</div>
+<p><span class="bold"><strong>Stammdaten &gt; Artikel &gt; Artikel auswählen &gt; Reiter Details &gt; Unterreiter Online-Shop Optionen</strong></span></p>
+<p>Ist ein Artikel mit eBay verknüpft, findest du das <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590723449116" style="" alt="Gear_onlineshopoptions.png"></span>-Symbol in der Spalte <span class="guilabel">Menü</span>. Klicke darauf, um das Formular <span class="guilabel">Ebay Einstellungen</span> zu öffnen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590723449756" style="" alt="eBay-12.png"></div>
+<p>Die <span class="guilabel">Primärkategorie</span> wird benötigt, um den Artikel in die jeweilige eBay Kategorie einzuteilen. Listest du den Artikel zum ersten Mal, wählst du eine Primärkategorie, indem du auf <span class="guilabel">Suchen</span> klickst.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590723451548" style="" alt="eBay-13.png"></div>
+<p>Es werden Kategorievorschläge angezeigt, die auf den Standardkategorien in <span class="phrase">Xentral</span> basieren. Falls keine Vorschläge gefunden werden oder die angezeigten Kategorien nicht zutreffen, kannst du die <span class="guilabel">Suche</span> im Bereich <span class="guilabel">Manuelle Kategoriesuche</span> nutzen, um nach einer passenden Kategorie zu suchen. Du kannst sowohl nach der Beschreibung als auch nach der Kategorien-ID suchen.</p>
+<p>Nach Auswahl der korrekten Kategorie, werden die kategoriespezifischen Parameter angezeigt. Die kategoriespezifischen Parameter enthalten die am häufigsten ausgewählten Eigenschaften anderer Artikel in dieser Kategorie. Eigenschaften sind z.B. Größe, Modell-Reihe, Farbe, Volumen, etc. Es können auch weitere Informationen angezeigt werden.</p>
+<p>Überprüfe bei eBay die maximale Anzahl an Zeichen, die pro Feld erlaubt sind. Gibst du mehr Zeichen als erlaubt ein, wird bei eBay keine Fehlermeldung angezeigt. Für dieses Listing wird jedoch keine Synchronisierung der Lagerzahlen durchgeführt.</p>
+<p>Informationen zu <span class="guilabel">Zahlung</span>, <span class="guilabel">Versand</span> und <span class="guilabel">Rückgabe</span> werden in den Einstellungen der eBay-Schnittstelle festgelegt. Hier kannst du Zahlweisen und Versandarten deaktivieren, die du nicht nutzt.</p>
+<p>Das Dropdown-Menü <span class="guilabel">Template</span> zeigt alle aktiven Templates an.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590713471772" style="" alt="eBay-17.png"></div>
+<p>Du kannst Templates in der <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/18589749660316#UUID-c126d15b-0ebb-8a5b-cd0e-aa0d6d3c6fdf" title="eBay App - Übersicht und Verwaltung von Listings (Classic)">eBay App</a> anlegen. Wählst du kein Template, wird der Standardtext für den Onlineshop des Artikels als Artikelbeschreibung übertragen. Wird ein Template deaktiviert oder gelöscht, welches von einem Artikel verwendet wurde, wechselt die Anzeige im <span class="guilabel">Template</span>-Menü zu <span class="guilabel">Kein Template</span> und es wird der Standardtext verwendet. Hast du ein Template deaktiviert und aktivierst es erneut, so wird das Template wieder dem Artikel zugewiesen.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Zusätzliche Optionen wie Galeriebilder Plus oder Privatlisting lassen zusätzliche Kosten entstehen.</p>
+</div>
+<p>Um einen Artikel zu listen, ist mindestens ein Bild notwendig. Die Bilder, die für das Listing zur Auswahl gestellt werden, setzen sich aus den Dateien des jeweiligen Artikels zusammen. Du kannst bis zu zwölf Bilder einstellen, danach entstehen zusätzliche Kosten. Die Bilder werden dabei zu eBays eigenem Picture Hosting Service hochgeladen und dort so lange vorgehalten, solange die Auktion dauert. Zusätzlich gibt es eine Pufferzeit von 30 Tagen.</p>
+<p>Sollte ein Bild die erforderlichen Parameter nicht erfüllen, erscheint ein Hinweis und der Artikelexport schlägt fehl.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590723452956" style="" alt="eBay-19.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEMJ3M9VBDC78K3P79SWAB"></a>Fremdnummern im Artikel pflegen</h3>
+</div>
+<p>Über die eBay Listing ID bzw. die SKU ist eine eindeutige Zuordnung von Artikeln möglich.</p>
+<p>Um Lagerartikel von eBay in <span class="phrase">Xentral</span> korrekt zu mappen, muss entweder die eBay Listing ID mit der Artikelnummer in <span class="phrase">Xentral</span> übereinstimmen oder du musst diese als Fremdnummer im Artikel hinterlegen. Navigiere dafür zu <span class="guilabel">Stammdaten &gt; Artikel &gt; Artikel auswählen &gt; Reiter Fremdnummern</span> und legst die Nummer mit der Bezeichnung <span class="emphasis"><em>eBayListing</em></span> an.</p>
+<p>Die ebay Listing ID findest du in der <a class="link linktype-fork" href="https://help.xentral.com/hc/de/articles/18589749660316#UUID-c126d15b-0ebb-8a5b-cd0e-aa0d6d3c6fdf" title="eBay App - Übersicht und Verwaltung von Listings (Classic)" target="_blank">eBay App</a> oder in der URL des auf eBay gelisteten Artikels.</p>
+<p>Wenn du mehrere Varianten eines Artikels hast, so muss du zu jedem Variantenartikel in <span class="phrase">Xentral</span> die passende Bestandeinheit (SKU) als Fremdnummer eintragen. Im Parentartikel (dieser hat keine SKU) trägst du weiterhin die eBay Listing ID ein. Wenn die SKU der Artikelnummer in <span class="phrase">Xentral</span> entspricht, musst du nichts weiter eintragen. Es ist wichtig, dass du in jedem Variantenartikel die Shopverknüpfung zu eBay gesetzt hast.</p>
+<p>Beachte bei eBay, dass du immer die korrekte Bezeichnung beim Eintragen von Fremdnummern verwendest. Diese ist für eBay Bestandseinheiten <span class="emphasis"><em>SKU</em></span> oder <span class="emphasis"><em>Bestandseinheit</em></span>. Für die eBay Artikelnummer ist es <span class="emphasis"><em>eBayListing</em></span>.</p>
+<p>Nachdem du die Nummern korrekt eingetragen hast, kannst du in der eBay App über die Schaltfläche <span class="bold"><strong>Automatisch zuordnen</strong></span> die Artikel mappen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEP0HPSJJ7HXE6X2BY6XV9"></a>Artikel zuordnen</h3>
+</div>
+<p>Damit Artikel automatisch eBay Listings zugeordnet werden können und die richtigen Artikel in Aufträgen verknüpft werden, ist eine Zuordnung der Artikel zum entsprechenden Listing notwendig. Diese Zuordnung nimmst du in der <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/18589749660316#UUID-c126d15b-0ebb-8a5b-cd0e-aa0d6d3c6fdf" title="eBay App - Übersicht und Verwaltung von Listings (Classic)">eBay App</a> vor.</p>
+<p>Die Zuordnung kannst du entweder manuell im jeweiligen Listing oder automatisch vornehmen. Damit die automatische Zuordnung funktioniert, muss eine der folgenden Bedingungen erfüllt sein:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Im <span class="phrase">Xentral</span> Artikel hast du eine Fremdnummer gepflegt, deren Wert mit der eBay Listing ID (eBay Artikelnummer) identisch ist (die Fremdnummer muss die Bezeichnung <span class="emphasis"><em>eBayListing</em></span> haben)</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590713472668" style="" alt="eBay-24.png"></div>
+</li>
+<li class="step">
+<p>Im eBay Listing hast du die SKU/ Bestandseinheit gepflegt und idealerweise ist diese identisch mit der Artikelnummer eines Artikels in <span class="phrase">Xentral</span>. Ist die eBay Bestandseinheit nicht gleich der <span class="phrase">Xentral</span> Artikelnummer, so musst du diese als Fremdnummer im entsprechenden Artikel pflegen. Die Fremdnummer muss die Bezeichnung <span class="emphasis"><em>SKU</em></span>, oder <span class="emphasis"><em>Bestandseinheit</em></span> haben)</p>
+</li>
+</ol>
+</div>
+<p>Weitere Informationen findest du im folgenden Artikel: <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016758199#UUID-be6a2725-3071-98cf-ad2e-1a9016c503cc">Artikel aus Fremdsystemen in Xentral zuordnen - Artikel Fremdnummern</a>.</p>
+<p>Die Bedingungen sind in absteigender Priorität angeordnet. Das bedeutet, wenn ein Artikel die eBay Listing ID als Fremdnummer hinterlegt hat, dann wird dieser Artikel als Treffer herangezogen, auch wenn ein anderer Artikel die passende Artikelnummer zur Bestandseinheit des Listings hätte.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEPAJXRA7272FMMGVN2DWN"></a>Sonderfall: Varianten zuordnen</h4>
+</div>
+<p>Für Varianten gibt es eine Sonderregelung. Im ersten Schritt musst du den Hauptartikel des Staging Listings (des Listings wie es in <span class="phrase">Xentral</span> existiert) einem Artikel zuweisen. Diese Zuordnung kann manuell oder automatisiert (nach den oberen Regeln) erfolgen.</p>
+<p>Wenn du den Hauptartikel des Staging Listings einem <span class="phrase">Xentral</span> Artikel zugewiesen hast, dann kannst du die einzelnen Varianten zuordnen, wenn eine der folgenden Bedingungen zutrifft:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Im eBay Listing ist die <span class="emphasis"><em>Bestandseinheit</em></span> bei der Variante gepflegt und identisch mit der Artikelnummer eines Artikels in <span class="phrase">Xentral</span></p>
+</li>
+<li class="step">
+<p>Im eBay Listing ist die <span class="emphasis"><em>Bestandseinheit</em></span> gepflegt und identisch mit einer Fremdnummer eines Artikels in <span class="phrase">Xentral</span> (die Fremdnummer muss die Bezeichnung <span class="emphasis"><em>SKU</em></span>, oder <span class="emphasis"><em>Bestandseinheit</em></span> haben)</p>
+</li>
+<li class="step">
+<p>Wenn der Hauptartikel des Staging Listings ein Matrixartikel ist und die Matrixeigenschaften und Optionen identisch mit denen in eBay sind</p>
+</li>
+</ol>
+</div>
+<p>Die Bedingungen sind wieder in absteigender Priorität angeordnet. Für die Bedingungen 1. und 2. spielt es keine Rolle, ob der Hauptartikel des Staging Listings auch ein Hauptartikel des gefundenen <span class="phrase">Xentral</span> Artikels ist.</p>
+<p>Wenn ein Listing keine Zuordnung hat, dann wird dafür (theoretisch) ein Bestand von 0 übertragen. Da das Listing aber keine Artikel hat, wird nie ein Lagersync angestoßen. Bei einem Listing mit Varianten, bei dem einzelne Varianten keine Zuordnung haben, wird für die fehlenden Varianten keine Bestandsübertragung veranlasst.</p>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Stelle sicher, dass du bei der Nutzung von Pseudo-Lagerzahlen keine negativen Lagerbestände überträgst, da diese nicht von eBay akzeptiert werden.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEK2TTTGVZQ0GM5A8C78AV"></a>Sonderfälle / Sonstige Informationen</h2>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEKC4X20R0F545Q9523942"></a>eBay Token erneuern</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEKC4X20R0F545Q9523942_body">
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590713473692" style="" alt="eBay-8.png"></div>
+<p>Aus Sicherheitsgründen ist der eBay Token nur 7 Stunden gültig und sollte daher rechtzeitig vor Ablauf verlängert werden. Am besten legst du dir einen Erinnerungstermin kurz vor Ablauf des Tokens an. Gehe wie folgt vor:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Lösche den vorhandenen eBay Token .</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590723459228" style="" alt="eBay-9.png"></div>
+</li>
+<li class="step">
+<p>Speichere die geänderten Einstellungen .</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Verbindung prüfen</strong></span> .</p>
+</li>
+<li class="step">
+<p>In dem sich öffnenden Dialog (ggf. musst du den PopUp Blocker deaktivieren), verbindest du erneut eBay mit <span class="phrase">Xentral</span>.</p>
+</li>
+<li class="step">
+<p>Klicke im Bereich <span class="guilabel">Aktion</span> auf <span class="guilabel">REST Token anfordern</span>. Du wirst zu eBay weitergeleitet.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Token darf ausschließlich im Bereich <span class="guilabel">Aktion</span> angefordert werden. Sollte oben ein Link zur Erneuerung des Token auftauchen, ignoriere ihn bitte.</p>
+</div>
+</li>
+<li class="step">
+<p>Melde dich mit deinem Verkäufer-Konto an.</p>
+</li>
+<li class="step">
+<p>eBay bittet dich, die Authentifizierung zu bestätigen. Klicke auf <span class="guilabel">Ich stimme zu</span>. Du wirst zu <span class="phrase">Xentral</span> weitergeleitet.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern</span>. Die Verbindung über die REST API ist nun aktiviert.</p>
+</li>
+<li class="step">
+<p>Klicke im Bereich <span class="guilabel">Aktion</span> auf <span class="guilabel">Verbindung überprüfen</span>, um die Verbindung zu überprüfen.</p>
+</li>
+</ol>
+</div>
+<p>Solltest du immer noch Probleme mit deinem Token haben, könnte es ein Problem mit der Authentifizierungs-URL in deinem eBay Developer-Konto geben. Stelle sicher, dass das Feld <span class="guilabel">Your auth accepted URL</span> folgendermaßen gefüllt ist:</p>
+<p>https://&lt;meinxentral&gt;/index.php?module=ebay&amp;amp;action=rest&amp;amp;cmd=getToken, wobei &lt;meinxentral&gt; mit der URL deiner <span class="phrase">Xentral</span>-Instanz ersetzt wird.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEKMFV2TNS4VGG2SD7JM37"></a>Call Limit der eBay-API</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEKMFV2TNS4VGG2SD7JM37_body">
+<p>Bei eBay ist das tägliche Limit bei 5.000 Calls pro Tag. Solltest du mehr benötigen, empfehlen wir dir dieses Limit über den eBay Support anheben zu lassen. Damit verifizierst du die Anwendung bei eBay und erhältst bis zu 1.500.000 Calls pro Tag. Dies ist gerade für größere Verkäufer wichtig. Damit die Zertifizierung bei eBay einfacher und schneller abläuft, verweise bitte auf folgenden Musterfall bei eBay: 190319-000002.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEPTNN4H97KEBBRC42SSJF"></a>Goods and Services Tax (UK) ausweisen</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEPTNN4H97KEBBRC42SSJF_body">
+<p>Seit dem Brexit gibt es für dich immer noch die Möglichkeit, steuerfrei Waren über eBay aus dem Vereinigte Königreich zu bestellen. Allerdings muss die Goods and Services Tax, eine mit der Mehrwertsteuer vergleichbare Steuer, auf deinen Belegen ausgewiesen werden. Mit der Version 21.1 bietet dir <span class="phrase">Xentral</span> Support für eben diese eBay UK Goods and Services Tax über das neue Feld <span class="guilabel">Sales Tax Artikel</span>.</p>
+<div class="procedure">
+<a id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_procedure-idm4630279258305"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Lege dafür einen entsprechenden Artikel über <span class="guilabel">Stammdaten &gt; Artikel</span> mit einer eindeutigen Bezeichnung an:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590723461916" style="" alt="eBay-25.png"></div>
+</li>
+<li class="step">
+<p>Füge den Artikel in der eBay-Schnittstelle im Feld <span class="guilabel">Sales Tax Artikel</span> ein.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590723462684" style="" alt="eBay-26.png"></div>
+</li>
+</ol>
+</div>
+<p>Alle Bestellungen, bei welchen eine Goods and Services Tax vorliegt, werden von <span class="phrase">Xentral</span> erkannt und verknüpft. Abschließend erscheint diese Steuer wie ein Artikel als extra Positionszeile auf deinem Beleg.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXENF45S2TEE1PBABK327VG"></a>eBay Name des Käufers anzeigen</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXENF45S2TEE1PBABK327VG_body">
+<p>Der eBay Nickname wird beim Auftragsimport in das Feld <span class="guilabel">Interne Bezeichnung</span> gespeichert und wird in der Zwischentabelle in der Spalte <span class="guilabel">Bemerkung</span> angezeigt.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590713480348" style="" alt="eBay-22.png"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEJ7FVWPR46WVHYZ13FVG3"></a>Listing aktiv halten, wenn der Lagerbestand bei eBay Null ist</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEJ7FVWPR46WVHYZ13FVG3_body">
+<p>Es ist wichtig, dass du in den Einstellungen des eBay-Kontos die "Nicht mehr vorrätig"-Option aktiviert hast.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590723466140" style="" alt="eBay-7.png"></div>
+<p>Auf diese Weise bleibt das Angebot aktiv, wenn der Lagerbestand bei eBay null erreicht. Es wird allerdings in den Suchergebnissen ausgeblendet, bis die Stückzahl erhöht wird.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXENRE5N8F6YGAJ1N72MF0S"></a>Angebote direkt bei eBay beenden oder neu listen</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXENRE5N8F6YGAJ1N72MF0S_body">
+<p>Wenn du in eBay Artikel neu bzw. relistest, sind diese im ersten Moment <span class="phrase">Xentral</span> noch nicht bekannt. Die Zuordnung der Artikel findet in der <span class="bold"><strong>eBay App</strong></span> statt. Öffne den Reiter <span class="bold"><strong>Einstellungen</strong></span> und öffne dann den Unterreiter <span class="bold"><strong>Zuordnungen</strong></span>.</p>
+<p>Klicke zuerst auf <span class="bold"><strong>Artikelliste aktualisieren</strong></span> und anschließend auf  <span class="bold"><strong>Artikel automatisch zuzuordnen</strong></span>.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm4604743477806433700025789"></a>Tipps für den Wechsel von der früheren API zur REST API</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm4604743477806433700025789_body">
+<p>Nur relevant, falls du noch die API nutzt, die vor Einführung der REST API genutzt wurde. Falls du die Verbindung über die REST API nutzen möchtest, lese bitte die in diesem Abschnitt enthaltenen Informationen zur Fehlerbehebung.</p>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm4543931136272033757423670442"></a>Doppelter Import</h4>
+</div>
+<p><span class="phrase">Xentral</span> nutzt die eBay-Auftragsnummer, um zu prüfen, ob ein Auftrag bereits importiert wurde. Die eBay-Auftragsnummern, die über die alte API importiert wurden, sind andere als die, die über die REST API importiert werden. Dadurch kann es vorkommen, dass bereits vor der Umstellung auf REST API importierte Bestellungen erneut importiert werden.</p>
+<p>Wir empfehlen daher, die Aufträge in der Übergangszeit über die Zwischentabelle zu importieren.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm4531257247787233757425570206"></a>Telefonnummer-Formate</h4>
+</div>
+<p>Mit der REST API gibt eBay die Telefonnummern der Kunden nur in dem Format aus, in dem der Kunde sie eingetragen hat, z.B. (+49176... oder 0176...). Das internationale Format der alten API wird nicht mehr angewendet.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm4543929254614433757427583196"></a>Zahlungsweisen</h4>
+</div>
+<p>Die REST API überträgt die Zahlungsweise als EBAY. Die alte API hat die Zahlungsweise als ebay übertragen. Dadurch greift das bestehende Mapping nicht. Du musst daher die Zahlungsweise für deine Schnittstelle(n) manuell anpassen oder hinzufügen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm4569744616764833757428390041"></a>Rabatte</h4>
+</div>
+<p>Falls auf Bestellungen nur eine Rabattart vorhanden ist, z.B. Mengenrabatt, Sonderaktion oder Promotion Code,  wird dieser Rabatt mit der Standardmechanik der Schnittstelle übergeben. Das heißt es ist kein dedizierter Rabattartikel erforderlich, damit die Position korrekt im Auftrag erfasst wird.</p>
+<p>Sind mehrere Rabattarten vorhanden, werden diese nach Art zusammengefasst und als einzelne Positionen übergeben. Damit diese Mechanik funktioniert, musst du einen Rabattartikel in der eBay-Schnittstelle erfassen.</p>
+<p>Wir empfehlen jedoch in jedem Fall, einen Rabattartikel anzulegen, auch im Hinblick auf die gesonderte Besteuerung im Vereinigten Königreich.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEPMM90S6TVRTDNW7RQQV8"></a>Go-Live Praxistipp</h2>
+</div>
+<p>Der Auftragsimport bei eBay basiert auf dem letzten Änderungsdatum eines abgeschlossenen Auftrags (Status: completed). eBay hat die Informationen vorliegen, ob der Kunde den Auftrag abgeschlossen hat oder nicht.</p>
+<p>Deshalb ist eine Abholung nach Status so wie bei anderen Shopschnittstellen bei eBay nicht möglich. Stattdessen werden alle Aufträge abgeholt, die den Status <span class="emphasis"><em>completed</em></span> haben.</p>
+<p>Beim Go-Live mit <span class="phrase">Xentral</span> musst du am Tag des Wechsels zwischen alten und neuen Aufträgen unterscheiden. Das Folgende hat sich in der Praxis bewährt: Hole keine zu langen Zeiträume ab. Hole nur Aufträge aus der jeweiligen Woche oder Tag über die Zwischentabelle ab.</p>
+<p>In der Zwischentabelle beim Shopimport musst du jeweils die Überschneidungen wegbuchen und nicht die Tabelle löschen. Die Tabelle ist verantwortlich dafür, dass alte Aufträge noch hereinkommen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093" id="UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_section-idm41684907852963"></a>Benachrichtigungen über die Löschung oder Schließung eines eBay-Marktplatzkontos abonnieren</h2>
+</div>
+<p>Um externe Entwickler bei der Löschung von Kundendaten zu unterstützen, hat eBay ein  Push-Benachrichtigungssystem eingerichtet, dass alle Anwendungen im eBay Developers Program benachrichtigt, wenn ein eBay-Nutzer die Löschung seiner persönlichen Daten und die Schließung seines Kontos beantragt. Alle aktiven Anwendungen im eBay Developers Program sind verpflichtet Benachrichtigungen über die Löschung oder Schließung eines eBay-Marktplatzkontos zu abonnieren.</p>
+<p>Um die Benachrichtigungen einzurichten, benötigst du die folgenden Informationen aus <span class="phrase">Xentral</span>:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590713487260" style="" alt="eBay-27.png"></div>
+<p>Der <span class="guilabel">Verifizierung Token</span> und die <span class="guilabel">Benachrichtigungs Url</span> werden automatisch erzeugt.</p>
+<p><span class="bold"><strong>Zu befolgende Schritte</strong></span></p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Melde dich in deinem eBay-Entwicklerkonto an.</p>
+</li>
+<li class="step">
+<p>Navigiere zur Seite <span class="guilabel">Application Keys</span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf den <span class="guilabel">Notifications</span>-Link neben der <span class="guilabel">App ID</span>. Die Seite <span class="guilabel">Alerts and Notifications</span> wird angezeigt.</p>
+</li>
+<li class="step">
+<p>Wähle im Bereich <span class="guilabel">Event Notification Delivery Method</span> das Optionsfeld <span class="guilabel">Marketplace Account Deletion</span>.</p>
+</li>
+<li class="step">
+<p>Gib eine E-Mail-Adresse an. Diese E-Mail-Adresse wird nur genutzt, um Entwickler zu warnen, wenn die angegebene Benachrichtigungsendpunkt-URL nicht erreichbar ist oder Benachrichtigungen nicht korrekt angenommen werden. Klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+<li class="step">
+<p>Lege die Benachrichtigungsendpunkt-URL fest, die Benachrichtigungen erhalten soll. Kopiere die Bestätigungs-URL aus <span class="phrase">Xentral</span> und füge sie hier ein.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die Benachrichtigungs-URL muss von eBay aus zugänglich sein, das heißt:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>ein SSL-Zertifikat ist erforderlich</p>
+</li>
+<li class="listitem">
+<p>On-premise-Kunden müssen darauf achten, dass diese URL im Internet öffentlich aufrufbar ist</p>
+</li>
+<li class="listitem">
+<p>eine Authentifizierungslogik muss für diese URL akzeptiert werden, z. B. https-Authentifizierung</p>
+</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="step">
+<p>Der Token zur Verifizierung wird automatisch erzeugt. Kopiere den Wert aus <span class="phrase">Xentral</span> und füge ihn in das Feld Verification Token ein.</p>
+</li>
+<li class="step">
+<p>Sobald die Benachrichtigungsendpunkt-URL und der Wert des Verifikations-Token eingetragen sind, klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+<li class="step">
+<p>Nachdem du die Benachrichtigungen zur Löschung/ Schließung eines eBay-Marktplatzkontos abonniert hast, kannst du eine Test-Benachrichtigung senden, indem du auf <span class="guilabel">Send Test Notification</span> klickst. Sobald die Endpunkt-URL die Test-Benachrichtigung erfolgreich empfangen hat, ist die Einrichtung abgeschlossen. Deine Anwendung sollte ab sofort Benachrichtigungen zur Löschung/ Schließung eines eBay-Marktplatzkontos empfangen.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

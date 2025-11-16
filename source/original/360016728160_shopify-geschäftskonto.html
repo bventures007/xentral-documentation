@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify (Geschäftskonto)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016728160
+    Titel: Shopify (Geschäftskonto)
+    URL: https://help.xentral.com/hc/de/articles/360016728160-Shopify-Gesch%C3%A4ftskonto
+    Erstellt: 2020-09-28T13:29:38Z
+    Aktualisiert: 2025-04-11T14:32:24Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415729714460
+    Export-Zeitpunkt: 2025-11-16 19:06:39
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454" id="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454_id_360016728160_id_h_01F9Y6RQMPSBNPAPDKS2Z5E8DK"></a>Shopify Payments per API</h2>
+</div>
+<p>Die Zahlungen von Shopify Payments können direkt über eine API-Schnittstelle via Live-import abgeholt werden. Trage hierzu die Shopify-Zugangsdaten in das Bankkonto ein. Das Konto muss den Typ Konto: Shopify (API) erhalten.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Damit das Shopify Payments Geschäftskonto korrekt funktioniert, muss es schon mindestens einen Payout (Überweisung von Shopify Payments auf das eigene Bankkonto) gegeben haben. Einzelne Transaktionen reichen nicht aus.</p>
+<p>Wenn die Zahlungen über die API importiert werden, werden die Zahlungen über die Auftragsnummer (Internetnummer in xentral) abgebildet.</p>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:300px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/6577131545500" style="max-width: 300px;" alt="AccountShopify1.png"></td>
+</tr>
+</table>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454" id="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454_id_360016728160_id_h_01F9Y6S4NRM5EF5FCEAYR7QMWD"></a>Live Import Zugangsdaten</h3>
+</div>
+<p>Bei den Live-import Zugangsdaten folgende Felder eingeben und mit Ihren Shopify Zugangsdaten befüllen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>SHOP=&gt;https://shop.myshopifyshop.de;** &gt; bitte hier die eigene Shop-URL Ihres Shopify Shops eintragen.</p>
+</li>
+</ul>
+</div>
+<p>Bei der Anbindung von mehreren Shopify Payments musst du darauf achten, dass du die Konfiguration "Zu Zeiten" versetzt machst, ansonsten spricht die API nur mit der Ersten.</p>
+<p>Beispiel:</p>
+<p>Konto_1 zu Zeiten 00,02,04,06,08,10,12,14,16,18,20,22</p>
+<p>Konto_2 zu Zeiten 01,03,05,07,09,11,13,15,17,19,21,23</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>USER=&gt;Benutzername; &gt; bitte hier den API KEY aus Ihrem Shopify Shop eintragen</p>
+</li>
+<li class="listitem">
+<p>DAYS=&gt;2; &gt; optional, die Anzahl der Tage, die abgeholt werden sollen. Ansonsten werden standardmäßig 5 Tage abgeholt, aber dieser Wert kann auch angegeben werden: DAYS=&gt;5;</p>
+</li>
+</ul>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:300px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/6577115299100" style="max-width: 300px;" alt="AccountShopify2.png"></td>
+</tr>
+</table>
+</div>
+<p>Folgende Keys können verwendet werden.- SHOP: SHOP, URL</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>SHOP: SHOP, URL</p>
+</li>
+<li class="listitem">
+<p>USER: USER, USERNAME, USER_NAME</p>
+</li>
+<li class="listitem">
+<p>DAYS: DAYS, TAGE</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454" id="idm1033"></a>Einstellungen in Shopify</h3>
+</div>
+<p>Damit Zahlungen für Shopify in Xentral abgerufen werden können, müssen einige Berechtigungen in Shopify Payments erteilt sein. Xentral benötigt Lesezugriffe für Auszahlungen, Bankkonten und Konten auf Shopify Payments.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492810701980" style="" alt="AccShopify3.png"></div>
+<p>Außerdem sind noch weitere Lesezugriffe notwendig. Dazu muss auf “Inaktive Admin-API-Berechtigungen anzeigen” geklickt werden und dort allen Rechten Leserechte gegeben werden.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492810743068" style="" alt="AccShopify4.png"></div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Damit das Shopify Payments Geschäftskonto korrekt funktioniert, muss es schon mindestens ein Paypot, d.h. eine Überweisung von Shopify Payments auf das eigene Bankkonto, gegeben haben. Einzelne Transaktionen reichen hier nicht aus.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454" id="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454_id_360016728160_id_h_01F9Y6TT4AJZ2MQJEYWEFYFKSG"></a>Status abgeholter Buchungen</h3>
+</div>
+<p>Der Live Import von Shopify Payments-Buchungen importiert ausschließlich Buchungen mit dem Status "paid", da die API nur den Import eines bestimmten Status erlaubt. Vorgemerkte Buchungen ("scheduled", "in transit") oder stornierte ("canceled") Buchungen werden nicht abgeholt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454" id="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454_id_360016728160_id_h_01F9Y6W37Q2E8K7W3J8ZWXNJ1H"></a>Fehlermeldung bei Live-Import (Verbindungsprobleme)</h3>
+</div>
+<p>Bitte prüfen Sie, ob die Daten korrekt eingegeben wurden oder sich ggf. bei Shopify ein User oder ein Passwort etc. geändert hat. Ggf. hat der User auch die Berechtigung nicht zuzugreifen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454" id="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454_id_360016728160_id_h_01F9Y6WFWTY8SF57BQNYQKT014"></a>Shopify Payments per CSV</h2>
+</div>
+<p>Alternativ können die Buchungen von Shopify Payments manuell per CSV-Datei eingespielt werden. Beispiel für eine Shopify Payments CSV:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492873077148" style="" alt="AccShopify6.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454" id="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454_id_360016728160_id_h_01F9Y6WW3Z2VWJFTVJSQCQ1050"></a>Kontoauszug Import</h2>
+</div>
+<p>Der Import der Shopify Payments ist sowohl als Live Import als auch als CSV-Import möglich. Die Order Nummer wird zur Zuordnung der Shopbestellungen verwendet.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454" id="idm1060"></a>Bekannte Probleme</h2>
+</div>
+<p>Shopify bietet die Möglichkeit die Einnahmen sowohl wöchentlich als täglich auszahlen zu lassen. Bei einer monatlichen Auszahlung kann der Live Import auf Fehler laufen, da die zu abholende Datenmenge zu groß ist. Daher ist eine tägliche Auszahlung empfohlen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454" id="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454_section-idm4589729530000033556697036628"></a>Mit Gebühren umgehen</h2>
+</div>
+<p>Beim Live-Import werden die Gebühren im Zahlungseingang nicht angezeigt. Auch beim CSV-Import werden die Gebühren nur zu Informationszwecken angezeigt und nicht automatisch addiert und mit berechnet. Im Buchhaltungsexport fehlen deshalb die Gebühren.</p>
+<p>Die Gebühren findest du auf dem Shopify Kontoauszug in einer Summe. Diese kann z.B. als separate Buchung von Hand monatlich gebucht werden. Die Buchung kannst du unter <span class="guilabel">Zahlungseingang &gt; Kontenblatt</span> im Bereich <span class="guilabel">Buchung</span> am unteren Ende der Seite vornehmen.</p>
+<p>Du siehst im Anschluss eine neue Zeile unter <span class="guilabel">Zahlungseingang &gt; Konto: Shopify &gt; Import</span>, die du dann mit <span class="guilabel">Buchungen fertigstellen</span> abschließen kannst.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-a9a70e1b-1629-93ed-bfc2-9e336aa68454" id="idm1072"></a>Shopify Refund (Rückzahlungen mit Shopify)</h2>
+</div>
+<p>Über unsere Connect-Schnittstelle ist es möglich, Gutschriften nach Freigabe automatisch als Rückzahlung an Shopify Pay zu übergeben und dem Kunden auszuzahlen. Mehr Informationen, wie du die Rückzahlungs-Funktion im Shopify Connector einrichtest und aktivierst, findest du <a class="link" href="https://help.xentral.com/hc/de/articles/13235060220444-Shopify-Connector-Workflows-konfigurieren#UUID-55e1cf94-dd5f-eb68-4337-cabda5e7ee49_UUID-601e9bbb-690a-13c9-0176-7ba5c3dd1da8" target="_blank" rel="noopener">hier</a>.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Beachte: Shopify Refund steht nur in Xentral Connect, nicht im klassischen Shop-Importer, zur Verfügung.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

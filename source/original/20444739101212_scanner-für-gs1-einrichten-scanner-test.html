@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner für GS1 einrichten (Scanner-Test)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 20444739101212
+    Titel: Scanner für GS1 einrichten (Scanner-Test)
+    URL: https://help.xentral.com/hc/de/articles/20444739101212-Scanner-f%C3%BCr-GS1-einrichten-Scanner-Test
+    Erstellt: 2025-06-05T09:47:38Z
+    Aktualisiert: 2025-09-15T07:46:00Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 15115470088988
+    Export-Zeitpunkt: 2025-11-16 19:07:38
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Das Modul <span class="bold"><strong>Scanner-Test</strong></span> befindet sich aktuell im <span class="bold"><strong>Beta-Status</strong></span>.</p>
+<p>Hast du Interesse, diese Funktion schon jetzt zu verwenden und zu testen? Dann wende dich an <a class="link" href="http://support@xentral.com" target="_blank" rel="noopener">support@xentral.com</a>, damit das Modul für deine <span class="phrase">Xentral</span>-Instanz freigeschaltet wird.</p>
+<p><span class="bold"><strong>Typischer Anwendungsfall</strong></span>: Diese Funktion richtet sich an Nutzer, die mit dem Modul <span class="bold"><strong>Wareneingang (GS1)</strong></span> arbeiten und Artikel per MDE-Gerät oder Handscanner erfassen möchten. Im vorliegenden Artikel werden die benötigten Voreinstellungen für diese Geräte beschrieben.</p>
+<p><span class="bold"><strong>Relevanz</strong></span>: Das Modul <span class="bold"><strong>Scanner-Test</strong></span> ist ausschließlich für die Erfassung von gelieferten Artikeln im Menü <span class="bold"><strong>Lager &gt; Wareneingang (GS1)</strong></span> relevant.</p>
+<p><span class="bold"><strong>Nicht relevant für</strong></span>: Das Modul <span class="bold"><strong>Scanner-Test</strong></span> ist nicht relevant für Warenausgang, Versandzentrum, Kommissionierverfahren.</p>
+</div>
+<p>MDE-Geräte und Handscanner sind unerlässliche und effiziente Tools im Logistik-Alltag: Mit ihrer Hilfe erfasst du Barcodes und damit auch die Vielzahl der darin verschlüsselten Informationen, um sie anschließend in <span class="phrase">Xentral</span> weiterzuverarbeiten. Höchstwahrscheinlich nutzt du an mindestens einem Computer in deinem Lager bereits einen Handscanner, beispielsweise um Artikel am Packtisch im <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016757139#UUID-8ee2b6e8-1c6c-8f2e-1259-35d3532701b0">Xentral Versandzentrum</a> zu erfassen, bevor sie verpackt und versandt werden.</p>
+<p>Besonders für die Arbeit mit dem neuen Modul <span class="bold"><strong>Wareneinang (GS1)</strong></span> empfehlen wir dir die Nutzung eines zeitgemäßen MDE-Geräts. Der Grund? Gerade bei umfangreichen Wareneingängen mit zahlreichen Artikeln ist die manuelle Auswahl von Artikeln und die Eingabe der entsprechenden Informationen nicht nur mühsam und zeitintensiv, sondern auch fehleranfällig.</p>
+<p>Im vorliegenden Artikel erfährst du, <a class="link" href="#UUID-94d554c0-9368-d875-caaa-e688ccdf6367_section-idm234979286100035" title="Empfohlene MDE-Geräte">welche MDE-Modelle wir empfehlen</a> und welche Einstellungen du vorab vornehmen musst, um deine Geräte korrekt einzustellen und somit effizient und fehlerfrei mit dem Modul <span class="bold"><strong>Wareneingang (GS1)</strong></span> zu arbeiten.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Bitte beachte, dass wir trotz aller Bemühungen nicht für jeden Hersteller oder jedes Modell ausführliche Anleitungen bereitstellen können. Prüfe deshalb in jedem Fall auch die Betriebsanleitung deines Handscanners oder MDE-Geräts. Wir stellen in diesem Artikel eine spezifische Anleitung für Zebra-MDEs vor, können aber nicht in jedem Einzelfall die Durchführbarkeit der Einrichtung garantieren.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-94d554c0-9368-d875-caaa-e688ccdf6367" id="UUID-94d554c0-9368-d875-caaa-e688ccdf6367_section-idm234979286100035"></a>Empfohlene MDE-Geräte</h2>
+</div>
+<p>Für die Artikelerfassung im Modul <span class="bold"><strong>Wareneingang (GS1)</strong></span> empfehlen wir die folgenden MDE-Geräte:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Zebra TC 21</p>
+</li>
+<li class="listitem">
+<p>Zebra TC 22</p>
+</li>
+<li class="listitem">
+<p>Zebra TC 26</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es ist möglich, auch Modelle von anderen Herstellen zu verwenden. Stelle in diesem Fall aber sicher, dass du über die Bedienungsanleitung deines MDE-Geräts oder Handscanners verfügst und die Konfiguration selbstständig vornimmst und <a class="link" href="#UUID-94d554c0-9368-d875-caaa-e688ccdf6367_section-idm234979298807645" title="Scanner-Konfiguration testen">mithilfe des Moduls Scanner-Test testest</a>, bevor du produktiv mit dem Modul <span class="bold"><strong>Wareneingang (GS1)</strong></span> arbeitest.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-94d554c0-9368-d875-caaa-e688ccdf6367" id="UUID-94d554c0-9368-d875-caaa-e688ccdf6367_section-idm234979292532493"></a>Einstellungen für Zebra-MDEs</h2>
+</div>
+<p>Auf den oben genannten und den meisten gängigen MDEs des Herstellers Zebra musst du die App <span class="bold"><strong>DataWedge</strong></span> direkt auf dem Gerät nutzen, um darin ein neues Profil für die Erkennung von GS1-Barcodes zu erstellen. Ohne dieses Profil kann das Gerät die im Barcode verschlüsselten Daten nicht korrekt entschlüsseln.</p>
+<p>Gehe wie folgt vor, um das DataWedge-Profil für die Erfassung von GS1-Barcodes zu erstellen.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Verwendest du mehrere Zebra-MDEs in deinem Lager? Dann musst du die unten beschriebenen Einstellungen nur auf einem einzigen Gerät vornehmen. Zebra bietet die Möglichkeit, bereits erstellte DataWedge-Profile auf weitere Geräte zu übertragen.</p>
+<p>Für weitere Informationen steht dir dazu die <a class="link" href="https://techdocs.zebra.com/datawedge/7-3/guide/settings/" target="_blank" rel="noopener">offizielle Anleitung von Zebra</a> zur Verfügung. Gehe hier bitte sorgfältig vor und kontaktiere im Zweifel den Zebra-Support, um Fehler zu vermeiden.</p>
+</div>
+<div class="procedure">
+<a id="UUID-94d554c0-9368-d875-caaa-e688ccdf6367_procedure-idm234979295373079"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Nimm dein Zebra-MDE zur Hand und öffne auf dem Startbildschirm die App <span class="bold"><strong>DataWedge</strong></span>.</p>
+</li>
+<li class="step">
+<p>Stelle sicher, dass du dich im Menü <span class="bold"><strong>DataWedge-Profile</strong></span> befindest.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444776464796" style="max-width: 250px;" alt="data-wedge-profilliste.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Öffne oben rechts das <span class="bold"><strong>Dreipunkt-Menü</strong></span> und tippe auf <span class="bold"><strong>+ Neues Profil</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760608796" style="max-width: 250px;" alt="data-wedge-neues-profil-erstellen.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Gib einen aussagekräftigen Namen für das Profil ein, z.B. "Barcode GS1". Tippe dann auf <span class="bold"><strong>OK</strong></span>.</p>
+<div class="result">
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760609692" style="max-width: 250px;" alt="data-wedge-profilname-eingeben.png"></td>
+</tr>
+</table>
+</div>
+</div>
+</li>
+<li class="step">
+<p>Tippe auf das soeben erstellte Profil, um es zu öffnen.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760610204" style="max-width: 250px;" alt="profil-oeffnen.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Aktiviere die Option <span class="bold"><strong>Profil aktiviert</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444776471068" style="max-width: 250px;" alt="data-wedge-profil-aktivieren.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Scrolle nach unten, bis du den Bereich <span class="bold"><strong>Barcode-Eingabe</strong></span> erreichst.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444776474780" style="max-width: 250px;" alt="barcode-eingabe-menuepunkt.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Aktiviere die Einstellung <span class="bold"><strong>Scannereingabe aktivieren/deaktivieren</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444776475548" style="max-width: 250px;" alt="profil-barcodeeingabe.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Tippe auf <span class="bold"><strong>Scanner-Einstellungen konfigurieren</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760616092" style="max-width: 250px;" alt="barcode-eingabe-scanner-einstellungen.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Tippe auf <span class="bold"><strong>Scan-Parameter</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444776477724" style="max-width: 250px;" alt="scannerkonfiguration-scan-parameter.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Wähle die Option <span class="bold"><strong>Code-ID-Typ - Ziel</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760618652" style="max-width: 250px;" alt="code-id-typ-auswahl.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Navigiere zu <span class="bold"><strong>Barcode-Eingabe &gt; Scanner-Einstellungen konfigurieren</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760616092" style="max-width: 250px;" alt="barcode-eingabe-scanner-einstellungen.png"></td>
+</tr>
+</table>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760623900" style="max-width: 250px;" alt="scannerkonfiguration-decoder.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Aktiviere beim Menüpunkt <span class="bold"><strong>Decoder</strong></span> die folgenden Optionen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Code128</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Code39</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>EAN8</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>EAN13</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>GS1 DataBar</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Erweiterter GS1-Barcode</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>GS1 DataMatrix</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>GS1 QRCode</strong></span></p>
+</li>
+</ul>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760624540" style="max-width: 250px;" alt="decoder-auswahl.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Tippe unten links auf deinem Gerät auf <span class="bold"><strong>Zurück</strong></span> (Pfeil nach links), um in die Profileinstellungen zurückzukehren.</p>
+</li>
+<li class="step">
+<p>Navigiere zum Bereich <span class="bold"><strong>Tastenanschlag-Ausgabe &gt; Schlüsselereignisoptionen</strong></span>.</p>
+</li>
+<li class="step">
+<p>Nimm im Bereich <span class="bold"><strong>Schlüsselereignisoptionen</strong></span> folgende Einstellungen vor:</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444776478876" style="max-width: 250px;" alt="tastenanschlag-ausgabe-schluesselereignistyp.png"></td>
+</tr>
+</table>
+</div>
+<ol type="a" class="substeps">
+<li class="step">
+<p>Aktiviere die Einstellung <span class="bold"><strong>Zeichen als Ereignisse senden</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760621340" style="max-width: 250px;" alt="zeichen-als-ereignisse-senden.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Aktiviere die Einstellung <span class="bold"><strong>Tastenanschlagausgabe</strong></span> im Bereich <span class="bold"><strong>Erweiterte Datenformatierung</strong></span>.</p>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Gehe zum Bereich <span class="bold"><strong>Einfache Datenformatierung</strong></span> und aktiviere die Optionen <span class="bold"><strong>Aktivieren</strong></span>, <span class="bold"><strong>Daten senden</strong></span> und <span class="bold"><strong>Senden mit EINGABE</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760623388" style="max-width: 250px;" alt="einfache-datenformatierung-auswahl.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Navigiere zu <span class="bold"><strong>Tastenanschlag-Ausgabe &gt; Erweiterte Datenformatierung &gt; Regeln</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444776488476" style="max-width: 250px;" alt="profil-menuepunkt-erweiterte-datenformatierung.png"></td>
+</tr>
+</table>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444776490652" style="max-width: 250px;" alt="erweiterte-datenformatierung-regeln.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Öffne den Eintrag <span class="bold"><strong>Rule0</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444776491676" style="max-width: 250px;" alt="regeln-rule0.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Tippe auf die entsprechende Checkbox, um die Regel zu <span class="bold"><strong>aktivieren</strong></span>.</p>
+</li>
+<li class="step">
+<p>Tippe oben rechts auf das Drei-Punkte-Menü und dann auf <span class="bold"><strong>Neue Aktion</strong></span>.</p>
+</li>
+<li class="step">
+<p>Tippe auf <span class="bold"><strong>Ersatzzeichenfolge</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760629660" style="max-width: 250px;" alt="regel-aktionen-optionen.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Tippe auf den <span class="bold"><strong>Ersatzzeichenfolge</strong></span>.</p>
+</li>
+<li class="step">
+<p>Gib im oberen Eintrag die im Screenshot gezeigte Zeichenfolge ein.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20444760631452" style="max-width: 250px;" alt="zeichenfolge-1.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Tippe auf <span class="bold"><strong>OK</strong></span>.</p>
+</li>
+<li class="step">
+<p>Tippe erneut auf <span class="bold"><strong>Ersatzzeichenfolge</strong></span> und gib zusätzlich die Zeichenfolge <span class="bold"><strong>[[GS]]</strong></span> ein. Anschließend solltest du folgende Zeichenfolgen hinterlegt haben:</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20450211339676" style="max-width: 250px;" alt="zeichenfolge-2.png"></td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-94d554c0-9368-d875-caaa-e688ccdf6367" id="UUID-94d554c0-9368-d875-caaa-e688ccdf6367_section-idm234996023351718"></a>Einstellungen für Handscanner</h2>
+</div>
+<p>Handscanner sind Datenerfassungsgeräte, die per USB oder per Bluetooth an deinen Computer angeschlossen sind. Im Gegensatz zu MDE-Geräten verfügen sie über kein eigenes Display. Die grundlegende Funktion ist jedoch gleich: Mit dem Handscanner erfasst du die Barcodes deiner Produkte. Daraufhin werden die im Barcode verschlüsselten Informationen entschlüsselt und somit die Datenerfassung in <span class="phrase">Xentral</span> ermöglicht.</p>
+<p>Im Folgenden weisen wir auf die Einstellungen hin, die für Handscanner notwendig sind, um erfolgreich mit dem Modul <span class="bold"><strong>Wareneingang (GS1)</strong></span> zu arbeiten. Du findest zunächst allgemeine Einstellungen, die grundsätzlich für jeden Handscanner ausgeführt werden müssen. Weiter unten stellen wir eine beispielhafte Anleitung inklusive der zu scannenden Barcodes für das Modell Netum C750 zur Verfügung.</p>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-94d554c0-9368-d875-caaa-e688ccdf6367" id="UUID-94d554c0-9368-d875-caaa-e688ccdf6367_section-idm234996108525277"></a>Allgemein benötigte Einstellungen für Handscanner</h3>
+</div>
+<p>Die folgenden Einstellungen solltest du unabhängig von Hersteller oder Modell an deinem Handscanner vornehmen, damit GS1 Barcodes korrekt erfasst werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>AIM Identifier</strong></span> aktivieren</p>
+</li>
+<li class="listitem">
+<p>Zeilenumbruch-Bezeichnung auf <span class="bold"><strong>CR</strong></span> umstellen</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>ASCII-Modus</strong></span> einschalten</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>GS1-128 Barcodes</strong></span> aktivieren</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Du bist dir nicht sicher, wie du die oben genannten Einstellungen vornimmst? Das Handbuch deines Handscanners hilft dir weiter. In vielen Fällen enthalten diese Handbücher einen Barcode pro benötigter Einstellung, den du ganz einfach abscannen kannst.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-94d554c0-9368-d875-caaa-e688ccdf6367" id="UUID-94d554c0-9368-d875-caaa-e688ccdf6367_section-idm2349961127088"></a>Netum C750 einrichten</h3>
+</div>
+<p>In diesem Kapitel erfährst du, welche Schritte du konkret durchführen musst, wenn du den Handscanner Netum C750 verwendest. Bei diesem Modell scannst du eine Abfolge von Barcodes, um die passende Konfiguration auf dem Gerät herzustellen.</p>
+<p>Die folgende Tabelle zeigt dir alle erforderlichen Schritte und den benötigten Barcode, den du direkt von deinem Bildschirm abscannen kannst.</p>
+<div class="informaltable table-responsive">
+<table>
+<thead>
+<tr>
+<th>
+<p>Einstellung</p>
+</th>
+<th>
+<p>Barcode</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>AIM Identifier aktivieren</p>
+</td>
+<td>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20582241939868" style="max-width: 250px;" alt="netum-barcode-1.png"></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p>Zeilenumbruch-Bezeichnung auf CR umstellen</p>
+</td>
+<td>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20582272660764" style="max-width: 250px;" alt="netum-barcode-2.png"></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p>ASCII-Modus einschalten</p>
+</td>
+<td>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20582241950492" style="max-width: 250px;" alt="netum-barcode-3.png"></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p>GS1-128 Barcodes aktivieren</p>
+</td>
+<td>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/20582241953436" style="max-width: 250px;" alt="netum-barcode-4.png"></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-94d554c0-9368-d875-caaa-e688ccdf6367" id="UUID-94d554c0-9368-d875-caaa-e688ccdf6367_section-idm234979298807645"></a>Scanner-Konfiguration testen</h2>
+</div>
+<p>Gehe abschließend wie folgt vor, um zu testen, dass die Konfiguration deines MDE-Geräts oder Handscanners korrekt funktioniert.</p>
+<div class="procedure">
+<a id="UUID-94d554c0-9368-d875-caaa-e688ccdf6367_procedure-idm234979299424131"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne <span class="phrase">Xentral</span> auf deinem Computer.</p>
+</li>
+<li class="step">
+<p>Öffne das Menü <span class="bold"><strong>Lager &gt; Scanner-Test</strong></span>.</p>
+</li>
+<li class="step">
+<p>Platziere den Cursor im Feld <span class="bold"><strong>Scan barcode</strong></span>.</p>
+</li>
+<li class="step">
+<p>Nimm deinen Handscanner oder MDE-Gerät zur Hand und scanne den angezeigten QR-Code.</p>
+<div class="result">
+<p>Wenn die Konfiguration deines Scanners korrekt ist, werden dir mehrere Erfolgsmeldungen angezeigt.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/20444776499100" style="" alt="scanner-test-de.png"></div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Solltest du bei einzelnen Punkten <span class="bold"><strong>rote Meldungen</strong></span> angezeigt bekommen, ist dein MDE-Gerät oder Handscanner noch nicht korrekt eingestellt. Falls du ein MDE-Gerät des Herstellers Zebra verwendest, prüfe noch einmal die Anleitung <a class="link" href="#UUID-94d554c0-9368-d875-caaa-e688ccdf6367_section-idm234979292532493" title="Einstellungen für Zebra-MDEs">im vorherigen Kapitel</a>. Nutzt du andere Geräte, solltest du die jeweilige Betriebsanleitung konsultieren.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

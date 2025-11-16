@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verschlüsselung</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017382840
+    Titel: Verschlüsselung
+    URL: https://help.xentral.com/hc/de/articles/360017382840-Verschl%C3%BCsselung
+    Erstellt: 2020-11-10T10:13:13Z
+    Aktualisiert: 2023-12-07T08:01:44Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 11291544329756
+    Export-Zeitpunkt: 2025-11-16 19:10:04
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4a05e811-3a01-9ced-d9ac-2dc9ec120fd4" id="UUID-4a05e811-3a01-9ced-d9ac-2dc9ec120fd4_id_360017382840_id_toc-0"></a>SSL-Verschlüsselung</h2>
+</div>
+<p>Um das System über SSL-Zertifikate verschlüsseln zu lassen, wenden Sie sich bitte an Ihren Server-Administrator oder Provider. Diese müssen immer am Webserver aktivieren werden.</p>
+<p>SSL-Zertifikate haben eine begrenzte Gültigkeitsdauer (z.B. 1 Jahr). Um zu verhindern, dass Xentral wegen eines abgelaufenen Zertifikats nicht mehr über den Browser erreichbar ist, sollte dies vom Serveradministrator rechtzeitig aktualisiert werden. Ist ein Zertifikat abgelaufen, so muss der Serveradministrator ein Neues anlegen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4a05e811-3a01-9ced-d9ac-2dc9ec120fd4" id="UUID-4a05e811-3a01-9ced-d9ac-2dc9ec120fd4_id_360017382840_id_toc-1"></a>Externe Dienste / Software</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4a05e811-3a01-9ced-d9ac-2dc9ec120fd4" id="UUID-4a05e811-3a01-9ced-d9ac-2dc9ec120fd4_id_360017382840_id_toc-2"></a>Let's Encrypt SSL Verschlüsselung</h3>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Diese Funktion ist aktuell noch im Test (Stand 11/2016).</p>
+</div>
+<p>Diese Option in der Datei verwenden:</p>
+<pre class="programlisting"><code class="code">/etc/apach2/apache2.conf
+
+Header always append X-Frame-Options SAMEORIGIN
+</code></pre>
+<p>Bzw. für nginx</p>
+<pre class="programlisting"><code class="code">add_header X-Frame-Options SAMEORIGIN;
+</code></pre>
+<p>Danach müssen Sie die Webserver neu starten, sonst kann man keine Positionen bei Belegen einfügen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4a05e811-3a01-9ced-d9ac-2dc9ec120fd4" id="UUID-4a05e811-3a01-9ced-d9ac-2dc9ec120fd4_id_360017382840_id_toc-3"></a>CryptoMagic</h3>
+</div>
+<p>Mit dem Dienst <a class="link" href="https://www.cryptomagic.eu/xentral/" target="_blank" rel="noopener">CryptoMagic</a> für Xentral können Sie SSL-Zertifikate erstellen, einzeln für jeden Benutzer, der auf das System zugreift.</p>
+<p>So kann man sicherstellen, dass nur ein Benutzer, welcher manuell ein Zertifikat vergeben darf, überhaupt auf Xentral zugreifen kann.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

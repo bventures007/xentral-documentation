@@ -1,0 +1,13 @@
+Sofern du beim Kunden keine Zahlungsart hinterlegt hast, wird automatisch der Standard aus den Firmeneinstellungen gezogen. Trage hier in der Rechnung das Zahlungsziel mit X Tagen und ohne Skonto ein, dann wird dieses korrekt ohne Skonto gezogen.
+
+Das erfolgt auch automatisch für alle importierten Shopaufträge, die die Zahlungsweise "Rechnung" besitzen, sofern du das in der Schnittstelle nicht anders eingestellt hast. Die vorausgewählte Standard-Zahlungsweise stellst du bei "Steuer/Währung" in den Grundeinstellungen ein.
+
+Weitere Informationen findest du in unserem Handbuch:
+
+[Grundeinstellungen / Firmendaten](https://community.xentral.com/hc/de/search/click?data=BAh7DDoHaWRsKwhnz6vSUwA6D2FjY291bnRfaWRpAzcpkjoJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJdaHR0cHM6Ly9jb21tdW5pdHkueGVudHJhbC5jb20vaGMvZGUvYXJ0aWNsZXMvMzYwMDE2NzYwNjc5LUdydW5kZWluc3RlbGx1bmdlbi1GaXJtZW5kYXRlbgY7CFQ6DnNlYXJjaF9pZEkiKWUzMTQ1NTcwLWVkOWEtNDA5Zi1iM2MxLWZlNzEwMDJhMDg2YgY7CEY6CXJhbmtpBzoLbG9jYWxlSSIHZGUGOwhU--81f495f7f2a43aff60819aa43fd2165e6068c552)
+
+[Rechnung](https://community.xentral.com/hc/de/search/click?data=BAh7DDoHaWRsKwi0OKvSUwA6D2FjY291bnRfaWRpAzcpkjoJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJHaHR0cHM6Ly9jb21tdW5pdHkueGVudHJhbC5jb20vaGMvZGUvYXJ0aWNsZXMvMzYwMDE2NzIyMTAwLVJlY2hudW5nBjsIVDoOc2VhcmNoX2lkSSIpMDI2NWJlZGEtZjU1My00MTVhLWI0M2YtNGM3MGY3OTVlYTMyBjsIRjoJcmFua2kNOgtsb2NhbGVJIgdkZQY7CFQ%3D--e65bd3f40ac0ab82da8fbbbe18c796dcd834a4bc)
+
+[Steuer/Währung](https://community.xentral.com/hc/de/articles/360021442099-Steuer-W%C3%A4hrung)
+
+[Zahlungsweisen](https://community.xentral.com/hc/de/search/click?data=BAh7DDoHaWRsKwjIOKvSUwA6D2FjY291bnRfaWRpAzcpkjoJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJNaHR0cHM6Ly9jb21tdW5pdHkueGVudHJhbC5jb20vaGMvZGUvYXJ0aWNsZXMvMzYwMDE2NzIyMTIwLVphaGx1bmdzd2Vpc2VuBjsIVDoOc2VhcmNoX2lkSSIpYjJiZDc5YTYtNmZmZi00MjkxLWEyYjAtNWFkNzUxMzMyZDhhBjsIRjoJcmFua2kHOgtsb2NhbGVJIgdkZQY7CFQ%3D--d8d753a55aafdeab06c9b27bd330d82300250a39)

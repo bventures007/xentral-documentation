@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Importer Script</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360018085760
+    Titel: Shop Importer Script
+    URL: https://help.xentral.com/hc/de/articles/360018085760-Shop-Importer-Script
+    Erstellt: 2020-12-08T11:27:36Z
+    Aktualisiert: 2023-12-05T10:11:20Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 11291544329756
+    Export-Zeitpunkt: 2025-11-16 19:10:06
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Shop-Schnittstellen (sog. "Importer") können kundenspezifisch erstellt oder überladen werden. Dabei können bereits im Import-Prozess Daten verändert oder angereichert werden, auch die komplexere Umwandlung von Datenstrukturen ist möglich.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4" id="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4_id_360018085760_id_toc-0"></a>Einleitung</h2>
+</div>
+<p>Ein großes Thema bei xentral ist die Anbindung und automatische Verarbeitung von Bestellungen in Online-Shops. Obwohl viele Online-Shops bereits einen hohen Automatisierungsgrad besitzen, stellen neue Shopsysteme und deren Anbindung uns immer wieder vor Herausforderungen. Zwar besitzt fast jeder Shop eine Schnittstelle, häufig stellt sich dann aber doch heraus, dass die anzubindenden Schnittstellen nicht kompatibel sind.</p>
+<p>Der Importer tritt dabei als sogenannte Middleware auf und übersetzt die Daten der Bestellungen aus dem Shop in ein Format, aus dem xentral dann wiederum Aufträge erstellen kann. Umgekehrt ist der Importer auch dafür zuständig den Bestellstatus, also die Information, ob der Auftrag abgearbeitet und versendet wurde, sowie Artikeldaten und Lagerzahlen an den Shop zu übertragen – ein kompaktes Multitalent sozusagen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4" id="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4_id_360018085760_id_toc-2"></a>Der Ablauf innerhalb des Shop-Importers</h2>
+</div>
+<p>Der Ablauf innerhalb des Importers folgt immer einem festen Schema. Wenn beispielsweise Aufträge aus dem Shop abgeholt werden sollen, wird zunächst geprüft ob eine Verbindung zur Shop-Schnittstelle besteht. Anschließend wird ermittelt ob, beziehungsweise wie viele, Aufträge im Shop abgeholt werden sollen. Wenn es Aufträge abzuholen gibt, werden diese importiert und anschließend im Shop als „In Bearbeitung“ markiert. Wenn Artikel aus dem Shop importiert oder in den Shop exportiert werden sieht das Schema ähnlich aus. Zunächst erfolgt eine Prüfung, ob eine Verbindung zwischen xentral und dem Shop besteht. Anschließend werden die Daten übertragen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996450950428" style="" alt="ShopImporterScript-1.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4" id="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4_id_360018085760_id_toc-3"></a>Grundlagen</h2>
+</div>
+<p>Um einen eigenen Importer zu schreiben benötigt man keine Expertenkenntnisse. Grundlegende PHP-Kenntnisse reichen aus, wenn man sich an die vorgegebene Struktur hält. Im Vorfeld sind jedoch einige Dinge zu klären:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Name Der Name des Importers spielt eigentlich keine große Rolle. Per Konvention ist es aber so, dass der Klassenname aus „Shopimporter_XXX“ zusammengesetzt wird. In diesem Beispiel werden wir einen speziellen Importer für Shopware entwickeln, weswegen die Klasse auch den Namen Shopimporter_Shopwarespecial trägt. Die Datei selbst heißt wie der Klassenname in Kleinbuchstaben und wird im www/pages/ Verzeichnis der Xentral-Installation abgelegt, also beispielsweise</p>
+<pre class="programlisting">/var/home/www/html/xentral/www/pages/shopimporter_shopwarespecial.php.</pre>
+</li>
+<li class="step">
+<p>Datenbankeintrag Wird ein neuer Importer über die Oberfläche zum System hinzugefügt wird in der Datenbank in der Tabelle „Shopexport“ ein neuer Eintrag angelegt. Da dieser Importer jedoch eine Spezialanfertigung ist, muss in diesem Fall der Namen des Importer kurzerhand selbst in diese Tabelle eingetragen werden. Wichtig ist dabei, dass der Modulname dem Namen der PHP-Datei entspricht.</p>
+</li>
+<li class="step">
+<p>ShopimporterBase Allen internen Importern liegt die Klasse „ShopimporterBase“ zugrunde. Die Klasse beinhaltet systemrelevante Funktionen, welche die Ausführung des Importers gewährleisten. Prinzipiell sollte jeder Importer von der Basisklasse ShopimporterBase abgeleitet sein, damit sichergestellt werden kann, dass diese Funktionen auch wirklich vorhanden sind:</p>
+<pre class="programlisting">class Shopimporter_Shopwarespecial extends ShopimporterBase {</pre>
+</li>
+<li class="step">
+<p>Boilerplate Zwei Variablen sind für die Verwendung der Importer relevant. $app beinhaltet die Applikation xentrals selbst und wird im Konstruktor übergeben. Dadurch kann der Importer die Kernfunktionalität von xentral nutzen, ohne dass dafür zusätzlich noch etwas getan werden muss. Die Variable $intern gibt nicht an, ob es sich um einen internen Importer handelt, sondern ob die Actionhandler für das Objekt initialisiert werden müssen. Dadurch ist es möglich, das Objekt anderweitig zu instanziieren und zu verwenden, ohne dass es zu einem Konflikt kommt.</p>
+<pre class="programlisting">/**
+
+@var bool */ public $intern = false;
+
+/**
+
+@var Application */ public $app;</pre>
+</li>
+<li class="step">
+<p>Konstruktor Im Konstruktor werden zwei Parameter übergeben, $app und $intern werden direkt im Objekt hinterlegt, um später bei Bedarf angesprochen zu werden. Dann findet die erste Logik im Modul statt: Es wird geprüft ob für das Modul Actionhandler registriert werden sollen. Es gibt einige Actionhandler, die registiert werden können – für dieses Beispiel orientieren wir uns aber an den grundlegenden Funktionen die eigentlich jeder Shopimporter mitbringen sollte. Es ist empfiehlt sich die Funktionsnamen wie vorgegeben zu übernehmen um die Kompatibilität zu gewährleisten. Eine Auflistung der Funktionen sowie die Rolle, die im Importer übernommen wird, folgt weiter unten im Detail.</p>
+<pre class="programlisting">public function __construct($app, $intern = false) { $this-&gt;app=$app; $this-&gt;intern = true; if($intern) { return; } $this-&gt;app-&gt;ActionHandlerInit($this);
+
+$this-&gt;app-&gt;ActionHandler('auth','ImportAuth'); $this-&gt;app-&gt;ActionHandler('sendlist','ImportSendList'); $this-&gt;app-&gt;ActionHandler('sendlistlager','ImportSendListLager'); $this-&gt;app-&gt;ActionHandler('getauftraegeanzahl','ImportGetAuftraegeAnzahl'); $this-&gt;app-&gt;ActionHandler('getauftrag','ImportGetAuftrag'); $this-&gt;app-&gt;ActionHandler('deleteauftrag','ImportDeleteAuftrag'); $this-&gt;app-&gt;ActionHandler('updateauftrag','ImportUpdateAuftrag');
+
+$this-&gt;app-&gt;DefaultActionHandler('list'); $this-&gt;app-&gt;ActionHandlerListen($app); }</pre>
+</li>
+<li class="step">
+<p>EinstellungenStruktur Da eigentlich jede Shop-Schnittstelle ihre ganz eigenen Einstellungsmöglichkeiten hat, ist es notwendig dem Importer genau diese Einstellungsmöglichkeiten mit auf den Weg zu geben. Das passiert in der Funktion EinstellungenStruktur(). Hier übergebene Felder werden im Oberflächen-Formular des Importers angezeigt. Bei Bedarf können natürlich auch weitere Felder angelegt werden - für dieses Beispiel sollen aber die für die Anmeldung benötigten Daten ausreichen.</p>
+<pre class="programlisting">public function EinstellungenStruktur() { return array( 'felder'=&gt;array( 'APIUser'=&gt;array('typ'=&gt;'text','bezeichnung'=&gt;'{|API User:','size'=&gt;40), 'APIKey'=&gt;array('typ'=&gt;'text','bezeichnung'=&gt;'{|API Key|}:','size'=&gt;40), 'APIUrl'=&gt;array('typ'=&gt;'text','bezeichnung'=&gt;'{|API Url|}:','size'=&gt;40), )); }</pre>
+</li>
+<li class="step">
+<p>getKonfig Die letzte Funktion bevor es richtig los geht ist getKonfig(). In dieser Funktion werden die Daten aus den Einstellungen sowie die ID des Shopimporters an das Objekt übergeben. Der Parameter $data ist ein Überbleibsel aus der Zeit der externen Importer. In diesem Parameter werden Anweisungen für die einzelnen Funktionen parat gehalten. Diese Funktion wird vom System bei der Initialisierung des Objekts aufgerufen.</p>
+<pre class="programlisting">public function getKonfig($shopid, $data) { $this-&gt;shopid = $shopid; $this-&gt;data = $data; $einstellungen = $this-&gt;app-&gt;DB-&gt;Select("SELECT einstellungen_json FROM shopexport WHERE id = '$shopid' LIMIT 1"); if($einstellungen){ $einstellungen = json_decode($einstellungen,true); $this-&gt;apiUser = $einstellungen['felder']['APIUser']; $this-&gt;apiKey = $einstellungen['felder']['APIKey']; $this-&gt;apiUrl = $einstellungen['felder']['APIUrl']; } }</pre>
+</li>
+</ol>
+</div>
+<p>Nachdem die Grundlagen für den Importer erledigt sind, kommt es jetzt zur eigentlichen Verbindung zu Shopware. Natürlich ist es möglich, die komplette Kommunikation in eine eigene Klasse auszulagern oder, im Falle von Shopware, die Klasse aus der Dokumentation zu kopieren. Der Einfachheit halber reicht für dieses Beispiel aber eine kurze Funktion welche die Antwort der API zurückgibt:</p>
+<pre class="programlisting">protected function call($endpoint, $method, $data=array(),$params=array()){ $queryString = ''; if (!empty($params)) { $queryString = '?'.http_build_query($params); } $url = $this-&gt;apiUrl.$endpoint.$queryString; $dataString = json_encode($data);
+
+$curl = curl_init(); curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false); curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC); curl_setopt($curl, CURLOPT_USERPWD, $this-&gt;apiUser . ':' . $this-&gt;apiKey); curl_setopt($curl, CURLOPT_HTTPHEADER, ['Content-Type: application/json; charset=utf-8']); curl_setopt($curl, CURLOPT_URL, $url); curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method); curl_setopt($curl, CURLOPT_POSTFIELDS, $dataString); return curl_exec($curl); }</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4" id="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4_section-idm4641021657081633059284724084"></a>Funktion ImportAuth</h2>
+</div>
+<p>Nachdem alle Voraussetzungen für die Funktion des Importers erfüllt sind, kann er mit Leben gefüllt werden. Die erste Schritt in diese Richtung ist die Funktion ImportAuth(). In externen Importer ist diese Funktion für die Authentifizierung von xentral zum Importer notwendig, in internen Importern prüft die Funktion den Verbindungsaufruf zur API. Da diese Funktion jedes Mal aufgerufen wird wenn der Importer in Aktion treten soll, steckt hier für gewöhnlich eine Anfrage oder ein Mechanismus zum Erstellen eines Tokens. Wichtig ist dabei die Rückgabe von success, um mitzuteilen, dass der Importer bereit ist, um Anweisungen entgegenzunehmen und an die Shop API weiterzuleiten.</p>
+<pre class="programlisting">public function ImportAuth() { $params = ['limit' =&gt; 1]; $responseJson =$this-&gt;call('articles','GET',null, $params); $response = json_decode($responseJson,true);
+
+if($response['success']){ return 'success'; }
+
+return ''; }</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4" id="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4_id_360018085760_id_toc-5"></a>Funktion ImportSendListLager</h2>
+</div>
+<p>Als nächstes wird die Funktion ImportSendListLager() hinzugefügt. Wenn die Option für das Übertragen von Lagerzahlen in den Importeinstellungen aktiviert ist sorgt die Funktion dafür, dass die Bestände im Shop mit dem Beständen in xentral synchronisiert werden. In diesem Beispiel geschieht das über die Artikelnummer. Zu beachten ist, dass für diese Funktion im data-Parameter des Importer-Objekts die Daten für den zu aktualisierenden Artikel vorhanden sind.</p>
+<pre class="programlisting">public function ImportSendListLager() { $updatedArticles = 0; $tmp = $this-&gt;CatchRemoteCommand('data'); foreach ($tmp as $article){ $nummer = $article['nummer']; $lageranzahl = $article['anzahl_lager'];</pre>
+<pre class="programlisting"><code class="code">$updateInStock = [
+  'mainDetail' =&gt; [
+    'inStock' =&gt; $lageranzahl
+  ]
+];
+
+$params = [
+  'useNumberAsId'=&gt;true
+];
+
+$result = $this-&gt;call('articles/'.$nummer, 'PUT',$updateInStock, $params);
+if($result['success']){
+  $updatedArticles++;
+}
+</code></pre>
+<pre class="programlisting">} return $updatedArticles; }</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4" id="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4_id_360018085760_id_toc-6"></a>Funktion ImportSendlList</h2>
+</div>
+<p>Die Funktion ImportSendList() ist im Grunde genommen eine aufgebohrte Version von ImportSendListLager(). Die Funktion überträgt Artikel an den Shop - beziehungsweise aktualisiert deren Daten. Welche Daten und vor allem wie diese übertragen werden können, hängt von der jeweiligen Shop-Schnittstelle ab. So können Artikeleigenschaften oder auch Bilder an den Shop übertragen werden. Dabei sollte man auf die Trennung der beiden Funktionen achten, da ImportSendList nur in zwei Fällen aufgerufen wird:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Manueller Export des Artikels</p>
+</li>
+<li class="step">
+<p>Export des Artikels über die Artikel-Übertragung im Importer</p>
+</li>
+</ol>
+</div>
+<pre class="programlisting">$articleData = [ 'name' =&gt; $name, 'lastStock' =&gt; $laststock, 'tax' =&gt; $tax, // alternativ 'taxId' =&gt; 1, 'supplier' =&gt; $supplier, // alternativ 'supplierId' =&gt; 2, 'description' =&gt; $description, 'descriptionLong' =&gt; $description_long, 'keywords' =&gt; $keywords, 'metaTitle' =&gt; $metatitle, 'highlight' =&gt; $topseller, 'mainDetail' =&gt; [ 'number' =&gt; $articleNumber, 'active' =&gt; $active, 'ean' =&gt; $ean, 'weight' =&gt; $weight, 'width' =&gt; $width, 'len' =&gt; $length, 'height' =&gt; $height, 'supplierNumber' =&gt; $supplierNumber, 'inStock' =&gt; $lageranzahl, 'prices' =&gt; $prices ] ];</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4" id="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4_id_360018085760_id_toc-7"></a>Funktion ImportGetAuftraegeAnzahl</h2>
+</div>
+<p>In dieser Funktion wird ermittelt, wie viele offene Bestellungen im Shop vorhanden sind und abgeholt werden müssen. Denkbar ist das Abholen über den Status, ab einer bestimmten Bestellnummer oder aber auch über das Bestelldatum. Abhängig von der Shopschnittstelle sind nicht alle Optionen realisierbar.</p>
+<pre class="programlisting">public function ImportGetAuftraegeAnzahl() { $result = $this-&gt;getOrders($this-&gt;data);
+
+return count($result['data']); }</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4" id="UUID-3dffac8d-79e3-c07f-d50f-aa86371ddde4_id_360018085760_id_toc-8"></a>Funktion ImportGetAuftrag</h2>
+</div>
+<p>Die wichtigste Grundfunktion aller Importer ist das Abholen und Übersetzen der Bestellungen aus dem Shop in das Warenkorbformat von xentral. Nachdem die nächste Bestellung von der Shop API abgeholt wurde, werden im ersten Schritt die Adressdaten des Kunden an den Warenkorb übergeben:</p>
+<pre class="programlisting">$cart['anrede'] = 'herr'; $cart['strasse'] = $order['data']['billing']['street']; $cart['plz'] = $order['data']['billing']['zipCode']; $cart['ort'] = $order['data']['billing']['city']; $cart['land'] = $order['data']['billing']['country']['iso']; $cart['email'] = $order['data']['customer']['email']; $cart['name'] = $order['data']['billing']['firstName'] . ' ' . $order['data']['billing']['lastName'];</pre>
+<p>Falls eine abweichende Lieferadresse vorliegt, muss diese logischerweise enebfalls übergeben werden. Ausserdem muss dann das Feld abweichendeliferadresse mit true befüllt werden damit der Auftrag dann auch beim richtigen Empfänger ankommt. Anschließend gibt es eine ganze Reihe wichtiger Daten, die für die weitere Verarbeitung von Bedeutung sind.</p>
+<pre class="programlisting">$cart['auftrag'] = $orderFromCollection['id']; $cart['gesamtsumme'] = $orderFromCollection['invoiceAmount']; $cart['transaktionsnummer'] = $orderFromCollection['transactionId']; $cart['onlinebestellnummer'] = $orderFromCollection['number']; ... $cart['zahlungsweise'] = $order['data']['payment']['name']; $cart['lieferung'] = $order['data']['dispatch']['name']; $cart['bestelldatum'] = substr($order['data']['orderTime'],0,10); $cart['versandkostennetto'] = $order['data']['invoiceShippingNet'];</pre>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold bold"><strong>Gesamtsumme:</strong></span> Die Gesamtsumme des Auftrags dient als Absicherung gegen einen falsch zusammengesetzten Warenkorb. Falls Artikeldaten nicht richtig übergeben wurden oder es ein Problem mit der Besteuerung gibt weicht die Gesamtsumme des Auftrags von der Gesamtsumme des Warenkorbs ab und für die Bestellung wird die Auto-Versandoption deaktiviert. Dadurch wird sichergestellt, dass keine Lieferung das Lager verlässt, die nicht mit der Bestellung übereinstimmt.</p>
+</li>
+<li class="listitem">
+<p><span class="bold bold"><strong>Transaktionsnummer:</strong></span> Die Transaktionsnummer ist für die Automatisierung des Rechnungswesens relevant und hilft dabei bezahlte Bestellungen zuzuordnen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold bold"><strong>Auftrag:</strong></span> In diesem Feld wird die eindeutige Kennzeichnung des Auftrags für den Shop übergeben. Nicht jede Shop-Schnittstelle erlaubt es den Versandstatus einer Bestellung über die Bestellnummer zu ändern. Gelegentlich wird eine interne ID benötigt, die an dieser Stelle übergeben werden kann. Auf den hier übergebenen Wert wird später Bezug genommen, wenn eine Änderung des Bestellstatus aus dem Shop übermittelt wird.</p>
+</li>
+<li class="listitem">
+<p><span class="bold bold"><strong>Onlinebestellnummer:</strong></span> In diesem Feld steht die Bestellnummer, die auch der Kunde sieht. Das erleichtert die Zuordnung und im Falle einer Rückfrage kann dadurch eine Bestellung aus dem Shop direkt einem Auftrag in xentral zugeordnet werden.</p>
+</li>
+<li class="listitem">
+<p><span class="bold bold"><strong>Zahlungsweise:</strong></span> Das Übertragen der Zahlungsweise erlaubt es, Einstellungen wie Autoversand, Fast-Lane oder das Anlegen von Rechnungen spezifisch für bestimmte Zahlungsweisen in xentral zu aktivieren oder zu deaktivieren.</p>
+</li>
+<li class="listitem">
+<p><span class="bold bold"><strong>Lieferung:</strong></span> Ähnlich wie bei der Zahlungsweise kann bei übergebener Lieferweise ein Matching in xentral vorgenommen werden.</p>
+</li>
+<li class="listitem">
+<p><span class="bold bold"><strong>Versandkostenbrutto:</strong></span> Prinzipiell können bei einer Bestellung die Versandkosten wie ein Artikel im Warenkorb mit übergeben werden. Durch die Verwendung dieses Spezialfelds werden die Versandkosten allerdings gleich auf den im Importer eingestellten Portoartikel gebucht und in den Auftrag übernommen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold bold"><strong>Bestelldatum:</strong></span> Das Bestelldatum zeigt das Datum an, an dem die Bestellung eingegangen ist.</p>
+</li>
+</ul>
+</div>
+<pre class="programlisting">foreach ($order['data']['details'] as $article) { $articlearray[] = [ 'articleid' =&gt; $article['articleNumber'], 'name' =&gt; $article['articleName'], 'price' =&gt; $article['price'], 'quantity' =&gt; $article['quantity'] ]; }
+
+...
+
+$orderData =[ 'id' =&gt; $cart['auftrag'], 'warenkorb' =&gt; base64_encode(serialize($cart)), 'warenkorbjson' =&gt; base64_encode(json_encode($cart)) ];</pre>
+<p>Wenn die benötigten Grunddaten der Bestellung an den Warenkorb übergeben wurden, ist es an der Zeit die einzelnen Positionen zum Warenkorb hinzuzufügen. Im Feld articleid wird die Artikelnummer übergeben. In den anderen Feldern steht ihr jeweiliges Äquivalent aus der Bestellposition. Nachdem der Warenkorb mit allen Daten befüllt wurde die aus der Bestellung übergeben werden sollen, gibt die Funktion die Daten zurück. Funktionen ImportDeleteAuftrag / ImportUpdateAuftrag Die aus historischen Gründen ungünstig benannte Funktion ImportDeleteAuftrag wird nicht etwa dazu verwendet um Aufträge aus dem Shop zu löschen. Sie ist stattdessen dafür zuständig eine offene Bestellung als „In Bearbeitung“ zu kennzeichnen. Die Partnerfunktion ImportUpdateAuftrag kennzeichnet die Bestellung als „Versendet“.</p>
+<pre class="programlisting">public function ImportDeleteAuftrag() { $orderId = $this-&gt;data['auftrag']; $update = [ 'orderStatusId' =&gt; 1 ];
+
+$this-&gt;call('orders/'.$orderId, 'PUT',$update);
+
+return true; }</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

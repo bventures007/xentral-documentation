@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zahlungsverkehr</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016724700
+    Titel: Zahlungsverkehr
+    URL: https://help.xentral.com/hc/de/articles/360016724700-Zahlungsverkehr
+    Erstellt: 2020-09-28T13:02:17Z
+    Aktualisiert: 2025-02-21T09:39:13Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415730331164
+    Export-Zeitpunkt: 2025-11-16 19:07:20
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="sidebar">
+<a id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_UUID-28280520-8ea5-9292-82e6-bd2769d1d755"></a>
+<div class="titlepage">
+<p class="title"></p>
+</div>
+<p>Im <span class="phrase">Xentral NextGen</span> Design: <span class="guilabel">Buchhaltung &gt; Zahlungsverkehr</span>.</p>
+<p>Im Classic Design: <span class="guilabel">Buchhaltung &gt; Zahlungsverkehr</span>.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Der Zahlungsverkehr umfasst alle Übertragungen von Zahlungsmitteln.</p>
+<p>In xentral können in diesem Modul Beträge sowohl beglichen, als auch eingezogen werden. Es ist auch möglich eine Verbindlichkeit direkt in diesem Modul anzulegen. Voraussetzungen für die Nutzung dieses Moduls sind:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>dass der SEPA-Zahlungsverkehr in xentral eingerichtet ist</p>
+</li>
+<li class="listitem">
+<p>dass eine SEPA-Gläubiger-Identifikationsnummer vorhanden ist</p>
+</li>
+</ul>
+</div>
+<p>Besonders relevant ist dieses Modul, wenn der Zahlungsverkehr über xentral abgewickelt wird.</p>
+<p>In der App Zahlungsverkehr könnt ihr Überweisungen von euren Bankkonten veranlassen, indem ihr im Modul eine XML-Datei erzeugt und diese in eurer Online-Banking-Software hochlädt. Zu diesem Zweck können Verbindlichkeiten und Gutschriften direkt hereingeladen werden, um die Auszahlung zu veranlassen und die erstellte Buchung direkt auf den korrekten Beleg zu verknüpfen – und diesen als bezahlt zu markieren. Diese Belege könnt ihr nach Offenen, Fehlgeschlagenen, Ausgeführten, etc. filtern, um stets den benötigten Überblick zu erhalten.</p>
+<p>Über die Aktion Zahlungen zuordnen und freigeben werden die vorgeschlagenen Buchungen vorbereitet. Anschließend kann oben auf den Reiter des gewünschten Kontos navigiert werden und mit der Aktion Zahlung ausführen die Überweisungen ausgelöst werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-0"></a>Voraussetzungen</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-1"></a>SEPA-Zahlungsverkehr einrichten</h3>
+</div>
+<p>Der SEPA-Zahlungsverkehr kann unter Administration → Einstellungen → Buchhaltung → Geschäftskonten für jedes Konto aktiviert werden. Folgende Daten müssen vorab im Geschäftskonto eingetragen werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Inhaber</p>
+</li>
+<li class="listitem">
+<p>BIC</p>
+</li>
+<li class="listitem">
+<p>IBAN</p>
+</li>
+<li class="listitem">
+<p>BLZ (optional)</p>
+</li>
+<li class="listitem">
+<p>Konto (optional)</p>
+</li>
+<li class="listitem">
+<p>Gläubiger ID</p>
+</li>
+<li class="listitem">
+<p>Lastschrift: aktiviert durch Setzen eines Hakens</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-2"></a>SEPA-Gläubiger-Identifikationsnummer</h3>
+</div>
+<p>Für das Lastschriftverfahren wird für die eigene Firma eine SEPA-Gläubiger-Identifikationsnummer benötigt. Diese muss z.B. für Deutschland bei der Deutschen Bundesbank mit dem „Formular zur Beantragung Ihrer Gläubiger-Identifikationsnummer“ beantragt werden.</p>
+<p>Mit dieser Nummer kann man sich bei der Hausbank freischalten lassen. Für die einzelnen Kunden muss bei jedem Lastschrifteinzug die Mandatsreferenz übermittelt werden. Diese Daten werden beim Einzug jedes Mal für jeden Kunden von xentral aus mit übergeben.</p>
+<p>Diese Nummer wird direkt bei den Firmendaten eingetragen: Administration → Einstellungen → System → Grundeinstellungen → Firmenanschrift.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-3"></a>Zahlungen</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-4"></a>Offen</h3>
+</div>
+<p>In der Übersicht sind alle offenen Lastschriften aufgelistet. Diese können nach bestimmten Kriterien gefiltert werden. Außerdem ist es möglich im Bereich "Aktion" direkt hier eine neue Überweisung anzulegen sowie Gutschriften und Verbindlichkeiten zu laden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-5"></a>Filter</h3>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>nur Offene</strong></span> → zeigt ausschließlich die Verbindlichkeiten und Gutschriften an, die noch offen sind und noch keinem Zahlungskonto zugeordnet wurden. Dieser Filter sollte standardmäßig gesetzt werden</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>nur Fehlgeschlagene</strong></span> → zeigt ausschließlich die Verbindlichkeiten und Gutschriften an, die fehlgeschlagen sind</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>nur Ausgeführte</strong></span> → zeigt ausschließlich bereits ausgeführte Verbindlichkeiten und Gutschriften an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>nur Verbindlichkeiten</strong></span> → zeigt ausschließlich Verbindlichkeiten an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>nur Gutschriften</strong></span> → zeigt ausschließlich Gutschriften an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Skonto-Datum verwenden</strong></span> → Verwendet das Skonto-Datum zur Sortierung</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-6"></a>Neue Überweisung</h3>
+</div>
+<p>Über die Schaltfläche "Neue Überweisung" kann eine Überweisung direkt hier neu angelegt werden.</p>
+<p>In der Eingabemaske können die notwendigen Informationen hinterlegt werden. Über die Edit-Schaltfläche bei bestehenden Überweisungen erscheint ebenfalls diese Maske, wobei die Informationen dann noch einmal angepasst werden können, z.B. wenn für diese eine Überweisung eine andere IBAN verwendet werden soll, als die, die in den Stammdaten hinterlegt ist.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_h_01EYXAKKBKM5CSNN19WZHVR9HS"></a>Offene Zahlungen</h3>
+</div>
+<p>Hier können Gutschriften und Verbindlichkeiten geladen werden. Im ersten Schritt werden die Überweisungen händisch angehakt oder über den Haken "alle markieren" ausgewählt. Dann ist das Konto auszuwählen, zu welchem die Überweisung zugeordnet werden soll. Als letztes ist die Auswahl mit der Schaltfläche "Zahlungen zuordnen und freigeben" abzuschließen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-8"></a>Konten</h3>
+</div>
+<p>Neben dem Tab "offen" erscheinen alle angelegten Konten, die für den Zahlungsverkehr freigegeben wurden. In unseren Bsp. sind dies "Bankkonto CSV (Beispiel:Deutsche Bank)", "Barkasse", "Konto: AmazonPay (API)". Hier werden die Überweisungen angezeigt, die diesem Konto zugeordnet wurden.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13026760349468" style="" alt="PaymentTransactions1.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-9"></a>Filter</h3>
+</div>
+<p>Auch hier ist es möglich über Filter nach bestimmten Kriterien zu filtern.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>nur Fehlgeschlagene</strong></span> → zeigt ausschließlich die Verbindlichkeiten und Gutschriften an, die fehlgeschlagen sind</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>nur Ausgeführte</strong></span> → zeigt ausschließlich bereits ausgeführte Verbindlichkeiten und Gutschriften an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>nur Verbindlichkeiten</strong></span> → zeigt ausschließlich Verbindlichkeiten an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>nur Gutschriften</strong></span> → zeigt ausschließlich Gutschriften an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Skonto-Datum verwenden</strong></span> → Verwendet das Skonto-Datum zur Sortierung</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-10"></a>Transaktionsmonitor</h3>
+</div>
+<p>Hier liegt eine Auflistung aller ausgeführten Zahlungen für dieses Konto.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-11"></a>Zahlungsausführung</h3>
+</div>
+<p>Nachdem die Zahlung ausgeführt wurde, erscheint im Transaktionsmonitor die XML-Datei zum Download. Nach dem Download kann diese wiederum bei der jeweiligen Bank hochgeladen werden. Dieser Ablauf ist immer der gleiche, außer bei <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/360017416839#UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d" title="PayPal Rückerstattungen">Paypal</a> und <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/24279#UUID-917f32e3-64d6-2860-9ca2-9f0de43a94a9">Amazon Pay</a>. Dort erfolgt die Rückzahlung direkt über die API.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-12"></a>SEPA Sammelüberweisung</h3>
+</div>
+<p>Dieser Tab wird nicht mehr verwendet. Alle Aktionen erfolgen nun über die Konten Tabs.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-13"></a>Lastschriften</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-14"></a>offene Rechnungen</h3>
+</div>
+<p>In diesem Tab werden alle offenen Rechnungen aufgelistet. Es kann danach gefiltert werden, dass nur Rechnungen angezeigt werden, die in mindestens 10 Tagen fällig sind. Im Bereich "Übersicht" wird die Gesamtsumme dargestellt. Mit der Stapelverarbeitung kann ein Konto und optional ein Präfix vor dem Buchungstext ausgewählt werden, um dann eine Sammellastschrift anzulegen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-15"></a>offene Gutschriften</h3>
+</div>
+<p>In diesem Tab werden alle offenen Gutschriften aufgelistet. Im Bereich Übersicht wird die Gesamtsumme dargestellt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-16"></a>Abgebuchte Rechnungen</h3>
+</div>
+<p>Wurden Rechnungen verbucht, erscheinen diese in diesem Tab. Die Rechnungen können hier noch einmal bearbeitet oder als PDF ausgegeben werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-17"></a>Zahlungsavis</h3>
+</div>
+<p>Mit einem Zahlungsavis werden ausstehende Rechnungen angekündigt. In diesem Tab liegt eine Auflistung aller bestehenden Avis. Das Avis Dokument ist via PDF Icon abrufbar. Über die Stapelverarbeitung können die Avis über einen Prozessstarter versendet oder gedruckt und versendet werden. Stand Juni 2021 kann das Zahlungsavis nur in deutscher Sprache verschickt werden.</p>
+<p>Wenn es einen Lastschrifteinzug für einen Kunden mit mehreren Rechnungen gleichzeitig in einem SEPA-Sammellauf gibt, werden die Rechnungen zu einer Summe zusammengefasst und anstelle der Rechnungsnummern wird dann die Nummer der Avis mit in den Überweisungstext verwendet. Z.B. bei 10 Rechnungen als Sammeleinzug sind zu viele Zeichen im Buchungstext, wenn jede Rechnung einzeln mit Nummer aufgelistet wird.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die Zahlungsavis wird standardmäßig an die in den Adressstammdaten hinterlegte E-Mail-Adresse gesendet. Falls unter <span class="bold"><strong>Adresse &gt; Details &gt; Dokumente Versandoptionen &gt; Rechnung</strong></span> eine abweichende E-Mail-Adresse hinterlegt ist, wird der Zahlungsavis stattdessen an diese gesendet.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-18"></a>Zahlungsavis per Prozessstarter versenden</h3>
+</div>
+<p>Zahlungsavise können gesammelt in großer Menge versendet werden. Zu versendende Avise können in der Übersicht ausgewählt und dann als Alternative zum Druck zu einer internen Liste hinzugefügt werden, von der aus diese der Prozessstarter "zahlungsavis_mailausgang" verschickt. Für die Mail wird die Geschäftsbriefvorlage "LastschriftenZahlungsavis" verwendet. Wenn die Geschäftsbriefvorlage nicht vorhanden ist, oder Text bzw. Betreff leer sind, dann wird keine Mail versendet.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-19"></a>SEPA Sammellastschriften</h3>
+</div>
+<p>In diesem Tab liegt eine Übersicht über alle SEPA Sammellastschriften. Diese können hier mit dem "x" entfernt oder über den Pfeil heruntergeladen werden. Durch das entfernen werden die einzelnen Rechnungen wieder in den Bereich der offenen Lastschriften verschoben, falls bspw. Änderungen an den Bankdaten des Kunden vorgenommen werden sollen, bevor die XML Datei erzeugt wird. Sind in einem Lastschrift Lauf Erstlastschriften und Folgelastschriften vorhanden, werden hier zwei Dateien für die Bank angelegt.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Beim 'Präfix vor Buchungstext' ist darauf zu achten, dass der ausgewählte Text nicht zu lang ist. Ansonsten könnte die Banksoftware die Rechnungsnummer in 2 Zeilen trennen, was zur Folge hat, dass im xentral Zahlungseingang die Rechnungsnummer nicht mehr automatisch erkannt werden kann. Die Rechnungsnummer muss zusammenhängend in der Zahlungszeile beim Zahlungsimport vorhanden sein. Wird kein Präfix eingegeben, setzt sich der Buchungstext aus der Rechnungsnummer, der Kundennummer sowie des vollständigen Kundennamens zusammen.</p>
+</div>
+<p>In der Minidetail Ansicht können zudem weitere Details eingesehen werden und die Buchungsübersicht kann hier ausgedruckt werden. Kunden mit mehreren Rechnungen werden als Avis zusammengefasst und in einer Buchung angezeigt. Der Einzug via XML erfolgt dann auch in einer Sammelbuchung für diesen Kunden und wird später auf dem Bankkonto auch so verbucht. Die Aufsplittung der Einzelbuchungen kann dann im Zahlungseingang mit der Splitfunktion erfolgen. Um die Auflösung in Einzelpositionen von Sammellastschriften durch xentral zu gewährleisten, muss die Einstellung "Einzelbuchungen aktivieren" im Geschäftskonto aktiviert werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-20"></a>Einstellungen</h2>
+</div>
+<p>Im Reiter <span class="guilabel">Einstellungen</span> kann festgelegt werden, mit wie vielen Tagen das Skonto überzogen werden darf. Standardmäßig ist hier 0 eingestellt.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-21"></a>Einzugsdatum einstellen</h3>
+</div>
+<p>Das Einzugsdatum für Lastschriften wird in der Rechnung im Bereich <span class="guilabel">Einzugsermächtigung</span> eingestellt. Das Einzugsdatum hat einen Einfluss auf die offenen Lastschriften unter <span class="guilabel">Zahlungsverkehr &gt; Reiter Lastschriften &gt; Unterreiter Offene Rechnungen</span>. Hier wird die Rechnung automatisch für eine Sammellastschrift markiert, sobald das Einzugsdatum (z.B. der 15.06.2023 im folgenden Screenshot) erreicht ist. Alle Rechnungen ohne Einzugsdatum werden ebenfalls automatisch markiert.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/11351053692444" style="" alt="paymenttransaction_directdebit.png"></div>
+<p>Wenn du eine Rechnung manuell für eine Sammellastschrift auswählst, bevor ihr Einzugsdatum erreicht ist, wird das Einzugsdatum ignoriert und das Geld vorzeitig eingezogen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-22"></a>Rechnungsbetrag nochmals einziehen</h3>
+</div>
+<p>Um einen Rechnungsbetrag noch einmal einzuziehen ist in eine Rechnung zu klicken und dort den Schreibschutz zu entfernen. Danach ist die Schaltfläche "nochmals einziehen" auszuwählen. Die Rechnung wird nun nochmals in den Lastschriftenlauf (Liste aller fälligen) aufgenommen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381" id="UUID-bae89b09-9c58-1b7e-ba11-012d734aa381_id_360016724700_id_toc-23"></a>Rechnung mit Gutschrift verrechnen</h3>
+</div>
+<p>Gutschriften können mit Rechnungen gemeinsam verrechnet werden. Hierzu muss der Rechnungsbetrag größer als der Gutschriftsbetrag sein. Andernfalls wäre es eine Rücküberweisung. Der Gutschriftsbetrag wird vom Rechnungsbetrag abgezogen. Folgende Rechnung soll als Lastschrift eingezogen werden:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13026768608028" style="" alt="PaymentTransactions2.png"></div>
+<p>Zu dieser Rechnung wurde eine Gutschrift erstellt (Rechnung weiterführen als Gutschrift, Zahlungsweise "Lastschrift"). Diese Gutschrift erscheint bei den "Offene Gutschriften".</p>
+<p>Bei der Erstellung der XML-Datei wird die Gutschrift mit der Rechnung verrechnet, sofern die Gutschrift einen Betrag kleiner / gleich der Rechnung hat.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

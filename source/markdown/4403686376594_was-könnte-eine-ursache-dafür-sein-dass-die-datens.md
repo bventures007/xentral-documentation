@@ -1,0 +1,3 @@
+Beachte die Einstellungen beim Öffnen der CSV-Datei. Das **Trennzeichen** ist besonders wichtig, damit die Datei gelesen werden kann. Die Maskierung ist zudem wichtig, damit die Datei im richtigen Format geöffnet wird.
+
+Mit der Einstellung "CSV Beschriftung" kannst du außerdem festlegen, dass die erste Zeile die Beschriftung bzw. Bezeichnung der einzelnen Spalten beinhaltet und noch keine Daten enthält (dann wäre es eine Datenzeile). </span> <span class="wiki-text"><img alt=":entwickler:csv_maskierung.png" class="wiki-image" src="images/wiki-import/entwickler/csv_maskierung.png"/></span> <span class="wiki-text"><span style="color:#c3c3c3"> </span> </span>

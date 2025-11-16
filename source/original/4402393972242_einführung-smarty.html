@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einführung Smarty</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 4402393972242
+    Titel: Einführung Smarty
+    URL: https://help.xentral.com/hc/de/articles/4402393972242-Einf%C3%BChrung-Smarty
+    Erstellt: 2021-06-15T09:18:51Z
+    Aktualisiert: 2025-08-16T09:37:20Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 360004524139
+    Export-Zeitpunkt: 2025-11-16 19:08:08
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Hinter Smarty verbirgt sich eine Technik, die es dir ermöglicht, schnell und übersichtlich Daten zu konvertieren. Du kannst dabei alle textbasierten Formate konvertieren, gleich ob es sich um CSV-, XML, JSON- oder anders strukturierte Dateien handelt.</p>
+<p>Smarty kannst du an verschiedenen Stellen in xentral nutzen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Smarty im Übertragen-Modul</p>
+</li>
+<li class="listitem">
+<p>Smarty in Shop-Schnittstellen</p>
+</li>
+</ul>
+</div>
+<p>Die verfügbaren Funktionen und dazugehörigen Modifier sind zum großen Teil identisch. Auf Besonderheiten weisen wir daher in den entsprechenden Abschnitten der Dokumentation hin. Smarty ist in xentral an den entsprechenden Stellen bereits enthalten. Das herunterladen von Libraries ist nicht notwendig.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADSD8JSMVJJZJRW2XAV4F3"></a>Vorgehensweise</h2>
+</div>
+<p>Basis der Umwandlung ist immer das sog. Smarty Template. Darin wird das Format und die Struktur des ausgehenden Dokumentes definiert. Dazu kannst du einfach das Zielformat in Form einer Beispieldatei in den Template-Editor kopieren. Anschließend werden die Beispieldaten durch Variablen ersetzt und können dann vom System gefüllt werden.</p>
+<p>Am Beispiel eines Auftrages als XML-Datei wird hier verdeutlicht, wie diese Umwandlung stattfinden kann.</p>
+<p>Das folgende Format soll ausgegeben werden:</p>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;auftrag&gt;
+  &lt;belegnr&gt;200259&lt;/belegnr&gt;
+  &lt;kundennummer&gt;100112&lt;/kundennummer&gt;
+  &lt;name&gt;Max Musterman&lt;/name&gt;
+  &lt;strasse&gt;Beispielstrasse 13&lt;/strasse&gt;
+  &lt;plz&gt;86150&lt;/plz&gt;
+  &lt;ort&gt;Augsburg&lt;/ort&gt;
+  &lt;positionen&gt;
+&lt;position&gt;
+&lt;nummer&gt;Art_001&lt;/nummer&gt;
+   &lt;bezeichnung&gt;Beispielartikel 1&lt;/bezeichnung&gt;
+   &lt;menge&gt;3&lt;/menge&gt;
+   &lt;preis&gt;7.96&lt;/preis&gt;
+&lt;/position&gt;
+&lt;position&gt;
+&lt;nummer&gt;Art_002&lt;/nummer&gt;
+   &lt;bezeichnung&gt;Beispielartikel 2&lt;/bezeichnung&gt;
+   &lt;menge&gt;10&lt;/menge&gt;
+   &lt;preis&gt;399.99&lt;/preis&gt;
+&lt;/position&gt;
+  &lt;/positionen&gt;
+&lt;/auftrag&gt;</pre>
+<p>Diese Beispieldatei wird in den Template-Editor kopiert. Anschließend werden die Beispielwerte mit den zugehörigen Variablen ersetzt.</p>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;auftrag&gt;
+  &lt;belegnr&gt;{$beleg-&gt;belegnr}&lt;/belegnr&gt;
+  &lt;kundennummer&gt;{$beleg-&gt;kundennummer}&lt;/kundennummer&gt;
+  &lt;name&gt;{$beleg-&gt;name}&lt;/name&gt;
+  &lt;strasse&gt;{$beleg-&gt;strasse}&lt;/strasse&gt;
+  &lt;plz&gt;{$beleg-&gt;plz}&lt;/plz&gt;
+  &lt;ort&gt;{$beleg-&gt;ort}&lt;/ort&gt;
+  &lt;positionen&gt;
+  {foreach from=$beleg-&gt;positionen key=keyrow item=position}{* Positionen *}
+  &lt;position&gt;
+&lt;nummer&gt;{$position-&gt;nummer}&lt;/nummer&gt;
+   &lt;bezeichnung&gt;{$position-&gt;bezeichnung}&lt;/bezeichnung&gt;
+   &lt;beschreibung&gt;{$position-&gt;beschreibung}&lt;/beschreibung&gt;
+   &lt;menge&gt;{$position-&gt;menge}&lt;/menge&gt;
+   &lt;preis&gt;{$position-&gt;preis}&lt;/preis&gt;
+   &lt;einheit&gt;{$position-&gt;einheit}&lt;/einheit&gt;
+&lt;/position&gt;
+  {/foreach}
+  &lt;/positionen&gt;
+&lt;/auftrag&gt;</pre>
+<p>Dabei wird je nach Bereich ein Basisobjekt verwendet, um auf die Werte zuzugreifen. Je nach Einsatzgebiet ist das ein anderes Objekt:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>$beleg</strong></span> → Übertragen-Modul: Ausgehende Belegdaten verarbeiten</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>$artikelliste</strong></span> → Übertragen-Modul: Ausgehende Artikel oder Lagerbestände (Lagerzahlen) verarbeiten</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>$trackingliste</strong></span> → Übertragen-Modul: Ausgehende Trackinginformationen verarbeiten</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>$salesreportlist</strong></span> → Übertragen-Modul: Ausgehende Belegdaten verarbeiten</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>$object</strong></span> → Übertragen-Modul: Eingehende Daten verarbeiten</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>$cart</strong></span> → Shop-Schnittstelle: Warenkorb verarbeiten</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADSJ5N52C3WB9JD2160JRH"></a>Funktionen und Modifier</h2>
+</div>
+<p>Die meisten der hier beschriebenen Beispiele stammen aus dem Standard-Umfang der verwendeten Template-Engine Smarty. Weitere Funktionen findest du daher in der offiziellen <a class="link" href="https://www.smarty.net/docs/en/language.modifiers.tpl" target="_blank" rel="noopener">Smarty-Dokumentation</a>.</p>
+<p>Grundsätzlich werden Funktionen oder Modifier nach dem Pipe-Zeichen ( | ) in der Variable geschrieben, ggf. mit nachfolgenden Parametern, abgetrennt durch einen Doppelpunkt.</p>
+<p>Template: { Wert oder $Variable | Modifier oder Funktion : Weitere Parameter }</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADSQJ6CMT4FAVQ53AE213Y"></a>Beispiele</h3>
+</div>
+<p>Das folgende Script zeigt dir beispielhaft die Verwendung von Smarty mit Konstanten, Wertzuweisungen, Variablen, Funktionen und Modifiern. Einige davon werden im Folgenden genauer beschrieben.</p>
+<pre class="programlisting">&lt;xml&gt;
+
+{* 0. Statisch *}
+&lt;auftragsdaten&gt;&lt;/auftragsdaten&gt;
+&lt;transactions/&gt;
+&lt;anrede&gt;herr&lt;/anrede&gt;
+
+{* 1. Wertzuweisung *}
+&lt;waehrung&gt;{$cart-&gt;auftragsdaten-&gt;currency}&lt;/waehrung&gt;
+
+{* 2. Rechnen *}
+&lt;gesamtsumme&gt;{($cart-&gt;auftragsdaten-&gt;total_price - 5)}&lt;/gesamtsumme&gt;
+
+{* 3. Variablenzuweisung *}
+{assign var=data value=$cart-&gt;auftragsdaten}
+&lt;email&gt;{$data-&gt;email}&lt;/email&gt;
+
+{* 4. Funktionen *}
+&lt;bestelldatum&gt;{$cart-&gt;auftragsdaten-&gt;processed_at|truncate:10:''}&lt;/bestelldatum&gt;
+
+{* 5. Verzweigungen *}
+{if $cart-&gt;auftragsdaten-&gt;total_tip_received &gt; 0}
+ &lt;freitext&gt;Danke für die Spende von {$cart-&gt;auftragsdaten-&gt;total_tip_received} {$cart-&gt;auftragsdaten-&gt;currency}!!!&lt;/freitext&gt;
+{else}
+ &lt;freitext&gt;Geiz ist geil!&lt;/freitext&gt;
+{/if}
+
+{* 6. Schleifen *}
+{foreach key=key item=item from=$cart-&gt;auftragsdaten-&gt;note_attributes}
+  {if $item-&gt;name == "google-clientID"}
+&lt;internebemerkung&gt;Google ClientID: {$item-&gt;value}&lt;/internebemerkung&gt;
+  {/if}
+{/foreach}
+&lt;/xml&gt;</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADSVN0Z0FBR3FMQFWVX7BQ"></a>Script-Funktionen</h3>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADT72Q61SSZK0D9E4PXTJM"></a>Assign / Variablen und Inhalte zuweisen</h4>
+</div>
+<p>Durch den Befehl assign können Variablen erstellt und ihnen Werte zugewiesen werden. Dies kann zur Vereinfachung der Lesbarkeit im Template verwendet werden.</p>
+<p>Template:</p>
+<pre class="programlisting">{assign var=order value=$cart-&gt;auftragsdaten}</pre>
+<p>Ergebnis: Der Wert von $cart-&gt;auftragsdaten-&gt;datum ist verkürzt erreichbar unter $order-&gt;datum.</p>
+<p>Weitere Definitionen findest du in der Dokumentation der <a class="link" href="https://www.smarty.net/docs/en/language.function.assign.tpl" target="_blank" rel="noopener">Smarty Funktion assign</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADTHC4HH5ZV1V5027TWVTS"></a>Zahlenbearbeitung</h3>
+</div>
+<p>Hier erfährst du, wie du Zahlen bearbeiten kannst.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADTQFWH7MYNBVQBAJTYH0D"></a>Nachkommastellen kürzen</h4>
+</div>
+<p>Eine Zahl soll auf drei Nachkommastellen gekürzt werden. Anschließend soll der Punkt durch ein Komma ersetzt werden. Anstelle einer Zahl kann es natürlich auch eine Variable oder das Ergebnis einer Berechnung sein.</p>
+<p>Template:</p>
+<pre class="programlisting">{1.12345|string_format:"%1\$.3f"|replace:".":","}</pre>
+<p>Ergebnis: 1,123</p>
+<p>Weitere Definitionen findest du in der Dokumentation des <a class="link" href="https://www.smarty.net/docs/en/language.modifier.string.format.tpl" target="_blank" rel="noopener">Smarty Modifiers string_format</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADTZFKE3NAR1F9A4RX4CSY"></a>Einfache Berechnungen</h4>
+</div>
+<p>Neben komplexeren Berechnungen kannst du auch einfache Berechnungen direkt in der Ausgabe der Variablen vornehmen. Dazu musst du lediglich eine Klammer () um den Ausdruck setzen.</p>
+<p>Template:</p>
+<pre class="programlisting">{($cart-&gt;versandkostenbrutto-0.95)}</pre>
+<p>Ergebnis: Ausgabe des Restwertes, z.B. bei 4,95 = 4</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADV69VPJ7Y2Z6FMW1FWE9T"></a>Textbearbeitung</h3>
+</div>
+<p>Hier erfährst du, wie du Texte bearbeiten kannst.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADVDRD1JZC5E8R5SVHRRJK"></a>Textlänge begrenzen</h4>
+</div>
+<p>Sollte beispielsweise im Warenkorb ein langer Textwert für den Namen (order =&gt; name =&gt;) “Max Mustermann” importiert werden, könnte dieser auch mit Hilfe von Smarty auf eine feste Textlänge (in Zeichen) gekürzt werden.</p>
+<p>Template:</p>
+<pre class="programlisting">{$cart-&gt;order-&gt;name|truncate:3}</pre>
+<p>Ergebnis: Max…</p>
+<p>oder:</p>
+<pre class="programlisting">{$cart-&gt;order-&gt;name|truncate:3,””}</pre>
+<p>Ergebnis: Max</p>
+<p>Weitere Definitionen findest du in der Dokumentation des <a class="link" href="https://www.smarty.net/docsv2/de/language.modifier.truncate.tpl" target="_blank" rel="noopener">Smarty Modifiers truncate</a>.</p>
+<p>Alternativ kannst du auch mit Hilfe der String-Formatierung arbeiten:</p>
+<p>Template:</p>
+<pre class="programlisting">{$cart-&gt;order-&gt;name|string_format:"%s{3}"}</pre>
+<p>Weitere Definitionen findest du in der Dokumentation des <a class="link" href="https://www.smarty.net/docs/en/language.modifier.string.format.tpl" target="_blank" rel="noopener">Smarty Modifiers string_format</a></p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADVJD6H8VS3G10PB6YDHGV"></a>Textenden bereinigen</h4>
+</div>
+<p>Ersetzt mehrfache Leerzeichen, Zeilenumbrüche und Tabulatoren im Inhalt der Variable durch ein Leerzeichen oder eine alternative Zeichenkette (im zweiten Beispiel &amp;nbsp;).</p>
+<p>Template:</p>
+<pre class="programlisting">{$cart-&gt;order-&gt;name|strip}</pre>
+<p>oder</p>
+<pre class="programlisting">{$cart-&gt;order-&gt;name|strip:&amp;nbsp;}</pre>
+<p>Weitere Definitionen findest du in der Dokumentation des <a class="link" href="https://www.smarty.net/docsv2/de/language.modifier.strip.tpl" target="_blank" rel="noopener">Smarty Modifiers strip</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADVQDK5FP0VZCGFC1HP0KX"></a>Text suchen und ersetzen</h4>
+</div>
+<p>Template:</p>
+<pre class="programlisting">{$original|replace:“foo":“bar”|getxml assign=“newxml”}</pre>
+<p>Ersetzt alle Strings foo zu bar und speichert / wandelt es in ein neues Objekt $newxml um.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADW18XVHC9ZERY7WJQZXE9"></a>Text mit Regular Expression suchen und ersetzen</h4>
+</div>
+<p>Template:</p>
+<pre class="programlisting">{$position-&gt;nummer|pregreplace:‘/[^0-9]/‘:’’}</pre>
+<p>Führt eine reguläre Ersetzung auf dem Element aus.</p>
+<p>Weitere Definitionen findest du in der Dokumentation des <a class="link" href="https://www.smarty.net/docsv2/de/language.modifier.regex.replace.tpl" target="_blank" rel="noopener">Smarty Modifiers regex/replace</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADW9YN9ARK48VHEQJ05E4X"></a>Fehlerbearbeitung / Logging</h3>
+</div>
+<p>Hier erfährst du, wie du Log-Einträge erstellst.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADWK6E3J6RR0G03G5AZK15"></a>Logging im Übertragen-Modul</h4>
+</div>
+<p>template:</p>
+<pre class="programlisting">{“Der Auftrag enthält keine Positionen”|error}</pre>
+<p>Gibt einen Fehler an Smarty aus, der geloggt und im Monitor des Übertragung-Moduls ausgegeben wird.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADWWHP1VJWHNWG0XDSDFP4"></a>Ausgabe von Daten</h3>
+</div>
+<p>Template:</p>
+<pre class="programlisting">{$orderData|@debug_print_var}</pre>
+<p>Gibt die Daten des vorangestellten Elements im Output-Fenster aus.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADX5018DZ3BCHFGMY14E4G"></a>Bedingungen</h2>
+</div>
+<p>Mit Hilfe von Bedingungen kann bereits im Template mit Logik gearbeitet werden, um kundenspezifische Entscheidungen bereits beim Ex- oder Import von Daten in verschiedene Ergebnisse zu überführen.</p>
+<p>Im folgenden Beispiel wird beim Import eines Auftrages über eine Shop-Schnittstelle der englische Wert “mr” in die Anrede “herr” überführt, die in xentral für den Adresstyp und die Anrede “Herr” steht.</p>
+<p>Beispiel Shopimporter:</p>
+<pre class="programlisting">&lt;xml&gt;
+  &lt;name&gt;Max Mustermann&lt;/name&gt;
+  {if $cart-&gt;order-&gt;salutation == “mr”}
+    &lt;anrede&gt;herr&lt;/anrede&gt;
+  {else}
+    &lt;anrede&gt;frau&lt;/anrede&gt;
+  {/if}
+&lt;/xml&gt;</pre>
+<p>Alternative Schreibweise (Shopimporter)</p>
+<pre class="programlisting">&lt;xml&gt;
+  &lt;name&gt;Max Mustermann&lt;/name&gt;
+  &lt;anrede&gt;
+  {if $cart-&gt;order-&gt;Salutation == “mr”}
+    herr{else}frau{/if}
+  &lt;/anrede&gt;
+&lt;/xml&gt;</pre>
+<p>Weitere alternative Schreibweise zum Überschreiben eines Knotens (Shopimporter)</p>
+<pre class="programlisting">&lt;xml&gt;
+  &lt;name&gt;Max Mustermann&lt;/name&gt;
+  &lt;anrede&gt;frau&lt;/anrede&gt;
+  {if $cart-&gt;order-&gt;salutation == “mr”}
+    &lt;anrede&gt;herr&lt;/anrede&gt;
+  {/if}
+&lt;/xml&gt;</pre>
+<p>In diesem Beispiel überschreibt der zweite gleichlautende Knoten (anrede) bei Zutreffen der Bedingung den vollständigen ersten Knoten inkl. Wert und ersetzt so den Inhalt.</p>
+<p>Weitere Definitionen findest du in der Dokumentation <a class="link" href="https://www.smarty.net/docs/en/language.function.if.tpl" target="_blank" rel="noopener">Smarty if/else</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADX98W7ZRVQBQYBFQXNGEC"></a>Schleifen</h2>
+</div>
+<p>Schleifen ermöglichen die Abarbeitung von Wertelisten (Arrays), z.B. Auftragspositionen, Steuersätze, o.ä. Ergebnis sind meist Key-Value-Pairs, die dann im zweiten Schritt ausgewertet werden können. Dazu werden diese Listen in einer Schleife durchlaufen und bearbeitet.</p>
+<p>Im folgenden Beispiel wird für eine gegebene Struktur der Rechnungsadresse ein beliebiges Element herausgegriffen, um z.B. eine gesonderte Einstellung für das Land zu setzen.</p>
+<p>Beispiel Shopimporter</p>
+<p>Warenkorb:</p>
+<pre class="programlisting">...
+billing =&gt; [
+  0 =&gt; [name =&gt; country, value =&gt; DE],
+  1 =&gt; [name =&gt; street, value =&gt; Musterweg],
+  2 =&gt; [name =&gt; house_no, value =&gt; 2],
+  3 =&gt; [name =&gt; phone, value =&gt; 123456789],
+  4 =&gt; [name =&gt; first_name, value =&gt; Max],
+...</pre>
+<p>Template:</p>
+<pre class="programlisting">&lt;xml&gt;
+  {foreach key=billingKey item=billingData from=$cart-&gt;billing}
+    {if $billingData-&gt;name == ”country”}
+      &lt;land&gt;{$billingData-&gt;value}&lt;/land&gt;
+    {/if}
+  {/foreach}
+&lt;/xml&gt;</pre>
+<p>Weitere Definitionen findest du in der <a class="link" href="https://www.smarty.net/docs/en/language.function.foreach.tpl" target="_blank" rel="noopener">Dokumentation von Smarty zu Schleifen am Beispiel foreach</a></p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADXDXVR7Y4KG7R8CB8ZVCB"></a>Tipps und Tricks</h2>
+</div>
+<p>Hier findest du einige Tipps und Tricks, die dir eventuell weiterhelfen können.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADXKTMDB7SS1FVJ0PCJ98J"></a>Strings mit CDATA escapen</h3>
+</div>
+<p>Viele Daten, die in Smarty übermittelt oder eingelesen werden können, beinhalten Zeichen, die durch die Weiterverarbeitung fehlinterpretiert werden können. Daher ist es wichtig, die übermittelten Inhalte von den strukturellen Daten zu unterscheiden. Dazu kannst du die Daten durch einem CDATA-Block umschließen und somit “escapen”.</p>
+<p>Template:</p>
+<pre class="programlisting">&lt;![CDATA[{$orderData-&gt;total_price}]]&gt;</pre>
+<p>Weitere Informationen zu <a class="link" href="https://en.wikipedia.org/wiki/CDATA" target="_blank" rel="noopener">CDATA und dessen Verwendung</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd" id="UUID-d586200e-e420-03fc-81ea-46c8ae17c3dd_id_4402393972242_id_h_01FDADXRWSZQ2MC2YMH03BM3HF"></a>Letztes Element einer Schleife</h3>
+</div>
+<p>Gerade bei der Ausgabe von JSON oder XML-Listen kann es wichtig sein, das Listenelement sauber abzuschließen. Um invalide Datenstrukturen zu erhalten, müssen alle Elemente mit einem Komma abgeschlossen werden, die nicht am Schluss der Liste stehen. Dazu kannst du die Syntax $item@last verwenden.</p>
+<p>Beispiel</p>
+<p>Ausgabe einer JSON-Datei mit dem Artikelbestand:</p>
+<pre class="programlisting">{"SELECT * ... "|assignsql assign="stock"}
+{
+  "stock": [
+    {foreach from=$stock key=keyrow item=st}
+      {
+        "materialId": "{$st-&gt;nummer}",
+        "quantity": "{$st-&gt;menge}",
+        "warehouse": "{$st-&gt;kurzbezeichnung}"
+      },
+
+      {if $st@last}
+      {
+        "materialId": "{$st-&gt;nummer}",
+        "quantity": "{$st-&gt;menge}",
+        "warehouse": "{$st-&gt;kurzbezeichnung}"
+      }
+      {/if}
+    {/foreach}
+]}</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

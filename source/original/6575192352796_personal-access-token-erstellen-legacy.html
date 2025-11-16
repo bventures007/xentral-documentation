@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Access Token erstellen (Legacy)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 6575192352796
+    Titel: Personal Access Token erstellen (Legacy)
+    URL: https://help.xentral.com/hc/de/articles/6575192352796-Personal-Access-Token-erstellen-Legacy
+    Erstellt: 2022-11-10T08:30:43Z
+    Aktualisiert: 2025-09-29T11:11:20Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 360004524139
+    Export-Zeitpunkt: 2025-11-16 19:08:07
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Dieser Artikel bezieht sich auf die Verwendung von Personal Access Tokens (PAT) mit der alten Legacy API.</p>
+<p>Bitte beachte: Für neue Integrationen steht in Xentral ein neues PAT-Modul zur Verfügung. Dieses bietet erweiterte Funktionen wie projekt- und ressourcenspezifische Zugriffe, konfigurierbare Laufzeiten sowie feingranulare Berechtigungen (Create, Read, Update, Delete).</p>
+<p><span class="bold"><strong>Für alle neuen Setups und Schnittstellen sollte ausschließlich das aktuelle PAT-Modul verwendet werden.</strong></span></p>
+<p>Die vollständige Dokumentation dazu findest du hier: <a class="link" href="https://help.xentral.com/hc/de/articles/22627542067740" target="_blank" rel="noopener">Personal Access Token (NEU)</a></p>
+</div>
+<p>Personal Access Token erlauben es dir, aus einer externen Anwendung sicher mit <span class="phrase">Xentral</span>-APIs zu kommunizieren. Diese Anwendungen können kleine Skripte sein, die du entwickelt hast, oder eine Anpassung eines <span class="phrase">Xentral</span>-Partners. Mithilfe von Personal Access Token kannst du die API mit mehreren Anwendungen gleichzeitig verwenden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Du kannst dich mithilfe von Personal Access Token bei allen <span class="phrase">Xentral</span>-APIs (aktuelle <a class="link" href="https://developer.xentral.com" target="_blank" rel="noopener"><span class="phrase">Xentral</span>-API</a>, <a class="link" href="https://update.xentral.biz/apidoc/docs224.html" target="_blank" rel="noopener">REST-API</a>, <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/13985#UUID-3536c110-aca9-5795-c775-f8950cd724b2">Standard-API</a>) authentifizieren. Auf diese Weise musst du die Authentifizierungsmethode nicht wechseln, wenn du eine ältere API verwenden möchtest.</p>
+<p>Wir empfehlen dir aber im Regelfall die aktuelle <span class="phrase">Xentral</span>-API zu verwenden, da die älteren REST- und Standard-APIs bei der Verwendung von Personal Access Token nicht alle Endpunkte verarbeiten können.</p>
+<p>Du findest eine <a class="link" href="#UUID-ea1af6a6-facc-0e7a-b548-d888342522ca_section-idm4585799077761633530802969822" title="Nicht verfügbare Endpunkte in der REST- und Standard-API" target="_blank">Liste nicht verfügbarer Endpunkte</a> am Ende dieses Artikels.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-ea1af6a6-facc-0e7a-b548-d888342522ca" id="id790"></a>Personal Access Token erstellen</h2>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Das Erstellen von Personal Access Token erfordert Administrator-Rechte.</p>
+</div>
+<p>Gehe wie folgt vor, um einen Personal Access Token zu erstellen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Klicke auf deinen Benutzernamen unten links, um das Administrations-Menü zu öffnen und klicke dann auf <span class="guilabel">Kontoeinstellungen</span>.</p>
+</li>
+<li class="step">
+<p>Navigiere zu <span class="guilabel">Entwickler Einstellungen &gt; Personal Access Token</span>. Es wird eine Liste aller aktiv verwendeten Token angezeigt.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">+ Token erstellen</span>. Sind keine Token aktiv, findest du die Schaltfläche in der Mitte des Bildschirms. Andernfalls findest du sie auf der rechten Seite über deiner Liste.</p>
+</li>
+<li class="step">
+<p>Gib einen eindeutigen <span class="guilabel">Namen</span> für deinen Token ein. Der Name sollte nicht länger als 50 Zeichen sein.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Token erstellen</span>. Der neue Token erscheint auf dem Bildschirm.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/6575191755932" style="max-width: 300px;" alt="CopyIcon.png"></span>, um den Token zu kopieren. Die Nachricht <span class="guilabel">Der Token wurde in die Zwischenablage kopiert</span> erscheint.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Nachdem du das Fenster geschlossen hast, wirst du keine Möglichkeit haben, den Token erneut zu sehen. Stelle sicher, dass du den Token speicherst, bevor du fortfährst.</p>
+</div>
+</li>
+<li class="step">
+<p>Schließe das Fenster.</p>
+</li>
+</ol>
+</div>
+<p>Der Name des Token erscheint nun in der Liste der <span class="guilabel">Personal Access Token</span>.</p>
+<p>Du kannst den Token in die Anwendung einfügen, der du Zugang zur <span class="phrase">Xentral</span> API verschaffen möchtest.</p>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Personal Access Token erlauben API-basierten Zugriff auf <span class="phrase">Xentral</span> mit unbeschränkten Rechten und ohne Ablaufdatum. Da dies ein potenzielles Sicherheitsrisiko darstellt, wird empfohlen, Token nicht öffentlich zu teilen und nicht direkt in den Quellcode der externen Anwendung einzubauen. Achte darauf, dass du den Anwendungen, denen du Zugriff zu <span class="phrase">Xentral</span> verschaffst, vollständig vertraust.</p>
+<p>Du kannst den Zugriff einer Anwendung auf die <span class="phrase">Xentral</span>-API jederzeit beenden, indem du das entsprechende Token löschst.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-ea1af6a6-facc-0e7a-b548-d888342522ca" id="id791"></a>Personal Access Token bearbeiten und löschen</h2>
+</div>
+<p>Alle Personal Acccess Token, die du verwendest, werden unter <span class="guilabel">Administrations-Menü &gt; Konto Einstellungen &gt; Entwickler Einstellungen &gt; Personal Access Token</span> gelistet. Du kannst alle Token eingeschränkt bearbeiten. Wenn du auf <span class="guilabel">Bearbeiten</span> klickst, hast du zwei Optionen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Namen ändern - Du kannst den Namen des Token verändern, um ihn besser von anderen Token unterscheiden zu können. Gib den neuen <span class="guilabel">Namen</span> ein und klicke auf <span class="guilabel">Token aktualisieren</span>.</p>
+</li>
+<li class="listitem">
+<p>Token löschen - Du kannst der externen Anwendung den Zugriff auf die API entziehen, indem du auf <span class="guilabel">Token löschen</span> klickst. Die Software, die du über den Token angebunden hast, ist in der <span class="phrase">Xentral</span>-Umgebung nicht mehr nutzbar. Du kannst gelöschte Token nicht wiederherstellen.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-ea1af6a6-facc-0e7a-b548-d888342522ca" id="UUID-ea1af6a6-facc-0e7a-b548-d888342522ca_section-idm4585799077761633530802969822"></a>Nicht verfügbare Endpunkte in der REST- und Standard-API</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-ea1af6a6-facc-0e7a-b548-d888342522ca_section-idm4585799077761633530802969822_body">
+<p>Auf die folgenden Endpunkte der Legacy-APIs kannst du über Personal Access Token nicht zugreifen. Diese Liste erhebt keinen Anspruch auf Vollständigkeit.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>/shopimport/auth</p>
+</li>
+<li class="listitem">
+<p>/shopimport/syncstorage/{articlenumber:.+}</p>
+</li>
+<li class="listitem">
+<p>/shopimport/articletoxentral/{articlenumber:.+}</p>
+</li>
+<li class="listitem">
+<p>/shopimport/articletoshop/{articlenumber:.+}</p>
+</li>
+<li class="listitem">
+<p>/shopimport/ordertoxentral/{ordernumber:.+}</p>
+</li>
+<li class="listitem">
+<p>/shopimport/articlesyncstate</p>
+</li>
+<li class="listitem">
+<p>/shopimport/statistics</p>
+</li>
+<li class="listitem">
+<p>/shopimport/modulelinks</p>
+</li>
+<li class="listitem">
+<p>/shopimport/disconnect</p>
+</li>
+<li class="listitem">
+<p>/shopimport/reconnect</p>
+</li>
+<li class="listitem">
+<p>/shopimport/status</p>
+</li>
+<li class="listitem">
+<p>/shopimport/refund</p>
+</li>
+<li class="listitem">
+<p>/v1/reports</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

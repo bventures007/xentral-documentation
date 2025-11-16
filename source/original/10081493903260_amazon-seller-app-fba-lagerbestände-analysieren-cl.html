@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Seller App - FBA-Lagerbestände analysieren (Classic)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 10081493903260
+    Titel: Amazon Seller App - FBA-Lagerbestände analysieren (Classic)
+    URL: https://help.xentral.com/hc/de/articles/10081493903260-Amazon-Seller-App-FBA-Lagerbest%C3%A4nde-analysieren-Classic
+    Erstellt: 2023-08-21T07:01:15Z
+    Aktualisiert: 2025-09-16T19:22:53Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4408341123356
+    Export-Zeitpunkt: 2025-11-16 19:09:35
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<p dir="ltr">Die Amazon Seller App erlaubt es dir, deine Artikeldaten (FBA - Fulfillment by Amazon/ FBM - Fulfillment by Merchant) und Lagerinformationen bei Amazon (nur FBA) an einem Ort zu verwalten und zu analysieren. Die App sammelt Daten über deine Bestände und den Lagerstandort deiner Produkte. Sie unterstützt dabei auch Läger in anderen europäischen Ländern (Pan-European FBA).</p>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bdf78785-1f98-024a-adc7-932e25426302" id="UUID-bdf78785-1f98-024a-adc7-932e25426302_section-idm4657506640604833798817479001"></a>Voraussetzungen</h2>
+</div>
+<p>Bevor du die Amazon Seller App nutzen kannst, musst du sie zuerst einrichten. Dafür benötigst du Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Eine aktive Amazon-Schnittstelle, die <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/6124566016540#UUID-c9a61828-5de0-1813-66dc-7851e3d0b425" title="Amazon-Schnittstelle anbinden (Classic)" target="_blank">angebunden</a> und <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/360016809939#UUID-c3dae2f2-8585-e44a-d7ae-9c5dec401a21" title="Überblick: Amazon Classic (Classic)" target="_blank">konfiguriert</a> ist.</p>
+</li>
+<li class="listitem">
+<p>Ein Lager ohne Lagerplätze. Dieses Lager sollte nur für Amazon FBA genutzt werden. Der Name des Lagers muss Amazon sein.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Du kannst ein Lager unter <span class="guilabel">Lager &gt; Lagerverwaltung</span> anlegen, indem du auf <span class="guilabel">+ NEU</span> klickst. Gib Amazon in das Feld <span class="guilabel">Lager</span> ein und lasse die anderen Felder frei. Klicke auf <span class="guilabel">Speichern</span>.</p>
+</div>
+</li>
+<li class="listitem">
+<p>Artikel, die über Amazon FBA synchronisiert werden sollen, dürfen nicht als "Just-in-time Stückliste" markiert sein.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Stelle sicher, dass für alle Artikel, die über Amazon FBA synchronisiert werden sollen, folgendes zutrifft: Der Haken im Artikelstamm bei "Just-in-time Stückliste" darf nicht gesetzt sein.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bdf78785-1f98-024a-adc7-932e25426302" id="id892"></a>Set up Amazon Seller App</h2>
+</div>
+<p>To set up the Amazon Seller App:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Go to <span class="guilabel"><span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/10081470177820" style="" alt="createbookmark_x21.png"></span> Settings &gt; Integrations &gt; Amazon Seller App</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/10081470340124" style="" alt="amazonsellerapp_settings.png"></div>
+</li>
+<li class="step">
+<p>Select your Amazon shop interface in the <span class="guilabel">Shop</span> drop-down menu. Only connected interfaces are displayed here.</p>
+</li>
+<li class="step">
+<p>Select the warehouse without storage locations with the name Amazon in the <span class="guilabel">Warehouse</span> drop-down menu. The needed storage locations will automatically be created after the app is set up. This warehouse should only be used for Amazon FBA.</p>
+<p>You can find out more about the process in the <a class="xref" href="#UUID-bdf78785-1f98-024a-adc7-932e25426302_N1689944834141" title="Lagerbestände zwischen mehreren EU-Ländern synchronisieren - Pan-European FBA">Lagerbestände zwischen mehreren EU-Ländern synchronisieren - Pan-European FBA</a> section.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bdf78785-1f98-024a-adc7-932e25426302" id="id893"></a>Mit der Artikeltabelle arbeiten</h2>
+</div>
+<p dir="ltr">Die Artikeltabelle enthält eine Übersicht all deiner Artikel bei Amazon und bietet dir die Möglichkeit sie zu sortieren, auf unterschiedliche Weise zu filtern und einzelne Spalten zu verbergen oder anzuzeigen. Weitere Informationen zur Arbeit mit Übersichtstabellen findest du <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/6576078844572#UUID-b2789dbc-7d05-ab0c-fb22-b7f0c7927e49">hier</a>.</p>
+<p dir="ltr">Die Tabelle zeigt dir den Artikel mit seiner <span class="guilabel">ASIN</span>, <span class="guilabel">Art der Listung</span> (FBA oder FBM), <span class="guilabel">SKU Amazon</span>, <span class="guilabel">SKU <span class="phrase">Xentral</span></span> und seinem <span class="guilabel">Lagerplatz</span> an. Der Lagerplatz ist wichtig für Pan-European FBA.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/10530667215772" style="" alt="amazonsellerapp_table.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bdf78785-1f98-024a-adc7-932e25426302" id="UUID-bdf78785-1f98-024a-adc7-932e25426302_section-idm4566034617472033466866406141"></a>SKU Amazon mit SKU <span class="phrase">Xentral</span> verknüpfen</h2>
+</div>
+<p>Um eine korrekte Synchronisierung zwischen Amazon und <span class="phrase">Xentral</span> zu gewährleisten, müssen die SKUs miteinander verknüpft werden. Die Verknüpfung ist dann korrekt, wenn sowohl die Spalten für SKU Amazon als auch die für SKU <span class="phrase">Xentral</span> gefüllt sind.</p>
+<p>Falls die Spalte für SKU <span class="phrase">Xentral</span> leer ist, kannst du die SKU folgendermaßen verknüpfen.</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Bewege die Maus über den Artikel, den du verknüpfen möchtest, und klicke auf das <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/10081494261148" style="" alt="mapping_icon.png"></span>-Symbol, welches auf der rechten Seite erscheint.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Alternativ kannst du auf der linken Seite des Artikels ein Häkchen setzen und anschließend auf das <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/10081494261148" style="" alt="mapping_icon.png"></span>-Symbol klicken, welches über der Artikeltabelle erscheint.</p>
+</div>
+</li>
+<li class="step">
+<p>Gib die Artikelnummer in <span class="phrase">Xentral</span> in das Suchfeld ein und wähle deinen Artikel aus. Falls der Artikel in <span class="phrase">Xentral</span> nicht existiert, kannst du ihn anlegen, indem du auf <span class="guilabel">Neuen Artikel hinzufügen</span> klickst.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Verknüpfen</span>.</p>
+</li>
+</ol>
+<div class="result">
+<p>Beide Spalten sind nun gefüllt und die SKUs verknüpft. Dadurch werden auch die Einträge im Reiter <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016758199#UUID-be6a2725-3071-98cf-ad2e-1a9016c503cc">Fremdnummern</a> im Artikel, den du gerade verknüpft hast, aktualisiert.</p>
+</div>
+</div>
+<p>Klicke auf <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/10081494261148" style="" alt="mapping_icon.png"></span>, um die Verknüpfung rückgängig zu machen. Klicke anschließend auf <span class="guilabel">Verknüpfung aufheben</span>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bdf78785-1f98-024a-adc7-932e25426302" id="UUID-bdf78785-1f98-024a-adc7-932e25426302_N1689944834141"></a>Lagerbestände zwischen mehreren EU-Ländern synchronisieren - Pan-European FBA</h2>
+</div>
+<p dir="ltr">Amazon ermöglicht es dir, deine Artikel in seinen Lägern in verschiedenen EU-Ländern zu lagern. Dieser Prozess wird als Pan-European FBA bezeichnet. Er kann deine Versandkosten verringern und deine Lieferzeiten verkürzen, falls du direkt in dem Land verkaufst, in dem du deine Artikel lagerst.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Pan-European FBA unterscheidet sich von Amazon EFN (European Fulfillment Network). Bei EFN lagerst du deine Artikel in einem EU-Land und verschickst sie von dort in den Rest der EU. Falls du in UK verkaufen möchtest, benötigst du dort ein weiteres Lager. Bei Verwendung von EFN zeigt <span class="phrase">Xentral</span> nur EU oder UK als Lagerplatz an.</p>
+</div>
+<p dir="ltr">Dieser Prozess führt jedoch dazu, dass sich deine Meldepflichten für die Umsatzsteuer ändern. Lagerst du deine Artikel in nur einem Land, so benötigst du auch nur eine USt-ID (Umsatzsteueridentifikationsnummer). Lagerst du deine Artikel in mehreren Ländern, so benötigst du eine USt-ID für jedes Land, in dem du deine Artikel lagerst.</p>
+<p dir="ltr">Außerdem solltest du wissen, wo deine Artikel in welcher Menge gelagert werden und ob sie sich in einem verkaufsfähigen Zustand befinden. Die paneuropäische Lagersynchronisierung sammelt diese Daten für dich und funktioniert auf die folgende Weise:</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li dir="ltr" class="listitem">
+<p dir="ltr"><span class="phrase">Xentral</span> importiert alle FBA-Artikel und sortiert sie nach Land und Zustand.</p>
+</li>
+<li dir="ltr" class="listitem">
+<p dir="ltr">Diese Artikel werden dann in dem von dir in der <a class="link" href="#UUID-bdf78785-1f98-024a-adc7-932e25426302_section-idm4657506640604833798817479001" title="Voraussetzungen">Einrichtung</a> gewählten Lager hinterlegt. Dieses Lager hat zwei Lagerplätze pro Land: eines für verkäufliche (sellable) und eines für unverkäufliche Artikel (unsellable). Unverkäufliche Artikel sind z.B. Artikel, die im Versandprozess beschädigt wurden oder Retouren.</p>
+</li>
+<li dir="ltr" class="listitem">
+<p dir="ltr">Diese Lagerplätze werden automatisch angelegt und sind wie folgt benannt: FBA-[Land]-[Zustand], z.B. ist FBA-FR-sellable der Lagerplatz für deine verkäuflichen Artikel in Frankreich.</p>
+</li>
+</ol>
+</div>
+<p dir="ltr">Der Lagerplatz wird in der Artikeltabelle angezeigt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bdf78785-1f98-024a-adc7-932e25426302" id="UUID-bdf78785-1f98-024a-adc7-932e25426302_section-idm4542133290985634208827776381"></a>Anlieferung zu Amazon (in transit)</h2>
+</div>
+<p>Du kannst den Lagerbestand der Artikel, die sich in Anlieferung zu Amazon befinden (= <span class="bold"><strong>in transit</strong></span>) mit der <span class="bold"><strong>Amazon Seller App</strong></span> sehen.  </p>
+<p>Der Status der Anlieferung ist im Report von Amazon verfügbar und wird in Xentral ausgegeben.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wenn du z.B. 100 Kaffeetassen bei Amazon im Lager hast, wird beim entsprechenden Artikel "Kaffeetasse" in Xentral im Lager "Amazon" die Menge "100 Stck." auf dem Lagerplatz z.B. "AMAZON-PL" (= Amazon Lager Polen) angezeigt.</p>
+</li>
+<li class="listitem">
+<p>Es wird eine Buchung im jeweiligen Artikel erzeugt. Bucht Amazon 50 Stück um, wird in dem Artikel eine erneute Buchung erzeugt: "- 50 Stck." von Lager "Amazon" / "Lagerplatz AMAZON-PL" - In Transit.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die Daten sind nicht "Echtzeit". Der Report wird nur einmal pro Tag nachts übertragen (= 1 Uhr nachts mitteleuropäische Zeit).</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

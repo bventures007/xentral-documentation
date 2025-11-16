@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal Rückerstattungen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017416839
+    Titel: PayPal Rückerstattungen
+    URL: https://help.xentral.com/hc/de/articles/360017416839-PayPal-R%C3%BCckerstattungen
+    Erstellt: 2020-11-09T07:52:20Z
+    Aktualisiert: 2024-08-29T13:19:31Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415730331164
+    Export-Zeitpunkt: 2025-11-16 19:07:20
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>In Xentral ist es möglich, eine getätigte Zahlung zu stornieren und eine Rückerstattung (auch Rückzahlung oder Refund genannt) zu veranlassen.</p>
+<p>Dieses Modul ist besonders relevant für alle, die eine Zahlung per PayPal anbieten.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d" id="UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d_id_360017416839_id_h_01F9Y37P1GPR34KQPA6Q3SYMFK"></a>Voraussetzungen</h2>
+</div>
+<p>Damit eine Rückerstattung per Paypal erfolgen kann, muss eine Gutschrift vorliegen und Paypal als API Geschäftskonto angebunden sein. Im Geschäftskonto muss dafür unbedingt folgende Info gepflegt sein:</p>
+<p>API_CLIENTID =&gt;</p>
+<p>API_SECRET=&gt;</p>
+<p>Das gilt für das Geschäftskonto PayPal Plus und für normales Paypal. Ohne diese Info kann die PayPal Rückerstattung nicht ausgeführt werden. Eine Anleitung, wo diese Informationen erstellt werden können, ist <a class="link" href="https://help.xentral.com/hc/en-us/articles/360016725340-Payment-method-PayPal-Plus" target="_blank" rel="noopener">hier</a> zu finden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Willst du neben dem PayPal Plus Geschäftskonto auch die PayPal Plus Zahlungsweise in Xentral für Zahlungseingänge anbinden, so muss im PayPal Plus Konto ein weiterer API-Einträg generiert werden. Es ist wichtig, dass <span class="bold"><strong>API_CLIENTID</strong></span> und <span class="bold"><strong>API_SECRET</strong></span> im Geschäftskonto und in der Zahlungsweise <span class="bold"><strong>nicht identisch</strong></span> sind. Für die API Informationen generierst du einfach 2 Einträge im PayPal Plus Konto unter Rest API &gt; Create App.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d" id="UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d_id_360017416839_id_h_01F9Y39G9YVBPTDAE57M3SDV13"></a>Rückerstattung tätigen</h2>
+</div>
+<p>Im ersten Schritt sind die Gutschriften unter <span class="bold"><strong>Buchhaltung &gt; Zahlungsverkehr</strong></span> zu laden.</p>
+<p>Es besteht auch die Möglichkeit direkt aus der Gutschrift in den Zahlungsverkehr zu springen. Dies ist in der Gutschrift über das Aktionsmenü möglich. Hier ist die Option <span class="bold"><strong>Zahlung erstatten</strong></span> auszuwählen.</p>
+<p>Anschließend erscheint die Seite mit dem Zahlungsverkehr.</p>
+<p>Dann ist unter dem Bereich <span class="bold"><strong>Aktion</strong></span> auf die Schaltfläche <span class="bold"><strong>Gutschriften laden</strong></span> zu klicken. Anschließend erscheinen diese in der Übersicht und können ausgewählt werden.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492830821532" style="" alt="PaypalRefunds1.png"></div>
+<p>Über die Stapelverarbeitung ist dann das Paypal Konto im Dropdown auszuwählen, bevor auf die Schaltfläche <span class="bold"><strong>Zahlungen zuordnen und freigeben</strong></span> geklickt werden kann.</p>
+<p>Im nächsten Schritt erscheinen die zuvor ausgewählten Gutschriften im Reiter <span class="bold"><strong>Konto: Paypal</strong></span></p>
+<p>Hier können dann die Gutschriften, für die eine Rückerstattung erfolgen soll, ausgewählt werden. Über die Schaltfläche <span class="bold"><strong>Zahlung ausführen</strong></span> kann die Zahlung ausgeführt werden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Aktuell muss die Transaktionsnummer des Auftrags noch manuell hinterlegt werden (siehe nächster Punkt).</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d" id="UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d_id_360017416839_id_h_01F9Y3A6AJAM5S3K0SY67ZQNKC"></a>Spalte: Menü</h3>
+</div>
+<p>Hier können in der Liste unter der Spalte <span class="bold"><strong>Menü</strong></span> verschiedene Aktionen durchgeführt werden.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Mit dem <span class="bold"><strong>Stift</strong></span>-Symbol kann der Zahlungsempfänger, der Betrag sowie die Währung überprüft und verändert werden. Außerdem kann hier die Transaktionsnummer vom Auftrag hinterlegt werden.</p>
+</li>
+<li class="listitem">
+<p>Über das <span class="bold"><strong>X</strong></span> kann die Gutschrift aus dem Paypal Konto storniert werden.</p>
+</li>
+<li class="listitem">
+<p>Über den <span class="bold"><strong>gebogenen Pfeil</strong></span> kann direkt in die Gutschrift gesprungen werden.</p>
+</li>
+<li class="listitem">
+<p>Über das <span class="bold"><strong>PDF</strong></span>-Symbol wird die PDF der Gutschrift angezeigt.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d" id="UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d_id_360017416839_id_h_01F9Y3AKYH7X1GG5N88WDKPQ7X"></a>Minidetail</h3>
+</div>
+<p>Über das Minidetail können alle Details der Gutschrift eingesehen werden.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/15492863162140" style="" alt="PaypalRefunds2.png"></div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d" id="UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d_id_360017416839_id_h_01F9Y3AZA7DYFEGWJEPD8TTR79"></a>Fehlermeldungen</h4>
+</div>
+<p><span class="bold"><strong>PaypalApi: Forbidden NOT_AUTHORIZED: Authorization failed due to insufficient permissions</strong></span></p>
+<p>Sollte diese Fehlermeldung erscheinen, muss im Geschäftskonto ein neues Api-Secret und eine neue Api-ClientID erstellt werden.</p>
+<p><span class="bold"><strong>Client Authentication failed</strong></span></p>
+<p>Bei dieser Fehlermeldung bitte sicherstellen, dass API_CLIENTID und API_SECRET ausschließlich im Geschäftskonto verwendet werden und nicht bspw. auch in den Zahlungsweisen für PayPal Plus (hier benötigt man zwei separate API Accounts).</p>
+<p><span class="bold"><strong>PaypalApi: Not Found RESOURCE_NOT_FOUND: The specified resource does not exist</strong></span></p>
+<p>Wenn diese Fehlermeldung auftritt, wurde versucht eine Rückzahlung zu tätigen, deren ursprüngliche Zahlung nicht über PayPal eingegangen ist. Das ist im Feld <span class="bold"><strong>Verwendungszweck</strong></span> erkennbar, da hier immer die PayPal TransaktionsID der ursprünglichen Zahlung übernommen wird. Der Fehler tritt auf, wenn es sich hierbei nicht um eine PayPal Transaktions ID handelt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wichtige Funktionen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017379440
+    Titel: Wichtige Funktionen
+    URL: https://help.xentral.com/hc/de/articles/360017379440-Wichtige-Funktionen
+    Erstellt: 2020-11-10T08:25:20Z
+    Aktualisiert: 2023-12-05T10:11:51Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 11291544329756
+    Export-Zeitpunkt: 2025-11-16 19:10:07
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-0"></a>Secure: Kommunikation über GET und POST</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-1"></a>Zugriff per GetPOST()</h3>
+</div>
+<p>Holt den Value über POST aus einem Formular. Innerhalb () den Namen des Formularelementes angeben z.B.</p>
+<p>$name = $this-&gt;app-&gt;Secure-&gt;GetPOST('name');</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-2"></a>Zugriff per GetGET()</h3>
+</div>
+<p>Holt den Value über GET aus der URL. Innerhalb () den Namen der Variable aus der URL angeben z.B.</p>
+<p>$id = $this-&gt;app-&gt;Secure-&gt;GetGET('id');</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-3"></a>DB: Zugriff auf die Datenbank</h2>
+</div>
+<p>Wird verwendet um mit den Daten aus der Datenbank zu arbeiten. Für Module in Xentral sollten nur diese Funktionen verwendet werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-4"></a>Zugriff per Update()</h3>
+</div>
+<p>Innerhalb der Klammern das SQL Update-Statement zur Ausführung angeben z.B.</p>
+<p>$id = $this-&gt;app-&gt;Secure-&gt;GetGET('id'); $this-&gt;app-&gt;DB-&gt;Update("UPDATE adresse SET name ='Mayer Antonia' WHERE id = "$id"");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-5"></a>Ergebnis mit einem Wert mit Select()</h3>
+</div>
+<p>Innerhalb der Klammern das SQL Abfrage-Statement zur Ausführung angeben z.B.</p>
+<p>$id = 4; $name = $this-&gt;app-&gt;DB-&gt;Select("SELECT name FROM adresse WHERE id = "$id"");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-6"></a>Ergebnis mit mehreren Werten mit SelectArr()</h3>
+</div>
+<p>Wird verwendet, wenn man Werte aus mehreren Spalten der Datenbank möchte. Die Rückgabe wird in einem Array mit assoziativen Indizes gespeichert z.B.</p>
+<p>$personendaten = $this-&gt;app-&gt;DB-&gt;SelectArr("SELECT name, strasse, ort, plz, land FROM adresse WHERE id = 5");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-7"></a>Einfügen per Insert()</h3>
+</div>
+<p>Innerhalb der Klammern das SQL Einfügen-Statement zur Ausführung angeben z.B.</p>
+<p>$this-&gt;app-&gt;DB-&gt;Insert("INSERT INTO adresse (name, strasse, ort, plz, land) VALUES ('Klein Christian', 'Musterstrasse 10', 'Musterort', '12345', 'DE')");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-8"></a>Löschen per Delete()</h3>
+</div>
+<p>Innerhalb der Klammern das SQL Lösch-Statement zur Ausführung angeben z.B.</p>
+<p>$this-&gt;app-&gt;DB-&gt;Delete("DELETE FROM adresse WHERE id = 10");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-9"></a>Zuletzt vergebene ID per GetInsertID()</h3>
+</div>
+<p>Gibt die zuletzt in die Datenbank eingefügte ID zurück, z.B.</p>
+<p>$adressid = $this-&gt;app-&gt;DB-&gt;GetInsertID();</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-10"></a>Tpl: Das Templatesystem</h2>
+</div>
+<p>Wird verwendet um mit dem Template zu arbeiten.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-11"></a>Werte einfügen / ersetzen mit Set()</h3>
+</div>
+<p>Fügt dem Templatefeldbereich einen neuen String hinzu. Achtung: Set() überschreibt den Inhalt des bisherigen Templatefeldbereichs. Der erste Parameter steht für den beliebig benennbaren Templatefeldbereich (immer großgeschrieben!) und der zweite Parameter ist der String der diesen Templatefeldbereich überschreiben soll. Beispiel:</p>
+<p>$this-&gt;app-&gt;Tpl-&gt;Set("VORNAME", "Marie");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-12"></a>Werte einfügen mit Add()</h3>
+</div>
+<p>Fügt dem Templatefeldbereich einen neuen String hinzu. Erster Parameter ist der beliebig benennbare Feldbereich des Templates, zweiter Parameter der String der eingefügt werden soll, wie z.B.</p>
+<p>$this-&gt;app-&gt;Tpl-&gt;Add("TABELLE", "VornameNachname");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-13"></a>Template Datei auswählen mit Parse()</h3>
+</div>
+<p>Sorgt dafür, dass die in () angegebene Template Datei zur Darstellung des HTML Codes verwendet wird. Beispiel:</p>
+<p>$this-&gt;app-&gt;Tpl-&gt;Parse("PAGE","beispielmodul_list.tpl");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-14"></a>erp: Die Kernbibliothek für ERP Funktionen</h2>
+</div>
+<p>Diese Funktionen sind in der Datei class.erpapi.php zu finden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-15"></a>Neuen Menüpunkt hinzufügen</h3>
+</div>
+<p>Fügt einen neuen Menüpunkt der Navigation hinzu. Der erste Parameter ist der Link des Moduls in dem der neue Menüpunkt hinzugefügt werden soll. Parameter 2 ist die Beschriftung des Menüpunktes. Beispiel:</p>
+<p>$this-&gt;app-&gt;erp-&gt;MenuEintrag("index.php?module=modulname&amp;action=list","Übersicht");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-17"></a>Tabellen vorhanden / anlegen mit CheckTable()</h3>
+</div>
+<p>Prüft, ob die Tabelle in der Datenbank vorhanden ist. Wenn sie nicht vorhanden ist, wird sie neu angelegt. Beispiel: $this-&gt;app-&gt;erp-&gt;CheckTable("adresse");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-18"></a>Spalten vorhanden / anlegen mit CheckColumn()</h3>
+</div>
+<p>Prüft, ob in der angegebenen Tabelle die Spalte vorhanden ist. Wenn sie nicht vorhanden ist, wird sie neu angelegt. Bedeutung der Parameter CheckColumn(Spaltenname, Datentyp, Tabellenname, Default Wert). Beispiel: $this-&gt;app-&gt;erp-&gt;CheckColumn("id", "int(10)", "adresse", "NOT NULL AUTO_INCREMENT");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-19"></a>Einkaufspreis hinzufügen mit AddEinkaufspreis()</h3>
+</div>
+<p>Fügt dem angegebenen Artikel einen neuen Einkaufspreis hinzu. Bedeutung der Parameter AddEinkaufspreis(ArtikelID, AbMenge, IDLieferant, Bestellnr, NameLieferant, Einkaufspreis). Beispiel: $this-&gt;app-&gt;erp-&gt;AddEinkaufspreis(23, 1, 57, "14456", "Joghurt und Eis GmbH", 1.80);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-20"></a>Verkaufspreis hinzufügen mit AddVerkaufspreis()</h3>
+</div>
+<p>Fügt dem angegebenen Artikel einen neuen Verkaufspreis hinzu. Bedeutung der Parameter AddVerkaufspreis(ArtikelID, AbMenge, AdressID für welche Gruppe der Preis gilt, Verkaufspreis). 0 als dritter Parameter bedeutet, dass dieser Verkaufspreis für alle gilt, also für keine bestimmte Gruppe. Beispiel: $this-&gt;app-&gt;erp-&gt;AddVerkaufspreis(23, 1, 0, 2.00);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-21"></a>Artikel anlegen / aktualisieren mit InsertUpdateArtikel()</h3>
+</div>
+<p>Fügt einen neuen Artikel hinzu, bzw. aktualisiert einen bestehenden Artikel. Parameter muss ein Array sein. Falls der Artikel aktualisiert werden soll, muss die ID übergeben werden, sonst wird der Artikel neu erstellt. Die Indizes des Arrays müssen wie die Spalten der Tabelle artikel heißen. Beispiel: $artikeldaten = array(); $artikeldaten['name_de'] = "Apfel"; $artikeldaten['anabregs_text'] = "Ein roter Apfel"; $artikeldaten['hersteller'] = "Apfelfarm";</p>
+<p>$this-&gt;app-&gt;erp-&gt;InsertUpdateArtikel($artikeldaten);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-22"></a>Adresse anlegen / aktualisieren mit InsertUpdateAdresse()</h3>
+</div>
+<p>Fügt eine neue Adresse hinzu, bzw. aktualisiert eine bestehende Adresse. Parameter muss ein Array sein. Falls die Adresse aktualisiert werden soll, muss die ID und - je nachdem welche Rolle die Adresse hat - die Mitarbeiter-, oder Kunden-, oder Lieferantennummer angegeben werden, sonst wird die Adresse neu erstellt. Die Indizes des Arrays müssen wie die Spalten der Tabelle adresse heißen. Beispiel: $adressdaten = array(); $adressdaten['name'] = "Max Mustermann"; $adressdaten['strasse'] = "Musterstraße 1"; $adressdaten['plz'] = "00000"; $adressdaten['ort'] = "Musterort"; $adressdaten['land'] = "DE";</p>
+<p>$this-&gt;app-&gt;erp-&gt;InsertUpdateAdresse($adressdaten);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-23"></a>Rollen vergeben mit AddRolleZuAdresse()</h3>
+</div>
+<p>Fügt eine Rolle zu einer bereits vorhandenen Adresse hinzu. Es gibt die Rollen Mitarbeiter, Kunde und Lieferant. Die Rollen kann man bestimmten Objekten zuordnen, wie zum Beispiel "Projekt" oder "Gruppe". Bedeutung der Parameter AddRolleZuAdresse(AdressID, Rolle, optional Prädikat, optional Objekt, optional ParameterID). Soll die Rolle allgemein gültig sein, können nur die ersten beiden Parameter verwendet werden, falls Sie bestimmten Objekten zugeordnet werden sollen, muss der letzte Parameter mit der jeweiligen Projekt- oder GruppenID befüllt werden. In folgendem Beispiel wird einer Adresse die Rolle Kunde für ein bestimmtes Projekt hinzugefügt. Beispiel: $this-&gt;app-&gt;erp-&gt;AddRolleZuAdresse(145, "Kunde", "von", "Projekt", 2);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-24"></a>Freie Artikelnummer ermitteln mit GetNextArtikelnummer()</h3>
+</div>
+<p>Gibt die nächste freie Artikelnummer aus dem Nummernkreis zurück. Beispiel: $freieartikelnr = $this-&gt;app-&gt;erp-&gt;GetNextArtikelnummer();</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-25"></a>Freie Kundennummer ermitteln mit GetNextKundennummer()</h3>
+</div>
+<p>Gibt die nächste freie Kundennummer aus dem Nummernkreis zurück. Beispiel: $freiekundennr = $this-&gt;app-&gt;erp-&gt;GetNextKundennummer();</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-26"></a>Freie Lieferantennummer ermitteln mit GetNextLieferantennummer()</h3>
+</div>
+<p>Gibt die nächste freie Lieferantennummer aus dem Nummernkreis zurück. Beispiel: $freielieferantennr = $this-&gt;app-&gt;erp-&gt;GetNextLieferantennummer();</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-27"></a>Freie Mitarbeiternummer ermitteln mit GetNextMitarbeiternummer()</h3>
+</div>
+<p>Gibt die nächste freie Mitarbeiternummer aus dem Nummernkreis zurück. Beispiel: $freiemitarbeiternr = $this-&gt;app-&gt;erp-&gt;GetNextMitarbeiternummer();</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-28"></a>Angebot anlegen mit CreateAngebot()</h3>
+</div>
+<p>Erstellt ein neues Angebot für die in () angegebene AdressID. Gibt die ID vom erstellten Angebot zurück. Beispiel: $angebotid = $this-&gt;app-&gt;erp-&gt;CreateAngebot(22);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-29"></a>Auftrag anlegen mit CreateAuftrag()</h3>
+</div>
+<p>Erstellt einen neuen Auftrag für die in () angegebene AdressID. Gibt die ID vom erstellten Auftrag zurück. Beispiel: $auftragid = $this-&gt;app-&gt;erp-&gt;CreateAuftrag(34);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-30"></a>Lieferschein anlegen mit CreateLieferschein()</h3>
+</div>
+<p>Erstellt einen neuen Lieferschein für die in () angegebene AdressID. Gibt die ID vom erstellten Lieferschein zurück. Beispiel: $lieferscheinid = $this-&gt;app-&gt;erp-&gt;CreateLieferschein(12);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-31"></a>Rechnung anlegen mit CreateRechnung()</h3>
+</div>
+<p>Erstellt eine neue Rechnung für die in () angegebene AdressID. Gibt die ID von der erstellten Rechnung zurück. Beispiel: $rechnungid = $this-&gt;app-&gt;erp-&gt;CreateRechnung(23);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-32"></a>Ländernamen mit ISO erhalten per GetSelectLaenderliste()</h3>
+</div>
+<p>Gibt ein Array gefüllt mit Ländernamen und deren zweistelligen ISO-Code zurück. Ist der Parameter auf true, ist der Key vom Array die Landesbezeichnung und der Value der ISO-Code. Bei false ist es genau andersherum. Beispiel: $laender = $this-&gt;app-&gt;erp-&gt;GetSelectLaenderliste(true);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-33"></a>Englische Ländernamen mit ISO erhalten per GetSelectLaenderlisteEN()</h3>
+</div>
+<p>Gibt ein Array gefüllt mit englischen Ländernamen und deren zweistelligen ISO-Code zurück. Ist der Parameter auf true, ist der Key vom Array die englische Landesbezeichnung und der Value der ISO-Code. Bei false ist es genau andersherum. Beispiel: $laenderEN = $this-&gt;app-&gt;erp-&gt;GetSelectLaenderlisteEN(false);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-34"></a>YUI: Für jQuery und Javascript Widgets</h2>
+</div>
+<p>Diese Funktionen sind in der Datei class.yui.php zu finden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-35"></a>LiveTabelle wählen mit TableSearch()</h3>
+</div>
+<p>Bestimmt, welches Template zur Darstellung der LiveTabelle verwendet wird. Der erste Parameter gibt an, in welchem Templatefeldbereich die LiveTabelle angezeigt werden soll. Der zweite Parameter gibt an, welche LiveTabelle verwendet werden soll. Beispiel: $this-&gt;app-&gt;YUI-&gt;TableSearch('TAB1','beispielmodul_list', "show","","",basename(FILE), CLASS);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-36"></a>Vorauswahl für Textfelder per AutoComplete()</h3>
+</div>
+<p>Erzeugt während dem Tippen eine Vorauswahl passender Einträge. Bereits vorhandene Vorauswahlen sind in der Datei ajax.php in der Funktion AjaxFilter() zu finden. Bedeutung der Parameter AutoComplete(TextfeldID, Filter, Nur_Nummer). Nur_Nummer kann weggelassen werden oder auf 1 stehen. Ist der Parameter auf 1 gesetzt, wird nur die Nummer ins Textfeld eingefügt, statt Nummer und Bezeichnung. Beispiel: $this-&gt;app-&gt;YUI-&gt;AutoComplete("auswahlartikel", "artikelnummer", 1);</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-37"></a>DatePicker erstellen mit DatePicker()</h3>
+</div>
+<p>Erzeugt bei Klick in das in () angegebene Textfeld einen kleinen Kalender bei dem man das gewünschte Datum anklicken kann. Die grafische Oberfläche können Sie hier unter Widgets sehen. Beispiel: $this-&gt;app-&gt;YUI-&gt;DatePicker("datum_von");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-38"></a>TimePicker erstellen mit TimePicker()</h3>
+</div>
+<p>Erzeugt bei Klick in das in () angegebene Textfeld ein Fenster mit zwei Schiebern zur Zeitauswahl. Die grafische Oberfläche können Sie hier unter Widgets sehen. Beispiel: $this-&gt;app-&gt;YUI-&gt;TimePicker("zeit_von");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-39"></a>Erweiterte Textarea mit CkEditor()</h3>
+</div>
+<p>Fügt einer normalen HTML Textarea einige Formatierungsmöglichkeiten über Buttons hinzu. Als erster Parameter muss die Id des Textarea eingetragen werden. Der zweite Parameter ist die Art der Formatierungsmöglichkeiten, wie basic, belege oder all. Die verschiedenen grafischen Oberflächen können Sie hier unter Widgets sehen. Beispiel: $this-&gt;app-&gt;YUI-&gt;CkEditor("textarea", "basic");</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-40"></a>Benachrichtigungen</h2>
+</div>
+<p>$this-&gt;app-&gt;erp-&gt;InternesEvent($this-&gt;app-&gt;User-&gt;GetID(),"text","typ",1);</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Parameter ist die BenutzerID, muss vorhanden sein</p>
+</li>
+<li class="step">
+<p>Parameter ist der Text den man ausgeben möchte</p>
+</li>
+<li class="step">
+<p>Parameter ist der Typ der Nachricht (siehe Auflistung unten)</p>
+</li>
+<li class="step">
+<p>Parameter ob die Benachrichtigung mit Sound oder ohne Sound erscheinen soll</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-41"></a>Gültige Typen für die Nachricht</h3>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>default</p>
+</li>
+<li class="listitem">
+<p>notice</p>
+</li>
+<li class="listitem">
+<p>success</p>
+</li>
+<li class="listitem">
+<p>warning</p>
+</li>
+<li class="listitem">
+<p>error</p>
+</li>
+<li class="listitem">
+<p>push</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-42"></a>Eigene Quelltexte / Änderungen in Update-Server hinterlegen</h2>
+</div>
+<p>Viele PHP Dateien können mit eigenen Dateien überladen werden. Dazu kopiert man den Rumpf einer originalen Datei z.B. class.rechnung.php und nennt diese class.rechnung_custom.php. In dieser Datei muss es die Klasse mit dem Anhang Custom geben. z.B. Class RechnungCustom Extends Rechnung Jetzt können die Methoden in der Datei einzeln überladen werden. Die neue Datei class.rechnung_custom.php wird vom Update-Server nicht überschrieben. Sie können auf Anfrage einen FTP Account für den Update-Server erhalten, so werden zu den normalen Updates die eigenen Anpassungen automatisch mit übertragen. Dateien, die mit der Open Source-Version identisch sind, werden unverschlüsselt ausgeliefert.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-43"></a>Überladbare Dateien</h3>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Module aus www/pages</p>
+</li>
+<li class="listitem">
+<p>Dokumente aus lib/dokumente</p>
+</li>
+<li class="listitem">
+<p>class.erpapi.php → class.erpapi_custom.php</p>
+</li>
+<li class="listitem">
+<p>class.printer.php → class.printer_custom.php</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-44"></a>Quelltext Dateien</h3>
+</div>
+<p>Den allgemeinen Quelltext finden Sie in der .src.php Datei Beispiel class.erpapi_custom.php</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_toc-45"></a>Beispiel class.remote_custom.php</h3>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b03c16a1-a530-1475-27ba-e92e139a7665" id="UUID-b03c16a1-a530-1475-27ba-e92e139a7665_id_360017379440_id_h_01FYC6GCM8F2HE5RDSCT076QVA"></a>Bilderimport</h2>
+</div>
+<p>Informationen zum Bilderimport findest du <a class="link linktype-component" href="https://help.xentral.com/hc/articles/360017437599#UUID-aa9aeb9e-d458-f09b-7ea0-3917fc547eb7" title="Bilderimport">in diesem Artikel</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

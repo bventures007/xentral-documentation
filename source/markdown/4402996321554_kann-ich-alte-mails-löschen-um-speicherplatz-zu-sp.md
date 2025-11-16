@@ -1,0 +1,1 @@
+Ja, das ist möglich. Achte nur darauf, dass diese an einem anderen Speicherort noch aufrufbar sind.

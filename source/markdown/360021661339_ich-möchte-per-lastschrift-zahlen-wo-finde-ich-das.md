@@ -1,0 +1,1 @@
+Bitte fordere das SEPA-Lastschriftmandat über[buchhaltung@xentral.com](mailto:buchhaltung@xentral.com)an. Wir schicken dir umgehend ein Lastschriftformular zu. Dieses kannst du dann ausgefüllt und unterschrieben an[buchhaltung@xentral.com](mailto:buchhaltung@xentral.com)zurück senden. Die zukünftigen Aborechnungen werden dann eingezogen.

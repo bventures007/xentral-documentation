@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopware6-Connector Neue Anbindung anlegen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 14528034737436
+    Titel: Shopware6-Connector Neue Anbindung anlegen
+    URL: https://help.xentral.com/hc/de/articles/14528034737436-Shopware6-Connector-Neue-Anbindung-anlegen
+    Erstellt: 2024-06-18T15:02:00Z
+    Aktualisiert: 2025-07-30T11:06:40Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 14527994696604
+    Export-Zeitpunkt: 2025-11-16 19:08:49
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd" id="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd_UUID-83d82e7e-87c9-8aac-70ac-178bc4664f15"></a>Voraussetzungen</h2>
+</div>
+<p>Vergewissere dich mit Hilfe der <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/13235039238428#UUID-7b472917-dd79-f7ac-843a-cc4ef7e3c691_id_xentralConnect-ChecklisteShop-AnbindungChecklisteShopAnbindung" title="Checkliste Shop-Anbindung">Checkliste</a>, dass du alle Voraussetzungen geschaffen hast, die eine reibungslose Anbindung ermöglichen.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Wenn du von einer klassischen Schnittstelle auf Connect wechselst, findest du in diesem <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/15467552891676#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63" title="Migration einer klassischen Shop-Anbindung in eine Xentral Connect Schnittstelle">Artikel</a> eine Schritt-für-Schritt-Anleitung für die Migration.</p>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Für die nächsten Schritte benötigst du Zugriff auf beide Systeme. In <span class="phrase">Shopware 6</span> musst du als Administrator angemeldet sein. Wir empfehlen, die Shop-/Marktplatz-Verwaltung in einem und Xentral in einem anderen Browserfenster parallel zu öffnen.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd" id="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd_UUID-2afe0f13-f47b-cd8c-963f-5e0076a08a4d"></a>App in Xentral installieren (einmalig)</h2>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Dieser Schritt ist nur für die allererste Anbindung erforderlich und entfällt bei weiteren Integrationen.</p>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Klicke in deinem Xentral auf das Zahnrädchen oben rechts, um zu den Systemeinstellungen zu gelangen:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385168882076" style="" alt="Shared_NeueAnbindung_Pfad.png"></div>
+</li>
+<li class="step">
+<p>Folge dem Menüpfad <span class="bold"><strong>Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; <span class="phrase">Shopware 6 Connector</span></strong></span> .</p>
+<div class="mediaobject"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385168883868" style="" alt="SW6_NeueAnbindung_InstallApp1.png"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+</li>
+<li class="step">
+<p>Klicke jetzt auf <span class="bold"><strong>Install App</strong></span> um das System vorzubereiten. Im Hintergrund wird ein Container für die Workflows angelegt.</p>
+<div class="mediaobject"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385168885404" style="" alt="SW6_NeueAnbindung_InstallApp2.png"></div>
+<div class="mediaobject"></div>
+</li>
+</ol>
+</div>
+<p>Du kannst nun mit der Einrichtung der Anbindung fortfahren.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd" id="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd_UUID-1f61b0d7-bea3-81b4-47c0-e55058c63231"></a>Einrichtungswizard durchführen</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd" id="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd_id_ShopifyConnectorNeueAnbindunganlegen-Starten"></a>Starten</h3>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne im Xentral-Fenster den Menüpfad <span class="bold"><strong>Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; <span class="phrase">Shopware6 Connector</span></strong></span> und klicke auf <span class="bold"><strong>+ Neue Integration</strong></span>, um den Einrichtungswizard zu starten:</p>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385107552924" style="" alt="SW6_NeueAnbindung_NeueIntegration.png"></div>
+<div class="mediaobject"></div>
+</li>
+<li class="step">
+<p>Vergib bei den <span class="bold"><strong>Basisdaten</strong></span> einen Namen deiner Wahl, um die Anbindung später identifizieren zu können.</p>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385107554844" style="" alt="SW6_NeueAnbindung_Basisdaten.png"></div>
+<div class="mediaobject"></div>
+</li>
+<li class="step">
+<p><span class="phrase">Klicke auf <span class="bold"><strong>Weiter</strong></span> und wechsele zur Shop-/Marktplatz-Verwaltung.</span></p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd" id="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd_id_Shopware6-ConnectorNeueAnbindunganlegen-API-DatenimShoperzeugen"></a>API-Daten im Shop erzeugen</h3>
+</div>
+<div dir="ltr" class="warning warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Zugangs-ID und Sicherheitsschlüssel werden nur einmal zum Kopieren zur Verfügung gestellt. Stelle sicher, dass du die Einrichtung der Anbindung jetzt durchführen kannst. Alternativ halte einen Passwort-Safe bereit und sichere die Daten dort für später.</p>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere im Shopware-Fenster auf <span class="bold"><strong>Einstellungen &gt; System &gt; Integrationen.</strong></span></p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Integration hinzufügen.</strong></span></p>
+</li>
+<li class="step">
+<p>Gib einen Namen für die Integration ein, um sie identifizieren zu können und wähle <span class="bold"><strong>Administrator</strong></span> aus.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:542px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/14528159014172" style="max-width: 542px;" alt="SW6Neu06WizardZugangSWDaten_0314p.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Kopiere die Zugangs-ID.</p>
+</li>
+<li class="step">
+<p>Wechsele nun <span class="bold"><strong>zurück zum Xentral-Fenster</strong></span> und fahre mit den Zugangsdaten fort.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385107557788" style="" alt="SW6Neu06WizardZugang_0314p.png"></div>
+</li>
+<li class="step">
+<p>Gib die URL deiner Shopware-Instanz ein und füge die <span class="bold"><strong>Zugangs-ID</strong></span> aus der Zwischenablage ein.</p>
+</li>
+<li class="step">
+<p>Wechsele erneut <span class="bold"><strong>zum Shopware-Fenster</strong></span> und kopiere den <span class="bold"><strong>Sicherheitsschlüssel</strong></span>. Füge ihn anschließend ebenfalls hier ein.</p>
+<div dir="ltr" class="warning warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Zugangs-ID und Sicherheitsschlüssel werden nur einmal zum Kopieren zur Verfügung gestellt. Stelle sicher, dass du sie unmittelbar nach dem Kopieren hier einfügst.</p>
+</div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Verbindung testen</strong></span>, um die Zugangsdaten zu verifizieren und eine Verbindung aufzubauen. Sobald die Verbindung erfolgreich aufgebaut wurde, klicke auf <span class="bold"><strong>Weiter</strong></span>.</p>
+</li>
+</ol>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd" id="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd_UUID-46539fa9-5c16-5228-2f89-24762853bf8b"></a>Features</h4>
+</div>
+<p>Hier wählst du, welche Datentypen du grundsätzlich zwischen deinem <span class="phrase">Shop</span> und Xentral austauschen möchtest. Wir empfehlen, alle Features zu aktivieren. Du kannst sie später einzeln in den Integrations-Modus setzen und festlegen, welche genauen Daten eines Features zwischen den Systemen ausgetauscht werden.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Beispiel: Du setzt hier <span class="bold"><strong>Artikel (exkl. Preise und Bestände) abgleichen (Xentral &gt; Shop)</strong></span> aktiv und bestimmst später in der Verwaltung, dass du zwar die Artikelnummer synchronisierst, aber nicht den Artikelnamen.</p>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p><span class="phrase">Wähle ein Feature, indem du den jeweiligen Schalter nach rechts stellst:</span></p>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385107558812" style="" alt="SW6_Wizards_Features.png"></div>
+<div class="mediaobject"></div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Speichern</strong></span>, um die Schnittstelle anzulegen. Dies dauert einen kurzen Moment.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385168896156" style="" alt="Shared_Wizard_Abschluss.png"></div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd" id="UUID-5fc85b9c-c5b5-e720-3bda-0a29de11ffdd_UUID-57843ec7-47a2-ce80-c3cb-8edc4663b0d4"></a>Nächste Schritte</h2>
+</div>
+<p>Anschließend kannst du in der Verwaltung mit <span class="phrase">der <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/14528034786588#UUID-cfece960-9538-6fea-fdc4-64d9bbdfe08f" title="Shopware6-Connector: Artikel zuordnen">Artikelzuordnung</a></span> fortfahren.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385107563804" style="" alt="Shared_Artikelzuordnung_Ubersicht.png"></div>
+<p><span class="phrase">Falls du Artikeldaten aus deinem Shop übernehmen möchtest, findest du <span class="phrase"><a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/19385101720220#UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4" title="Shopware6-Connector: Daten übernehmen">hier</a></span> eine Anleitung zur Datenübernahme.</span></p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

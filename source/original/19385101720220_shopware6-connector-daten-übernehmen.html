@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopware6-Connector: Daten übernehmen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 19385101720220
+    Titel: Shopware6-Connector: Daten übernehmen
+    URL: https://help.xentral.com/hc/de/articles/19385101720220-Shopware6-Connector-Daten-%C3%BCbernehmen
+    Erstellt: 2025-04-04T10:34:41Z
+    Aktualisiert: 2025-04-04T10:36:31Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 14527994696604
+    Export-Zeitpunkt: 2025-11-16 19:08:49
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4" id="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4_UUID-aecf16c5-17bb-d8eb-d653-be8732e41f76"></a>Überblick</h2>
+</div>
+<p>Mit dem initialen Datenimport kannst du im Shop vorhandene Daten an Xentral übertragen, bevor du mit deiner Anbindung loslegst.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4" id="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4_UUID-98e477ff-6597-6967-2594-5ab29d7aa27a"></a>Vorüberlegungen</h2>
+</div>
+<p>Bevor du mit dem Datenimport startest, solltest du grundsätzlich abwägen, in welchem System welche Daten vorhanden sind und ob du Daten vom Shop zu<span class="phrase">Xentral</span> importieren möchtest. Dies bietet sich dann an, wenn du bereits viele gut gepflegte Artikeldaten im Shop vorliegen und dein<span class="phrase">Xentral</span> gleichzeitig noch keine oder nur wenige Artikel beinhaltet. Bedenke, dass z. B. Einkaufsdaten wie Lieferanten und Staffel-Einkaufspreise in der Regel nicht im Shop gepflegt sind und daher anderweitig in <span class="phrase">Xentral</span> nachgetragen werden müssen (z. B. über die <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016758939#UUID-f547c6d9-743a-a701-602b-449b7a4acb24">Importzentrale</a> oder manuell).</p>
+<div dir="ltr" class="warning warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Falls du eine Bereinigung der Daten vornehmen möchtest, so musst du dies vor dem initialen Datenimport durchführen. Die vorliegende Funktion ermöglicht nur eine Anzeige der zu importierenden Daten, jedoch keine Manipulation vor dem Import.</p>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Du kannst den initialen Datenimport dazu nutzen, zum Projektstart eine Datensicherung der Shop-Artikeldaten durchzuführen.</p>
+</div>
+<p>Im Fall, dass du mit deinem Shop frisch startest, oder wenn du einfach keine Artikel aus dem Shop in <span class="phrase">Xentral</span> importieren möchtest, kannst du direkt mit der <span class="phrase"><a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/14528034786588#UUID-cfece960-9538-6fea-fdc4-64d9bbdfe08f" title="Shopware6-Connector: Artikel zuordnen">Artikelzuordnung</a></span> fortfahren.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4" id="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4_UUID-5e702d4a-3806-5773-d8cc-1e1dd582930e"></a>Konfiguration</h2>
+</div>
+<p>Zum Starten der Migration klicke in deiner gewünschten Anbindung auf <span class="guilabel">Einstellungen &gt; Verkaufen &gt; <span class="phrase">Shopware6</span> Connector</span>. Wähle dann das <span class="guilabel">Zahnrädchen</span>.</p>
+<p>Setze die Schaltfläche nach rechts (aktiv)...</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385157485468" style="" alt="Shared_Einstellungen_Migrationsmodus.png"></div>
+<p>... und bestätige die Meldung, um die Schnittstelle in den Migrationsmodus zu setzen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385157488796" style="" alt="Shared_Einstellungen_MigrationsmodusBestatigen.png"></div>
+<p>Klicke auf Speichern und kehre zurück zur Übersicht. Nun kannst du in deiner Anbindung den initialen Datenimport starten:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385157490076" style="" alt="Shared_Datenimport_Ubersicht.png"></div>
+<div class="mediaobject"></div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4" id="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4_id_ShopifyConnectorDatenmigrieren-ReiterEinstellungen"></a>Reiter “Einstellungen”</h3>
+</div>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385175890204" style="" alt="SW6_Datenimport_Einstellungen.png"></div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Projekt:</strong></span> Wir empfehlen für jede Shop-Integration ein eigenes Projekt in Xentral anzulegen. Hier trägst du das Projekt für die jeweilige Anbindung ein.</p>
+</li>
+</ul>
+</div>
+<p>Klicke oben rechts auf <span class="guilabel">Speichern</span>, um deine Einstellungen zu speichern und wechsele zum nächsten Reiter:</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4" id="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4_id_ShopifyConnectorDatenmigrieren-ReiterArtikelinShopidentifizieren"></a>Reiter “Artikel in Verkaufskanal identifizieren”</h3>
+</div>
+<p>In diesem Reiter lädst du Artikel aus deinem Shop in eine Import-Vorschlagsliste.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Falls du mehrere Anbindungen parallel laufen hast, werden dir Shop-Artikel von allen Anbindungen angezeigt.</p>
+</div>
+<div class="procedure">
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385157493276" style="" alt="SW6_Datenimport_ArtikelIdentifizieren1.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385157494044" style="" alt="SW6_Datenimport_ArtikelIdentifizieren2.png"></div>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Klicke auf (1a) <span class="guilabel">Für Alle Artikel starten</span> bzw. auf (1b) <span class="guilabel">Für einzelnen Artikel starten</span> und gib ggf. eine <span class="phrase">Shopware6-Artikelnummer</span>ein. Aktualisiere die Anzeige mit <span class="guilabel">Neu Laden</span> (2):</p>
+<div class="mediaobject"></div>
+</li>
+<li class="step">
+<p>Nach dem Neu Laden siehst du nach und nach die zum Import vorgeschlagenen Daten und deren Status.</p>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+</li>
+<li class="step">
+<p>Prüfe die Daten auf Vollständigkeit und ihre Struktur.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Überprüfe hier die Daten im Hinblick auf ihre Struktur. Sind die Artikel vollständig? Falls dir an dieser Stelle auffällt, dass Daten nicht in Ordnung sind, oder nicht alle Artikel angezeigt werden, solltest du sie vor dem Import korrigieren.</p>
+</div>
+<p>Sobald du sichergestellt hast, dass die zu importierenden Daten korrekt sind, kannst du zum nächsten Reiter wechseln.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4" id="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4_id_ShopifyConnectorDatenmigrieren-ReiterArtikelinXentralimportieren"></a>Reiter “Artikel zu Xentral importieren”</h3>
+</div>
+<p>In diesem Reiter startest du schließlich den Import zu <span class="phrase">Xentral</span>.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Falls du mehrere Anbindungen parallel laufen hast, werden dir Shop-Artikel von allen Anbindungen angezeigt.</p>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Um Artikel zu importieren, klicke auf (1a) <span class="guilabel">Für Alle Artikel starten</span> bzw. auf (1b) <span class="guilabel">Für einzelnen Artikel starten</span> und gib ggf. eine <span class="phrase">Shopware6-Artikelnummer</span> ein. Aktualisiere die Anzeige mit <span class="guilabel">Neu Laden</span> (2). Sobald der Import startet, wird die Schaltfläche <span class="guilabel">Migration beenden</span> bis zum Abschluss der Migration ausgegraut.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385157498140" style="" alt="Shared_Datenimport_ArtikelImportieren.png"></div>
+</li>
+<li class="step">
+<p>Über <span class="guilabel">Neu Laden</span> kannst du den Import-Status aktualisieren. Hier kannst du bei jedem Artikel sehen, ob er schon importiert wurde oder noch zum Import ansteht.</p>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385175893788" style="" alt="SW6_Datenimport_ArtikelImportieren.png"></div>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Eine genaue Einschätzung der Migrationsdauer ist nicht möglich, da sie sowohl von der Artikelanzahl, als auch von der Komplexität, Dateigröße der Bilder und anderen Faktoren abhängt. Bei einem Umfang von zwei- bis dreitausend Artikeln mit normaler Bildqualität kannst du mit etwa drei Stunden kalkulieren. Größere oder komplexere Datenbestände können durchaus einen ganzen Tag benötigen.</p>
+</div>
+<div class="procedure">
+<ul class="procedure">
+<li class="step">
+<p>Du kannst die <span class="guilabel">Migration beenden</span>, wenn die Schaltfläche wieder aktiv ist. Solange du diese Schaltfläche noch nicht geklickt hast, kannst du auch später nochmal zurückkehren und ggf. weitere Artikel importieren.</p>
+<div class="mediaobject"></div>
+<div class="mediaobject"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385157499420" style="" alt="SW6_Datenimport_MigrationBeenden.png"></div>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Falls du später weitere Daten importieren möchtest, kannst du, auch nach Produktiv-Schaltung, den Produktivmodus deaktivieren und den Migrationsmodus aktivieren. So kannst du den Import erneut starten.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4" id="UUID-aa9bd09e-88ec-92c2-3b68-00a605cfc2c4_UUID-71bf593a-fe9c-31fa-d81c-27b7904e69d0"></a>Nächste Schritte</h2>
+</div>
+<p>Anschließend kannst du in der Verwaltung mit der fortfahren.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19385175899676" style="" alt="Shared_Artikelzuordnung_Ubersicht.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

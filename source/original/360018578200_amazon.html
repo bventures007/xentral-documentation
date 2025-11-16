@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360018578200
+    Titel: Amazon
+    URL: https://help.xentral.com/hc/de/articles/360018578200-Amazon
+    Erstellt: 2020-12-30T09:41:40Z
+    Aktualisiert: 2023-11-03T03:21:48Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 360005017119
+    Export-Zeitpunkt: 2025-11-16 19:08:05
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <h2>Gutschriften</h2>
+<ul>
+<li>Gutschriften werden von der Amazon Schnittstelle immer in xentral erzeugt, auch wenn der Kunde den VAT Service nicht nutzt</li>
+<li>Gutschriften basieren auf der dazugehörigen Rechnung (bzgl. Positionen und Wert)</li>
+<li>In der Regel gibt es eine Gutschrift pro Auftrag über die retournierten Artikel, ggf. kann es zu mehreren Gutschriften kommen, falls der Kunde einzelne Positionen separat retourniert (08.02, AB, Infos von Christian DIGITALXL)</li>
+</ul>
+<h2>Amazon Vendor (DF) - Unterschied Shopimporter und Übertragungen Plugin</h2>
+<p><img src="https://help.xentral.com/hc/article_attachments/4415731423506/mceclip0.png" alt="mceclip0.png"></p>
+<p>Info von Christian (AB, 19.01.2022)</p>
+<h2> </h2>
+<h2>Amazon VAT Services: Rechnungserstellung</h2>
+<p>Bei Nutzung des Amazon VAT Services wird ein anderer Nummernkreis bei Rechnungen verwendet (INV-...-...). (AB, 30.12.20)</p>
+<p> </p>
+<p>Es ist normal, dass es zu einem FBA Auftrag mehrere Rechnungen gibt, die über den VAT Service importiert werden. Dies geschieht v.a. wenn der Auftrag bei Amazon von verschiedenen Amazon Lägern bedient wird. Pro Lager gibt es dann idR eine Rechnung. (AB, 08.02.2022, Quelle: DigitalXL)</p>
+<p> </p>
+<p>Bei Nichtnutzung von VAT: Bei PanEU und Mitteleuropa Programm kann eine korrekte Rechnungserstellung durch xentral nicht gewährleistet werden, weil xentral nicht auswertet von welchem Lager die Ware verschickt wird, was wiederum die Grundlage für die korrekte Versteuerung ist. Kunde benötigt in diesem Fall amainvoice. (AB, 08.02.2022, Quelle: DigitalXL)</p>
+<p> </p>
+<h2>Erstattungen FBM</h2>
+<ul>
+<li>Gutschriften können in Xentral erstellt werden und werden - wie bei PayPal Rückerstattungen - über den Zahlungsverkehr erstattet</li>
+<li>Als Geschäftskonto wählt man z.B. seine eigene Bank, da bei FBM eine Erstattung von Xentral über Amazon nicht möglich ist</li>
+<li>Die in Xentral erstellte manuelle Erstattung wird nicht an Amazon gemeldet</li>
+<li>Amazon kann auch selbst die Erstattung auslösen, wenn sich der Kunde bei FBM nicht an den Händler, sondern direkt an Amazon wendet. Diese Erstattungen von Amazon werden über den V2 Bericht importiert. =&gt; hier aufpassen, dass nicht doppelt erstattet wird (1x von Amazon und 1x vom Händler selbst)<br>(AB, 09.04.21)</li>
+</ul>
+<h2>Amazon Pay</h2>
+<ul>
+<li>Zahlungsweise Shopsystem</li>
+<li>Zahlungseingang nur über CSV</li>
+<li>Ausgang (Gutschriften / Erstattungen) via API<br>(AB, 09.04.21)</li>
+</ul>
+<h2>Amazon Payments / Zahlungsberichte / V2 Bericht</h2>
+<ul>
+<li>Der V2 Bericht wird über den Amazon Importer importiert - ist im Finanzreport zu finden</li>
+<li>Für die Verbuchung ist das Geschäftskonto Amazon Zahlungsberichte notwendig</li>
+<li>Der V2 Bericht muss zuvor bei Amazon freigeschaltet werden<br>(AB, 09.04.21)</li>
+<li>Sollte ein Zahlungsbericht fehlen/ ausgelassen worden sein (wegen Bug oder ähnlichem, siehe <a href="https://xentral.atlassian.net/browse/FAC-431" target="_blank" rel="noopener">FAC-431</a> z.B.), dann kann dieser rückwirkend manuell in xentral hochgeladen werden. Hake dazu <span>in der Shopschnittstelle von Amazon unter Finanzreport die betroffene/n Datei/en an und setze diese über die Stapelverarbeitung "auf nicht importiert"/ "importiert nein". Gehe dann in das Modul Zahlungseingang und starte den Live-Import erneut.</span>
+</li>
+</ul>
+<h2>Zahlungsweise amazon ohne Geschäftskonto (16.08.2021, AB)</h2>
+<ul>
+<li>FBA/FBM: Zahlungen werden von Schnittstelle erzeugt und nicht via Autoversand</li>
+<li>Problem: Zahlungen werden nicht als bezahlt markiert, obwohl dies in der Zahlungsweise eingestellt ist</li>
+<li>Grund: Mahnwesen + Prozessstarter muss für dieses Projekt aktiviert sein, weil hierdurch die Zahlung manuell durch den Prozessstarter auf bezahlt gesetzt wir</li>
+</ul>
+<h2>Amazon Seller App</h2>
+<ul>
+<li>Wird eine Anlieferung für eine JIT Stückliste an Amazon erstellt, die über Amazon FBA verkauft werden soll, ändert sich der "Lagerbestand bei Amazon" nicht sondern bleibt immer auf 0. Diese Funktion funktioniert nur für Lagerartikel.</li>
+</ul>
+    </div>
+</body>
+</html>

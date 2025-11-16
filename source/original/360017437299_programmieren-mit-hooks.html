@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmieren mit Hooks</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017437299
+    Titel: Programmieren mit Hooks
+    URL: https://help.xentral.com/hc/de/articles/360017437299-Programmieren-mit-Hooks
+    Erstellt: 2020-11-10T08:30:26Z
+    Aktualisiert: 2024-08-29T12:58:45Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 11291544329756
+    Export-Zeitpunkt: 2025-11-16 19:10:06
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Durch Hooks ist es möglich, bestimmte Funktionen aufzurufen, ohne das aufrufende Modul zu ändern. Der Ablauf folgt dabei diesem Schema:</p>
+<div class="mediaobject">
+<a id="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4_mediaobject-idm13306112054260"></a><img src="https://help.xentral.com/hc/article_attachments/4996391893020" style="" alt="Hooks-1.png">
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4" id="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4_id_360017437299_id_toc-0"></a>RegisterHook</h2>
+</div>
+<p>Um einen Hook zu registrieren, wird folgende Funktion in der Install Funktion des zugrundeliegenden Moduls aufgerufen:</p>
+<p>$this-&gt;app-&gt;erp-&gt;RegisterHook('hookname_1', 'modulname', 'FunktionsName');</p>
+<p>Vereinfach gesagt: Wenn der Hook mit dem Namen 'hookname_1' durch die Funktion 'RunHook' ausgeführt wird, dann ist im Modul 'modulname' die Funktion 'FunktionsName' aufzurufen. Sollte ein registrierter Hook nicht mehr benötigt werden, kann er deaktiviert werden, indem der Funktion "RegisterHook" als vierter Parameter eine 0 übergeben wird:</p>
+<p>$this-&gt;app-&gt;erp-&gt;RegisterHook('hookname_1', 'modulname', 'FunktionsName',0); Durch diesen Aufruf wird die Registrierung deaktiviert.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4" id="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4_id_360017437299_id_toc-1"></a>RunHook</h2>
+</div>
+<p>Über die Funktion "RunHook" ist es auch möglich, neue Hooks zu setzen:</p>
+<p>$this-&gt;app-&gt;erp-&gt;RunHook('hookname_1', 0);</p>
+<p>Sobald die Funktion aufgerufen wird, werden alle auf "hookname_1" registrierten Hooks der Reihe nach ausgeführt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4" id="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4_id_360017437299_id_toc-2"></a>Parameter</h2>
+</div>
+<p>Es ist möglich, den Funktionen, die über Hooks ausgeführt werden, Parameter zu übergeben. Dabei legt der zweite Parameter der Funktion 'Runhook' fest, wie viele Parameter übergeben werden.</p>
+<p>$this-&gt;app-&gt;erp-&gt;RunHook('hookname_1', 1, $x);</p>
+<p>Bei diesem Hook wird allen registrierten Funktionen die Variable $x als Parameter übergeben.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4" id="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4_id_360017437299_id_toc-3"></a>Hooks wieder entfernen</h2>
+</div>
+<p>Um nicht mehr benötigte Hooks wieder aus dem System zu entfernen, kann die Funktion 'RemoveHooks()' verwendet werden:</p>
+<p>$this-&gt;app-&gt;erp-&gt;RemoveHook('hookname_1');</p>
+<p>Dabei wird nicht nur der Hook 'hookname_1' entfernt, sondern auch alle Registrierungsverweise auf diesen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4" id="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4_id_360017437299_id_toc-4"></a>Vorhandene Hooks</h2>
+</div>
+<p>Im System werden bereits an diversen Stellen Hooks ausgeführt, an die sich durch "RegisterHook" angehängt werden kann. Zur Zeit der Erstellung dieses Artikels waren dies:</p>
+<p>Modul: Hookname cronjobs/amazon.php: 'amazon_cronjob' cronjobs/versandmailsundrueckmeldung.php: 'versanderzeugen_frankieren_hook1' phpwf/plugins/class.yui.php: 'AARLGEditable' phpwf/plugins/class.yui.php: 'AARLGPositionen_aktion' phpwf/plugins/class.yui.php: 'AARLGPositionenPreis' phpwf/plugins/class.yui.php: 'AARLGPositionenSprache' phpwf/plugins/class.yui.php: 'auftraege_tablesearch' (x2) phpwf/plugins/class.yui.php: 'yui_sortlistadd_draw' phpwf/plugins/class.yui.php: 'yui_sortlistadd_ende' phpwf/widgets/easytable.php: 'EasyTableDisplayEditable' (x2) phpwf/widgets/easytable.php: 'EasyTableDisplayEditableClick' www/eproosystem.php: 'eproosystem_ende' www/lib/class.erpapi.php: 'ANABREGSNeuberechnen_1' www/lib/class.erpapi.php: 'ANABREGSNeuberechnenEnde' www/lib/class.erpapi.php: 'artikelnummerscan' www/lib/class.erpapi.php: 'auftragcheck' www/lib/class.erpapi.php: 'BerechneDeckungsbeitragEnde' www/lib/class.erpapi.php: 'chargenlog_bestand' www/lib/class.erpapi.php: 'dokument_absenden_email' www/lib/class.erpapi.php: 'DokumentAbschickenMeldungAngelegt' www/lib/class.erpapi.php: 'DokumentMask' www/lib/class.erpapi.php: 'DokumentMaskVersendet' www/lib/class.erpapi.php: 'dokumentsend_email' www/lib/class.erpapi.php: 'erpapi_lieferschein_auslagern' www/lib/class.erpapi.php: 'erpapi_loadauftragstandardwerte' www/lib/class.erpapi.php: 'erpapi_loadlieferscheinstandardwerte' www/lib/class.erpapi.php: 'ImportAuftrag' www/lib/class.erpapi.php: 'mhdlog_bestand' www/lib/class.erpapi.php: 'paketmarke_abschluss' www/lib/class.erpapi.php: 'parseuservars' www/lib/class.erpapi.php: 'produktion_explodieren' www/lib/class.erpapi.php: 'rechnungsmail' www/lib/class.erpapi.php: 'versanderzeugen_frankieren_hook1' (x3) www/lib/class.erpapi.php: 'versandmail' www/lib/class.erpapi.php: 'WeiterfuehrenAuftragZuLieferschein' www/lib/class.erpapi.php: 'ZahlungsweisetextZahlungsdatum' www/lib/dokumente/class.auftrag.php: 'BreifpapierGetAuftragArtikel' www/lib/dokumente/class.auftrag.php: 'BreifpapierGetAuftragEnde' www/lib/dokumente/class.briefpapier.php: 'briefpapier_render_document_hook1' www/lib/dokumente/class.briefpapier.php: 'briefpapier_render_document_hook2' www/lib/dokumente/class.briefpapier.php: 'briefpapier_render_footer_hook1' www/lib/dokumente/class.briefpapier.php: 'briefpapier_render_footer_hook2' www/lib/versandarten/dpd.php: 'versanderzeugen_frankieren_hook1' (x2) www/lib/versandarten/intraship.php: 'versanderzeugen_frankieren_hook1' (x2) www/lib/versandarten/logoix.php: 'versanderzeugen_frankieren_hook1' www/lib/versandarten/sonstiges.php: 'versanderzeugen_frankieren_hook1' www/lib/versandarten/spedition.php: 'paketmarke_abschluss' www/lib/versandarten/ups.php: 'versanderzeugen_frankieren_hook1' www/pages/ajax.php: 'ajax_filter_hook1' www/pages/amazon.php: 'lieferschein_auslagern' www/pages/artikel.php: 'artikel_ajaxwerte' www/pages/artikel.php: 'artikel_minidetail_hook1' www/pages/artikel.php: 'artikel_shopbutton' (x4) www/pages/auftrag.php: 'auftrag_edit_hook1' www/pages/auftrag.php: 'auftraguebersicht_filter' www/pages/bestellung_einlagern.php: 'bestellung_einlagern' www/pages/bestellvorschlagapp.php: 'bestellvorschlagapp_berechnen' www/pages/bestellvorschlagapp.php: 'bestellvorschlagapp_select' www/pages/kommissionskonsignationslager.php: 'kommissionskonsignationslager_artikel_tablesearch' www/pages/kommissionskonsignationslager.php: 'KommissionskonsignationslagerArtikel' www/pages/lager.php: 'lager_buchenauslagern_display1' www/pages/lager.php: 'lager_buchenauslagern_mhdlagerbewegung' (x2) www/pages/lagermobil.php: 'lager_buchenauslagern_mhdlagerbewegung' www/pages/lieferschein.php: 'lieferschein_auslagern' www/pages/onlineshops.php: 'shopexport_create' (x3) www/pages/produktion.php: 'produktion_edit' www/pages/produktion.php: 'produktion_minidetail' www/pages/produktionszentrum.php: 'produktionszentrum_abschluss_hook1' www/pages/shopimport.php: 'Shopimport' www/pages/shopimport.php: 'Shopimportwarenkorb' www/pages/shopimporter_amazon.php: 'amazon_einstellungenstruktur' www/pages/shopimporter_amazon.php: 'shopimporter_amazon_getKonfig' www/pages/shopimporter_amazon.php: 'shopimporter_amazon_tabs' www/pages/steuerregeln.php: 'steuerregeln_berechneerloessteuer_setzen' www/pages/steuerregeln.php: 'steuerregeln_berechneerloessteuer_uebergeordnet' www/pages/steuerregeln.php: 'steuerregeln_edit_hook1' www/pages/versanderzeugen.php: 'versanderzeugen_einzel_komplett' www/pages/versanderzeugen.php: 'versanderzeugen_frankieren' www/pages/versanderzeugen.php: 'versanderzeugen_frankieren_hook1' www/pages/versanderzeugen.php: 'versanderzeugen_lieferschein_drucken' www/pages/versanderzeugen.php: 'versanderzeugen_wechsel' www/pages/wareneingang.php: 'wareneingang_display_hook_rma1' (x3) www/pages/wareneingang.php: 'wareneingang_lager_submit' www/pages/wareneingang.php: 'wareneingang_mitarbeiter_submit' www/pages/wareneingang.php: 'wareneingang_rma_submit' www/pages/zahlungseingang.php: 'zahlungseingang_checkbuchung' www/pages/zahlungsweisen.php: 'zahlungsweisen_edit_show' (x2) www/pages/zeiterfassung.php: 'zeiterfassung_create_guihook1' (x4) www/widgets/widget.auftrag.php: 'auftrageditdetail' (x2) www/widgets/widget.bestellung_position.php: 'widget_bestellung_position1' (x2) www/widgets/widget.shopexport.php: 'shopexport_show' www/widgets/widget.shopexport.php: 'shopexport_speichern'</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4" id="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4_id_360017437299_id_toc-5"></a>TableSearch Hook</h2>
+</div>
+<p>Als Hook ist hierbei zu verwenden:</p>
+<p>tablesearch_after mit den Parametern $name und $hookfelder.</p>
+<p>$hookfelder ist ein array der From array('sql'=&gt;"SELECT ...", 'heading'=&gt;array('ueberschrift1','foobar'))</p>
+<p>Um sich am Hook in Install oder List Methode zu registrieren, gilt Folgendes:</p>
+<p>$this-&gt;app-&gt;erp-&gt;RegisterHook('tablesearch_after', 'adresse', 'AdresseTableSearch');</p>
+<p>Die entsprechende Methode ist so zu wählen:</p>
+<p>function AdresseTableSearch(&amp;$name,&amp;$hookfelder) { $name = "adressetabelle"; $hookfelder = array('heading'=&gt;array('bla','foobar'); }</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4" id="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4_id_360017437299_id_toc-6"></a>Navigation</h2>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Hooks für die Navigation stehen ab <span class="phrase">Xentral</span> Version 22.1 nicht mehr zur Verfügung. Anstelle der Menüanpassung durch Hooks kannst du ein Lesezeichen auf der Startseite einfügen.</p>
+</div>
+<p>Zudem ist es möglich, durch die Verwendung von Hooks das Menü anzupassen. Bei der Verwendung von Navigationshooks darf nicht von einer Custom Datei aus auf das Modulmenü der vererbenden Klassen verwiesen werden. Sonst entsteht eine Endlossschleife bei der Verarbeitung und die Anzeige bricht mit einer leeren Seite ab.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4" id="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4_id_360017437299_id_toc-7"></a>RegisterNavigationHook</h3>
+</div>
+<p>Im Folgenden wird der Einbau in Install() des Moduls Bsp aufgezeigt:</p>
+<p>$this-&gt;app-&gt;erp-&gt;RegisterNavigationHook('auftragscockpit', 'auftraglist', 'Verkauf', 'Auftragscockpit', 'Auftrag');</p>
+<p>Das entspricht:</p>
+<p>$this-&gt;app-&gt;erp-&gt;RegisterNavigationHook('modul', 'action', 'Hauptpunkt', 'Neuer Navigations Titel', 'Titel bestehender Navigationspunkt');</p>
+<p>Dadurch wird "index.php?module=auftragscockpit&amp;action=auftraglist" mit dem Namen "Auftragscockpit" im Menüpunkt "Verkauf" unter dem Feld "Auftrag" (optionaler Parameter) an das Menü angehängt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4" id="UUID-4ad6229d-ddf5-e2b3-4718-b4a836fb64c4_id_360017437299_id_toc-8"></a>Hooks wieder entfernen</h3>
+</div>
+<p>Sollte ein Navigationshook nicht mehr benötigt bzw. eine andere zugrundeliegende Funktion verwendet werden, muss der alte Navigationshook entfernt werden. Das ist zum einen über die Datenbank möglich, indem der entsprechende Eintrag aus der Tabelle "hook_navigation" entfernt wird. Zum anderen kann es auch programmatisch durchgeführt werden:</p>
+<p>$this-&gt;app-&gt;erp-&gt;RemoveNavigationHook('modulname', 'aktionname');</p>
+<p>Der zweite Parameter ist optional. Wenn er nicht angegeben wird, werden alle dem Modul zugeordneten Hooks entfernt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

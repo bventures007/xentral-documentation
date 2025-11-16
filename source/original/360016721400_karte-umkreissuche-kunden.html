@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karte: Umkreissuche Kunden</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016721400
+    Titel: Karte: Umkreissuche Kunden
+    URL: https://help.xentral.com/hc/de/articles/360016721400-Karte-Umkreissuche-Kunden
+    Erstellt: 2020-09-28T12:09:00Z
+    Aktualisiert: 2024-08-29T13:19:33Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254293364764
+    Export-Zeitpunkt: 2025-11-16 19:09:53
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Mit dem Modul Umkreissuche können Sie auf einer Karte übersichtlich die Standorte Ihrer Kunden einsehen. Dazu geben Sie eine Adresse und den Umkreis ein, um die naheliegenden Kunden einsehen zu können. Dies erleichtert z.B. Ihre Planungen für einen Außentermin, wenn Sie mehrere Kundentermine in der Region verbinden wollen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375" id="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375_id_360016721400_id_toc-0"></a>Vorraussetzungen</h2>
+</div>
+<p>Google Maps steuert die Karteninhalte, OpenStreetmap ist für das Befüllen der Adressen mit Geodaten zuständig. Somit braucht man beide API-Keys, um das Modul vollumfänglich zu nutzen.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375" id="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375_id_360016721400_id_toc-1"></a>Openstreetmap API-Key</h3>
+</div>
+<p>Um die Umkreissuche via OpenStreetMap zu aktivieren, gehen Sie wie folgt vor:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Bei Openstreetmap einen Account erstellen: <a class="link" href="https://openrouteservice.org/sign-up/" target="_blank" rel="noopener">https://openrouteservice.org/sign-up/</a></p>
+</li>
+<li class="step">
+<p>API-Key anfordern</p>
+</li>
+<li class="step">
+<p>API-Key in den Umkreissuche-Einstellungen eintragen</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375" id="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375_id_360016721400_id_toc-2"></a>Google Maps API-Key</h3>
+</div>
+<p>Um die Umkreissuche via Google Maps zu aktivieren, gehen Sie wie folgt vor:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>API-Key bei Google Maps erstellen, dazu im folgenden Link oben auf „Schlüssel anfordern“ klicken und zustimmen: https://developers.google.com/maps/documentation/javascript/get-api-key?hl=de</p>
+</li>
+<li class="step">
+<p>Folgende APIs in Ihrem Google API Account aktivieren: <span class="guilabel">Geocoding API, Maps JavaScript API</span></p>
+</li>
+<li class="step">
+<p>API-Key in den Umkreissuche-Einstellungen eintragen</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375" id="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375_id_360016721400_id_toc-3"></a>Prozessstarter erstellen</h3>
+</div>
+<p>Unter Administration → Einstellungen → System → Prozessstarter erstellen Sie einen neuen Prozessstarter mit folgenden Werten:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Bezeichnung</span> → Als Bezeichnung ist "Openstreetmap" einzugebenname</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Art</span>→ Aus dem Drop-Down-Menü ist als Art "periodisch" auszuwählenmenu</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Wochentag</span>→ Aus dem Drop-Down-Menü ist "Jeden Tag" auszuwählenmenu</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Startzeit</span>→ Es ist die vorgegebene Startzeit zu belassenis</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Letzte Ausführung</span> → Es ist die vorgegebene Endzeit zu belassenplace</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Periode</span> → Als Periode ist 1500 in min. anzugeben</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Typ</span> → Als Typ ist "Cronjob" aus dem Drop-Down-Menü auszuwählen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Parameter</span> → Als Parameter ist "openstreetmap" einzugeben</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Aktiv</span> → Durch Anhaken wird der Prozessstarter aktiviert</p>
+</li>
+</ul>
+</div>
+<p>Der Prozessstarter füllt nach und nach die beiden Felder Geodaten unter Adressen → Sonstige Daten.</p>
+<p>Es werden pro Tag maximal 2000 Adressen mit dem Prozessstarter verarbeitet - mehr lässt die API von Openstreetmap nicht zu. Somit sollte der Prozessstarter auf 25 Stunden (Periode = 1500 Minuten) gestellt sein.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375" id="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375_id_360016721400_id_toc-4"></a>Umkreissuche benutzen</h2>
+</div>
+<p>Folgende Felder gibt es in der Übersicht:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Projekt</span> → Lädt alle Adressen, die diesem Projekt zugeordnet sind</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Suchadresse</span> → Um diese Adresse führt xentral die Umkreissuche aus (Zentrum des Suchradius)</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">PLZ</span> → Statt einer Adresse lässt sich auch um eine PLZ herum suchen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Umkreis</span> → Kilometeranzahl des Radius um die Suchadresse herum</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Suchen</span> → Button klicken um Umkreissuche zu starten</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Bei x von y Adressen sind die Geodaten vorhanden</span> → Der Prozessstarter hat bei diesen Adressen Geodaten hinterlegt. Wenn Geodaten bei einer Adresse nicht hinterlegt wurden, konnte die API die Adresse nicht eindeutig zuordnen.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375" id="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375_id_360016721400_id_toc-5"></a>Über Zieladresse suchen</h3>
+</div>
+<p>Wenn Sie um eine konkrete Adresse herum suchen wollen, dann geben Sie den Namen oder Kundennummer der Adresse im Feld „Suchadresse“ ein. Das Feld PLZ muss dabei leer bleiben.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375" id="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375_id_360016721400_id_toc-6"></a>Über PLZ suchen</h3>
+</div>
+<p>Sie können auch über die Postleitzahl suchen. Wenn nur 3 Zahlen für die PLZ eingegeben werden, werden die restlichen Ziffern mit 9er aufgefüllt. Beispiel: Aus der Eingabe 815 macht Xentral 81599.</p>
+<p><span class="guilabel">Postleitzahlsuche im Ausland</span>:</p>
+<p>Das funktioniert indem man hinter der Postleizahl noch das Land als <a class="link" href="https://de.wikipedia.org/wiki/ISO-3166-1-Kodierliste" target="_blank" rel="noopener">2-stelliges ISO Länderkürzel</a> angibt, also z.B. 3100 AT</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375" id="UUID-1f8ea7c1-bd72-5f92-2d2f-0cbf1173c375_id_360016721400_id_toc-7"></a>Adressen mit und ohne Geocodierung anzeigen</h2>
+</div>
+<p>Manche (z.B. fehlerhafte) Adressen können durch den Dienst nicht eindeutig einer Geoposition zugewiesen werden, z.B. wenn Schreibfehler enthalten sind. In diesem Fall kann die Adresse korrigiert oder manuell verortet werden. Um einen Überblick über die Adressen mit und ohne Geocodierung zu erhalten, können Sie sich einen Bericht erstellen.</p>
+<p>Gehen Sie dazu unter Stammdaten → Import/Export-Zentrale → Stammdaten-Export und legen sich mit „NEU“ einen neuen Export z.B. wie folgt an:</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Bis Version 21.1 unter Verwaltung → Import/Export-Zentrale → Stammdaten-Export.</p>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5041724489244" style="" alt="umkreissuche_7.png"></div>
+<p>Mögliche Felder für den Export:</p>
+<p>typ; name; land; strasse; ort; plz; lat; lng;</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

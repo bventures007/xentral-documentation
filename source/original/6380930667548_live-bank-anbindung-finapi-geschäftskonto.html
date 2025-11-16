@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Bank Anbindung (finAPI) (Geschäftskonto)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 6380930667548
+    Titel: Live Bank Anbindung (finAPI) (Geschäftskonto)
+    URL: https://help.xentral.com/hc/de/articles/6380930667548-Live-Bank-Anbindung-finAPI-Gesch%C3%A4ftskonto
+    Erstellt: 2022-10-24T06:33:08Z
+    Aktualisiert: 2025-01-27T10:21:27Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415729714460
+    Export-Zeitpunkt: 2025-11-16 19:06:39
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Du kannst deine Kontoauszüge in <span class="phrase">Xentral</span> importieren und die importierten Transaktionen auf die entsprechenden Rechnungen und Gutschriften verbuchen.</p>
+<p>Der Import erfolgt dabei automatisch oder manuell. Zusätzlich kannst du in den Einstellungen die Anzahl der Tage definieren, für die du Kontoauszüge importieren möchtest.</p>
+<p>Damit du deine Kontoauszüge in <span class="phrase">Xentral</span> importieren kannst, musst du entsprechende Geschäftskonten anlegen. Jedes angelegte Geschäftskonto darf nur mit einem Bankkonto verknüpft werden und umgekehrt. Es könnten sonst doppelte Buchungen auftreten.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es ist nicht möglich, nur einige bestimmte Daten zu importieren - es werden stets alle verfügbaren Daten des definierten Zeitraums importiert.</p>
+</div>
+<p>Es gibt zwei wichtige Arten von Geschäftskonten in <span class="phrase">Xentral</span> zum Import der Kontoauszüge:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Live Bank Anbindung</span> (empfohlen) - unter Verwendung von finAPI</p>
+<p>Kontoauszüge werden über den BaFin-lizensierten Drittanbieter finAPI unter Anwendung des XS2A- oder FinTS-Standards abgerufen. Du musst keinen zusätzlichen Vertrag abschließen, um finAPI zu nutzen. Die Verwendung von finAPI zum Abrufen deiner Kontoauszüge ist Teil deines <span class="phrase">Xentral</span>-Pakets.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Du kannst finAPI nur dann verwenden, wenn deine <span class="phrase">Xentral</span>-Instanz in der Cloud gehostet ist.</p>
+</div>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Typ: Bank per HBCI/FinTS (HBCI4PHP)</span></p>
+<p>Immer mehr Banken wechseln vom FinTS/HBCI-Standard auf den XS2A-Standard. Daher empfehlen wir die Nutzung von finAPI, da finAPI beide Standards unterstützt.</p>
+</li>
+</ul>
+</div>
+<p>In den folgenden Abschnitten erfährst du, wie du</p>
+<p><a class="link linktype-component" href="#UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_UUID-df91b121-fa9a-aecd-27a5-f407adf4afb0" title="Dein HBCI-Konto in ein Live Bank Anbindung-Konto umwandeln">ein bestehendes HBCI-Geschäftskonto in ein Live Bank Anbindung-Geschäftskonto umwandelst</a>. Diese Option wendest du an, wenn du deine Kontoauszüge bisher über ein HBCI-FinTS-Geschäftskonto abgerufen hast und dieses auf die Nutzung von finAPI ändern möchtest. Deine Einstellungen werden dabei beibehalten (empfohlen).</p>
+<p><a class="link linktype-component" href="#UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_UUID-d93ea48c-0e5c-1772-0a6f-d350938fcf9b" title="Ein neues Live Bank Anbindung-Geschäftskonto anlegen und anbinden">ein Live Bank Anbindung-Geschäftskonto anlegst</a>. Diese Option wendest du an, wenn du noch kein Geschäftskonto in <span class="phrase">Xentral</span> zum Abrufen deiner Kontoauszüge angelegt hast und nun deine Kontoauszüge in <span class="phrase">Xentral</span> abrufen möchtest.</p>
+<p><a class="link" href="#UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_id_360016722800_id_h_01F9Y9GMJTGCSYADFCP2V79N42" title="Ein Bank per HBCI/FinTS (HBCI4PHP)-Geschäftskonto anlegen">ein HBCI/FINTS-Geschäftskonto anlegst</a> - Diese Option wendest du an, wenn du ein HBCI/FINTS-Geschäftskonto anlegen möchtest. Dabei handelt es sich um eine Legacy-Funktion. Eine Anwendung wird nicht mehr empfohlen.</p>
+<div xml:lang="de" lang="de" dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_UUID-df91b121-fa9a-aecd-27a5-f407adf4afb0"></a>Dein HBCI-Konto in ein Live Bank Anbindung-Konto umwandeln</h2>
+</div>
+<p>Wenn du bereits ein HBCI-Konto eingerichtet hast, kannst du dieses in ein <span class="guilabel">Live Bank Anbindung</span>-Konto umwandeln.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Kontotyp kann nicht mehr zurück geändert werden, sobald du ihn auf <span class="guilabel">Live Bank Anbindung</span> geändert hast.</p>
+</div>
+<p>Zur Umwandlung deines HBCI-Kontos in ein <span class="guilabel">Live Bank Anbindung</span>-Konto gehst du wie folgt vor:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zu <span class="guilabel">App Center &gt; Buchhaltung &gt; Geschäftskonten</span>.</p>
+</li>
+<li class="step">
+<p>Wähle das HBCI-Konto, dass du umwandeln möchtest, und klicke auf <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/6380901532828" style="max-width: 13px;" alt="PenIcon.png"></span>, um es im Bearbeitungsmodus zu öffnen. Die folgende Meldung wird oben im Bildschirm angezeigt:</p>
+<p>Da das HBCI-Verfahren als Verbindung zu den Banken deaktiviert wird, empfehlen wir dir, auf das PSD2-Verfahren umzusteigen. Dabei bleiben alle existierenden Daten und Konfigurationen erhalten. Die Anbindung im PSD2-Verfahren erfolgt über finAPI. finAPI ist von der BaFin lizenziert, sodass deine Daten absolut sicher sind. Weitere Informationen findest du in den <a class="link" href="https://www.finapi.io/en/data-protection-policy/" target="_blank" rel="noopener">Allgemeinen Geschäftsbedingungen</a>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Wechsel zur PSD2-Anbindung</span>, um die Autorisierung zu beginnen. Du wirst automatisch zur finAPI-Anmeldeseite weitergeleitet.</p>
+</li>
+<li class="step">
+<p>Gib die Anmeldedaten für dein Onlinebanking in das finAPI-Anmeldeformular ein und folge den Anweisungen. Du musst die Anbindung mit einer TAN autorisieren. Sobald die Verbindung hergestellt ist, kehre nach <span class="phrase">Xentral</span> zurück.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Während der Registrierung hast du die Möglichkeit, deine PIN oder dein Passwort (je nach Bank) zu speichern. Wenn du deine PIN oder dein Passwort nicht speicherst, läuft die Genehmigung deiner Bank täglich ab.</p>
+</div>
+</li>
+<li class="step">
+<p>Möchtest du deine Kontoauszüge automatisch importieren, führe Folgendes im Kontodetails-Formular aus:</p>
+<ul class="stepalternatives">
+<li class="step">
+<p>Setze im Bereich <span class="guilabel">Live-Import</span> ein Häkchen bei <span class="guilabel">Live-Import aktiv</span>.</p>
+</li>
+<li class="step">
+<p>Prüfe im Bereich <span class="guilabel">Live-Import</span> deine IBAN und den definierten Importzeitraum im Feld <span class="guilabel">Zugangsdaten</span>. Bei Bedarf kannst du die Anzahl der Tage anpassen, deren Daten zu importieren möchtest.</p>
+</li>
+<li class="step">
+<p>Setze im Bereich <span class="guilabel">Prozessstarter</span> ein Häkchen bei <span class="guilabel">Zahlungseingänge automatisch abholen</span>.</p>
+</li>
+</ul>
+</li>
+<li class="step">
+<p>Optional: Setze ein Häkchen bei <span class="guilabel">pain.001.001.03</span> wenn du eine SEPA XML-Datei im Format pain.001.001.03 erstellen möchtest. Diese Datei kannst du manuell bei deiner Bank hochladen, um die Zahlung von Verbindlichkeiten und Gutschriften einzuleiten.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+</ol>
+</div>
+<p>Die Bezeichnung deines alten Kontos wird beibehalten, der Typ wird jedoch auf <span class="guilabel">Live Bank Anbindung</span> geändert.</p>
+<p>Du kannst dein ehemaliges HBCI-Konto nun wie gewohnt zum Import des Zahlungseingangs verwenden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Wenn du von HBCI zu finAPI (= Live-Banking) umsteigst, achte auf die Überschneidungs-Tage der alten und neuen Anbindung, um Doubletten in den importierten Transaktionen im Import zu vermeiden. Folgende Einstellungen sind wichtig:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Stelle die letzten abzuholenden Tage auf "1" - so stellst du sicher, dass nur der letzte Tag und nicht weitere zurückliegende Buchungen aus der Vergangenheit neu abgeholt werden.</p>
+</li>
+<li class="listitem">
+<p>Stelle die Abholung des Bankkontos auf manuell - so stellst du sicher, dass keine Buchungen automatisch abgeholt und versehentlich automatisch verbucht werden.</p>
+</li>
+</ul>
+</div>
+</div>
+<p><span class="bold"><strong>Schritte für die Einstellungen bei der Abholung der Buchungen (Duplikate vermeiden):</strong></span></p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Um die Überschneidung zwischen HBCI und finAPI sowie die Anzahl der Duplikate so gering wie möglich zu halten, empfehlen wir vorübergehend die Anzahl an Tagen im Feld <span class="bold"><strong>Seit (Anzahl in Tagen)</strong></span> auf “1” zu stellen. Wenn der Import über HBCI bis heute noch gelaufen ist, holst du somit die Buchungen von heute und und gestern ab.</p>
+<p>Hat der Import über HBCI in den letzten vier Tagen bereits nicht mehr funktioniert und keine Buchungen importiert, dann wäre der Wert “4” einzustellen, um die Buchungen der letzten vier Tage abzuholen.</p>
+</li>
+<li class="listitem">
+<p>Prüfe insbesondere am ersten Tag nach Umstellung den Zahlungseingang auf Duplikate. Falls die Option <span class="bold"><strong>Zahlungseingänge automatisch verbuchen</strong></span> aktiviert ist, empfehlen wir diese Option temporär zu deaktivieren. Somit kannst du sehen, welche Buchungen automatisch gefunden und zugeordnet werden.</p>
+</li>
+<li class="listitem">
+<p>Buche Duplikate für diesen einen Überschneidungstag im Zahlungseingang auf "Importfehler". <span class="bold"><strong>Info</strong></span>: Erkannte Duplikate zu Aufträgen/Rechnungen mit bereits verknüpften Buchungen, werden orange hinterlegt. Andere Duplikate können wie normale “neue” Buchungen aussehen und werden nicht automatisch als Duplikate gekennzeichnet. Duplikate müssen manuell als Importfehler markiert werden, um doppelte Buchungen zu vermeiden.</p>
+</li>
+<li class="listitem">
+<p>Nach z.B. 5 Tagen kannst du im Feld <span class="bold"><strong>Seit (Anzahl in Tagen)</strong></span> wieder ein Wert von “5” eintragen. Oder nach 10 Tagen einen Wert von “10”, um wieder einen größeren zurückliegenden Zeitraum abzuholen. Du kannst die Verbuchung der Kontoauszüge nach einigen Tagen wieder auf automatisch umstellen, wenn du keine Duplikate erhalten hast.</p>
+</li>
+</ol>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13065862369820" style="" alt="FIN_API_001.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13065862380316" style="" alt="FIN_API_002.png"></div>
+<div xml:lang="de" lang="de" dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_UUID-d93ea48c-0e5c-1772-0a6f-d350938fcf9b"></a>Ein neues Live Bank Anbindung-Geschäftskonto anlegen und anbinden</h2>
+</div>
+<p>Gehe wie folgt vor, um ein neues <span class="guilabel">Live Bank Anbindung</span>-Geschäftskonto anzulegen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zu <span class="guilabel">App Center &gt; Buchhaltung &gt; Geschäftskonten</span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">+NEU</span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf die Kachel <span class="guilabel">Live Bank Anbindung</span>. Das <span class="guilabel">finAPI</span>-Anmeldeformular wird angezeigt.</p>
+</li>
+<li class="step">
+<p>Gib deine <span class="guilabel">IBAN</span> ein und klicke auf <span class="guilabel">Weiter</span>. Die Kontoanlage wird bestätigt.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Weiter</span>. Das Kontodetailformular für dein neues <span class="guilabel">Live Bank Anbindung</span>-Konto wird angezeigt. Die IBAN wird automatisch in die folgenden Felder eingefügt:</p>
+<ul class="stepalternatives">
+<li class="step">
+<p>Bereich <span class="guilabel">Live-Import</span> &gt; Feld <span class="guilabel">Zugangsdaten</span></p>
+</li>
+<li class="step">
+<p>Bereich <span class="guilabel">Kontenspezifische Einstellungen</span> &gt; Feld <span class="guilabel">IBAN</span></p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<p>Du kannst deine Kontoauszüge auch automatisch importieren.</p>
+<p>Gehe wie folgt vor, um deine Kontoauszüge automatisch zu importieren:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Scrolle im Kontodetails-Formular runter bis zum Bereich <span class="guilabel">Live-Import</span> und setze ein Häkchen bei <span class="guilabel">Live-Import aktiv</span>. Dadurch wird der Live-Import deiner Kontoauszüge aktiviert.</p>
+</li>
+<li class="step">
+<p>Das Feld <span class="guilabel">Zugangsdaten</span> im Bereich <span class="guilabel">Live-Import</span> enthält deine IBAN sowie die Anzahl an Tagen, die, vom aktuellen Tag an rückwirkend gerechnet, für den Datenimport berücksichtigt werden sollen. Bei Bedarf kannst du Anzahl an Tagen für den Datenimport hier anpassen.</p>
+</li>
+<li class="step">
+<p>Scrolle runter bis zum Bereich <span class="guilabel">Prozessstarter</span> und setze ein Häkchen bei <span class="guilabel">Zahlungseingänge automatisch abholen</span>. Durch Auswahl dieser Option werden deine Bankdaten zu vier verschiedenen Zeiten täglich abgerufen: um 5 Uhr, 9 Uhr, 11 Uhr und 16 Uhr.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+</ol>
+</div>
+<p>Optional:</p>
+<p>Du kannst die Zahlungsinformationen für ausgehende Zahlungen (Verbindlichkeiten/Gutschriften) aus <span class="phrase">Xentral</span> dazu verwenden, SEPA-Überweisungen zu initiieren. Weise dafür die entsprechenden Zahlungen im Modul <span class="guilabel">Zahlungseingang</span> dem <span class="guilabel">Live Bank Anbindung</span>-Konto zu. Nun kann eine SEPA XML-Datei für den manuellen Upload bei deiner Bank erstellt werden. Einige Banken benötigen diese Datei im Format pain.001.001.03. Um die Datei im korrekten Format zu erstellen, setze ein Häkchen bei <span class="guilabel">pain.001.001.03</span> im Bereich <span class="guilabel">Kontenspezifische Einstellungen</span> deines <span class="guilabel">Live Bank Anbindung</span>-Geschäftskontos.</p>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_section-idm4600268370505633311560699247"></a>Dein Bankkonto in finAPI autorisieren</h3>
+</div>
+<p>Sehr wahrscheinlich hast du deine IBAN noch nicht bei finAPI registriert. Wenn das der Fall ist, erhältst du eine entsprechende Meldung oben in deinem Kontodetails-Formular. Hier findest du auch eine Schaltfläche, die dich direkt zu finAPI weiterleitet.</p>
+<p>Du kannst deine IBAN wie folgt bei finAPI registrieren:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Klicke in der Informationsmeldung oben in deinem <span class="phrase">Xentral</span>-Bildschirm auf <span class="guilabel">Konto bei FinApi registrieren</span>. Du wirst zur finAPI-Anmeldeseite weitergeleitet. Die Inhalte der Anmeldeseite hängen von deiner Bank ab; sie kann aber zum Beispiel wie folgt aussehen:</p>
+<div class="informalfigure">
+<div class="informaltable sidebyside table-responsive">
+<table frame="void" rules="none" width="100%">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<tbody>
+<tr>
+<td>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/6380930702236" style="" alt="finAPIcredentials1.png"></div>
+</td>
+<td>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/6380901480092" style="" alt="finAPIcredentials2.png"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Bei einigen Banken wirst du für die Anmeldung an deine Bank weitergeleitet.</p>
+</li>
+<li class="step">
+<p>Gib die Onlinebanking-Daten ein und folge den Anweisungen. Du musst die Anbindung mit einer TAN autorisieren.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Während der Registrierung hast du die Möglichkeit, deine PIN oder dein Passwort (je nach Bank) zu speichern. Wenn du deine PIN oder dein Passwort nicht speicherst, läuft die Genehmigung deiner Bank täglich ab.</p>
+</div>
+<p>Nach der Autorisierung ruft finAPI deine Kontoinformationen ab. Dies kann einige Minuten dauern.</p>
+</li>
+<li class="step">
+<p>Hat finAPI deine Bankinformationen erfolgreich abgerufen, wird eine Bestätigung angezeigt. Nun wähle zwischen den folgenden Optionen:</p>
+<ul class="stepalternatives">
+<li class="step">
+<p>Mit einem Klick auf den blauen, abwärts zeigenden Pfeil neben <span class="guilabel">Importierte Bankkonten</span> kannst du das verbundene Bankkonto prüfen. Deine angebundenen Konten werden angezeigt.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/6380930792220" style="" alt="ConfirmationfinAPI.png"></div>
+</li>
+<li class="step">
+<p>Wenn du mehrere Bankkonten für deine Firma nutzt (z.B. zusätzlich Kreditkartenkonten oder abteilungsspezifische Konten), kannst weitere Bankkonten hinzufügen, indem du auf <span class="guilabel">Weitere Konten abrufen</span> klickst.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Möchtest du zusätzliche Bankkonten in <span class="phrase">Xentral</span> importieren, lege bitte für jedes Konto ein neues Geschäftskonto an.</p>
+</div>
+</li>
+<li class="step">
+<p>Du kannst zu <span class="phrase">Xentral</span> zurückkehren, indem du auf <span class="guilabel">Zurück zur Anwendung</span> klickst.</p>
+</li>
+</ul>
+</li>
+<li class="step">
+<p>Zurück in <span class="phrase">Xentral</span> klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+</ol>
+</div>
+<p>Deine IBAN ist bei finAPI registriert und du kannst dein <span class="guilabel">Live Bank Anbindung</span>-Geschäftskonto nutzen, um deine Kontoauszüge abzurufen.</p>
+<p>Nun kannst du zu <span class="guilabel">Buchhaltung &gt; Zahlungseingang</span> wechseln, wo dein neues Live Bank Anbindung-Konto angezeigt wird. Deinen neuen Zahlungseingang importierst du, indem du auf <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/6380901532828" style="max-width: 13px;" alt="PenIcon.png"></span> klickst. Das Formular <span class="guilabel">Zahlungen importieren</span> wird angezeigt. Klicke auf <span class="guilabel">Live-Import</span>, um den Zahlungseingang zu importieren.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es kann sein, dass du die Anbindung von Zeit zu Zeit aus Sicherheitsgründen neu autorisieren musst. Wenn dies der Fall ist, wird dir oben in deinem Kontodetails-Formular eine entsprechende Meldung angezeigt. Klicke auf die Schaltfläche in der Meldung, um dich wieder anzumelden.</p>
+<p>Vergiss nicht, deine PIN oder dein Passwort in finAPI zu speichern, wenn du dich nicht jedes Mal bei der Nutzung von finAPI neu anmelden möchtest.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_id_360016722800_id_h_01F9Y9GMJTGCSYADFCP2V79N42"></a>Ein Bank per HBCI/FinTS (HBCI4PHP)-Geschäftskonto anlegen</h2>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_UUID-2fa1a13e-df7c-e2bb-e0a0-d081cdfdfb6a"></a>Legacy-Modul</h3>
+<p>Das in diesem Abschnitt des Artikels beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_section-idm4669047884825633405014878193"></a>Einstellungen definieren</h3>
+</div>
+<p>Hier kannst du den Typ auf HBCI/FinTS (HBCI4PHP) setzen und die Bankverbindung mit Inhaber, BIC, etc. eingeben.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/12044601007900" style="" alt="BankAccount1.png"></div>
+<p>Folgende Einstellungen kannst du vornehmen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Bezeichnung</strong></span>: Gib die Bezeichnung deines Kontos ein</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Typ</strong></span>: Wähle aus dem Drop-Down Menü einen Kontotyp aus</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Projekt</strong></span>: Gib optional ein Projekt an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Aktiv</strong></span>: Durch Anhaken aktivierst du das Konto</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Keine E-Mail</strong></span>: Durch Anhaken wird bei Zahlungseingang keine E-Mail an den Kunden gesendet</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Änderungen erlauben</strong></span>: Durch Anhaken erlaubst du das nachträgliche Verändern von Kontobuchungen</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Ab Version 21.1 sind in Xentral die Kontotypen <span class="bold"><strong>FinTS</strong></span> und <span class="bold"><strong>HBCI</strong></span> in einer Schnittstelle vereint. Die Schnittstelle unterstützt also sowohl <span class="bold"><strong>FinTS</strong></span>, als auch <span class="bold"><strong>HBCI</strong></span>.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_id_360016722800_id_h_01F9Y9HFMA6Q5393SWHKCET6H2"></a>Live-Import Einstellungen definieren</h3>
+</div>
+<p>API: Die PIN/TAN-URL erhältst du auf Anfrage von deiner Bank. Inzwischen besitzen die meisten Produkte ihre eigene Verbindungsdaten(bank).</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/12044601126812" style="" alt="BankAccount2.png"></div>
+<pre class="programlisting">FHP_BANK_URL=&gt;https://urlyourbankissues.de/abc/def;
+FHP_BANK_IBAN=&gt;DE1234567890123456789;
+FHP_BANK_BIC=&gt;ABCDEF123456;
+FHP_ONLINE_BANKING_USERNAME=&gt;123456789;
+FHP_ONLINE_BANKING_PIN=&gt;{PASSWORD};
+API_DAYS=&gt;10;
+LOGGING=&gt;1;
+FHP_TAN_VERFAHREN=&gt;photoTAN;</pre>
+<p>Die folgenden Parameter sind besser über ein Beispiel verständlich. Nehmen wir an der letzte Liveimport fand am 01.01.2022 statt und heute ist der 19.01.2022.</p>
+<p>Mit dem Parameter <span class="bold"><strong>API_DAYS</strong></span> wird angegeben, wie lange es dauert bis der nächste Import stattfindet. Es wird ein Zeitraum zwischem dem letzten Import und dem aktuellen Zeitpunkt geschaffen. In unserem Beispiel ist API_DAYS =&gt; 10, d.h. beim nächsten Import werden die Daten vom 10.01.22 bis zum heutigen Tag (19.01.22) importiert. Die Tage werden also zum letzten Importdatum hinzu addiert.</p>
+<p><span class="bold"><strong>API_MAX_DAYS_BEFORE</strong></span> gibt die Tage an, welche maximale Anzahl an Tagen vor dem letzten Import berücksichtigt werden sollen. Ist API_MAX_DAYS_BEFORE =&gt; 90, werden 90 Tage vor dem letzten Import mitberücksichtigt. Das wären in diesem Fall die Daten vom 03.10.2021 bis zum heutigen Tag (19.01.22). Die Tage werden also vom letzten Importdatum abgezogen.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Die Parameter <span class="bold"><strong>API_DAYS</strong></span> und <span class="bold"><strong>API_MAX_DAYS_BEFORE</strong></span> sind nicht miteinander kompatibel und sollten nicht zusammen in einer Anfrage benutzt werden!</p>
+</div>
+<p>Beim Parameter <span class="bold"><strong>API_DAYS_WAIT</strong></span> können aktuelle Daten ignoriert werden. Ist API_DAYS_WAIT =&gt; 1, dann wird der heutige Tag nicht mit importiert. Dies bedeutet für unser Beispiel, dass nur die Daten vom 01.01.22 bis zum 18.01.22 importiert würden. Die hier angegebenen Tage werden also vom aktuellen Tag abgezogen.</p>
+<p><span class="bold"><strong>LOGGING</strong></span> gibt bei aktiviertem logfile (module=logfile) die Transaktionen beim Abholen der Zahlungseingänge ab. Hier können die Detailstufen 1 bis 5 verwendet werden.</p>
+<p><span class="bold"><strong>FHP_TAN_VERFAHREN</strong></span> beinhaltet das TAN Medium über das die TAN generiert wird. Wie genau das Medium heißt, ist abhängig von der TAN Methode, die die Bank zulässt.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Eine Liste mit FINTS fähigen Banken mit deren URL finden Sie hier: <a class="link" href="https://hbci4php.web-cloud-apps.com/fints_institute.xls" target="_blank" rel="noopener">https://hbci4php.web-cloud-apps.com/fints_institute.xls</a></p>
+</div>
+<p>Beispiele für Bank-URLs:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Deutsche Bank: <a class="link" href="https://fints.deutsche-bank.de/" target="_blank" rel="noopener">https://fints.deutsche-bank.de/</a></p>
+</li>
+<li class="listitem">
+<p>Postbank: <a class="link" href="https://hbci.postbank.de/banking/hbci.do" target="_blank" rel="noopener">https://hbci.postbank.de/banking/hbci.do</a></p>
+</li>
+<li class="listitem">
+<p>Volksbank Raiffeisenbank: <a class="link" href="https://hbci11.fiducia.de/cgi-bin/hbciservlet" target="_blank" rel="noopener">https://hbci11.fiducia.de/cgi-bin/hbciservlet</a></p>
+</li>
+<li class="listitem">
+<p>Haspa: <a class="link" href="https://banking-hh7.s-fints-pt-hh.de/fints30" target="_blank" rel="noopener">https://banking-hh7.s-fints-pt-hh.de/fints30</a></p>
+</li>
+</ul>
+</div>
+<p>Sonderfall: Bei der Postbank hat ein Business Konto unter Umständen hinter der neuen Zugangs-ID noch zusätzlich ein Profil hinterlegt. Dieses beginnt mit dem Zeichen #, dann folgen Buchstaben und Zeichen. Damit funktioniert der Live-Import unter Umständen.</p>
+<pre class="programlisting">FHP_BANK_URL=&gt;https://hbci.postbank.de/banking/hbci.do;
+FHP_BANK_IBAN=&gt;DE123456789012345678;
+FHP_BANK_BIC=&gt;PBNKDEFF;
+FHP_ONLINE_BANKING_USERNAME=&gt; (Customer-ID)#XXX;
+FHP_ONLINE_BANKING_PIN=&gt;{PASSWORD};
+API_DAYS=&gt;7;</pre>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Live Import ist leider nicht für die Commerzbank, die HypoVereinsbank und die Comdirect Bank verfügbar.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_id_360016722800_id_h_01F9Y9J0CJXZABSB8Z7HBAR96N"></a>Passwort setzen</h3>
+</div>
+<p>Klicke auf die Schaltfläche <span class="bold"><strong>Passwort setzen</strong></span> und gib das Passwort ein. Das Passwort wird bei der Eingabe verschlüsselt dargestellt und das Feld nach dem Speichern geleert. Wenn du dir nicht mehr sicher bist, ob das Passwort richtig ist, gib es erneut ein. Das Setzen des Passworts ist ein eigenes Recht in der Benutzerverwaltung.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Das Passwort darf nur 1 Sonderzeichen enthalten, sonst funktioniert der Live-Import nicht. Im API-Code darf die Zeile FHP_ONLINE_BANKING_PIN=&gt;{PASSWORT}; nicht verändert werden, wenn der Passwort-Tresor verwendet wird.</p>
+</div>
+<p>Bitte prüfe, ob in deinem Online Banking die Funktion HBCI + bzw. FinTS oder PIN/TAN aktiviert ist. Diese Funktion kann z.B. bei der Deutschen Bank hier aktiviert werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Services → OnlineSelf Services → TelefonBanking Pin bestellen und HBCI + Freischaltung → HBCI Plus-Nutzung aktivieren (ist aktiviert)</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="idm648"></a>Einzelbuchungen aktivieren</h2>
+</div>
+<p>Sammellastschriften und Verbindlichkeiten können in <span class="phrase">Xentral</span> im Modul <span class="bold"><strong>Zahlungsverkehr</strong></span> erstellt werden. Dabei werden mehrere Zahlungen zu einer gesammelten Zahlung zusammengefasst.</p>
+<p>Diese Zahlungen können durch <span class="phrase">Xentral</span> wieder in Einzelpositionen aufgelöst werden. Dies ist in den Kontoauszügen in <span class="phrase">Xentral</span> sichtbar und erleichtert die Zuordnung der Zahlungen zu Aufträgen, Gutschriften und Rechnungen.</p>
+<p>Gehe wie folgt vor, um Einzelbuchungen zu aktivieren:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Für <span class="guilabel">HBCI/FinTS (HBCI4PHP)</span>: Setze ein Häkchen bei <span class="guilabel">Einzelbuchungen aktivieren</span> im Bereich <span class="guilabel">Kontenspezifische Einstellungen</span>.</p>
+</li>
+<li class="listitem">
+<p>Für <span class="guilabel">Live Bank Anbindung</span>: Navigiere zum Bereich <span class="guilabel">Live-Import</span> und gib <span class="emphasis"><em>individual_payments=&gt;1;</em></span> in das Feld <span class="guilabel">Zugangsdaten</span> ein.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_section-idm4668669991030434196249356474"></a>Konfiguration von finAPI im Problemfall zurücksetzen</h2>
+</div>
+<p>Manchmal kann es zu Verbindungsproblemen oder inkonsistenter Kommunikation zwischen  <span class="phrase">Xentral</span> und finAPI kommen. Wenn  <span class="phrase">Xentral</span> einen solchen Verbindungsfehler feststellt, wird eine Meldung über dem Formular für das Geschäftskonto angezeigt. Klicke in der Meldung auf <span class="guilabel">Verbindung löschen</span>, um deine Konfiguration zurückzusetzen und die Verbindung von Grund auf neu zu konfigurieren. In vielen Fällen werden dadurch die Fehler in der Verbindung behoben.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Dieser Vorgang löscht weder das Geschäftskonto noch die gebuchten Daten! Es wird lediglich die mit dem Geschäftskonto verbundene finAPI-Verbindung zurückgesetzt.</p>
+<p>Die Schaltfläche zum Zurücksetzen der Verbindung wird nur angezeigt, wenn ein Fehler aufgetreten ist.</p>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/13065905664156" style="" alt="finapi_resetconnection.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_section-idm4546045906507234039232996297"></a>FAQ</h2>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_section-idm4554038346336034039233422615"></a>Warum muss ich mich jeden Tag erneut bei finAPI anmelden?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16_section-idm4554038346336034039233422615_body">
+<p>Falls deine Bank FinTS nutzt, benötigt sie regelmäßig eine starke Authentifizierung von dir, um neue Transaktionen abzurufen. Diese Authentifizierung kann nicht, wie bei XS2A, über einen längeren Zeitraum genutzt werden und du musst dich daher häufig neu anmelden, z.B. täglich. Dieser Prozess ist von deiner Bank abhängig und kann weder von <span class="phrase">Xentral</span> noch finAPI beeinflusst werden.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

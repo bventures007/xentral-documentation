@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provisionen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016761019
+    Titel: Provisionen
+    URL: https://help.xentral.com/hc/de/articles/360016761019-Provisionen
+    Erstellt: 2020-09-28T13:07:56Z
+    Aktualisiert: 2024-08-29T12:58:43Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415589407644
+    Export-Zeitpunkt: 2025-11-16 19:08:25
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Das Modul Provisionsabrechnung ermöglicht die Abbildung der Vertriebsstruktur sowie eine flexible Festlegung und Abrechnung von Verkaufsprovisionen. Die vordefinierten Provisionen werden dem im Auftrag eingetragenen „Vertreter“ zugeschlagen und bei Verkäufen über eine Kasse dem jeweils angemeldeten Kassierer. Falls bereits über artikelspezifische Provisionsrichtlinien verfügt wird, können diese auch über den Stammdatenimport wiederhergestellt werden, wie hier beschrieben.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-55f301f5-af3f-4007-a598-158e8b624b63" id="UUID-55f301f5-af3f-4007-a598-158e8b624b63_id_360016761019_id_toc-0"></a>Vertriebsstruktur</h2>
+</div>
+<p>Im Reiter „Vertreter“ kann zunächst eine Zuordnung zwischen Vertriebsmitarbeitern und Vertriebsleitern vorgenommen werden, um die grundsätzlichen Beziehungen der Vertriebsstruktur widerzuspiegeln. Dies dient dazu, den Vertriebsleitern auch Provisionsbeteiligungen für Vertreter in dem Verantwortungsbereich zukommen zu lassen. Hierzu sind einfach die Felder für den "Vertreter" und seinen jeweiligen "Vertriebsleiter" auszufüllen.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Ohne Hierarchie ist hier keine Zuordnung notwendig, in diesem Fall kannst du gleich beim nächsten Schritt weitermachen.</p>
+</div>
+<p>Soll eine bestehende Verknüpfung zwischen Vertriebsleitern und den Mitarbeitern übernommen werden, kann diese mittels eines CSV-Datensatzes über die nachstehend abgebildete Oberfläche komfortabel importiert werden.</p>
+<p><a class="link" href="https://xentral-wiki-assets.s3.eu-central-1.amazonaws.com/buchhaltung/provision/Provisionen-2.png" target="_blank" rel="noopener">
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5077573390492/uuid-2d467bcf-a886-4b87-c109-e7e21414ae1d.png" style="" alt="Provisionen-2.png"></div>
+</a></p>
+<p>Hierzu ist zunächst die Zeile anzugeben, aus der die ersten "realen" Werte (ohne mögliche Überschriften o.ä.) zu entnehmen sind. Nachdem das entsprechende Trennzeichen und Charset ausgewählt wurde, reicht die Angabe zweier zusammengehöriger Mitarbeiternummern für einen erfolgreichen Import aus. Alternativ können auch die IDs der Mitarbeiter verwendet werden, welche in der Adresszeile des Browsers einsehbar sind, sofern diese in den Stammdaten des entsprechenden Angestellten befinden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Bei den Variablen 'vertreter' und 'vertriebsleitung' wird jeweils die ID aus xentral benötigt.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-55f301f5-af3f-4007-a598-158e8b624b63" id="UUID-55f301f5-af3f-4007-a598-158e8b624b63_id_360016761019_id_toc-1"></a>Festlegung des Begünstigten</h2>
+</div>
+<p>Damit ein Auftrag im Provisionssystem berücksichtigt wird, muss in den Auftragsdetails unter "Vertrieb" eine Adresse aus den Stammdaten ausgewählt werden. Dazu ist das Stift-Symbol hinter dem Textfeld zu berücksichtigen. Bei Verkäufen über eine POS/Kasse wird automatisch der angemeldete Kassierer und die verkauften Artikel (für die ein Provisionssatz definiert wurde) im Provisionssystem erfasst.</p>
+<p>Alternativ kann pro Adresse ein fester bzw. vordefinierter Vertriebsmitarbeiter hinterlegt werden, der in einem Auftrag als Standardwert gezogen wird.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-55f301f5-af3f-4007-a598-158e8b624b63" id="UUID-55f301f5-af3f-4007-a598-158e8b624b63_id_360016761019_id_toc-2"></a>Definition von Provisionssätzen</h2>
+</div>
+<p>Bei der Definition von Provisionssätzen stehen verschiedene Möglichkeiten zur Verfügung, die sich alle im Reiter "Provision pro Artikel" unter "Buchhaltung → Provisionen" befinden. Im Bereich "Anlegen" kann ein "Artikel", ein Prozentsatz im Feld "Provision" (einfache Zahl genügt) sowie die Berechnungsgrundlage im Feld "Typ" hinterlegen, um einen artikelspezifischen Provisionssatz vorzugeben. Je nach Wunsch können die Provisionen auf Basis von Verkaufs- und Einkaufspreisen, Stückerlösen oder Preisen abzüglich möglicher Rabatte kalkuliert werden.</p>
+<p>Im Feld "Vertriebsleiter Provision" kann zusätzlich eine Provision für den Vertriebsleiter eingetragen werden, die im Vorfeld dem entsprechenden Vertreter zugeordnet wurde. Jeder Auftrag, der den ausgewählten Artikel sowie einen gültigen Eintrag im Feld "Vertrieb" enthält, wird fortan automatisch mit der angelegten Provision versehen, wobei bei entsprechender Einstellung der Vertriebsleiter eine gesondert festgelegte Provision erhält. Falls dieser Mechanismus auf einen Teil der Belegschaft beschränkt wird oder bspw. unterschiedliche Provisionssätze für verschiedene Mitarbeiter verwendet werden sollen, ist zusätzlich das Feld "Vertreter" auszufüllen, wodurch sich die gesamte Berechnung ausschließlich auf den eingetragenen Mitarbeiter bezieht. Weiterhin lässt sich eine globale Provision festlegen, die auf alle Artikel ohne provisionstechnische Spezifikationen angewendet wird. Auch an dieser Stelle lässt sich über das Feld "Vertreter" der zu berücksichtigende Mitarbeiterkreis flexibel einstellen. Soll die Abrechnung unabhänging von einem Artikel erfolgen, so kann das Feld "Artikel" leer gelassen werden und beispielsweise nur ein Vertreter und eine Provision eingetragen werden.</p>
+<p>Wird die Provision auf Basis des Erlöses oder des Einkaufspreises eines Artikels angelegt, so wird der günstigste Einkaufspreis des Artikels herangezogen, falls der Artikel mehrere Einkaufspreise bei verschiedenen Lieferanten hat.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-55f301f5-af3f-4007-a598-158e8b624b63" id="UUID-55f301f5-af3f-4007-a598-158e8b624b63_id_360016761019_id_toc-3"></a>Vorschau</h2>
+</div>
+<p>Mit einem Klick auf "Abrechnung anlegen" in der Vorschau erscheint die Oberfläche "Buchhaltung → Provisionen → Abrechnungen", wo zahlreiche Abrechnungsarten zur Verfügung stehen.</p>
+<p>In der Startansicht werden die wichtigsten Informationen zu historischen Abrechnungen angezeigt, wodurch die Umsatz- und Provisionshöhen unmittelbar abgelesen werden können. Auf der rechten Seite befinden sich neben jeder Abrechnung drei Download Buttons , über welche sich verschiedene Dokumente im CSV-Format heruntergeladen werden können. Die erste Tabelle gibt Aufschluss darüber, welche Verkäufer in welcher Höhe Umsätze getätigt haben und welche Provisionen sowohl der Vertriebsleitung als auch den Mitarbeitern im abgerechneten Zeitraum zuzurechnen sind. Während die erste Tabelle mit aggregierten Werten arbeitet, befinden sich in der zweiten Tabelle sämtliche verkaufte Artikel mit zusätzlichen Informationen. Die dritte Tabelle enthält wiederum summierte Werte, die nach Artikelkategorien aufgeschlüsselt sind. Schließlich können über die Minidetail-Ansicht weitere Informationen zu den einzelnen Positionen der gewählten Abrechnung aufgerufen werden, die sich von der Rechnungsnummer und den Kunden bis hin zu Artikelnummern und Provisionen erstrecken und wie gewohnt über einen Klick auf den Download Button als CSV Datei heruntergeladen werden können.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-55f301f5-af3f-4007-a598-158e8b624b63" id="UUID-55f301f5-af3f-4007-a598-158e8b624b63_id_360016761019_id_toc-4"></a>Abrechnung</h2>
+</div>
+<p>Mit einem Klick auf "Abrechnung anlegen" in der Vorschau erscheint die Oberfläche "Buchhaltung → Provisionen → Abrechnungen", wo zahlreiche Abrechnungsarten zur Verfügung stehen.</p>
+<p>In der Startansicht werden die wichtigsten Informationen zu historischen Abrechnungen angezeigt, wodurch die Umsatz- und Provisionshöhen unmittelbar abgelesen werden können. Auf der rechten Seite befinden sich neben jeder Abrechnung drei Download Buttons , über welche sich verschiedene Dokumente im CSV-Format heruntergeladen werden können. Die erste Tabelle gibt Aufschluss darüber, welche Verkäufer in welcher Höhe Umsätze getätigt haben und welche Provisionen sowohl der Vertriebsleitung als auch den Mitarbeitern im abgerechneten Zeitraum zuzurechnen sind.</p>
+<p>Während die erste Tabelle mit aggregierten Werten arbeitet, befinden sich in der zweiten Tabelle sämtliche verkaufte Artikel mit zusätzlichen Informationen.</p>
+<p>Die dritte Tabelle enthält wiederum summierte Werte, die nach Artikelkategorien aufgeschlüsselt sind.</p>
+<p>Schließlich können über die Minidetail-Ansicht weitere Informationen zu den einzelnen Positionen der gewählten Abrechnung aufgerufen werden, die sich von der Rechnungsnummer und den Kunden bis hin zu Artikelnummern und Provisionen erstrecken und wie gewohnt über einen Klick auf den Download Button als CSV Datei heruntergeladen werden können.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-55f301f5-af3f-4007-a598-158e8b624b63" id="UUID-55f301f5-af3f-4007-a598-158e8b624b63_id_360016761019_id_toc-5"></a>Einstellungen</h3>
+</div>
+<p>Um für die angelegten Provisionsabrechnungen nun im Folgenden eine Gutschrift für die Vertriebsmitarbeiter erstellen zu können, muss im Reiter "Einstellungen" zuerst ein Provisionsartikel hinterlegt werden, auf den die Abrechnung gebucht werden kann. Zudem kann hier eingestellt werden, ob die Provision vom Rabatt absolut abgezogen wird. So kann ein Vertreter, dem 20% Provision zu stehen, einen Rabatt von 5% auf den Auftrag gewähren und die Provision wird dadurch auf 15% reduziert.</p>
+<p>Hierfür kann im Artikelstamm ein "Provisionsabrechnungsartikel" (oder ähnliche Bezeichnung) angelegt werden, der dann für alle zukünftigen Abrechnungen verwendet werden kann. Zudem empfiehlt sich der Haken bei "Detaillierte Aufstellung in Gutschrift" um die provisionierten Auftragspositionen besser nachvollziehen zu können. Sollte diese Option nicht gewählt sein, dann werden alle Abrechnungen auf den "Provisionsabrechnungsartikel" umgelegt. Wählt man die Einstellungsmöglichkeit "Rechnung bezahlt am Verwenden (Rechnungen ohne bezahlt am Eintrag werden ignoriert)" so werden nur Rechnungen in die Provisionsabrechnung mit aufgenommen für die entweder ein Zahlungseingang der Rechnungssumme statt gefunden hat oder die Rechnung manuell auf bezahlt gesetzt worden ist.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-55f301f5-af3f-4007-a598-158e8b624b63" id="UUID-55f301f5-af3f-4007-a598-158e8b624b63_id_360016761019_id_toc-6"></a>Gutschrift für Abrechnung erstellen</h3>
+</div>
+<p>Im nächsten Schritt kann unter "Buchhaltung → Provisionen → Abrechnungen" durch Klick auf den Pfeil eine Gutschrift für die ausgewählte Provisionsabrechnung erstellt werden.</p>
+<p>Die Gutschrift befindet sich dann im Folgenden unter Buchhaltung → Gutschrift/Stornorechnung im Reiter "in Bearbeitung".</p>
+<p>Unter dem Reiter "Vorschau" kann ein Entwurf der Gutschrift betrachtet werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

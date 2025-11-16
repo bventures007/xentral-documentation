@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getcore Importer</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360019774419
+    Titel: Getcore Importer
+    URL: https://help.xentral.com/hc/de/articles/360019774419-Getcore-Importer
+    Erstellt: 2021-02-19T10:26:14Z
+    Aktualisiert: 2024-08-29T13:45:39Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254071221532
+    Export-Zeitpunkt: 2025-11-16 19:09:37
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_UUID-a01b64be-930e-3e7c-5597-b870d5a330a2"></a>Hinweis</h3>
+<p>Diese App hat das Label <span class="guilabel">Spezial</span>. Das bedeutet, dass die App für einen speziellen Anwendungsfall entwickelt wurde, der möglicherweise nicht für jeden Kunden geeignet ist.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm457349543431683310246616266"></a>Installation und Einrichtung GetCoreIO Schnittstelle</h2>
+</div>
+<p>Um den GetCoreIO-Shop von ZMB in xentral integrieren zu können, benötigt man zwei Schritte. xentral bindet externe Shops, auch wenn diese extra APIs anbieten, immer über einen xentral Shop-Importer an. Das ist die genormte Schnittstelle für xentral.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5102248761756" style="" alt="Getcore-1.png"></div>
+<p>Features der Schnittstelle</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Aufträge abholen</p>
+</li>
+<li class="listitem">
+<p>Rückmeldung Trackingnummer</p>
+</li>
+</ul>
+</div>
+<p>Die Belege werden im Versandprozess automatisch erstellt und versendet bzw. am Versanddrucker ausgedruckt.</p>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm4506585102068833104492808145"></a>Allgemeiner Ablauf der Installation (für Techniker)</h3>
+</div>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Installation des Shop-Importers im Webspace des Kunden</p>
+</li>
+<li class="step">
+<p>Anlegen eines Shops in xentral + Übertragungsschlüssel für die Kommunikation</p>
+</li>
+<li class="step">
+<p>Abspeichern des Übertragungsschlüssels Shop-Importer</p>
+</li>
+<li class="step">
+<p>Anlegen eines (nicht öffentlichen) Pfades für die Ablage der importieren Bestelldaten</p>
+</li>
+<li class="step">
+<p>Test der Übertragung</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm4510557508121633080001636624"></a>Schritt 1: Anlegen eines neuen Shops in xentral</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm4510557508121633080001636624_body">
+<p>Administration → Shop Schnittstelle → Übersicht → Neu</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Bis Version 21.1: Administration → Online-Shops → Neu</p>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Getcore anklicken</p>
+</li>
+<li class="listitem">
+<p>Erstellen eines ImportKey und ImportToken</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm4644612808988833080000985782"></a>Schritt 2: Installation des Shop-Importers auf dem Magento-Server</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm4644612808988833080000985782_body">
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Kopieren des Ordner getcoreioimporter in Magento</p>
+</li>
+<li class="listitem">
+<p>Erstellen der Konfigurationsdatei (Kopieren user.inc.php.tpl nach user.inc.php)</p>
+</li>
+<li class="listitem">
+<p>Konfiguration der Pfadeinstellungen in der Datei user.inc.php</p>
+</li>
+<li class="listitem">
+<p>ImportKey ein 32 Zeichen langen Schlüssel in der Datei user.inc.php hinterlegen</p>
+</li>
+<li class="listitem">
+<p>ImportToken ein 6 Zeichen langen Schlüssel in der Datei user.inc.php hinterlegen</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm4644612511844833080000222702"></a>Schritt 3: Verbindung von xentral zum Shop-Importer</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm4644612511844833080000222702_body">
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Einstellen der URL zum Shop-Importer (URL + Key + Token)</p>
+</li>
+<li class="listitem">
+<p>Test der Verbindung (bei Export)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm4576263073758433079998967633"></a>Schritt 4: Datenabgleich</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm4576263073758433079998967633_body">
+<p>Damit der Webshop die Trackingdaten übernehmen kann, müssen diese von der Firma ZMB abgeholt werden. Dies geschieht durch das Anlegen eines FTP Benutzers, der auf die CSV Datei mit den Trackingdaten zugreifen kann.</p>
+<p>Klicken Sie auf "Verbindung prüfen" und Sie sollten folgende Erfolgsnachricht erhalten:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5102241337244" style="" alt="Getcore-3.png"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872" id="UUID-059ffc42-5d29-9423-91d4-fab1e6be7872_section-idm4576262963368033080011492637"></a>Pfade</h3>
+</div>
+<p>Um korrekt funktionieren zu können, braucht der Importer zwei lokale Pfadangaben sowie eine URL:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>CSVOrder</strong></span> - Dies ist der Pfad an dem die Bestelldaten zwischengespeichert werden bevor sie vom Importer ausgelesen werden. Dieser Pfad sollte vom Internet aus nicht erreichbar sein, da sonst jeder alle Bestelldaten herunterladen kann.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>CSVTracking</strong></span> - Dies ist der Pfad an dem der Webshop die Trackingdaten ausliest. Dieser Pfad sollte vom Internet aus nicht erreichbar sein, da sonst jeder die Trackingdaten herunterladen kann.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>CSVURL</strong></span> - Die URL ist die Adresse unter der die Bestelldaten heruntergeladen werden können. Man bekommt sie entweder vom Kunden, oder von ZMB selbst.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

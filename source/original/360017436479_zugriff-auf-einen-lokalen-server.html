@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zugriff auf einen lokalen Server</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017436479
+    Titel: Zugriff auf einen lokalen Server
+    URL: https://help.xentral.com/hc/de/articles/360017436479-Zugriff-auf-einen-lokalen-Server
+    Erstellt: 2020-11-10T07:37:23Z
+    Aktualisiert: 2024-08-29T13:19:33Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254835385116
+    Export-Zeitpunkt: 2025-11-16 19:10:11
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-b83b4790-3e94-4b35-0045-ae339c400f44_UUID-9cc378f5-71f8-3d61-37ab-664e0f2b2827"></a>End-of-Life für On-Premise-Instanzen</h3>
+<p>Ende März 2023 beenden wir die Unterstützung von <span class="phrase">Xentral</span>-Instanzen, die „On-Premise“ von unseren Kunden selbst gehostet werden. Wir empfehlen dir daher, deine <span class="phrase">Xentral</span>-Instanz in unsere Cloud zu migrieren. Kontaktiere uns gerne jederzeit unter <a class="link" href="mailto:account@xentral.com" target="_blank">account@xentral.com</a>, um diesbezügliche Fragen zu klären oder einen Termin für deine Migration zu buchen. Alternativ kannst du weitere Informationen auf <a class="link" href="https://xentral.com/artikel/faq-xentral-cloud-migration/" target="_blank" rel="noopener">unserer Website</a> oder in <a class="link" href="https://xentral.community/updates-zur-xentral-plattform-17/wichtig-end-of-life-on-premise-ende-maerz-2023-2611" target="_blank" rel="noopener">unserer Community</a> finden.</p>
+<p>Beachte bitte, dass wir Ende März 2023 jegliche Supportleistungen für On-Premise-Instanzen beenden. Wir stellen dann keine weiteren Bug-Fixes oder Updates mehr zur Verfügung. Außerdem wird es keine weitere Open-Source-Version mehr geben.</p>
+</div>
+<p>Um über die Ferne auf den lokalen Server zugreifen zu können, wird die IP Adresse der aktuellen Netzwerkverbindung von dem Standort, an dem der Server steht, benötigt. Da sich diese IP Adresse in der Regel bei klassischen Internetverbindungen regelmäßig ändert, wird ein DNS-Eintrag, der immer bei einem Verbindungsaufbau der z.B. Fritzbox geändert wird, benötigt.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b83b4790-3e94-4b35-0045-ae339c400f44" id="UUID-b83b4790-3e94-4b35-0045-ae339c400f44_id_360017436479_id_toc-0"></a>DNS Dienst</h2>
+</div>
+<p>Gute Erfahrungen hat xentral mit folgenden Diensten gemacht:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>https://www.dnshome.de/ (Kostenlos)</p>
+</li>
+<li class="listitem">
+<p>http://dyn.com/remote-access/ (Kostenpflichtig - erst registrieren und dann in dem Account auf kostenpflichtigen Account wechseln)</p>
+</li>
+</ul>
+</div>
+<p>Es ist sich bei den Diensten mit der Wunschdomain zu registrieren. Dort befinden sich auch meist die Anleitungen für den Router. Manchmal heißen die Felder leicht anders. Im wesentlichen muss man meist eine URL, einen Benutzername und ein Passwort angeben. Notfall kurz verschiedene Konstellationen einfach testen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b83b4790-3e94-4b35-0045-ae339c400f44" id="UUID-b83b4790-3e94-4b35-0045-ae339c400f44_id_360017436479_id_toc-1"></a>Portweiterleitung</h2>
+</div>
+<p>Um auf den lokalen Server über das Internet zugreifen zu können, wird eine Portweiterleitung benötigt. D.h. normalerweise läuft der Webserver ohne Verschlüsselung auf Port 80 und mit Verschlüsselung auf Port 443. In dem Router kann die Portweiterleitungen eingestellt werden (bitte suchen wo das Wort steht). Dort ist der Quellport anzugeben, also mit dem Port mit dem zugegriffen wird - also 80 oder 443. Und dann wird eine Ziel IP Adresse und einen Ziel Port benötigt. Die Ziel IP Adresse ist die des Servers. Und Port 80 oder 443. Nach dem Speichern sollte mit der eingerichteten Domain auf xentral zugegriffen werden können. Soll der Zugriff für die Wartung bzw. Entwicklung auf den Server ebenfalls möglich sein, muss hier noch der Port 22 ebenfalls eingetragen werden. Dies kann wie folgt in der Fritzbox eingerichtet werden:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996368334492" style="" alt="Zugriff-auf-lokalen-Server-1.png"></div>
+<p>Im Anschluss ist xentral die angezeigte MyFritz-Adresse samt Passwort und Benutzer mitzuteilen, damit xentral per SSH helfen kann. Beispiel für eine HTTP bzw. HTTPS Weiterleitung:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996368358172" style="" alt="Zugriff-auf-lokalen-Server-2.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996422373148" style="" alt="Zugriff-auf-lokalen-Server-3.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

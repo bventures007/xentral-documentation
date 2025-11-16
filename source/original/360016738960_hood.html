@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hood</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016738960
+    Titel: Hood
+    URL: https://help.xentral.com/hc/de/articles/360016738960-Hood
+    Erstellt: 2020-09-28T18:59:29Z
+    Aktualisiert: 2024-08-29T13:34:47Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254071221532
+    Export-Zeitpunkt: 2025-11-16 19:09:37
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-c932c80d-960d-af56-b040-528b5c122c9f_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<p>Mit dieser Schnittstelle können Sie Xentral mit dem Marktplatz Hood verbinden, um Bestellungen von dort in Xentral zu importieren und Ihre im Shop verkauften Artikel in Xentral zu verwalten. Die Anbindung geschieht über eine API-Schnittstelle (Shop Importer).</p>
+<p>Die Erstellung und der Versand von Lieferscheinen und Rechnungen wird über Xentral abgewickelt, ebenso wie das Retourenmanagement.</p>
+<p>Aktualisierte Auftragsstatus, die Sendungsverfolgungsnummern versandter Lieferungen und Lagerzahlen der Artikel meldet Xentral automatisch per Prozessstarter an den Shop zurück.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-c932c80d-960d-af56-b040-528b5c122c9f" id="UUID-c932c80d-960d-af56-b040-528b5c122c9f_id_360016738960_id_toc-0"></a>Features der Schnittstelle</h2>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Aufträge aus Hood importieren</p>
+</li>
+<li class="listitem">
+<p>Auftragsstatus bei Versand umstellen inkl. Meldung der Trackingnummer an Hood</p>
+</li>
+<li class="listitem">
+<p>Synchronisation aktueller Lagerzahlen bei Bestandsänderungen</p>
+</li>
+<li class="listitem">
+<p>Pseudolager exportieren</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+Die Übertragung von Artikeln ist mit dieser Schnittstelle nicht möglich.</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-c932c80d-960d-af56-b040-528b5c122c9f" id="UUID-c932c80d-960d-af56-b040-528b5c122c9f_id_360016738960_id_toc-1"></a>Anbindung an Hood</h2>
+</div>
+<p>Um Hood und Xentral verbinden zu können, müssen Sie sich zunächst mit Ihrem Hood Verkäuferaccount anmelden. Navigieren Sie anschließend in Mein Hood → Mein Shop → Import &amp; Anbindungen → externe Anbindungen und legen Sie ein Passwort an. Dieses Passwort wird später als API Passwort in Xentral verwendet.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5102273491356" style="" alt="Hood-1.png"></div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-c932c80d-960d-af56-b040-528b5c122c9f" id="UUID-c932c80d-960d-af56-b040-528b5c122c9f_id_360016738960_id_toc-2"></a>Weitere Voraussetzungen zur Anbindung</h3>
+</div>
+<p>Um Hood erfolgreich in Xentral anzubinden, müssen einige Voraussetzungen erfüllt sein.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Es wird der Platin-Status bei Hood benötigt</p>
+</li>
+<li class="listitem">
+<p>In Hood müssen bereits Shopkategorien angelegt sein. Die Kategorien werden initial beim Prüfen der Verbindung abgerufen. Sind diese nicht vorhanden, kann auch die Verbindung zum Shop nicht aufgebaut werden. Shopkategorien können in Hood unter Mein Shop → Shop-Einstellungen angelegt werden</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-c932c80d-960d-af56-b040-528b5c122c9f" id="UUID-c932c80d-960d-af56-b040-528b5c122c9f_id_360016738960_id_toc-3"></a>Anbindung in Xentral</h2>
+</div>
+<p>Unter Administration → Shop Schnittstelle → Übersicht → NEU kann ein neuer Shop angelegt und das Modul Hood Importer ausgewählt werden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Bis Version 21.1 unter Administration → Einstellungen → Online-Shops → NEU.</p>
+</div>
+<p>Nachdem Sie Hood Importer ausgewählt haben, können Sie im nächsten Schritt die nötigen Daten für die Verbindung der beiden Systeme eintragen. Den API-Key und das Passwort haben Sie im Hood-Backend beim Anlegen der App für die Schnittstelle erhalten.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5102243034140" style="" alt="Hood-3.png"></div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Protokollierung im Logfile → Aktionen (z.B. Auftragsabholung, Lagerzahlenübertragung) werden im Logfile von Xentral protokolliert, um ggf. eine Fehlersuche zu erleichtern</p>
+</li>
+<li class="listitem">
+<p>Archivmodus → Ermöglicht eine mehrfache Abholung des selben Auftrags. Nur aktivieren, wenn benötigt</p>
+</li>
+<li class="listitem">
+<p>Benutzername → Benutzername des Verkäuferaccounts in Hood</p>
+</li>
+<li class="listitem">
+<p>API Passwort → Passwort, welches in Hood als Schnittstellenpasswort für externe Verbindungen angelegt wurde (kann auch beim Hood-Partnermanager angefragt werden)</p>
+</li>
+</ul>
+</div>
+<p>Sobald die Daten eingetragen wurden, können Sie die Verbindung zwischen beiden System über den Button Verbindung prüfen testen. Um die Verbindung zu prüfen, sollte mindestens ein Auftrag in Hood vorhanden sein, der die Kriterien für eine Abholung nach Xentral erfüllt, da Xentral den Verbindungstest unter Umständen anhand eines simulierten Requests zur Auftragsabholung durchführt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-c932c80d-960d-af56-b040-528b5c122c9f" id="UUID-c932c80d-960d-af56-b040-528b5c122c9f_id_360016738960_id_toc-4"></a>Aufträge zu Xentral importieren</h2>
+</div>
+<p>Das Importieren von Bestellungen aus Online Shops wird <a class="link" href="https://xentral.com/helpdesk/kurzanleitung-import-von-bestellungen-aus-online-shops?" target="_blank" rel="noopener">in diesem Artikel</a> beschrieben.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-c932c80d-960d-af56-b040-528b5c122c9f" id="UUID-c932c80d-960d-af56-b040-528b5c122c9f_id_360016738960_id_toc-5"></a>Versandkosten-Mapping von Hood</h2>
+</div>
+<p>Nähere Infos zum Versandkosten-Mapping im Shop finden Sie im Artikel <a class="link" href="https://xentral.com/helpdesk/kurzanleitung-einrichtung-online-shop-schnittstelle?" target="_blank" rel="noopener">Online Shop: Einstellungen Artikel</a>.</p>
+<p>Die Versandkosten werden automatisch beim Auftragsimport zu Xentral mit importiert.</p>
+<p>In Xentral werden die Aufträge mit Portokosten um einen Portoartikel und dessen Preis ergänzt. Den also Portoartikel zu verwendenden Artikel aus dem Artikelstamm können Sie in der Schnittstelle unter Einstellungen hinterlegen.</p>
+<p>Portofreie Bestellungen werden ebenfalls mit dem Portoartikel importiert, jedoch erhält dieser Artikel dann einen Preis von 0,00 EUR, sodass die Bestellung für den Kunden portofrei ist.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-c932c80d-960d-af56-b040-528b5c122c9f" id="UUID-c932c80d-960d-af56-b040-528b5c122c9f_id_360016738960_id_toc-6"></a>Zahlungsweisen-Mapping von Hood</h2>
+</div>
+<p>Die in den Shop-Aufträgen verwendeten Zahlweisen werden automatisch zu Xentral mitimportiert.</p>
+<p>Nähere Informationen zum Zahlweisen Mapping finden Sie im Artikel <a class="link" href="https://xentral.com/helpdesk/kurzanleitung-einrichtung-online-shop-schnittstelle#nav-zahlungsweisen-mapping" target="_blank" rel="noopener">Online Shop Einstellungen</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

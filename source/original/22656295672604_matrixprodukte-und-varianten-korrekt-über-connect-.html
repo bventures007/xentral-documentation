@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrixprodukte und Varianten korrekt über Connect mit Shopify synchronisieren</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 22656295672604
+    Titel: Matrixprodukte und Varianten korrekt über Connect mit Shopify synchronisieren
+    URL: https://help.xentral.com/hc/de/articles/22656295672604-Matrixprodukte-und-Varianten-korrekt-%C3%BCber-Connect-mit-Shopify-synchronisieren
+    Erstellt: 2025-09-30T13:27:20Z
+    Aktualisiert: 2025-11-12T13:26:56Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 22656309473948
+    Export-Zeitpunkt: 2025-11-16 19:09:24
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id235175721165448"></a>Überblick</h2>
+</div>
+<p>In diesem Artikel erfährst du, wie du Matrixprodukte und Varianten fehlerfrei von Xentral zu Shopify über die Connect-Schnittstelle überträgst. Dazu zeigen wir dir Schritt für Schritt:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wie du Matrixprodukte und Varianten in Xentral anlegst,</p>
+</li>
+<li class="listitem">
+<p>wie du die Synchronisation in der richtigen Reihenfolge durchführst und</p>
+</li>
+<li class="listitem">
+<p>und was du tun kannst, wenn du Produkte oder Varianten später aus deinem Shopify-Angebot entfernen möchtest.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Dieser Artikel setzt grundlegende Kenntnisse über die Xentral Connect Funktionen und eine vollständig eingerichtete Shopify-Schnittstelle voraus. Wenn du die Einrichtung noch nicht abgeschlossen hast, findest du dazu alle Informationen unter <a class="link" href="https://help.xentral.com/hc/de/articles/13235060016796-Shopify-Connector-%C3%9Cberblick" target="_blank" rel="noopener">Shopify Connector</a>.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id235175726329436"></a>Matrixprodukt und seine Varianten anlegen</h2>
+</div>
+<p>Bevor du Artikel mit Shopify synchronisierst, müssen das Matrixprodukt und alle Varianten vollständig in Xentral angelegt sein. Wenn du hierzu nochmal mehr in die Tiefe gehen möchtest, besuche folgende Artikel:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><a class="link" href="https://help.xentral.com/hc/de/articles/5355868375324-Artikel-manuell-anlegen" target="_blank" rel="noopener">Artikel manuell anlegen</a></p>
+</li>
+<li class="listitem">
+<p><a class="link" href="https://help.xentral.com/hc/de/articles/360016725120-Matrixprodukt-Artikelvarianten-erstellen" target="_blank" rel="noopener">Matrixprodukt - Artikelvarianten erstellen</a></p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Wir empfehlen bei Matrixprodukten und Varianten zuerst die Grundtabelle, sozusagen das Matrixgerüst, anzulegen.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id23525874850421"></a>Grundtabelle (Matrixgerüst) definieren</h3>
+</div>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Um die Grundtabelle zu definieren, suche in der Smart Search nach <span class="guilabel">Matrixprodukt</span>.</p>
+</li>
+<li class="listitem">
+<p>Klicke auf <span class="guilabel">+ Neu Anlegen</span>, um eine neue Variantengruppe anzulegen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829795484" style="" alt="Matrixprodukt_MatrixgerustAnlegen_VariantengruppeAnlegen.png"></div>
+</li>
+<li class="listitem">
+<p>Vergib eine Bezeichnung für die Gruppe, z. B. Farbe und speichere.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829797660" style="" alt="Matrixprodukt_MatrixgerustAnlegen_VariantengruppeAnlegen_Details.png"></div>
+</li>
+<li class="listitem">
+<p>Öffne die Variantengruppe mit Klick auf <span class="guilabel">Optionen bearbeiten</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799760156" style="" alt="Matrixprodukt_MatrixgerustAnlegen_OptionenBearbeiten.png"></div>
+</li>
+<li class="listitem">
+<p>Klicke auf <span class="guilabel">+ Neuer Eintrag</span>, um eine neue Option anzulegen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829805980" style="" alt="Matrixprodukt_MatrixgerustAnlegen_OptionenBearbeiten_NeuerEintrag.png"></div>
+</li>
+<li class="listitem">
+<p>Vergib einen Namen, z. B. grün. Optional kannst du bestimmen, dass Artikelnummern einen passenden Anhang erhalten, z. B. -gr. Wiederhole das Vorgehen für weitere Einträge.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829812764" style="" alt="Matrixprodukt_MatrixgerustAnlegen_NeueOption.png"></div>
+</li>
+<li class="listitem">
+<p>Nun hast du das Matrixgerüst definiert und kannst mit der Artikelanlage fortfahren.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799774876" style="" alt="Matrixprodukt_MatrixgerustAngelegt.png"></div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id235258749560528"></a>Matrixprodukt anlegen</h3>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Bevor du ein neues Matrixprodukt anlegst, stelle sicher, dass du ein passendes Matrixgerüst definiert hast.</p>
+</div>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Navigiere zum Artikelstamm (<span class="guilabel">Verkaufen &gt; Artikel</span>) und klicke auf <span class="guilabel">+ Neu Anlegen</span>, um einen neuen Artikel zu generieren.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829826844" style="" alt="Matrixprodukt_NeuAnlegen.png"></div>
+</li>
+<li class="listitem">
+<p>Trage die Kopfdaten gemäß deinen Bedürfnissen ein.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829828892" style="" alt="Matrixprodukt_NeuerArtikel.png"></div>
+</li>
+<li class="listitem">
+<p>Scrolle weiter nach unten, gibt einen <span class="guilabel">Hersteller</span> (für Shopify erforderlich) ein und hake <span class="guilabel">Matrixprodukt</span> an. Bestätige die Artikelanlage mit <span class="guilabel">Speichern</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829830044" style="" alt="Matrixprodukt_NeuerArtikel_Einstellungen.png"></div>
+</li>
+<li class="listitem">
+<p>Öffne den Reiter Verkaufspreis und klicke auf <span class="guilabel">+Neuer Verkaufspreis</span>, um einen Verkaufspreis anzulegen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829831196" style="" alt="Matrixprodukt_NeuerArtikel_NeuerVerkaufspreis.png"></div>
+</li>
+<li class="listitem">
+<p>Trage einen Standardpreis ein und speichere.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799782684" style="" alt="Matrixprodukt_NeuerArtikel_VerkaufspreisDetails.png"></div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="id2142"></a>Varianten anlegen</h3>
+</div>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Öffne in deinem soeben angelegten Matrixprodukt den Reiter <span class="guilabel">Matrixprodukt</span>.</p>
+</li>
+<li class="listitem">
+<p>Klicke auf <span class="guilabel">Neue Gruppe</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829833116" style="" alt="Matrixprodukt_NeueGruppe.png"></div>
+</li>
+<li class="listitem">
+<p>Wähle die zuvor angelegte Grundtabelle aus und hake die Optionen an, die für dieses Matrixprodukt zutreffen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799785756" style="" alt="Matrixprodukt_GrundtabelleUbernehmen.png"></div>
+</li>
+<li class="listitem">
+<p>Um die Varianten zu erzeugen, aktiviere <span class="guilabel">alle Artikel auswählen</span> und klicke auf <span class="guilabel">Fehlende Artikel erzeugen</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799790492" style="" alt="Matrixprodukt_VariantenErzeugen.png"></div>
+</li>
+<li class="listitem">
+<p>Stelle die für deine Bedürfnisse passenden Optionen ein und klicke auf <span class="guilabel">Speichern</span>. Im Beispiel nutzen wir den Artikelnummern-Anhang.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799792412" style="" alt="Matrixprodukt_VariantenErzeugen_Optonen.png"></div>
+</li>
+<li class="listitem">
+<p>Nun sind alle Varianten anlegt:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799793308" style="" alt="Matrixprodukt_VariantenAngelegt.png"></div>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id235258832962191"></a>Shopzuordnung und weitere Einstellungen vornehmen</h4>
+</div>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Navigiere zum Reiter <span class="guilabel">Details &gt; Onlineshop Optionen</span>.</p>
+</li>
+<li class="listitem">
+<p>Klicke auf <span class="guilabel">Neuer Eintrag</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829841820" style="" alt="Matrixprodukt_OnlineShopOptionen_NeuerEintrag.png"></div>
+</li>
+<li class="listitem">
+<p>Wähle die Schnittstelle für die du eine Synchronisation einrichten möchtest und speichere.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799805468" style="" alt="Matrixprodukt_OnlineShopOptionen_NeuerEintrag_Details.png"></div>
+</li>
+<li class="listitem">
+<p>Kehre zurück zum Reiter <span class="guilabel">Matrixprodukt</span>, um die Filterung für alle Varianten zu übernehmen.</p>
+</li>
+<li class="listitem">
+<p>Wähle alle Artikel aus und <span class="guilabel">öffne</span> die <span class="guilabel">Massenbearbeitung</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829848220" style="" alt="Matrixprodukt_MassenbearbeitungOffnen.png"></div>
+</li>
+<li class="listitem">
+<p>Aktiviere <span class="guilabel">Lagerartikel</span> und <span class="guilabel">Shopverknüpfungen</span> und klicke auf <span class="guilabel">Weiter</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799815068" style="" alt="Matrixprodukt_Massenbearbeitung_ArtikelEditieren_Auswahl.png"></div>
+</li>
+<li class="listitem">
+<p>Setze die Haken in allen Zeilen (am besten, indem du die Schnellfunktion in der Stapelverarbeitung ausführst), sowohl bei <span class="guilabel">Lagerartikel</span> als auch bei der Shop-<span class="guilabel">Schnittstelle</span>, die du in Punkt 3 für das Matrixprodukt gewählt hast und bestätige mit 2x <span class="guilabel">Weiter</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829855644" style="" alt="Matrixprodukt_Massenbearbeitung_ArtikelEditieren.png"></div>
+</li>
+</ol>
+</div>
+<p>Mit diesen Schritten hast du die Mindestanforderungen für die fehlerfreie Synchronisation von Matrixprodukten und Varianten an Shopify geschaffen. Natürlich kannst du weitere Artikeleinstellungen nach deinen Bedürfnissen ergänzen, z. B. Artikeltexte, Bilder oder den Artikelbaum.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id235259072579048"></a>Erst-Übertragung zu Shopify schrittweise vornehmen</h2>
+</div>
+<p>Bei der Erst-Übertragung der Artikel ist es wichtig, schrittweise und in der richtigen Reihenfolge vorzugehen, um eine korrekte Registrierung der Artikelstruktur in Shopify zu gewährleisten. Folge den nächsten Abschnitten Schritt für Schritt für ein reibungsloses Ergebnis.</p>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Beachte unbedingt, dass du bei der Erst-Übertragung schrittweise wie im Folgenden beschrieben vorgehst.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id23524700401504"></a>Matrixprodukt und erste Variante in Artikelzuordnung aufnehmen</h3>
+</div>
+<p>Mit der Artikelzuordnung legst du fest, welche Artikel zwischen Xentral und Shopify synchronisiert werden sollen.</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Navigiere zu <span class="guilabel">Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; Shopify</span>.</p>
+</li>
+<li class="listitem">
+<p>Öffne die <span class="guilabel">Artikelzuordnung</span> derjenigen Shopify-Anbindung, für die du die Synchronisation einrichtest.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799825564" style="" alt="Matrixprodukt_Artikelzuordnung.png"></div>
+</li>
+<li class="listitem">
+<p>Wähle <span class="guilabel">Filter für ausgewählte Artikel anwenden</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829861276" style="" alt="Matrixprodukt_Artikelzuordnung_Filterauswahl.png"></div>
+</li>
+<li class="listitem">
+<p>Trage die Artikelnummer des Matrixproduktes und <span class="underline">einer</span> Variante ein und klicke auf <span class="guilabel">Weiter</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799833372" style="" alt="Matrixprodukt_Artikelzuordnung_ErsteVariante.png"></div>
+</li>
+<li class="listitem">
+<p>Bestätige mit <span class="guilabel">Artikelliste aufbauen</span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829869212" style="" alt="Matrixprodukt_ArtikellisteAufbauen.png"></div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="id2143"></a>Synchronisation für Matrixprodukt und erste Variante anstoßen</h3>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Bevor du mit der Synchronisation startest, stelle sicher, dass</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>das Matrixprodukt und alle Varianten in Xentral wie oben konfiguriert sind,</p>
+</li>
+<li class="listitem">
+<p>das Matrixprodukt und <span class="underline">eine</span> Variante in der Artikelzuordnung aufgenommen sind und dass</p>
+</li>
+<li class="listitem">
+<p>der <span class="guilabel">Integrationsmodus</span> für Artikel <span class="guilabel">aktiv</span> ist (Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; Shopify &gt; Workflows &gt; Artikel)</p>
+</li>
+</ul>
+</div>
+</div>
+<p>Damit die Artikel in Shopify korrekt angelegt und miteinander verknüpft werden, ist es wichtig, zuerst das Matrixprodukt und anschließend die Variante zu übertragen.</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Öffne das <span class="guilabel">Journal</span> derjenigen Shopify-Anbindung, für die du die Synchronisation einrichtest.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799839004" style="" alt="Matrixprodukt_Journal.png"></div>
+</li>
+<li class="listitem">
+<p>Suche im Reiter <span class="guilabel">Artikel</span> nach deinem Matrixprodukt.</p>
+</li>
+<li class="listitem">
+<p>Klicke in der Zeile des <span class="underline">Matrixprodukts</span> auf <span class="guilabel">Artikel synchronisieren</span> und warte bis die Artikel-Synchronisierung gestartet ist.</p>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Beachte unbedingt, dass du bei der Erst-Übertragung schrittweise vorgehst. Synchronisiere erst das Matrixprodukt und anschließend die Variante, damit die Registrierung in Shopify korrekt erfolgt!</p>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799842844" style="" alt="Matrixprodukt_Journal_ArtikelsyncMatrixprodukt.png"></div>
+</li>
+<li class="listitem">
+<p>Klicke nun in der Zeile der <span class="underline">Variante</span> auf <span class="guilabel">Artikel synchronisieren</span> und warte bis die Artikel-Synchronisierung gestartet ist.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552829876508" style="" alt="Matrixprodukt_Journal_ArtikelsyncVariante.png"></div>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Wenn du hier schrittweise und behutsam vorgehst, sorgst du dafür, dass das Matrixprodukt und die erste Variante geordnet an den Shop übergeben werden. Sobald beide Zeilen einen grünen Status anzeigen, kannst du mit den weiteren Varianten fortfahren.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id235258972654299"></a>Artikelzuordnung auf alle Varianten erweitern</h3>
+</div>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Öffne die <span class="guilabel">Artikelzuordnung</span>.</p>
+</li>
+<li class="listitem">
+<p>Erweitere deine Artikelliste. Dies tust du, indem du entweder erneut <span class="guilabel">Filter für ausgewählte Artikel anwenden</span> wählst und nun die Artikelnummern der weiteren Varianten einträgst oder indem du <span class="guilabel">Filter für alle Artikel anwenden</span> nutzt.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id235258973155732"></a>Synchronisation für weitere Varianten anstoßen</h3>
+</div>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Kehre zurück zum Journal und suche nach dem Artikel.</p>
+</li>
+<li class="listitem">
+<p>Hake die restlichen Varianten an und klicke auf die Sammelaktion Artikel synchronisieren.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23552799846044" style="" alt="Matrixprodukt_Journal_ArtikelsyncWeitereVarianten.png"></div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Beachte, dass bei den weiteren Varianten kein schrittweises Vorgehen mehr erforderlich ist und du alle gemeinsam übertragen kannst. Die Synchronisation lässt sich so deutlich schneller vollziehen.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id235177470592371"></a>Produkt aus Angebot entfernen</h2>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section sub-topic">
+<div class="titlepage"></div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage"></div>
+<p>Wenn du ein Produkt nicht mehr über den Shop/Marktplatz verkaufen möchtest, hast du grundsätzlich folgende Möglichkeiten:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Artikel inaktiv setzen</p>
+</li>
+<li class="listitem">
+<p>Lagerbestand auf Null setzen</p>
+</li>
+<li class="listitem">
+<p>Artikel löschen</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id235184624834416"></a>Artikel inaktiv setzen</h3>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Diese Methode eignet sich dann, wenn du die gesamte Gruppe, bestehend aus Matrixprodukt und allen Varianten, aus dem Angebot nehmen möchtest.</p>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section sub-topic">
+<div class="titlepage"></div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage"></div>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Mit dieser Methode wird der Artikel im Shop/Marktplatz für Kunden nicht mehr angezeigt.</p>
+</div>
+<p>Um einen Artikel inaktiv zu setzen, gehe wie folgt vor:</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Navigiere zu <span class="guilabel">Verkaufen &gt; Artikel</span> und öffne ihn zum Bearbeiten.</p>
+</li>
+<li class="listitem">
+<p>Gehe zum Reiter <span class="guilabel">Details &gt; Online-Shop Optionen</span>.</p>
+</li>
+<li class="listitem">
+<p>Setze den Haken bei <span class="guilabel">Artikel inaktiv</span>.</p>
+</li>
+<li class="listitem">
+<p>Klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Je nachdem, ob der Produktivmodus der Schnittstelle aktiviert ist oder nicht, wird die Änderung automatisch synchronisiert oder muss manuell übertragen werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Produktivmodus aktiv: Änderung wird automatisch an den Shop/Marktplatz übertragen.</p>
+</li>
+<li class="listitem">
+<p>Produktivmodus nicht aktiv: Stoße die Übertragung manuell über das Journal an: Systemeinstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; [Shop-/Marktplatzname] &gt; Journal &gt; Reiter <span class="guilabel">Artikel</span>. Klicke in der Zeile des betreffenden Artikels auf <span class="guilabel">Artikel synchronisieren</span>.</p>
+</li>
+</ul>
+</div>
+<p>Um zu prüfen, ob der Produktivmodus aktiv ist, navigiere zu <span class="guilabel">Systemeinstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; [Shop-/Marktplatzname] &gt; Zahnrad (Einstellungen)</span>.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id23518462505937"></a>Lagerbestand auf Null setzen</h3>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Diese Methode eignet sich insbesondere, wenn du einzelne Varianten nicht mehr anbieten möchtest.</p>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section sub-topic">
+<div class="titlepage"></div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage"></div>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Diese Methode führt dazu, dass der Artikel im Shop/Marktplatz zwar angezeigt wird, aber nicht mehr bestellbar ist.</p>
+</div>
+<p>Folge diesen Schritten, um den Lagerbestand im Shop/Marktplatz auf Null zu setzen:</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Navigiere zu <span class="guilabel">Verkaufen &gt; Artikel</span> und öffne ihn zum Bearbeiten.</p>
+</li>
+<li class="listitem">
+<p>Gehe zum Reiter <span class="guilabel">Details &gt; Online-Shop Optionen</span>.</p>
+</li>
+<li class="listitem">
+<p>Hake <span class="guilabel">Restmenge (Abverkauf)</span> an.</p>
+</li>
+<li class="listitem">
+<p>Trage in <span class="guilabel">Pseudo Lagerzahl</span> eine Null (0) ein.</p>
+</li>
+<li class="listitem">
+<p>Klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+<li class="listitem">
+<p>Navigiere zu <span class="guilabel">Systemeinstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; [Shop-/Marktplatzname] &gt; Workflows &gt;</span> Reiter <span class="guilabel">Bestand</span>.</p>
+</li>
+<li class="listitem">
+<p>Stelle sicher, dass <span class="guilabel">Pseudo Lagerzahl statt echten Lagerzahlen verwenden</span> im Abschnitt <span class="guilabel">Lagerbestand berechnen</span> aktiviert ist.</p>
+</li>
+<li class="listitem">
+<p>Navigiere zu <span class="guilabel">Systemeinstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; [Shop-/Marktplatzname] &gt; Journal &gt;</span> Reiter <span class="guilabel">Artikel</span>.</p>
+</li>
+<li class="listitem">
+<p>Klicke in der Zeile des betreffenden Artikels auf <span class="guilabel">Bestand synchronisieren</span>.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Alternativ zur Nutzung der Pseudo Lagerzahl kannst du den echten Bestand natürlich komplett auslagern oder an ein Lager umbuchen, das nicht mit dem Shop/Marktplatz verknüpft ist. Stelle in diesen Fällen sicher, dass <span class="guilabel">Restmenge (Abverkauf)</span> in den <span class="guilabel">Online-Shop Optionen</span> des Artikels angehakt ist.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-ddefd878-f5a0-f456-4325-e29d241e96db" id="UUID-ddefd878-f5a0-f456-4325-e29d241e96db_section-id235184625282545"></a>Artikel löschen</h3>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="section sub-topic">
+<div class="titlepage"></div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage"></div>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Das Löschen eines Artikels ist nur möglich, wenn er in keinen Belegen enthalten ist.</p>
+<p>Wir empfehlen grundsätzlich, Artikel nicht zu löschen, da dadurch wichtige Informationen wie Artikel-Historie und Verknüpfungen verloren gehen. Diese Methode eignet sich daher nur, wenn du einen Artikel aus Versehen oder testweise angelegt hast und diesen wieder entfernen möchtest.</p>
+</div>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Um einen Artikel zu löschen, navigiere zu <span class="guilabel">Verkaufen &gt; Artikel</span>.</p>
+</li>
+<li class="listitem">
+<p>Klicke in der Artikel-Übersicht auf <span class="guilabel">X</span> in der Zeile des zu löschenden Artikels.</p>
+</li>
+<li class="listitem">
+<p>Bestätige den Löschvorgang mit <span class="guilabel">OK</span>.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p><span class="bold"><strong>Bei Nutzung von Fremdnummern:</strong></span></p>
+<p>Falls du mit Fremdnummern arbeitest, beachte, dass Einträge aus der Fremdnummern-Tabelle entfernt werden, wenn ein Artikel in Xentral gelöscht wird. Deshalb werden Artikel im Shop/Marktplatz bei aktiver Fremdnummern-Verknüpfung nicht automatisch gelöscht, wenn sie in Xentral gelöscht werden. In diesem Fall musst du die Löschung im Shop manuell vornehmen.</p>
+<p>Weitere Informationen zu Fremdnummern findest du in diesem Artikel: <a class="link" href="https://help.xentral.com/hc/de/articles/360016758199-Fremdnummern-in-Xentral-Zuordnung-externer-Artikelnummern-aus-Shops-und-Marktpl%C3%A4tzen#UUID-af5d8ee2-07dd-16dd-7655-bfa265d5cd7c" target="_blank" rel="noopener">Fremdnummern in Xentral</a></p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Beachte bei dieser Methode unbedingt, dass du in Xentral sowohl Matrixprodukt als auch alle Varianten löschen musst, um die gesamte Gruppe aus Matrixprodukt und Varianten aus dem Shopangebot zu entfernen. Löschst du nur das Matrixprodukt, vergisst aber die Varianten, führt dies zu fehlerhaften Artikelübertragungen, da die verbleibenden Varianten shopseitig als neue Artikel interpretiert werden!</p>
+<p>Es ist jedoch problemlos möglich, einzelne Varianten zu löschen, solange das Matrixprodukt bestehen bleibt.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

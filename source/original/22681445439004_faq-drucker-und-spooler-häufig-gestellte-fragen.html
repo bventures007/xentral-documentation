@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Drucker und Spooler - Häufig gestellte Fragen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 22681445439004
+    Titel: FAQ Drucker und Spooler - Häufig gestellte Fragen
+    URL: https://help.xentral.com/hc/de/articles/22681445439004-FAQ-Drucker-und-Spooler-H%C3%A4ufig-gestellte-Fragen
+    Erstellt: 2025-10-01T13:25:47Z
+    Aktualisiert: 2025-10-01T14:15:33Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 9395528337180
+    Export-Zeitpunkt: 2025-11-16 19:07:41
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section accordion zd-article" xml:lang="de">
+<p>Willkommen auf unserer FAQ-Seite! Hier findest du Antworten auf die am häufigsten gestellten Fragen zur Druckeranbindung und zum <span class="phrase">Xentral</span> Spooler. Diese Seite bietet dir schnelle und hilfreiche Informationen, die dir bei der Nutzung unserer Plattform weiterhelfen. Ob zur Einrichtung, Fehlerbehebung oder für Tipps zur optimalen Nutzung – unsere FAQ bieten dir umfassende Unterstützung.</p>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id23518647209305"></a>Wie funktioniert die Spooler-App?</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id23518647209305_body">
+<div class="panel-inner">
+<p>Die Spooler-App fragt einmal pro Sekunde bei <span class="phrase">Xentral</span> nach Druckaufträgen. Wenn vorhanden, holt die Spooler-App maximal 10 Druckaufträge ab und versieht diese in <span class="phrase">Xentral</span> mit dem Status <span class="bold"><strong>processing</strong></span>. Anschließend sendet die Spooler-App jeden Druckauftrag einzeln an den jeweiligen Drucker. Sobald der Drucker mit dem Druckauftrag fertig ist (erfolgreich oder fehlgeschlagen), markiert die Spooler-App den jeweiligen Druckauftrag als <span class="bold"><strong>completed</strong></span> oder <span class="bold"><strong>failed</strong></span>.</p>
+<p>Der Prozess läuft wie folgt ab:</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Empfang des Druckauftrags in der Spooler-App</p>
+</li>
+<li class="listitem">
+<p>Sicherung der Datei auf der Festplatte (damit der Drucker darauf zugreifen kann)</p>
+</li>
+<li class="listitem">
+<p>Ausführung des Druckbefehls (mit Pfad zur Datei)</p>
+</li>
+<li class="listitem">
+<p>Löschung der Datei von der Festplatte nach dem Druck</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186476806655"></a>Was bedeuten die Status der Druckaufträge?</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186476806655_body">
+<div class="panel-inner">
+<p>Die Druckaufträge im Menü <span class="bold"><strong>Druckaufträge</strong></span> in <span class="phrase">Xentral</span> haben folgende Bedeutung:</p>
+<div class="informaltable table-responsive">
+<table width="100%">
+<colgroup>
+<col width="20%" align="left">
+<col width="80%" align="left">
+</colgroup>
+<thead>
+<tr>
+<th align="left">
+<p>Status</p>
+</th>
+<th align="left">
+<p>Bedeutung</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">
+<p><span class="bold"><strong>created</strong></span></p>
+</td>
+<td align="left">
+<p>Der Druckauftrag wurde erstellt, aber nicht von der Spooler-App abgeholt (z.B. keine Internetverbindung, App nicht gestartet).</p>
+</td>
+</tr>
+<tr>
+<td align="left">
+<p><span class="bold"><strong>pending</strong></span></p>
+</td>
+<td align="left">
+<p>Der Druckauftrag wurde von der Spooler-App abgeholt, aber noch nicht bearbeitet (er befindet sich in der Warteschlange des Betriebssystems).</p>
+</td>
+</tr>
+<tr>
+<td align="left">
+<p><span class="bold"><strong>processing</strong></span></p>
+</td>
+<td align="left">
+<p>Dieser Status wird gesetzt, sobald die Spooler-App die Druckaufträge bearbeitet, z.B. sobald sie aus <span class="phrase">Xentral</span> abgeholt werden. Bleiben Druckaufträge auf <span class="bold"><strong>processing</strong></span>, bedeutet dies, dass das Betriebssystem oder der Drucker selbst keine Rückantwort an die Spooler-App sendet (z.B. durch einen Printer Timeout oder weil sich die Druckaufträge in der Warteschlange befinden).</p>
+</td>
+</tr>
+<tr>
+<td align="left">
+<p><span class="bold"><strong>completed</strong></span></p>
+</td>
+<td align="left">
+<p>Das Dokument wurde erfolgreich gedruckt, zumindest wurde dies vom Betriebssystem an den Spooler zurückgemeldet. Wenn Dokumente trotzdem nicht gedruckt werden, liegt ein Problem beim Betriebssystem oder Drucker vor.</p>
+</td>
+</tr>
+<tr>
+<td align="left">
+<p><span class="bold"><strong>failed</strong></span></p>
+</td>
+<td align="left">
+<p>Das Betriebssystem/der Drucker konnten den Auftrag nicht drucken. Bitte überprüfe die Fehlermeldung, die du im Menü <span class="bold"><strong>Druckaufträge</strong></span> ganz rechts in der Spalte <span class="bold"><strong>Grund</strong></span> findest.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186482857868"></a>Kann man Druckaufträge löschen?</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186482857868_body">
+<div class="panel-inner">
+<p>Nein, Druckaufträge können nicht gelöscht werden. Du kannst entweder das Dokument herunterladen, um es manuell auszudrucken oder den Druckauftrag wiederholen (Retry). Für Retry gibt es derzeit noch keine Stapelverarbeitung.</p>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186483823157"></a>Das Druckformat ist falsch. Was kann ich tun?</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186483823157_body">
+<div class="panel-inner">
+<p>Der Spooler ändert oder passt das Format nicht an. Falls du dies ändern möchtest, musst du dies extern tun, zum Beispiel im DHL-Geschäftskundenportal, wenn es sich um DHL-Versandlabels handelt, oder direkt in den Druckereinstellungen deines Betriebssystems.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Spooler manipuliert keine Dateien, sondern druckt sie so, wie er sie erhält.</p>
+</div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186485280756"></a>Warum wird die Testseite nicht gedruckt?</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186485280756_body">
+<div class="panel-inner">
+<p>Dieses Problem kommt insbesondere bei Etikettendruckern vor und liegt meist am Druckertreiber. Der Spooler ändert nichts am Format. Wenn der Druckertreiber das Format nicht verarbeiten kann, wird nichts gedruckt. Die Testseite-Vorlage ist immer im DinA4-Format. Versuche stattdessen, einen Beleg oder eine echtes Versandlabel zu drucken.</p>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186487160157"></a>Wie kann ich verschiedene Druckerfächer ansteuern?</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186487160157_body">
+<div class="panel-inner">
+<p>Der Spooler bzw. <span class="phrase">Xentral</span> sind nicht in der Lage, direkt verschiedene Druckerfächer zu bedienen. Als Workaround muss auf dem jeweiligen Rechner, auf dem die Spooler-App läuft, für jedes Fach ein eigener Drucker eingerichtet werden. Du musst sozusagen den Drucker im Betriebssystem duplizieren und in den Einstellungen jeweils ein Fach hinterlegen. Diese "Fächer" erscheinen dann im Spooler und müssen in <span class="phrase">Xentral</span> jeweils als eigener Drucker hinterlegt werden. Du erstellst also eine Drucker-Konfiguration pro Fach.</p>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186489273636"></a>Benötige ich mehrere Spooler, wenn wir verschiedene Arbeitsplätze haben?</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186489273636_body">
+<div class="panel-inner">
+<p>Nicht unbedingt. Grundsätzlich kann man, wenn die Spooler-App Zugriff auf alle Drucker hat, sich also alle Drucker im gleichen Netzwerk oder Server befinden, beliebige Drucker über einen Spooler bedienen, unabhängig davon, wie viele Benutzer sie nutzen und an welchem Standort sie sich befinden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Je weniger Spooler im Einsatz sind, desto performanter wird das System.</p>
+</div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186490643406"></a>Wie lege ich fest, welche Person welche Dokumente über welchen Drucker druckt?</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-4b8e364b-e4fa-4c61-6096-f8d337ed46ed_section-id235186490643406_body">
+<div class="panel-inner">
+<p>In <span class="phrase">Xentral</span> kannst du die Bedienung deiner Drucker an den folgenden Stellen festlegen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Automatischer Druck</strong></span>: Hierzu findest du die relevanten Einstellungen direkt im Projekt (<span class="bold"><strong>Projekte &gt; Projekt öffnen &gt; Tab: Einstellungen &gt; Tab: Logistik/Versand</strong></span>) in den Abschnitten <span class="bold"><strong>Versandprozess und Kommissionierung</strong></span>, <span class="bold"><strong>Stufe 1 (Pick/Kommissionierung</strong></span> und <span class="bold"><strong>Stufe 2 (Pack) an Versandstation</strong></span>. Zusätzlich wird der automatische Druck in den Einstellungen der von dir genutzten Versandarten (<span class="bold"><strong>Versandarten &gt; Versandart öffnen &gt; Experte</strong></span>) und in den Einstellungen deiner Picklisten-Profilen (Modul <span class="bold"><strong>Picklisten-Profile</strong></span>) gesteuert.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Manueller Druck</strong></span>: In den Benutzereinstelliungen (<span class="bold"><strong>Benutzer &gt; Benutzer öffnen &gt; Tab: Sonstige Einstellungen</strong></span> legst du mithilfe der einstellungen <span class="bold"><strong>Standard Drucker</strong></span>, <span class="bold"><strong>Standard Etikettendrucker</strong></span>, <span class="bold"><strong>Drucker Stufe (Versand)</strong></span> und <span class="bold"><strong>Drucker Stufe (Paketmarke)</strong></span> fest, auf welche Drucker der Benutzer zugreifen kann.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+</div>
+
+    </div>
+</body>
+</html>

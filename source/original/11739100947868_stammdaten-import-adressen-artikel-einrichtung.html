@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stammdaten Import - Adressen, Artikel (Einrichtung)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 11739100947868
+    Titel: Stammdaten Import - Adressen, Artikel (Einrichtung)
+    URL: https://help.xentral.com/hc/de/articles/11739100947868-Stammdaten-Import-Adressen-Artikel-Einrichtung
+    Erstellt: 2023-12-13T09:28:32Z
+    Aktualisiert: 2024-05-15T09:12:54Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 11738986039068
+    Export-Zeitpunkt: 2025-11-16 19:07:11
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Ein Stammdaten Import ermöglicht es dir, Datenbestände aus anderen Systemen in die Datenbank von Xentral einzufügen. Dazu müssen die Daten aus deinen fremden Systemen als CSV-Dateien (Textdateien, die sämtliche Informationen als Komma separierte Listen enthalten) exportiert werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-VorberlegungenzumDatenimport"></a>Vorüberlegungen zum Datenimport</h2>
+</div>
+<p>Überlege als erstes, welche Daten du selbst von Hand anlegen kannst und möchtest und welche du über einen Import in das System laden willst oder musst. Ausschlaggebend für die Einordnung sind Faktoren wie Datenmenge, Volumen und Felder und die Möglichkeit des Datenexports aus bestehenden Systemen.</p>
+<p>Kleinere Datenmengen z.B. ein Artikelsortiment von hundert Artikeln sind relativ schnell eingegeben. Mit Korrekturen evtl. sogar schneller als die Bestandsdaten zu holen, aufzubereiten und eine Importvorlage anzulegen. Wenn die Datenmenge die manuellen Kapazitäten oder die Komplexität bei weitem übersteigt, solltest du dir überlegen, ob du einen Datenimport selbst durchführen, oder auch technische Hilfe von einem Partner in Anspruch nehmen willst.</p>
+<p>Überlege dir sehr gut deine zukünftigen Nummernkreise für Artikel und Adressen, so dass sie zu deiner geplanten Auftragsmenge im nächsten Jahr passen und ebenso zu den Anforderungen deines Steuerbüros. Z.B. solltest du darauf achten, welche Nummernkreise dein Buchhaltungsexport benötigt und dich hier ggf. anpassen. Und denke daran, dass die Nummernkreise für Datev z.B. nur zum Start eines neuen Geschäftsjahres angepasst werden können.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Wenn du im E-Commerce unterwegs bist, plane ebenso die <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016758199#UUID-be6a2725-3071-98cf-ad2e-1a9016c503cc">Pflege deiner SKU und Fremdnummern.</a></p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-ManuelleDatenpflege"></a>Manuelle Datenpflege</h2>
+</div>
+<p>Du kannst direkt loslegen und deine Daten in Xentral eingeben. Starte hier am besten mit wenigen Artikeln und Adressen und lerne Xentral besser kennen und führe ggf. auch ein paar Tests im Workflow durch. Erst wenn du die Artikelstrukturen und Adressstrukturen final überlegt hast, solltest du starten die gesamte Menge einzupflegen.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Informationen zur Artikelpflege und Adresspflege findest du im <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/11739102585756#UUID-83677560-34e9-46bb-8cca-e88e3ae1b424" title="Erste Schritte - Stammdaten, Aufträge, Verkaufskanäle/Projekte (Einrichtung)">Einrichtungs-Leitfaden im Bereich Erste Schritte</a><a class="link" href="https://xentral.atlassian.net/wiki/spaces/XM/pages/2712436889/Erste+Schritte+new+menue" target="_blank" rel="noopener">.</a></p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-Datenimport"></a>Datenimport</h2>
+</div>
+<p>Wenn du dich gegen eine händische Datenpflege entschieden hast, benötigst du für einen Xentral Datenimport zunächst einen Datenexport aus deiner aktuellen Systemlandschaft in Tabellenform: Artikeldaten, Kundendaten, Lieferantendaten.</p>
+<p>Verschaffe dir einen Überblick über deine Datenbasis und prüfe deine aktuelle Datenqualität. Eventuell macht es auch Sinn alte Daten und Doubletten auszusortieren oder ungenutzte Felder zu entfernen. Es gibt mit Sicherheit Felder und Einstellungen, die in deinem aktuellen System anders verwendet werden oder nicht vorhanden sind.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Verschaffe dir einen Überblick über die für dich wichtigsten Felder und deren Nutzung in Xentral und deinem bisherigen System. Du kannst die Gelegenheit auch als Chance nutzen, deine alten Daten sauber strukturiert und durchdacht auf ein neues Qualitätslevel zu bekommen. Eine gut durchdachte und solide Grundstruktur kann dir an anderen Stellen Prozessqualität und Geordnetheit in deine Daten und dein Unternehmen bringen.</p>
+<p>Beispiele für Datenpflege <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016809699#UUID-6fa1f8e8-d8db-48ba-a20a-8eb1d0fb10e8">Artikelstammdaten</a> und <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016721600#UUID-4a84b844-4f7d-7c54-898e-0f7fb80bd760">Adresstammdaten</a> sowie <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016758939#UUID-f547c6d9-743a-a701-602b-449b7a4acb24">Import</a>.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-XentralverarbeitetdeineDatenimCSVFormat"></a>Xentral verarbeitet deine Daten im CSV-Format</h3>
+</div>
+<p>Xentral verarbeitet deine Daten im <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/12354500245788#UUID-37dbd96b-8260-c645-2ceb-2d5cab87bb7c">CSV-Format</a>. Eine CSV-Datei ist ein spezieller Dateityp, der in Excel erstellt oder bearbeitet werden kann. Anstelle, dass Informationen in Spalten gespeichert werden, werden Informationen in CSV-Dateien durch Kommas getrennt. Während Excel-Dateien im eigenen Tabellenformat abspeichert, speichert CSV Informationen platzsparend in einer Textdatei.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Eine CSV-Datei ist sozusagen “nur” ein anderes Format und einfach zu erstellen. Sie wird anstelle einer tabellarischen Datei als Text angezeigt und sieht deshalb komplizierter aus als deine gewohnte Tabelle. Mit ein paar Tips kannst du auch als Neueinsteiger Dateien als <a class="link" href="https://help.xentral.com/hc/de/articles/360016758939-Import-von-Stammdaten-und-Unternehmensdaten#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_section-idm4598088025118433095497963161" target="_blank" rel="noopener">CSV abspeichern und öffnen</a><a class="link" href="#">.</a> Wenn du eine CSV-Datei in dein Schreibprogramm importierst und als Excel-Datei öffnest, erhältst du wieder das gewohnte Tabellenformat.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-HinweiseundTipszumDatenimport"></a>Hinweise und Tips zum Datenimport</h3>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-FolgendermassensolltestdudeineDatenimportieren"></a>Folgendermassen solltest du deine Daten importieren</h4>
+</div>
+<div dir="ltr" class="caution note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Ein Datenimport ist unter Umständen sehr umfangreich und erfordert viele Prozessschritte und Prüfungen. In seiner Gesamtheit kann ein Datenimport sehr komplex werden.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Importiere sorgfältig durchdacht mit vorangegangenen Tests auf kleiner Datenbasis</strong></span>. Das erspart dir: Tausende falsch eingespielte Daten händisch zu korrigieren.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Grenze sehr genau ab, was du manuell anlegst, was du über einen Datenimport reinholst und was später ggf. über deine Shop Schnittstelle im Artikel- und Adresstamm angelegt wird.</strong></span> Das hilft dir: Den Überblick und deine Importstrategie im Blick zu behalten.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Beachte am besten die Reihenfolge: Erst Kunden und Lieferanten, dann Artikel</strong></span>. Im Artikel gibt es Felder wie Preise oder Standardlieferant, für die du die Lieferanten- oder Kundennummer benötigst.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Gehe niemals Live mit einem ungetesteten System.</strong></span></p>
+</li>
+</ul>
+</div>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Für einen erfolgreichen Start solltest du genügend Sorgfalt und Zeit für dein Onboarding einplanen. Wenn du eine größere Firma hast und auch eine <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016758939#UUID-f547c6d9-743a-a701-602b-449b7a4acb24">Datenmigration</a> mit Adress- und Artikeldaten durchführen möchtest, solltest du dich an die empfohlenen Onboarding-Schritte halten und z.B. deine die Strategie der Nummernkreise durchdenken.</p>
+<p>Informationen und Hilfe kannst du beim <span class="bold"><strong>Xentral Onboarding-Team</strong></span> oder bei einem <span class="bold"><strong>Partner</strong></span> erhalten.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-FragendiedudirstellenkannstumzuprfenwelcheFelderfrdichrelevantsind"></a>Fragen, die du dir stellen kannst um zu prüfen, welche Felder für dich relevant sind</h3>
+</div>
+<p>Dadurch, dass Daten im ERP an vielen Stellen in Verbindung stehen und ein Gesamtbild ergeben, ist es nicht ganz leicht, eine Checkliste zu erstellen mit der man alles von oben nach unten konsequent abarbeiten kann. Die Daten von Adressen und Artikeln können nicht isoliert betrachtet werden z.B. Preise wie kundenspezifische Preise, Einkaufspreise bei verschiedenen Lieferanten finden sich wieder in der Artikelstruktur.</p>
+<p>Ein weiterer wichtiger Punkt: nicht jedes Unternehmen braucht genau dasselbe zur selben Zeit. Unternehmen sind unterschiedlich groß in Umsatz, Team, Produktpalette. Innerhalb einer Branche gibt es viele Gemeinsamkeiten. Entscheidungen wie die Nutzung bestimmter Module für Workflows und die externe Modullandschaft ist dennoch sehr individuell.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p><span class="bold"><strong>Kurz</strong></span>: Am besten machst du dich daran einige Punkte aufzuschreiben und dann zu überlegen, welche Strategie und welche Best practices am besten zu deinem Vorhaben passen. Und natürlich gibt es mehrere Möglichkeiten und Wege. Du kannst Daten in einer großen Datei oder aufgeteilt in kleineren Teilschritten einspielen.</p>
+</div>
+<div class="informaltable table-responsive">
+<table>
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>
+<p>Stammdaten Adressen</p>
+</th>
+<th>
+<p>Fragen, die du dir stellen kannst um zu prüfen</p>
+</th>
+<th>
+<p>Mögliche Anwendungsfälle</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>Kundendaten</p>
+</td>
+<td>
+<p>Welche Kundendaten benötigst du in deinem neuen Xentral System?</p>
+<p>Gibt es Kundendaten, die du im neuen System nicht benötigst?</p>
+</td>
+<td>
+<p>z.B. Stammkunden im B2B Bereich mit eigener Debitorennummer brauchst du ganz sicher. Denn sie bestellen per E-Mail oder Anruf, du möchtest, diesen Teil des Adresstamms sicher sauber gepflegt zu haben.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Kundendaten</p>
+</td>
+<td>
+<p>Gibt es Kundendaten, die du im neuen System nicht benötigst?</p>
+</td>
+<td>
+<p>z.B. einmalige Besteller, deren Daten du nur für die einmalige Rechnungserstellung benötigst.</p>
+<p>Typische B2C Kunden im E-Commerce.</p>
+<p>Deine Stammkunden informierst du in diesem Bereich über Neuigkeiten zB. mit Hubspot oder einem Marketing-Tool.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Kundendaten</p>
+</td>
+<td>
+<p>Welche Daten benötigst du für deine Prozessketten z.B. Rechnungsadresse ?</p>
+</td>
+<td>
+<p>Ganz sicher benötigst du zu jeder neuen Bestellung die Rechnungs- und Lieferadresse für die Belegerstellung. Die E-Mail Adresse für die Versandinformation und zur Erzeugung von Paketmarken. den Kanal über den die Bestellung gekommen ist, und wahrscheinlich auch die Zahlungsweise, so dass du später eine Zuordnung für deine Buchhaltung vornehmen kannst (Zahlungsabgleich).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Lieferantendaten</p>
+</td>
+<td>
+<p>Welche Datenmenge hast du in deinem vorherigen System?</p>
+</td>
+<td>
+<p>Oftmals beschränkt sich der Lieferantenstamm auf eine kleinere Menge an Stammlieferanten. Lieferantendaten kommen selten aus einem Fremdsystem. Du kannst bei wenigen Lieferanten die Datenplfege auch manuell vornehmen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Lieferantendaten</p>
+</td>
+<td>
+<p>Welche Daten benötigst du für deine Prozessketten z.B. Lieferadresse, Wareneingang, Verbindlichkeit?</p>
+</td>
+<td>
+<p>Für einen Wareneingangsprozess benötigst du wahrscheinlich Name, Adrasse, Lieferadressen, Einkaufspreise (Staffelungen, Sonderpreise), Liefertermin oder Standard Lieferzeit.</p>
+<p>Für eine Verbindlichkeit benötigst du Daten wie Adresse, Zahlungsziel, abweichende Kreditorennummer, Steuersatz und Buchhaltungskonto.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Nummernkreise</p>
+</td>
+<td>
+<p>Welche Nummernkreise hast du bisher verwendet und warum? Gibt es Limitierungen, die dich heute schon beschäftigen oder Probleme, die du beheben möchtest?</p>
+</td>
+<td>
+<p>Welche Stellenanzahl benötigst du pro Jahr, so dass dein Nummernkreis nicht “überläuft”?</p>
+<p>Reichen dir die sechsstelligen Belegnummern z.B. im SKR04 aus, und ist Xentral somit kompatibel zu Datev?</p>
+<p>Oder hast du einen E-Commerce Channel, der mehr Stellen benötigt. Willst du den Nummernkreis pro Jahr neu starten und z.B. durch ein Kürzel vorne kennzeichnen, oder willst du den Nummernkreis größer wählen und z.B. Sammeldebitoren nach Datev exportieren und bündeln?</p>
+<p>Hast du ein B2B Geschäft mit gut sortierten Daten? Dann solltest du die Kundennummern hier nicht anfassen, wenn sie bereits ins Datev Format passen. Wähle lieber für neue Kanäle einen Bereich für die Kundennummern.</p>
+<p>Für B2B kannst du ein eigenes Projekt anlegen “B2B” und dort einen Nummernkreis vergeben. Alle anderen Kanäle laufen dann auf den zentralen Xentral Nummernkreis.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Artikeldaten</p>
+</td>
+<td>
+<p>Preise: welche Daten benötigst du für den Verkauf (Kunden)</p>
+</td>
+<td>
+<p>Hast du für alle Kunden dieselben Preise oder ausgehandelte Gruppenpreise oder kundenspezifische Sonderpreise.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Artikeldaten</p>
+</td>
+<td>
+<p>Preise: welche Daten benötigst du für den Einkauf (Lieferant)</p>
+</td>
+<td>
+<p>Kaufst du pro Lieferant ein spezielles Artikelsortiment, oder kaufst du einen Artikel bei mehreren Lieferanten ein.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Artikeldaten</p>
+</td>
+<td>
+<p>Preise in Geschäftsprozessen</p>
+</td>
+<td>
+<p>Welche Daten benötigst du für deine internen Prozessketten und Monitoring z.B. Artikelpreise für den Verkauf und Artikelpreise für Einkauf oder internes Kosten Monitoring.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Artikeldaten</p>
+</td>
+<td>
+<p>Artikeldaten aus Shops und Marktplätzen</p>
+</td>
+<td>
+<p>Welche Artikeldaten benötigst du für Schnittstellen z.B. zu deinem Onlineshop oder Amazon Geschäft. (PIM Frage und welches System das führende System ist). Artikeldaten sind sehr häufig auch in anderen Systemen hinterlegt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Artikeldaten</p>
+</td>
+<td>
+<p>Welche Daten benötigen Drittsysteme z.B. Anbindung an deinen Fulfiller (3PL, EDI, Shopsysteme)</p>
+</td>
+<td>
+<p>Lagerbestandsdaten werden zu von Fulfillern meist nachts zu dir zurück synchronisiert. Achte darauf, dass der Lagerort mit angegeben ist und die Bestände nur für das Xentral Lager deines Fulfillers angepasst werden. Sollte ein Fulfiller dein komplettes Sortiment managen, kannst du die Bestände global zurückmelden lassen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Shops, Martkplätze und Fulfiller</p>
+</td>
+<td></td>
+<td>
+<p>Kundendaten werden häufig über Drittsysteme im laufenden Betrieb zu einem ERP übertragen um Belege zu erstellen und die Prozesskette in deinem Operations abzuarbeiten</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Steuerbüro, Buchhaltungsschnittstelle</p>
+</td>
+<td>
+<p>Welche Anforderungen stellt dein Steuerbüro. Buchhaltungsexport und Nummernkreise.</p>
+</td>
+<td>
+<p>Daten, die dein Steuerberater von dir benötigt, um den Monatsabschluss zu erstellen. Achte auf Möglichkeit der Datenübertragung z.B. zu Datev, indem du die Nummernkreise wenn möglich passend zu deinem Kontenrahmen wählst.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-DatenimportAdressenKundenundLieferantenimportieren"></a>Datenimport Adressen: Kunden und Lieferanten importieren</h2>
+</div>
+<p>Adressen sollten immer vor den Artikeldaten importiert werden. Idealerweise sollten separate CSV-Dateien für Kunden und Lieferanten angelegt werden. Du kannst die wichtigsten Kundendaten einspielen und z.B. Daten wie <a class="link" href="https://help.xentral.com/hc/de/articles/360016758939-Import-von-Stammdaten-und-Unternehmensdaten#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKG6RGJ75PZ6E35MM8S4GC" target="_blank" rel="noopener">Ansprechpartner</a> in einer separaten Datei nach importieren.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Soll die Kundennummer oder die Lieferantennummer mit der <a class="link" href="https://help.xentral.com/hc/de/articles/360016758939-Import-von-Stammdaten-und-Unternehmensdaten#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKG2HTGVT6N072YCG0CX6P" target="_blank" rel="noopener">Rolle</a> bei der Neuanlage von Adressen aus dem zentralen oder einem anderen Nummernkreis vergeben werden, werden mindestens folgende Informationen in der Importdatei benötigt: Kundenname, Projektkennung für die Nummernkreis Zuordnung, anstelle der Kundennummer die Bezeichnung “neu” im Feld der Kundennummer (die Kundennummer wird dann neu vergeben. Alternativ kannst du auch eine feste Kundennummer mitliefern).</p>
+</div>
+<p>Die wichtigsten <a class="link" href="https://help.xentral.com/hc/de/articles/5091351567388-Variablen#idm46089715673936" target="_blank" rel="noopener">Importvariablen für Adressen findest du hier</a>.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-KundenStammdatenimportieren"></a>Kunden Stammdaten importieren</h3>
+</div>
+<p>Beispiele findest du im Artikel <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016758939#UUID-f547c6d9-743a-a701-602b-449b7a4acb24">Kundendaten importieren</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-LieferantenStammdatenimportieren"></a>Lieferanten Stammdaten importieren</h3>
+</div>
+<p>Beispiele findest du im Artikel <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016758939#UUID-f547c6d9-743a-a701-602b-449b7a4acb24">Lieferantendaten importieren</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-DatenimportArtikelArtikeldatenundPreiseimportieren"></a>Datenimport Artikel: Artikeldaten und Preise importieren</h2>
+</div>
+<p>Beispiele findest du in den Artikeln:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016758939#UUID-f547c6d9-743a-a701-602b-449b7a4acb24">Import von Stammdaten und Unternehmensdaten</a> allgemein</p>
+</li>
+<li class="listitem">
+<p>Die wichtigsten <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/5091351567388#UUID-d640760d-34bf-ab9e-0074-4b621123c4f1">Importvariablen für Artikel</a></p>
+</li>
+<li class="listitem">
+<p><a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/5355836726300#UUID-9ad5f192-bf19-3b5d-8608-6bf958d31939">Bestände importieren</a></p>
+</li>
+<li class="listitem">
+<p>Preise und Preisgruppen importieren: <a class="link" href="https://help.xentral.com/hc/de/articles/360016758939-Import-von-Stammdaten-und-Unternehmensdaten#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKNDYFV48YNRV2KWB7E6PS" target="_blank" rel="noopener">Artikelimport Beispiele</a></p>
+</li>
+<li class="listitem">
+<p><a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016756799#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">Online-Shops</a> - Artikeldaten über den Shop ziehen</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a" id="UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a_id_StammdatenImport-AdressenArtikel-KomplexeDatenimportsundBewegungsdaten"></a>Komplexe Datenimports und Bewegungsdaten</h2>
+</div>
+<div dir="ltr" class="important note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Komplexe Datenmigrationen, Datensynchronisation und Abgleiche zu Drittsystemen (ausserhalb des Xentral Shop- und Marktplatz Standards) und deren Synchronisation fallen in den <span class="bold"><strong>Advanced Bereich</strong></span>. Beachte, dass du hierfür die entsprechenden Schnittstellen oder <span class="bold"><strong>IT-Unterstützung</strong></span> von deinem Partner benötigst.</p>
+<p>Informationen dazu findest du bei:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6618896113820#UUID-111b6679-d25f-f139-f468-9380f9e785b1">Xentral API</a> / <a class="link" href="https://developer.xentral.com/reference/intro" target="_blank" rel="noopener">neue API siehe Developer Portal</a></p>
+</li>
+<li class="listitem">
+<p><a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016757059#UUID-850f5d11-1c0b-cbaf-4cee-962137fb6159">Bewegungsdaten: Belegeimporter</a></p>
+</li>
+<li class="listitem">
+<p><a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360018710420#UUID-9667c423-52c6-8822-64dd-923d9a79d78d">Anbindung an einen Fulfillment Dienstleister (3PL)</a></p>
+</li>
+<li class="listitem">
+<p>Siehe auch <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/10913952354844#UUID-51a74a79-ffdd-3b38-67cc-0a9a86241f83">Übersicht der technischen Themen</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

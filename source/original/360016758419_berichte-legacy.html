@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berichte (Legacy)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016758419
+    Titel: Berichte (Legacy)
+    URL: https://help.xentral.com/hc/de/articles/360016758419-Berichte-Legacy
+    Erstellt: 2020-09-28T12:34:22Z
+    Aktualisiert: 2024-08-29T13:34:47Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254293364764
+    Export-Zeitpunkt: 2025-11-16 19:09:54
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>In xentral können eigene Berichte mit Hilfe von SQL Statements angelegt und als PDF/CSV exportiert oder per FTP und E-Mail versendet werden.</p>
+<p>Über App Center → Berichte (Legacy) können Berichte bearbeitet werden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es handelt sich um ein Legacy-Modul, das nicht mehr von Xentral supportet oder weiterentwickelt wird. Um unseren Kunden die Arbeit mit der vorhandenen Funktionsweise weiterhin zu ermöglichen, ist es noch immer im Xentral App Store verfügbar.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-0"></a>Einstellungen</h2>
+</div>
+<p>Im Reiter "Einstellung" werden die benötigten Informationen für den Bericht eingetragen.</p>
+<p>In den Feldern ist dabei Folgendes einzugeben:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Name</span> → Der Name des Berichts, kann frei gewählt werden</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Projekt</span>→ Projekt des Berichts kann optional angegeben werden</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Beschreibung</span> → Optionale Beschreibung zur Anzeige des Berichts</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Variablen</span>→ Optionale Definition von Variablen, die dann im SQL-Statement dementsprechend ersetzt werden</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Struktur</span> → SQL-Statement, welches die Struktur des Berichts festlegtreport</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Spaltenname</span>→ Bezeichnung der Spalten, in denen die Daten auftauchen (z.B. Datum, Kunde, Betrag)</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Spaltenbreite</span> → Optional kann die Spaltenbreite in Millimetern angegeben werden, die Gesamtbreite beträgt 190mm190mm</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Spaltenausrichtung</span> → Die Ausrichtung des Textes kann in allen Feldern der Spalte, R (rechtsbündig), L (linksbündig), oder C (zentriert), optional angegeben werdenoptionally</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Interne Bemerkung</span>→ Eine interne Anmerkung kann optional erstellt werden, diese ist im Bericht nicht einzusehen</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-1"></a>Variablen</h2>
+</div>
+<p>Es ist möglich, Variablen in Berichten zu deklarieren und diese im SQL-Statement zu nutzen.</p>
+<p>Die entsprechende Syntax sieht dann so aus, das Semikolon muss am Ende eingefügt werden: {DATUMVON} = 2018-10-01; Im Bericht werden die Variablen folgendermaßen eingefügt:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5041750824092" style="" alt="berichte_20.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-2"></a>FTP-Übertragung und E-Mail</h2>
+</div>
+<p>Erstellte Berichte können über FTP übertragen sowie in regelmäßigen Abständen und zu bestimmten Zeitpunkten per E-Mail versendet werden.</p>
+<p>Die Funktion muss aktiviert und alle Felder gefüllt werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">E-Mail Empfänger</span> → E-Mail-Adresse, an die der Bericht versendet werden soll</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">E-Mail Betreffzeile</span> → Betreff, den die E-Mail haben soll</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Uhrzeit</span> → Uhrzeit, zu der die E-Mail verschickt werden soll</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Dateiname</span> → Name der Datei, die der Bericht ausgeben soll. Dabei muss die Endung des entsprechenden Dateityps angefügt werden, z.B. .csv oder .txt</p>
+</li>
+</ul>
+</div>
+<p>Damit das Verschicken der E-Mails funktioniert, muss der Prozessstarter "Berichte FTP Übertragungen" aktiv und korrekt konfiguriert sein. Die Einstellungen könnten folgendermaßen aussehen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Bezeichnung</span> → Als Bezeichnung ist "Berichte FTP Übertragung" einzugeben</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Art</span> → Aus dem Drop-Down-Menü ist als Art "periodisch" auszuwählen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Wochentag</span> → Aus dem Drop-Down-Menü ist "Jeden Tag" auszuwählen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Startzeit</span> → Es ist die vorgegebene Startzeit zu belassen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Letzte Ausführung</span> → Es ist die vorgegebene Endzeit zu belassen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Periode</span> → Als Periode ist 1 in min. anzugeben</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Typ</span> → Als Typ ist "Cronjob" aus dem Drop-Down-Menü auszuwählen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Parameter</span> → Als Parameter ist "berichte_ftp_uebertragen" einzugeben</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Aktiv</span> → Durch Anhaken wird der Prozessstarter aktiviert</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-3"></a>Beispielberichte</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-4"></a>ZM</h3>
+</div>
+<p><code class="code">SELECT belegnr, datum, name, kundennummer, land, ustid, SUM(soll) as sollFROM rechnungWHERE land != '{LAND}' AND land IN ({EULAENDER}) AND status != 'angelegt' AND ustid != &lt;em&gt; AND datum &gt;= '{DATUMVON}' AND datum &lt;= '{DATUMBIS}'GROUP BY ustid&lt;/em&gt;</code></p>
+<p>Variablen: <code class="code">{LAND} = DE;{DATUMVON} = 2019-01-01;{DATUMBIS} = 2019-12-31;{EULAENDER} = 'AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GB','GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT','RO','SE','SI','SK';</code></p>
+<p>Spaltenname: Rechnung;Datum;Kunden;Kdnr;Land;USTID;Betrag</p>
+<p>Spaltenbreite: 20;25;65;15;10;30;25</p>
+<p>Spaltenausrichtung: L;L;L;L;L;L;L</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Soll bei Zahlen statt einem Punkt ein Komma stehen (bsp: 13,10 statt 13.10), muss die Struktur entsprechend geändert werden: FORMAT(soll,2,'de_DE'</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-5"></a>Verkaufte Artikel (Gerät) ins Ausland</h3>
+</div>
+<p>SELECT lieferschein_position.nummer,lieferschein_position.bezeichnung,lieferschein.land,round(auftrag_position.preis,2),(auftrag_position.preis * lieferschein_position.menge),lieferschein.auftrag,DATE_FORMAT(lieferschein.datum,'%d.%m.%Y'),artikel.geraet,lieferschein_position.mengeFROM lieferschein_positionLEFT JOIN lieferschein ON lieferschein.id=lieferschein_position.lieferscheinLEFT JOIN artikel ON artikel.id=lieferschein_position.artikelLEFT JOIN auftrag_position ON auftrag_position.id=lieferschein_position.auftrag_position_idWHERE artikel.geraet=1 AND lieferschein.land!='DE'AND lieferschein.datum &amp;gt;='2016-01-01' AND lieferschein.datum &amp;lt; '2016-07-31'</p>
+<p>Spaltennamen: Artikelnummer;Artikelbezeichnung;Land;AB Preis;AB;Datum;Gerät;Menge</p>
+<p>Spaltenbreite: 20;50;10;20;20;20;20;20</p>
+<p>Spaltenausrichtung: L;L;L;L;L;L;L;L</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-6"></a>Lieferschein mit Lieferadresse und Produkt</h3>
+</div>
+<p>Über das SQL-Statement werden nachstehende Informationen aus dem Lieferschein gezogen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Lieferadresse des Kunden</p>
+</li>
+<li class="listitem">
+<p>Alle Kunden, die ein bestimmtes Produkt bestellt haben (Artikel ID)</p>
+</li>
+<li class="listitem">
+<p>Lieferscheine über einen bestimmten Datumsbereich</p>
+</li>
+</ul>
+</div>
+<p>SELECT l.belegnr,l.datum,l.name,l.ansprechpartner,l.abteilung,l.unterabteilung,l.adresszusatz,l.land,l.strasse,l.plz,l.ort, a.name_de,a.nummer FROM lieferschein l LEFT JOIN lieferschein_position lp ON lp.lieferschein=l.id LEFT JOIN artikel a ON a.id=lp.artikel WHERE lp.artikel=212 AND l.datum&amp;gt;='2017-08-01' AND l.datum &amp;lt;='2017-12-31' ANDl.status='versendet'</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-7"></a>Lagerbestand frei verfügbare Artikel</h3>
+</div>
+<p>SELECT a.nummer,a.name_de,TRIM(IFNULL((SELECT SUM(lpi.menge) FROM lager_platz_inhalt lpi WHERE lpi.artikel=a.id),0)-IFNULL((SELECT SUM(ap.menge) FROM auftrag_position ap LEFT JOIN auftrag auf ON auf.id=ap.auftrag WHERE ap.artikel=a.id AND (auf.status='freigegeben' OR auf.status='versendet')),0))+0 FROM artikel a WHERE a.geloescht!=1</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-8"></a>Alle Artikel mit Fremdnummern</h3>
+</div>
+<p><code class="code">SELECT artikel.nummer, artikel.name_de, artikelnummer_fremdnummern.nummer as fremdnummer, artikelnummer_fremdnummern.bezeichnung FROM artikelnummer_fremdnummern LEFT JOIN artikel ON artikel.id=artikelnummer_fremdnummern.artikel</code></p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-9"></a>Alle Kunden mit letztem Bestelldatum</h3>
+</div>
+<p>SELECT MAX(datum), name, kundennummer FROM auftrag WHERE status!='angelegt' AND datum &amp;gt;='2018-01-01' AND datum&amp;lt;'2018-04-01' GROUP by adresse</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-10"></a>Mit Ausgabe Projekt und Projekt</h3>
+</div>
+<p>IDSELECT MAX(a.datum), a.name, a.kundennummer , p.abkuerzung FROM auftrag a LEFT JOIN projekt p ON p.id=a.projekt WHERE a.status!='angelegt' AND a.datum &amp;gt;='2018-01-01' AND a.projekt='1' AND a.datum&amp;lt;'2018-04-01' GROUP by a.adresse</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e" id="UUID-68e15799-c8e7-1a59-c175-2efdaf772b1e_id_360016758419_id_toc-11"></a>Rechnung mit manueller Zahlungsfestsetzung</h3>
+</div>
+<p>Folgende Angaben sind zu verwenden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Info: liefert alle Rechnungen als Bericht, die den Haken "Alle Einstellungen manuell festsetzen" gesetzt haben.</p>
+</li>
+<li class="listitem">
+<p>"als .csv anzeigen" verwenden</p>
+</li>
+</ul>
+</div>
+<p>Struktur: SELECT r.belegnr,r.datum,r.name FROM rechnung r WHERE r.mahnwesenfestsetzen='1'</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

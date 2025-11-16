@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paypal (Geschäftskonto)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016721920
+    Titel: Paypal (Geschäftskonto)
+    URL: https://help.xentral.com/hc/de/articles/360016721920-Paypal-Gesch%C3%A4ftskonto
+    Erstellt: 2020-09-28T12:17:30Z
+    Aktualisiert: 2025-07-31T15:47:34Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415729714460
+    Export-Zeitpunkt: 2025-11-16 19:06:39
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Die API-Anbindung zu PayPal ermöglicht es, Kontoauszüge automatisch in regelmäßigen Intervallen abzurufen und die Zahlungen direkt den entsprechenden Aufträgen und Rechnungen zuzuordnen. Diese Funktion vereinfacht den Abgleich von Prepayments im Auftragseingang und stellt sicher, dass Zahlungen präzise und ohne manuellen Aufwand verbucht werden. Die Transaktionsnummern, Beträge und Order-IDs werden genutzt, um Zahlungen automatisch mit den jeweiligen Aufträgen abzugleichen.</p>
+<p>Durch die Integration der PayPal-API werden Kontoauszüge in Echtzeit importiert und automatisch den richtigen Buchungen zugewiesen. Das spart Zeit und reduziert Fehler bei der manuelle Zuordnung von Zahlungen. Zudem ermöglicht die regelmäßige Abholung der Auszüge eine stets aktuelle Übersicht über den Zahlungsstatus.</p>
+<p>Wesentliche Funktionen der PayPal-API-Anbindung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Automatisierte Abholung</strong></span> von PayPal-Kontoauszügen in festgelegten Intervallen. Fallback oder optional CSV Import.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Automatische Zuordnung</strong></span> der Zahlungen zu Aufträgen und Rechnungen basierend auf Transaktionsnummer, Betrag und Order-ID.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_id_360016721920_id_h_01F9Y821ZFQXP01MSW7CZK9PSM"></a>PayPal (API)</h2>
+</div>
+<p>Der Live Import der Kontoauszüge (Anbindung an xentral und Abholung der Auszüge per Knopfdruck) ist für Bankkonten mit FinTS und HBCI4PHP sowie PayPal möglich. Hierbei können die Auszüge der letzten X Tage abgeholt werden. Es darf nur ein Benutzer pro Konto hinterlegt werden, da es sonst zu doppelten Buchungen kommt. Bitte legen Sie ein Geschäftskonto nicht mehrfach an. Diese Einstellungen sind nur beim Live-Abholen des Kontoauszuges (z.B. PayPal) relevant. Buchungen können direkt automatisiert per Knopfdruck abgeholt werden.</p>
+<p>Folgende Einstellungen sind hier relevant:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Typ → Konto: PayPal (API)</p>
+</li>
+<li class="listitem">
+<p>Live-Import aktiv → Haken aktiviert den Live-Import (Voraussetzung: korrekte Eingabe der API Daten bei „Zugangsdaten Live-Import)</p>
+</li>
+<li class="listitem">
+<p>Zugangsdaten Live-Import → API Code für den Live-Import (zu finden in Ihrem PayPal Account → Anleitung s.u.)</p>
+</li>
+</ul>
+</div>
+<p>Diese Felder werden mindestens benötigt:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>API_USERNAME</strong></span> → PayPal API Username (zu finden in Ihrem PayPal Account → Anleitung s.u.)</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>API_PASSWORD</strong></span> → PayPal API Passwort (zu finden in Ihrem PayPal Account → Anleitung s.u.)</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>API_SIGNATURE</strong></span> → PayPal API Signature (zu finden in Ihrem PayPal Account → Anleitung s.u.)</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>API_DAYS</strong></span> → individuelle Einstellungsmöglichkeit (Abholung der letzten X Tage → kann individuell eingestellt werden, dabei ist die tägliche Menge der Transaktionen zu berücksichtigen. bei großen Mengen muss evtl. der Servertimeout umgestellt werden)</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>API_ALLPAYMENTS</strong></span> → Optional (kann auch weggelassen werden): Wert "1" bedeutet, dass sowohl Einnahmen, als auch Ausgaben abgeholt werden. Ohne diese Zeile (API_ALLPAYMENTS=&gt;1;) werden nur die Einnahmen abgeholt.</p>
+</li>
+<li class="listitem">
+<p>Mit dem Parameter <span class="bold"><strong>API_DAYS=&gt;5;</strong></span> würde die Abholung vom 20.08.2021 bis heute erfolgen. //Hinzunahme vom Datum der letzen Abholung</p>
+</li>
+<li class="listitem">
+<p>Mit dem Parameter <span class="bold"><strong>API_MAX_DAYS_BEFORE=&gt;1;</strong></span> würde man die Abholung vom 14.08.2021 bis bis heute erfolgen lassen. //Abzug vom Datum der letzten Abholung</p>
+</li>
+<li class="listitem">
+<p>Mit dem Parameter <span class="bold"><strong>API_DAYS_WAIT=&gt;1;</strong></span> würde man die Abholung vom 15.08.2021 bis zum 10.11.2021 erfolgen lassen. //Abzug vom aktuellen Tag</p>
+</li>
+</ul>
+</div>
+<p>Einzutragen in xentral im Bereich Zugangsdaten Liveimport:</p>
+<pre class="programlisting">API_USERNAME=&gt;XXXXXXX; 
+API_PASSWORD=&gt;XXXXX; 
+API_SIGNATURE=&gt;XXXXXXXXXX; 
+API_DAYS=&gt;5; 
+API_ALLPAYMENTS=&gt;1;</pre>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Pfeil ist ein Gleichzeichen und ein Größer-Zeichen.</p>
+</div>
+<p>Wird die PayPal Rückzahlung aus xentral genutzt, sind folgende Informationen im Geschäftskonto PayPal (API) einzutragen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>API_CLIENTID</p>
+</li>
+<li class="listitem">
+<p>API_SECRET</p>
+</li>
+</ul>
+</div>
+<p>Die <span class="bold"><strong>ClientID</strong></span> und das <span class="bold"><strong>Secret</strong></span> bekommst du in deinem Paypal Live-Account. Generell kannst du entweder eine neue App erstellen oder für eine bestehende App die API Credentials auslesen (AppCenter → Verwalten Sie Ihre Apps → API-Berechtigungen).</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Willst du neben dem PayPal Plus Geschäftskonto auch die PayPal Plus Zahlungsweise in xentral für Zahlungseingänge anbinden, so muss im PayPal Plus Konto ein weiterer API-Einträg generiert werden. Es ist wichtig, dass <span class="bold"><strong>API_CLIENTID</strong></span> und <span class="bold"><strong>API_SECRET</strong></span> im Geschäftskonto und in der Zahlungsweise <span class="bold"><strong>nicht identisch</strong></span> sind. Für die API Informationen generierst du einfach 2 Einträge im PayPal Plus Konto unter Rest API → Create App.</p>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/11619850339356" style="" alt="AccPaypal1.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/11619836713116" style="" alt="AccPaypal2.png"></div>
+<p>Der Live-Import holt die Einnahmen der letzten X Tage ab. Ausgaben können auch über den .csv Import eingespielt werden. Bei Ausgaben entstehen bei PayPal sehr viele Querbuchungen (z.B. Prüfungen und Währungsumrechnungen), die im Live-Import und .csv Import nicht ausgefiltert werden. Diese Buchungen können entweder auf ein "Durchlaufende Posten Konto" weggebucht werden oder als Importfehler verbucht werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="idm924"></a>PayPal API Daten abrufen</h3>
+</div>
+<p>Die Daten für die PayPal API erhältst du über dein PayPal Konto. Eine ausführliche Anleitung zur Anforderung einer API-Berechtigung mit Signatur oder Zertifikat findest du <a class="link" href="https://www.paypal.com/us/smarthelp/article/how-do-i-request-api-signature-or-certificate-credentials-faq3196" target="_blank" rel="noopener">hier</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_id_360016721920_id_h_01F9Y83H2VQGRFY2D77C2WEEXT"></a>Aufruf PayPal-Konto zur Verarbeitung der Kontoauszüge</h3>
+</div>
+<p>Sofern das PayPal Konto fertig in xentral eingerichtet ist, können die Kontoauszüge abgerufen werden über: Buchhaltung → Zahlungseingang →</p>
+<p>Sollte der PayPal Live-Import per API nicht zur Verfügung stehen, können Sie alternativ den CSV-Import von PayPal wie folgt nutzen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_id_360016721920_id_h_01F9Y840ECSAMJ6K15W9AYNSYH"></a>PayPal (CSV)</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_id_360016721920_id_h_01F9Y84ESKZNWEKSBRQW64J1AC"></a>Manuelles Einspielen von CSV-Dateien</h3>
+</div>
+<p>Der Live-Import holt die letzten X Tage ab. Größere Zeiträume können auch manuell eingespielt werden. Folgende Dateien können direkt von Ihrem PayPal Konto heruntergeladen und in xentral (im Zahlungseingang für das Konto: PayPal (API)) eingespielt werden:</p>
+<p>Im PayPal Account sind die Dateien hier zu finden: Aktivitäten → Transaktionsliste herunterladen. Hier eignen sich folgende PayPal Export Typen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Abgeschlossene Zahlungen (CSV, kommagetrennt) → Geldeingänge/Guthaben z.B. von Shop Payment Transaktionen</p>
+</li>
+<li class="listitem">
+<p>Guthaben-relevante Zahlungen (CSV, kommagetrennt) → Zahlungen von Ihrem PayPal Konto aus PayPalPlus</p>
+</li>
+</ul>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/21469413243420" style="" alt="paypal_bankanbindung_backend_001.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_id_360016721920_id_h_01F9Y851DFSVK8E4S9NW2SMH70"></a>Umgang mit Gebühren</h3>
+</div>
+<p>PayPal erhebt für jede eingehende Zahlung eine Transaktionsgebühr. Diese Gebühren wirken sich nicht auf den gezahlten Betrag aus, müssen aber in deinem Buchhaltungsexport ausgewiesen werden. In <span class="phrase">Xentral</span> werden die Gebühren separat behandelt und automatisch einem Gegenkonto deiner Wahl zugeordnet.</p>
+<p>Um die automatische Zuordnung zu aktivieren, musst du ein <span class="guilabel">Standard Gegenkonto</span> in deinem PayPal-Geschäftskonto im Bereich <span class="guilabel">Kontenspezifische Einstellungen</span> eintragen. Optional kannst du auch eine <span class="guilabel">Standard Kostenstelle</span> für die Gebühren eintragen. Das entsprechende Gegenkonto und Kostenstelle werden im <span class="guilabel">Zahlungseingang</span> dann automatisch dem Eintrag für Gebühren zugeordnet.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_id_360016721920_id_h_01F9Y85E394R8JPWR8012J5JRN"></a>PayPalPlus (API)</h2>
+</div>
+<p>Analog zu PayPal können über die Kontoeinstellung auch PayPal Plus Auszüge abgeholt werden. Die API Einstellungen werden durch die API Felder ergänzt, so dass die Transaktionsnummern von PayPalPlus ins Bankkonto abgeholt werden.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Kontoauszug holt man klassisch mit API von Paypal</p>
+</li>
+<li class="listitem">
+<p>Paypal Plus liefert typischerweise nur die TransaktionsID und nicht die PaymentID</p>
+</li>
+<li class="listitem">
+<p>Um diese auch entsprechend korrekt aufzulösen kann man zusätzlich einen PayPal ClientID Account aus PaypalPlus in der Datenstruktur bei Paypal definieren</p>
+</li>
+<li class="listitem">
+<p>Um Kontoauszüge abzuholen, muss man per API API_CLIENTID und API_SECRET definieren</p>
+</li>
+<li class="listitem">
+<p>Anschließend wird automatisch versucht aus der TransaktionsID die PaymentID zu wandeln</p>
+</li>
+</ul>
+</div>
+<p>Beispielhafte Angabe für PayPalPlus (ausreichend, sofern nur PayPalPlus verwendet wird; wie du deine Client ID und Secret findest kannst du <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/360016725340#UUID-03f196f3-c6eb-7259-f418-938f7efa7606" title="PayPal Plus (Zahlungsweise)">hier</a> lesen):</p>
+<pre class="programlisting">API_CLIENTID=&gt;xXxzeUgKDsabRXBimeYKkLnnMpspMCgAP4HRmo8MHFzBPS;
+API_SECRET=&gt;xXxLyf-fPPdyNVAPNj-3wiCvySZafkeBnAKcFkdF6g-5uG8eD97zTog5SPsFY;</pre>
+<p>Angabe für PayPalPlus+PayPal (sofern gemischte Zahlungen aus PayPalPlus und PayPal verwendet werden → Fallback für Möglichkeit beide Account-Zahlungsbuchungen):</p>
+<pre class="programlisting">API_USERNAME=&gt;meinusername.firma.de; 
+API_PASSWORD=&gt;xXxT6Z4EFCVPSL; 
+API_SIGNATURE=&gt;xXxafvPMMu5vafX7W3Z32VgvmJqvWcKJ3XQ; 
+API_DAYS=&gt;2; 
+API_ALLPAYMENTS=&gt;1; 
+API_CLIENTID=&gt;xXxzeUgKDsabRXBimeYKkLnnMpspMCgAP4HRmo8MHFzBPS; 
+API_SECRET=&gt;xXxxyf-fPPdyNVAPNj-3wiCvySZafkeBnAKcFkdF6g-5uG8eD97zTog5SPsFY;</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_id_360016721920_id_h_01F9Y85XTM5F7TKY323DPH9YQT"></a>PayPal-Plus (CSV)</h2>
+</div>
+<p>Manuelles Einspielen von .csv Dateien: Der Live-Import holt die letzten X Tage ab. Größere Zeiträume können auch manuell eingespielt werden. Folgende Dateien können direkt von Ihrem PayPal Konto heruntergeladen und in xentral eingespielt werden. Im Hintergrund ist ein festes Format vorgeben, sodass die Transaktionsdatei direkt im Zahlungseingang für das PayPal-Konto importiert werden kann.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_id_360016721920_id_h_01F9Y86HF1QZSTHKEXFE4W7TKZ"></a>Feldeinstellungen</h3>
+</div>
+<pre class="programlisting">1: Date 
+
+2: Time 
+
+3: Time zone 
+
+4: Name 
+
+5: Type 
+
+6: Status (e.g. Completed) 
+
+7: Subject 8: Currency 
+
+9: Gross (total amount) 
+
+10: Fee (PayPal fee) 
+
+11: Net (amount minus fee) 
+
+12: Note (note of the buyer) 
+
+13: From e-mail address 
+
+14: To e-mail address 
+
+15: Transaction code 
+
+16: Payment type 
+
+17: Counterparty status (e.g. US Verified) 
+
+18: Address status (e.g. Outside USA) 
+
+19: Item description (e.g. Order) 
+
+20: Item number 
+
+21: Amount for shipping costs 
+
+22: Insurance amount 
+
+23: Sales tax 
+
+24: Option 1 - Name 
+
+25: Option 1 - Value 
+
+26: Option 2 - Name 
+
+27: Option 2 - Value 
+
+28: Auction Site 
+
+29: Buyer ID 
+
+30: Item URL 
+
+31: Offer end 
+
+32: Txn reference identifier 
+
+33: Invoice number 
+
+34: Individual number 
+
+35: Receipt number 
+
+36: Credit (PayPal account balance after each payment) 
+
+37: Address line 1 
+
+38: Additional information 
+
+39: City 
+
+40: State/Province/Region/County/Territory/Prefecture/Republic 
+
+41: ZIP CODE 
+
+42: Country 
+
+43: Telephone number</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_section-idm4592003109161633876722125979"></a>FAQ</h2>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_section-idm4587948221238433876722773874"></a>Wie gehe ich vor, wenn beim Live Import von PayPal ein Tag fehlt?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51_section-idm4587948221238433876722773874_body">
+<p>Du kannst folgende Einstellungen prüfen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Abholung der letzten X Tage</strong></span> → Erfolgt die Abholung via Schaltfläche, könnte es sein, dass nicht lückenlos abgeholt wurde. Die weiter zurückliegenden Tage kannst du im Bankkonto über die Einstellung der Tage rückwirkend abholen. Sollte die Zeit zu weit zurückliegen, ist ein Nachimport via CSV möglich</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Prozessstarter für die Abholung</strong></span> → Aktiviere den Prozessstarter im PayPal Geschäftskonto in xentral, um die Kontodaten automatisch abzuholen:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/11619858536732" style="" alt="FAQLiveImportPaypal.png"></div>
+<p>Die Einstellungen sind idealerweise: Abholung der Kontoauszüge 1-2x pro Tag, Abholung der letzten 1-2 Tage (Nimm diese Einstellung im Live-Import des Kontos unter Berücksichtigung der Buchungsmenge vor, ggf. ist auch 1 Tag ausreichend)</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>CSV Import</strong></span> → Nachimport der Buchungen aus PayPal über den fehlenden Zeitraum. Bei PayPal ist das Format in xentral bereits eingestellt, die Info für die CSV findest du in der Beschreibung zum PayPal Konto</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Ein Wechsel zwischen Live-Import und CSV führt ggf. zu doppelten Buchungen. xentral filtert nur komplett identische Buchungen aus. Bei einer Formatänderung der Bank oder des Importkanals kommt es meist zu Abweichungen der Buchungsinformationen, sodass die Buchungen nicht als doppelt erkannt werden. In diesem Fall solltest du den Importzeitraum möglichst ohne Überschneidung wählen. Doppelte Buchungen kannst du auf "Importfehler" buchen.</p>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

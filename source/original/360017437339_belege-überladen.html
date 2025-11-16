@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belege überladen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017437339
+    Titel: Belege überladen
+    URL: https://help.xentral.com/hc/de/articles/360017437339-Belege-%C3%BCberladen
+    Erstellt: 2020-11-10T08:32:19Z
+    Aktualisiert: 2024-08-29T11:58:11Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 11291544329756
+    Export-Zeitpunkt: 2025-11-16 19:10:05
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-adeb7769-ea3a-9942-2687-c60492e7275d" id="UUID-adeb7769-ea3a-9942-2687-c60492e7275d_id_360017437339_id_toc-0"></a>Briefpapier überladen</h2>
+</div>
+<p>Falls für das Briefpapier weitere Informationen benötigt werden, wie zum Beispiel zusätzlich bei einer Artikelposition zur Artikelbeschreibung das Gewicht oder die Höhe, so kann ein eigenes Briefpapier zum Überladen angelegt werden.</p>
+<p>Die Datei die das Briefpapier überladen soll, muss class.briefpapier_custom.php heißen. Diese Datei muss im Xentral ordner nach www/lib/dokumente hochgeladen werden und ist dann für alle Belege gültig.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Den Quellcode kannst du dir aus der Datei aus der Open Source Version holen.</p>
+</div>
+<p>Im folgenden Beispiel soll zusätzlich das Gewicht sowie die Höhe, Breite, Länge und Ursprungsregion des Artikels zur Artikelbeschreibung einer Position hinzugefügt werden.</p>
+<p>Bisher gibt es noch kein Custom Briefpapier, weshalb das Briefpapier vorerst wie in den Standardeinstellungen festgelegt aussieht:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996403325212" style="" alt="Briefpapier-1.png"></div>
+<p>Als Erstes ist die Datei class.briefpapier_custom.php zu erstellen. Das Grundgerüst für das Custom Briefpapier sieht wie folgt aus:</p>
+<pre class="programlisting">?php
+
+include_once "class.briefpapier.php";
+
+class BriefpapierCustom extends Briefpapier {
+
+function __construct(&amp;$app) { $this-&gt;app = $app; parent::__construct($app); } 
+
+ } ?&gt;</pre>
+<p>Als Nächstes ist die Datei class.briefpapier.php zu öffnen, die derzeit für das Layout des Briefpapiers zuständig ist und sucht sich die Funktion heraus, die überladen werden soll, kopiert und fügt diese unter der Funktion "construct" ein. In diesem Fall ist die Funktion renderItems zu kopieren, da diese für die Darstellung der Artikelpositionen zuständig ist. Da die Funktion renderItems recht lang ist, wird hier im Bsp. nur angedeutet, wie der Code von class.briefpapier_custom.php dann aussieht.</p>
+<pre class="programlisting">?php
+
+include_once "class.briefpapier.php";
+
+class BriefpapierCustom extends Briefpapier {
+
+function __construct(&amp;$app) { $this-&gt;app = $app; parent::__construct($app); }
+
+public function renderItems() {
+
+$posWidth = $this-&gt;app-&gt;erp-&gt;Firmendaten("breite_position");
+$amWidth = $this-&gt;app-&gt;erp-&gt;Firmendaten("breite_menge");
+$itemNoWidth = $this-&gt;app-&gt;erp-&gt;Firmendaten("breite_nummer");
+
+...
+...
+...
+
+}
+
+} ?&gt;</pre>
+<p>Unterhalb von</p>
+<pre class="programlisting">if($item['ean']!="" &amp;&amp; $item['ean']!="0"){
+  if($item['desc']!=""){
+     $item['desc']=$item['desc']."\r\n".$this-&gt;app-&gt;erp-&gt;Beschriftung("dokument_ean").": ".$item['ean'];
+ }else{
+     $item['desc']=$this-&gt;app-&gt;erp-&gt;Beschriftung("dokument_ean").": ".$item['ean'];
+  }
+ }</pre>
+<p>wird nun die Größe, sowie die Höhe, Breite, Länge und Ursprungsregion des Artikels zur Variablen $item['desc'] hinzugefügt, da diese den Beschreibungstext beinhaltet und zu diesem die weiteren Werte hinzukommen sollen.</p>
+<p>Der fertige Abschnitt sieht dann so aus:</p>
+<pre class="programlisting">if($item['ean']!="" &amp;&amp; $item['ean']!="0"){
+    if($item['desc']!=""){
+       $item['desc']=$item['desc']."\r\n".$this-&gt;app-&gt;erp-&gt;Beschriftung("dokument_ean").": ".$item['ean'];
+    }else{
+       $item['desc']=$this-&gt;app-&gt;erp-&gt;Beschriftung("dokument_ean").": ".$item['ean'];
+    }
+}
+
+$daten = $this-&gt;app-&gt;DB-&gt;SelectArr("SELECT gewicht, laenge, breite, hoehe, ursprungsregion FROM artikel WHERE id = '".$item['artikel']."'");
+$daten = reset($daten);
+
+if($item['desc'] != ""){
+    if($daten['gewicht'] != "" AND $daten['gewicht'] &gt; 0){
+       $item['desc'] = $item['desc']."\r\n"."Gewicht: ".$daten['gewicht']." kg";
+    }
+}else{
+   if($daten['gewicht'] != "" AND $daten['gewicht'] &gt; 0){
+      $item['desc'] = $item['desc']."Gewicht: ".$daten['gewicht']." kg";
+    }
+}
+
+if($item['desc'] != ""){
+   if($daten['laenge'] != "" AND $daten['laenge'] &gt; 0){
+       $item['desc'] = $item['desc']."\r\n"."Länge: ".$daten['laenge']." cm";
+    }
+}else{
+    if($daten['laenge'] != "" AND $daten['laenge'] &gt; 0){
+       $item['desc'] = $item['desc']."Länge: ".$daten['laenge']." cm";
+    }
+}
+
+if($item['desc'] != ""){
+    if($daten['breite'] != "" AND $daten['breite'] &gt; 0){
+       $item['desc'] = $item['desc']."\r\n"."Breite: ".$daten['breite']." cm";
+    }
+}else{
+    if($daten['breite'] != "" AND $daten['breite'] &gt; 0){
+       $item['desc'] = $item['desc']."Breite: ".$daten['breite']." cm";
+    }
+}
+
+if($item['desc'] != ""){
+     if($daten['hoehe'] != "" AND $daten['hoehe'] &gt; 0){
+        $item['desc'] = $item['desc']."\r\n"."Höhe: ".$daten['hoehe']." cm";
+    }
+}else{
+    if($daten['hoehe'] != "" AND $daten['hoehe' &gt; 0]){
+       $item['desc'] = $item['desc']."Höhe: ".$daten['hoehe']." cm";
+    }
+}
+
+$ursprungsregion = "";
+
+switch($daten['ursprungsregion']){
+   case "01":
+      $ursprungsregion = "Schleswig-Holstein";
+      break;
+    case "02":
+      $ursprungsregion = "Hamburg";
+      break;
+    case "03":
+      $ursprungsregion = "Niedersachsen";
+     break;
+    case "04":
+      $ursprungsregion = "Bremen";
+      break;
+    case "05":
+     $ursprungsregion = "Nordrhein-Westfalen";
+     break;
+    case "06":
+      $ursprungsregion = "Hessen";
+      break;
+   case "07":
+     $ursprungsregion = "Rheinland-Pfalz";
+     break;
+    case "08":
+     $ursprungsregion = "Baden-Württemberg";
+     break;
+   case "09":
+     $ursprungsregion = "Bayern";
+     break;
+    case "10":
+     $ursprungsregion = "Saarland";
+     break;
+    case "11":
+     $ursprungsregion = "Berlin";
+     break;
+    case "12":
+      $ursprungsregion = "Brandenburg";
+     break;
+    case "13":
+     $ursprungsregion = "Mecklenburg-Vorpommern";
+     break;
+    case "14":
+    $ursprungsregion = "Sachsen";
+    break;
+    case "15":
+     $ursprungsregion = "Sachsen-Anhalt";
+     break;
+    case "16":
+     $ursprungsregion = "Thüringen";
+     break;
+    case "99":
+     $ursprungsregion = "ausländischer Ursprung";
+     break;
+}
+
+if($item['desc'] != ""){
+    if($ursprungsregion != ""){
+       $item['desc'] = $item['desc']."\r\n"."Ursprungsregion: ".$ursprungsregion;
+    }
+}else{
+    if($ursprungsregion != ""){
+      $item['desc'] = $item['desc']."Ursprungsregion: ".$ursprungsregion;
+   }
+}</pre>
+<p>Das Ergebnis sieht nun so aus:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996448227228" style="" alt="Briefpapier-2.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-adeb7769-ea3a-9942-2687-c60492e7275d" id="UUID-adeb7769-ea3a-9942-2687-c60492e7275d_id_360017437339_id_toc-1"></a>Nur eine Belegart überladen</h2>
+</div>
+<p>Des Weiteren gibt es die Möglichkeit nur bestimmte Belege zu überladen. In folgendem Beispiel soll zur Artikelbeschreibung einer Position das nächste, also kleinste, Mindesthaltbarkeitsdatum aus dem Lager für diesen Artikel auf einem Kommissionierschein angezeigt werden. Dazu muss der Lieferschein überladen werden, da der Kommissionierschein ebenfalls mit der class.lieferschein.php erstellt wird. Um die class.lieferschein.php Datei zu überladen, wird eine Datei namens class.lieferschein_custom.php erstellt und diese in den xentralsordner nach www/lib/dokumente abgelegt. Bisher gibt es keine class.lieferschein_custom.php Datei, somit sieht der Kommissionierschein so aus:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996403383324" style="" alt="Briefpapier-3.png"></div>
+<p>Das Grundgerüst der Datei sieht wie folgt aus:</p>
+<pre class="programlisting">?php 
+if(!class_exists('BriefpapierCustom')) 
+{ 
+  class BriefpapierCustom extends Briefpapier 
+  {
+
+  } 
+}
+
+class LieferscheinPDFCustom extends BriefpapierCustom {
+  public $doctype;
+
+  function __construct($app,$projekt="") 
+  { 
+     $this-&gt;app=&amp;$app; 
+     //parent::Briefpapier();
+     $this-&gt;doctype="lieferschein";
+     $this-&gt;doctypeOrig="Lieferschein";
+     parent::__construct($this-&gt;app,$projekt);
+   }
+} 
+?&gt;</pre>
+<p>Als nächstes ist die passende Funktion zu suchen, die in der class.lieferschein.php überladen werden soll. In diesem Fall ist es die Funktion GetLieferschein. Diese Funktion wird kopiert und unter dem Konstruktor "construct" eingefügt. Da die Funktion GetLieferschein recht lang ist, wird hier nur angedeutet, wie die Datei derzeit aussieht:</p>
+<pre class="programlisting">?php
+if(!class_exists('BriefpapierCustom'))
+{ 
+  class BriefpapierCustom extends Briefpapier 
+  {
+
+  } 
+}
+
+class LieferscheinPDFCustom extends BriefpapierCustom { 
+  public $doctype;
+  function __construct($app,$projekt="") 
+  {     $this-&gt;app=&amp;$app;
+    //parent::Briefpapier();
+    $this-&gt;doctype="lieferschein";
+    $this-&gt;doctypeOrig="Lieferschein";
+    parent::__construct($this-&gt;app,$projekt);
+   }
+
+  function GetLieferschein($id,$info="",$extrafreitext="")
+  {
+    $this-&gt;doctypeid = $id;
+    if(method_exists($this-&gt;app-&gt;erp,'LieferscheinSeriennummernberechnen'))$this-&gt;app-&gt;erp-&gt;LieferscheinSeriennummernberechnen($id);
+    $briefpapier_bearbeiter_ausblenden = $this-&gt;app-&gt;erp-&gt;Firmendaten('briefpapier_bearbeiter_ausblenden');
+    $briefpapier_vertrieb_ausblenden = $this-&gt;app-&gt;erp-&gt;Firmendaten('briefpapier_vertrieb_ausblenden'); 
+    $adresse = $this-&gt;app-&gt;DB-&gt;Select("SELECT adresse FROM lieferschein WHERE id='$id' LIMIT 1");
+...
+...
+...
+  }
+} 
+?&gt;</pre>
+<p>Nun werden die Anpassungen im Code vorgenommen. Wenn diese nun einfach hinzugefügt werden würde, wären diese für Lieferscheine und Kommissionierscheine gültig. Allerdings sollen hier nur die Kommissionierscheine angepasst werden, weshalb mit einem if Statement vorher geprüft wird, ob es sich um einen Kommissionierschein handelt. Die Änderungen werden unter</p>
+<pre class="programlisting">/*
+  if(!empty($chargen)){
+    foreach($chargen as $chargen=&gt;$charge){
+      $chargenliste = $chargenliste.$charge['charge'].";";
+    }
+ 
+    $chargenliste=substr($chargenliste, 0, -1);
+ 
+    $value['chargen'] = $this-&gt;app-&gt;DB-&gt;Select("SELECT chargenverwaltung FROM artikel WHERE id='".$value[artikel]."' LIMIT 1");
+ 
+    if($value['chargen']=="0"){
+      $value['beschreibung'] = $value['beschreibung'];
+    }else{
+      $value['beschreibung'] = $value['beschreibung']."\r\n".$this-&gt;app-&gt;erp-&gt;Beschriftung("dokument_charge").": ". $chargenliste;
+    }
+  }
+*/</pre>
+<p>hinzugefügt. Das Ganze sieht dann so aus:</p>
+<pre class="programlisting">if($info=="kommissionierschein"){
+ if($value['freifeld1']!=""){
+  //$value['beschreibung'] .= "\r\n"."Bitte folgendes MHD wählen: ".$value['freifeld1'];
+}else{
+ $mhd=$this-&gt;app-&gt;DB-&gt;Select("SELECT MIN(mhddatum) FROM lager_mindesthaltbarkeitsdatum WHERE artikel= '".$value['artikel']."' AND mhddatum &gt; CURDATE()");
+ $value['beschreibung'].="\r\n"."Kleinstes MHD im Lager: ".$mhd;
+ }
+}</pre>
+<p>Endergebnis:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996448282268" style="" alt="Briefpapier-4.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

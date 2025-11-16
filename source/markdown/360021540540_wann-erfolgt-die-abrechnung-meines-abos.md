@@ -1,0 +1,1 @@
+Die monatliche Abrechnung Abos inkl. der beauftragten Userlizenzen und Module erfolgt ab der Freischaltung bzw. Buchung über den xentral Self Service. Das heißt, wenn die Lizenz am 07. eines Monats beauftragt wurde, wird der erste Monat anteilig ab dem 07. abgerechnet, jeder weitere Monat ab dem Ersten.

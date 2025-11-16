@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenbank - Informationen und SQL Statements</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017378360
+    Titel: Datenbank - Informationen und SQL Statements
+    URL: https://help.xentral.com/hc/de/articles/360017378360-Datenbank-Informationen-und-SQL-Statements
+    Erstellt: 2020-11-10T07:42:25Z
+    Aktualisiert: 2023-11-03T03:21:46Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 360005176880
+    Export-Zeitpunkt: 2025-11-16 19:06:24
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <h2 id="toc-header">Inhaltsverzeichnis</h2>
+<hr>
+<div>
+<ul>
+<li><a href="#toc-0">Passwort zurücksetzen</a></li>
+<li>
+<a href="#toc-1">SQL Statements</a>
+<ul>
+<li><a href="#toc-2">Artikel Update</a></li>
+</ul>
+</li>
+<li>
+<a href="#toc-3">Daten löschen / zurücksetzen</a>
+<ul>
+<li><a href="#toc-4">Stammdaten</a></li>
+<li><a href="#toc-5">Belege</a></li>
+<li><a href="#toc-6">Buchhaltung</a></li>
+<li><a href="#toc-7">Lager &amp; Logistik</a></li>
+<li>
+<a href="#toc-8">Produktion</a>
+<ul>
+<li><a href="#toc-9">Alle offenen Einträge im Versandzentrum löschen</a></li>
+<li><a href="#toc-10">Allen Adressen eine fortlaufende Kundennummer vergeben und Rolle von Projekt ID=1 setzen</a></li>
+<li><a href="#toc-11">Bei Kundennummern die letzten 4 Nullen abschneiden</a></li>
+<li><a href="#toc-12">Aufträge stornieren (Statusumstellung)</a></li>
+<li><a href="#toc-13">Reservierungen löschen, wenn Auftrag nicht mehr in Datenbank</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr>
+<h1>
+<a id="toc-0"></a>Passwort zurücksetzen</h1>
+<p><strong>Kurz:</strong> UPDATE user SET passwordmd5=MD5('passwort'),passwordhash='',activ=1,fehllogins=0,password='',salt='',passwordsha512='' WHERE username='admin2';</p>
+<p>Bzw. manuell:</p>
+<ol>
+<li>Es ist sich in die Datenbank einzuloggen</li>
+<li>In der Tabelle ist auf "USER" zu gehen</li>
+<li>Der Benutzer ist anzuklicken, das neue Passwort in das Feld "passwordmd5" zu setzen und das Select Feld auf "MD5" einzustellen</li>
+<li>Der Inhalt aus den Feldern 'passwordsha512' und 'salt' ist herauszulöschen</li>
+<li>Die Fehllogins "fehllogins" sind auf 0 zu setzten</li>
+<li>Speichern</li>
+</ol>
+<h1>
+<a id="toc-1"></a>SQL Statements</h1>
+<h2>
+<a id="toc-2"></a>Artikel Update</h2>
+<p>Das Updatestatement ist über alle Artikel auszuführen und dort den Haken "Lagersync" im Artikel zu setzen:</p>
+<ul>
+<li>
+<p>für alle Artikel, die einem oder mehreren Online-Shops zugeordnet sind</p>
+<p>Update artikel SET autolagerlampe=1 WHERE shop&gt;0 OR shop2 &gt; 0 OR shop3 &gt; 0</p>
+</li>
+</ul>
+<h1>
+<a id="toc-3"></a>Daten löschen / zurücksetzen</h1>
+<p>Nach dem Testlauf oder einem Datenimport können Daten und Verknüpfungen über die Datenbank wieder gelöscht werden:</p>
+<h2>
+<a id="toc-4"></a>Stammdaten</h2>
+<p><strong>Artikel:</strong> delete FROM <code>artikel</code> WHERE 1; delete FROM einkaufspreise; delete FROM verkaufspreise; delete FROM lager_platz_inhalt; delete FROM stueckliste;</p>
+<h2>
+<a id="toc-5"></a>Belege</h2>
+<p><strong>Angebot:</strong> delete FROM angebot; delete FROM angebot_position; delete FROM angebot_protokoll;</p>
+<p><strong>Auftrag:</strong> delete FROM auftrag; delete FROM auftrag_position; delete FROM auftrag_protokoll;</p>
+<p><strong>Lieferschein:</strong> delete FROM lieferschein; delete FROM lieferschein_position; delete FROM lieferschein_protokoll;</p>
+<p><strong>Rechnung:</strong> delete FROM rechnung; delete FROM rechnung_position; delete FROM rechnung_protokoll;</p>
+<p><strong>Bestellung:</strong> delete FROM bestellung; delete FROM bestellung_position; delete FROM bestellung_protokoll;</p>
+<h2>
+<a id="toc-6"></a>Buchhaltung</h2>
+<p><strong>Geschäftskonten:</strong> delete FROM konten;</p>
+<p><strong>Kontoauszüge / Zahlungseingang:</strong> delete FROM kontoauszuege; delete FROM kontoauszuege_zahlungseingang; delete FROM kontoauszuege_zahlungsausgang;</p>
+<h2>
+<a id="toc-7"></a>Lager &amp; Logistik</h2>
+<p><strong>Lager:</strong> delete FROM lager_platz_inhalt; delete FROM lager_bewegung; delete fROM lager_charge;</p>
+<p><strong>Versandzentrum:</strong> delete FROM versand;</p>
+<p><strong>Inventur:</strong> delete FROM inventur; delete FROM inventur_position; delete FROM inventur_protokoll;</p>
+<h2>
+<a id="toc-8"></a>Produktion</h2>
+<p>delete FROM produktion; delete FROM produktionkorrektur; delete FROM produktionslager; delete FROM produktion_arbeitsanweisung; delete FROM produktion_arbeitsanweisung_batch; delete FROM produktion_baugruppen; delete FROM produktion_baugruppen_charge; delete FROM produktion_charge; delete FROM produktion_etiketten; delete FROM produktion_funktionsprotokoll; delete FROM produktion_funktionsprotokoll_position; delete FROM produktion_position; delete FROM produktion_protokoll; delete FROM produktion_unterseriennummern;</p>
+<h3>
+<a id="toc-9"></a>Alle offenen Einträge im Versandzentrum löschen</h3>
+<p>DELETE v FROM versand AS v LEFT JOIN lieferschein AS l ON v.lieferschein=l.id LEFT JOIN kommissionierung AS k ON l.kommissionierung = k.id LEFT JOIN projekt AS p ON p.id=v.projekt WHERE v.abgeschlossen!='1' AND (tracking &lt;&gt; '' OR weitererlieferschein &lt;&gt; 1) AND v.cronjob = 0</p>
+<p>AND l.status!='storniert' AND tracking = ''</p>
+<p>AND (IFNULL(p.multiorderpicking,0) = 0 OR IFNULL(k.abgeschlossen,0) = 1)</p>
+<h3>
+<a id="toc-10"></a>Allen Adressen eine fortlaufende Kundennummer vergeben und Rolle von Projekt ID=1 setzen</h3>
+<ul>
+<li>Die 400000 bitte ersetzen durch die nächste zu vergebende Kundennummer</li>
+<li>Die Rolle "Kunde" wird auf das Projekt ID=1 vergeben (wäre z.B. Projekt "STANDARD")</li>
+</ul>
+<p>(Vorher ist eine Sicherung der aktuellen DB machen)</p>
+<p>Alle Adressen erhalten eine Kundennummer und eine Zuweisung der Rolle "Kunde" auf das Projekt mit ID "1". SET @zaehler := 400000;</p>
+<p>UPDATE adresse SET kundennummer = @zaehler := @zaehler + 1 WHERE kundennummer = '' OR isnull(kundennummer) ;</p>
+<p>INSERT INTO adresse_rolle (objekt,adresse, subjekt, praedikat, projekt, parameter, von, bis) SELECT 'Projekt' as objekt, a.id as adresse, 'Kunde' as subjekt, 'von' as praedikat,'1' as projekt,'1' as parameter, curdate() as von, '0000-00-00' as bis FROM adresse a LEFT JOIN <code>adresse_rolle</code> ar ON ar.adresse = a.id AND ar.subjekt LIKE 'Kunde' WHERE isnull(ar.id ) AND a.kundennummer &lt;&gt; '' ;</p>
+<p>insert into objekt_protokoll ( objektid,objekt, action_long, meldung, bearbeiter, zeitstempel) Select a.id as objektid,'adresse' as objekt, 'adresse_next_kundennummer', concat('Kundennummer erhalten: ',a.kundennummer ) as meldung,'' as bearbeiter,now() as zeitstempel FROM adresse a LEFT JOIN objekt_protokoll op ON op.objektid = a.id AND op.objekt = 'adresse' AND op.action_long = 'adresse_next_kundennummer' WHERE a.kundennummer &lt;&gt; '' AND isnull(op.id);</p>
+<ul>
+<li>Im Anschluss ist in den Grundeinstellungen im Reiter "Nummernkreis" die nächste zu vergebende Kundennummer einzutragen und zu speichern</li>
+</ul>
+<h3>
+<a id="toc-11"></a>Bei Kundennummern die letzten 4 Nullen abschneiden</h3>
+<ul>
+<li>alle 10-stelligen (Kunden- und Lieferantennummern)</li>
+<li>die an den letzten 4 Stellen eine Null haben</li>
+<li>diese (Kunden- und Lieferantennummern) auf 6 Stellen kürzen</li>
+</ul>
+<p>UPDATE adresse SET kundennummer=LEFT(kundennummer,6) WHERE kundennummer IS LIKE '%0000' AND LENGTH(kundennummer)=10; UPDATE adresse SET lieferantennummer=LEFT(lieferantennummer,6) WHERE lieferantennummer IS LIKE '%0000' AND LENGTH(kundennummer)=10;</p>
+<h3>
+<a id="toc-12"></a>Aufträge stornieren (Statusumstellung)</h3>
+<p>UPDATE auftrag SET status='storniert' WHERE belegnr &gt;=200077 AND belegnr&lt;=200099 AND status='freigegeben'</p>
+<h3>
+<a id="toc-13"></a>Reservierungen löschen, wenn Auftrag nicht mehr in Datenbank</h3>
+<p>DELETE l FROM lager_reservierung l LEFT JOIN auftrag a ON l.parameter = a.id AND l.objekt = 'auftrag' WHERE ISNULL(a.id) AND l.objekt = 'auftrag'</p>
+    </div>
+</body>
+</html>

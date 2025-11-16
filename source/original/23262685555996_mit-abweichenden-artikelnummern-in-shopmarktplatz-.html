@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mit abweichenden Artikelnummern in Shop/Marktplatz und Xentral arbeiten</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 23262685555996
+    Titel: Mit abweichenden Artikelnummern in Shop/Marktplatz und Xentral arbeiten
+    URL: https://help.xentral.com/hc/de/articles/23262685555996-Mit-abweichenden-Artikelnummern-in-Shop-Marktplatz-und-Xentral-arbeiten
+    Erstellt: 2025-10-29T13:59:25Z
+    Aktualisiert: 2025-10-29T13:59:48Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 22656309473948
+    Export-Zeitpunkt: 2025-11-16 19:09:25
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-c767b41b-ab54-b271-0406-6e045f0a1cce" id="UUID-c767b41b-ab54-b271-0406-6e045f0a1cce_section-id235198118287471"></a>Überblick</h2>
+</div>
+<p>In diesem Beitrag erfährst du, wie du in Xentral Connect mit Artikeln arbeitest, deren Artikelnummern in Xentral sich von denen in deinen angebundenen Shop- oder Marktplatzsystemen unterscheiden.</p>
+<p>Beispielsweise hast du einen Artikel, den du in mehreren Kanälen, z. B. Shopify, Shopware und Amazon, anbietest. Auf jedem Verkaufskanal verwendest du dafür eigene Produktnummern, in Xentral arbeitest du jedoch mit einer einzigen Artikelnummer. Es stellt sich die Frage, wie du sicherstellst, dass Bestände, Preise und Auftragsdaten trotz abweichender Nummern korrekt synchronisiert werden.</p>
+<p>Hierfür zeigen wir dir in diesem Artikel,</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wie du solche Artikel korrekt in Xentral verwaltest und</p>
+</li>
+<li class="listitem">
+<p>auf welche Weise du unterschiedliche Nummern in den Systemen miteinander verknüpfen kannst.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Dieser Artikel baut auf den grundlegenden Kenntnissen über die Connect-Schnittstelle einschließlich deren Installation und Einrichtung auf. Falls du hierzu mehr Informationen benötigst, hilft dir dieser Handbuch-Abschnitt weiter: <a class="link" href="https://help.xentral.com/hc/de/articles/14528018649244-Shopware6-Connector-%C3%9Cberblick" target="_blank" rel="noopener">Shopware 6 Connector</a>.</p>
+<p>Stelle sicher, dass deine Schnittstelle vollständig installiert und konfiguriert ist. In diesem Artikel gehen wir nur auf spezifischen Einstellungen für die Synchronisation von Matrixprodukten und Varianten ein.</p>
+</div>
+<p>Für die folgenden Abschnitte nehmen wir an, der Artikel, der in mehreren Kanälen angeboten wird, lautet wie folgt:</p>
+<div class="informaltable table-responsive">
+<table width="100%">
+<thead>
+<tr>
+<th>
+<p>Artikelnummer in Xentral</p>
+</th>
+<th>
+<p>Artikelbezeichnung in Xentral</p>
+</th>
+<th>
+<p>Produktnummer in Shopware 6</p>
+</th>
+<th>
+<p>SKU in Shopify</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>M102500</p>
+</td>
+<td>
+<p>Vollkornmüsli "5 Frucht"</p>
+</td>
+<td>
+<p>SW45678</p>
+</td>
+<td>
+<p>SH98765</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-c767b41b-ab54-b271-0406-6e045f0a1cce" id="UUID-c767b41b-ab54-b271-0406-6e045f0a1cce_section-id235198133493436"></a>Fremdnummern im Artikel eintragen</h2>
+</div>
+<p>Um Fremdnummern einzutragen, öffne den <span class="guilabel">Artikel</span> im Xentral Artikelstamm und wechsele zum Reiter <span class="guilabel">Fremdnummern</span>:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23262687421980" style="" alt="Artikelfremdnummern_Artikel_Fremdnummern.png"></div>
+<p>Fülle den Abschnitt <span class="guilabel">Anlegen</span> aus und klicke auf <span class="guilabel">Speichern</span>. Stelle sicher, dass die Zeile dabei als <span class="guilabel">Aktiv</span> markiert ist.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23262687427740" style="" alt="Artikelfremdnummern_Artikel_Fremdnummern_Anlegen.png"></div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Bezeichnung</span>: Nutze hier eine Bezeichnung, mit der du die Fremdnummern identifizieren kannst. Das kann z. B. die Bezeichnung des Verkaufskanals sein. Alternativ ist die Bezeichnung als "Shop-Nummer" denkbar, wenn du z. B. nur abweichende Nummern zwischen Online- und Ladenverkauf verwendest.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Die Bezeichnung verwendest du im nächsten Abschnitt, um die Verknüpfung in der Schnittstelle zu setzen, und sie hilft dir später, wenn du mehrere Fremdnummern einer Art auffinden und verwalten möchtest.</p>
+</div>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Fremdnummer</span>: Trage hier die eindeutige Produktnummer ein, die im Kanal verwendet wird.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Stelle sicher, dass die Fremdnummer exakt wie im Shop/Marktplatz eingetragen ist. Achte insbesondere auf übereinstimmende Groß-/Kleinschreibung und Leerzeichen.</p>
+</div>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Shop</span>: Wähle hier die zutreffende Connect-Schnittstelle.</p>
+</li>
+</ul>
+</div>
+<p>Wiederhole dieses Vorgehen für andere Verkaufskanäle. In unserem Beispiel gibt es anschließend diese zwei Einträge:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23262687430940" style="" alt="Artikelfremdnummern_Artikel_Fremdnummern_Angelegt.png"></div>
+<div dir="ltr" class="note notice" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Hinweis</h3>
+<p>Alternativ kannst du die Nummern-Zuordnungen unter <span class="bold"><strong>Artikel Fremdnummern</strong></span> (Suche in der Smart Search) eintragen:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23262695595932" style="" alt="Artikelfremdnummern_Sammelanlage.png"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-c767b41b-ab54-b271-0406-6e045f0a1cce" id="UUID-c767b41b-ab54-b271-0406-6e045f0a1cce_section-id23519813382345"></a>Fremdnummern-Unterstützung in der Schnittstelle aktivieren</h2>
+</div>
+<p>Damit die Fremdnummern künftig verknüpft werden, navigiere unter <span class="guilabel">Einstellungen (Zahnrad oben rechts) &gt; Verkaufen &gt; Shops/Marktplätze</span> zu der Connect Schnittstelle des jeweiligen Verkaufskanals. Folge dann folgenden Schritten:</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p>Klicke in der Schnittstelle auf das Zahnrad, um die <span class="guilabel">Einstellungen</span> zu öffnen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23262695597596" style="" alt="Artikelfremdnummern_Schnittstelle_Einstellungen.png"></div>
+</li>
+<li class="listitem">
+<p>Wechsele auf den Reiter <span class="guilabel">Erweiterte Einstellungen</span>.</p>
+</li>
+<li class="listitem">
+<p>Aktiviere <span class="guilabel">Fremdnummern verwenden</span>.</p>
+</li>
+<li class="listitem">
+<p>Trage die <span class="guilabel">Fremdnummern Bezeichnung</span> ein, die du für diesen Verkaufskanal verwendest. Dies ist die Bezeichnung, die zu im vorherigen Abschnitt verwendet hast.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23262695599132" style="" alt="Artikelfremdnummern_Schnittstelle_Einstellungen_ErweiterteEinstellungen.png"></div>
+</li>
+<li class="listitem">
+<p>Bestätige mit <span class="guilabel">Speichern</span>.</p>
+</li>
+</ol>
+</div>
+<p>Wiederhole dieses Vorgehen für andere Verkaufskanäle.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Mit diesen wenigen Schritten hast du die Unterstützung für Fremdnummern aktiviert und die Schnittstelle "übersetzt" im Hintergrund unterschiedliche Nummern in den Systemen automatisch.</p>
+<p>Im Journal wird der Artikel stets mit der Xentral Artikelnummer aufgelistet:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/23262687440540" style="" alt="Artikelfremdnummern_Journal.png"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

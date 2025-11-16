@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spedition einrichten (Versandart)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 22351530654876
+    Titel: Spedition einrichten (Versandart)
+    URL: https://help.xentral.com/hc/de/articles/22351530654876-Spedition-einrichten-Versandart
+    Erstellt: 2025-09-15T14:28:34Z
+    Aktualisiert: 2025-10-22T12:07:40Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 22351508011932
+    Export-Zeitpunkt: 2025-11-16 19:08:58
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Mit dem Modul <span class="bold"><strong>Spedition</strong></span> kannst du für beliebige Speditionen Palettenbeschriftungen bzw. Speditionsscheine erstellen, ausdrucken und anschließend der Spedition melden bzw. als CSV-Datei übermitteln. Das Modul unterstützt NVEs, Mindesthaltbarkeitsdaten und Chargen und du kannst, wenn nötig, GS1 Barcodes erstellen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_section-idm4578537271662434329150717259"></a>Enthaltene Funktionalitäten</h2>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Du kannst manuell Speditionsaufträge anlegen.</p>
+</li>
+<li class="listitem">
+<p>Du kannst ein individuelles Label für Packstücke mit Sendungs-/ NVE-Nummer und Freifeldern erstellen. Diese können mithilfe der Versandart <span class="bold"><strong>Spedition</strong></span> im Tab <span class="bold"><strong>Versandlabel</strong></span> des Lieferscheins erstellt werden.</p>
+</li>
+<li class="listitem">
+<p>Du kannst deine Packstücke auf einen Speditionsauftrag pro Spedition zusammenfassen. Die generierten Sendungs-/ NVE-Nummern und Freitext-Informationen sind darin enthalten.</p>
+</li>
+<li class="listitem">
+<p>Du kannst deine Speditionsaufträge als CSV-Datei exportieren.</p>
+</li>
+<li class="listitem">
+<p>Du kannst deine Speditionsaufträge als PDF-Datei exportieren und manuell per E-Mail an die Spedition übermitteln.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_section-idm4498240840152034329152896587"></a>Nicht enthaltene Funktionalitäten</h2>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li dir="ltr" class="listitem">
+<p dir="ltr">Du kannst nicht automatisch Speditionsaufträge aus “offenen Packstücken” erstellen.</p>
+</li>
+<li dir="ltr" class="listitem">
+<p dir="ltr">Du kannst keine Sendungs- /NVE-Nummern über eine API zu einer Spedition übertragen.</p>
+</li>
+<li dir="ltr" class="listitem">
+<p dir="ltr">Du kannst Services wie NextDay etc. nicht automatisch konfigurieren. Du musst deine Informationen über Freifelder angeben.</p>
+</li>
+<li dir="ltr" class="listitem">
+<p dir="ltr">Du kannst deine Sendung nicht über Echtzeit-Tracking verfolgen.</p>
+</li>
+<li dir="ltr" class="listitem">
+<p dir="ltr">Du kannst kein eigenes Schnittstellen-Exportformat je Spedition konfigurieren. Die Konfiguration ist nur über die vorgegebene CSV-Datei möglich. Viele Speditionen arbeiten jedoch nicht mit CSV, sondern XML, EDI und Webservices.</p>
+</li>
+<li dir="ltr" class="listitem">
+<p dir="ltr">Du kannst die CSV-Export-Datei des Speditionsauftrags nicht über das Modul <span class="guilabel">Übertragungen</span> übermitteln.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p><span class="bold"><strong>Typischer Anwendungsfall</strong></span>: Du versendest gelegentlich Speditionsaufträge. Die Versandart <span class="bold"><strong>Spedition</strong></span> ist nicht geeignet, wenn du selbst Fulfillment-Dienstleister oder Großhändler mit vielen Speditionsaufträgen bist.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_id_360016758239_id_h_01F4S4SE9SGJMSDQEZS8KHGKDZ"></a>Features</h2>
+</div>
+<p>Die Versandart <span class="bold"><strong>Spedition</strong></span> bietet dir folgende Features:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Erstellung von Palettenbeschriftungen bzw. Speditionsscheinen</p>
+</li>
+<li class="listitem">
+<p>Individuelle Anpassung von Versandlabels</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_id_360016758239_id_toc-1"></a>Versandart <span class="bold"><strong>Spedition</strong></span> anlegen</h2>
+</div>
+<p>Um den Versand per Spedition in <span class="phrase">Xentral</span> einzurichten, erstellst zu im ersten Schritt die Versandart <span class="bold"><strong>Spedition</strong></span>. Gehe dazu wie folgt vor.</p>
+<div class="procedure">
+<a id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_procedure-id235202011968715"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Suche mithilfe der Smart Search nach <span class="bold"><strong>Versandarten</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke oben rechts auf <span class="bold"><strong>+NEU</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Spedition</strong></span>.</p>
+</li>
+<li class="step">
+<p>Nimm die Einstellungen wie in der Tabelle unten beschrieben vor.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+</ol>
+</div>
+<div class="informaltable table-responsive">
+<table width="100%">
+<thead>
+<tr>
+<th>
+<p>Einstellung</p>
+</th>
+<th>
+<p>Erläuterung</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Bezeichnung</strong></span></p>
+</td>
+<td>
+<p>Hier findest du die Bezeichnung der Versandart, wie sie in <span class="phrase">Xentral</span> beispielsweise bei der Auftragsbearbeitung angezeigt wird.</p>
+<p>Die Bezeichnung ist nur für dich und deine Mitarbeiter sichtbar. Achte darauf, dass jede Bezeichnung nur einmal in <span class="phrase">Xentral</span> vorkommt, damit die Versandart stets eindeutig identifiziert werden kann.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Typ</strong></span></p>
+</td>
+<td>
+<p>Dies ist eine interne Feldbezeichnung, die für die Zuordnung bei deinen Online-Shops und anderen Verkaufsplattformen benötigt wird.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Verändere diese Bezeichnung nicht!</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Modul</strong></span></p>
+</td>
+<td>
+<p>Wähle das passende Modul aus dem Dropdown-Menü. Dabei muss der Modulname identisch zum Namen der Versandart sein, die du gerade einrichtest.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Projekt</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong><span class="emphasis"><em>Optional</em></span></strong></span>: Gib eine Projektzuordnung an. Diese wird benötigt, wenn du die Versandart auf einen bestimmten Verkaufskanal oder ein Projekt (beispielsweise eine spezifische Niederlassung) beschränken möchtest.</p>
+<p>Lasse das Feld leer, falls die Versandart in allen Projekten genutzt werden soll.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Aktiv</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, sobald du alle benötigten Einstellungen für die Versandart vorgenommen hast.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Nicht mehr verwendete Versandarten kannst du später deaktivieren. Beachte jedoch, dass deaktivierte Versandarten nur noch in bereits erstellten Belegen angezeigt werden. In neu erstellten Belegen und in Benutzerflächen wie der Auftragsübersicht oder in den Kundendaten steht eine deaktivierte Versandart nicht mehr zur Auswahl zur Verfügung. Du kannst Versandarten auch löschen. Dadurch wird jedoch auch die Versandhistorie gelöscht. Deshalb solltest du nur fälschlicherweise angelegte Versandarten löschen, die du nicht produktiv genutzt hast.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Kein Portocheck</strong></span></p>
+</td>
+<td>
+<p>Mit dieser Option kannst du den Porto-Check im Auftrag deaktivieren. Bleibt der Porto-Check aktiv, zeigt die Auftragsampel ein rotes Symbol für den Portocheck an, falls nicht mindestens ein Portoartikel in den Auftragspositionen enthalten ist. So wird verhindert, dass bei manuell angelegten Aufträgen der Portoartikel vergessen wird.</p>
+<p>Überlege anhand deiner eigenen Workflows und Arbeitsweise mit <span class="phrase">Xentral</span>, ob du diese Option aktivieren oder deaktivieren willst. Legst du typischerweise viele Aufträge manuell in Xentral an, kann es sinnvoll sein, diese Option nicht zu aktivieren, sodass gerade bei hochpreisigen Artikeln oder internationalen Sendungen das Porto immer zuverlässig am Auftrag hinterlegt wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Drucker Versandlabel</strong></span></p>
+</td>
+<td>
+<p>Wähle aus dem Dropdown-Menü den Drucker aus, der standardmäßig für die Versandlabels genutzt werden soll. Beachte, dass hier nur Drucker auswählbar sind, die du bereits <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016756299#UUID-24ed3a57-a4df-da7a-08f6-141949df3855">in Xentral eingerichtet</a> hast. Je nachdem, wie und wo der Versandprozess in deinem Unternehmen abläuft, kannst du hier genau den Drucker auswählen, den du benötigst - egal ob direkt am Schreibtisch oder am Packtisch im Lager.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Drucker Export</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong><span class="emphasis"><em>Nur bei internationalem Versand relevant</em></span></strong></span>: Wähle aus dem Dropdown-Menü den Drucker aus, der standardmäßig für Zollpapiere (CN23) genutzt werden soll.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Versand-E-Mail</strong></span></p>
+</td>
+<td>
+<p>Lege hier fest, nach welchen Regeln Versandbenachrichtigungen per E-Mail an deine Kunden verschickt werden sollen, sobald sich die Sendung auf dem Weg befindet. Die folgenden drei Optionen stehen dir zur Verfügung:</p>
+<p><span class="bold"><strong>Standardverhalten</strong></span>: Die Logistikeinstellungen aus dem Projekt werden verwendet. Diese Einstellungen nimmst du im Menü <span class="bold"><strong>Einstellungen &gt; Grundeinstellungen &gt; Projekte &gt; Projekt öffnen &gt; Tab: Einstellungen &gt; Tab: Logistik / Versand</strong></span> vor. In den Bereichen <span class="bold"><strong>Stufe 1 (Pick/Kommissionierung)</strong></span> und <span class="bold"><strong>Stufe 2 (Pack)</strong></span> definierst du über die Checkboxen namens <span class="bold"><strong>E-Mail</strong></span>, bei welchen Schritten deine Kunden über den Stand der Auftragsbearbeitung informiert werden.</p>
+<p><span class="bold"><strong>Keine Versandmail</strong></span>: Für diese Versandart wird keine Versandinformation per E-Mail versendet</p>
+<p><span class="bold"><strong>Eigene Textvorlage</strong></span>: Für diese Versandart wird die ausgewählte Textvorlage per E-Mail versendet. Diese Vorlage musst du vorab im Menü <span class="bold"><strong>Einstellungen &gt; Grundeinstellungen &gt; Belege &gt; Textvorlagen</strong></span> erstellen. Anschließend wählst du die gewünschte Vorlage im Dropdown-Menü <span class="bold"><strong>Textvorlage</strong></span> aus. Durch diese Auswahl werden die Logistikeinstellungen des Projekts für diese Versandart nicht genutzt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lieferungen unterstützt</strong></span></p>
+</td>
+<td>
+<p>Diese Option wird bei der Anlage der Versandart standardmäßig aktiviert. Sobald du alle weiteren benötigten Einstellungen vorgenommen und die Versandart auf <span class="bold"><strong>Aktiv</strong></span> gestellt hast, kannst du die Versandart in Aufträgen, Lieferscheinen und im Versandzentrum auswählen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Retouren unterstützt</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um zu erlauben, dass Retouren zu Aufträgen erstellt werden können, die ursprünglich mit der vorliegenden Versandart erstellt wurden.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Bevorzugte Rücksendemethode</strong></span></p>
+</td>
+<td>
+<p>Wähle eine bevorzugte Versandart für Retouren aus. Sobald in <span class="phrase">Xentral</span> manuell eine Retoure zu einem Auftrag mit der vorliegenden Versandart angelegt ist, wird die hier gewählte Versandart automatisch im Retourenauftrag vorausgewählt. Diese Einstellung greift nur in Fällen der manuellen Retourenerstellung.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Standard Gewicht</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong><span class="emphasis"><em>Optional</em></span></strong></span>: Welches Gewicht haben die Sendungen typischerweise, die du mit dieser Versandart verschickst? Gib hier ein Standardgewicht in kg ein. Dieses Gewicht wird jedes Mal bei der Erstellung eines Versandlabels an den Versanddienstleister übermittelt, soweit es nicht vor dem Druck des Versandlabels manuell in <span class="phrase">Xentral</span> geändert wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Spedition</strong></span></p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Etikettenvorlage Master / Palette</strong></span></p>
+</td>
+<td>
+<p>Wähle eine von dir zuvor erstellte Etikettenvorlage im XML-Format für die Palette aus.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Etikettenvorlage Slave / Packstück</strong></span></p>
+</td>
+<td>
+<p>Wähle eine von dir zuvor erstellte Etikettenvorlage im XML-Format für das Packstück aus.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_id_360016758239_id_h_01F4TYRMTWBAQ29H5Y7647A4TR"></a>Einstellungen im Speditions-Modul vornehmen</h2>
+</div>
+<p>Du kannst das Modul <span class="bold"><strong>Spedition</strong></span> in <span class="phrase">Xentral</span> über die Smart Search öffnen. Hier kannst du Packstücke für das Speditionsunternehmen erzeugen und die wesentlichen Charakteristika hinterlegen. Weitere Informationen findest im Artikel <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016719700#UUID-1bddba5f-1b60-4ca0-f149-80849d012ba2">Spedition</a>.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="id2041"></a>Allgemeine Einstellungen</h3>
+</div>
+<p>Im Tab <span class="bold"><strong>Einstellungen</strong></span> des Moduls <span class="bold"><strong>Spedition</strong></span> kannst du verschiedene Informationen pro Spedition definieren und eine Übersicht zu allen Speditionen sehen, zu denen du Spezialfelder angelegt hast.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22873731688860" style="" alt="spedition-einstellungen-en.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_section-id235201975716856"></a>Einstellungen zu NVE, Barcode, Lieferschein und Packstück</h3>
+</div>
+<p>Im Tab <span class="bold"><strong>Einstellungen</strong></span> des Moduls <span class="bold"><strong>Spedition</strong></span> kannst du zunächst Einstellungen zu NVE, Barcode, Lieferschein und Packstück vornehmen, die für den Druck des Versandlabels relevant sind. Dabei kannst du eine fortlaufende NVE vergeben, auf die durch eine Variable zugegriffen werden kann.</p>
+<p>Die folgende Tabelle erläutert die Informationen, die du hinterlegen kannst.</p>
+<div class="informaltable table-responsive">
+<table width="100%">
+<thead>
+<tr>
+<th>
+<p>Einstellung</p>
+</th>
+<th>
+<p>Erläuterung</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Nächste NVE</strong></span></p>
+</td>
+<td>
+<p>Trage die eingetragene NVE fortlaufend ein.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>extra Barcode</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um einen zusätzlichen Barcode zu erstellen und zu drucken.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Inhalt extra Barcode</strong></span></p>
+</td>
+<td>
+<p>Gib hier den Inhalt des zusätzlichen Barcodes ein, falls du die vorherige Option namens <span class="bold"><strong>extra Barcode</strong></span> aktiviert hast.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>URL für GS1 Barcode</strong></span></p>
+</td>
+<td>
+<p>Gib hier die URL für den GS1 Barcode ein.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>URL für NVE Barcode</strong></span></p>
+</td>
+<td>
+<p>Gib hier die URL für den NVE Barcode ein.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lieferschein erst nach Abschluss drucken</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um den Lieferschein erst nach Abschluss des Speditionsauftrags zu drucken.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Etikettenvorlage verwenden</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, wenn du eine Etikettenvorlage verwenden möchtest, die du zuvor in <span class="phrase">Xentral</span> angelegt hast.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Weitere Informationen zur Erstellung von Etikettenvorlagen findest du im Artikel <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360017573119#UUID-fe2f31f1-3109-8b78-4b73-57cb4e78138d">Etikettenlayout für Artikel, Lager</a>.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Packstück</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um einzustellen, dass es sich um ein einzelnes Packstück handelt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Vorlage Slave/Packstück</strong></span></p>
+</td>
+<td>
+<p>Falls du die vorherige Option namens <span class="bold"><strong>Etikettenvorlage verwenden</strong></span> aktiviert hast, wähle hier die gewünschte Vorlage für das Packstück-Etikett aus.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_id_360016758239_id_h_01F4TZRBEHRE5FXGBRCB1RXMVE"></a>Verfügbare Variablen für das Versandlabel</h3>
+</div>
+<p>Um die Angaben für das Versandlabel weiter zu spezifizieren, kannst du auf verschiedene Variablen zurückgreifen.</p>
+<p>Folgende Variablen stehen dir zur Verfügung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>{LIEFERSCHEIN}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{TELEFONNUMMER}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{PROJEKT}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{AUFTRAG}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{NVE}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{MHD}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{EAN}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{HERSTELLERNUMMER}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{ANZAHLPACKSTUECKE}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{ARTIKELNAME}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{NUMMER}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{MENGE}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{CHARGE}</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>{PACKSTUECKNUMMER}</strong></span></p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_section-idm403520199772604"></a>XML-Transportlabels/GS-1 Transportetiketten</h3>
+</div>
+<p>Um Transportlabels von verschiedenen Speditionen zu spezifizieren, kannst du außerdem eigene XML-Etikettenlayouts erstellen, die als Etikettenvorlage verwendet werden können. Wie du ein GS-1 Transportetikett gestalten kannst und wie du Spezialfelder auf dem Etikett einblenden kannst, erfährst du im Artikel <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360017573119#UUID-fe2f31f1-3109-8b78-4b73-57cb4e78138d">Etikettenlayout für Artikel, Lager</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_id_360016758239_id_toc-5"></a>Versandlabel/Transportlabel in <span class="phrase">Xentral</span> erstellen</h2>
+</div>
+<p>Je nach Handelspartner und Produkten gibt es Anforderungen an das Transportlabel, die du im Modul <span class="bold"><strong>Spedition</strong></span> in <span class="phrase">Xentral</span> einstellen kannst. Wenn du in den Lieferscheinpositionen Artikel mit MHD- oder Chargenverwaltung verschicken möchtest, müssen diese Informationen ebenso auf dem Transportlabel abgebildet werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18" id="UUID-9fbcaee7-e683-6196-ebc5-bfd4f8821b18_id_360016758239_id_h_01F20TKVTMYEFDCHTYZJAR90H9"></a>Einstellungen für das Versandlabel vornehmen</h3>
+</div>
+<p>Je nach Vorgaben des Spediteurs oder des Handelspartner kannst du in den Einstellungen der Versandart <span class="bold"><strong>Spedition</strong></span> verschiedene Eingabefelder definieren, die beim Druck des Versandlabels mit zusätzlichen Informationen befüllt und auf das Transportlabel gedruckt werden können.</p>
+<p>Beim Druck des Versandlabels wird folgende Abfrage angezeigt:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22351572077468" style="" alt="Forwarding-6.png"></div>
+<p>Folgende Angaben kannst du eintragen, bevor du auf <span class="bold"><strong>Etikett erzeugen</strong></span> klickst:</p>
+<div class="informaltable table-responsive">
+<table width="100%">
+<thead>
+<tr>
+<th>
+<p>Feldbezeichnung</p>
+</th>
+<th>
+<p>Erläuterung</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Anzahl Packstücke</strong></span></p>
+</td>
+<td>
+<p>Trage die Anzahl der Packstücke ein.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Artikel / GTIN</strong></span></p>
+</td>
+<td>
+<p>Gib die Artikelnummer/GTIN ein.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>MHD</strong></span></p>
+</td>
+<td>
+<p>Gib das Mindesthaltbarkeitsdatum der Sendung ein.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Menge</strong></span></p>
+</td>
+<td>
+<p>Gib die Anzahl an Versandlabels ein, die ausgedruckt werden sollen.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Das gedruckte Versandlabel (in diesem Fall mit Angabe des Mindesthaltbarkeitsdatums) kann beispielhaft so aussehen:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22351572085276" style="" alt="Forwarding-7.png"></div>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Das benötigte Etikettenlayout findest du im Artikel <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360017573119#UUID-fe2f31f1-3109-8b78-4b73-57cb4e78138d">Etikettenlayout für Artikel, Lager</a>.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

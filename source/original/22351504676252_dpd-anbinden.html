@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPD anbinden</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 22351504676252
+    Titel: DPD anbinden
+    URL: https://help.xentral.com/hc/de/articles/22351504676252-DPD-anbinden
+    Erstellt: 2025-09-15T14:28:31Z
+    Aktualisiert: 2025-10-10T14:50:26Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 22351494238108
+    Export-Zeitpunkt: 2025-11-16 19:07:03
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section top-level-topic zd-article section original-topic" xml:lang="de">
+<p>Die Versandart <span class="bold"><strong>DPD (API)</strong></span> in <span class="phrase">Xentral</span> ermöglicht dir den Versand deiner Waren mit dem Versanddienstleister DPD. Als einer der größten und meist genutzten Versanddienstleister in Deutschland bietet dir DPD verschiedene Services an.</p>
+<p>Um deine Produkte mit dem Versanddienstleister DPD innerhalb Deutschlands oder in EU-Mitgliedsstaaten zu versenden, benötigst du spezielle Zugangsdaten von DPD. Mithilfe dieser Zugangsdaten kannst du <span class="phrase">Xentral</span> anschließend ganz einfach an die DPD Cloud anbinden. Zusätzlich kannst du die Versandart <span class="bold"><strong>DPD (API)</strong></span> wie folgt in deinen Versandprozess integrieren:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Manuelle Erstellung von Versandlabels zu einzelnen Lieferscheinen</p>
+</li>
+<li class="listitem">
+<p>Automatische Erstellung von Versandlabels innerhalb verschiedener Logistikprozesse</p>
+</li>
+<li class="listitem">
+<p>Zuverlässiger Versand verschiedener Sendungsgrößen</p>
+</li>
+<li class="listitem">
+<p>Transparente Rückmeldung von Tracking-Nummern an deine Online-Shops und sonstige Verkaufsplattformen</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section internal">
+<div class="titlepage">
+<h2 class="title">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_id_360016721940_id_toc-1"></a>Features</h2>
+</div>
+<p>Die <span class="phrase">Xentral</span> Versandart <span class="bold"><strong>DPD (API)</strong></span> bietet dir die folgenden Features:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Auswahl zusätzlicher DPD-Versandservices</p>
+</li>
+<li class="listitem">
+<p>Festlegung des Druckformats für Versandlabels</p>
+</li>
+<li class="listitem">
+<p>Nutzung der DPD-eigenen Sendungsverfolgung <a class="link" href="https://www.dpd.com/de/de/empfangen/#empfangen_predict" target="_blank" rel="noopener">Predict</a> inklusive Zustellung am Wunschtag oder Abstell-Okay</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal">
+<div class="titlepage">
+<h2 class="title">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_id_360016721940_id_toc-2"></a>DPD an <span class="phrase">Xentral</span> anbinden</h2>
+</div>
+<p>Um <span class="bold"><strong>DPD (API)</strong></span> in <span class="phrase">Xentral</span> als Versandart zu nutzen, legst du zunächst eine neue Versandart an. Anschließend aktivierst du diese mit deinen vorliegenden Vertragsdaten von DPD. Es braucht nur einige Minuten und wenige Schritte, bist du deine ersten Produkte mit DPD versenden kannst!</p>
+<p>Wenn du bislang kein DPD-Geschäftskunde bist und dich für die verschiedenen Angebote und Services dieses Versanddienstleisters interessierst, informiere dich zuerst auf der <a class="link" href="https://www.dpd.com/de/de/versenden/e-commerce-versand/" target="_blank" rel="noopener">offiziellen DPD Homepage</a>.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Für die Anbindung der Versandart <span class="bold"><strong>DPD (API)</strong></span> musst du dich für den Zugang zur DPD Cloud freischalten lassen und über die Zugangsdaten zur Cloud verfügen.</p>
+<p>Je nachdem, zu welcher Kundengruppe du bei DPD gehörst, erhältst du die Zugangsdaten auf unterschiedlichen Wegen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Du bist <span class="bold"><strong>myDPD Pro-Kunde</strong></span> und versendest weniger als 500 Pakete pro Monat: Kontaktiere dein zuständiges DPD-Depot, um die Zugangsdaten zu erhalten.</p>
+</li>
+<li class="listitem">
+<p>Du bist <span class="bold"><strong>myDPD Business-Kunde</strong></span> und versendest mehr als 500 Pakete pro Monat: Du findest die Zugangsdaten in deinem Konto unter <a class="link" href="https://business.dpd.de/login.aspx" target="_blank" rel="noopener">www.mydpdbusiness.de</a>.</p>
+</li>
+</ul>
+</div>
+<p>Du benötigst die Zugangsdaten <span class="bold"><strong>ClouduserID</strong></span> und <span class="bold"><strong>ClouduserToken</strong></span> zwingend für die Einrichtung der Versandart <span class="bold"><strong>DPD (API)</strong></span> in <span class="phrase">Xentral</span>.</p>
+</div>
+<div dir="ltr" class="section">
+<div class="titlepage">
+<h3 class="title">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_section-idm234725127928266"></a>Grundeinstellungen vornehmen</h3>
+</div>
+<div class="procedure">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_procedure-idm234725128522732"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Suche mithilfe der Smart Search nach <span class="bold"><strong>Versandarten</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke oben rechts auf <span class="bold"><strong>+NEU</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>DPD (API)</strong></span>.</p>
+</li>
+<li class="step">
+<p>Gib die Informationen wie in der Tabelle unten beschrieben ein.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Weiter</strong></span>.</p>
+</li>
+<li class="step">
+<p>Nimm folgende Einstellungen vor:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Projekt-Filter</strong></span> (optional): Gib ein Projekt an, wenn du pro Verkaufskanal einen anderen Drucker für das Versandlabel verwenden möchtest.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Drucker</strong></span>: Wähle den gewünschten Drucker für das Versandlabel aus.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Export Drucker</strong></span>: Die Einstellung <span class="bold"><strong>Drucker Export</strong></span> ist nur relevant, wenn die Versandart Zolllieferungen, also Sendungen in Länder außerhalb der Europäischen Union, unterstützt. Dies ist bei der Versandart <span class="bold"><strong>DPD (API)</strong></span> nicht der Fall. Belasse die Auswahl so wie von <span class="phrase">Xentral</span> vorgegeben.</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Weiter</strong></span>.</p>
+<div class="result">
+<p>Die Versandart wird gespeichert.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="informaltable table-responsive">
+<table>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>CloudUser ID</strong></span> (Pflichtfeld)</p>
+</td>
+<td>
+<p>Gib die CloudUser ID ein, die du nach der Freischaltung für die DPD Cloud erhalten hast.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>CloudUser Token</strong></span> (Pflichtfeld)</p>
+</td>
+<td>
+<p>Gib den CloudUser Token ein, den du nach der Freischaltung für die DPD Cloud erhalten hast.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Format</strong></span> (Pflichtfeld)</p>
+</td>
+<td>
+<p>Wähle das Format aus, in dem die Versandlabels für DPD später gedruckt werden sollen. Zur Verfügung stehen die Optionen <span class="bold"><strong>A4</strong></span> für Versandlabels im Format DIN A4 sowie <span class="bold"><strong>A6</strong></span> für Versandlabels im Format DIN A6.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:500px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22351529741340" style="max-width: 500px;" alt="dpd_credentials-en.png"></td>
+</tr>
+</table>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:500px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22351565289244" style="max-width: 500px;" alt="dpd_printer_project_settings-en.png"></td>
+</tr>
+</table>
+</div>
+<p>Nachdem du die oben beschriebenen Einstellungen vorgenommen hast, kannst du jetzt entweder weitere Experteneinstellungen vornehmen oder direkt einen Lieferschein aufrufen, um ein Versandlabel zu erstellen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section">
+<div class="titlepage">
+<h3 class="title">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_section-idm234725141970611"></a>Zusätzliche Einstellungen vornehmen</h3>
+</div>
+<p>Wenn du DPD bereits als Versandart angelegt hast oder die oben beschriebenen Grundeinstellungen für deine Anforderungen nicht ausreichen, kannst du im Expertenmodus weitergehende Einstellungen für die Versandart vornehmen. Wenn du <a class="link" href="#UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_id_360016721940_id_toc-4" title="DPD-Versandservices in Xentral hinzufügen">zusätzliche DPD-Versandservices</a> gebucht hast, gibst du diese ebenfalls im Expertenmodus an.</p>
+<div class="procedure">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_procedure-idm234725143064958"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Suche mithilfe der Smart Search nach <span class="bold"><strong>Versandarten</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke bei der Versandart, für die du Einstellungen vornehmen möchtest rechts auf das <span class="bold"><strong>Stift-Symbol</strong></span>.</p>
+</li>
+<li class="step">
+<p>Aktiviere im Bereich <span class="bold"><strong>Experte</strong></span> die Option <span class="bold"><strong>Zusätzliche Einstellungen anzeigen</strong></span>.</p>
+</li>
+<li class="step">
+<p>Nimm die Einstellungen wie folgt vor und klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+</ol>
+</div>
+<div class="informaltable table-responsive">
+<table>
+<thead>
+<tr>
+<th>
+<p>Einstellung</p>
+</th>
+<th>
+<p>Erläuterung</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Bezeichnung</strong></span></p>
+</td>
+<td>
+<p>Hier findest du die Bezeichnung der Versandart, wie sie in <span class="phrase">Xentral</span> beispielsweise bei der Auftragsbearbeitung angezeigt wird.</p>
+<p>Die Bezeichnung ist nur für dich und deine Mitarbeiter sichtbar. Achte darauf, dass jede Bezeichnung nur einmal in <span class="phrase">Xentral</span> vorkommt, damit die Versandart stets eindeutig identifiziert werden kann.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Typ</strong></span></p>
+</td>
+<td>
+<p>Dies ist eine interne Feldbezeichnung, die für die Zuordnung bei deinen Online-Shops und anderen Verkaufsplattformen benötigt wird.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Verändere diese Bezeichnung nicht!</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Modul</strong></span></p>
+</td>
+<td>
+<p>Wähle das passende Modul aus dem Dropdown-Menü. Dabei muss der Modulname identisch zum Namen der Versandart sein, die du gerade einrichtest.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Projekt</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong><span class="emphasis"><em>Optional</em></span></strong></span>: Gib eine Projektzuordnung an. Diese wird benötigt, wenn du die Versandart auf einen bestimmten Verkaufskanal oder ein Projekt (beispielsweise eine spezifische Niederlassung) beschränken möchtest.</p>
+<p>Lasse das Feld leer, falls die Versandart in allen Projekten genutzt werden soll.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Aktiv</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, sobald du alle benötigten Einstellungen für die Versandart vorgenommen hast.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Nicht mehr verwendete Versandarten kannst du später deaktivieren. Beachte jedoch, dass deaktivierte Versandarten nur noch in bereits erstellten Belegen angezeigt werden. In neu erstellten Belegen und in Benutzerflächen wie der Auftragsübersicht oder in den Kundendaten steht eine deaktivierte Versandart nicht mehr zur Auswahl zur Verfügung. Du kannst Versandarten auch löschen. Dadurch wird jedoch auch die Versandhistorie gelöscht. Deshalb solltest du nur fälschlicherweise angelegte Versandarten löschen, die du nicht produktiv genutzt hast.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Kein Portocheck</strong></span></p>
+</td>
+<td>
+<p>Mit dieser Option kannst du den Porto-Check im Auftrag deaktivieren. Bleibt der Porto-Check aktiv, zeigt die Auftragsampel ein rotes Symbol für den Portocheck an, falls nicht mindestens ein Portoartikel in den Auftragspositionen enthalten ist. So wird verhindert, dass bei manuell angelegten Aufträgen der Portoartikel vergessen wird.</p>
+<p>Überlege anhand deiner eigenen Workflows und Arbeitsweise mit <span class="phrase">Xentral</span>, ob du diese Option aktivieren oder deaktivieren willst. Legst du typischerweise viele Aufträge manuell in <span class="phrase">Xentral</span> an, kann es sinnvoll sein, diese Option nicht zu aktivieren, sodass gerade bei hochpreisigen Artikeln oder internationalen Sendungen das Porto immer zuverlässig am Auftrag hinterlegt wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Drucker Versandlabel</strong></span></p>
+</td>
+<td>
+<p>Wähle aus dem Dropdown-Menü den Drucker aus, der standardmäßig für die Versandlabels genutzt werden soll. Beachte, dass hier nur Drucker auswählbar sind, die du bereits wie im Artikel <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016756299#UUID-24ed3a57-a4df-da7a-08f6-141949df3855">Deinen Drucker mit Xentral verbinden</a>  beschrieben in <span class="phrase">Xentral</span> eingerichtet hast. Je nachdem, wie und wo der Versandprozess in deinem Unternehmen abläuft, kannst du hier genau den Drucker auswählen, den du benötigst - egal ob direkt am Schreibtisch oder am Packtisch im Lager.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Drucker Export</strong></span></p>
+</td>
+<td>
+<p>Diese Einstellung ist nur relevant, wenn die Versandart Zolllieferungen, also Sendungen in Länder außerhalb der Europäischen Union, unterstützt. Dies ist bei der Versandart <span class="bold"><strong>DPD (API)</strong></span> nicht der Fall. Triff hier also keine Auswahl.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Versandmail</strong></span></p>
+</td>
+<td>
+<p>Lege hier fest, nach welchen Regeln Versandbenachrichtigungen per E-Mail an deine Kunden verschickt werden sollen, sobald sich die Sendung auf dem Weg befindet. Die folgenden drei Optionen stehen dir zur Verfügung:</p>
+<p><span class="bold"><strong>Standardverhalten</strong></span>: Die Logistikeinstellungen aus dem Projekt werden verwendet. Diese Einstellungen nimmst du im Menü <span class="bold"><strong>Einstellungen &gt; Grundeinstellungen &gt; Projekte &gt; Projekt öffnen &gt; Tab: Einstellungen &gt; Tab: Logistik / Versand</strong></span> vor. In den Bereichen <span class="bold"><strong>Stufe 1 (Pick/Kommissionierung)</strong></span> und <span class="bold"><strong>Stufe 2 (Pack)</strong></span> definierst du über die Checkboxen namens <span class="bold"><strong>E-Mail</strong></span>, bei welchen Schritten deine Kunden über den Stand der Auftragsbearbeitung informiert werden.</p>
+<p><span class="bold"><strong>Keine Versandmail</strong></span>: Für diese Versandart wird keine Versandinformation per E-Mail versendet.</p>
+<p><span class="bold"><strong>Eigene Textvorlage</strong></span>: Für diese Versandart wird die ausgewählte Textvorlage per E-Mail versendet. Diese Vorlage musst du vorab im Menü <span class="bold"><strong>Einstellungen &gt; Grundeinstellungen &gt; Belege &gt; Textvorlagen</strong></span> erstellen. Anschließend wählst du die gewünschte Vorlage im Dropdown-Menü <span class="bold"><strong>Textvorlage</strong></span> aus. Durch diese Auswahl werden die Logistikeinstellungen des Projekts für diese Versandart nicht genutzt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Textvorlage</strong></span></p>
+</td>
+<td>
+<p>Diese Einstellung ist nur verfügbar, wenn du dich bei der Einstellung <span class="bold"><strong>Versandmail</strong></span> für die Option <span class="bold"><strong>Eigene Textvorlage</strong></span> entschieden hast. Wähle hier eine spezifische Textvorlage, die für diese Versandart verschickt werden soll. Hierbei kann es sich zum Beispiel um eine speziell auf den Versanddienstleister zugeschnittene Information oder eine Information für Selbstabholer handeln, die je nach Niederlassung abweichen kann.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lieferungen unterstützt</strong></span></p>
+</td>
+<td>
+<p>Diese Option wird bei der Anlage der Versandart standardmäßig aktiviert. Sobald du alle weiteren benötigten Einstellungen vorgenommen und die Versandart auf <span class="bold"><strong>Aktiv</strong></span> gestellt hast, kannst du die Versandart in Aufträgen, Lieferscheinen und im Versandzentrum auswählen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Retouren unterstützt</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um zu erlauben, dass Retouren zu Aufträgen erstellt werden können, die ursprünglich mit der vorliegenden Versandart erstellt wurden.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Bevorzugte Rücksendemethode</strong></span></p>
+</td>
+<td>
+<p>Wähle eine bevorzugte Versandart für Retouren aus. Sobald in <span class="phrase">Xentral</span> manuell eine Retoure zu einem Auftrag mit der vorliegenden Versandart angelegt ist, wird die hier gewählte Versandart automatisch im Retourenauftrag vorausgewählt. Diese Einstellung greift nur in Fällen der manuellen Retourenerstellung.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Mit "Classic Predict" versenden</strong></span></p>
+</td>
+<td>
+<p>Diese Option stellt den Standardversand dar und aktiviert den Live-Tracking Service von DPD, sodass deine Kunden jederzeit den Status der Lieferung verfolgen können.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Wir empfehlen dir, diese Option in jedem Fall zu aktivieren, falls du keinen alternativen Versandservice bei DPD gebucht hast. Andernfalls kann es dazu kommen, dass DPD dir zusätzliche Kosten für deine Sendungen in Rechnung stellt.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Alternativer Versandservice</strong></span></p>
+</td>
+<td>
+<p>Hast du bei DPD einen anderen Service als Classic oder Classic Predict gebucht? Dann gib hier die Kennung des entsprechenden Versandservice an. Weitere Informationen zu den verfügbaren Services und den dazugehörigen Produktkennungen findest du weiter unten im Kapitel <a class="xref" href="#UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_id_360016721940_id_toc-4" title="DPD-Versandservices in Xentral hinzufügen">DPD-Versandservices in <span class="phrase">Xentral</span> hinzufügen</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Mindestgewicht</strong></span></p>
+</td>
+<td>
+<p>Trage hier das erforderliche Mindestgewicht für DPD-Sendungen ein. Jeder Wert größer als 0 ist erlaubt. Diese Einstellung ist optional. Erkundige dich im Zweifel bei deinem DPD-Kundenbetreuer, um zu erfahren, welche Angabe hier erwartet wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Gewicht anpassen in</strong></span></p>
+</td>
+<td>
+<p>Zur Erstellung des Versandlabels wird eine genaue Berechnung des Gesamtgewichts der Sendung inklusive Verpackungsmaterial benötigt. <span class="phrase">Xentral</span> berechnet das Sendungsgewicht automatisiert im Hintergrund, indem das Gesamtgewicht der im Auftrag enthaltenen Positionen addiert wird. Mit der vorliegenden Option wird diesem Gewicht ein von dir festgelegtes Gewicht hinzugefügt. So entsteht ein Gesamtwert für die Versandanmeldung, der bei der Erstellung des Versandlabels berücksichtigt und automatisch an den Versanddienstleister gemeldet wird.</p>
+<p>Entscheide, ob das zusätzliche Gewicht des Verpackungsmaterials in <span class="bold"><strong>kg</strong></span> oder <span class="bold"><strong>%</strong></span> angegeben werden soll. Mithilfe der folgenden Einstellung namens <span class="bold"><strong>Gewicht anpassen um</strong></span> definierst du das zusätzliche Gewicht genauer.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Gewicht anpassen um</strong></span></p>
+</td>
+<td>
+<p>Mithilfe dieser Einstellung bestimmst du deine Angaben für die Einstellung <span class="bold"><strong>Gewicht anpassen in</strong></span> näher. Gib hier das zusätzliche Sendungsgewicht je nach vorheriger Auswahl in Kilogramm oder Prozent ein. Für welche Berechnungsart und welche konkreten Werte du dich entscheidest, hängt von der Verpackungsart deiner Produkte und deinen verwendeten Verpackungsmaterialien ab.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Druck-Format</strong></span></p>
+</td>
+<td>
+<p>Wähle aus, in welchem Format die Versandlabels für DPD-Sendungen ausgedruckt werden sollen. Zur Verfügung stehen die Optionen <span class="bold"><strong>A4</strong></span> für Versandlabels im Format DIN A4 sowie <span class="bold"><strong>A6</strong></span> für Versandlabels im Format DIN A6.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Referenz 1 auf Label</strong></span></p>
+</td>
+<td>
+<p>Bestimme mithilfe der angezeigten Variablen, ob du zusätzliche Informationen auf dem Versandlabel abdrucken möchtest. Du kannst auch einen Freitext eingeben. Folgende Variablen stehen dir dafür zur Verfügung: {LIEFERSCHEIN}, {AUFTRAG}, {PROJEKT}, {IHREBESTELLNUMMER}, {NAME3}, {INTERNET}.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Referenz 2 auf Label</strong></span></p>
+</td>
+<td>
+<p>Bestimme mithilfe der angezeigten Variablen, ob du zusätzlich zu <span class="bold"><strong>Referenz 1 auf Label</strong></span> weitere Informationen auf dem Versandlabel abdrucken möchtest. Du kannst auch einen Freitext eingeben. Folgende Variablen stehen dir dafür zur Verfügung: {LIEFERSCHEIN}, {AUFTRAG}, {PROJEKT}, {IHREBESTELLNUMMER}, {NAME3}, {INTERNET}.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Sofort abschließen</strong></span></p>
+</td>
+<td>
+<p>Ist diese Option aktiviert, wird die versehentliche Erstellung mehrerer Versandlabels für dasselbe Paket verhindert, falls im Tab <span class="bold"><strong>Versandlabel</strong></span> des Lieferscheins die Anzahl eingestellt ist. Dies ist nur der Fall, wenn eine Lieferung auf mehrere Pakete aufgeteilt wird. Versandlabels werden entsprechend der angegebenen Anzahl der Versandpakete erstellt. Die entsprechenden Tracking-Nummern werden automatisch abgespeichert. Abschließend wird eine Versandmail verschickt, in der die Links zur Sendungsverfolgung sowie die Tracking-Nummern von DPD enthalten sind.</p>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Aktiviere diese Option <span class="bold"><strong>nicht</strong></span>, wenn du in den Projekteinstellungen festgelegt hast, dass der Druck des Lieferscheins und des Versandlabels in <span class="bold"><strong>Stufe 1 (Pick/Kommissionierung)</strong></span> des Logistikprozesses stattfindet.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Tracking-Nummer in Auftrag übernehmen</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um die Tracking-Nummer nach der Erstellung des Versandlabels direkt im dazugehörigen Auftrag in <span class="phrase">Xentral</span> zu übernehmen. So bleibt die Tracking-Nummer dauerhaft in deinem System vermerkt und du musst das Versandlabel nach der Erstellung nicht erneut scannen, um diese Daten in <span class="phrase">Xentral</span> zu erfassen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Versandlabel vorab generieren</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um Versandlabels vorab im Hintergrund zu generieren, sobald ein Auftrag mit dieser Versandart in den Auto-Versand übergeben wird. So funktioniert das Drucken der Versandlabels in <span class="phrase">Xentral</span> deutlich schneller, vor allem wenn du täglich eine sehr große Anzahl von Sendungen verschickst. Weitere Informationen zu dieser Einstellung solltest du im Artikel <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016757139#UUID-8ee2b6e8-1c6c-8f2e-1259-35d3532701b0">Versandzentrum (Packtisch-Modul): Kommissionieren, Verpacken und Versenden</a> nachlesen, bevor du die Option aktivierst.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal">
+<div class="titlepage">
+<h2 class="title">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_id_360016721940_id_toc-4"></a>DPD-Versandservices in <span class="phrase">Xentral</span> hinzufügen</h2>
+</div>
+<p>Direkt bei DPD hast du die Möglichkeit, weitere Versandservices zu deinem Vertrag zu buchen. Diese Versandservices beinhalten verschiedene Varianten des Expressversands, die <a class="link" href="https://www.dpd.com/de/de/versenden/expressversand/" target="_blank" rel="noopener">direkt bei DPD genauer erläutert werden</a>. So gelangen deine Waren bei Bedarf deutlich schneller an deine Kunden.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Wenn du mehrere DPD-Versandservices parallel verwendest, musst du hierfür verschiedene Versandarten in <span class="phrase">Xentral</span> anlegen. Für jeden Versandservice wird eine separate Versandart benötigt.</p>
+</div>
+<p>Gehe wie folgt vor, um alternative Versandservices für DPD in <span class="phrase">Xentral</span> hinzuzufügen.</p>
+<div class="procedure">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_procedure-idm234728531400329"></a>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22351556612380" style="width: 760px;" alt="dpd_shipping_services_1.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22351529901980" style="width: 760px;" alt="dpd_shipping_services_2-en.png"></div>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Suche mithilfe der Smart Search nach <span class="bold"><strong>Versandarten</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke bei der Versandart, für die du einen Versandservice hinzufügen möchtest rechts auf das <span class="bold"><strong>Stift-Symbol</strong></span>.</p>
+</li>
+<li class="step">
+<p>Aktiviere im Bereich <span class="bold"><strong>Experte</strong></span> die Option <span class="bold"><strong>Zusätzliche Einstellungen anzeigen</strong></span>.</p>
+</li>
+<li class="step">
+<p>Trage im Feld <span class="bold"><strong>Alternativer Versandservice</strong></span> die Produktkennung des gewünschten Versandservice ein. Eine Liste mit den entsprechenden Kennungen findest du unten in der Tabelle.</p>
+</li>
+</ol>
+</div>
+<p>Im Folgenden findest du eine Liste der verfügbaren DPD-Versandservices in <span class="phrase">Xentral</span> sowie die notwendigen Produktkürzel, die du im Feld <span class="bold"><strong>Alternativer Versandservice</strong></span> eingeben musst.</p>
+<div class="informaltable table-responsive">
+<table>
+<thead>
+<tr>
+<th>
+<p>DPD-Versandservice</p>
+</th>
+<th>
+<p>Produktkennung für die Einrichtung in Xentral</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>DPD 08:30 (Zustellung bis 08:30 Uhr)</p>
+</td>
+<td>
+<p>Express_830</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>DPD 12:00 (Zustellung bis 12:00 Uhr)</p>
+</td>
+<td>
+<p>Express_12</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>DPD EXPRESS (Zustellung bis 18:00 Uhr)</p>
+</td>
+<td>
+<p>Express_18</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>DPD 12:00 Samstag (Zustellung samstags bis 12:00 Uhr)</p>
+</td>
+<td>
+<p>Express_12_Saturday</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Verwende bei der Einrichtung der Versandart in <span class="phrase">Xentral</span> nur Produktkennungen für Versandservices, die du bei DPD vertraglich gebucht hast und die für dich freigeschaltet wurden. Andernfalls kommt es zu Fehlern bei der Erstellung von DPD-Versandlabels.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section">
+<div class="titlepage">
+<h2 class="title">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_section-idm234726988537906"></a>Versandlabel drucken</h2>
+</div>
+<p>Sobald du alle Einstellungen wie oben beschrieben vorgenommen hast, kannst du den Druck des Versandlabels im Versandzentrum oder auch in einem einzelnen Lieferschein testen. Gehe dazu wie folgt vor.</p>
+<div class="procedure">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_procedure-idm234727007527338"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne per Klick auf das Stift-Symbol rechts einen Lieferschein im Menü <span class="bold"><strong>Einstellungen &gt; Lager &gt; Lieferschein</strong></span>.</p>
+</li>
+<li class="step">
+<p>Öffne das Tab <span class="bold"><strong>Details</strong></span>.</p>
+</li>
+<li class="step">
+<p>Scrolle nach unten, bis du den Bereich <span class="bold"><strong>Lieferschein</strong></span> erreichst.</p>
+</li>
+<li class="step">
+<p>Wähle die Versandart <span class="bold"><strong>DPD (API)</strong></span> aus dem Dropdown-Menü <span class="bold"><strong>Versandart</strong></span> aus.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+<li class="step">
+<p>Öffne das Tab <span class="bold"><strong>Versandlabel</strong></span>.</p>
+</li>
+<li class="step">
+<p>Passe, falls nötig, die Adressdaten an.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Versandlabel drucken</strong></span>.</p>
+</li>
+<li class="step">
+<p>Lade das Versandlabel herunter. Anschließend kannst du es öffnen und auf etwaige Fehler prüfen.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section">
+<div class="titlepage">
+<h2 class="title">
+<a id="UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8_section-idm234726988670618"></a>Häufige Fehlermeldungen und Lösungen</h2>
+</div>
+<p>In diesem Kapitel haben wir die Fehlermeldungen aufgelistet, die bei der Verwendung der Versandart <span class="bold"><strong>DPD (API)</strong></span> in <span class="phrase">Xentral</span> auftreten können.</p>
+<div class="informaltable table-responsive">
+<table>
+<thead>
+<tr>
+<th>
+<p>Fehlermeldung</p>
+</th>
+<th>
+<p>Erläuterung und Lösung</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>YourInternalID 28: XXXXXX Strasse - Postleitzahl - Ort kann nicht zugeordnet werden. Evtl. liegt ein Schreibfehler in der Adresse vor.</strong></span></p>
+</td>
+<td>
+<p>Diese Fehlermeldung wird direkt von DPD an <span class="phrase">Xentral</span> übergeben. Dieser konkrete Fehler tritt auf, wenn bei der Erstellung des Versandlabels fehlerhafte Adressdaten eingegeben wurden. Prüfe zunächst die genannten Adressdaten auf ihre Richtigkeit. Falls du weiterhin diese Fehlermeldung erhältst, solltest du dich an den DPD Support wenden.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>YourInternalID XXXXXX MPSEXP_1: Die Paketscheinnummer xxxxxxxxxx wurde im Gültigkeitszeitraum bereits in einem anderen Auftrag verwendet</strong></span></p>
+</td>
+<td>
+<p>Diese Fehlermeldung wird direkt von DPD an <span class="phrase">Xentral</span> übergeben. Dieser konkrete Fehler tritt auf, wenn der Nummernkreis für dein DPD-Geschäftskundenkonto erweitert werden muss. Hintergrundinformation: Die Paketnummern von DPD sind in der Regel 6-9 Monate gültig und werden danach wiederverwendet. So kann es vorkommen, dass deine Paketnummern schon früher aufgebraucht worden sind und sich daher wiederholen. Bitte kontaktiere deinen Kundenbetreuer bei DPD oder den DPD Support, um den Nummernkreis zu erweitern und damit den Fehler zu beheben.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>YourInternalID XXXXXX ROUTING_15: Die Service-Kombination ist nicht möglich</strong></span></p>
+</td>
+<td>
+<p>Diese Fehlermeldung wird direkt von DPD an <span class="phrase">Xentral</span> übergeben. Dieser konkrete Fehler tritt bei der Erzeugung des Versandlabels in <span class="phrase">Xentral</span> auf, wenn der gewählte DPD-Versandservice nicht für die eingegebene Empfängeradresse verfügbar ist.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Es können auch andere Produktkennungen als <span class="bold"><strong>ROUTING_15</strong></span> in der Fehlermeldung enthalten sein. Bitte kontaktiere deinen Kundenbetreuer bei DPD oder den DPD Support, um den Fehler zu beheben.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Das Versanddatum ist kein zulässiges Abholdatum. Keine Abholung an Samstagen, Sonntagen sowie Feiertagen.</strong></span></p>
+</td>
+<td>
+<p>Diese Fehlermeldung wird direkt von DPD an <span class="phrase">Xentral</span> übergeben. Dieser konkrete Fehler tritt auf, wenn du versuchst, an einem Samstag, Sonntag oder Feiertag ein Versandlabel in <span class="phrase">Xentral</span> zu erzeugen. Da DPD an diesen Tagen keinen Abholung von Sendungen durchführt, ist die Erstellung von Versandlabels an solchen Tagen nicht möglich.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Die Erstellung von DPD-Versandlabels für die oben genannten Tage ist eine Limitierung vonseiten DPD. Es gibt keine Möglichkeit, dieses Verhalten mithilfe von Einstellungen in <span class="phrase">Xentral</span> zu umgehen.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Beim Anforderungskanal ist während des Wartens auf eine Antwort nach 00:00:59.9844236 eine Zeitüberschreitung aufgetreten. Erhöhen Sie den an den Aufruf übergebenen Zeitlimitwert auf “Request”, oder erhöhen Sie den SendTimeout-Wert für die Bindung. Der für diesen Vorgang zugewiesene Zeitraum war möglicherweise ein Teil eines längeren Timeouts.</strong></span></p>
+</td>
+<td>
+<p>Diese Fehlermeldung wird direkt von DPD an <span class="phrase">Xentral</span> übergeben. Dieser konkrete Fehler tritt typischerweise auf, wenn eine technische Störung der DPD-Schnittstelle vorliegt. Diese Störungen führen meist dazu, dass vorübergehend keine DPD-Versandlabels erstellt werden können.</p>
+<p>Wenn diese Fehlermeldung bei dir auftritt, solltest du dich an den DPD Support wenden, um nähere Informationen zur voraussichtlichen Dauer zu erhalten. Sobald der <span class="phrase">Xentral</span> Support Kenntnis von einer solchen technischen Störung erhält, werden Nutzer zusätzlich per Hinweis in <span class="phrase">Xentral</span> und in der <a class="link" href="https://xentral.community/" target="_blank" rel="noopener">Xentral Community</a> informiert.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>YourInternalID 43: Es konnte kein Paketschein geladen werden.</strong></span></p>
+</td>
+<td>
+<p>Diese Fehlermeldung wird direkt von DPD an <span class="phrase">Xentral</span> übergeben. Sie wird angezeigt, wenn eine Störung der DPD-API vorliegt. <span class="phrase">Xentral</span> hat in diesem Fall keinen Einfluss auf die Lösung des Problems. Erkundige dich daher direkt beim DPD-Support, um Auskunft zur voraussichtlichen Behebung des Problems zu erhalten.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

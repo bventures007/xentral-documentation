@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warteschlangenprozess konfigurieren</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 4408098681234
+    Titel: Warteschlangenprozess konfigurieren
+    URL: https://help.xentral.com/hc/de/articles/4408098681234-Warteschlangenprozess-konfigurieren
+    Erstellt: 2021-10-13T08:20:33Z
+    Aktualisiert: 2023-11-03T03:21:54Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254835385116
+    Export-Zeitpunkt: 2025-11-16 19:10:08
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3_UUID-4bd99e5a-ab09-5c6d-59db-cef133ae45f3"></a>Anmerkung</h3>
+<p>Diese Informationen sind nur für Kunden mit einer On-Premise-Instanz relevant.</p>
+</div>
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3_UUID-9cc378f5-71f8-3d61-37ab-664e0f2b2827"></a>End-of-Life für On-Premise-Instanzen</h3>
+<p>Ende März 2023 beenden wir die Unterstützung von <span class="phrase">Xentral</span>-Instanzen, die „On-Premise“ von unseren Kunden selbst gehostet werden. Wir empfehlen dir daher, deine <span class="phrase">Xentral</span>-Instanz in unsere Cloud zu migrieren. Kontaktiere uns gerne jederzeit unter <a class="link" href="mailto:account@xentral.com" target="_blank">account@xentral.com</a>, um diesbezügliche Fragen zu klären oder einen Termin für deine Migration zu buchen. Alternativ kannst du weitere Informationen auf <a class="link" href="https://xentral.com/artikel/faq-xentral-cloud-migration/" target="_blank" rel="noopener">unserer Website</a> oder in <a class="link" href="https://xentral.community/updates-zur-xentral-plattform-17/wichtig-end-of-life-on-premise-ende-maerz-2023-2611" target="_blank" rel="noopener">unserer Community</a> finden.</p>
+<p>Beachte bitte, dass wir Ende März 2023 jegliche Supportleistungen für On-Premise-Instanzen beenden. Wir stellen dann keine weiteren Bug-Fixes oder Updates mehr zur Verfügung. Außerdem wird es keine weitere Open-Source-Version mehr geben.</p>
+</div>
+<p>Xentral 22.1 verfügt über eine Warteschlangenkomponente zur Normalisierung der Arbeitslast. Die Aufträge in der Warteschlange werden von einem lang laufenden Worker Prozess ausgeführt.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3" id="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3_id_4408098681234_id_Command"></a>Worker Prozess starten und anhalten</h2>
+</div>
+<p>Um den Worker manuell zu starten, gib folgenden Befehl im Command Line Interface ein:</p>
+<pre class="programlisting">php /xentral_root_dir/artisan queue:work</pre>
+<p>Um den Worker manuell anzuhalten, gib folgenden Befehl im Command Line Interface ein:</p>
+<pre class="programlisting">php /xentral_root_dir/artisan queue:restart</pre>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Befehl heißt zwar "restart", hält aber nur den Prozess an.</p>
+</div>
+<p>Weitere Informationen und Befehlsoptionen findest du in der <a class="link" href="https://laravel.com/docs/8.x/queues#running-the-queue-worker" target="_blank" rel="noopener">Laravel-Dokumentation</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3" id="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3_id_4408098681234_id_Process-Control-System"></a>Prozesskontrollsysteme verwenden</h2>
+</div>
+<p>Wir empfehlen dir, ein Prozesskontrollsystem oder einen Prozessmonitor zu verwenden, um die Worker neu zu starten, wenn sie beendet wurden oder abgestürzt sind.</p>
+<p>Du kannst hierfür ein System deiner Wahl nutzen, das fähig ist, angehaltene Prozesse automatisch über Konsolenbefehle zu starten.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3" id="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3_id_4408098681234_id_Example-Systemd"></a>Systemd nutzen</h3>
+</div>
+<p>Unter Linux kannst du mit <code class="code">systemd</code> einen Dienst als Prozesskontrollsystem definieren und ausführen.</p>
+<p>Führe folgende Schritte durch:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Erstelle eine Datei unter folgendem Pfad und Dateinamen, um darin den Dienst zu definieren:</p>
+<pre class="programlisting">/etc/systemd/system/queue_worker@.service</pre>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Der Dateiname muss das <code class="code">@</code> Symbol enthalten!</p>
+</div>
+</li>
+<li class="step">
+<p>Trage die gewünschte Konfiguration in die Datei ein, siehe im Beispiel unten.</p>
+<p>Beachte, dass du im Beispiel <code class="code">/var/www/xentral</code> durch das Root Verzeichnis deiner Xentral installation ersetzen musst. Außerdem, musst du gegebenenfalls <code class="code">www-data</code> durch den tatsächlichen Web Server Nutzer in deiner Umgebung ersetzen.</p>
+<pre class="programlisting">[Unit]
+Description=Runs and keeps alive the artisan queue:work process
+
+[Service]
+Restart=always
+RestartSec=1
+StartLimitIntervalSec=0
+WorkingDirectory=/var/www/xentral/
+User=www-data
+ExecStart=php /var/www/xentral/artisan queue:work --max-time=3600
+
+[Install]
+WantedBy=default.target</pre>
+</li>
+<li class="step">
+<p>Nachdem du die Konfiguration in der Datei gespeichert hast, musst du den Daemon durch den folgenden Befehl neu laden.</p>
+<pre class="programlisting">systemctl daemon-reload</pre>
+</li>
+<li class="step">
+<p>Nun kannst du einen oder mehrere Worker laufen lassen.</p>
+<p>Um den ersten Worker zu starten, nutze den folgenden Befehl:</p>
+<pre class="programlisting">systemctl start queue_worker@1
+# enable service on every boot
+systemctl enable queue_worker@1</pre>
+<p>Du kannst weitere Worker starten, indem du die Befehle erneut eingibst und dabei fortlaufende Nummern hinter dem <code class="code">@</code> Symbol einträgst.</p>
+<pre class="programlisting">systemctl start queue_worker@2
+systemctl enable queue_worker@2
+
+systemctl start queue_worker@3
+systemctl enable queue_worker@3
+.
+.
+.</pre>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3" id="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3_id_4408098681234_id_Example-Supervisor"></a>Supervisor nutzen</h3>
+</div>
+<p>Als Alternative zu Systemd kannst du Supervisor als  Prozesssteuerungssystem verwenden, um den Warteschlangenprozess zu konfigurieren.</p>
+<p>Weitere Informationen zur Verwendung von Supervisor findest du in der <a class="link" href="http://supervisord.org/" target="_blank" rel="noopener">Supervisor-Dokumentation</a>.</p>
+<p>Konfigurationsbeispiel:</p>
+<pre class="programlisting">[program:queue-worker]
+user=www-data
+process_name=%(program_name)s_%(process_num)02d
+command=php /var/www/xentral/artisan queue:work --max-time=3600
+autostart=true
+autorestart=true
+stopasgroup=true
+killasgroup=true
+numprocs=2
+redirect_stderr=true
+stdout_logfile=/var/www/xentral/storage/logs/queue-worker.log
+stopwaitsecs=3600</pre>
+<p>Weitere Informationen zur Konfiguration findest du in der <a class="link" href="https://laravel.com/docs/8.x/queues#running-the-queue-worker" target="_blank" rel="noopener">Laravel-Dokumentation</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3" id="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3_id_4408098681234_id_Regular-Restart"></a>Regelmäßiger Neustart</h3>
+</div>
+<p>Wenn du ein Prozesskontrollsystem verwendest, musst du den Worker Prozess regelmäßig anhalten und neu starten, um Probleme zu vermeiden. Eine Möglichkeit, dies zu erreichen, ist es, die folgenden Optionen mit dem Befehl <code class="code">artisan queue:work</code> zu verwenden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><code class="code">--max-jobs=1000</code> : Der Worker stoppt nach Verarbeitung der angegebenen Zahl von Aufträgen. <a class="link" href="https://laravel.com/docs/8.x/queues#processing-a-specified-number-of-jobs" target="_blank" rel="noopener">Weitere Informationen</a></p>
+</li>
+<li class="listitem">
+<p><code class="code">--max-time=3600</code> : Der Worker stoppt nach der angegebenen Zeitspanne (in Sekunden). <a class="link" href="https://laravel.com/docs/8.x/queues#processing-jobs-for-a-given-number-of-seconds" target="_blank" rel="noopener">Weitere Informationen</a></p>
+</li>
+</ul>
+</div>
+<p>Eine Kombination aus beiden Optionen ist möglich.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Du wirst vermutlich verschiedene Einstellungen durchprobieren müssen, um die für deine Umgebung passende Einstellung zu finden. Wenn beispielsweise ein Worker häufig seine Speichergrenze überschreitet, empfiehlt es sich, diesen häufiger neu starten zu lassen.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3" id="UUID-dee51b85-45fc-0ba7-f05e-eff760804cc3_id_4408098681234_id_Amount-of-Workers"></a>Mehrere Worker laufen lassen</h3>
+</div>
+<p>Du kannst mehrere Worker Prozesse gleichzeitig laufen lassen. Dies wird jedoch von verschiedenen Prozesskontrollsystemen auf unterschiedliche Weise gesteuert: Für Systemd musst du mehrere Dienste starten; Supervisor hingegen verwendet die Eigenschaft <code class="code">numprocs</code>.</p>
+<p>Berücksichtige die folgenden Aspekte bei der Entscheidung, wie viele Worker laufen sollen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wie viele unbearbeitete Aufträge gibt es?</p>
+<p>Die Aufträge in der Warteschlange werden in der Tabelle <code class="code">queue_jobs</code> gespeichert. Wenn sich zu viele Aufträge in der Warteschlange befinden, solltest du eventuell weitere Worker hinzufügen.</p>
+</li>
+<li class="listitem">
+<p>Leistung</p>
+<p>Eine höhere Anzahl an laufenden Worker Prozessen führt zu einer höheren CPU- und RAM-Auslastung. Dies kann die Antwortzeit der Anwendung insgesamt beeinträchtigen.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

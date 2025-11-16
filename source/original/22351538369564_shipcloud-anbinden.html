@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipcloud anbinden</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 22351538369564
+    Titel: Shipcloud anbinden
+    URL: https://help.xentral.com/hc/de/articles/22351538369564-Shipcloud-anbinden
+    Erstellt: 2025-09-15T14:28:33Z
+    Aktualisiert: 2025-10-10T13:28:39Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 22351522937116
+    Export-Zeitpunkt: 2025-11-16 19:08:48
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>In diesem Artikel findest du alle wichtigen Informationen zur Anbindung der Versandplattform Shipcloud an <span class="phrase">Xentral</span>.</p>
+<p>Falls du schon bestehende Verträge mit einem oder mehreren Versanddienstleister hast, kannst du diese einfach bei Shipcloud hinterlegen. Wende dich dazu nach deiner Anmeldung bei Shipcloud an <a class="link" href="mailto:support@shipcloud.io" target="_blank">support@shipcloud.io</a>. Es ist ebenfalls möglich, spezielle Shipcloud-Rahmenverträge zu nutzen, sodass du gerade beim Einstieg sofort startklar bist und keine Direktverträge abschließen musst.</p>
+<p>Die Anbindung von Shipcloud an <span class="phrase">Xentral</span> funktioniert ganz einfach, indem du in <span class="phrase">Xentral</span> eine Versandart anlegst und sie mithilfe deiner Zugangsdaten von Shipcloud konfigurierst. Wenn du später Versandlabels mit der Versandart <span class="bold"><strong>Shipcloud</strong></span> erstellst, fordert <span class="phrase">Xentral</span> das Versandetikett bei der Shipcloud-API an. Es dauert nur wenige Sekunden, bis dir das Versandlabel direkt in <span class="phrase">Xentral</span> vorliegt und ausgedruckt werden kann! Anschließend nimmst du die restliche Versandabwicklung wie gewohnt in <span class="phrase">Xentral</span> vor.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:760px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22351581196956" style="max-width: 760px;" alt="shipcloud_process_diagram.jpg"></td>
+</tr>
+</table>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Arbeitest du bislang noch nicht mit Shipcloud zusammen oder möchtest du dir einen Überblick über den Funktionsumfang und die Vorteile dieser Lösung verschaffen? Dann schau <a class="link" href="https://www.shipcloud.com/" target="_blank" rel="noopener">hier bei Shipcloud</a> vorbei, um mehr über eine mögliche Zusammenarbeit zu erfahren und eine kostenlose Testversion zu erhalten. Du benötigst zwingend einen Zugang zu Shipcloud, um die Schnittstelle in <span class="phrase">Xentral</span> zu nutzen.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-14505a80-a862-8655-e601-51658f36406b" id="UUID-14505a80-a862-8655-e601-51658f36406b_section-idm4578537358555234329233434622"></a>Wann sollte ich Shipcloud verwenden?</h2>
+</div>
+<p>Im Folgenden haben wir einige Gründe gesammelt, die je nach deinen eigenen Workflows und den Anforderungen deines Business für die Anbindung von Shipcloud an <span class="phrase">Xentral</span> sprechen können.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Vielzahl von Versanddienstleistern</strong></span>: Verfügst du bereits über direkte Verträge mit zwei oder mehr Versanddienstleistern? Dann kannst du dir mithilfe der Anbindung an Shipcloud die Übersicht erleichtern. Über deinen Shipcloud-Zugang kannst du auch diverse Versanddienstleister anbinden, die bislang über keine direkte Schnittstelle mit <span class="phrase">Xentral</span> verfügen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Transparenz bei der Sendungsverfolgung</strong></span>: In Shipcloud kannst du invididuelle Paket-Vorabankündigungen konfigurieren, um deine Kunden jederzeit über den Status der Lieferung auf dem Laufenden zu halten.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Potential für eigene Entwicklungen</strong></span>: Shipcloud bietet für technisch versierte Anwender oder IT-Abteilungen vielfältige Möglichkeiten für die Anbindung an die Shipcloud-API, sodass du auch komplexere Workflows, die über den Standard hinausgehen, abbilden kannst.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Typische Anwendungsfälle:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Du möchtest Versandarten anbinden, die <span class="phrase">Xentral</span> jedoch nicht direkt unterstützt (z.B. Angel, Sendia, Cargo International).</p>
+</li>
+<li class="listitem">
+<p>Wenn du (z. B. als Fulfiller) sehr viele verschiedene Versandarten und Verträge nutzt, kann die Anbindung über Shipcloud in Bezug auf die Administration von Vorteil sein.</p>
+</li>
+<li class="listitem">
+<p>Shipcloud bietet erweiterte Services, die leider nur über das Shipcloud-Portal selbst genutzt werden können. Um diese erweiterten Services nutzen zu können, musst du als Anwender dann zwei Systeme nutzen.</p>
+</li>
+</ul>
+</div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-14505a80-a862-8655-e601-51658f36406b" id="UUID-14505a80-a862-8655-e601-51658f36406b_id_360016726800_id_h_01F49K6KBQS4KK9X7FDR991GGC"></a>Shipcloud an <span class="phrase">Xentral</span> anbinden</h2>
+</div>
+<p>Um Shipcloud in <span class="phrase">Xentral</span> zu nutzen, legst du zunächst eine neue Versandart an. Anschließend verwendest du deine Zugangsdaten von Shipcloud, um die Versandart einzurichten.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Für die Anbindung von Shipcloud benötigst du einen aktiven Zugang zu Shipcloud. Nur dann verfügst du über den API-Schlüssel, der zwingend für die Einrichtung in <span class="phrase">Xentral</span> benötigt wird. Im Folgenden erklären wir dir genau, wie du den API-Schlüssel abrufst.</p>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-14505a80-a862-8655-e601-51658f36406b" id="UUID-14505a80-a862-8655-e601-51658f36406b_section-idm234858040180779"></a>Zugangsdaten in Shipcloud abrufen</h3>
+</div>
+<p>Für die Einrichtung der Versandart in <span class="phrase">Xentral</span> benötigst du lediglich den API-Schlüssel. Gehe wie folgt vor, um den API-Schlüssel in deinem Shipcloud-Konto abzurufen:</p>
+<div class="procedure">
+<a id="UUID-14505a80-a862-8655-e601-51658f36406b_procedure-idm23485804072588"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Logge dich im <a class="link" href="https://app.shipcloud.io/" target="_blank" rel="noopener">Shipcloud-Kundenportal</a> ein.</p>
+</li>
+<li class="step">
+<p>Klicke oben rechts auf deinen <span class="bold"><strong>Benutzernamen</strong></span> und dann auf <span class="bold"><strong>API-Schlüssel</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:250px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22351545626268" style="max-width: 250px;" alt="shipcloud_1-de.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Kopiere den API-Schlüssel aus dem entsprechenden Feld.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:350px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22351557760412" style="max-width: 350px;" alt="Shipcloud-3.png"></td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-14505a80-a862-8655-e601-51658f36406b" id="UUID-14505a80-a862-8655-e601-51658f36406b_section-idm234858043377343"></a>Versandart anlegen und Grundeinstellungen vornehmen</h3>
+</div>
+<p>Im nächsten Schritt legst du eine neue Versandart in <span class="phrase">Xentral</span> an und gibst dabei den API-Schlüssel ein, die du wie im Kapitel <a class="xref" href="#UUID-14505a80-a862-8655-e601-51658f36406b_section-idm234858040180779" title="Zugangsdaten in Shipcloud abrufen">Zugangsdaten in Shipcloud abrufen</a> beschrieben aus dem Shipcloud-Kundenportal kopiert hast.</p>
+<div class="procedure">
+<a id="UUID-14505a80-a862-8655-e601-51658f36406b_procedure-idm234858044791457"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Suche mithilfe der Smart Search nach <span class="bold"><strong>Versandarten</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke oben rechts auf <span class="bold"><strong>+NEU</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Shipcloud</strong></span>.</p>
+</li>
+<li class="step">
+<p>Füge den API-Schlüssel, den du zuvor aus dem Shipcloud-Kundenportal kopiert hast, im Feld <span class="bold"><strong>Shipcloud API key</strong></span> ein.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:450px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22351545740700" style="max-width: 450px;" alt="shipcloud_zugangsdaten_1-de_png_.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Weiter</strong></span>.</p>
+</li>
+<li class="step">
+<p>Wähle im Dropdown-Menü <span class="bold"><strong>Versandfirma</strong></span> den Versanddienstleister aus, den du über Shipcloud angebunden hast.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Für jeden angebundenen Versanddienstleister legst du eine eigene Versandart <span class="bold"><strong>Shipcloud</strong></span> in <span class="phrase">Xentral</span> an. In diesem Beispiel wählen wir den Versanddienstleister <span class="bold"><strong>DHL</strong></span>. Beachte also, dass du die hier beschriebenen Schritte zur Erstellung der Versandart später wiederholen musst, falls du mehrere Versanddienstleister über Shipcloud nutzt.</p>
+</div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Weiter</strong></span>.</p>
+</li>
+<li class="step">
+<p>Nimm im nächsten Schritt folgende Einstellungen vor:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Projekt-Filter</strong></span> (optional): Gib ein Projekt an, wenn du pro Verkaufskanal einen anderen Drucker für das Versandlabel verwenden möchtest.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Drucker</strong></span>: Wähle den gewünschten Drucker für das Versandlabel aus.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Export Drucker</strong></span>: Wähle den gewünschten Drucker für die Zolldokumente bei Exportsendungen aus.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:450px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22351537606684" style="max-width: 450px;" alt="shipcloud_druckereinstellungen-de.png"></td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Weiter</strong></span>.</p>
+<div class="result">
+<p>Die Versandart wird nun in <span class="phrase">Xentral</span> gespeichert.</p>
+</div>
+</li>
+</ol>
+</div>
+<p>Nachdem du die oben beschriebenen Einstellungen vorgenommen hast, kannst du nun entweder zusätzliche Einstellungen vornehmen oder direkt einen Lieferschein aufrufen, um zu Testzwecken ein Versandlabel zu drucken.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-14505a80-a862-8655-e601-51658f36406b" id="UUID-14505a80-a862-8655-e601-51658f36406b_id_360016726800_id_h_01F1Z0YF2YVMJHM2BB1F5XEQED"></a>Zusätzliche Einstellungen vornehmen</h2>
+</div>
+<p>Wenn du Shipcloud bereits als Versandart angelegt hast oder die oben beschriebenen Grundeinstellungen für deine Anforderungen nicht ausreichen, kannst du die im Expertenmodus zusätzliche Einstellungen für die Versandart vornehmen.</p>
+<div class="procedure">
+<a id="UUID-14505a80-a862-8655-e601-51658f36406b_procedure-idm234858343102853"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Suche mithilfe der Smart Search nach <span class="bold"><strong>Versandarten</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke bei der Versandart, für die du Einstellungen vornehmen möchtest, rechts auf das <span class="bold"><strong>Stift-Symbol</strong></span>.</p>
+</li>
+<li class="step">
+<p>Aktiviere im Bereich <span class="bold"><strong>Experte</strong></span> die Option <span class="bold"><strong>Zusätzliche Einstellungen anzeigen</strong></span>.</p>
+</li>
+<li class="step">
+<p>Nimm die Einstellungen vor. Die Tabelle unten enthält detaillierte Informationen zu den verfügbaren Optionen.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Als Allererstes solltest du im Feld <span class="bold"><strong>API Key</strong></span> den API-Schlüssel aus dem Shipcloud-Kundenportal einfügen und einmalig auf <span class="bold"><strong>Speichern</strong></span> klicken. Erst dann nimmst du die restlichen Einstellungen vor. Wie du den API-Schlüssel abrufst, ist im Kapitel <a class="xref" href="#UUID-14505a80-a862-8655-e601-51658f36406b_section-idm234858040180779" title="Zugangsdaten in Shipcloud abrufen">Zugangsdaten in Shipcloud abrufen</a> beschrieben.</p>
+</div>
+<div class="informaltable table-responsive">
+<table>
+<thead>
+<tr>
+<th>
+<p>Einstellung</p>
+</th>
+<th>
+<p>Erläuterung</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Bezeichnung</strong></span></p>
+</td>
+<td>
+<p>Hier findest du die Bezeichnung der Versandart, wie sie in <span class="phrase">Xentral</span> beispielsweise bei der Auftragsbearbeitung angezeigt wird. Die Bezeichnung ist nur für dich und deine Mitarbeiter sichtbar.</p>
+<p>Achte darauf, dass jede Bezeichnung nur einmal in <span class="phrase">Xentral</span> vorkommt, damit die Versandart stets eindeutig identifiziert werden kann.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Typ</strong></span></p>
+</td>
+<td>
+<p>Dies ist eine interne Feldbezeichnung, die für die Zuordnung bei deinen Online-Shops und anderen Verkaufsplattformen benötigt wird. Falls du über Shipcloud verschiedene Versanddienstleister nutzt, musst du für jede einzelne in <span class="phrase">Xentral</span> eine eigene Versandart anlegen. Verwende hierbei für das Feld <span class="bold"><strong>Typ</strong></span> die folgenden eindeutigen Bezeichnungen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Angel → angel_de</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Cargo International → cargo_international</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Deutsche Post → dpag</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>DHL → dhl</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>DHL Express → dhl_express</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>DPD → dpd</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>FedEx → fedex</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>GLS → gls</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Hermes → hermes</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>iIoxx → iloxx</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>PARCEL.ONE → parcel_one</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Seven Senders → seven_senders</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>TNT → tnt</strong></span></p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>UPS → ups</strong></span></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Modul</strong></span></p>
+</td>
+<td>
+<p>Wähle das passende Modul aus dem Dropdown-Menü. Dabei muss der Modulname identisch zum Namen der Versandart sein, die du gerade einrichtest.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Projekt</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong><span class="emphasis"><em>Optional</em></span></strong></span>: Gib eine Projektzuordnung an. Diese wird benötigt, wenn du die Versandart auf einen bestimmten Verkaufskanal oder ein Projekt (beispielsweise eine spezifische Niederlassung) beschränken möchtest.</p>
+<p>Lasse das Feld leer, falls die Versandart in allen Projekten genutzt werden soll.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Aktiv</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, sobald du alle benötigten Einstellungen für die Versandart vorgenommen hast.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Nicht mehr verwendete Versandarten kannst du später deaktivieren. Beachte jedoch, dass deaktivierte Versandarten nur noch in bereits erstellten Belegen angezeigt werden. In neu erstellten Belegen und in Benutzerflächen wie der Auftragsübersicht oder in den Kundendaten steht eine deaktivierte Versandart nicht mehr zur Auswahl zur Verfügung. Du kannst Versandarten auch löschen. Dadurch wird jedoch auch die Versandhistorie gelöscht. Deshalb solltest du nur fälschlicherweise angelegte Versandarten löschen, die du nicht produktiv genutzt hast.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Kein Portocheck</strong></span></p>
+</td>
+<td>
+<p>Mit dieser Option kannst du den Porto-Check im Auftrag deaktivieren. Bleibt der Porto-Check aktiv, zeigt die Auftragsampel ein rotes Symbol für den Portocheck an, falls nicht mindestens ein Portoartikel in den Auftragspositionen enthalten ist. So wird verhindert, dass bei manuell angelegten Aufträgen der Portoartikel vergessen wird.</p>
+<p>Überlege anhand deiner eigenen Workflows und Arbeitsweise mit <span class="phrase">Xentral</span>, ob du diese Option aktivieren oder deaktivieren willst. Legst du typischerweise viele Aufträge manuell in <span class="phrase">Xentral</span> an, kann es sinnvoll sein, diese Option nicht zu aktivieren, sodass gerade bei hochpreisigen Artikeln oder internationalen Sendungen das Porto immer zuverlässig am Auftrag hinterlegt wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Drucker Versandlabel</strong></span></p>
+</td>
+<td>
+<p>Wähle aus dem Dropdown-Menü den Drucker aus, der standardmäßig für die Versandlabels genutzt werden soll. Beachte, dass hier nur Drucker auswählbar sind, die du bereits wie im Artikel <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016756299#UUID-24ed3a57-a4df-da7a-08f6-141949df3855">Deinen Drucker mit Xentral verbinden</a> in <span class="phrase">Xentral</span> eingerichtet hast. Je nachdem, wie und wo der Versandprozess in deinem Unternehmen abläuft, kannst du hier genau den Drucker auswählen, den du benötigst - egal ob direkt am Schreibtisch oder am Packtisch im Lager.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Drucker Export</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong><span class="emphasis"><em>Nur bei internationalem Versand relevant</em></span></strong></span>: Wähle aus dem Dropdown-Menü den Drucker aus, der standardmäßig für Zollpapiere (CN23) genutzt werden soll.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Versand E-Mail</strong></span></p>
+</td>
+<td>
+<p>Lege hier fest, nach welchen Regeln Versandbenachrichtigungen per E-Mail an deine Kunden verschickt werden sollen, sobald sich die Sendung auf dem Weg befindet. Die folgenden drei Optionen stehen dir zur Verfügung:</p>
+<p><span class="bold"><strong>Standardverhalten</strong></span>: Die Logistikeinstellungen aus dem Projekt werden verwendet. Diese Einstellungen nimmst du im Menü <span class="bold"><strong>Einstellungen &gt; Grundeinstellungen &gt; Projekte &gt; Projekt öffnen &gt; Tab: Einstellungen &gt; Tab: Logistik / Versand</strong></span> vor. In den Bereichen <span class="bold"><strong>Stufe 1 (Pick/Kommissionierung)</strong></span> und <span class="bold"><strong>Stufe 2 (Pack)</strong></span> definierst du über die Checkboxen namens <span class="bold"><strong>E-Mail</strong></span>, bei welchen Schritten deine Kunden über den Stand der Auftragsbearbeitung informiert werden.</p>
+<p><span class="bold"><strong>Keine Versandmail</strong></span>: Für diese Versandart wird keine Versandinformation per E-Mail versendet.</p>
+<p><span class="bold"><strong>Eigene Textvorlage</strong></span>: Für diese Versandart wird die ausgewählte Textvorlage per E-Mail versendet. Diese Vorlage musst du vorab im Menü <span class="bold"><strong>Einstellungen &gt; Grundeinstellungen &gt; Belege &gt; Textvorlagen</strong></span> erstellen. Anschließend wählst du die gewünschte Vorlage im Dropdown-Menü <span class="bold"><strong>Textvorlage</strong></span> aus. Durch diese Auswahl werden die Logistikeinstellungen des Projekts für diese Versandart nicht genutzt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lieferungen unterstützt</strong></span></p>
+</td>
+<td>
+<p>Diese Option wird bei der Anlage der Versandart standardmäßig aktiviert. Sobald du alle weiteren benötigten Einstellungen vorgenommen und die Versandart auf <span class="bold"><strong>Aktiv</strong></span> gestellt hast, kannst du die Versandart in Aufträgen, Lieferscheinen und im Versandzentrum auswählen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Retouren unterstützt</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um zu erlauben, dass Retouren zu Aufträgen erstellt werden können, die ursprünglich mit der vorliegenden Versandart erstellt wurden.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Bevorzugte Rücksendemethode</strong></span></p>
+</td>
+<td>
+<p>Wähle eine bevorzugte Versandart für Retouren aus. Sobald in <span class="phrase">Xentral</span> manuell eine Retoure zu einem Auftrag mit der vorliegenden Versandart angelegt ist, wird die hier gewählte Versandart automatisch im Retourenauftrag vorausgewählt. Diese Einstellung greift nur in Fällen der manuellen Retourenerstellung.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>API Key</strong></span></p>
+</td>
+<td>
+<p>Gib hier erneut den API-Schlüssel aus dem Shipcloud-Kundenportal ein und klicke unten auf <span class="bold"><strong>Speichern</strong></span>. Erst dann kannst du weitere Einstellungen vornehmen. Wie du den API-Schlüssel abrufst, ist im Kapitel <a class="xref" href="#UUID-14505a80-a862-8655-e601-51658f36406b_section-idm234858040180779" title="Zugangsdaten in Shipcloud abrufen">Zugangsdaten in Shipcloud abrufen</a> beschrieben.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Standardhöhe / Standardbreite / Standardlänge (in cm)</strong></span></p>
+</td>
+<td>
+<p>Gib hier die Standardabmessungen deiner Pakete ein. Du kannst diese Angaben später bei Bedarf im Tab <span class="bold"><strong>Versandlabel</strong></span> des Lieferscheins ändern, bevor das Versandlabel erstellt wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Absender aus den Einstellungen verwenden</strong></span></p>
+</td>
+<td>
+<p>Entscheide, welche Absenderadresse auf deinen Shipcloud-Versandlabels abgedruckt werden soll.</p>
+<p><span class="bold"><strong>Option 1</strong></span>: Du lässt diese Option deaktiviert. In diesem Fall wird auf den Versandlabels die Absender-Adresse gedruckt, die du im Shipcloud-Kundenportal unter <span class="bold"><strong>Einstellungen &gt; Versandadressen</strong></span> festgelegt hast, und du musst keine Informationen in den folgenden Feldern zu den Absenderdaten eintragen.</p>
+<p><span class="bold"><strong>Option 2</strong></span>: Du aktivierst diese Option und hast dadurch die Möglichkeit, eine abweichende Absender-Adresse auf das Versandlabel zu drucken. In diesem Fall musst du die gewünschten Absenderinformationen in den folgenden Feldern eintragen.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Beachte, dass du auch im Shipcloud-Kundenportal selbst abweichende Absender- und spezielle Retourenadressen eintragen kannst (<span class="bold"><strong>Einstellungen &gt; Versandadressen</strong></span>). Überlege dir im Vorfeld, welche Absender- und Retourenadressen wirklich genutzt werden sollen und achte darauf, dass sich die Angaben in den Einstellungen der Versandart in <span class="phrase">Xentral</span> und im Shipcloud-Kundenportal nicht widersprechen, um Fehler zu vermeiden.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Absender Ansprechpartner Vorname / Nachname / Straße / Hausnummer / PLZ / Ort / Land / Bundesstaat / E-Mail / Telefon</strong></span></p>
+</td>
+<td>
+<p>Diese Felder müssen nur ausgefüllt werden, wenn du die vorherige Option <span class="bold"><strong>Absender aus den Einstellungen verwenden</strong></span> aktiviert hast. Gib hier die Adressdaten der gewünschten Absenderadresse ein.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Im Feld <span class="bold"><strong>Land</strong></span> wird eine Eingabe im ISO-Format (in der Regel zweistellig) erwartet. Beachtest du dieses Format nicht, kommt es zu Fehlern bei der Erstellung des Versandlabels.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Versandfirma</strong></span></p>
+</td>
+<td>
+<p>Wähle hier den Versanddienstleister aus, den du über Shipcloud nutzt, um ihn für die Versandart zu übernehmen.</p>
+<p>Wenn du mehrere Versandarten über Shipcloud verwendest, dann erstelle analog auch mehrere Versandarten in <span class="phrase">Xentral</span>. Diese Versandarten unterscheiden sich am Ende nur über die Angaben in den Feldern <span class="bold"><strong>Bezeichnung</strong></span>, <span class="bold"><strong>Typ</strong></span> und <span class="bold"><strong>Versandfirma</strong></span>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Service</strong></span></p>
+</td>
+<td>
+<p>Mithilfe dieser Einstellung kannst du einen zusätzlichen Versandservice auswählen und somit fest in der Versandart <span class="bold"><strong>Shipcloud</strong></span> hinterlegen.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Diese Einstellung greift nur für die Versanddienstleister <span class="bold"><strong>DHL</strong></span> und <span class="bold"><strong>DPD</strong></span>. Für andere Versanddienstleister ist hier keine Auswahl möglich.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Mindestgewicht</strong></span></p>
+</td>
+<td>
+<p>Trage hier das erforderliche Mindestgewicht deiner Sendungen ein. Jeder Wert größer als 0 ist erlaubt. Diese Einstellung ist optional und kann zudem je nach Versanddienstleister, den du über Shipcloud angebunden hast, abweichen. Erkundige dich im Zweifel bei deinem Shipcloud- Kundenbetreuer oder beim <span class="phrase">Xentral</span>-Support, um zu erfahren, welche Angabe hier erwartet wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Gewicht anpassen in</strong></span></p>
+</td>
+<td>
+<p>Zur Erstellung des Versandlabels wird eine genaue Berechnung des Gesamtgewichts der Sendung inklusive Verpackungsmaterial benötigt. <span class="phrase">Xentral</span> berechnet das Sendungsgewicht automatisiert im Hintergrund, indem das Gesamtgewicht der im Auftrag enthaltenen Positionen addiert wird. Mit der vorliegenden Option wird diesem Gewicht ein von dir festgelegtes Gewicht hinzugefügt. So entsteht ein Gesamtwert für die Versandanmeldung, der bei der Erstellung des Versandlabels berücksichtigt und automatisch an den Versanddienstleister gemeldet wird. Entscheide, ob das zusätzliche Gewicht des Verpackungsmaterials in <span class="bold"><strong>kg</strong></span> oder <span class="bold"><strong>%</strong></span> angegeben werden soll. Mithilfe der folgenden Einstellung namens <span class="bold"><strong>Gewicht anpassen um</strong></span> definierst du das zusätzliche Gewicht genauer.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Gewicht anpassen um</strong></span></p>
+</td>
+<td>
+<p>Mithilfe dieser Einstellung bestimmst du deine Angaben für die Einstellung <span class="bold"><strong>Gewicht anpassen in</strong></span> näher. Gib hier das zusätzliche Sendungsgewicht je nach vorheriger Auswahl in Kilogramm oder Prozent ein. Für welche Berechnungsart und welche konkreten Werte du dich entscheidest, hängt von der Verpackungsart deiner Produkte und deinen verwendeten Verpackungsmaterialien ab.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Tracking-Nr. ab Position</strong></span></p>
+</td>
+<td>
+<p>Damit die Tracking-Nummer korrekt übernommen wird, musst du in der Versandart <span class="bold"><strong>Shipcloud</strong></span> die richtige Position der Tracking-Nummer angeben. Die hier angegebene Anzahl an Zeichen wird am Anfang der Tracking-Nummer abgeschnitten (z.B. bei <span class="bold"><strong>4</strong></span> und <span class="bold"><strong>abcdef</strong></span> bleibt <span class="bold"><strong>ef</strong></span> übrig).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Tracking-Nr. Länge</strong></span></p>
+</td>
+<td>
+<p>Gib die Anzahl der Stellen der Tracking-Nummer ein. Wenn du das Feld leer lässt, wird die Tracking-Nummer vollständig, also mit allen Stellen übernommen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Additional Service Advance Meldung deaktivieren</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um die Vorab-Benachrichtigung zum Versand, die Shipcloud normalerweise automatisch an deine Kunden verschickt, zu deaktivieren.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Tracking übernehmen</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um die Tracking-Nummer nach der Erstellung des Versandlabels direkt im dazugehörigen Auftrag in <span class="phrase">Xentral</span> zu speichern. So bleibt die Tracking-Nummer dauerhaft in deinem System vermerkt und du musst das Versandlabel nach der Erstellung nicht erneut scannen, um diese Daten in <span class="phrase">Xentral</span> zu erfassen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>DPD Food</strong></span></p>
+</td>
+<td>
+<p>Diese Einstellung muss nur aktiviert werden, wenn du den Lebensmittelversandservice DPD Food über Shipcloud nutzt. Du kannst sie nur aktivieren, wenn du bei der Einstellung <span class="bold"><strong>Versandfirma</strong></span> die Option <span class="bold"><strong>DPD</strong></span> gewählt und gleichzeitig die Einstellung <span class="bold"><strong>Additional Service Advance Meldung deaktivieren</strong></span> deaktiviert ist.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-14505a80-a862-8655-e601-51658f36406b" id="UUID-14505a80-a862-8655-e601-51658f36406b_id_360016726800_id_toc-3"></a>Versandlabel drucken</h2>
+</div>
+<p>Sobald du alle Einstellungen wie oben beschrieben vorgenommen hast, kannst du den Druck des Versandlabels im Versandzentrum oder auch in einem einzelnen Lieferschein testen. Gehe dazu wie folgt vor.</p>
+<div class="procedure">
+<a id="UUID-14505a80-a862-8655-e601-51658f36406b_procedure-idm234860075609788"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne per Klick auf das Stift-Symbol rechts einen Lieferschein im Modul <span class="bold"><strong>Lieferschein</strong></span>.</p>
+</li>
+<li class="step">
+<p>Öffne das Tab <span class="bold"><strong>Details</strong></span>.</p>
+</li>
+<li class="step">
+<p>Scrolle nach unten, bis du den Bereich <span class="bold"><strong>Lieferschein</strong></span> erreichst.</p>
+</li>
+<li class="step">
+<p>Wähle die Versandart <span class="bold"><strong>Shipcloud</strong></span> aus dem Dropdown-Menü <span class="bold"><strong>Versandart</strong></span> aus.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+<li class="step">
+<p>Öffne das Tab <span class="bold"><strong>Versandlabel</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:760px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22351537662108" style="max-width: 760px;" alt="shiploud_paketmarke-de.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Passe, falls nötig, die Adressdaten an.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Versandlabel drucken</strong></span>.</p>
+</li>
+<li class="step">
+<p>Lade das Versandlabel herunter. Anschließend kannst du es öffnen und auf etwaige Fehler prüfen.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Nachdem dein Testdruck abgeschlossen ist, solltest du im Anschluss das Versandlabel direkt in deinem Shipcloud-Konto stornieren. Gehe dazu wie folgt vor.</p>
+</div>
+<div class="procedure">
+<a id="UUID-14505a80-a862-8655-e601-51658f36406b_procedure-idm234860078483338"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Logge dich in das <a class="link" href="https://app.shipcloud.io/" target="_blank" rel="noopener">Shipcloud-Kundenportal</a> ein.</p>
+</li>
+<li class="step">
+<p>Klicke im Menü links auf <span class="bold"><strong>Versand</strong></span> und dann auf <span class="bold"><strong>Sendungen</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke rechts neben dem Versandlabel, das du stornieren möchtest, auf das rote <span class="bold"><strong>Papierkorb-Symbol</strong></span>.</p>
+<div class="result">
+<p>Das Versandlabel wird storniert und dir entstehen somit keine Kosten.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-14505a80-a862-8655-e601-51658f36406b" id="UUID-14505a80-a862-8655-e601-51658f36406b_section-idm234861777835774"></a>Häufige Fehlermeldungen und Lösungen</h2>
+</div>
+<p>In diesem Kapitel haben wir die Fehlermeldungen aufgelistet, die bei der Verwendung der Versandart <span class="bold"><strong>Shipcloud</strong></span> in <span class="phrase">Xentral</span> auftreten können.</p>
+<div class="informaltable table-responsive">
+<table>
+<thead>
+<tr>
+<th>
+<p>Fehlermeldung</p>
+</th>
+<th>
+<p>Erläuterung</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Sender: country [XY] cannot be mapped to a known ISO country code</strong></span></p>
+</td>
+<td>
+<p>Diese Fehlermeldung tritt auf, wenn du die Option <span class="bold"><strong>Absender aus den Einstellungen verwenden</strong></span> in den Einstellungen der Versandart aktiviert hast und im Feld <span class="bold"><strong>Land</strong></span> der Absenderadresse keinen ISO-Code eingegeben hast. Trage im Feld <span class="bold"><strong>Land</strong></span> das Land der Absenderadresse als zweistelligen ISO-Code ein. Klicke anschließend auf <span class="bold"><strong>Speichern</strong></span>. Das Versandlabel sollte sich nun wie gewünscht erstellen lassen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Modul nicht vorhanden</strong></span></p>
+</td>
+<td>
+<p>Diese Fehlermeldung kann bei der Anlage der Versandart <span class="bold"><strong>Shipcloud</strong></span> in <span class="phrase">Xentral</span> auftreten und führt dazu, dass du nicht mit den Einstellungen für die Versandart fortfahren kannst.</p>
+<p>Um diesen Fehler zu umgehen und mit der Einrichtung fortzufahren, klicke direkt zu Beginn auf <span class="bold"><strong>Expertenmodus</strong></span>, um zu den Einstellungen der Versandart zu gelangen.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:450px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/22351537715484" style="max-width: 450px;" alt="shipcloud-expertenmodu-de.png"></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>From can't be</strong></span></p>
+</td>
+<td>
+<p>Diese Fehlermeldung tritt bei der Erstellung des Versandlabels auf. Prüfe, ob du im Shipcloud-Kundenportal eine Absenderadresse sowohl im Live-Modus als auch im Sandbox-Modus hinterlegt hast. Ergänze die Angaben bei Bedarf. Anschließend solltest du wie gewohnt das Versandlabel in <span class="phrase">Xentral</span> erstellen können.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

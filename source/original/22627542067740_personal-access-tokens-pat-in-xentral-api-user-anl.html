@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Access Tokens (PAT) in Xentral - API-User anlegen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 22627542067740
+    Titel: Personal Access Tokens (PAT) in Xentral - API-User anlegen
+    URL: https://help.xentral.com/hc/de/articles/22627542067740-Personal-Access-Tokens-PAT-in-Xentral-API-User-anlegen
+    Erstellt: 2025-09-29T10:57:48Z
+    Aktualisiert: 2025-11-10T13:07:50Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 17840276803868
+    Export-Zeitpunkt: 2025-11-16 19:06:27
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<p>In Xentral kannst du über sogenannte Personal Access Tokens (PAT) dedizierte API-Accounts anlegen, um externe Anwendungen oder interne Skripte sicher mit der Xentral-API zu verbinden. Diese API-Accounts ermöglichen eine feingranulare Steuerung von Rechten und Zugriffen, ohne dass persönliche Benutzerkonten oder Passwörter genutzt werden müssen. So lässt sich klar definieren, welche Daten und Aktionen (Lesen, Erstellen, Ändern, Löschen) über die API erlaubt sind und wie lange der Zugriff gültig bleibt.</p>
+<p>Mit <span class="bold"><strong>Personal Access Tokens (PAT)</strong></span> lassen sich externe Anwendungen oder interne Skripte sicher mit der Xentral-API verbinden. PATs ersetzen dabei klassische Zugangsdaten und bieten die Möglichkeit, präzise festzulegen, <span class="bold"><strong>wie lange</strong></span> ein Zugriff gültig ist und <span class="bold"><strong>welche Daten</strong></span> gelesen, erstellt, geändert oder gelöscht werden dürfen.</p>
+<p><span class="bold"><strong>Funktionen:</strong></span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Granulare Ressourcenzugriffe (Scopes)</strong></span>: Für jede Ressourcengruppe wie CRM, Produkte oder Buchhaltung lässt sich individuell steuern, ob der Token Zugriff hat.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Feingranulare Berechtigungen (CRUD)</strong></span>: Innerhalb einer Ressource kann unterschieden werden, ob Daten gelesen, erstellt, aktualisiert oder gelöscht werden dürfen. <span class="bold"><strong>Hinweis</strong></span>: CRUD-Rechte legen fest, ob ein Token Daten erstellen (Create), lesen (Read), aktualisieren (Update) oder löschen (Delete) darf, und ermöglichen so eine feingranulare Steuerung des Zugriffs.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Konfigurierbare Laufzeit</strong></span>: Jedes Token erhält ein Ablaufdatum, das frei definiert werden kann (Standard: 180 Tage). Abgelaufene Tokens verlieren automatisch ihre Gültigkeit.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Logging</strong></span>: Alle Aktionen rund um Tokens (Erstellung, Änderungen, Sperren) werden protokolliert, was die Nachvollziehbarkeit und Sicherheit erhöht.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Lock-Funktion</strong></span>: Admins können Tokens sperren.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Admin-View</strong></span>: Administratoren haben eine zentrale Übersicht über alle ausgestellten Tokens und können diese verwalten.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Automatisches Entfernen inaktiver Tokens</strong></span>: Tokens, die länger als 180 Tage nicht genutzt wurden, werden automatisch gelöscht. Vorher erhält der Besitzer Erinnerungsmails mit der Möglichkeit zur Verlängerung.</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-9dedbe94-0fda-e14f-c7c4-b15ab464034e" id="UUID-9dedbe94-0fda-e14f-c7c4-b15ab464034e_section-id235182794755569"></a>Einen neuen Token erstellen</h2>
+</div>
+<p><span class="bold"><strong>Schritte:</strong></span> Token erstellen (für Admins &gt; Men Bereich):</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p><span class="bold"><strong>Zugang zum Modul:</strong></span> Öffne das Menü unter: <span class="bold"><strong>Kontoeinstellungen &gt; Developer Einstellungen &gt; Personal Access Token</strong></span>. Prüfe vorab, ob du die notwendigen Rechte hast. Nur Admins dürfen standardmäßig Tokens erstellen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Neuen Token anlegen</strong></span>: Klicke oben rechts auf „<span class="bold"><strong>Token erzeugen</strong></span>“. Damit startest du den Erstellungsdialog.</p>
+</li>
+<li class="listitem">
+<p>Allgemeine Angaben pflegen:</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="a">
+<li class="listitem">
+<p><span class="bold"><strong>Name</strong></span>: Verwende ein klares, standardisiertes Namensschema (z. B. System-Zweck-Umgebung, wie Shopify-Bestellungen-Produktiv).</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Beschreibung</strong></span>: Dokumentiere den genauen Zweck des Tokens (z. B. „Datenabgleich mit Salesforce-CRM“). Dies erleichtert die spätere Verwaltung.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Laufzeit</strong></span>: Definiere ein Ablaufdatum (Standard 180 Tage). Wähle bewusst eine möglichst kurze Laufzeit für sicherheitskritische Integrationen.</p>
+</li>
+</ol>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22627530112668" style="" alt="personal_access_token_002.png"></div>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Scopes (Zugriffsbereiche) zuweisen</strong></span>: Lege fest, auf welche Datenbereiche der Token zugreifen darf:</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="a">
+<li class="listitem">
+<p><span class="bold"><strong>Admin read</strong></span>: Nur lesender Zugriff (kritisch).</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Admin</strong></span>: Voller administrativer Zugriff (nur wenn unbedingt erforderlich).</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Admins sollten strikt das <span class="bold"><strong>Minimalprinzip</strong></span> anwenden – aktiviere nur die Scopes, die für den konkreten Anwendungsfall zwingend erforderlich sind.</p>
+</div>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>CRUD-Rechte (feingranular) einstellen</strong></span>: CRUD-Rechte legen fest, ob ein Token Daten erstellen (Create), lesen (Read), aktualisieren (Update) oder löschen (Delete) darf, und ermöglichen so eine feingranulare Steuerung des Zugriffs. Für jede Ressource können gezielt Berechtigungen vergeben werden:</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="a">
+<li class="listitem">
+<p><span class="bold"><strong>Erstellen (Create)</strong></span>: Erlaubt das Anlegen neuer Datensätze, z. B. eines neuen Kunden, einer Rechnung oder eines Produkts. Dieses Recht ist notwendig für Integrationen, die Daten aktiv ins System schreiben, sollte aber nur vergeben werden, wenn der Anwendungsfall es zwingend erfordert.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Lesen (Read)</strong></span>: Ermöglicht den Zugriff auf vorhandene Daten, z. B. Kundendaten, Rechnungen oder Bestände. Dieses Recht ist die Basis für die meisten Integrationen (z. B. Reporting-Tools) und kann in der Regel ohne Risiko standardmäßig vergeben werden.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Aktualisieren (Update)</strong></span>: Gestattet Änderungen an bestehenden Datensätzen, z. B. Adressen, Preise oder Status. Dieses Recht ist erforderlich für Prozesse, die bestehende Daten synchronisieren oder korrigieren müssen, sollte aber immer mit Bedacht eingesetzt werden, um Datenfehler zu vermeiden.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Löschen (Delete)</strong></span>: Berechtigt zum dauerhaften Entfernen von Datensätzen, z. B. fehlerhafte Aufträge oder doppelte Kunden.</p>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p><span class="bold"><strong>Dieses Recht ist besonders kritisch und sollte nur in Ausnahmefällen vergeben werden, da Löschungen zu irreversiblen Datenverlusten führen können.</strong></span></p>
+</div>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Sonstige</strong></span>: Weitere Berechtigungen ausserhalb der CRUD Rechte findest du bei "Others". Z.B. Auftrag freigeben (release).</p>
+</li>
+</ol>
+</div>
+<p><span class="bold"><strong>Allgemeines Beispiel</strong></span>: Ein Reporting-Tool benötigt oft nur Leserechte, während eine Integrationsschnittstelle möglicherweise auch Erstellen und Aktualisieren benötigt – Löschen sollte nur in Ausnahmefällen erlaubt werden.</p>
+<p>Ein Reporting-Tool benötigt nur <span class="bold"><strong>Read</strong></span>. Ein ERP-Sync-Prozess braucht Read und <span class="bold"><strong>Update</strong></span>. <span class="bold"><strong>Delete</strong></span> sollte nur in Ausnahmefällen vergeben werden, da es zu <span class="bold"><strong>Datenverlust</strong></span> führen kann.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22627513495964" style="" alt="personal_access_token_004.png"></div>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Token erstellen und protokollieren</strong></span>: Klicke auf „<span class="bold"><strong>Erstellen</strong></span>“, um den Token zu generieren.</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="a">
+<li class="listitem">
+<p>Der Token <span class="bold"><strong>wird nur einmalig angezeigt</strong></span> → sofort kopieren und sicher speichern (z. B. im zentralen Passwort-Manager).</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Dokumentiere</strong></span> die Erstellung (Zweck, Verantwortlicher, Scopes, Ablaufdatum) für interne Nachvollziehbarkeit.</p>
+</li>
+</ol>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22627530118684" style="" alt="personal_access_token_0011.png"></div>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p><span class="bold"><strong>Sicherheitsmaßnahmen umsetzen:</strong></span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Stelle sicher, dass der Token nicht unverschlüsselt verteilt wird (keine E-Mail/Chat).</p>
+</li>
+<li class="listitem">
+<p>Nutze zentralisierte Ablagen oder Secrets-Management-Systeme (z. B. Vault, Passwort-Manager).</p>
+</li>
+<li class="listitem">
+<p>Überprüfe regelmäßig die Übersicht im Modul und entferne nicht mehr genutzte Tokens.</p>
+</li>
+<li class="listitem">
+<p>Beachte, dass ungenutzte Tokens nach 180 Tagen automatisch entfernt werden, der Besitzer jedoch vorher benachrichtigt wird.</p>
+</li>
+<li class="listitem">
+<p>Admins sollten strikt das <span class="bold"><strong>Minimalprinzip</strong></span> anwenden – <span class="bold"><strong>aktiviere nur die Scopes, die für den konkreten Anwendungsfall zwingend erforderlich sind.</strong></span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-9dedbe94-0fda-e14f-c7c4-b15ab464034e" id="UUID-9dedbe94-0fda-e14f-c7c4-b15ab464034e_section-id235182862883871"></a>Einen Token bearbeiten</h2>
+</div>
+<p>Du kannst einen bestehenden Personal Access Token in Xentral nur in einem sehr eingeschränkten Rahmen bearbeiten. Konkret lässt sich ausschließlich die Laufzeit (Duration) anpassen – also das Ablaufdatum des Tokens verlängern oder verkürzen.</p>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Möchtest du die Rechte (Scopes oder CRUD-Berechtigungen) eines Tokens ändern oder neue Rechte hinzufügen, musst du dafür einen neuen Token erstellen. Der alte Token sollte anschließend gelöscht werden, um Doppelungen und potenzielle Sicherheitsrisiken zu vermeiden.</p>
+<p><span class="bold"><strong>Kurz</strong></span>:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Ablaufdatum ändern = bearbeiten,</p>
+<p>Rechte ändern = neu erstellen.</p>
+</li>
+</ul>
+</div>
+</div>
+<p>So stellst du sicher, dass die Berechtigungen eines Tokens jederzeit klar nachvollziehbar sind und keine unkontrollierten Rechte im System verbleiben.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/22676301131036" style="" alt="personal_access_token_005.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-9dedbe94-0fda-e14f-c7c4-b15ab464034e" id="UUID-9dedbe94-0fda-e14f-c7c4-b15ab464034e_section-id235186255827047"></a>Token Übersicht (für Admins)</h2>
+</div>
+<p>Über die <span class="bold"><strong>Smart Search</strong></span> kannst du direkt nach <span class="bold"><strong>Personal Access Token</strong></span> suchen und so eine <span class="bold"><strong>zentrale Admin-Ansicht</strong></span> öffnen. Diese Ansicht steht ausschließlich <span class="bold"><strong>Admins</strong></span> zur Verfügung. Dort wird eine vollständige Liste aller im System erstellten Tokens angezeigt – inklusive <span class="bold"><strong>Token-Name</strong></span>, <span class="bold"><strong>Scopes</strong></span>, <span class="bold"><strong>Ablaufdatum</strong></span>, <span class="bold"><strong>Status</strong></span>, <span class="bold"><strong>zuletzt verwendet</strong></span> sowie dem jeweiligen <span class="bold"><strong>Ersteller (Admin)</strong></span>.</p>
+<p>Damit haben Administratoren jederzeit Transparenz über sämtliche ausgestellten Tokens im System und können deren Nutzung, Laufzeiten und Zuständigkeiten zentral überwachen. Dies erleichtert sowohl die Verwaltung als auch die Einhaltung von Sicherheitsrichtlinien.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

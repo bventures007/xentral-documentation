@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Plug-In Amazon MFN (Merchant Fulfillment Network)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016737680
+    Titel: Transfer Plug-In Amazon MFN (Merchant Fulfillment Network)
+    URL: https://help.xentral.com/hc/de/articles/360016737680-Transfer-Plug-In-Amazon-MFN-Merchant-Fulfillment-Network
+    Erstellt: 2020-09-28T16:50:14Z
+    Aktualisiert: 2024-08-29T12:03:38Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254433288476
+    Export-Zeitpunkt: 2025-11-16 19:10:02
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<p>Über die Anbindung von Amazon MFN (Amazon Fulfillment Network) ist es möglich, Aufträge aus <span class="phrase">Xentral</span> an Amazon weiterzuführen, damit diese über das Amazon Merchant Fulfillment Network (MFN) verschickt werden können. Amazon kann so auch für Nicht-Amazon-Aufträge als Versanddienstleister genutzt werden. Die Übertragung erfolgt auf Grundlage der Lieferscheine.</p>
+<p>Für den Einsatz von MFN benötigst du das <span class="guilabel">Übertragungen</span>-Modul und die Amazon-Schnittstelle, damit du Lieferscheine an MFN weiterleiten kannst.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637" id="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637_id_360016737680_id_h_01FAMFNSXKZCGBQ3YC89X6F0GW"></a>Einstellungen</h2>
+</div>
+<p>Die Einstellungen nimmst du im <span class="guilabel">Übertragungen</span>-Modul vor. Wähle im Feld <span class="guilabel">Übertragungsformat</span> im Bereich <span class="guilabel">Kommunikation</span> die Option <span class="guilabel">AmazonMfn</span> aus dem Drop-down:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996451726364" style="" alt="TransferAmazonMfn_1.png"></div>
+<p>Damit <span class="phrase">Xentral</span> weiß, welcher Amazon Seller Account für MFN angebunden wird, musst du den passenden Amazon-Shop verknüpfen. Wähle den Shop, den du mit dem Amazon Fulfillment zusammen verwenden möchtest, im Feld <span class="guilabel">Amazon Shop</span> im Bereich <span class="guilabel">Übertragungsspezifische Einstellungen</span> aus.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996433766812" style="" alt="TransferAmazonMfn_2.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637" id="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637_id_360016737680_id_h_01FAMFNZVM976NRVDRDHBFZWC0"></a>Prozessstarter</h2>
+</div>
+<p>Die Rückmeldungen von Amazon werden von den Prozessstartern Amazon und API Übertragungen abgeholt. Stelle sicher, dass die erforderlichen Prozessstarter aktiv sind, andernfalls können keine Übertragungen ausgeführt werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637" id="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637_id_360016737680_id_h_01FAMFP37ZGGW7T5KYR0MMV835"></a>Arbeitsablauf</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637" id="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637_id_360016737680_id_h_01FAMFP76HKNB7C85C89BQ1CW6"></a>Exportlieferungen</h3>
+</div>
+<p>Zollwerte werden bei Exportlieferungen automatisch mit übergeben. Diese werden direkt aus den Lieferscheinen gezogen. Falls im Lieferschein keine Zollwerte hinterlegt sind, werden die Werte aus dem Auftrag verwendet.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637" id="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637_id_360016737680_id_h_01FAMFPGFX1V76E9S7EGMZFKFY"></a>Monitoring</h3>
+</div>
+<p>Sichte regelmäßig den Monitor im Modul <span class="guilabel">Übertragungen</span>. Mögliche Fehlermeldungen werden dort dargestellt. Wenn z.B. die SKU fehlt, eine Datenzeile nicht korrekt befüllt ist o.Ä., wird unter <span class="guilabel">Übertragungen → Monitor</span> eine Logeintrag mit Fehler erzeugt:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996440458396" style="" alt="TransferAmazonMfn_3.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637" id="UUID-b421156a-3bc9-2b7d-f1d2-a2a4c0853637_section-idm4644612468504033081418520479"></a>Voraussetzungen</h2>
+</div>
+<p>Grundsätzlich können nur Aufträge übermittelt werden, deren Positionen bei Amazon bekannt sind und die über ausreichend Bestand verfügen.</p>
+<p>Um dies sicherzustellen, berücksichtige bitte die Informationen aus dem <a class="link" href="https://help.xentral.com/hc/articles/360016809939" target="_blank" rel="noopener">Amazon-Artikel</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

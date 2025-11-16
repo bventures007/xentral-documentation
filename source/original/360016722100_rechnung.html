@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rechnung</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016722100
+    Titel: Rechnung
+    URL: https://help.xentral.com/hc/de/articles/360016722100-Rechnung
+    Erstellt: 2020-09-28T12:18:01Z
+    Aktualisiert: 2025-08-11T16:35:51Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4415579416476
+    Export-Zeitpunkt: 2025-11-16 19:07:21
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>In xentral können in diesem Modul Rechnungen angelegt und bearbeitet werden. Besonders relevant ist dieses Modul, sobald Rechnungen erstellt werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-0"></a>Übersicht</h2>
+</div>
+<p>In der Übersicht sind alle Rechnungen aufgelistet. Dabei kann zwischen Rechnungen, nicht versendeten Rechnungen und Rechnungen in Bearbeitung unterscheiden werden. Zudem ist es möglich nach verschiedenen Kriterien, sowohl über die Filter, als auch über die Tabelle selbst, zu filtern. Über die Stapelverarbeitung können Aktionen für mehrere Rechnungen gleichzeitig durchgeführt werden.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-1"></a>Status und Zahlungsstatus</h3>
+</div>
+<p>Eine Rechnung kann folgende Status besitzen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">angelegt</span>: die Rechnung ist in Bearbeitung, wurde neu angelegt aber noch nicht freigegeben. Die Rechnung besitzt noch keine Nummer im Nummernkreis, sondern ist noch im Entwurfsmodus</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">freigegeben</span>: die Rechnung wurde freigegeben</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">versendet</span>: die Rechnung wurde über die Aktion "abschicken" versendet</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">storniert</span>: die Rechnung wurde weitergeführt als Gutschrift. Auch teilstornierte Rechnungen (Teilgutschrift) werden als storniert angezeigt</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="idm2672"></a>Rechnungen stornieren</h3>
+</div>
+<p>Wird eine Rechnung storniert, so bleibt der Zahlungsstatus weiterhin offen. Damit diese Rechnung nicht in den Mahnlauf gezogen wird, muss über das Aktionsmenü die Rechnung als Gutschrift / Stornorechnung markiert werden.</p>
+<p>So ändert sich der Status auf "storniert" während der Zahlungsstatus weiterhin offen bleibt. Nun wird zum Modul Mahnwesen (Buchhaltung → Mahnwesen) navigiert und auf die Schaltfläche "Mahnwesen neu berechnen" geklickt.</p>
+<p>Der Status der Rechnung bleibt so weiterhin storniert, der Zahlungsstatus ändert sich auf "bezahlt".</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-2"></a>Storniert-Status rückgängig machen</h3>
+</div>
+<p>Ist eine Rechnung storniert worden (= weiterführen als Gutschrift/Stornorechnung), erhält diese den Belegstatus "storniert". Diese Stornierung kann aufgehoben werden: Verknüpfung zwischen Rechnung und Gutschrift (Stornorechnung) aufheben → in der Gutschrift/Stornorechnung die Rechnungsnummer entfernen + speichern in der Rechnung über "Aktion" die Statusumstellung vornehmen.</p>
+<p>Eine Rechnung kann zudem folgende Zahlungsstatus besitzen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">offen</span>: die Zahlung steht noch komplett aus</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">teilbezahlt</span>: die Rechnung wurden noch nicht komplett beglichen, sei es durch eine fehlende Zahlung oder eine Teilgutschrift</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">bezahlt</span>: die Zahlung ist komplett erfolgt. Der Kunde hat den kompletten Betrag bezahlt oder die Rechnung wurde komplett storniert/gutgeschrieben. Erhält ein Kunde zu einer Rechnung eine Teilgutschrift und bezahlt den Restbetrag, wird die Rechnung ebenfalls auf "bezahlt" gesetzt</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-3"></a>Massenbearbeitung</h3>
+</div>
+<p>Über die Massenbearbeitung können Aktionen für mehrere Rechnung gleichzeitig ausgeführt werden.</p>
+<p>Es ist möglich mehrere Rechnungen auszuwählen und eine der folgenden Aktionen durchzuführen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>als bezahlt markieren</p>
+</li>
+<li class="listitem">
+<p>als offen markieren</p>
+</li>
+<li class="listitem">
+<p>per Mail versenden</p>
+</li>
+<li class="listitem">
+<p>als versendet markieren</p>
+</li>
+<li class="listitem">
+<p>Sammel-PDF</p>
+</li>
+<li class="listitem">
+<p>drucken (Drucker kann ausgewählt werden)</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-4"></a>Neue Rechnung</h2>
+</div>
+<p>Eine neue Rechnung kann auf zwei Weisen erzeugt werden. Zum einen können Belege über das Aktionsmenü als Rechnung weitergeführt und zum anderen über die Schaltfläche "+NEU" angelegt werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-5"></a>Details</h2>
+</div>
+<p>Wird eine Rechnung neu angelegt oder wird auf das Edit-Icon in einer bereits vorhandenen Rechnung geklickt, so erscheint die Detail Ansicht der Rechnung. Hier werden alle wichtigen Informationen der Rechnungen hinterlegt.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-6"></a>Rechnung</h3>
+</div>
+<p>In diesem Tab werden, abgesehen von den Positionen, alle wichtigen Informationen für die Rechnung angegeben.</p>
+<p><span class="guilabel">Allgemein</span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Kunde</span>: Angabe des Kunden an den die Rechnung gestellt wird</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Projekt</span>: Auswahl eines Projektes, dem die Rechnung zugeordnet werden kann</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Aktionscode</span>: Angabe eines Aktionscodes, falls vorhanden</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Status</span>: wird von <span class="phrase">Xentral</span> ausgefüllt (z.B. freigegeben, versendet,...)</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Auftrag</span>: Angabe eines Auftrags, falls dieser mit der Rechnung verknüpft werden soll</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Debitorennummer</span>: Angabe der Debitorennummer des Kunden/Lieferanten</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Ihre Bestellnummer</span>: Angabe der Bestellnummer</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Interne Bezeichnung</span>: Angabe einer internen Bezeichnung für die Rechnung</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Lieferdatum</span>: Datum an dem die Lieferung erfolgt</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Lieferschein</span>: Verknüpfung eines Lieferscheins mit der Rechnung</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Datum</span>: Datum der Rechnung</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Rechnungskopie</span>: Angabe, dass eine Rechnungskopie erstellt werden soll</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Schreibschutz</span>: Angabe, dass der Schreibschutz aktiviert werden soll. Anschließend lassen sich die Details nicht mehr bearbeiten</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Quittung</span>: Angabe, dass eine Quittung erstellt werden soll</p>
+</li>
+</ul>
+</div>
+<p><span class="guilabel">Mahnwesen</span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Alle Einstellungen manuell festsetzen</span>: Auswahl des Expertenmodus, hier können alle Einstellungen manuell festgesetzt werden</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Zahlungsstatus</span>: Auswahl des Zahlungsstatus</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Bezahlt am</span>: Angabe, wann die Rechnung bezahlt wurde</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Skonto gegeben</span>: Hier kann der Geldbetrag festgelegt werden, der als Skonto festgelegt wurde. Über das graue Plus wird der Gesamtrechnungsbetrag übernommen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Mahnstufe</span>: Auswahl der Mahnstufe</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Mahndatum</span>: Auswahl des Datums an dem die Mahnung versendet wird</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Sperre</span>: Aktivierung der Sperre</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Bemerkung</span>: Angabe einer Bemerkung für die Mahnung</p>
+</li>
+</ul>
+</div>
+<p><span class="guilabel">Stammdaten</span> Nach Angabe des Kunden unter "Allgemein" füllt <span class="phrase">Xentral</span> die Informationen aus den Stammdaten automatisch aus. Diese können ergänzt oder geändert werden. Nähere Informationen zu den Stammdateninformationen befinden sich  <a class="link" href="#">hier.</a></p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Möchtest du den Ansprechpartner aus den Stammdaten auch in der Rechnung anzeigen, musst du unter <span class="guilabel">Administration</span> &gt; <span class="guilabel">System</span> &gt; <span class="guilabel">Grundeinstellungen</span> &gt; <span class="guilabel">System</span> im Bereich <span class="guilabel">Belege</span> bei der Option <span class="guilabel">Ansprechpartner in Rechnung, Gutschrift</span> anzeigen einen Haken setzen.</p>
+</div>
+<p><span class="guilabel">Freitext</span> Hier kann ein Text erstellt werden, der anschließend auf der Rechnung erscheint.</p>
+<p><span class="guilabel">Kopftext</span> Hier kann ein Text erstellt werden, der anschließend als Kopftext auf der Rechnung erscheint.</p>
+<p><span class="guilabel">Rechnung</span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Zahlungsweise</span>: Auswahl der Zahlungsweise (z.B. Rechnung, Paypal, Kreditkarte,...)</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Lieferbedingung</span>: Auswahl der Lieferbedingung, die vorher in <span class="phrase">Xentral</span> erstellt wurde</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Vertrieb</span>: Ordnet der Rechnung einen Vertrieb zu</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Bearbeiter</span>: Ordnet der Rechnung einen Bearbeiter zu</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Kein Briefpapier und Logo</span>: Angabe, dass weder Briefpapier noch Logo verwendet werden soll</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Artikeltexte ausblenden</span>: Angabe, dass Artikeltexte ausgeblendet werden sollen</p>
+</li>
+</ul>
+</div>
+<p><span class="guilabel">Sonstiges</span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">GLN</span>: Angabe der Global Location Number</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Zahlungsziel (in Tagen):</span> Angabe des Zahlungsziels der Rechnung in Tagen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Zahlungsziel Skonto (in Tagen)</span>: Angabe des Zahlungsziel des Skontos in Tagen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Skonto</span>: Angabe des Betrags des Skontos</p>
+</li>
+</ul>
+</div>
+<p><span class="guilabel">Interne Bemerkung</span> Platz für interne Bemerkungen. Diese erscheinen später nicht auf der Rechnung.</p>
+<p><span class="guilabel">USt-Prüfung</span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">UST ID</span>: Angabe der Umsatzsteuer ID</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Besteuerung</span>: Angabe der Besteuerung (z.B. Inland, Export)</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">ohne Hinweis bei EU oder Export</span>: Angabe, dass bei EU oder Export kein Hinweis erfolgen soll</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Brief bestellt</span>: Angabe, dass der Brief bestellt wurde</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Brief Eingang</span>: Angabe, dass der Brief eingegangen ist</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Brief Eingang am</span>: Angabe des Datums, an dem der Brief Eingegangen ist</p>
+</li>
+</ul>
+</div>
+<p><span class="guilabel">Einstellungen</span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Anzeige Steuer</span>: Auswahl, wie die Steuer angezeigt werden soll (automatisch, netto, brutto)</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Währung</span>: Währung der Rechnung</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Sprache</span>: Sprache der Rechnung</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Wechselkurs</span>: Der aktuelle Wechselkurs kann in der App "Währung Umrechnung" von der European Central Bank abgerufen werden</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Kostenstelle</span>: Angabe der Kostenstelle, welche vorher in <span class="phrase">Xentral</span> angelegt wurde</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-7"></a>Positionen</h3>
+</div>
+<p>Unter diesem Reiter können die einzelnen Positionen der Rechnung eingefügt werden. Dabei kann hier auch ein Spezialfeld eingefügt, eine Rechnungsvorlage sowie ein Gutschein erstellt, Rabatt in % auf alle Positionen gegeben und Artikel manuell gesucht bzw. neu angelegt werden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die Funktion Rabatt in % auf alle Positionen ist eine extra App, welche den Rabatt immer auf alle Positionen anwendet und  die Einstellung "kein Rabatt erlaubt" im Artikel nicht berücksichtigt.</p>
+</div>
+<p>Zum Ausblenden einzelner Positionen im Rechnungsbeleg kannst du die Option „Im PDF ausblenden“ verwenden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-8"></a>Vorschau</h3>
+</div>
+<p>Dieser Reiter zeigt eine Vorschau der späteren Rechnung. Es ist möglich die Vorschau auszudrucken oder herunterzuladen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-9"></a>Protokoll</h3>
+</div>
+<p>Unter diesem Reiter erscheint eine Übersicht in der nochmal die wichtigsten Informationen der Rechnung dargestellt werden. So kann hier der Kunde und die Bestellnummer sowie der Status und das Projekt eingesehen werden. Auch erscheinen hier die wichtigsten Dokumente in der Tabelle und können hier bearbeitet oder als PDF geöffnet werden. Des Weiteren zeigt das Protokoll auch die wichtigsten Informationen zur Zahlung und die Rechnungsadresse. Auf der rechten Seite im Protokoll werden Informationen über die Artikel, den Zahlungseingang, alle Vorgänge dieser Rechnung, das Mahnwesen, das PDF-Archiv und der Deckungsbeitrag angezeigt.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Das Matchen von Rechnungen im Zahlungseingang erfolgt anhand von Kriterien wie der Rechnungsnummer, Internetnummer, Transaktionsnummer oder auch dem Betrag.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-10"></a>Dateien</h2>
+</div>
+<p>Unter diesem Reiter können Dateien zur Rechnung neu angelegt werden. Bei mehreren angelegten Dateien ist es möglich über die Stapelverarbeitung eine ZIP Datei zu erstellen und eine Sammel-PDF zu öffnen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_id_360016722100_id_toc-11"></a>Abschlagsrechnung</h2>
+</div>
+<p>Sollte es Teilzahlungen zu dieser Rechnung geben, können diese unter dem Reiter Abschlagsrechnung angegeben werden. Unter Bezeichnung ist ein frei wählbarer Name für diese Teilzahlung anzugeben und anschließend über das Lupensymbol unter "gehört zu Auftrag" einem Auftrag zuzuordnen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4618998947620833859502488381"></a>FAQ</h2>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4582052190564833859502724903"></a>Wie gehe ich vor, wenn ich einen Kauf auf Rechnung abbilden möchte, bei dem die gekauften Waren später zurückgegeben werden?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4582052190564833859502724903_body">
+<p>Gehe wie folgt vor, um Zahlungsflüsse, Rechnungen und Gutschriften korrekt abzubilden:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Bei Vergabe/Verkauf der Ware mit Rechnung an den Kunden kannst du eine andere Zahlungsart, wie bspw. "Kauf auf Probe" oder Rechnung 40 Tage, verwenden</p>
+</li>
+<li class="step">
+<p>Lagere die Ware über den Wareneingang als <span class="guilabel">Retoure</span> ein, wenn der Kunde die Ware nicht behält</p>
+</li>
+<li class="step">
+<p>Anschließend erstellst du eine <span class="guilabel">Stornorechnung</span> (komplettes Storno) oder eine Gutschrift. Die <span class="guilabel">Gutschrift</span> gleicht die Rechnung dann vollständig aus. Ein Geldfluss findet also dann nur statt, wenn der Kunde die Ware behält und bezahlt</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4556195959582433859507966098"></a>Bei stornierten Rechnungen habe ich unterschiedliche Status. Welcher Status ist richtig? Wie unterscheiden sich die Status?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4556195959582433859507966098_body">
+<p>Es gibt folgende Status:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>bezahlt</p>
+</li>
+<li class="listitem">
+<p>offen</p>
+</li>
+<li class="listitem">
+<p>teilbezahlt (=gleichzeitig überzahlt)</p>
+</li>
+</ul>
+</div>
+<p>Prüfe bei der Zuordnung von Zahlungseingängen, ob die Rechnung ausgeglichen ist. Ist eine Rechnung nicht auf "bezahlt" gesetzt, so kann dies folgende Ursachen haben:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">offen</span> → die Rechnung wurde weder vom Kunden bezahlt noch mit einer kompletten Gutschrift / Stornorechnung ganz ausgeglichen</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">teilbezahlt</span>→ die Rechnung wurde zum Teil bezahlt oder von dir zum Teil gutgeschrieben / storniert. Alternativ hat der Kunde eine Zahlung geleistet, die Gutschrift hat denselben Betrag. Dann muss der Kunde den bezahlten Betrag wieder komplett zurück erhalten und hat so eine Überzahlung</p>
+</li>
+</ul>
+</div>
+<p>Wenn die Rechnung auf "bezahlt" steht, dann</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>hat der Kunde den Betrag komplett bezahlt oder</p>
+</li>
+<li class="listitem">
+<p>hast du die Rechnung komplett gutgeschrieben (Rechnungsbetrag 100 EUR, Gutschriftbetrag 100 EUR → gleicht sich auf "0" aus) oder</p>
+</li>
+<li class="listitem">
+<p>hat der Kunde einen Teil bezahlt und du hast den anderen Teil mit einer Gutschrift / Stornorechnung ausgeglichen</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4556150568755233859511757245"></a>Wieso hat eine stornierte Rechnung den Zahlstatus "offen"?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4556150568755233859511757245_body">
+<p>Die stornierte Rechnung wechselt den Zahlstatus von <span class="guilabel">offen</span> auf <span class="guilabel">bezahlt</span>, sobald du unter <span class="guilabel">Buchhaltung &gt; Mahnwesen</span> selbiges einmalig aufrufst.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4582060034110433859513823707"></a>Was passiert mit einer Rechnung, wenn der Kunde zu wenig bezahlt hat?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4582060034110433859513823707_body">
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wenn der Fehlbetrag genau der Skontobetrag ist und der Kunde im Zeitraum überwiesen hat, wird beim Zahlungseingang mit Kontoauszügen der Skontobetrag in das Feld "Skonto" im Modul "Zahlungseingang" geschrieben.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Fülle bei manuellem "als bezahlt markieren" das Feld per Hand aus. Gib dazu den Ist-Betrag in das Feld ein (Betrag, den der Kunde bezahlt hat). Klicke danach auf das Skonto-Icon. Anschließend wird der Differenz-Betrag automatisch in das Feld "Skonto" gebucht.</p>
+</div>
+</li>
+<li class="listitem">
+<p>Ist der Fehlbetrag kein Skontobetrag, steht die Rechnung weiter auf "teilbezahlt" und wird nach Ablauf der Zahlungsfrist ins Mahnwesen überführt. Den Fehlbetrag kannst du dort entweder anmahnen oder über das Icon <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/10150799577244" style="" alt="mahnwesen_8.png"></span> als Skonto verbuchen.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4645836806545633859517983111"></a>Wo sehe ich die offenen Positionen meiner Rechnungen und Gutschriften?</h3>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-2365d708-788a-1ba7-0bf3-32943d58dfa2_section-idm4645836806545633859517983111_body">
+<p>Unter <span class="guilabel">Buchhaltung</span> &gt; <span class="guilabel">Mahnwesen</span> &gt; <span class="guilabel">OPOS-Liste</span> findest du eine eine vollständige Liste aller offenen Rechnungen und der offenen (Teil-)Beträge. Gutgeschriebene Beträge sowie Skonto-Beträge werden abgezogen. Außerdem wird das nächste Mahndatum angezeigt.</p>
+<p>Die OPOS-Liste dient vielfach als Arbeitsgrundlage für Mitarbeiter der Buchhaltung, die Debitoren-Rechnungen und Mahnwesen verwalten.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paketmarkendruck mit CSV</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360021360639
+    Titel: Paketmarkendruck mit CSV
+    URL: https://help.xentral.com/hc/de/articles/360021360639-Paketmarkendruck-mit-CSV
+    Erstellt: 2021-04-26T09:50:38Z
+    Aktualisiert: 2024-03-27T13:36:50Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254147566364
+    Export-Zeitpunkt: 2025-11-16 19:09:41
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Der Paketmarkendruck via CSV war nur bei On-Premise-Instanzen möglich!</p>
+</div>
+<p>Zusätzlich zu der herkömmlichen Art des Paketmarkendrucks über Lieferschein und Paketmarkenformat, kannst du den Paketmarkendruck auch mit CSV-Dateien durchführen. In diesem Artikel findest du Informationen zu Herangehensweise und die Spezialfälle DPD (CSV) und GLS (CSV).</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b" id="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b_id_360021360639_id_h_01FA064EH55X8418DV5CDWKBWS"></a>Anbindung einer externen Software zur Übertragung von Paketmarkeninformationen</h2>
+</div>
+<p>Oftmals liegt Software vom Paketdienstleister vor, die eine CSV-Datei in einem lokalen Verzeichnis erwartet. In diesem Fall läuft xentral auf einem Webserver in einem entfernten Netz. Dann musst du die Dateien bzw. das Verzeichnis lokal einbinden. Viele Hoster, z.B. All-inkl., bieten einfache Freigaben per Netzlaufwerk an. So kann eine Datei von xentral erstellt und über das Netzlaufwerk lokal angebunden werden. Alternativ kannst du mit einem FTP Programm arbeiten, das ein FTP Verzeichnis zyklisch kopiert, z.B. http://www.watchftp.com/.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b" id="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b_id_360021360639_id_h_01FA064THKH5DGYZ1Y2G865B8Z"></a>Verzeichnis anlegen</h3>
+</div>
+<p>Um ein Verzeichnis anzulegen, gehe wie folgt vor:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Lege auf deinem xentral-Server ein Verzeichnis an (im Webspace, auf dem xentral installiert ist). Aus diesem Verzeichnis kann eine Versandsoftware, z.B. die .csv, Informationen zur Erzeugung von Paketmarken abholen.</p>
+</li>
+<li class="step">
+<p>Die Abholung kann z.B. über eine Ordnerfreigabe, z.B. per Windows-Freigabe veröffentlichen, oder via FTP erfolgen.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b" id="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b_id_360021360639_id_h_01FA0655VVQVJYJA6PCJHMM0WT"></a>DPD (CSV) - DELISprint</h2>
+</div>
+<p>Der Paketmarkendruck in xentral beim Versanddienstleister DPD funktioniert auf zwei Arten: Entweder verwendest du die herkömmliche Versandart <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/360016721940#UUID-9f736703-cbf7-5fd4-5177-d56fe9fb78a0" title="DPD anbinden">DPD</a> oder du führst den Paketmarkendruck mit CSV wie hier beschrieben durch.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b" id="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b_id_360021360639_id_h_01FA065GGKXPBVTP2JKHCR6K45"></a>Einrichtung von DPD (CSV) in xentral</h3>
+</div>
+<p>Lege unter <span class="bold"><strong>Administration &gt; Einstellungen &gt; Versandarten &gt; Übersicht &gt; +NEU &gt; DPD (CSV)</strong></span> eine neue Versandart an.</p>
+<p>Fülle dazu folgende Felder aus:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Bezeichnung:</strong></span> Wähle frei eine Bezeichnung für die Versandart. Diese wird in xentral u.a. im Auftrag zur Auswahl im Drop-Down Menü angezeigt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Typ:</strong></span> Gib den Typ/die Feldbezeichnung an. Diese kannst du generell beliebig wählen, sofern sie nicht für das Shop Mapping oder andere Mappings notwendig ist. Idealerweise behältst du die Voreinstellung bei</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Modul:</strong></span> Wähle <span class="bold"><strong>DPD CSV</strong></span> aus dem Drop-Down Menü aus</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Projekt:</strong></span> Wähle optional ein Projekt aus, sofern für jedes Projekt eine eigene DPD(CSV)-Versandart angelegt wird</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Aktiv:</strong></span> Durch Anhaken aktivierst du die Versandart und machst sie sicht- und nutzbar</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Kein Portocheck:</strong></span> Durch Anhaken wird kein Portocheck im Auftrag durchgeführt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Drucker Paketmarke:</strong></span> Wähle aus dem Drop-Down Menü den Standarddrucker aus, welcher die Paketmarken druckt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Drucker Export:</strong></span> Wähle aus dem Drop-Down Menü den Standarddrucker aus, welcher die Exportpapiere druckt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versandmail:</strong></span> Wähle aus dem Drop-Down Menü das Verhalten der Versandmail aus. "Standardverhalten" bedeutetet, dass eine Standard-Trackingmail versendet wird, "keine Versandmail" bedeutet, dass keine Trackingmail bei dieser Versandart versendet wird und "eigene Textvorlage" bedeutet, dass für diese Versandart eine eigene Textvorlage für die Versandbestätigung verwendet wird, unabhängig vom Projekt und Logistikprozess</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Standardgewicht:</strong></span> Gib das Standardgewichts eines Pakets in kg an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Export als Einzeldatei:</strong></span> Durch Anhaken wird pro Paket eine eigene Datei verschickt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Trackingnummer Startposition:</strong></span> Gib den Barcode der internen Startposition ein</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Trackingnummer Länge:</strong></span> Gib die gewünschte Länge der Trackingnummer ein. Gibst du "0" ein, wird alles bzw. die gesamte Trackingnummer verwendet</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Trackingnummer DPD Kennung entfernen:</strong></span> Durch Anhaken entfernst du die DPD Kennung aus der Trackingnummer</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>DPD Kennung:</strong></span> Gib die DPD Kennung ein</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>DPD Pfad:</strong></span> Gib das DPD-Verzeichnis an, in welchem die zu druckenden Dokumente abgelegt werden. Die Dateien werden lokal am Server abgelegt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>testen:</strong></span> Über die Schaltfläche <span class="bold"><strong>Testdatei anlegen</strong></span> kannst du eine CSV-Testdatei anlegen. Klicke vorher aber auf die <span class="bold"><strong>Speichern</strong></span>-Schaltfläche, um alle Daten zu sichern</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>userdata:</strong></span> Hier steht dein xentral userdata-Pfad</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>DPD Dateiendung:</strong></span> Gib die Dateiendung für DPD ein</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>DPD Format:</strong></span> Bestimme das DPD Format. Folgende Variablen stehen dir zur Verfügung: {NAME}, {NAME2}, {NAME3}, {STRASSE}, {HAUSNUMMER}, {PLZ}, {ORT}, {LAND}, {GEWICHT}, {VERFAHREN}, {PRODUKT}, {SERVICE}, {BETRAG}, {NACHNAHMETEXT}, {LIEFERSCHEINNUMMER}, {KUNDENNUMMER}, {INTERNETNUMMER}, {DATUMHEUTE} und {INTERNET}</p>
+</li>
+</ul>
+</div>
+<p>Klicke abschließend auf die <span class="bold"><strong>Speichern</strong></span>-Schaltfläche.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b" id="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b_id_360021360639_id_h_01F4V1M4XZE683FYBQB39PT063"></a>GLS (CSV)</h2>
+</div>
+<p>Der Paketmarkendruck ist in xentral nicht nur über DPD (CSV) DELISprint, sondern auch über GLS (CSV) möglich.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b" id="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b_id_360021360639_id_h_01FA066AXBAVVBG88W26A2RC10"></a>Einrichtung von GLS (CSV) in xentral</h3>
+</div>
+<p>Um GLS in xentral als Versandart nutzen zu können, musst du zunächst eine neue Versandart anlegen. Dafür erstellst du unter <span class="bold"><strong>Administration &gt; Einstellungen &gt; Versandarten &gt; Übersicht &gt; +NEU &gt; GLS (CSV)</strong></span> eine neue Versandart.</p>
+<p>Nachdem du als Modul <span class="bold"><strong>GLS CSV</strong></span> aus dem Drop-Down Menü ausgewählt hast, erscheinen die relevanten Felder für GLS.</p>
+<p>Befülle folgende Felder:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Bezeichnung:</strong></span> Wähle frei eine Bezeichnung für die Versandart. Diese wird in xentral u.a. im Auftrag zur Auswahl im Drop-Down Menü angezeigt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Typ:</strong></span> Gib den Typ/die Feldbezeichnung an. Diese kannst du generell beliebig wählen, sofern sie nicht für das Shop Mapping oder andere Mappings notwendig ist. Idealerweise behältst du die Voreinstellung bei</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Modul:</strong></span> Wähle <span class="bold"><strong>GLS CSV</strong></span> aus dem Drop-Down Menü aus</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Projekt:</strong></span> Wähle optional ein Projekt aus, sofern für jedes Projekt eine eigene GLS-Versandart angelegt wird</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Aktiv:</strong></span> Durch Anhaken aktivierst du die Versandart und machst sie sicht- und nutzbar</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Kein Portocheck:</strong></span> Durch Anhaken wird kein Portocheck im Auftrag durchgeführt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Drucker Paketmarke:</strong></span> Wähle aus dem Drop-Down Menü den Standarddrucker aus, welcher die Paketmarken druckt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Drucker Export:</strong></span> Wähle aus dem Drop-Down Menü den Standarddrucker aus, welcher die Exportpapiere druckt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versandmail:</strong></span> Wähle aus dem Drop-Down Menü das Verhalten der Versandmail aus. "Standardverhalten" bedeutet, dass eine Standard-Trackingmail versendet wird, "keine Versandmail" bedeutet, dass keine Trackingmail bei dieser Versandart versendet wird und "eigene Textvorlage" bedeutet, dass für diese Versandart eine eigene Textvorlage für die Versandbestätigung verwendet wird, unabhängig vom Projekt und Logistikprozess</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Standardgewicht:</strong></span> Gib das Standardgewicht deiner Sendungen in kg an. Dieses wird dann im Versanddialog automatisch ausgefüllt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Export als Einzeldatei:</strong></span> Durch Anhaken wird pro Paket eine eigene Exportdatei verschickt, default: Exportdokumente auf selbem Dokument wie Paketmarke</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Trackingnummer Startposition:</strong></span> Gib den Barcode der internen Startposition an. Alles vor dieser Position wird von der Trackingnummer abgeschnitten (z.B. Startposition 3, Trackingnummer "abcdef" &gt; "def")</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Trackingnummer Länge:</strong></span> Gib die Länge der Trackingnummer ab der Startposition ein</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Trackingnummer GLS Kennung entfernen:</strong></span> Durch Anhaken wird die GLS Kennung aus der Trackingnummer entfernt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Pfad:</strong></span> Gib das Verzeichnis an, in welchem die zu druckenden Dokumente abgelegt werden. Die Dateien werden lokal am Server abgelegt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>testen:</strong></span> Über die <span class="bold"><strong>testen</strong></span>-Schaltfläche kannst du eine Testdatei anlegen. Speichere vorher aber deine eingetragenen Daten über die <span class="bold"><strong>Speichern</strong></span>-Schaltfläche ab</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>userdata:</strong></span> Hier steht dein userdata-Pfad bei xentral</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Dateiendung:</strong></span> Trage die Dateiendung des erzeugten Dokuments ein, z.B. .csv</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Format:</strong></span> Dir stehen verschiedene Werte als Variablen zur Auswahl, mit welchen du das Format bestimmen kannst. Diese sind: {NAME}, {NAME2}, {NAME3}, {STRASSE}, {HAUSNUMMER}, {PLZ}, {ORT}, {LAND}, {GEWICHT}, {VERFAHREN}, {PRODUKT}, {SERVICE}, {BETRAG}, {NACHNAHMETEXT}, {LIEFERSCHEINNUMMER}, {KUNDENNUMMER}, {INTERNETNUMMER}, {DATUMHEUTE}, {INTERNET}</p>
+</li>
+</ul>
+</div>
+<p>Klicke abschließend auf die <span class="bold"><strong>Speichern</strong></span>-Schaltfläche.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b" id="UUID-33407d6e-98f6-3d86-9e24-fa63f420fd7b_id_360021360639_id_h_01FA066KPV30CZ6FNWAB30D8G9"></a>Testdatei</h2>
+</div>
+<p>Sowohl in der Oberfläche für DPD als auch in der für GLS hast du die Möglichkeit, deine Angaben über eine Testdatei anzulegen und zu testen. Speichere aber in jedem Fall vorher deine eingetragenen Informationen über den <span class="bold"><strong>Speichern</strong></span>-Button unten rechts auf der Seite ab.</p>
+<p>Voraussetzung für die Nutzung der Testdatei ist, dass du zuvor im Feld <span class="bold"><strong>Pfad</strong></span> einen gültigen und erreichbaren Speicherort für die Dokumente eingetragen hast.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

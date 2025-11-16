@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smarty im Übertragen-Modul</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016773539
+    Titel: Smarty im Übertragen-Modul
+    URL: https://help.xentral.com/hc/de/articles/360016773539-Smarty-im-%C3%9Cbertragen-Modul
+    Erstellt: 2020-09-28T16:50:12Z
+    Aktualisiert: 2025-10-08T07:32:40Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 360004524139
+    Export-Zeitpunkt: 2025-11-16 19:08:09
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Das <span class="bold"><strong>Übertragen-Modul</strong></span> ermöglicht es dir, eine Vielzahl von Belegen oder Daten aus xentral zu exportieren. Dabei werden dir neben verschiedenen Ausgabeformaten und Ausgabekanälen auch verschiedene Trigger zum Export angeboten (z.B. der Belegstatus, Label, ID oder Datum eines Beleges, etc.). Dazu verwendest du das <span class="bold"><strong>Smarty Transfer-Modul</strong></span>.</p>
+<p>Mit Hilfe von Smarty kannst du nun das Zielformat der ausgegebenen Daten selbst definieren und mit Hilfe von</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Funktionen (wie z.B. truncate) bearbeiten,</p>
+</li>
+<li class="listitem">
+<p>mit SQL-Abfragen anreichern</p>
+</li>
+<li class="listitem">
+<p>und durch die Anwendung von Schleifen, Bedingungen o.ä. mit Logik verändern.</p>
+</li>
+</ul>
+</div>
+<p>Im Übertragen-Modul steht dir Smarty bei eingehenden und ausgehenden Nachrichten zur Verfügung. Dabei bestimmt das Template</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>bei ausgehenden Nachrichten das von der Gegenstelle erwartete Zielformat</p>
+</li>
+<li class="listitem">
+<p>bei eingehenden Nachrichten das xentral interne Format zur Verarbeitung (in den meisten Fällen xentral XML).</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6MN3D4Z39305HV4W57DND"></a>Belegarten und Daten</h2>
+</div>
+<p>Hier erfährst du, welche Belegarten und Daten du exportieren bzw. importieren kannst.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6MSS509C6T94XTW1WR4W5"></a>Ausgehende Übertragungen und Daten</h3>
+</div>
+<p>Im Übertragen-Modul kannst du per Smarty die folgenden Belegtypen exportieren:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Auftrag</p>
+</li>
+<li class="listitem">
+<p>Lieferschein</p>
+</li>
+<li class="listitem">
+<p>Rechnung</p>
+</li>
+<li class="listitem">
+<p>Gutschrift</p>
+</li>
+<li class="listitem">
+<p>Angebot</p>
+</li>
+<li class="listitem">
+<p>Bestellung</p>
+</li>
+<li class="listitem">
+<p>Retoure</p>
+</li>
+</ul>
+</div>
+<p>Darüber hinaus kannst du die folgenden Daten mit Hilfe von Smarty Templates exportieren:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Artikel</p>
+</li>
+<li class="listitem">
+<p>Lagerzahlen</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle;">
+<li class="listitem">
+<p>Lagerbestände</p>
+</li>
+<li class="listitem">
+<p>Lagerplätze</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6MYMF8G0CMHQSS2ZHVF57"></a>Eingehende Übertragungen und Daten</h3>
+</div>
+<p>Im Übertragen-Modul kannst du per Smarty die folgenden Belegtypen <span class="bold"><strong>importieren</strong></span>:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Auftrag: techn. Bezeichnung 'auftrag' (XML, CSV)</p>
+</li>
+<li class="listitem">
+<p>Bestellung: techn. Bezeichnung 'bestellung' (XML, CSV)</p>
+</li>
+<li class="listitem">
+<p>Produktion: techn. Bezeichnung 'produktion' (XML, CSV)</p>
+</li>
+<li class="listitem">
+<p>Retoure: techn. Bezeichnung 'retoure' (XML, CSV)</p>
+</li>
+</ul>
+</div>
+<p>Darüberhinaus kannst du die folgenden Daten importieren (einlesen):</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Lagerzahlen</p>
+</li>
+<li class="listitem">
+<p>Artikeldaten</p>
+</li>
+<li class="listitem">
+<p>Tracking-Informationen</p>
+</li>
+</ul>
+</div>
+<p>Um alle Belegtypen zu importieren, musst du das Übertragungsformat <span class="bold"><strong>smarty</strong></span> auswählen und <span class="bold"><strong>speichern</strong></span>. Dann erscheint unter <span class="bold"><strong>Beleg empfangen</strong></span> eine neue Checkbox, die <span class="bold"><strong>alle Belegtypen importieren</strong></span> heißt.</p>
+<p>Fehler beim Auslesen kannst du teilweise aus dem Monitor bzw. der Logfile lesen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6N9FWXR5RZWXGHA2G7JRY"></a>Smarty Ausgehend (outbound oder Export)</h2>
+</div>
+<p>Daten aus xentral zu versenden (auch “outbound” genannt) ermöglicht es dir die Daten von xentral</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>in ein Zielformat zu konvertieren und anschließend</p>
+</li>
+<li class="step">
+<p>in ein Fremdsystem zu exportieren</p>
+</li>
+</ol>
+</div>
+<p>Eine Template-Datei könnte dabei z.B. folgendermaßen aussehen:</p>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;auftrag&gt;
+  &lt;status&gt;{$beleg-&gt;status}&lt;/status&gt;
+  &lt;datum&gt;{$beleg-&gt;datum|date_format:'%d.%m.%Y'}&lt;/datum&gt;
+  &lt;lieferdatum&gt;{$beleg-&gt;lieferdatum}&lt;/lieferdatum&gt;
+  &lt;versandart&gt;{$beleg-&gt;versandart}&lt;/versandart&gt;
+  &lt;zahlungsweise&gt;{$beleg-&gt;zahlungsweise}&lt;/zahlungsweise&gt;
+  &lt;belegnr&gt;{$beleg-&gt;belegnr}&lt;/belegnr&gt;
+  &lt;kundennummer&gt;{$beleg-&gt;kundennummer}&lt;/kundennummer&gt;
+  &lt;name&gt;{$beleg-&gt;name}&lt;/name&gt;
+  &lt;strasse&gt;{$beleg-&gt;strasse}&lt;/strasse&gt;
+  &lt;plz&gt;{$beleg-&gt;plz}&lt;/plz&gt;
+  &lt;ort&gt;{$beleg-&gt;ort}&lt;/ort&gt;
+  &lt;positionen&gt;
+  {foreach from=$beleg-&gt;positionen key=keyrow item=position}{* Positionen *}
+  &lt;position&gt;
+&lt;nummer&gt;{$position-&gt;nummer}&lt;/nummer&gt;
+   &lt;bezeichnung&gt;{$position-&gt;bezeichnung}&lt;/bezeichnung&gt;
+   &lt;beschreibung&gt;{$position-&gt;beschreibung}&lt;/beschreibung&gt;
+   &lt;menge&gt;{$position-&gt;menge}&lt;/menge&gt;
+   &lt;preis&gt;{$position-&gt;preis}&lt;/preis&gt;
+   &lt;einheit&gt;{$position-&gt;einheit}&lt;/einheit&gt;
+&lt;/position&gt;
+  {/foreach}
+  &lt;/positionen&gt;
+   {if $beleg-&gt;versand}
+   &lt;tracking&gt;
+   {foreach from=$beleg-&gt;versand key=keyversand item=tracking}{* Versand *}
+&lt;tracking&gt;{$tracking-&gt;tracking}&lt;/tracking&gt;
+   {/foreach}
+   &lt;/tracking&gt;
+{/if}
+&lt;/auftrag&gt;</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6NECM1NRR1XS319G9G0K2"></a>Smarty Eingehend (inbound oder Import)</h2>
+</div>
+<p>Daten in xentral einzulesen (auch “inbound” genannt) ermöglicht es dir die Daten</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>aus einem anderen System zu importieren,</p>
+</li>
+<li class="step">
+<p>zu interpretieren, dann</p>
+</li>
+<li class="step">
+<p>in ein xentral Zielformat zu konvertieren und anschließend</p>
+</li>
+<li class="step">
+<p>in xentral zu importieren.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Alle Inhalte, die im Eingangskonverter eingegeben werden, orientieren sich an den Standard-Templates aus dem Übertragen-Modul. Diese stellen gleichzeitig auch das Maximum an zu verarbeitenden Informationen dar. Informationen, welche darüber hinaus geliefert werden, bleiben unbeachtet.</p>
+</div>
+<p>Standardmäßig werden die meisten Inhalte korrekt über das $object-Array geparst. Wenn die Darstellung nicht passen sollte, kannst du mit alternativen Arrays arbeiten.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6NNWB84MT87BZBMNPVE13"></a>Alternative smarty-objects</h3>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>$csv:</strong></span> ein Array aus Objekten mit dem Headerspalten als Keys</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>$csvwithoutheader:</strong></span> ein Array aus Objekten ohne Headerspalten; Aufruf der Spalten in der Notation col0, col1, usw.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>$xml:</strong></span> ein Object das aus einem Xml gaparst wurde</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>$object:</strong></span> ist ein $xml falls Ursprungsdaten ein gültiges xml waren</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>$original:</strong></span> ist der Original-String des Eingangs</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6NVEM0C3X820VSXD7C5YG"></a>Operationen</h3>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>{"Der Auftrag enthält keine Positionen"|error}</p>
+<p>gibt einen Fehler an Smarty aus, der in den Übertragungsmonitor geloggt wird</p>
+</li>
+<li class="listitem">
+<p>{"SELECT nummer FROM artikel"|assignsql assign="artikelnummern"}</p>
+<p>speichert das Ergebnis der SQL-Abfrage in die Variable $artikelnummern</p>
+</li>
+<li class="listitem">
+<p>{$original|replace:"1.0":"2.0"|getxml assign="neuesxml"}</p>
+<p>ersetzt alle Strings 1.0 zu 2.0 und speichert wandelt es in ein neues Objekt $neuesxml um</p>
+</li>
+<li class="listitem">
+<p>{$position-&gt;nummer|pregreplace:'/[^0-9]/':''}</p>
+<p>führt eine reguläre Ersetzung auf das eine Objekt aus</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6NZZDERWY8CPFCW6G4EFB"></a>Beispiele</h3>
+</div>
+<p>Nachfolgend zeigen wir dir Beispiele zur eingehenden Datenkonvertierung.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6P8ABQ8CC4SH6BNXRJH8R"></a>Beispiel 1: Umwandlung CSV-Datei in xml zur Auftragserstellung</h4>
+</div>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;response&gt;
+&lt;xml&gt;
+{assign var="letztebestellnummer" value=0}{assign var="ersterbeleg" value=1}
+
+&lt;auftrag_list&gt;{foreach from=$object key=keyrow item=position}{if $letztebestellnummer &lt;&gt;  $position-&gt;beleg_belegnr and $ersterbeleg == 0}
+&lt;/auftrag_position_list&gt;
+&lt;/auftrag&gt;
+{/if}
+
+{if $letztebestellnummer &lt;&gt;  $position-&gt;beleg_belegnr or $ersterbeleg == 1}
+&lt;auftrag&gt;
+{$ersterbeleg = 0}{$letztebestellnummer= $position-&gt;beleg_belegnr}
+&lt;datum&gt;{$position-&gt;beleg_datum|date_format:"%d.%m.%Y"}&lt;/datum&gt;
+&lt;versandart&gt;{$position-&gt;beleg_versandart}&lt;/versandart&gt;
+&lt;status&gt;{$position-&gt;beleg_status}&lt;/status&gt;
+&lt;projekt&gt;{$position-&gt;beleg_projekt}&lt;/projekt&gt;
+&lt;name&gt;{$position-&gt;beleg_name_firma|escape:"html"}&lt;/name&gt;
+&lt;adresszusatz&gt;{$position-&gt;beleg_name_nachname|escape:"html"} {$position-&gt;beleg_name_vorname|escape:"html"}&lt;/adresszusatz&gt;
+&lt;strasse&gt;{$position-&gt;beleg_adresse_strasse} {$position-&gt;beleg_adresse_hausnummer|escape:"html"}&lt;/strasse&gt;
+&lt;plz&gt;{$position-&gt;beleg_plz}&lt;/plz&gt;
+&lt;ort&gt;{$position-&gt;beleg_ort}&lt;/ort&gt;
+&lt;ihrebestellnummer&gt;{$position-&gt;beleg_belegnr}&lt;/ihrebestellnummer&gt;
+&lt;internebezeichnung&gt;{$position-&gt;POSNR|string_format:"%.0f"}&lt;/internebezeichnung&gt;
+&lt;email&gt;{$position-&gt;beleg_email}&lt;/email&gt;
+&lt;telefon&gt;{$position-&gt;beleg_telefon}&lt;/telefon&gt;
+&lt;lieferunterabteilung&gt;
+&lt;/lieferunterabteilung&gt;
+&lt;internebemerkung&gt;
+&lt;/internebemerkung&gt;
+&lt;auftrag_position_list&gt;{/if}
+&lt;auftrag_position&gt;
+&lt;name&gt;{$position-&gt;artikel_bezeichnung|escape:"html"}&lt;/name&gt;
+&lt;menge&gt;{$position-&gt;artikel_menge}&lt;/menge&gt;
+&lt;nummer&gt;{$position-&gt;artikel_nummer}&lt;/nummer&gt;
+&lt;/auftrag_position&gt;
+{/foreach}
+&lt;/auftrag_position_list&gt;
+&lt;/auftrag&gt;
+&lt;/auftrag_list&gt;
+&lt;/xml&gt;
+&lt;/response&gt;</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6PCVXEZ5C8KAAP6F7W84J"></a>Beispiel 2: Falllprüfung für Lagerzahlen inklusive SQL-Verwendung</h3>
+</div>
+<p>Hintergrund: Lagerzahlen wurden von Fulfiller teilweise ohne MHD/Chargen-Infos übertragen. Via SQL wird geprüft, ob der Artikel MHD/Chargenpflichtig ist. Wenn ja, dann wird das template um statische Informationen erweitert.</p>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+&lt;xml&gt;
+&lt;artikel_list&gt;
+{assign var="counter" value = 0}
+{foreach from=$object-&gt;xml-&gt;artikel_list-&gt;artikel key=key item=item}
+{assign var="Nummer" value=$object-&gt;xml-&gt;artikel_list-&gt;artikel[$counter++]-&gt;nummer}
+{"SELECT nummer, mindesthaltbarkeitsdatum, chargenverwaltung FROM artikel WHERE nummer = '$Nummer' and lagerartikel = 1 and geloescht&lt;&gt;1 "|assignsql assign="artikel"}
+&lt;artikel&gt;
+&lt;nummer&gt;{$item-&gt;nummer}&lt;/nummer&gt;
+&lt;lagerzahl&gt;{$item-&gt;lagerzahl}&lt;/lagerzahl&gt;
+{if !($item-&gt;lager_platz)}
+&lt;lager_platz&gt;Hauptlager&lt;/lager_platz&gt;{else} &lt;lager_platz&gt;{$item-&gt;lager_platz}&lt;/lager_platz&gt; {/if}
+{if $artikel[0]-&gt;nummer == $item-&gt;nummer &amp;&amp; $artikel[0]-&gt;mindesthaltbarkeitsdatum == 1 &amp;&amp; $artikel[0]-&gt;chargenverwaltung == 2}
+&lt;mhd&gt;31.12.9999&lt;/mhd&gt;
+&lt;charge&gt;DUMMY&lt;/charge&gt;
+{elseif $artikel[0]-&gt;nummer == $item-&gt;nummer &amp;&amp; $artikel[0]-&gt;chargenverwaltung == 2}
+&lt;charge&gt;DUMMY&lt;/charge&gt;
+{/if}
+&lt;/artikel&gt;
+{/foreach}
+&lt;/artikel_list&gt;
+&lt;/xml&gt;
+&lt;/response&gt;</pre>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6PH7SEZA1WQB15WYESE7J"></a>Beispiel 3: Einlesen von CSV-Dateien ohne Kopfzeile</h4>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Array von $csvwithoutheader wird nicht über den Bildschirm von $object ausgegeben. Den Inhalt aus $csvwithoutheader kannst du auch bspw. mit {$csvwithoutheader|@debug_print_var} ausgeben. Der Spaltenaufruf erfolgt über die Notation col0-n.</p>
+</div>
+<pre class="programlisting">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+    &lt;xml&gt;
+     &lt;artikel_list&gt;
+ {foreach from=$csvwithoutheader key=keyrow item=Ab}
+  &lt;artikel&gt;
+     &lt;nummer&gt;{$Ab-&gt;col0}&lt;/nummer&gt;
+         &lt;lagerzahl&gt;{$Ab-&gt;col1}&lt;/lagerzahl&gt;
+&lt;/artikel&gt;
+{/foreach}
+     &lt;/artikel_list&gt;
+    &lt;/xml&gt;
+&lt;/response&gt;</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01G21VE4YVH3Z8EVSG8KRJHDEF"></a>Übertragung mit Typ API</h2>
+</div>
+<p>API steht als technische Übertragungsart im Standard zur Verfügung. Weitere verfügbare Übertragungsarten sind FTP, FTPS (Benutzername und Passwort, keine Zertifikate), SFTP, E-Mail und die lokale Speicherung auf dem Server.</p>
+<p>Der Umgang mit Smarty erfolgt hier nach derselben Weise, wie wenn eine andere Übertragungsart verwendet wird. Allerdings können hier api-spezifische Anforderungen wie Authentifizierung, Header oder application-type zu beachten sein. Wenn du mit einer Authentifizierung arbeitest, die ein Passwort benötigt, werden im Tab <span class="bold"><strong>Dateien</strong></span> werden keine Enträge angezeigt. Erfolgreiche Übertragungen können zum aktuellen Zeitpunkt nur im Übertragen-Monitor nachvollzogen werden, wenn zum entsprechenden Beleg bzw. der entsprechenden Aktion “hochgeladen” in einer grünen Erfolgsmeldung steht. Möglicherweise werden nur unzureichende Fehlermeldungen bei der Übertragung zurückgemeldet, weshalb du hier auf ein ausführliches error-logging vom Zielsystem angewiesen bist.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6PTEDYCVXZNR5SCT6NAYA"></a>Besonderheiten im Übertragen-Modul</h2>
+</div>
+<p>Hier zeigen wir dir Besonderheiten von Smarty im Übertragen-Modul.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6Q1GV7JZCSK4REB0WG6GE"></a>Verknüpfte Belege</h3>
+</div>
+<p>In allen Belegen kannst du mit Hilfe von Smarty auf verknüpfte Belege zugreifen. Wenn z.B. zu einem Auftrag ein Lieferschein existiert, existiert auch ein Array $beleg-&gt;lieferschein[], in dem dann die entsprechenden Informationen des referenzierten Lieferscheines zur Verfügung stehen. Auf diese Art kannst du schnell auf ergänzende Belegnummern, Lieferdaten, Chargen oder Seriennummern zurückgreifen - auch bei der Erstellung eines Auftrages. Die Lieferscheinnummer z.B. erreichst du direkt über $beleg-&gt;lieferschein[0]-&gt;belegnr</p>
+<p>Die Folgenden Daten stehen dir in den jeweiligen Belegen zur Verfügung, sofern ein entsprechender Beleg im System existiert.</p>
+<p>Im Auftrag:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>$beleg-&gt;bestellung[]</p>
+</li>
+<li class="listitem">
+<p>$beleg-&gt;angebot[]</p>
+</li>
+<li class="listitem">
+<p>$beleg-&gt;lieferschein[]</p>
+</li>
+<li class="listitem">
+<p>$beleg-&gt;rechnung[]</p>
+</li>
+<li class="listitem">
+<p>$beleg-&gt;retoure[]</p>
+</li>
+<li class="listitem">
+<p>$beleg-&gt;gutschrift[]</p>
+</li>
+</ul>
+</div>
+<p>Im Lieferschein:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>$beleg-&gt;bestellung[]</p>
+</li>
+<li class="listitem">
+<p>$beleg-&gt;rechnung[]</p>
+</li>
+</ul>
+</div>
+<p>Beispiele:</p>
+<p>Für die folgenden Beispiele benötigst du SQL. Die allgemeine Syntax für SQL-Abfragen im Übertragungen-Modul findest du im Abschnitt <a class="xref" href="#UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6QHPZXY5NR99QCXDVX912" title="SQL-Abfragen">SQL-Abfragen</a> dieses Artikels.</p>
+<p><span class="bold"><strong>Seriennummer</strong></span>: Die Seriennummer eines Lieferscheins ist in der Tabelle <span class="bold"><strong>belege_chargesnmhd</strong></span> gespeichert. Du kannst über den folgenden SQL-Code auf den Wert zugreifen:</p>
+<pre class="programlisting">{foreach from=$beleg-&gt;positionen key=keyrow item=position}{* Positionen *}
+  &lt;position&gt;
+(...)
+      {"SELECT wert FROM beleg_chargesnmhd WHERE doctype = 'lieferschein' AND type = 'sn' AND pos = '{$position-&gt;id}' "|assignsql assign="sn"}
+      &lt;seriennummer&gt;{$sn[0]-&gt;wert}&lt;/seriennummer&gt;</pre>
+<p><span class="bold"><strong>Internetnummer</strong></span>: Um auf die Internetnummer eines mit dem Lieferschein verknüpften Auftrags zuzugreifen, kannst du den folgenden SQL-Code nutzen:</p>
+<pre class="programlisting">&lt;lieferschein&gt;
+(...)
+  {"SELECT internet FROM auftrag WHERE id = '{$beleg-&gt;auftragid}' "|assignsql assign="internet"}
+  &lt;internet&gt;{$internet[0]-&gt;internet}&lt;/internet&gt;</pre>
+<p>In der Rechnung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>$beleg-&gt;bestellung[]</p>
+</li>
+<li class="listitem">
+<p>$beleg-&gt;lieferschein[]</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6Q8MY50V858ECH4YBRYYG"></a>ArtikelStammdaten aus Positionen ansprechen</h4>
+</div>
+<p>Über die Belegpositionen kannst du auch "darunterliegende" Strukturen abrufen, die nicht direkt im Beleg gespeichert sind. Ein Beispiel dafür ist das Gewicht eines Artikels. Dieses kannst du über {$position-&gt;articledata-&gt;gewicht} abrufen. So kannst du z.B. durch eine Multiplikation mit der Menge der Position und dem Aufaddieren aller Gewichte auch das Gesamtgewicht aller Artikel eines Beleges berechnen und übertragen. Über $position-&gt;articledata kannst du alle Spalten aus der Tabelle artikel ansprechen. Dabei solltest du immer beachten, ob Informationen aus den Artikel-Stammdaten evtl. in der Auftragsposition bereits verändert worden sein könnten. Im Zweifelsfall solltest du den Wert aus dem Beleg verwenden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6QHPZXY5NR99QCXDVX912"></a>SQL-Abfragen</h3>
+</div>
+<p>Im Übertragen-Modul kannst du zur Anreicherung von Daten auch allgemeine SQL-Anfragen erstellen und in den ausgegebenen Templates ausgeben. Dazu verwendest du folgende Syntax:</p>
+<pre class="programlisting">{"SELECT gln, rechnung_gln FROM adresse where lieferantennummer = '{$beleg-&gt;lieferantennummer}' "|assignsql assign="adressdata"}</pre>
+<p>Auf das Ergebnis kannst du dann über das zugewiesene Array adressdata zugreifen:</p>
+<pre class="programlisting">{$adressdata[0]-&gt;gln} // for the targeted call of the array</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6QQTWHNXVPVFBAV8EWMM8"></a>Datenmanipulation und Formatumwandlung</h3>
+</div>
+<p>Datumswerte können nach Anforderung ausgegeben werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Int. Datumsformat (ISO 8601): {$beleg-&gt;datum|date_format:'%Y-%m-%d'}</p>
+</li>
+<li class="listitem">
+<p>Deutsches Datumsformat (DIN 5008): {$beleg-&gt;datum|date_format:'%d.%m.%Y'}</p>
+</li>
+</ul>
+</div>
+<p>Zahlen können nach Bedarf umformatiert werden. Hier am Beispiel der Spalte "Menge":</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Ausgabe ohne Nachkommastellen (als Ganzzahl): {$position-&gt;menge|string_format:'%d'}</p>
+</li>
+<li class="listitem">
+<p>Ausgabe mit einer Nachkommastelle: {$position-&gt;menge|string_format:'%.1f'}</p>
+</li>
+<li class="listitem">
+<p>Ausgabe mit zwei Nachkommastellen: {$position-&gt;menge|string_format:'%.2f'}</p>
+</li>
+</ul>
+</div>
+<p>Grundsätzlich können alle Formate ausgegeben werden, die durch die Funktion sprintf in PHP verfügbar sind.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6R114F8N393ERX6PY63JX"></a>Felddefinitionen</h2>
+</div>
+<p>Hier findest du eine Auflistung der verschiedenen Felddefinitionen. Eine vollständige Auflistung der verfügbaren Felder inkl. einer Übersetzung der Feldnamen und einer Beschreibung der Inhalte in Englisch ist jeweils unterhalb des Screenshots verlinkt.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6R9R946XJ4RR4XZY0X0NE"></a>Lieferschein</h3>
+</div>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:90%;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/10728995013660" style="width: 100%;" alt="smarty_delivery_note.png"></td>
+</tr>
+</table>
+</div>
+<p>Weitere Felddefinitionen findest du <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/4405304107026#UUID-c256ae4c-84cd-1a0b-fb33-b5210d57d6da" title="Smarty Felddefinitionen">hier</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6RJ4150ZS78V2830S9683"></a>Tracking Rückmeldung</h3>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/10729009114524" style="" alt="smarty_tracking.png"></div>
+<p>Weitere Felddefinitionen findest du <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/4405304107026#UUID-c256ae4c-84cd-1a0b-fb33-b5210d57d6da" title="Smarty Felddefinitionen">hier</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6RS5FQVGW92E15KRHZ5ZQ"></a>Lagerzahlen-Rückmeldung</h3>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/10729029800860" style="" alt="smarty_stock_figures.png"></div>
+<p>Weitere Felddefinitionen findest du <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/4405304107026#UUID-c256ae4c-84cd-1a0b-fb33-b5210d57d6da" title="Smarty Felddefinitionen">hier</a>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6S1NGHMHJK9VPXFD6F039"></a>Features</h2>
+</div>
+<p>Mit Hilfe der integrierten Template-Engine Smarty können einfach und flexibel zeichenbasierte Ausgabestrukturen von Datenformaten wie CSV, XML oder JSON an die Bedürfnisse des Kunden angepasst werden. Im Grunde muss lediglich das vorhandene Zielformat in eine Textdatei kopiert und mit den entsprechenden Variablen gefüllt werden. Diese können dabei noch umformatiert werden.</p>
+<p>Belegdaten finden sich z.B. in der Smarty-Variable $beleg und werden in gewohnter PHP-Objektschreibweise angesprochen, z.B. $beleg-&gt;kundennummer oder $beleg-&gt;belegnr. Die Namensgebung gleicht der Benennung von Datenbank-Spaltennamen.</p>
+<p>Auch ein Zugriff auf komplexere Strukturen ist möglich (je nach Beleg). So kann im Lieferschein auf den zu Grunde liegenden Auftrag zugegriffen werden: $beleg-&gt;auftrag-&gt;lieferdatum. Verkürztes Beispiel mit fiktivem Format:</p>
+<pre class="programlisting">{* Beleg-Stammdaten -------------------------------- *}
+ {$beleg-&gt;status}
+ {$beleg-&gt;datum|date_format:'%d.%m.%Y'}
+ {$beleg-&gt;belegnr}
+ {$beleg-&gt;kundennummer}
+ {$beleg-&gt;name} 
+{* Access to data of the underlying order *} 
+{$beleg-&gt;auftrag-&gt;lieferdatum} 
+{* Other fields removed *}</pre>
+<pre class="programlisting">{* Positionen - Beginn ------------------------------ *}
+ {* loop through all available items *}
+ {foreach from=$beleg-&gt;positionen key=keypos item=position}
+ {$position-&gt;nummer}
+ {$position-&gt;name}
+ {$position-&gt;beschreibung}
+ {$position-&gt;menge}
+ {$position-&gt;preis}
+ {* Other fields removed *}
+ {/foreach}
+{* Positionen - Ende -------------------------------- *}</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6SA0SC97SPC8HY308VANT"></a>Beispiele</h2>
+</div>
+<p>Im Folgenden haben wir dir einige Beispiele zusammengefasst, die dir die Ausgabe verschiedener Lieferscheinformate in den Formaten EDI, CSV und XML ermöglichen. Bitte prüfe bei eigener Anwendung die Spaltenbeschriftungen (CSV), Tagnamen (XML) und EDI-Spezifikationen. Natürlich sind auch weitere Ausgabeformate (wie z.B. JSON) denkbar.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6SNS9R93YNTWKAZQYWHPG"></a>Beispiel Lieferschein CSV (ausführlich)</h3>
+</div>
+<p>Das folgende Beispiel listet ein ausführliches Beispiel für einen Export eines Lieferscheines in verschiedenen Formaten.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6T1Z1CMMWT5492G3A5364"></a>Format EDI</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wird ergänzt -</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section programlisting sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6T8JGQJZC6YBC644RRGT5"></a>Format CSV</h4>
+</div>
+<pre class="programlisting"><br>"tracking"; "document_status"; "document_date"; "document_delivery_date"; "document_actual_delivery_date"; "document_shipping_method"; "document_payment_method"; "document_document_nr"; "document_main_document_nr"; "document_customer_number"; "document_name"; "document_department"; "document_subdepartment"; "document_address_addition"; "voucher_contact_person"; "voucher_phone"; "voucher_email"; "voucher_country"; "voucher_street"; "voucher_plz"; "voucher_location"; "voucher_project"; "voucher_action"; "voucher_internal_note"; "voucher_internal_name"; "voucher_free_text"; "voucher_your_order_number"; "voucher_delivery_condition"; "voucher_type"; "item_number"; "item_designation"; "item_description"; "item_quantity"; "item_price"; "item_discount"; "item_currency"; "item_delivery_date"; "item_sort"; "item_tax"; "item_unit"; "item_tariff_number"; "item_country_of_origin"; "item_article_number_customer"; "desired_delivery_date"; "item_free_field1"; "item_free_field2"; "item_free_field3"; "item_free_field40"{foreach from=$voucher-&gt;items key=keyrow item=item}{* items *}\"{$item-&gt;tracking}";\"{$voucher-&gt;status}";\"{$voucher-&gt;date|date_format: '%d. %m. %Y'}";\"{$voucher-&gt;delivery date}";\"{$voucher-&gt;actual delivery date}";\"{$voucher-&gt;shipping method}";\"{$voucher-&gt;payment method}";\"{$voucher-&gt;voucher_number}";\"{$voucher-&gt;main_voucher_number}"; \"{$voucher-&gt;name}";\"{$voucher-&gt;department}";\"{$voucher-&gt;subdepartment}";\"{$voucher-&gt;address}";\"{$voucher-&gt;contact person}";\"{$voucher-&gt;phone}";\"{$voucher-&gt;email}";\"{$voucher-&gt;country}"; \"{$voucher-&gt;street}";\"{$voucher-&gt;plz}";\"{$voucher-&gt;location}";\"{$voucher-&gt;project}";\"{$voucher-&gt;action}";\"{$voucher-&gt;internal remark}";\"{$voucher-&gt;internal name}";\"{$voucher-&gt;free text}"; \"{$document-&gt;your order number}";\"{$document-&gt;delivery condition}";\"{$document-&gt;type}";\"{$item-&gt;number}";\"{$item-&gt;designation}";\"{$item-&gt;description}";\"{$item-&gt;quantity|string_format: '%. 2f'}";\"{$item-&gt;price}";\"{$item-&gt;discount}";\"{$item-&gt;currency}";\"{$item-&gt;delivery date}";\"{$item-&gt;location}";\"{$item-&gt;sales tax}";\"{$item-&gt;unit}";\"{$item-&gt;tariff number}"; \"{$item-&gt;country of origin}";\"{$item-&gt;part number customer}";\"{$voucher-&gt;order-&gt;date of delivery}";\"{$item-&gt;free field1}";\"{$item-&gt;free field2}";\"{$item-&gt;free field3}";\{* If applicable. other free fields *}";\"{$position-&gt;freefield40}";\ {/foreach}</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6TDZ9NQ5HDR6XZ3WM9HW1"></a>Format XML</h4>
+</div>
+<pre class="programlisting"><br>{$voucher-&gt;status} {$voucher-&gt;date|date_format:'%d.%m.%Y'} {$voucher-&gt;delivery date} {$voucher-&gt;actual delivery date} {$voucher-&gt;shipping method} {$voucher-&gt;payment method} {$voucher-&gt;document number} {$voucher-&gt;main document number} {$voucher-&gt;customer number} {$voucher-&gt;name} {$voucher-&gt;department} {$voucher-&gt;subdepartment} {$voucher-&gt;address supplement} {$document-&gt;contact person} {$document-&gt;phone} {$document-&gt;email} {$document-&gt;country} {$document-&gt;street} {$documents-&gt;plz} {$voucher-&gt;location} {$voucher-&gt;project} {$voucher-&gt;action} {$voucher-&gt;internal remark} {$voucher-&gt;internal description} {$voucher-&gt;free text} {$voucher-&gt;your order number} {$voucher-&gt;delivery condition} {$voucher-&gt;type} {foreach from=$voucher-&gt;items key=keypos item=item} {$item-&gt;number} {$item- &gt;name} {$item-&gt;description} {$item-&gt;quantity} {$item-&gt;price} {$item-&gt;discount} {$item-&gt;currency} {$item-&gt;delivery date} {$item-&gt;location} {$item-&gt;tax} {$item-&gt;unit} {$item-&gt;tariff number} {$item-&gt;country of origin} {$item-&gt;article number customer} {$item-&gt;freefield1} {$item-&gt;freefield2} {$item-&gt;freefield3} {* Other free fields if necessary *} {$item-&gt;freefield40} {/foreach} {if $bill-&gt;shipping} {foreach from=$bill-&gt;shipping key=keyshipping item=tracking} {* shipping *} {$tracking-&gt;tracking} {/foreach} {/if}</pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6WCERB6BMA67MZRGJ5KH3"></a>Beispiel Lieferschein mit MHD</h3>
+</div>
+<p>Im Folgenden werden Beispiele als Ergänzung zu obigen Code-Beispielen gezeigt, die nur die Besonderheiten in Bezug auf MHDs in einer Position berücksichtigen.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6WRVM55BD8JS6PKRNSA9P"></a>Format CSV</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wird ergänzt -</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6X11MBP8ZBVSV1V01Y6Q7"></a>Format XML</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wird ergänzt -</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6X9XBMJ3S5AWW2RJHZZN5"></a>Beispiel Lieferschein mit Charge</h3>
+</div>
+<p>Im Folgenden werden Beispiele als Ergänzung zu obigen Code-Beispielen gezeigt, die nur die Besonderheiten in Bezug auf Chargen in einer Position berücksichtigen.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6XHP567KPRPPVZ57S3ES4"></a>Format CSV</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wird ergänzt -</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6XS6MBPHTFS01H6J55YG6"></a>Format XML</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wird ergänzt -</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6Y13327T12B3PJF45M845"></a>Beispiel Lieferschein mit Charge und MHD</h3>
+</div>
+<p>Im Folgenden werden Beispiele als Ergänzung zu obigen Code-Beispielen gezeigt, die nur die Besonderheiten in Bezug auf MHDs und Chargen in einer Position berücksichtigen.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6YC3WW6A9BDX6FS9VGRQ5"></a>Format CSV</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wird ergänzt -</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6YJ6TSZQP1BHTT888XZMF"></a>Format XML</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wird ergänzt -</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6YW452SWQGVZDENTAJSW7"></a>Beispiel Auftrag</h3>
+</div>
+<p>Anwendbar nur bei direktem Fulfillment ohne Autoversand. Diese Option sollte genau geprüft werden, meistens ist die Übertragung von Lieferscheinen der optimale Weg.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6Z3CJC8DTG4AC5CCHATHB"></a>Format EDI</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wird ergänzt -</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6ZBTGCX68VYEWSV5TEN97"></a>Format CSV</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wird ergänzt -</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-7173bf6b-953d-0500-1285-3235d3cfce20" id="UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6ZHVJ4GMM72Y3HEAG83VT"></a>Format XML</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>wird ergänzt -</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+Nach unserem Erstgespräch besprechen wir die nächsten Schritte für das Onboarding. Das Onboarding für euch Partner findet immer im Rahmen von einem Kunden statt, der eure Services nutzen möchte um Xentral bei sich zu implementieren.
+
+Ihr erhaltet Zugang zu unserem Training zum Onboarding und werdet so Teil der Xentral Partnerfamilie. Im Partner-Onboarding ist ebenfalls eure Eigeninitiative von höchster Bedeutung!

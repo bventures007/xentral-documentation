@@ -1,0 +1,47 @@
+## Inhaltsverzeichnis
+
+- Aktivierung und Bedienung des Ticketsystems
+  - Tickets aufrufen
+  - Antwort schreiben
+  - Neues Ticket eröffnen
+  - Übersicht der Tickets
+  - Statusübersicht
+
+# Aktivierung und Bedienung des Ticketsystems
+
+Das Ticketsystem verwenden wir um ein übersichtliches System für alle Ihre Supportanfragen, Einrichtungsthemen und Feature Requests zu haben. Es bietet uns die Möglichkeit intern Tickets an verschiedene Abteilungen zu geben, um so schneller Ihre Anfrage zu bearbeiten. Deshalb ist das Ticketsystem unser bevorzugter Kommunikationsweg.
+
+1. Aktivierung Nach Ihrer Bestellung von Xentral erhalten Sie die Zugangsdaten zum Ticketsystem per E-Mail zugesendet. Registrieren Sie sich über diese E-Mail und vergeben Sie ein sicheres Passwort (2-malige Eingabe). Auf diese Weise wird Ihr Account für das Ticketsystem aktiviert. Anschliessend können Sie Ihre Einstellungen bearbeiten und bei Bedarf später auch das Passwort unter „Profil“ oben rechts ändern.
+1. Bedienung
+
+### Tickets aufrufen
+
+Da Sie alle Ticketantworten auch per E-Mail geschickt bekommen, empfehlen wir in diesen E-Mails auf den Link zum Ticket zu klicken (z.B. #123456) wodurch Sie direkt über den Login zum jeweiligen Ticket gelangen. Auf diese Weise behalten Sie am besten den Überblick über Antworten und neue Themen. Eine noch nicht gesichtete E-Mail können sie in Ihrer gewohnten Webmailer-Umgebung solange als ungelesen oder markiert sammeln, bis Sie dazugekommen sind. Um einen Gesamtüberblick zu bekommen oder um neue Tickets anzulegen, loggen Sie sich direkt über das Ticketsystem ein.
+
+### Antwort schreiben
+
+Wenn Sie sich in einem Ticket befinden, können sie ganz unten im Textfeld „Eine Antwort erstellen“ einen Text schreiben und auf den Button „Antwort erstellen“ klicken.
+:wawision:osticket_1.png
+
+### Neues Ticket eröffnen
+
+Sie können natürlich auch selbst neue Tickets erstellen. Dazu gehen Sie auf die Startseite und klicken auf den Button „Neues Ticket eröffnen“ oder von jeder anderer Ansicht über den 2. Reiter oben „Neues Ticket eröffnen“.
+:wawision:osticket_2.png
+:wawision:osticket_3.png
+
+### Übersicht der Tickets
+
+Wenn sie auf den oberen Reiter „Tickets“ klicken, kommen Sie auf die Übersichtseite. Auf dieser sind alle Ihre Tickets aufgelistet.Standardmäßig sehen Sie hier nur Tickets mit dem Status „Offen“. Wenn Sie auf das Auswahlfeld klicken, können Sie aber auch alle anderen Tickets sehen indem sie „Jeder Status“ auswählen und auf den „Los“-Button klicken.
+Blau hinterlegte Tickets signalisieren, dass von uns die letzte Antwort zu diesem Ticket geschrieben wurde.
+:wawision:osticket_4.png
+
+### Statusübersicht
+
+Jedes Ticket hat einen bestimmten Status, der Ihnen signalisiert wo das Ticket gerade steht.
+
+- Offen: Das Ticket ist offen und sollte noch bearbeitet werden.
+- Warten auf Kundenantwort: Zu diesem Ticket erwarten wir noch Informationen von Ihnen (der Status bleibt solange erhalten, bis wir eine Antwort schreiben, oder den Status umstellen).
+- Beantwortet: Von unserer Seite haben wir das Ticket zuletzt beantwortet. Falls die Antwort für Sie noch nicht ganz zur Lösung führt oder Sie noch Fragen zur Antwort haben, können Sie gerne nochmal in dieses Ticket schreiben.
+- Geschlossen: Das Ticket ist für beide Seiten erledigt. Sie können nicht mehr darauf antworten - falls doch noch etwas zu diesem Thema aufkommt, legen Sie bitte ein neues Ticket an. Auf diese Weise werden die Gesprächsverläufe nicht zu lange und bleiben auch für beide Seiten übersichtlich.:) Einen Verweis auf ein bestehendes Ticket können Sie natürlich trotzdem angeben, Sie können aber ebenso den selben Betreff wählen und „Zusatz“ dazuschreiben (z.B. Zusatz: Datenimport).
+
+1. Neue Themen und Fragen eröffnen Bitte öffnen Sie für neue Themen ein neues Ticket und geben Sie im Betreff das jeweilige Thema an. Auf diese Weise ist es möglich, dass wir die Themen intern an eine andere Abteilung, z.B. die Entwicklung oder den Technischen Support weitergeben können, ohne dass Informationen verloren gehen. Gibt es zu einem Thema bereits ein Ticket (das noch nicht geschlossen ist), können Sie gerne in dieses Ticket antworten. Ist ein Ticket zu einem Thema bereits geschlossen (Status: geschlossen), öffnen Sie bitte ein neues Ticket.

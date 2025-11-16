@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenumzug von xentral</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017436399
+    Titel: Datenumzug von xentral
+    URL: https://help.xentral.com/hc/de/articles/360017436399-Datenumzug-von-xentral
+    Erstellt: 2020-11-10T07:35:55Z
+    Aktualisiert: 2024-08-29T11:53:32Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254835385116
+    Export-Zeitpunkt: 2025-11-16 19:10:11
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-4bacf496-7556-a8a9-ba77-535041cc9191_UUID-9cc378f5-71f8-3d61-37ab-664e0f2b2827"></a>End-of-Life für On-Premise-Instanzen</h3>
+<p>Ende März 2023 beenden wir die Unterstützung von <span class="phrase">Xentral</span>-Instanzen, die „On-Premise“ von unseren Kunden selbst gehostet werden. Wir empfehlen dir daher, deine <span class="phrase">Xentral</span>-Instanz in unsere Cloud zu migrieren. Kontaktiere uns gerne jederzeit unter <a class="link" href="mailto:account@xentral.com" target="_blank">account@xentral.com</a>, um diesbezügliche Fragen zu klären oder einen Termin für deine Migration zu buchen. Alternativ kannst du weitere Informationen auf <a class="link" href="https://xentral.com/artikel/faq-xentral-cloud-migration/" target="_blank" rel="noopener">unserer Website</a> oder in <a class="link" href="https://xentral.community/updates-zur-xentral-plattform-17/wichtig-end-of-life-on-premise-ende-maerz-2023-2611" target="_blank" rel="noopener">unserer Community</a> finden.</p>
+<p>Beachte bitte, dass wir Ende März 2023 jegliche Supportleistungen für On-Premise-Instanzen beenden. Wir stellen dann keine weiteren Bug-Fixes oder Updates mehr zur Verfügung. Außerdem wird es keine weitere Open-Source-Version mehr geben.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4bacf496-7556-a8a9-ba77-535041cc9191" id="idm46520637770128"></a>Serverumzug</h2>
+</div>
+<p>Zum Umzug des Servers als Gesamtsystem ist der Artikel "<a class="link linktype-component" href="https://help.xentral.com/hc/articles/360018524479#UUID-f0aa2bc6-d019-74a9-1053-60e773da2da7" title="Serverumzug von Xentral">Serverumzug von xentral zu xentral</a>" zu beachten.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bacf496-7556-a8a9-ba77-535041cc9191" id="idm46520637767696"></a>Vorbereitungen</h3>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Um die folgenden vorhandenen Terminal Befehle ausführen zu können, kann es nötig sein "sudo" davor zu schreiben, um Zugriff zu erhalten</p>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Exportieren des Datenbank Dump vom alten System:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle;">
+<li class="listitem">
+<p>entweder über <span class="bold"><strong>Administration &gt; System &gt; Backup &gt; System-Backup herunterladen &gt; Backup erstellen</strong></span></p>
+</li>
+<li class="listitem">
+<p>oder den userdata Ordner aus /var/www/html/wawision/ über ssh kopieren, falls das System-Backup zu groß ist</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+<p>Die heruntergeladenen Dateien mit z.B.: scp -r /Pfad/Datei benutzer@dnsname:Pfad auf den neuen Server kopieren</p>
+</li>
+<li class="listitem">
+<p>Über ssh auf dem neuen Server anmelden z.B.: ssh benutzer@dnsname</p>
+</li>
+<li class="listitem">
+<p>Den vorhandenen userdata Ordner in /var/www/html/wawision umbenennen z.B. in userdata</p>
+</li>
+<li class="listitem">
+<p>Neuen userdata Ordner nach /var/www/html/wawision verschieben</p>
+</li>
+<li class="listitem">
+<p>Im userdata Ordner sind Unterordner in denen wiederum Unterordner mit dem Namen der alten Datenbank existieren. Diese Ordner müssen in den neuen Datenbanknamen umbenannt werden.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Meistens sind folgende Ordner betroffen:</strong></span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle;">
+<li class="listitem">
+<p>Ordner dms</p>
+</li>
+<li class="listitem">
+<p>Ordner emailbackup (falls vorhanden)</p>
+</li>
+<li class="listitem">
+<p>Ordner pdfarchiv</p>
+</li>
+<li class="listitem">
+<p>Ordner pdfmirror</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+<p>Falls weitere Ordner vorhanden sind, müssen diese überprüft werden ob sich in den Unterordnern Unterordner mit alten Datenbanknamen befinden und umbenannt werden. Vorhandene Dateien mit dem Datenbanknamen im Namen müssen ebenfalls umbenannt werden, wie z.B. das Briefpapier.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bacf496-7556-a8a9-ba77-535041cc9191" id="idm46520637757808"></a>Datenbank einspielen</h3>
+</div>
+<p>IT Kenntnisse sind dafür zwingend erforderlich!</p>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Bei Unkenntnis können Datenverluste erzeugt werden. xentral übernimmt dafür keine Gewähr.</p>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Datenbank (extra exportieren oder im über die Oberfläche erstellten System-Backup vorhanden) am neuen Server einspielen mit z.B.:</p>
+<p>mysql -u benutzername -p use NameDerNeuenDatenbank; source Pfad/DateinameDerZuImportierendenDatenbank;</p>
+<p><span class="bold"><strong>Beispiel:</strong></span></p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996380429340" style="" alt="Datenumzug-1.png"></div>
+</li>
+<li class="listitem">
+<p>In der conf/user.inc.php muss die neue Datenbankverbindung und der Pfad zum userdata Ordner eingetragen werden</p>
+</li>
+<li class="listitem">
+<p>Um die Datenbank zu aktualisieren, muss noch php upgradedbonly.php ausgeführt werden</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Besonderheiten beim Wechsel zwischen MariaDB und MySql.</strong></span> Unter Umständen können Views beim Ex- und Import der Datenbank in diesem Fall verloren gehen. Nach einem Update des Systems sind die Views wieder verfügbar. Bei einem Wechsel der von MariaDB zu MySQL oder umgekehrt kann aber das erneute Einspielen eines Scriptes notwendig werden.</p>
+<p>Bitte beachten, dass im untenstehenden Code Datenbankbenutzer angepasst werden muss:</p>
+<pre class="programlisting"><code class="code">'DEFINER=`xentral`@`localhost`'
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+
+Substitute structure of the view 'documents
+
+CREATE TABLE IF NOT EXISTS `vouchers` (
+`id` int(11)
+,`address` int(11)
+,`date` date
+,`document number` varchar(255)
+,`status` varchar(64)
+,`country` varchar(255)
+,`type` varchar(10)
+,`sales_net` decimal(19,2)
+,`revenue_net` decimal(19,2)
+,`coverage_contribution` decimal(11,2)
+,`commission_sum` decimal(11,2)
+,`sales_id` int(11)
+,`group` int(11)
+);
+-- --------------------------------------------------------
+
+
+ Substitute structure of the view `voucher_total
+
+CREATE TABLE IF NOT EXISTS `vouchertotal` (
+`id` int(11)
+,`address` int(11)
+,`date` date
+,`document number` varchar(255)
+,`status` varchar(64)
+,`country` varchar(255)
+,`type` varchar(12)
+,`net_sales` varchar(23)
+,`sales_gross` varchar(23)
+,`revenue_net` varchar(21)
+,`coverage_contribution` varchar(13)
+,`commission_total` varchar(13)
+,`salesid` varchar(11)
+,`group` varchar(11)
+,`project` varchar(222)
+);
+-- --------------------------------------------------------
+
+--
+-- proxy structure of view `belegeregs`
+--
+CREATE TABLE IF NOT EXISTS `belegeregs` (
+`id` int(11)
+,`address` int(11)
+`date` date
+,`document number` varchar(255)
+,`status` varchar(64)
+,`country` varchar(255)
+,`type` varchar(10)
+,`sales_net` decimal(19,2)
+,`revenue_net` decimal(19,2)
+,`coverage_contribution` decimal(11,2)
+,`commission_sum` decimal(11,2)
+,`sales_id` int(11)
+,`group` int(11)
+,`project` varchar(222)
+);
+-- --------------------------------------------------------
+
+--
+-- structure of the view `vouchers
+--
+DROP TABLE IF EXISTS `vouchers`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`xentral`@`localhost` SQL SECURITY DEFINER VIEW `vouchers` AS select `invoice`.`id` AS `id`,`invoice`.`address` AS `address`,`invoice`.`date` AS `date`,`invoice`.`legnr` AS `legnr`,`invoice`. `status` AS `status`,`invoice`.`country` AS `country`, `invoice` AS `type`,`invoice`.`sales_net` AS `sales_net`,`invoice`.`revenue_net` AS `revenue_net`,`invoice`.`coverage_contribution` AS `coverage_contribution`,`invoice`. `commission_sum` AS `commission_sum`,`invoice`.`salesid` AS `salesid`,`invoice`.`group` AS `group` from `invoice` where (`invoice`.`status` &lt;&gt; 'created') union all select `credit`.`id` AS `id`,`credit`. `address` AS `address`,`credit`.`date` AS `date`,`credit`.`voucher_no` AS `voucher_no`,`credit`.`status` AS `status`,`credit`.`country` AS `country`,'credit` AS `type`,(`credit`.`sales_net` * -(1)) AS `sales_net*-1`,(`credit`.`erloes_net` * -(1)) AS `revenue_net*-1`,(`credit`.`contribution_to_coverage` * -(1)) AS `coverage_contribution*-1`,(`credit_statement`.`commission_sum` * -(1)) AS `commission_sum*-1`,`gutschrift`.`vertriebid` AS `vertriebid`,`gutschrift`.`group` AS `group` from `gutschrift` where (`gutschrift`.`status` &lt;&gt; 'created');
+
+-- --------------------------------------------------------
+
+--
+-- structure of the view `voucher_total
+--
+DROP TABLE IF EXISTS `voucher total`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`xentral`@`localhost` SQL SECURITY DEFINER VIEW `vouchertotal` AS select `invoice`.`id` AS `id`,`invoice`.`address` AS `address`,`invoice`.`date` AS `date`,`invoice`. `invoice` AS `invoice`,`invoice`.`status` AS `status`,`invoice`.`country` AS `country`, `invoice` AS `type`,`invoice`.`sales_net` AS `sales_net`,`invoice`.`debit` AS `sales_gross`,`invoice`.`sales_net` AS `sales_net`,`invoice`. `contribution` AS `contribution`,`invoice`.`commission_sum` AS `commission_sum`,`invoice`.`salesid` AS `salesid`,`invoice`.`group` AS `group`,`invoice`.`project` AS `project` from `invoice` union all select `credit`. `id` AS `id`,`credit`.`address` AS `address`,`credit`.`date` AS `date`,`credit`.`voucher_no` AS `voucher_no`,`credit`.`status` AS `status`,`credit`.`country` AS `country`,'credit` AS `type`,(`credit`.`sales_net` * -(1)) AS `sales_net*-1`,(`credit`.`debit` * -(1)) AS `sales_gross*-1`,(`credit`.`erloes_net` * -(1)) AS `revenue_net*-1`,(`credit`.`contribution_to_coverage` * -(1)) AS `coverage_contribution*-1`,(`credit_statement`.`commission_sum` * -(1)) AS `commission_sum*-1`,`credit`.`salesid` AS `salesid`,`credit`.`group` AS `group`,`credit`.`project` AS `project` from `credit` union all select `order`.`id` AS `id`,`order`. `address` AS `address`,`order`.`date` AS `date`,`order`.`voucher` AS `voucher`,`order`.`status` AS `status`,`order`.`country` AS `country`,'order` AS `type`,`order`.`sales_net` AS `sales_net`,`order`. `total` AS `sales_gross`,`order`.`revenue_net` AS `revenue_net`,`order`.`coverage_contribution` AS `coverage_contribution`,`order`.`commission_sum` AS `commission_sum`,`order`.`salesid` AS `salesid`,`order`. `group` AS `group`,`order`.`project` AS `project` from `order` union all select `order`.`id` AS `id`,`order`.`address` AS `address`,`order`.`date` AS `date`,`order`. `order_id` AS `order_id`,`order`.`status` AS `status`,`order`.`country` AS `country`, `order` AS `type`,`order`.`total` AS `sales_net`,`order`. `total` AS `sales_gross`,'0' AS `erloes_net`,'0' AS `coverage`,'0' AS `commission_total`,'0' AS `salesid`,'0' AS `group`,`order`.`project` AS `project` from `order` union all select `delivery_note`.`id` AS `id`,`delivery_note`. `address` AS `address`,`delivery note`.`date` AS `date`,`delivery note`.`document number` AS `document number`,`delivery note`.`status` AS `status`,`delivery note`. `country` AS `country`, `delivery note` AS `type`, `0` AS `sales_net`, `0` AS `sales_gross`, `0` AS `erloes_net`, `0` AS `coverage_contribution`, `0` AS `commission_total`, `0` AS `salesid`, `0` AS `group`,`delivery note`.`project` AS `project` from `delivery note`;
+
+-- --------------------------------------------------------
+
+--
+-- structure of the view `belegeregs`
+--
+DROP TABLE IF EXISTS `belegeregs`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`xentral`@`localhost` SQL SECURITY DEFINER VIEW `documents` AS select `invoice`.`id` AS `id`,`invoice`.`address` AS `address`,`invoice`.`date` AS `date`,`invoice`.`documents` AS `documents`,`invoice`. `status` AS `status`,`invoice`.`country` AS `country`, `invoice` AS `type`,`invoice`.`sales_net` AS `sales_net`,`invoice`.`revenue_net` AS `revenue_net`,`invoice`.`coverage_contribution` AS `coverage_contribution`,`invoice`. `commission_sum` AS `commission_sum`,`invoice`.`salesid` AS `salesid`,`invoice`.`group` AS `group`,`invoice`.`project` AS `project` from `invoice` union all select `credit`.`id` AS `id`,`credit`. `address` AS `address`,`credit_credit`.`date` AS `date`,`credit_credit`.`voucher_no` AS `voucher_no`,`credit_credit`.`status` AS `status`,`credit_credit`.`country` AS `country`,'credit_credit` AS `type`,(`credit_credit`.`sales_net` * -(1))        AS `sales_net*-1`,(`credit`.`erloes_net` * -(1)) AS `revenue_net*-1`,(`credit`.`contribution_to_coverage` * -(1)) AS `coverage_contribution*-1`,(`credit_statement`.`commission_sum` * -(1)) AS `commission_sum*-1`,`credit`.`salesid` AS `salesid`,`credit`.`group` AS `group`,`credit`.`project` AS `project` from `credit`;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+</code></pre>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-4bacf496-7556-a8a9-ba77-535041cc9191" id="UUID-4bacf496-7556-a8a9-ba77-535041cc9191_id_360017436399_id_toc-3"></a>Finale Anpassungen</h3>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Über die Oberfläche von xentral sollte noch ein Update durchgeführt werden, genaueres siehe "Zugang zum Updateserver"</p>
+</li>
+<li class="listitem">
+<p>Zum Schluss muss der Webserver auf den userdata Ordner zugreifen können. Dies geschieht mit chown -R www-data:www-data *</p>
+</li>
+<li class="listitem">
+<p>Um zu überprüfen ob der Webserver auf den userdata Ordner zugreifen kann, kann über die Oberfläche von xentral eine Datei bei einem Artikel oder einer Adresse hochgeladen und anschließend wieder heruntergeladen werden. Hat die Datei eine Größe von 0 Byte stimmen vermutlich die Rechte nicht. Kann die Datei allerdings geöffnet werden, hat alles geklappt.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-4bacf496-7556-a8a9-ba77-535041cc9191" id="idm46520637731616"></a>Datenumzug für ein Testsystem</h2>
+</div>
+<p>Eine Kopie auf ein bestehendes neues Testsystem verläuft im Grunde genauso wie ein Datenumzug des Live-Systems auf einen anderen Server.</p>
+<p>Folgendes muss hierbei zusätzlich beachtet und eingestellt werden:Erklärung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wenn die DB kopiert und sich anschließend angemeldet wird, steckt die alte "Lizenz+Schluessel" (also die Zugangsdaten zum Updateserver) in den Firmendaten.</p>
+</li>
+<li class="listitem">
+<p>D.h. es muss dann vorab per phpmyadmin die neue "Lizenz+Schluessel" für das Testsystem eingespielt werden.</p>
+<div dir="ltr" class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warnung</h3>
+<p>Trifft nur zu, wenn mit unterschiedlichen PHP-Versionen gearbeitet wird!</p>
+</div>
+</li>
+<li class="listitem">
+<p>In der Tabelle Firmendaten können die über den phpmyadmin auch ausgetauscht werden.</p>
+</li>
+<li class="listitem">
+<p>Update dein System anschließend über die Oberfläche auf [[http://url/update.php]]</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

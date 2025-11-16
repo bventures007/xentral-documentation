@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagermindestmengen</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016727520
+    Titel: Lagermindestmengen
+    URL: https://help.xentral.com/hc/de/articles/360016727520-Lagermindestmengen
+    Erstellt: 2020-09-28T13:23:48Z
+    Aktualisiert: 2025-05-22T16:16:32Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4411737762460
+    Export-Zeitpunkt: 2025-11-16 19:06:49
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Mit dem Modul "Filiallieferung" kann über eine extra Oberfläche ein Auftrag auf eine Filialadresse mit einem Klick eingelagert werden. Dadurch muss man nicht manuell alle einzelnen Positionen der Filiallieferung erfassen und einlagern, was bei großen Lieferungen eine erhebliche Zeitersparnis bedeutet. Voraussetzung ist, dass sich im Auftrag eine Adresse befindet, die man zuvor mit einer Filiale verknüpft hat. Die Filiallieferung setzt sich aus folgenden Schritten zusammen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Filialen und Zentrale definieren</p>
+</li>
+<li class="listitem">
+<p>Lagermindestmengen für Artikel auf Filialläger festlegen</p>
+</li>
+<li class="listitem">
+<p>Alternativ zur Lagermindestmenge können auch direkt Aufträge angelegt werden</p>
+</li>
+<li class="listitem">
+<p>Filialen von Zentrale aus beliefern und Lagermengen als Filialauftrag ohne Rechnungsstellung anlegen und über den Autoversand abwickeln</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQMQ5BP4KQSH0NXT5GDXPJ"></a>Filiallieferung (Workflow)</h2>
+</div>
+<p>Folgende Schritte sind für die Filiallieferung mit Lagermindestmengen einzustellen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Adresse für die Filiale anlegen (im Beispiel: Filiale München)</p>
+</li>
+<li class="step">
+<p>Projekt für diese Filiale anlegen (im Beispiel: POSMUENCHEN → oder bestehendes Projekt verwenden); im Projekt die Filialadresse und das Projekt, auf das der Filialauftrag angelegt werden soll (im Beispiel: "ONLINESHOP")</p>
+</li>
+<li class="step">
+<p>Lager für die Filiale anlegen (im Beispiel: MUENCHEN_001 → das Lager auf das Projekt "POSMUENCHEN" buchen)</p>
+</li>
+<li class="step">
+<p>Lagerartikel anlegen und für diesen ein Mindestlager bestimmen (Lager &amp; Logistik → Lagermindestmengen)</p>
+</li>
+<li class="step">
+<p>Im Modul "Lagermindestmengen" über "Aktion" eine Filiallieferung auslösen</p>
+</li>
+</ol>
+</div>
+<p>Folgende Schritte sind für die Filiallieferung ohne Lagermindestmengen einzustellen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Schritte 1-3 identisch zur Filiallieferung mit Lagermindestmengen. Es ist eine zusätzliche Einstellung in den Stammdaten der Filialadresse notwendig, damit bei den Belegen im Autoversand nur Lieferscheine erstellt werden und keine Rechnungen</p>
+</li>
+<li class="step">
+<p>Auftrag anlegen mit der Filial-Adresse und die Artikel welche an die Filiale/ Lager geliefert werden sollen, dem Auftrag zufügen</p>
+</li>
+<li class="step">
+<p>Auftrag an Versandzentrum übergeben zur Lieferung (bspw. per Autoversand)</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQMTYJ31KKS1E11GENC9H7"></a>Filiallieferung mit Lagermindestmengen</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQMZ0MXQ548A5WNRR8T9SN"></a>1. Adresse für Filiale</h3>
+</div>
+<p>Eine Adresse im Adressstamm für die Filiale anlegen: Stammdaten → Adresse → +NEU.</p>
+<p>Eine neue Adresse für die Filiale anlegen. Hier wird eine Kundennummer vergeben. Für diese Kundennummer wird bei der Filiallieferung ein Auftrag angelegt (die Lieferung erfolgt an die Filialadresse).</p>
+<p>Im Beispiel ist die Adresse eine Filiale in München "POS München", die von Augsburg (Zentrale) aus beliefert werden soll.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQN3EF1TERQG1V5H1SFJHT"></a>2. Projekt für Filiale</h3>
+</div>
+<p>Für diese Filiale "POS München" ein Projekt anlegen unter "Stammdaten → Projekte → NEU". Das Projekt wird im Beispiel "POSMUENCHEN" bezeichnet. Dieses Projekt hat einen Ladenverkauf, es kann aber auch einfach eine andere Filiale mit einem Büro oder einem eigenen Logistikprozess sein.</p>
+<p>Sofern es bereits ein Projekt für diese Filiale gibt, kann das bereits bestehende Projekt verwendet werden (gilt auch für das Lager im nächsten Punkt).</p>
+<p>In diesem neuen Projekt wird im Tab "Filiale" folgendes eingetragen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Adresse aus Stammdaten → Die Filialadresse muss die Rolle Kunde haben (s.o.) (Filialadresse für die Filiale, die zu diesem Projekt gehört: in diesem Beispiel ist das für das Projekt "POSMUENCHEN" auch die oben angelegte Adresse "Pos München" mit der Kundennummer "10011"</p>
+</li>
+<li class="listitem">
+<p>Projekt für Lieferung der Zentrale an Filiale → Lieferungen werden über dieses Projekt versendet (Der Auftrag für die Lieferung an die Filiale wird auf dieses Projekt gebucht. Idealerweise sollte hier das Projekt verwendet werden, das einen Logistikprozess eingestellt hat, über den die Zentrale versenden kann. Alternativ kann auch ein neues Projekt angelegt werden, das auf alle Läger in der Zentrale Zugriff hat) → im Beispiel wird das Projekt "ONLINESHOP" verwendet. Dieses Projekt ist das Projekt für die Zentrale in Augsburg.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQN77BSN0NY2YF6VJK87GG"></a>3. Lager für Filiale</h3>
+</div>
+<p>Für die Filiale in München wird ein neues Lager angelegt: Lager "München", Regal: "MUENCHEN_001". Diesem Lager wird das Projekt "POSMUENCHEN" zugeordnet und wird somit zu einem Projektlager. In dieses Lager wird die Filiallieferung später von der Zentrale aus eingebucht.</p>
+<p>Lager: Muenchen → Projekt "MUENCHENPOS" vergeben</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5080760502812" style="" alt="filiallieferung_3.png"></div>
+<p>Regal: MUENCHEN_001</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5080760523164" style="" alt="filiallieferung_4.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQNB5F2CMSMQ0W1Y1CTTST"></a>4. Artikel Mindestlagermenge für Filiallager</h3>
+</div>
+<p>Für einen Artikel (Lagerartikel) wird nun ein Mindestbestand für das Filiallager "MUENCHEN_001" vergeben:</p>
+<p>Lager → Lagermindestmengen → Mindestmengen pro Artikel</p>
+<p>Artikel, Lagerplatz und Menge eingeben und speichern</p>
+<p>Im Beispiel soll der Artikel "Tasse Xentral" mit der Artikelnummer "1000005" die Mindestmenge "20" für das Lager "MUENCHEN_001" erhalten.</p>
+<p>Beispiel für eingetragene Mengen bei den "Mindestmengen":</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5080822984860" style="" alt="filiallieferung_6.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQNEHCSAMB5M44SSGK2KPD"></a>5. Filialbestellung auslösen</h3>
+</div>
+<p>Um eine Filialbestellung von Augsburg nach München auszulösen, wird im nächsten Tab "Aktionen" die Filiale ausgewählt:</p>
+<p>Manuelle Umlagerliste um Mindestmengen auffüllen zu können (PDF)</p>
+<p>Lieferung für Projekt / Filiale / Außenlager anlegen</p>
+<p>Im Anschluss die zu beliefernde Filiale aus der Liste auswählen.</p>
+<p>Im nächsten Schritt werden die fehlenden Artikel aufgelistet, um die Mindestmenge in der Filiale aufzufüllen. Im Beispiel ist die "Tasse Xentral" im Augsburger Lager 300-mal vorrätig und es sollen von dort aus 20 Stück nach München geliefert werden. Hier kann die Menge nochmals verändert werden. Über "Auftrag erstellen" wird auf das im Projekt "POSMUENCHEN" hinterlegte Projekt für die Zentrale der Auftrag erstellt. Im Beispiel ist das der "ONLINESHOP" der Zentrale in Augsburg.</p>
+<p>Angelegt wird der Auftrag auf die Münchner Adresse "Pos München" und auf die Kundennummer der Filiale. Den Auftrag kann man nun freigeben und im Anschluss kann dieser ganz normal in die Logistik übergeben werden.</p>
+<p>Der Auftrag für die Filiallieferung wird im Standard immer ohne Rechnungserstellung voreingestellt. Somit erfolgt bei der Lieferung keine Rechnungsstellung über den Logistikprozess. Es wird lediglich ein Lieferschein erstellt:</p>
+<p>Die Nummernvergabe für die Auftragsnummer erfolgt aus dem Nummernkreis des im Filialprojekt angegebenen Projekt der Zentrale in Augsburg im Projekt "ONLINESHOP" ganz normal wie bei der manuellen Anlage eines Auftrages auf das Projekt "ONLINESHOP".</p>
+<p>Gekennzeichnet werden Filialaufträge über ein (F) in der Auftragsübersicht. Nach dem "(F)" kann ebenso in der Suche gesucht werden.</p>
+<p>Im Modul Filiallieferung unter "offene Lieferungen" können Sie den angelieferten Artikel dann im Filiallager einlagern.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQNJ99RDZYWG9HF7ZTEZ8B"></a>Filiallieferung ohne Lagermindestmengen</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQNSHPHW6366YM7GA6J7PH"></a>1. Adresse für die Filiale anlegen</h3>
+</div>
+<p>Nachdem Sie die Adresse für die Filiale wie zuvor beschrieben angelegt haben, ist dort noch eine zusätzliche Einstellung notwendig, damit bei der Weiterverarbeitung im Autoversand automatisch nur der Lieferschein erstellt und keine Rechnung erzeugt wird. Gehen Sie hierzu in den Stammdaten der Filialadresse unter den Reiter "Zahlungskonditionen/ Besteuerung" und stellen dort bei Belege im Auto-Versand erstellen auf "nur Lieferschein erstellen"</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQNY0S1SD1TR6PQ52HPFXR"></a>2. Manuell Auftrag für das Filiallager anlegen</h3>
+</div>
+<p>Wenn Sie nicht mit Mindestbeständen für Artikel (Lagerartikel) arbeiten möchten, können Sie auch direkt einen Auftrag anlegen. Sie wählen dazu Ihre Filialadresse aus und ergänzen Ihre Artikel die Sie an die Filiale liefern möchten. Durch die Auswahl der Filialadresse wird der Auftrag auch entsprechend mit (F) für Filiallieferung in der Auftragsübersicht gekennzeichnet.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQP1XX97VN1TQREHB8K67Q"></a>3. Auftrag an Versandzentrum übergeben</h3>
+</div>
+<p>Der Auftrag auf die Münchner Adresse "Pos München", Kundennummer "10011" kann im Anschluss ganz normal in die Logistik übergeben werden.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQPAENYDQB33QWAC5C6CGN"></a>Modul Filiallieferung</h2>
+</div>
+<p>Nachdem der Filialauftrag über die Logistik abgewickelt wurde, wird dieser in der Liste aller offenen Filiallieferungen angezeigt: Im Modul Filiallieferung werden die Lieferinhalte pro Filiale und Lieferung in einer Übersicht angezeigt. Über das Edit-Icon gelangen Sie in die Inhalte der Lieferung und können dort die Regale der Filiale zum Einlagern der Ware auswählen.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQPG68J3ZAZCVGQ5WCTQKY"></a>Filiallieferung offene</h3>
+</div>
+<p>Administration → Appstore → Filiallieferung. Hier sind die versendeten Filialaufträge sichtbar.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5080838371612" style="" alt="filiallieferung_15.png"></div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5080792890268" style="" alt="filiallieferung_16.png"></div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQPQ4HR0ZYSW69H7WSV82V"></a>Wareneingang für Filiallieferung</h3>
+</div>
+<p>Mit dem Stift-Icon kann die Menge in das Filiallager eingebucht werden. Die Buchung in die Filiale "POSMUENCHEN" erfolgt von der Zentrale aus (aus Augsburg):</p>
+<p>Der Artikel "Tasse Xentral" ist nun 280-mal im Lager Augsburg und 20-mal im Lager München lagernd.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_id_360016727520_id_h_01FAMQPXRD7MS4SGT7DD5P7QKJ"></a>Filiallieferung Benutzerrechte</h2>
+</div>
+<p>Bitte beachten Sie, dass für die Filiallieferung folgende Modulrechte zu "Filiallieferung" mit berührt und ggf. benötigt werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Artikel</p>
+</li>
+<li class="listitem">
+<p>Auftrag</p>
+</li>
+<li class="listitem">
+<p>Bestellvorschlag Filiale</p>
+</li>
+<li class="listitem">
+<p>Adresse</p>
+</li>
+<li class="listitem">
+<p>Lager</p>
+</li>
+<li class="listitem">
+<p>Lieferschein</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-05f07101-e7e2-9157-0003-71e40b2fab65" id="UUID-05f07101-e7e2-9157-0003-71e40b2fab65_section-idm4581075214092833069482532758"></a>Bestand aus Hauptlager berücksichtigen</h3>
+</div>
+<p>Beim Erstellen des Auftrags für die Fililallieferung kann mit der Option der Bestand im Quellager auf die umzulagernde Mindestmenge geprüft werden.</p>
+<p>Im Anschluss wird nach Auswahl der Filiale eine Gegenüberstellung des verfügbaren Bestands des Hauptlagers mit der Mindestlagermenge des Artikels bei der Filiale vorgenommen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

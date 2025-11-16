@@ -1,0 +1,174 @@
+Das One-Stop-Shop Verfahren stellt ab 01.07.2021 die Basis für die Umsetzung der EU-Mehrwertsteuerreform dar. Für B2C Geschäfte innerhalb Europas gilt damit eine einheitliche Lieferschwelle von 10.000€. Sobald Waren von insgesamt 10.000€ ins EU Ausland geliefert wurden, ist in allen EU Ländern der Steuersatz des Bestimungslandes auszuweisen und abzuführen.
+
+In xentral kannst du das über das Modul Lieferschwelle abbilden. Wir haben das Modul entsprechend so erweitert, dass über alle EU-Länder die Summe der Umsätze gebildet wird. Grundlegende Informationen zu diesem Modul findest du im Handbuch. Xentral stellt euch kurz vor dem 01.07. ein Update zur Verfügung, mit welchem die neue Funktionsweise des Moduls in Kraft tritt. Alle Einstellungen könnt ihr schon vorher vornehmen. Solltet ihr aktuell schon die Schwelle von 10.000€ Gesamtumsatz überschreiten, wird die neue Funktionsweise ab dem Update verwendet.
+
+> **Anmerkung**
+>
+> Es ist wichtig, dass du die Lieferschwellen in alle EU-Länder, in welche ihr liefert oder Lieferungen erwartet, direkt anlegst, um umständliche nachträgliche Rechnungskorrekturen zu vermeiden.
+
+## Zuständigkeiten und Funktionsweise der zentralen Anlaufstelle für europäische Händler
+
+Jeder EU-Mitgliedstaat verfügt über ein eigenes elektronisches Portal, auf dem sich Händler mit Sitz in diesem Land registrieren können.
+
+Die einzige Anlaufstelle ermöglicht es Händlern, alle ihre Verkäufe innerhalb der Europäischen Union zentral in nur einem EU-Mitgliedstaat (und nicht in allen 27) zu melden und zu bezahlen.
+
+In dieser einzigen Erklärung werden alle Warenverkäufe in den EU-Mitgliedstaaten zusammen mit der angefallenen Mehrwertsteuer aufgeschlüsselt nach den einzelnen Ländern aufgeführt. Die sich daraus ergebende Mehrwertsteuerschuld wird ebenfalls an die OSS abgeführt.
+
+Die zentrale Aufgabe des One-Stop-Shops, in Deutschland das Bundeszentralamt für Steuern (BZSt), ist das so genannte Clearing.
+
+Das Clearing bezieht sich auf die Abführung der von den Kunden von Xentral gemeldeten und an die zentrale Anlaufstelle in dem EU-Mitgliedstaat, in dem die Umsätze getätigt wurden, gezahlten Mehrwertsteuer.
+
+Die Zahlung der Mehrwertsteuer an die EU-Mitgliedstaaten erfolgt auf der Grundlage der eingereichten OSS-Erklärungen.
+
+## Einstellungen in xentral
+
+Zunächst entscheide dich gemeinsam mit deinem Steuerberater ob du bereits ab dem ersten Auftrag die Ziellandsteuer anwenden möchtest, oder erst ab der Schwelle von 10.000€. Beide Szenarien kannst du in xentral abbilden.
+
+### Lieferschwellen App
+
+Wenn du bereits für alle EU Länder, in welche du lieferst, Lieferschwellen angelegt hast, so musst du keinerlei Anpassungen durchführen. Solltest du noch nicht mit dem Modul arbeiten, gehe wie folgt vor:
+
+1. Lieferschwelle → Übersicht
+  Füge je EU Land, in welches du lieferst, eine Lieferschwelle hinzu. Solltest du bereits mit dem Modul Lieferschwelle arbeiten, ist für die angelegten Schwellen keine Anpassung notwendig, du kannst diese aber über das Stiftsymbol editieren.
+
+1. Belege die Lieferschwelle in EUR wie folgt:
+  - Solltest du bereits Lieferschwellen hinterlegt haben, musst du keine Anpassung vornehmen.
+  - Die 10.000 € Grenze findet auch Anwendung, wenn du bereits alte, höhere Schwellen hinterlegt hast.
+  - Setze hier einen Wert von 10.000,00
+  - Setze hier einen Wert von 1,00, wenn die Lieferschwelle ab sofort gezogen werden soll
+  - Verwende nicht den Wert 0,00, da ansonsten die artikelspezifischen Lieferschwellen nicht berücksichtigt werden können
+1. Befülle zusätzlich folgende Felder
+  - Empfängerland → Land, für das die Lieferschwelle gelten soll
+  - Lager → Kein Lager
+  Kann auf Lager oder Hauptlager gesetzt werden, um dem System mitzuteilen, dass man im Empfängerland selbst ein Lager besitzt und somit für jeden Auftrag in das Empfängerland der dort geltende Umsatzsteuersatz zu verwenden ist. Sobald Lager oder Hauptlager ausgewählt ist, berücksichtigt xentral, dass dieser Umsatz nach lokalen MwSt.-Sätzen auf der Rechnung abgebildet werden muss. Der Umsatz wird aber nicht in die Summe von 10.000 € eingerechnet.
+
+  - Lieferschwelle in EUR → siehe 2.
+  - Ust-ID → Deine USt.-ID im Zielland - oder jedes Mal die heimische USt.-ID (OSS und nur B2C Geschäft). Diese kannst du in den Geschäftsbriefvorlagen als Variable {DELIVERYTHRESHOLDVATID} abrufen.
+  - Steuersatz normal → Normaler USt.-Satz im Zielland
+  - Steuersatz ermäßigt → Ermäßigter USt.-Satz im Zielland
+  - Steuersatz spezial → Spezieller USt.-Satz im Zielland
+  - In Ursprungsland → Spezieller USt.-Vergleichssatz im Ursprungsland
+  - Überschreitung ab → Lasse dieses Feld leer, es wird automatisch durch xentral befüllt, sobald die Lieferschwelle überschritten wurde
+  - Aktueller Umsatz → Lasse dieses Feld bei Neuanlage leer, es wir automatisch mit 0,00 befüllt und mit jedem Umsatz hochgezählt
+  - Netto Preise anpassen → Anpassung der Netto-Preise beim Import vom Online-Shop, sodass xentral falsche Steuersätze des Shops überschreibt und der Bruttobetrag für den Kunden gleich bleibt
+  - Lieferschwelle aktiv → Die Lieferschwelle ist aktiv und der eingestellte Steuersatz wird verwendet. Der Haken wird automatisch bei Überschreitung gesetzt. Setze diesen nur manuell, wenn du die Lieferschwelle im Nachhinein angelegt hast und das Feld Überschreitung ab und den aktuellen Umsatz händisch befüllst
+1. Lieferschwelle → Einstellungen
+  Aktiviere den Haken Bei Überschreitung neue Steuer verwenden und setze Umsatzzähler erhöhen auf beim freigeben. Optional kannst du zusätzlich die E-Mail bei Überschreitung aktivieren.
+
+### Funktionsweise des Moduls
+
+#### Summenbildung über alle EU-Land-Lieferschwellen
+
+Das Modul wurde im Umfang erweitert. Nun bildet xentral eine Gesamtsumme über alle EU-Länder hinweg, statt diese wie bisher bzw. wie Nicht-EU-Länder einzeln zu behandeln. Die Lieferschwelle der einzelnen EU-Länder auf 10.000 € zu setzen dient nur dazu, dass ein Land nicht zu früh ausgelöst wird, bzw. wenn du nur ein EU-Land bedienst. Der Wert kann auch auf 1€ gesetzt werden, wenn du weißt, dass du direkt mit den lokalen Steuersätzen arbeiten möchtest.
+
+Xentral kalkuliert dabei die Summe aller B2C Umsätze in alle EU Länder. Sobald 10.000€ erreicht ist, wird die Lieferwelle für alle EU Länder mit angelegten Lieferschwellen gleichzeitig ausgelöst.
+
+Wie hoch dein aktueller Umsatz ist, kannst du herausfinden, indem du in der Spalte EU nach ja filterst. Im Anschluss siehst du unterhalb der Spalte "Aktueller Umsatz" die Summe über alle (EU) Länder.
+
+Bekommst du zum ersten Mal einen Auftrag aus einem EU-Land, für welches du noch keine Lieferschwelle hinterlegt hast, erscheint folgende Meldung:
+
+![mceclip3.png](https://help.xentral.com/hc/article_attachments/5077572808476/uuid-da0b5c06-5623-952d-4e8d-2dc0851a4fe2.png)
+
+> **Anmerkung**
+>
+> Das Löschen/ Stornieren einer Rechnung reduziert nicht den Umsatzzähler Aktueller Umsatz. Diesen kannst du im Außnahmefall händisch zurücksetzen, wenn du eine Rechnung in dieses EU-Land stornierst.Solltest du eine Lieferschwelle versehentlich löschen, musst du diese neu anlegen und das Feld Aktueller Umsatz händisch mit dem aktuellen Wert befüllen.
+
+#### B2C Geschäfte
+
+Xentral erkennt automatisch, ob ein Auftrag oder Rechung als Endkundengeschäft behandelt werden soll. Auschlaggebend dafür ist, ob im Beleg eine Umsatzsteuer-ID hinterlegt ist. Sobald keine USt.-ID hinterlegt ist, gilt es als B2C Geschäft.
+
+Xentral erkennt automatisch, ob ein Auftrag oder Rechung als Endkundengeschäft behandelt werden soll. Auschlaggebend dafür ist, ob im Beleg eine Umsatzsteuer-ID hinterlegt ist. Sobald keine USt.-ID hinterlegt ist, gilt es als B2C Geschäft.
+
+### Länderliste
+
+Ob ein Land als EU oder Export Land gilt, wird in xentral in der App Länderliste festgelegt. Du musst hier keine Änderungen vornehmen, da xental bei Neuinstallationen automatisch die korrekte Zuordnung hinterlegt. Eine Anpassung ist nur notwendig, sollest du schon zu einem früheren Zeitpunkt Konfigurationen in der Länderliste vorgenommen haben. Bitte überprüfe in jedem Fall, ob beispielsweise für das Land Vereinigtes Königreich bei dir nach dem Austritt aus der EU korrekt nicht als EU hinterlegt ist. Nur Länder, welche eine EU Markierung haben, werden für die Summierung der OSS relevanten Lieferschwelle von 10.000 € berücksichtigt.
+
+## Fragen und Antworten
+
+Frage: Beim Export der CSV Datei für DATEV wird das Land nicht mit übergeben. Ursprungsland und Bestimmungsland fehlen. Gibt es eine Lösung hierfür?
+
+Antwort: Erfolgte der Export aus xentral heraus? Wenn ja, dann am besten mal via xentral Ticketsystem beim Customer Service Team melden, die Kollegen helfen dir gerne weiter. Wenn du noch kein Kunde sein solltest, gehe doch gern auf unser Sales-Team zu unter: kontakt@xentral.com.
+
+Frage: Ist nicht auch das Lagerland relevant?
+
+Antwort: Ja, genau. Anhand des Lagerlandes wird bestimmt, ob es sich um eine grenzüberschreitende Lieferung handelt, oder doch um eine Inlandslieferung (nur eben eine in einem anderen Land als Deutschland).
+
+Frage: Wenn man die Buchhaltung mit DATEV selber macht, von wem müssen die Daten ins DATEV gespielt werden? Von taxdoo, von xentral oder von beiden? Wie löst man das, sodass alle Daten vollständig und nicht doppelt im DATEV landen?
+
+Antwort: Beides ist möglich, am besten entscheidest du dich danach was dir mehr liegt - der Export von xentral zu DATEV oder der von taxdoo zu DATEV.
+
+Frage: Wir haben OSS mit xentral bereits umgesetzt. Ab wann wird xentral automatisch erkennen, wenn sich eine abweichende Lieferadresse mit unterschiedlichem Lieferland und somit auch anderer MwSt. ergibt? Bisher haben wir nur den Workaround mithilfe von "Lieferschwelle nicht anwenden" gefunden.
+
+Antwort: Der beschriebene Workaround ist hier vorerst die korrekte Lösung, ja.
+
+Frage: Aber die Kunden erwarten doch eine Rechnung oder?
+
+Antwort: Es handelt sich hier lediglich darum, dass für die Transaktionen, die über den OSS gemeldet werden die gesetzliche Pflicht Rechnungen zu erstellen entfällt. Das heißt, für B2C Fernverkäufe seid ihr zur Rechnungsstellung nicht verpflichtet. Davon grenzt sich ab, dass man natürlich aus Gründen der Kundenzufriedenheit etc. trotzdem dem Kunden eine Rechnung ausstellen kann.
+
+Frage: Verstehe ich das jetzt richtig? Es gibt kein Mini-One-Stop-Shop Verfahren seit 01.07.21 mehr? Im Elster (steuerlicher Erfassungsbogen) nämlich noch enthalten!
+
+Antwort: Der Mini One Stop Shop (MOSS) wurde bislang zur Meldung von grenzüberschreitenden digitalen Dienstleistungen an Privatkunden genutzt. Der MOSS wird ab dem 01.07.2021 in den One Stop Shop (OSS) integriert. Somit gibt es ab Juli 2021 kein gesondertes MOSS-Verfahren mehr und der OSS wird zur einzigen Anlaufstelle für grenzüberschreitende Fernverkäufe und digitale Dienstleistungen.
+
+Frage: Muss OSS genutzt werden oder kann ich mich auch dazu entscheiden, alles über das lokale Finanzamt zu melden?
+
+Antwort: Du darfst auch weiterhin alles über das lokale Finanzamt melden. Du musst dich allerdings quasi "einmalig entscheiden", eine Vermischung ist nicht möglich.
+
+Frage: Ich verstehe nicht warum taxdoo die Steuersätze anhand von HS Codes ermittelt, denn: wenn die Rechnungen an taxdoo übergeben werden, muss der Steuersatz ja bereits bekannt sein, d.h. bevor die Rechnung zu taxdoo geht, müssen im xentral für die Rechnung bereits die richtigen Steuersätze bekannt sein.
+
+Antwort: xentral überträgt nicht Rechnungen zu taxdoo, sondern bereits die Auftragsbelege.
+
+Frage: Zieht taxdoo nur die ausländischen Rechnungen aus xentral und anhand welchen Markers merkt taxdoo/xentral ob eine Kundenbestellung aus EU oder D kommt?
+
+Antwort: Im Auftragsbeleg ist die Lieferadresse mitsamt Land hinterlegt, sodass diese Info von xentral an taxdoo übertragen wird. Übertragen werden können alle Aufträge, unabhängig vom Lieferland.
+
+Frage: Wenn erst taxdoo die korrekte Steuerschuld ermittelt, wie wird sichergestellt, dass die Nettoumsätze in xentral korrekt sind?
+
+Antwort: Die Übertragung der Aufträge von xentral zu taxdoo findet schon vor der Erstellung der Rechnung in xentral statt.
+
+Frage: Wenn die Lieferschwelle überschritten ist, ist dann das Lagerland egal solange es von EU nach EU ist?
+
+Antwort: Genau, dann ändert sich durch das Lagerland nichts mehr.
+
+Frage: Müssen für den DATEV-Export noch manuelle Änderungen vorgenommen werden oder wird die Logik über die 3-stelligen Buchungsschlüssel automatisch hinterlegt?
+
+Antwort: xentral überträgt auch Kontierungen sowie Buchungsschlüssel und stellt in DATEV so viel wie möglich vorab ein. Je nach der genauen Anforderung muss in DATEV aber ggf. noch mehr eingestellt werden. Das probierst du am besten einfach aus.
+
+Frage: Wir haben ein Datenübertragungsproblem zwischen xentral und taxdoo. Die Daten werden von xentral an taxdoo basierend auf dem Lieferdatum übertragen. Allerdings wird im taxdoo Transaktionsbericht die Bestellung dann mit Bestelldatum dargestellt. Das führt dazu, dass Bestellungen, die z.B. im Juni bestellt worden sind erst im Juli übertragen und im taxdoo Transaktions-Report somit im Juni gebucht werden. Somit wird die Vergangenheit verändert, was nach deutschem Recht nicht zulässig ist.
+
+Antwort: Melde dich am besten über das XentralTicketsystem. Die Kollegen vom Customer Support Team werden Sie unterstützen.
+
+Frage: Wir liefern von Österreich aus europaweit und haben die Lieferschwelle schon überschritten. Nun wollen wir Amazon PAN EU angehen. Gibt es hierzu Tipps oder Unterstützung?
+
+Antwort: PAN EU ist eine Alternativlösung von Amazon zum OSS, diese lassen sich nicht vermischen.
+
+Frage: Werden die HS Codes der Artikel sauber an Shopify übertragen?
+
+Antwort: Zolltarifnummern können von xentral an Shopify übertragen werden. Mit der Hilfe von Freifeldern kannst du alle möglichen Codes zu Shopify exportieren. Die Ermittlung von Steuersätzen anhand von Zolltarifnummern kann taxdoo übernehmen.
+
+Frage: Wir sind zur zeit bei Hellotax mit unseren Amazon Pan EU! Wenn ich zu taxdoo wechseln würde, was muss ich tun und beachten?
+
+Antwort: Die Umstellung von anderen Anbietern auf taxdoo ist sehr einfach. Wenn bereits gültige USt.-IDs im EU-Ausland vorliegen, dann wird seitens taxdoo ein Prozess der Vollmachtsübertragung angestoßen. Dieser kann je nach lokalem Finanzamt zwischen 2 und 3 Monaten in Anspruch nehmen. Wechselst du nun von einem anderen Anbieter zu taxdoo, so definiert man idealerweise einen Zeitpunkt in der Zukunft an dem die Meldungen von taxdoo übernommen werden sollen. Achte hier immer auch auf die Kündigungsfrist des aktuellen Anbieters, damit du die Leistungen im Endeffekt nicht doppelt zahlst. Der Prozess der Vollmachtsübertragung ist bei taxdoo kostenlos. Unser Customer-Support wird dir alle wichtigen Dokumente zur Unterschrift vorbereiten und diese dann anschließend ans jeweilige lokale Finanzamt weiterleiten - hierfür benötigen wir keinerlei Information vom vorherigen Anbieter.
+
+Frage: Wir verkaufen EU-weit, haben ein Lager in DE und unsere Preise sind nur in EU und haben einen einheitlichen Steuersatz für alle Produkte. Da kommen wir gut nur mit xentral alleine aus, oder?
+
+Antwort: Hier reicht vermutlich die Lieferschwellen App von xentral für die Abbildung von OSS aus, ja. taxdoo könnte bei der Vorbereitung der Daten für die Buchhaltung hilfreich sein. Probieren geht über studieren!
+
+Frage: Sollen die B2B Umsätze grundsätzlich vom Export nach taxdoo ausgeschlossen werden?
+
+Antwort: Nein, müssen. Sie können ausgeschlossen werden, wenn sie über ein separates Projekt in xentral abgebildet sind. Prinzipiell kann aber jeder Auftrag zu taxdoo übertragen werden.
+
+Frage: Funktioniert xentral auch gut mit amainvoice?
+
+Antwort: Ja. xentral hat eine Schnittstelle zu Amainvoice.
+
+Question - Do I Register in each EU country of destination or do reporting via the One-Stop Shop?
+
+In individual cases, the new regulation may result in a substantial increase in registration and tax declaration obligations in the EU Member States.
+
+In principle, however, Xentral’s Customers have a choice.
+
+They can either register for VAT in each of the 27 EU Member States where they sell goods, regularly declare their sales there, and pay the VAT to the local tax authorities of the EU Member State.
+
+Or they can take advantage of a new option, the One-Stop Shop (OSS) or electronic portal that will serve as a single point of contact after July 1, 2021.
+
+The One-Stop Shop option can only be used in all EU member states in total. It is not possible to pick and choose, i.e., mix distance sales registrations in some countries and simultaneously use the OSS in other Member States.

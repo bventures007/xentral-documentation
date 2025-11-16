@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaufland (Classic)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 18589768780828
+    Titel: Kaufland (Classic)
+    URL: https://help.xentral.com/hc/de/articles/18589768780828-Kaufland-Classic
+    Erstellt: 2025-02-19T17:01:43Z
+    Aktualisiert: 2025-09-10T09:18:44Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 4408356112284
+    Export-Zeitpunkt: 2025-11-16 19:09:40
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Diese Schnittstelle erlaubt es dir, über eine API Aufträge von Kaufland nach <span class="phrase">Xentral</span> zu importieren, und bietet die folgenden Funktionalitäten:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Aufträge von Kaufland importieren</p>
+</li>
+<li class="listitem">
+<p>Automatische Änderung des Auftragsstatus bei Versand mit Sendungsverfolgung</p>
+</li>
+<li class="listitem">
+<p>Übertragung einzelner Artikel von <span class="phrase">Xentral</span> nach Kaufland und umgekehrt</p>
+</li>
+<li class="listitem">
+<p>Meldung aktueller Lagerzahlen</p>
+</li>
+<li class="listitem">
+<p>Übertragung von Rechnungen zu Kaufland</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1" id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_id_360016721780_id_h_01FF7T6QFTXTSQGX83VKAR4VB2"></a>Kaufland mit <span class="phrase">Xentral</span> verbinden</h2>
+</div>
+<p>Um die Schnittstelle anzubinden, benötigst du sowohl Zugang zu Kaufland als auch zu <span class="phrase">Xentral</span>.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1" id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_id_360016721780_id_h_01FF7T6WFF06T7YT38AXJ5VQ23"></a>API-Zugangsdaten bei Kaufland erzeugen</h3>
+</div>
+<p>Führe die folgenden Schritte aus, um deine API-Zugangsdaten bei Kaufland zu erzeugen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Logge dich im Händlerbereich von Kaufland ein (www.kaufland.de/seller).</p>
+</li>
+<li class="step">
+<p>Klicke im Hauptmenü auf <span class="guilabel">Händlereinstellungen &gt; Shopeinstellungen</span> und öffne den Reiter <span class="guilabel">API</span>.</p>
+</li>
+<li class="step">
+<p>Wähle <span class="phrase">Xentral</span> als Schnittstelle aus und speichere.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Zugangsdaten neu generieren</span>.</p>
+</li>
+<li class="step">
+<p>Kopiere <span class="guilabel">Client Key</span> und <span class="guilabel">Secret Key</span>. Du benötigst diese, um die Schnittstelle in <span class="phrase">Xentral</span> einzurichten.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590760782108" style="" alt="Kaufland-2.png"></div>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1" id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_id_360016721780_id_h_01FF7T71916ASR0TA7VPG3KNSA"></a>Kaufland-Schnittstelle in <span class="phrase">Xentral</span> anlegen</h3>
+</div>
+<p>Gehe wie folgt vor, um die Kaufland-Schnittstelle in <span class="phrase">Xentral</span> anzulegen:</p>
+<div class="procedure">
+<a id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_procedure-idm4619861793171233574350279683"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>In <span class="phrase">Xentral</span>, navigiere zu:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Im Classic Design: <span class="guilabel">Administration &gt; Shop Schnittstelle</span> und klicke auf <span class="guilabel">NEU</span>.</p>
+</li>
+<li class="listitem">
+<p>In <span class="phrase">Xentral NextGen</span>: <span class="guilabel"><span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590756958492" style="" alt="createbookmark_x21.png"></span> Einstellungen &gt; Verkaufen &gt; Shops/ Marktplätze</span> und klicke auf <span class="guilabel">Verbindung hinzufügen</span>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="step">
+<p>Wähle <span class="guilabel">Kaufland</span>. Ein Dialog erscheint.</p>
+</li>
+<li class="step">
+<p>Trage deinen <span class="guilabel">Client Key</span> und <span class="guilabel">Secret Key</span> in die entsprechenden Felder ein und klicke auf <span class="guilabel">Weiter</span>.</p>
+</li>
+</ol>
+</div>
+<p>Du landest direkt im Reiter <span class="guilabel">Details &gt; Schnittstelle</span>. Hier kannst du die API-Daten eintragen.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1" id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_id_360016721780_id_h_01FF7VPRX9AAHS4K4SYZTZMPFB"></a>Kaufland-Schnittstelle konfigurieren</h2>
+</div>
+<p>Du kannst die grundlegenden Einstellungen der Schnittstelle unter <span class="guilabel">Reiter Details &gt; Unterreiter Schnittstelle</span> konfigurieren.</p>
+<div class="procedure">
+<a id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_procedure-idm4600724443153633574452288"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Gib eine aussagekräftige <span class="guilabel">Bezeichnung</span> ein, z.B. den Namen deines Shops und das dazugehörige Projekt.</p>
+</li>
+<li class="step">
+<p>Setze ein Häkchen bei <span class="guilabel">Aktiv</span>, um die Schnittstelle zu aktivieren. Du kannst das Häkchen auch wieder entfernen, um die Schnittstelle zu deaktivieren.</p>
+</li>
+<li class="step">
+<p>Wähle ein <span class="guilabel">Projekt</span>. Mit einem spezifischen <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016723620#UUID-47d62f4f-3eac-f7b6-5144-f2353584abd5">Projekt</a> für deinen Shop kannst du Logistik, Belege, Zahlweisen und andere Funktionalitäten bestmöglich an deinen Shop anpassen. Kaufland hat einige spezielle Anforderungen, die du mit einem Projekt lösen kannst - beispielsweise was den Upload von Rechnungen betrifft. Am Ende des Artikels findest du eine genauere Beschreibung, auf <a class="link" href="#UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_id_360016721780_id_h_01FF7VYNGVRGJS9WWMHQEXE2J1" title="Kaufland-Projekt einrichten">welche Besonderheiten du in deinem Projekt achten solltest</a>.</p>
+</li>
+<li class="step">
+<p>Wähle den <span class="guilabel">Abholmodus</span>. In der Kaufland-Schnittstelle ist <span class="guilabel">ab Datum</span> die einzige Option.</p>
+</li>
+<li class="step">
+<p>Das Feld <span class="guilabel">Datum von</span> wird automatisch ausgefüllt, wenn du die Schnittstelle einrichtest und wird jedes Mal aktualisiert, wenn du auf <span class="guilabel">Aufträge abholen</span> klickst oder Aufträge vom Prozessstarter importiert werden.</p>
+</li>
+</ol>
+</div>
+<p>Im Bereich <span class="guilabel">Einstellungen für Shop oder Marktplatz</span> kannst du einige optionale Einstellungen vornehmen:</p>
+<div class="itemizedlist">
+<a id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_procedure-idm4619861761889633574475983297"></a>
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wähle <span class="guilabel">Protokollierung im Logfile</span>, wenn du Anfragen der Schnittstelle protokollieren möchtest. Dies kann bei der Fehlerbehebung hilfreich sein. Die Logs findest du am unteren Ende dieser Einstellungsseite.</p>
+</li>
+<li class="listitem">
+<p>Wähle <span class="guilabel">Produktdaten immer übertragen</span>, falls du deine Artikeldaten und Beschreibungen häufig wechselst. Standardmäßig werden Artikeldaten nur einmal übertragen. Mit dieser Option werden sie jedoch jedes Mal übertragen, sobald du einen Artikel exportierst.</p>
+</li>
+<li class="listitem">
+<p>Wähle <span class="guilabel">Artikel ohne Lagerbestand automatisch bei Aktualisierung aus dem Shop entfernen</span>, falls du nicht planst, den Lagerbestand deiner Artikel zu erneuern.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1" id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_section-idm4584214178003233574493284887"></a>Aufträge importieren</h2>
+</div>
+<p>Du kannst aus drei Optionen für den <span class="guilabel">Import-Modus</span> auswählen:</p>
+<div class="orderedlist">
+<ol class="orderedlist" type="1">
+<li class="listitem">
+<p><span class="guilabel">Demo (zum Testen)</span> - Nutze diese Option zu Testzwecken. Bei dieser Option wird der Auftragsstatus im Shop nicht aktualisiert. Artikel und Lagerzahlen werden nicht übertragen.</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Manuell (mit Importzentrale)</span> - <span class="phrase">Xentral</span> importiert nur Aufträge, wenn du auf <span class="guilabel">Aufträge abholen</span> im <span class="guilabel">Aktions</span>-Menü auf der rechten Seite klickst.</p>
+<p>Wählst du <span class="guilabel">Aufträge in Zwischentabelle</span>, werden die Aufträge in einer Zwischentabelle gespeichert, in der du sie auf Fehler überprüfen kannst, bevor du sie in dein System übernimmst.</p>
+<p>Du kannst die Schnittstelle testen, indem du auf <span class="guilabel">Nur 1 Auftrag pro Anfrage</span> klickst und anschließend prüfst, ob der Importprozess für einen Auftrag funktioniert.</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Automatisch (per Prozessstarter)</span> - <span class="phrase">Xentral</span> importiert Aufträge in regelmäßigen Abständen. Dieser Prozess wird vom <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">Prozessstarter</a> <span class="guilabel">shopimport</span> gesteuert.</p>
+<p>Wählst du in diesem Import-Modus <span class="guilabel">Aufträge in Zwischentabelle</span> aus, so wird die Zwischentabelle als Fallback genutzt, d.h. sollte beim Importprozess ein Fehler auftreten, dann kannst du die Zwischentabelle auf Fehler und fehlende Aufträge prüfen.</p>
+</li>
+</ol>
+</div>
+<p>Du kannst außerdem auf <span class="guilabel">Shopimport Zwischentabelle</span> im <span class="guilabel">Aktions</span>-Menü auf der rechten Seite klicken, um eine Zwischentabelle deiner letzten Aufträge zu importieren.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1" id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_section-idm4564472679700833575712867635"></a>Einstellungen in zusätzlichen Reitern konfigurieren</h2>
+</div>
+<p>Es gibt mehrere zusätzliche Reiter, in denen du weitere Einstellungen konfigurieren kannst. Da die Schnittstellen aller Onlineshops auf dem selben Grundgerüst basieren, sind nicht alle Reiter für jeden Shop relevant.</p>
+<p>Weitere Informationen zu den folgenden Reitern findest du im <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/42450#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">Online-Shops</a> Artikel:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Einstellungen</span> (Artikelimport, Lagerzahlensynchronisation)</p>
+<div dir="ltr" class="caution" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Achtung</h3>
+<p>Ist die Artikelübertragung in den Einstellungen deaktiviert, werden weiterhin mit dem Shop verknüpfte Preise bei der Synchronisation der Lagerzahlen an Kaufland übertragen!</p>
+</div>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Zahlweisen</span></p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Versandarten</span></p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Sprache-/Lieferland</span></p>
+</li>
+</ul>
+</div>
+<p>Klicke <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/13979#UUID-e55a4c1d-d861-ef5d-741d-94856c3b5b50">hier</a>, um mehr über die Nutzung von Smarty in der Onlineshop-Schnittstelle zu erfahren.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die folgenden Reiter sind für die Kaufland-Schnittstelle nicht relevant:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">Freifelder</span></p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Subshop</span></p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">Gruppenmapping</span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1" id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_id_360016721780_id_h_01FF7VX6JYE5W3PTVMMYC89TSR"></a>Artikelmapping : Artikel in Kaufland und <span class="phrase">Xentral</span> verknüpfen</h2>
+</div>
+<p>Du musst deine Artikel aus Kaufland mit denen in <span class="phrase">Xentral</span> verknüpfen. Auf diese Weise wird eine Synchronisierung der Artikel zwischen Kaufland und <span class="phrase">Xentral</span> ermöglicht. Zusätzlich können so Aufträge aus Kaufland den verknüpften Artikeln in <span class="phrase">Xentral</span> zugewiesen werden.</p>
+<p>Gehe wie folgt vor, um Artikel aus Kaufland mit denen in <span class="phrase">Xentral</span> zu verknüpfen:</p>
+<div class="procedure">
+<a id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_procedure-idm11388492629553"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere in der Kaufland-Shopschnittstelle in <span class="phrase">Xentral</span> zu <span class="guilabel">Details &gt; Artikelmapping</span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Artikelliste abholen</span>.</p>
+<p>Die Artikel aus Kaufland werden abgerufen und hier aufgelistet. Die Spalte <span class="guilabel">Zuordenbar</span> zeigt an, welche Artikel auf Basis identischer EANs automatisch mit ihrem Gegenstück in <span class="phrase">Xentral</span> verknüpft werden können.</p>
+<p><span class="phrase">Xentral</span> legt dabei automatisch über die Daten, die über die Shopschnittstelle importiert wurden, zwei Einträge für Fremdnummern des Artikels in <span class="phrase">Xentral</span> an.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="guilabel">apiitemid</span> - Die alte Bezeichnung, die von der veralteten API verwendet wurde. Diese wird automatisch angelegt, da sie durch die Kaufland-Shopschnittstelle übertragen wird. Diese Nummer kannst du ignorieren.</p>
+</li>
+<li class="listitem">
+<p><span class="guilabel">apiunitid</span> - Die gültige Bezeichnung für die Kaufland-Fremdnummer.</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Artikel zuordnen</span>.</p>
+<p>Die Artikel, die als <span class="guilabel">Zuordenbar</span> erkannt wurden, werden nun verknüpft. Das bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Die Spalte <span class="guilabel">Zuordenbar</span> zeigt an, dass sie verknüpft wurden.</p>
+</li>
+<li class="listitem">
+<p>Im Reiter <span class="guilabel">Fremdnummern</span> des entsprechenden Artikels werden die beiden Kaufland-Fremdnummern (<span class="guilabel">apiitemid</span> und <span class="guilabel">apiunitid</span>) auf <span class="guilabel">Aktiv</span> gesetzt.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Wenn du auf <span class="guilabel">Artikelliste abholen</span> klickst, werden bereits bestehende Artikelverknüpfungen gelöst. Du musst alle Artikel mit einem erneuten Klick auf <span class="guilabel">Artikel zuordnen</span> neu verknüpfen.</p>
+</div>
+<p>Bei Bedarf kannst du die aktive Verknüpfung eines Artikels manuell lösen oder die Verknüpfung auf einen anderen Artikel in <span class="phrase">Xentral</span> übertragen.</p>
+<p>Um eine Artikelverknüpfung manuell zu lösen und eine neue Verknüpfung zu ermöglichen, gehst du wie folgt vor:</p>
+<div class="procedure">
+<a id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_procedure-idm11066366489176"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere in der Kaufland-Shopschnittstelle in <span class="phrase">Xentral</span> zu <span class="guilabel">Details &gt; Artikelmapping</span>.</p>
+</li>
+<li class="step">
+<p>Klicke in der Liste der Kaufland-Artikel auf <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590756959260" style="" alt="CrossIcon.png"></span> rechts neben dem Artikel, dessen Verknüpfung du lösen möchtest.</p>
+<p>Die Verknüpfung wird gelöst. Das bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Die Spalte <span class="guilabel">Zuordenbar</span> zeigt an, dass keine Verknüpfung vorhanden ist.</p>
+</li>
+<li class="listitem">
+<p>Im Reiter <span class="guilabel">Fremdnummern</span> des entsprechenden Artikels werden die Häkchen im Feld <span class="guilabel">Aktiv</span> für die beiden Kaufland-Fremdnummern (<span class="guilabel">apiitemid</span> und <span class="guilabel">apiunitid</span>) entfernt.</p>
+<p>Die beiden Fremdnummern werden nicht gelöscht, sondern nur deaktiviert. So kannst du sie jederzeit durch eine neue Verknüpfung im Reiter <span class="guilabel">Artikelmapping</span> reaktivieren - siehe nachfolgende Beschreibung.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<p>Gehe wie folgt vor, um die Verknüpfung eines Kaufland-Artikels auf einen anderen Artikel in <span class="phrase">Xentral</span> zu übertragen:</p>
+<div class="procedure">
+<a id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_procedure-idm1564993542301"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere in der Kaufland-Shopschnittstelle in <span class="phrase">Xentral</span> zu <span class="guilabel">Details &gt; Artikelmapping</span>.</p>
+</li>
+<li class="step">
+<p>Klicke in der Liste der Kaufland-Artikel auf <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590756960412" style="" alt="PenIcon.png"></span> rechts neben dem Artikel, dessen Verknüpfung du ändern möchtest.</p>
+</li>
+<li class="step">
+<p>Der Dialog <span class="guilabel">Artikel bearbeiten</span> wird angezeigt. Gib den gewünschten Artikel aus <span class="phrase">Xentral</span> ein. Alternativ kannst du im Eingabefeld auf  <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590756961820" style="" alt="MagnifyingGlass_icon.png"></span> klicken, um nach dem gewünschten Artikel zu suchen.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Speichern</span>.</p>
+<p>Die Verknüpfung wird erstellt: Im Reiter <span class="guilabel">Fremdnummern</span> des entsprechenden Artikels werden die beiden Kaufland-Fremdnummern (<span class="guilabel">apiitemid</span> und <span class="guilabel">apiunitid</span>) auf <span class="guilabel">Aktiv</span> gesetzt.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1" id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_id_360016721780_id_h_01FF7VXDG6J27167M3QDEXYYN4"></a>Artikel exportieren</h2>
+</div>
+<p>Um einen Artikel bei Kaufland zu listen, ist es notwendig, einige besondere Einstellungen vorzunehmen. Allgemeinere Informationen zum Export von Artikeln zu einem Onlineshop findest du in <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/42450#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">diesem Artikel</a>.</p>
+<p>Gehe wie folgt vor, um einen Artikel zu Kaufland zu exportieren:</p>
+<div class="procedure">
+<a id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_procedure-idm4560206375030433576210234132"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zu</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Im Classic Design: <span class="guilabel">Stammdaten &gt; Artikel &gt; Wähle den Artikel &gt; Reiter Details &gt; Unterreiter Online-Shop Optionen</span>.</p>
+</li>
+<li class="listitem">
+<p>In <span class="phrase">Xentral NextGen</span>: <span class="guilabel">Verkaufen &gt; Artikel &gt; Wähle den Artikel &gt; Reiter Details &gt; Unterreiter Online-Shop Optionen</span>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="step">
+<p>Klicke im Abschnitt <span class="guilabel">Online-Shops</span> auf <span class="guilabel">Neuer Eintrag</span>. Es öffnet sich ein neues Fenster.</p>
+</li>
+<li class="step">
+<p>Wähle deine Kaufland-Schnittstelle im <span class="guilabel">Online-Shop</span> Dropdown-Menü und klicke auf <span class="guilabel">Speichern</span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590760793372" style="" alt="Gear_onlineshopoptions.png"></span> in derselben Zeile wie Kaufland. Ein neues Fenster mit Kaufland-spezifischen Einstellungen öffnet sich.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="guilabel">Suchen</span> im Feld <span class="guilabel">Kategorie</span> und wähle eine Kategorie für deinen Artikel. Kaufland schlägt dir Kategorien auf Grundlage der Artikelbeschreibung vor. Sollte der Vorschlag nicht zutreffen, kannst du eine Kategorie über die <span class="guilabel">Manuelle Kategoriesuche</span> auswählen.</p>
+</li>
+<li class="step">
+<p>Gib deine Artikeldaten in die Kategorie-spezifischen Felder ein. Einige der Felder sind verpflichtend und notwendig, um deinen Artikel bei Kaufland anzubieten. Sollte <span class="phrase">Xentral</span> eine passende Information erkennen, wird das entsprechende Feld mit den Artikeldaten aus <span class="phrase">Xentral</span> befüllt, z.B. mit dem Hersteller.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Du kannst unterschiedliche Felder über Variablen ansprechen. Dabei kannst du entweder Variablen oder Text verwenden, aber nicht beide in einem Feld vermischen. Hast du z.B. "{Freifeld1} Liter" eingegeben, um eine Mengeneinheit anzugeben, würde die Variable nicht korrekt gelesen und du würdest "{Freifeld1} Liter" erhalten statt"10 Liter".</p>
+</div>
+</li>
+<li class="step">
+<p>Wähle eine <span class="guilabel">Versandgruppe</span>. Bevor du eine Versandgruppe auswählen kannst, musst du sie im Kaufland Seller Portal anlegen.</p>
+</li>
+<li class="step">
+<p>Wähle einen <span class="guilabel">Zustand</span>. Ist der Zustand nicht <span class="guilabel">Neu</span>, solltest du im nächsten Feld eine <span class="guilabel">Zustandsbeschreibung eintragen</span>.</p>
+</li>
+<li class="step">
+<p>Gib eine <span class="guilabel">Minimale Lieferzeit</span> und <span class="guilabel">Maximale Lieferzeit</span> in Tagen ein.</p>
+</li>
+<li class="step">
+<p>Klicke auf Speichern.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Ist ein Artikel nicht verfügbar, obwohl alle Felder befüllt wurden, liegt der Fehler womöglich bei Kaufland. Bearbeitest du einen Artikel direkt bei Kaufland, werden Pflichtfelder in roter Schrift angezeigt.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590760794652" style="" alt="Kaufland-14.png"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1" id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_id_360016721780_id_h_01FF7VXXRBC23HT6X76M4934GE"></a>Artikelinformationen aktualisieren</h2>
+</div>
+<p>Beachte darüber hinaus, dass Kaufland Artikelbeschreibungen nicht direkt übernimmt, sondern erst auf Inhalt prüft. Die Artikelbeschreibung aus <span class="phrase">Xentral</span> wird also nicht direkt auf dem Marktplatz angezeigt, sondern hilft nur, die bereits bestehende zu verbessern. Sollte ein Artikel nicht verfügbar sein, obwohl alle Felder eingegeben worden sind, bietet es sich an, direkt auf Kaufland nach der Ursache des Problems zu suchen. Wenn der Artikel direkt editiert wird, werden zwingend erforderliche Felder mit fetter roter Schrift angezeigt.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Kaufland nutzt die aus <span class="phrase">Xentral</span> übertragene Artikelbeschreibung nicht direkt, sondern prüft die Beschreibung und integriert passende Inhalte in die bestehende Beschreibung.</p>
+</li>
+<li class="listitem">
+<p>Bilder müssen auf einen FTP-Server oder ähnliches hochgeladen werden. Die URL deines Artikels kannst du dann unter <span class="guilabel">Artikel &gt; Wähle den Artikel &gt; Reiter Details &gt; Unterreiter Online-Shop Optionen &gt; Klicke auf<span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590760793372" style="" alt="Gear_onlineshopoptions.png"></span> für Kaufland</span> im Feld <span class="guilabel">Bild</span> eintragen.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1" id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_id_360016721780_id_h_01FF7VYNGVRGJS9WWMHQEXE2J1"></a>Kaufland-Projekt einrichten</h2>
+</div>
+<p>Es gibt einige Besonderheiten bezüglich des Uploads von Rechnungen und dem Versand von E-Mails, die du beim Einrichten eines Kaufland-Projektes beachten solltest. Die Gründe dafür sind folgende:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Rechnungen müssen, sobald sie abgeschlossen sind, zu Kaufland übertragen werden. Dies bedeutet, dass die Rechnung vor dem Versandprozess erzeugt werden muss.</p>
+</li>
+<li class="listitem">
+<p>Kaufland verbietet Drittanbietern, wie <span class="phrase">Xentral</span>, E-Mails in ihrem Namen zu versenden.</p>
+</li>
+</ul>
+</div>
+<p>Richte dein Projekt folgendermaßen ein:</p>
+<div class="procedure">
+<a id="UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_procedure-idm4572614114683233576152870429"></a>
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zu</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Im Classic Design: <span class="guilabel">Stammdaten &gt; Projekt &gt; Öffne dein Kaufland-Projekt &gt; Reiter Einstellungen &gt; Unterreiter Logistik/ Versand</span>.</p>
+</li>
+<li class="listitem">
+<p>In <span class="phrase">Xentral NextGen</span>: <span class="guilabel"><span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590756958492" style="" alt="createbookmark_x21.png"></span> Einstellungen &gt; Lager &gt; Logistik Einstellungen pro Vertriebskanal &gt; <span class="inlinemediaobject"><img src="https://help.xentral.com/hc/article_attachments/18590756960412" style="" alt="PenIcon.png"></span> für deine Kaufland-Schnittstelle</span>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="step">
+<p>Stelle im Bereich <span class="guilabel">Stufe 1 (Pick/ Kommissionierung)</span> sicher, dass kein Häkchen bei <span class="guilabel">Rechnung erst im Versandprozess erzeugen</span> gesetzt ist.</p>
+</li>
+<li class="step">
+<p>Stelle sicher, dass keine Häkchen bei <span class="guilabel">E-Mail</span> gesetzt sind. Dies gilt für <span class="guilabel">Stufe 1 (Pick/ Kommissionierung)</span> und <span class="guilabel">Stufe 2 (Pack) an Versandstation</span>.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placetel-Anbindung</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017382200
+    Titel: Placetel-Anbindung
+    URL: https://help.xentral.com/hc/de/articles/360017382200-Placetel-Anbindung
+    Erstellt: 2020-11-10T09:47:42Z
+    Aktualisiert: 2023-11-03T03:21:46Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 8254433288476
+    Export-Zeitpunkt: 2025-11-16 19:10:03
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-20d4f099-6d77-44ae-d39f-5be24b551715_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/6948113024412#UUID-1e1b1797-2c41-afbc-67b4-8cb1dca95665">Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<p>Administration → AppStore → Placetel Anbindung</p>
+<p>Mein Bereich → Meine Apps → Placetel Anbindung</p>
+<p>Dieses Modul bindet die Telefonanlage von Placetel an und macht es dir so möglich, direkt über xentral mit den Kontakten deines Adressstamms zu telefonieren.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-20d4f099-6d77-44ae-d39f-5be24b551715" id="UUID-20d4f099-6d77-44ae-d39f-5be24b551715_id_360017382200_id_toc-0"></a>Einrichtung Placetel</h2>
+</div>
+<p>Für die Einrichtung sind verschiedene Schritte sowohl in Placetel als auch in xentral umzusetzen.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-20d4f099-6d77-44ae-d39f-5be24b551715" id="UUID-20d4f099-6d77-44ae-d39f-5be24b551715_id_360017382200_id_toc-1"></a>Einstellungen in Placetel</h3>
+</div>
+<p>Um eine Programmanbindung zu Placetel einzurichten, benötigst du einen API-Key, den du in deinem Kundenkonto von Placetel unter Administration → Einstellungen → API vorfindest. Du kannst an dieser Stelle ebenfalls ein API Token generieren, falls das noch nicht geschehen ist: <a class="link" href="https://www.placetel.de" target="_blank" rel="noopener">Placetel Webseite</a>.</p>
+<p>Möchtest du darüber hinaus auch Benachrichtigungen über Placetel in xentral abbilden, sind noch folgende zusätzlichen Einstellungen unter Administration → Einstellungen → Externe APIs erforderlich:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Haken setzen "Call Control-/Notify-API aktivieren"</p>
+</li>
+<li class="listitem">
+<p>URL deines API-Endpoints (bitte URL angleichen): https://deineurl.de/index.php?module=callcenter&amp;action=call&amp;provider=placetel.</p>
+</li>
+<li class="listitem">
+<p>Shared Secret für HMAC eingeben</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-20d4f099-6d77-44ae-d39f-5be24b551715" id="UUID-20d4f099-6d77-44ae-d39f-5be24b551715_id_360017382200_id_toc-2"></a>Einstellungen in xentral</h3>
+</div>
+<p>Unter Administration → AppStore → Placetel Anbindung oder Mein Bereich → Meine Apps → Placetel Anbindung kannst du den API-Key eintragen, woraufhin er auf der rechten Seite deines Placetel-Accounts erscheinen sollte. Das optionale Shared Secret für die Verwendung von Benachrichtigungen kann hier ebenfalls hinterlegt werden:</p>
+<p>Deine Accounts können dann im linken Textfeld angelegt werden. Folgende Nomenklatur ist dabei zu beachten:</p>
+<p><span class="bold"><strong>pro Zeile: Benutzername Xentral:UID von Placetel → Beispiel: MaxMustermann:77777777@fpbx.de</strong></span></p>
+<p>Sofern nur einzelne Benutzer keine Benachrichtigungen erhalten möchten, können diese unter Mein Bereich → Persönliche Einstellungen im Bereich Einstellungen ausgeschlossen werden. Der Haken bei "Telefon-Benachrichtigungen" ist hier standardmäßig gesetzt und ist explizit zu deaktivieren.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-20d4f099-6d77-44ae-d39f-5be24b551715" id="UUID-20d4f099-6d77-44ae-d39f-5be24b551715_id_360017382200_id_toc-3"></a>Verwendung Placetel</h2>
+</div>
+<p>Mittels der fertig eingerichteten Placetel-App können ausgehende Anrufe getätigt sowie eingehende Anrufe bearbeitet werden.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996440845468" style="" alt="Placetel-01.png"></div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-20d4f099-6d77-44ae-d39f-5be24b551715" id="UUID-20d4f099-6d77-44ae-d39f-5be24b551715_id_360017382200_id_toc-4"></a>Ausgehende Anrufe</h3>
+</div>
+<p>In der Übersicht kannst du in einem Eingabefeld eine Rufnummer eintragen und über den dazugehörigen Button anrufen. Daraufhin wird der Anruf zunächst über deine Telefonanlage geleitet und bei Abnahme des Hörers zum Empfänger durchgestellt. Im Telefonbuch werden alle Ansprechpartner mit Telefonnummer aus dem Adressstamm geladen.</p>
+<p>Darüber hinaus kannst du auch direkt aus dem Adressstamm Telefonate mit den hinterlegten Kontakten starten. Dazu öffnest du die gewünschte Adresse und drückst den Telefon-Button neben der hinterlegten Telefonnummer.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-20d4f099-6d77-44ae-d39f-5be24b551715" id="UUID-20d4f099-6d77-44ae-d39f-5be24b551715_id_360017382200_id_toc-5"></a>Eingehende Anrufe</h3>
+</div>
+<p>Ab Version 19.1 können eingehende Anrufe auch bestehenden Adressen zugeordnet werden, womit die folgenden Benachrichtigungen zur Verfügung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Eingehender Anruf</p>
+</li>
+<li class="listitem">
+<p>Anruf angenommen</p>
+</li>
+<li class="listitem">
+<p>Anruf beendet</p>
+</li>
+</ul>
+</div>
+<p>Im Fall eines nicht zuordenbaren Anrufs erscheint eine Benachrichtigung. Im Fall eines zuordenbaren Anrufs kann mittels der Benachrichtigung zur Adresse gesprungen werden oder eine Telefonnotiz erstellt werden.</p>
+<div dir="ltr" class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Anrufbenachrichtigungen werden nur global ausgegeben, d.h. eine Einschränkung auf einzelne Accounts ist nicht möglich.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-20d4f099-6d77-44ae-d39f-5be24b551715" id="UUID-20d4f099-6d77-44ae-d39f-5be24b551715_id_360017382200_id_toc-6"></a>Notifikations-Einstellung im Benutzer</h4>
+</div>
+<p>Unter Mein Bereich → Einstellungen gibt es für jeden Mitarbeiter die Option die Telefon-Benachrichtigungen auszuschalten.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-20d4f099-6d77-44ae-d39f-5be24b551715" id="UUID-20d4f099-6d77-44ae-d39f-5be24b551715_id_360017382200_id_toc-7"></a>xentral Anbindung weiterer Telefonanlagen</h2>
+</div>
+<p><span class="bold"><strong>Ausgehende Anrufe:</strong></span></p>
+<p>Wenn du ausgehend von xentral telefonieren willst, gibt es im Wesentlichen zwei Methoden. In xentral generieren wir zu jedem ausgehenden Anruf eine URL z.B. "tel:49123456789", diese wird von den meisten Software-Phones oder Programmen wie Skype, WhatsApp bzw. auch für TAPI-Clients von klassischen Telefonanlagen unterstützt.</p>
+<p>Als zweite Methode bietet xentral die Möglichkeit APIs anzubinden, wobei aktuell standardmäßig nur die Anbindungsmöglichkeit über Placetel besteht.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

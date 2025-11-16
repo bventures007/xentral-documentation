@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3PL: Vorbereitende Einstellungen für Fulfillment-Anbindungen (Übertragungen)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360018710420
+    Titel: 3PL: Vorbereitende Einstellungen für Fulfillment-Anbindungen (Übertragungen)
+    URL: https://help.xentral.com/hc/de/articles/360018710420-3PL-Vorbereitende-Einstellungen-f%C3%BCr-Fulfillment-Anbindungen-%C3%9Cbertragungen
+    Erstellt: 2021-01-08T11:53:47Z
+    Aktualisiert: 2025-11-07T09:38:55Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 10176371003292
+    Export-Zeitpunkt: 2025-11-16 19:08:14
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Du möchtest einen Fulfillment- oder Logistikdienstleister an <span class="phrase">Xentral</span> anbinden und fragst dich, was du dafür tun musst? Dann erfährst du in diesem Artikel, welche Schritte zur Grundeinrichtung gehören und welche konkreten Einstellungen du in <span class="phrase">Xentral</span> vornehmen musst, um einen reibungslosen Datenaustausch zu gewährleisten.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Stelle sicher, dass du Folgendes erledigt hast, bevor du mit dem Übertragungen Modul in Xentral arbeitest und die ersten Einstellungen vornimmst:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Du hast dich für einen Fulfillment- bzw. Logistikdienstleister entschieden und eure Zusammenarbeit vertraglich geregelt</p>
+</li>
+<li class="listitem">
+<p>Du verfügst über Zugang zu einem geeigneten FTP-Server (je nach Workflow von dir oder deinem Dienstleister zur Verfügung gestellt), über den der Datenaustausch stattfinden wird</p>
+</li>
+<li class="listitem">
+<p>Du hast entschieden, welche Schritte deines Logistikprozesses ausgelagert werden und genau festgelegt, wie die Prozesse zur Auftragsabwicklung in deinem eigenen Unternehmen ablaufen</p>
+</li>
+<li class="listitem">
+<p>Deine Mitarbeiter sind über den Logistikprozess informiert und entsprechend geschult</p>
+</li>
+</ul>
+</div>
+</div>
+<p>Nachdem du die oben genannten Vorbereitungen abgeschlossen hast, kannst du damit beginnen, die notwendigen Einstellungen in deinem System vorzunehmen. In den folgenden Kapiteln findest du detaillierte Anleitungen zu den einzelnen Schritten.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p><span class="bold"><strong>Video-Tutorial: Dein schneller Einstieg in die Einstellungen für Fulfillment-Anbindungen</strong></span></p>
+<p>Möchtest du dir innerhalb weniger Minuten einen Überblick über die vorbereitenden Einstellungen für Fulfillment-Anbindungen in <span class="phrase">Xentral</span> verschaffen? Dann ist unser Video-Tutorial genau das Richtige für dich. Schau es dir gleich an!</p>
+<div class="mediaobject">
+<div class="video-container">
+<div class="videoobject"><iframe frameborder="0" allowfullscreen="true" src="https://www.youtube.com/embed/XG5zGxLlT2I" style="" title=""><!-- iframe instead of embed for d:videodata --></iframe></div>
+</div>
+</div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-EinstellungeninXentralvornehmen"></a>Einstellungen in <span class="phrase">Xentral</span> vornehmen</h2>
+</div>
+<p>Wenn du zum ersten Mal einen Fulfillment-Dienstleister an <span class="phrase">Xentral</span> anbindest, ist es wichtig, die Einstellungen in genau der Reihenfolge vorzunehmen, in der sie in den folgenden Kapiteln beschrieben werden.</p>
+<p>Hast du einige Schritte bereits erledigt oder möchtest spezielle Informationen nachlesen? Dann klicke einfach auf einen der folgenden Links, um schnell zum passenden Kapitel zu gelangen.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><a class="xref linktype-component" href="#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt1Prozessaktivieren" title="Schritt 1: Prozess aktivieren">Schritt 1: Prozess aktivieren</a></p>
+</li>
+<li class="listitem">
+<p><a class="xref linktype-component" href="#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt2API-Accounterstellen" title="Schritt 2: API-Account erstellen">Schritt 2: API-Account erstellen</a></p>
+</li>
+<li class="listitem">
+<p><a class="xref linktype-component" href="#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt3Projekterstellen" title="Schritt 3: Projekt erstellen">Schritt 3: Projekt erstellen</a></p>
+</li>
+<li class="listitem">
+<p><a class="xref linktype-component" href="#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt4LagerundLagerplatzanlegen" title="Schritt 4: Lager und Lagerplatz anlegen">Schritt 4: Lager und Lagerplatz anlegen</a></p>
+</li>
+<li class="listitem">
+<p><a class="xref linktype-component" href="#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt5bertragungen-Accountanlegen" title="Schritt 5: Übertragungen-Account anlegen">Schritt 5: Übertragungen-Account anlegen</a></p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt1Prozessaktivieren"></a>Schritt 1: Prozess aktivieren</h3>
+</div>
+<p>Im ersten Schritt aktivierst du im Modul <span class="bold"><strong>Prozessstarter</strong></span> einen so genannten Cronjob. Cronjobs (in <span class="phrase">Xentral</span> auch gelegentlich als <span class="emphasis"><em>Prozesse</em></span> bezeichnet) dienen dazu, bestimmte Aktionen in regelmäßigen Abständen auszuführen. Für den regelmäßigen Datenaustausch zwischen deinem <span class="phrase">Xentral</span> System und der Schnittstelle deines Fulfillment-Dienstleisters musst du also den benötigten Prozess in <span class="phrase">Xentral</span> aktivieren.</p>
+<p>Gehe wie folgt vor, um den Prozess zu aktivieren:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne das Menü <span class="bold"><strong>Einstellungen &gt; Administration &gt; Prozessstarter</strong></span>.</p>
+<p><span class="emphasis"><em><span class="bold"><strong>Oder:</strong></span></em></span> Suche mit der Smart Search nach dem Begriff <span class="bold"><strong>Prozessstarter</strong></span>.</p>
+</li>
+<li class="step">
+<p>Finde den Eintrag <span class="bold"><strong>Übertragenmodul (Fulfillment, Übertragen, EDI, XML)</strong></span> mit dem Parameter <span class="emphasis"><em><span class="bold"><strong>api_uebertragungen</strong></span></em></span> in der Liste.</p>
+</li>
+<li class="step">
+<p>Klicke auf das Stift-Symbol, um die Einstellungen des Prozesses zu öffnen.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:450px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/19498287876764" style="max-width: 450px;" alt="uebertragungen-prozesseinstellungen.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Wähle für die Einstellung <span class="bold"><strong>Art</strong></span> die Option <span class="bold"><strong>Periodisch</strong></span> aus dem Dropdown-Menü.</p>
+</li>
+<li class="step">
+<p><span class="bold"><strong><span class="emphasis"><em>Optional</em></span></strong></span>: Passe im Feld <span class="bold"><strong>Periode</strong></span> das Zeitintervall (in Minuten) an, in dem der Prozess ausgeführt wird. Standardmäßig ist hier 10 eingetragen. Das bedeutet, dass der Import und Export der Belege innerhalb deiner Übertragungen alle 10 Minuten stattfindet.</p>
+</li>
+<li class="step">
+<p>Aktiviere die Option <span class="bold"><strong>Aktiv</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Benötigst du weitere Informationen zum Thema Prozesse und Prozessstarter? Schau dir unseren <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">passenden Artikel zum Thema</a> an, um mehr zu erfahren.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt2API-Accounterstellen"></a>Schritt 2: API-Account erstellen</h3>
+</div>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p><span class="bold"><strong>Video-Tutorial: Dein schneller Einstieg in die Erstellung des API-Accounts</strong></span></p>
+<p>Die folgenden Schritte zur Erstellung des API-Accounts werden auch in unserem Video-Tutorial gezeigt. Schau es dir gleich an!</p>
+<div class="mediaobject">
+<div class="video-container">
+<div class="videoobject"><iframe frameborder="0" allowfullscreen="true" src="https://www.youtube.com/embed/WKBMDdfbIvA" style="" title=""><!-- iframe instead of embed for d:videodata --></iframe></div>
+</div>
+</div>
+</div>
+<p>Der API-Accounts ist die technische Grundlage der Datenübertragung zwischen deinem <span class="phrase">Xentral</span> System und deinem Fulfillment-Dienstleister. Deshalb musst du mindestens einen API-Account erstellen, damit die Kommunikation stattfinden kann</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Damit Übertragungen in <span class="phrase">Xentral</span> angelegt werden können und der Datenaustausch stattfinden kann, ist muss ein API-Account wie unten beschrieben angelegt werden und über einen Namen verfügen. Alle weiteren Einstellungen am API-Account selbst, wie beispielsweise Berechtigungen, sind für die Funktionsweise von Übertragungen nicht relevant und müssen nicht zwingend vorgenommen werden.</p>
+</div>
+<p>Gehe wie folgt vor, um einen API-Account zu erstellen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne das Menü <span class="bold"><strong>Einstellungen &gt; Administration &gt; Datenaustausch &gt; APIs</strong></span>.</p>
+<p><span class="emphasis"><em><span class="bold"><strong>Oder:</strong></span></em></span> Suche mit der Smart Search nach dem Begriff <span class="bold"><strong>APIs</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke oben rechts auf <span class="bold"><strong>Übertragungs-Account hinzufügen</strong></span>.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:500px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/19498296448540" style="max-width: 500px;" alt="uebertragungen-api-account-1.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Aktiviere die Option <span class="bold"><strong>Aktiv</strong></span>.</p>
+</li>
+<li class="step">
+<p>Vergib im Feld <span class="bold"><strong>Bezeichnung</strong></span> einen eindeutigen Namen für den API-Account, damit du diesen eindeutig identifizieren kannst.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19498296526748" style="" alt="uebertragungen-api-account-2.png"></div>
+</li>
+<li class="step">
+<p><span class="emphasis"><em><span class="bold"><strong>Optional</strong></span></em></span>: Lege im Bereich <span class="bold"><strong>Permissions</strong></span> die Berechtigungen fest, über die der API-Account verfügen soll. Wir empfehlen, per Klick auf die Schaltfläche <span class="bold"><strong>Alle aktivieren</strong></span> sämtliche verfügbaren Berechtigungen zu vergeben. Du kannst natürlich je nach Anwendungsfall genau die Berechtigungen vergeben, die du benötigst, indem du die einzelnen Berechtigungen aktivierst.</p>
+<div class="mediaobject">
+<table class="image-viewport" summary="manufactured viewport for HTML img" style="border-collapse:collapse;border:0; width:500px;">
+<tr>
+<td style="padding:0;"><img src="https://help.xentral.com/hc/article_attachments/19498281862684" style="max-width: 500px;" alt="uebertragungen-api-account-3.png"></td>
+</tr>
+</table>
+</div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt3Projekterstellen"></a>Schritt 3: Projekt erstellen</h3>
+</div>
+<p>Nun erstellst du ein separates Projekt für die Zusammenarbeit mit deinem Fulfillment-Dienstleister, damit abzuwickelnde Aufträge korrekt übermittelt werden. Dabei ist es wichtig, dass du in diesem Projekt das passende Kommissionierverfahren einstellst.</p>
+<p>Gehe wie folgt vor, um das Projekt zu erstellen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne das Menü <span class="bold"><strong>Einstellungen &gt; Grundeinstellungen &gt; Projekte</strong></span>.</p>
+<p><span class="emphasis"><em><span class="bold"><strong>Oder</strong></span></em></span>: Suche mit der Smart Search nach dem Begriff <span class="bold"><strong>Projekte</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke oben rechts auf <span class="bold"><strong>Projekt hinzufügen</strong></span>.</p>
+</li>
+<li class="step">
+<p>Wähle die Option <span class="bold"><strong>Neues Projekt anlegen</strong></span> und klicke dann auf <span class="bold"><strong>Weiter</strong></span>.</p>
+</li>
+<li class="step">
+<p>Gib eine aussagekräftige <span class="bold"><strong>Bezeichnung</strong></span> für das Projekt ein.</p>
+</li>
+<li class="step">
+<p>Gib eine <span class="bold"><strong>Kennung</strong></span> für das Projekt ein.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Weiter</strong></span>.</p>
+</li>
+<li class="step">
+<p>Öffne das Tab <span class="bold"><strong>Einstellungen</strong></span> und klicke dann auf <span class="bold"><strong>Logistik / Versand</strong></span>.</p>
+</li>
+<li class="step">
+<p>Wähle das gewünschte <span class="bold"><strong>Kommissionierverfahren</strong></span> aus.</p>
+<ol type="a" class="substeps">
+<li class="step">
+<p>Möchtest du Artikel mit MHD- und Chargenverwaltung vom Fulfillment-Dienstleister verarbeiten lassen? Dann wähle die Option <span class="bold"><strong>Einfache Lagerbuchung und Scannen im Versandzentrum</strong></span>.</p>
+</li>
+<li class="step">
+<p>Nutzt du keine MHD- und Chargenverwaltung für deine Artikel, wähle die Option <span class="bold"><strong>Einfache Lagerbuchung ohne weiteren Prozess</strong></span>.</p>
+</li>
+</ol>
+</li>
+<li class="step">
+<p>Scrolle nach unten und klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt4LagerundLagerplatzanlegen"></a>Schritt 4: Lager und Lagerplatz anlegen</h3>
+</div>
+<p>Bestände, die dein Fulfillment-Dienstleister für dich verwaltet, befinden sich typischerweise nicht in deinem eigenen Lager. Daher ist es umso wichtiger, dass die Artikel, die du extern einlagern lässt, in ihrem eigenen virtuellen Lager und Lagerplatz in deinem <span class="phrase">Xentral</span> System gepflegt werden.</p>
+<p>Gehe wie folgt vor, um ein Lager zu erstellen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne das Menü <span class="bold"><strong>Einstellungen &gt; Lager &amp; Logistik &gt; Lager &gt; Lagerverwaltung</strong></span>.</p>
+<p><span class="bold"><strong><span class="emphasis"><em>Oder</em></span></strong></span>: Suche mit der Smart Search nach dem Begriff <span class="bold"><strong>Lagerverwaltung</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke oben rechts auf <span class="bold"><strong>+ NEU</strong></span>.</p>
+</li>
+<li class="step">
+<p>Vergib im Feld <span class="bold"><strong>Lager</strong></span> einen eindeutigen Namen für das Fulfillment-Lager.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19498288184476" style="" alt="uebertragungen-lager-1.png"></div>
+</li>
+<li class="step">
+<p><span class="emphasis"><em><span class="bold"><strong>Optional</strong></span></em></span>: Ordne das Lager einem Projekt zu und gib die Adresse des Lagers ein. Diese Angaben sind für die Einrichtung des Lagers nicht zwingend erforderlich, sondern dienen genau wie der Name lediglich zu deiner Information.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+</ol>
+</div>
+<p>Fahre nun damit fort, im eben erstellten Lager einen Lagerplatz anzulegen. Auch bei diesem Schritt sind keine detaillierten Einstellungen notwendig - du vergibst lediglich einen geeignete Bezeichnung für den Lagerplatz.</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Klicke auf das Tab <span class="bold"><strong>Lagerplätze</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Neuen Lagerplatz anlegen</strong></span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19498257913244" style="" alt="uebertragungen-lager-2.png"></div>
+</li>
+<li class="step">
+<p>Vergib im Feld <span class="bold"><strong>Bezeichnung</strong></span> einen eindeutigen Namen für den Lagerplatz. Weitere Angaben sind für die Einrichtung des Lagerplatzes nicht notwendig, da es sich wie beim zuvor erstellten Lager um eine Art Platzhalter landet, um Bestände zu führen.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19498264908956" style="" alt="uebertragungen-lager-3.png"></div>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+</ol>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt5bertragungen-Accountanlegen"></a>Schritt 5: Übertragungen-Account anlegen</h3>
+</div>
+<p>In diesem Schritt geht es darum, die eigentlichen Einstellungen für die Datenübertragung vorzunehmen. Je nachdem, ob du mit einem oder mehreren Fulfillment-Dienstleistern arbeitest, verschiedene Datenformate nutzen möchtest und ob du Informationen nicht nur senden, sondern auch empfangen willst, musst du mehrere separate Accounts in <span class="phrase">Xentral</span> einrichten. Beachte, dass die Anzahl der Übertragungen-Accounts, die du anlegen musst, von den Workflows deines Unternehmens abhängt: Wenn du beispielsweise Lieferscheine an deinen Fulfillment-Dienstleister übertragen und Tracking-Informationen empfangen möchtest, solltest du für beide Abläufe jeweils eine separate Übertragung anlegen. Zudem erhältst du so eine bessere Übersicht über die laufenden Prozesse und kannst bei Problemen schneller reagieren.</p>
+<p>Im Folgenden erfährst du, wie du eine Übertragung in <span class="phrase">Xentral</span> anlegst und welche Einstellungen dir im Detail zur Verfügung stehen.</p>
+<div dir="ltr" class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Tipp</h3>
+<p>Die folgenden Informationen sind sehr ausführlich und daher eher als Referenzmaterial zu verstehen. Die exakten Einstellungen, die du vornehmen musst, hängen davon ab, welche Daten zwischen deinem <span class="phrase">Xentral</span> System und dem Fremdsystem ausgetauscht werden sollen. Schau dir unseren separaten Artikel mit <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0" title="3PL: Praxisbeispiele für Fulfillment-Anbindungen (Übertragungen)">Anwendungsfällen für Übertragungen</a> an, um genau abgegrenzte Anleitungen zur Einrichtung der häufigsten Übertragungstypen zu sehen.</p>
+</div>
+<p>Gehe wie folgt vor, um eine Übertragung anzulegen:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Öffne das Menü <span class="bold"><strong>Einstellungen &gt; Administration &gt; Datenaustausch &gt; Übertragungen (CSV/XML/EDI/PDF)</strong></span>.</p>
+<p><span class="emphasis"><em><span class="bold"><strong>Oder</strong></span></em></span>: Suche mit der Smart Search nach dem Begriff <span class="bold"><strong>Übertragungen</strong></span>.</p>
+</li>
+<li class="step">
+<p>Klicke oben rechts auf <span class="bold"><strong>+ NEU</strong></span>.</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/19498296966172" style="" alt="neue-uebertragung-anlegen.png"></div>
+</li>
+<li class="step">
+<p>Nimm die gewünschten Einstellungen vor. In den folgenden Kapiteln findest du alle verfügbaren Einstellungen und die passenden Erläuterungen.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Speichern</strong></span>.</p>
+</li>
+</ol>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-EinstellungenundInformationen"></a>Einstellungen und Informationen</h4>
+</div>
+<p>In diesem Bereich aktivierst du die Übertragung, nachdem du alle notwendigen Einstellungen vorgenommen hast. Außerdem vergibst du hier eine Bezeichnung und kannst in bei bereits angelegten Übertragungen allgemeine Informationen zum Status der Datenübertragung sehen.</p>
+<div class="informaltable table-responsive">
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>
+<p><span class="bold"><strong>Einstellung</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Erläuterung</strong></span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">
+<p>Bereich <span class="bold"><strong>Einstellungen</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Aktiv</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um die Übertragung produktiv für den Datenaustausch zwischen deinem <span class="phrase">Xentral</span> System und deinem Fulfillment-Dienstleister zu nutzen. <span class="bold"><strong>Achtung:</strong></span> Wenn diese Option deaktiviert ist, findet kein Datenaustausch statt! Aktiviere diese Option erst, wenn du alle notwendigen weiteren Einstellungen für die Übertragung final vorgenommen hast.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Bezeichnung</strong></span></p>
+</td>
+<td>
+<p>Vergib einen aussagekräftigen Namen für die Übertragung. Dieser Name wird dir nur innerhalb deines <span class="phrase">Xentral</span> Systems angezeigt und dient deiner eigenen Übersicht. Er ist nicht für Kunden oder Nutzer des externen Systems sichtbar.</p>
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<p>Bereich <span class="bold"><strong>Informationen</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Letzter Status</strong></span> und <span class="bold"><strong>Letzte Übertragung</strong></span></p>
+</td>
+<td>
+<p>Das Feld <span class="bold"><strong>Letzter Status</strong></span> zeigt keine Daten an und wird künftig aus <span class="phrase">Xentral</span> entfernt. Es ist also nicht relevant für dich.</p>
+<p>Im Feld <span class="bold"><strong>Letzte Übertragung</strong></span> kannst du den genauen Zeitpunkt einsehen, an dem die letzte Übertragung stattgefunden hat.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Kommunikation"></a>Kommunikation</h4>
+</div>
+<p>In diesem Bereich legst du die technischen Details der Übertragung fest und gibst die erforderlichen Daten für die Verbindung mit dem gemeinsamen Server aus, der für den Datenaustausch zwischen dir und deinem Fulfillment-Dienstleister genutzt wird.</p>
+<div class="informaltable table-responsive">
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>
+<p><span class="bold"><strong>Einstellung</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Erläuterung</strong></span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>API</strong></span></p>
+</td>
+<td>
+<p>Wähle hier den API-Account aus, den du zuvor im Menü <span class="bold"><strong>Einstellungen &gt; Administration &gt; Datenaustausch &gt; APIs</strong></span> eingerichtet hast.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Übertragungsformat</strong></span></p>
+</td>
+<td>
+<p>Wähle das gewünschte Übertragungsformat aus. In den meisten Fällen kommen bei der Zusammenarbeit mit einem Fulfillment-Dienstleister die Formate <span class="bold"><strong>XML</strong></span> oder <span class="bold"><strong>CSV</strong></span> zum Einsatz. Dein Fulfillment-Dienstleister wird dich über das geforderte Dateiformat informieren und dir bei Bedarf die Optionen genauer erläutern.</p>
+<p>Folgende Übertragungsformate stehen dir zur Verfügung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>PDF</p>
+</li>
+<li class="listitem">
+<p>XML</p>
+</li>
+<li class="listitem">
+<p>XML mit integriertem PDF (Base64-kodiert)</p>
+</li>
+<li class="listitem">
+<p>XML und PDF in separaten Dateien</p>
+</li>
+<li class="listitem">
+<p>CSV</p>
+</li>
+<li class="listitem">
+<p>App4sales</p>
+</li>
+<li class="listitem">
+<p>Brickfox (weitere Informationen unter <a class="link" href="mailto:info@brickfox.com" target="_blank">info@brickfox.com</a>)</p>
+</li>
+<li class="listitem">
+<p>DS</p>
+</li>
+<li class="listitem">
+<p>EDI</p>
+</li>
+<li class="listitem">
+<p>EDI (Sport2000)</p>
+</li>
+<li class="listitem">
+<p><a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016773679#UUID-ad413078-1edd-453e-f3fe-4766f7663cac">Netstock</a></p>
+</li>
+<li class="listitem">
+<p><a class="link linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/13973#UUID-c2b2b6f0-47b6-af28-e735-f59eda454bb1">Opentrans</a></p>
+</li>
+<li class="listitem">
+<p>Pixi</p>
+</li>
+<li class="listitem">
+<p><a class="link" href="https://help.xentral.com/hc/de/articles/4402393972242-Einf%C3%BChrung-Smarty" target="_blank" rel="noopener">Smarty</a></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Typ</strong></span></p>
+</td>
+<td>
+<p>Wähle die gewünschte Übertragungsart aus, die für die Datenübermittlung genutzt wird. Für die Datenübermittlung zwischen <span class="phrase">Xentral</span> und dem System des Fulfillment-Dienstleisters über einen gemeinsamen Server kommen in den meisten Fällen FTP, FTPS oder SFTP zum Einsatz. Dein Fulfillment-Dienstleister wird dich informieren, welcher Übertragungsstandard genutzt wird.</p>
+<p>Die Übertragung von Daten per API-Schnittstelle ist ebenfalls möglich. Beachte in diesem Fall jedoch, dass du zur Einrichtung solcher Übertragungen tiefergehende technische Kenntnisse benötigst.</p>
+<p>Folgende Übertragungsarten stehen dir für Übertragungen zur Verfügung:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>FTPS</p>
+</li>
+<li class="listitem">
+<p>FTP</p>
+</li>
+<li class="listitem">
+<p>SFTP</p>
+</li>
+<li class="listitem">
+<p>E-Mail</p>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Bei der Einrichtung von Übertragungen vom Typ <span class="bold"><strong>FTP</strong></span> und <span class="bold"><strong>SFTP</strong></span> empfehlen wir die Verwendung relativer Pfade für die Angabe des Antwort-Speicherorts.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Codierung (Senden)</strong></span></p>
+</td>
+<td>
+<p>Wähle aus, welche Codierung für die Datenübertragung von <span class="phrase">Xentral</span> zum Fremdsystem genutzt werden soll. Diese Information erhältst du in der Regel von deinem Fulfillment-Dienstleister.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Server</strong></span></p>
+</td>
+<td>
+<p>Gib den Namen oder die IP-Adresse des Servers an, an den die Übertragung aus <span class="phrase">Xentral</span> gerichtet wird. Diese Information erhältst du in der Regel von deinem Fulfillment-Dienstleister.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Port</strong></span></p>
+</td>
+<td>
+<p>Trage den spezifischen Port des zuvor angegebenen Servers ein, der die Übertragung empfängt. Diese Information erhältst du von deinem Fulfillment-Dienstleister, da dieser in der Regel den Server betreibt und dementsprechend für Zugangsfragen zuständig ist.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>SSL</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, wenn die Datenübertragung per SSL verschlüsselt werden soll. Falls dieses Verfahren angewendet wird, informiert dich dein Fulfillment-Dienstleister darüber.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Username</strong></span></p>
+</td>
+<td>
+<p>Gib den Benutzernamen für den Zugang zum zuvor angegebenen Server an. Diese Information erhältst du in der Regel von deinem Fulfillment-Dienstleister.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Passwort</strong></span></p>
+</td>
+<td>
+<p>Gib das Passwort für deinen Zugang zum Server an, falls es benötigt wird. Diese Information sowie das Passwort erhältst du in der Regel von deinen Fulfillment-Dienstleister.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>OAuth client id</strong></span></p>
+</td>
+<td>
+<p>In den meisten Fällen wird diese Information nicht zwingend benötigt, um die Verbindung zum Server herzustellen. Halte Rücksprache mit deinem Fulfillment-Dienstleister. Dieser stellt dir bei Bedarf die Information zur Verfügung.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>OAuth client secret</strong></span></p>
+</td>
+<td>
+<p>In den meisten Fällen wird diese Information nicht zwingend benötigt, um die Verbindung zum Server herzustellen. Halte Rücksprache mit deinem Fulfillment-Dienstleister. Dieser stellt dir bei Bedarf die Information zur Verfügung.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>OAuth url</strong></span></p>
+</td>
+<td>
+<p>In den meisten Fällen wird diese Information nicht zwingend benötigt, um die Verbindung zum Server herzustellen. Halte Rücksprache mit deinem Fulfillment-Dienstleister. Dieser stellt dir bei Bedarf die Information zur Verfügung.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Speicherort (Ausgang)</strong></span></p>
+</td>
+<td>
+<p>Gib hier den Dateipfad an, auf dem ausgehende Dateien (also Dateien, die von <span class="phrase">Xentral</span> an das Fremdsystem übertragen werden) abgelegt werden sollen. In der Regel nennt dir dein Fulfillment-Dienstleister den gewünschten Dateipfad für die Ablage der Dateien.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Bei der Einrichtung von Übertragungen vom Typ <span class="bold"><strong>FTP</strong></span> und <span class="bold"><strong>SFTP</strong></span> empfehlen wir die Verwendung relativer Pfade für die Angabe des Speicherorts.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Dateiname Prefix</strong></span></p>
+</td>
+<td>
+<p>Gib hier bei Bedarf einen Präfix an, den die Namen aller ausgehenden Dateien (also Dateien, die von <span class="phrase">Xentral</span> an das Fremdsystem übertragen werden) automatisch erhalten. Die Verwendung eines Präfixes kann dir helfen, Dateien unterschiedlicher Übertragungen anhand ihrer Dateinamen zu unterscheiden. In manchen Fällen fordern Fulfillment-Dienstleister einen spezifischen Präfix und teilen dir ihre entsprechenden Anforderungen mit.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Antwort-Speicherort (Eingang)</strong></span></p>
+</td>
+<td>
+<p>Gib hier den Dateipfad an, auf dem eingehende Dateien (also Dateien, die vom Fremdsystem an <span class="phrase">Xentral</span> übertragen werden) abgelegt werden sollen. In der Regel nennt dir dein Fulfillment-Dienstleister den Dateipfad für die Abholung der Dateien.</p>
+<div dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Wichtig</h3>
+<p>Bei der Einrichtung von Übertragungen vom Typ <span class="bold"><strong>FTP</strong></span> und <span class="bold"><strong>SFTP</strong></span> empfehlen wir die Verwendung relativer Pfade für die Angabe des Antwort-Speicherorts.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Antwort-Dateiname Prefix</strong></span></p>
+</td>
+<td>
+<p>Wenn du hier einen Präfix einträgst, werden bei eingehenden Übertragungen, die dich von deinem Fulfillment-Dienstleister erreichen, nur Dateinamen mit genau diesem Präfix berücksichtigt. Beachte, dass in diesem Fall keine Dateien importiert werden, die nicht über diesen Präfix verfügen. Erkundige dich vorab bei deinem Fulfillment-Dienstleister, ob ein spezieller Präfix notwendig oder gewünscht ist.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Löschen von Server nach Download</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um empfangene Belegdateien automatisch vom Server zu löschen, nachdem du die entsprechenden Dateien aus <span class="phrase">Xentral</span> heruntergeladen hast. Die Löschung gilt nur für Belege, die vom Fremdsystem an <span class="phrase">Xentral</span>übermittelt werden.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Belegeversenden"></a>Belege versenden</h4>
+</div>
+<p>In diesem Bereich nimmst du zum Großteil Einstellungen vor, die für <span class="bold"><strong>ausgehende</strong></span> Übertragungen relevant sind und diese näher bestimmen. Damit sind Belege und Dateien gemeint, die von <span class="phrase">Xentral</span> an ein Fremdsystem übermittelt werden. Die häufigsten Anwendungsbeispiele sind dabei die Übertragung von <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0_id_Praxisbeispielefrbertragungen-Lieferscheinebertragen" title="Lieferscheine übertragen">Lieferscheinen</a> und <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0_id_Praxisbeispielefrbertragungen-Artikelbertragen" title="Artikel übertragen">Artikeldaten</a> zu einem Fulfillment- oder Logistikdienstleister.</p>
+<p>Du findest hier auch vereinzelt Einstellungen, die im Rahmen eingehender Übertragungen relevant sind, wie die Einstellungen zur Tracking- und Rechnungs-E-Mail.</p>
+<div class="informaltable table-responsive">
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>
+<p><span class="bold"><strong>Einstellung</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Erläuterung</strong></span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Belegart</strong></span></p>
+</td>
+<td>
+<p>Wähle hier die Belegart aus, die übertragen werden soll. Die Auswahl hängt davon ab, welchen Workflow du mithilfe der Übertragung abwickeln möchtest. Wähle beispielsweise die Option <span class="bold"><strong>Lieferschein</strong></span> aus, wenn du eine Lieferscheine an deinen Fulfillment-Dienstleister übermittteln möchtest. Beachte hierzu auch die Erläuterungen in unserem <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0" title="3PL: Praxisbeispiele für Fulfillment-Anbindungen (Übertragungen)">Artikel zum Thema Anwendungsfälle</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Belegstatus</strong></span></p>
+</td>
+<td>
+<p>Gib den Status ein, in dem Belege sich befinden müssen, damit sie übertragen werden. In den meisten Anwendungsfällen ist hier die Eingabe “FREIGEGEBEN” korrekt. Somit werden beispielsweise Lieferscheine übertragen, sobald du sie in deinem <span class="phrase">Xentral</span> System freigegeben hast. Je nach deinem Bedarf kannst du hier aber auch einen anderen Belegstatus auswählen. Verwende stets genau die Schreibweise für den Status, wie er auch in deinem <span class="phrase">Xentral</span> angegeben ist. Andernfalls kommt es zu Fehlern bei der Übertragung.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Projekt</strong></span></p>
+</td>
+<td>
+<p>Wähle das Projekt aus, dessen Belege übermittelt werden sollen. Beachte, dass du für jedes weitere Projekt eine eigene Übertragung anlegen musst. Möchtest du sämtliche Belege deines <span class="phrase">Xentral</span> Systems unabhängig vom hinterlegten Projekt übertragen, triff in diesem Feld keine Auswahl.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Adresse</strong></span></p>
+</td>
+<td>
+<p>Gib die Zieladresse der Belege an, die von <span class="phrase">Xentral</span> ausgehend übermittelt wird. Somit verarbeitet der Fulfillment-Dienstleister nur Belege, die diese spezifische Adresse (und damit Kunden) enthalten. Dies kann bei Anwendungsfällen nützlich sein, bei denen von einem einzelnen Kunden ein großes Auftragsvolumen eingeht oder dessen Aufträge aus anderen Gründen separat von anderen Übertragungen verarbeitet werden sollen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Gruppe</strong></span></p>
+</td>
+<td>
+<p>Gib die Adressgruppe der Zieladresse der Belege an, die von <span class="phrase">Xentral</span> ausgehend übermittelt wird. Somit verarbeitet der Fulfillment-Dienstleister nur Belege, deren Adresse einer bestimmten Adressgruppe zugeordnet sind. Dies kann bei Anwendungsfällen nützlich sein, bei denen von einem einzelnen Kundengruppe ein großes Auftragsvolumen eingeht oder die betreffenden Aufträge aus anderen Gründen separat von anderen Übertragungen verarbeitet werden sollen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Manuelle Freigabe erforderlich</strong></span></p>
+</td>
+<td>
+<p>Wenn diese Option aktiv ist, werden die Belege nicht automatisch übertragen. Stattdessen werden die Belege im Tab <span class="bold"><strong>Warte auf Freigabe</strong></span> aufgelistet. Dort wählst du die zu übertragenen Belege manuell aus und gibst sie anschließend zur Übertragung frei. Wir empfehlen, diese Funktion zu Testzwecken zu nutzen, wenn du eine neue Übertragung anlegst und die Datenübertragung zunächst manuell steuern möchtest.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Start ab ID</strong></span> und <span class="bold"><strong>Start ab Datum</strong></span></p>
+</td>
+<td>
+<p>Gib optional die ID des Belegs an, sodass die Übertragung der Belege ab dieser ID startet. Wenn du eine ID angibst, musst du zusätzlich das Datum des Belegs festlegen, ab dem die Übertragung starten soll. Achtung: Es werden erst Belege übertragen, wenn beide Kriterien gleichzeitig zutreffen. Nimmst du für diese Einstellungen keine Angaben vor, startet die Übertragung ab dem Zeitpunkt, zu dem du sie auf <span class="bold"><strong>Aktiv</strong></span> setzt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Labels</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Hinweis</strong></span>: Diese Option erscheint erst, nachdem du die Einstellungen für die Übertragung einmalig gespeichert hast!</p>
+<p>Labels erlauben dir, die in der Übertragung enthaltenen Belege auf einen Blick in deinem <span class="phrase">Xentral</span> System zu unterscheiden und nach speziellen Labels zu filtern. Lege zuerst mithilfe der Option Filter-Labels fest, nach welchen Labels du innerhalb der Übertragung filtern möchtest. Nutze dann die Optionen <span class="bold"><strong>Tag erfolgreiche Übertragung</strong></span> und <span class="bold"><strong>Tag fehlerhafte Übertragung</strong></span>, um ein Tag für diese Szenarien auszuwählen. Das Tag wird in diesen Fällen dann automatisch für die betroffenen Belege vergeben und in deinem <span class="phrase">Xentral</span> System angezeigt. Klicke auf die Filter-Symbole neben den genannten Optionen, um eine Liste aller verfügbaren Labels zu sehen. Scrolle bis an das Ende der Liste, um bei Bedarf neue Labels anzulegen und direkt zu verwenden.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Briefpapier im XML</strong></span></p>
+</td>
+<td>
+<p>Wenn die Dateiübertragung im XML-Format stattfindet, kannst du diese Option aktivieren, um jede XML-Datei mit einem speziellen Briefkopf zu erweitern. Der Briefkopf wird dabei im Format base64 kodiert, damit die ursprüngliche XML-Struktur nicht beeinträchtigt wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Maximal gleichzeitige Übertragungen</strong></span></p>
+</td>
+<td>
+<p>Gib die Anzahl der Belege ein, die gleichzeitig übertragen werden sollen. In den meisten Fällen sind 10 gleichzeitig übertragene Belege eine gute Wahl, du kannst jedoch auch 100 oder mehr Belege gleichzeig übertragen lassen. Voraussetzung ist, dass die betreffende Übertragung aktiv ist und du den Prozessstarter namens <span class="emphasis"><em><span class="bold"><strong>api_uebertragungen</strong></span></em></span> aktiviert hast. Weitere Informationen zu den notwendigen Einstellungen im Modul Prozessstarter findest du <a class="link linktype-component" href="#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt1Prozessaktivieren" title="Schritt 1: Prozess aktivieren">im entsprechenden Kapitel</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Jeder Beleg in einer eigenen XML</strong></span></p>
+</td>
+<td>
+<p>Wenn du das Übertragungsformat <span class="bold"><strong>XML</strong></span> nutzt, empfehlen wir dir, diese Option zu aktivieren, damit jeder Beleg in einer eigenen XML-Datei gespeichert und übermittelt wird. Dieses Vorgehen entspricht in der Praxis meistens dem Standard. Falls dein Fulfillment-Dienstleister abweichende Anforderungen hat, wird er dir diese entsprechend kommunizieren.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>XML-Zusatz</strong></span></p>
+</td>
+<td>
+<p>Falls von dir oder deinem Fulfillment-Dienstleister gewünscht, können mithilfe dieser Option statische Anhänge für XML-Dateien definiert werden. Dies kann nützlich sein, wenn jede übermittelte XML-Datei eine bestimmte Kennung zur Identifikation erhalten soll. Sprich mögliche Anwendungsfälle am Besten mit dem jeweiligen Dienstleister ab.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Tracking Mail</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, wenn automatisch eine E-Mail mit den Tracking-Informationen (Tracking-Link und Sendungsnummer) an deine Kunden versendet werden soll, sobald diese Informationen von deinem Fulfillment-Dienstleister über die Übertragung zurückgemeldet wurden.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Rechnung Mail</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, wenn automatisch eine E-Mail mit dem Rechnungsdokument an deine Kunden versendet werden soll, sobald die Tracking-Informationen von deinem Fulfillment-Dienstleister an <span class="phrase">Xentral</span> zurückgemeldet wurden. Wird ein Auftrag in mehreren Paketen mit separaten Sendungsnummern versendet, erfolgt der Versand der Rechnungs-E-Mail nur einmal für den gesamten Auftrag. Folgende Voraussetzungen gelten, wenn du diese Option aktivierst: In <span class="phrase">Xentral</span> muss die entsprechende Rechnung bereits erstellt worden sein. Der Name des Kunden sowie die zugehörige E-Mail-Adresse des Kunden müssen im Rechnungsdokument vorhanden sein. Außerdem muss der Rechnungsbetrag größer als 0 sein.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Rechnung anlegen</strong></span></p>
+</td>
+<td>
+<p>Wenn du diese Option aktivierst, erstellt <span class="phrase">Xentral</span> automatisch eine Rechnung, sobald dein Fulfillment-Dienstleister die Tracking-Informationen für den betreffenden Auftrag zurückmeldet. Diese Einstellung ist relevant, wenn du den Workflow zum Import von Tracking-Informationen nutzt. Weitere Informationen dazu findest du <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0" title="3PL: Praxisbeispiele für Fulfillment-Anbindungen (Übertragungen)">in unserem Artikel zum Thema Anwendungsfälle</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Datei Anhang übertragen</strong></span></p>
+</td>
+<td>
+<p>Diese Einstellung ist nur für Übertragungen in den Formaten <span class="bold"><strong>XML</strong></span> oder <span class="bold"><strong>XML+PDF</strong></span> relevant. Entscheide hier, in welcher Form Belege wie den Lieferschein oder die Rechnung an das Fremdsystem übertragen werden. Aktiviere dazu erst die Einstellung und wähle dann unter <span class="bold"><strong>Anhang übertragen als</strong></span> die gewünschte Option aus. Die Option <span class="bold"><strong>Als eigene Datei</strong></span> übermittelt die Datei als separaten PDF-Anhang zusätzlich zur XML-Datei. Die Option <span class="bold"><strong>Base64-Codiert im Beleg</strong></span> sorgt dafür, dass automatisch eine Codierung stattfindet und der Anhang in der XML-Struktur des Belegs selbst gesendet wird.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Lagerzahlen"></a>Lagerzahlen</h4>
+</div>
+<p>In diesem Bereich nimmst du Einstellungen für Anwendungsfälle vor, in denen du Bestandsdaten deines <span class="phrase">Xentral</span> Systems an ein Fremdsystem übermitteln willst. Diese Einstellungen gelten <span class="bold"><strong>nicht</strong></span> in Szenarien, in denen dein Fulfillment- oder Logistikpartner Artikel für dich einlagert, sondern wenn du selbst als dieser Partner auftrittst und dementsprechend Bestände verwaltest.</p>
+<div class="informaltable table-responsive">
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>
+<p><span class="bold"><strong>Einstellung</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Erläuterung</strong></span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Lagerzahlen von Xentral zu Fremdsystem</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Einstellung, wenn du selbst für ein Fremdsystem Lagerbestände verwaltest. Das kann der Fall sein, wenn du ein externes ERP-System anbindest, Bestände für einen größeren Kunden oder das System eines Mutter- oder Tochterunternehmen verwaltest. Die folgenden Einstellungen <span class="bold"><strong>Lager</strong></span>, <span class="bold"><strong>Lagerplatz</strong></span>, <span class="bold"><strong>"Verkaufbare" Menge senden</strong></span> und <span class="bold"><strong>Übertragen um</strong></span> erlauben dir, weitergehende Einstellungen für diesen Anwendungsfall vorzunehmen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lager</strong></span></p>
+</td>
+<td>
+<p>Diese Einstellung bezieht sich auf die ausgehende Übermittlung von Lagerzahlen. Dies ist zum Beispiel der Fall, wenn du ein externes ERP-System oder einen Großkunden an <span class="phrase">Xentral</span> angebunden hast und dementsprechend Lagerbestände für diese Partner verwaltest. Wenn du hier ein Lager auswählst, werden sämtliche Bestände dieses Lagers an das angebundene System übertragen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lagerplatz</strong></span></p>
+</td>
+<td>
+<p>Im Zusammenhang mit der vorherigen Einstellung <span class="bold"><strong>Lager</strong></span> kannst du hier bei Bedarf gezielt einen spezifischen Lagerort auswählen, sodass ausschließlich Bestände dieses Lagerorts aus <span class="phrase">Xentral</span> an das Fremdsystem übertragen werden.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>“Verkaufbare” Menge senden</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Einstellung, um die noch verkaufbare Lagermenge von <span class="phrase">Xentral</span> an das Fremdsystem zu übermitteln. Die übergebenen Lagerdaten werden wie folgt berechnet: (Absolute Lagermenge) - (Für offene Aufträge reservierte Bestände) = Verkaufbare Menge.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>übertragen um</strong></span></p>
+</td>
+<td>
+<p>Wähle hier die Uhrzeit aus, zu der die Übertragung an das Fremdsystem täglich ausgeführt werden soll. Nutze die weiteren gleichnamigen Felder, um zu bestimmen, dass mehrere Datenübertragungen pro Tag stattfinden sollen. Normalerweise eignen sich vor allem Uhrzeiten am späten Abend und in der Nacht.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Verkaufsreport"></a>Verkaufsreport</h4>
+</div>
+<p>In diesem Bereich nimmst du die notwendigen Einstellungen vor, falls du für die Übertragung Verkaufsreporte, also Berichte über verkaufte Artikel, automatisch erstellen lassen und später abrufen und auswerten möchtest.</p>
+<div class="informaltable table-responsive">
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>
+<p><span class="bold"><strong>Einstellung</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Erläuterung</strong></span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Verkaufsreport senden</strong></span></p>
+</td>
+<td>
+<p>Wenn du diese Option aktivierst, werden später im Tab <span class="bold"><strong>Verkaufsreport</strong></span> der Übertragung die Berichte über die entsprechenden Verkäufe angezeigt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Zeitbereich</strong></span></p>
+</td>
+<td>
+<p>Lege fest, ob der Verkaufsreport einmal täglich, wöchentlich oder monatlich erstellt werden soll.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-SonstigeAktionen"></a>Sonstige Aktionen</h4>
+</div>
+<p>In diesem Bereich nimmst du Einstellungen zur <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0_id_Praxisbeispielefrbertragungen-Artikelbertragen" title="Artikel übertragen">Übertragung von Artikeldaten</a> aus <span class="phrase">Xentral</span> zum Fremdsystem vor. Falls du mithilfe von <span class="phrase">Xentral</span> selbst als Fulfillment- oder Logistikpartner arbeitest, aktivierst du hier die Übermittlung von Tracking-Informationen (Sendungsnummern) an das Fremdsystem.</p>
+<div class="informaltable table-responsive">
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>
+<p><span class="bold"><strong>Einstellung</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Erläuterung</strong></span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Tracking von Xentral zu Fremdsystem</strong></span></p>
+</td>
+<td>
+<p>Wenn du selbst als Fulfillment-Dienstleister arbeitest, ermöglicht diese Einstellung die Übermittlung von Tracking-Informationen an ein Fremdsystem. Die Übertragung dieser Daten ist mittels der Übertragungsformate <span class="bold"><strong>XML</strong></span> und <span class="bold"><strong>CSV</strong></span> möglich.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Artikel Übertragen</strong></span></p>
+</td>
+<td>
+<p>Klicke auf diesen Button, um Daten neuer und geänderter Artikel an das System deines Fulfillment-Dienstleisters zu übertragen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>automatisch neue Artikel übertragen</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um Artikel, die du in <span class="phrase">Xentral</span> neu anlegst, automatisch an deinen Fulfillment-Dienstleister zu übertragen. Beachte jedoch, dass diese Einstellung nicht greift, wenn du Daten bestehender Artikel in <span class="phrase">Xentral</span> änderst. Wenn du Artikeldaten änderst, musst du die Option <span class="bold"><strong>Artikel übertragen</strong></span> nutzen, um diese Änderungen zu übermitteln.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Belegeempfangen"></a>Belege empfangen</h4>
+</div>
+<p>In diesem Bereich nimmst du ausschließlich Einstellungen vor, die für <span class="bold"><strong>eingehende</strong></span> Übertragungen relevant sind und diese näher bestimmen. Es geht hier also um Belege und Dateien, die von einem Fremdsystem an <span class="phrase">Xentral</span> übermittelt werden. Die häufigsten Anwendungsbeispiele sind dabei die Rückmeldung von <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0_id_Praxisbeispielefrbertragungen-Lagerbestndeempfangen" title="Lagerbestände empfangen">Lagerbeständen</a> und <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0_id_Praxisbeispielefrbertragungen-Tracking-Informationenempfangen" title="Tracking-Informationen empfangen">Tracking-Informationen</a> zu Aufträgen, die vom Fulfillment- oder Logistikdienstleister erfolgreich in den Versand übergeben wurden.</p>
+<div class="informaltable table-responsive">
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>
+<p><span class="bold"><strong>Einstellung</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Erläuterung</strong></span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Aufträge / Angebote empfangen</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um Aufträge und Angebote aus einem Fremdsystem zu empfangen. Diese Einstellung ist für spezielle Anwendungsfällen vorgesehen, beispielsweise wenn du selbst als Fulfillment-Dienstleister agierst oder Aufträge von anderen externen Plattformen abrufen möchtest.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Alle Belegtypen importieren</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um innerhalb der gewählten Übertragung den Import aller möglichen Belegtypen in <span class="phrase">Xentral</span> zu erlauben, anstatt nur spezielle Belegtypen zu senden oder empfangen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Kundennummer aus Fremdsystem übernehmen</strong></span></p>
+</td>
+<td>
+<p>Diese Einstellung ist nur für eingehende Übertragungen von Angeboten und Aufträgen per XML relevant. Du benötigst sie, wenn du eine Anbindung an Shop- oder sonstige Drittsysteme vornimmst. Für die Zusammenarbeit mit Logistik- und Fulfllment-Dienstleistern ist diese Einstellung nicht nutzbar. Ist diese Option aktiviert, wird beim Auftragsimport in <span class="phrase">Xentral</span> die Kundennummer aus dem Fremdsystem übernommen. Falls die Kundennummer in <span class="phrase">Xentral</span> noch nicht existiert, wird automatisch ein neuer Kundendatensatz mit genau dieser Nummer angelegt. Falls du diese Option nutzen möchtest, lege für diese Übertragung ein <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016723620#UUID-47d62f4f-3eac-f7b6-5144-f2353584abd5">separates Projekt</a> mit eigenen Nummernkreisen für Kundennummern an, damit es nicht zu Überschneidungen kommt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Bestellungen empfangen</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um Bestellungen von deinem Fulfillment-Dienstleister in <span class="phrase">Xentral</span> zu importieren.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Verbindlichkeiten</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um Verbindlichkeiten von deinem Fulfillment-Dienstleister in <span class="phrase">Xentral</span> zu importieren.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lagerzahlen empfangen</strong></span></p>
+</td>
+<td>
+<p>Diese Option muss aktiviert werden, um Bestandsinformationen von deinem Fulfillment-Dienstleister in <span class="phrase">Xentral</span> zu importieren. Weitere Informationen findest du in unserem <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0" title="3PL: Praxisbeispiele für Fulfillment-Anbindungen (Übertragungen)">Artikel zum Thema Anwendungsfälle</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lagerplatz in Dateieingang ignorieren</strong></span></p>
+</td>
+<td>
+<p>Falls dein Fulfilment-Dienstleister dir Lagerplätze innerhalb einer XML-Datei zurückmeldet, werden die entsprechenden Bestände in <span class="phrase">Xentral</span> auf den Lagerplatz gebucht, den du in den <a class="link linktype-component" href="#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt5bertragungen-Accountanlegen" title="Schritt 5: Übertragungen-Account anlegen">Einstellungen der Übertragung</a> festgelegt hast. Wenn du diese Einstellung aktivierst, gilt dies auch, falls in der übermittelten XML-Datei abweichende Lagerplätze angegeben sind. Ist die Einstellung deaktiviert, werden die Lagerplätze übernommen, die vom Fulfillment-Dienstleister übermittelt werden. Wir empfehlen dir, diese Einstellung stets zu aktivieren.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lager</strong></span></p>
+</td>
+<td>
+<p>Falls dein Fulfillment-Dienstleister Bestände ohne spezifische Lagerplatzangabe an <span class="phrase">Xentral</span> zurückmeldet, ist dies der Lagerplatz, auf den die betreffenden Artikel gebucht werden. So kannst du diesen Lagerplatz regelmäßig gezielt prüfen und die Artikel auf ihre finalen Lagerplätze umbuchen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Einlagerungsverhalten</strong></span></p>
+</td>
+<td>
+<p>Diese Einstellung ist nur relevant, wenn deine Übertragung Artikel mit Mindesthaltbarkeits- und Chargeninformationen enthält und es sich um eine in <span class="phrase">Xentral</span> eingehende Übertragung handelt. Die Option <span class="bold"><strong>Lagerzahlen an MHD/Chargen-Buchungen anpassen</strong></span> ist standardmäßig aktiviert und sollte so belassen werden. Daraus folgt, dass bei der Versandabwicklung der Scan von MHDs oder Chargen als Bestandsänderung interpretiert wird und die Bestände auf Basis dieser MHDs und Chargen an <span class="phrase">Xentral</span> zurück übermittelt werden. Wir empfehlen, die Standardeinstellung nicht zu ändern, da es andernfalls zu doppelten Buchungen und Inkonsistenzen bei MHD- und Chargeninformationen kommen kann.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Tracking empfangen</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um Tracking-Links zu den Aufträgen zu empfangen, die dein Fulfillment-Dienstleister erfolgreich an deine Endkunden verschickt hat. Weitere Informationen und eine Anleitung zum Empfangen von Tracking-Informationen findest du in unserem <a class="link linktype-component" href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0" title="3PL: Praxisbeispiele für Fulfillment-Anbindungen (Übertragungen)">Artikel zum Thema Anwendungsfälle</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Gemeldete MHD / Chargen auslagern</strong></span></p>
+</td>
+<td>
+<p>Aktiviere diese Option, um die Informationen zu Mindesthaltbarkeitsdaten und Chargen in den Lieferschein zu übernehmen, soweit diese an den Artikeln enthalten sind. Beachte jedoch, dass diese Einstellung nicht zu einer realen Bestandsausbuchung führen. Die Ausbuchung findet unabhängig von dieser Einstellung bereits bei der <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/6113578120092#UUID-99504608-d895-41ad-5059-de028e933077">Übergabe des Auftrags in den Auto-Versand</a> in <span class="phrase">Xentral</span> statt.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Versandart im Lieferschein anpassen</strong></span></p>
+</td>
+<td>
+<p>In einigen Fällen muss dein Fulfillment-Dienstleister für die Auslieferung der Waren an deine Endkunden vom festgelegten Standard-Versanddienstleister abweichen. Aktiviere diese Option, damit gleichzeitig mit der Rückmeldung der Tracking-Informationen auch der geänderte Versanddienstleister an dein <span class="phrase">Xentral</span> System zurück übertragen wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Automatische Rückmeldung</strong></span></p>
+</td>
+<td>
+<p>Diese Einstellung steuert die automatische Rückmeldung abgeschlossener Aufträge (also vom Fulfillment-Dienstleister versendete Aufträge) an <span class="phrase">Xentral</span> und darüber hinaus an Drittsysteme wie Shops und Marktplatz. Beispiel: Wenn dein Fulfiller die Ware versendet, allerdings ein Auftrag zu lange in der Logistik verbleibt, kannst du mit dieser Einstellung steuern, dass der Auftrag nach X Tagen automatisch trotz fehlender Info als abgeschlossen markiert wird. Gib in diesem Fall den Wert 3 ein, um sicherzustellen, dass spätestens 3 Tage nach Übergabe alle Aufträge auch als abgeschlossen zurückgemeldet sind und kein einzelner vergessen wurde.</p>
+<p><span class="bold"><strong>Hinweis</strong></span>: Es werden nur die übergebenen Daten der letzten 14 Tage berücksichtigt. Wenn du 4 Tage Verzug einstellst, werden jeweils von dort zurückliegend die älteren 14 Tage berücksichtigt. Das stellt sicher, dass keine Aufträge, die älter als 14+x Tage sind an deine angebundenen Plattformen und Shops rückgemeldet wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Artikel empfangen Nicht gefundene Artikel</strong></span></p>
+</td>
+<td>
+<p>Es kann vorkommen, dass sich eine unbekannte Artikelnummer in einem Beleg befindet, der von deinem Fulfillment-Dienstleister in dein <span class="phrase">Xentral</span> System übertragen wird. In diesem Fall scheitert der Import der Belegdaten meist vollständig. Wenn du diese Option aktivierst, wird im Tab <span class="bold"><strong>Monitor</strong></span> der entsprechenden Übertragung eine Fehlermeldung angezeigt. Diese Meldung weist dich auf den unbekannten Artikel hin, sodass du den Fall manuell kontrollieren kannst.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Lieferantennummer auch durchsuchen</strong></span></p>
+</td>
+<td>
+<p>Diese Option ist nur relevant, wenn du Artikeldaten oder Bestandsinformationen von deinem Fulfillment-Dienstleister in <span class="phrase">Xentral</span> empfängst. Wenn du diese Option aktivierst, wird in den Stammdaten der betroffenen Artikel die Information <span class="bold"><strong>Artikelnummer bei Lieferant</strong></span> geprüft und beim Import korrekt zugeordnet.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Bestellung immer auf Lieferant buchen</strong></span></p>
+</td>
+<td>
+<p>Wähle einen in <span class="phrase">Xentral</span> angelegten Lieferanten aus, um jeder Bestellung, die du von deinem Fulfillment-Dienstleister empfängst, standardmäßig diesen Lieferanten zuzuweisen.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Artikelanlegen"></a>Artikel anlegen</h4>
+</div>
+<p>In diesem Bereich bestimmst du, was genau in <span class="phrase">Xentral</span> geschehen soll, falls das Fremdsystem Artikeldaten zurückmeldet, die in <span class="phrase">Xentral</span> noch nicht vorhanden sind.</p>
+<div class="informaltable table-responsive">
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>
+<p><span class="bold"><strong>Einstellung</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Erläuterung</strong></span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Fehlende Artikel anlegen</strong></span></p>
+</td>
+<td>
+<p>Falls sich eine unbekannte Artikelnummer in einem Beleg befindet, der von deinem Fulfillment-Dienstleister in dein <span class="phrase">Xentral</span> System übertragen wird, scheitert der Import der Belegdaten normalerweise vollständig. Wenn du diese Option aktivierst, wird der unbekannte Artikel automatisch in deinem <span class="phrase">Xentral</span> System angelegt und es findet kein Datenverlust statt. Du kannst den unbekannten Artikel dann später in der <span class="phrase">Xentral</span> Artikelverwaltung überprüfen.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Fehlende Artikel als Lagerartikel markieren</strong></span></p>
+</td>
+<td>
+<p><span class="bold"><strong>Hinweis</strong></span>: Diese Option erscheint nur, wenn du die Einstellung <span class="bold"><strong>Fehlende Artikel anlegen</strong></span> ausgewählt hast! Aktivierst du die vorliegende Einstellung, werden Artikel mit unbekannten Artikelnummern aus importierten Belegen in <span class="phrase">Xentral</span> automatisch als Lagerartikel angelegt.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc" id="UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Artikelempfangen"></a>Artikel empfangen</h4>
+</div>
+<p>In diesem Bereich nimmst du ausschließlich Einstellungen vor, die für die <span class="bold"><strong>eingehende</strong></span> Übertragung von Artikeldaten relevant sind. Die Einstellungen bestimmen genauer, was in <span class="phrase">Xentral</span> passieren soll, wenn das Fremdsystem völlig neue Artikeldaten oder Änderungen an bereits in <span class="phrase">Xentral</span> vorhandenen Artikeldaten enthält.</p>
+<div class="informaltable table-responsive">
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th>
+<p><span class="bold"><strong>Einstellung</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Erläuterung</strong></span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p><span class="bold"><strong>Artikel empfangen (neue Artikel)</strong></span></p>
+</td>
+<td>
+<p>Wenn Artikeldaten per XML von einem Fremdsystem zu <span class="phrase">Xentral</span> übertragen werden, legt diese Option fest, dass neue Artikel, die bisher nicht in <span class="phrase">Xentral</span> angelegt sind, beim Datenimport ebenfalls berücksichtigt und entsprechend automatisch angelegt werden. Dieses Verhalten lässt sich zusätzlich zu XML auch bei einer Übertragung mittels <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/4402393972242#UUID-46ee1d66-3282-cf80-dd01-5634ee9c3c56">Smarty</a> erreichen. Dazu muss zusätzlich ein bestimmtes Tag zur Artikelanlage im Smarty-Template vorhanden sein, sodass der Artikel korrekt angelegt wird.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span class="bold"><strong>Artikel updaten</strong></span></p>
+</td>
+<td>
+<p>Wenn Artikeldaten per XML von einem Fremdsystem zu <span class="phrase">Xentral</span> übertragen werden, legt diese Option fest, dass geänderte Artikelinformationen beim Datenimport automatisch in <span class="phrase">Xentral</span> überschrieben und damit aktualisiert werden. Dieses Verhalten lässt sich zusätzlich zu XML auch bei einer Übertragung mittels <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/4402393972242#UUID-46ee1d66-3282-cf80-dd01-5634ee9c3c56">Smarty</a> erreichen. Dazu muss zusätzlich ein bestimmtes Tag zur Artikelanlage und ein weiteres Tag zur Aktualisierung von Artikeln im Smarty-Template vorhanden sein, sodass der Artkel korrekt angelegt wird.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

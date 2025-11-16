@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konten</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360018717800
+    Titel: Konten
+    URL: https://help.xentral.com/hc/de/articles/360018717800-Konten
+    Erstellt: 2021-01-08T15:07:49Z
+    Aktualisiert: 2023-11-03T03:21:48Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 360005017119
+    Export-Zeitpunkt: 2025-11-16 19:08:04
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <h1>Parameter (PA, 08.01.21)</h1>
+<p>Seit der Version 20.3 stehen über die Oberfläche neue Banken-Parameter zur Verfügung. Hierzu muss der Wizard erfolgreich ausgefüllt werden. Voraussetzung hierzu ist eine valide IBAN + BIC.</p>
+<p> </p>
+<p>API_MAX_DAYS_BEFORE=&gt;30; Gibt in diesem Beispiel alle Zahlungseingänge der letzten 30 Tage zurück. Ist wichtig bei Banken, die keine zu großen Abstände vom heutigen Tag zulassen. Bei den meisten Banken ist hier bei 90 Tagen Schluss.</p>
+<p>Theoretisch sollte auch API_DAYS so funktionieren, aktuell aber nicht gesichert.</p>
+<p>API_DAYS_WAIT=&gt;1; Dadurch wird der Bis-Wert bei der Abholung reduziert. In Kombination mit den o.g. Parametern können hier nun einzelne Zeiträume abgeholt werden.</p>
+<p>FHP_LOGGING=&gt;5; Gibt bei aktiviertem logfile (module=logfile) die Transaktionen beim Abholen der Zahlungseingänge ab. Hier können die Detailstufen 1-5 verwendet werden.</p>
+<p>FHP_TAN_VERFAHREN=&gt;PIN-TAN; Hier kann das verwendete TAN-Verfahren direkt vorgegeben werden. Die Bezeichnung hängt hier von der jeweiligen Bank ab. Theoretischs sollten die möglichen Bezeichnungen über das LOGGING erfahren werden.</p>
+<p> </p>
+<h2>Beispiel: Abfrage eines bestimmten Zeitraums</h2>
+<p>Heute ist ein Freitag.</p>
+<p>API_MAX_DAYS_BEFORE=&gt;5;</p>
+<p>API_DAYS_WAIT=&gt;2;</p>
+<p>-&gt; Holt die die Zahlungen der Tage für Montag, Dienstag und Mittwoch in dieser Woche ab.</p>
+<p> </p>
+<h1>Nationalbank (LW, 21.06.21)</h1>
+<p>Info vom Kunden (<a href="https://help.xentral.com/agent/tickets/116572">https://xentral.zendesk.com/agent/tickets/116572</a>):</p>
+<p>Funktioniert nicht mit Barcode Tan, aber wohl schon mit App-Tan.</p>
+<p> </p>
+<h1>Deutsche Bank (LW, 22.06.21)</h1>
+<p>Info vom Kunden (<a href="https://help.xentral.com/agent/tickets/116494">https://xentral.zendesk.com/agent/tickets/116494</a>):</p>
+<p>Benutzername für Onlinebanking ist dreigeteilt, muss für FHP_ONLINE_BANKING_USERNAME aneinandergereiht werden: FilialnummerKontonummerUnterkonto</p>
+<p>Außerdem mindestens eine abgeschlossene Kontobewegung auf dem Konto notwendig, sonst erscheint eine Fehlermeldung.</p>
+    </div>
+</body>
+</html>

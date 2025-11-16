@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versandarten: DPD (CSV)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016751919
+    Titel: Versandarten: DPD (CSV)
+    URL: https://help.xentral.com/hc/de/articles/360016751919-Versandarten-DPD-CSV
+    Erstellt: 2020-09-28T09:46:42Z
+    Aktualisiert: 2024-08-29T12:04:40Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 360005017119
+    Export-Zeitpunkt: 2025-11-16 19:08:07
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <h2 id="toc-header">Inhaltsverzeichnis</h2>
+<hr>
+<div>
+<ul>
+<li>
+<a href="#toc-0">Anbindung einer externen Software, um Paketmarkeninformationen zu übertragen</a>
+<ul>
+<li><a href="#toc-1">Verzeichnis anlegen</a></li>
+<li><a href="#toc-2">DPD CSV (DELISprint)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr>
+<p>Dieses Modul ermöglicht die Anbindung von Paketmarken-Software über ein Verzeichnis. </p>
+<h1>
+<a name="toc-0"></a>Anbindung einer externen Software zur Übertragung von Paketmarkeninformationen </h1>
+<p>Oftmals liegt Software vom Paketdienstleister vor, die eine CSV Datei in einem lokalen Verzeichnis erwartet. In diesem Fall ist es aber meist so, dass xentral auf einem Webserver in einem entfernten Netz läuft. Dann musst du die Dateien bzw. das Verzeichnis lokal einbinden. Viele Hoster, z.B. All-inkl. bieten einfache Freigaben per Netzlaufwerk an. So kann eine Datei von xentral erstellt werden und über das Netzlaufwerk lokal angebunden werden. Alternativ kannst du mit einem FTP Programm arbeiten, dass ein FTP Verzeichnis zyklisch kopiert, z.B. <a href="http://www.watchftp.com/">http://www.watchftp.com/</a>. </p>
+<h2>
+<a name="toc-1"></a>Verzeichnis anlegen</h2>
+<p>Um ein Verzeichnis anzulegen, gehe wie folgt vor: </p>
+<p>Lege hierzu auf deinem xentral-Server ein Verzeichnis an (im Webspace, auf dem xentral installiert ist). Aus diesem Verzeichnis kann eine Versandsoftware, z.B. die .csv, Informationen zur Erzeugung von Paketmarken abholen.</p>
+<p>Diese Abholung kann z.B. über eine Ordnerfreigabe (z.B. per Windows-Freigabe veröffentlichen) oder via FTP erfolgen.</p>
+<h2>
+<a name="toc-2"></a>DPD CSV (DELISprint)</h2>
+<p>Lege unter Versandarten → "+NEU" → DPD (CSV) eine neue Versandart an:</p>
+<p><img src="https://xentral-wiki-assets.s3.eu-central-1.amazonaws.com/images2/versandarten_dpd_1.png" alt=""></p>
+<p><img src="https://help.xentral.com/hc/article_attachments/360025234099/dpd_csv1.png" alt="dpd_csv1.png"></p>
+<p>Fülle dazu folgende Felder aus: </p>
+<ul>
+<li>
+<strong>Bezeichnung </strong>→ Wähle frei eine Bezeichnung für die Versandart. Diese wird in xentral u.a. im Auftrag zur Auswahl im Drop-Down Menü angezeigt</li>
+<li>
+<strong>Typ</strong> → Gib den Typ/die Feldbezeichnung an. Diese kannst du generell beliebig wählen, sofern sie nicht für das Shop Mapping oder andere Mappings notwendig ist. Idealerweise behältst du Voreinstellung bei</li>
+<li>
+<strong>Modul</strong> → Wähle "DHL Versenden" aus dem Drop-Down Menü aus </li>
+<li>
+<strong>Projekt</strong> → Wähle optional ein Projekt aus, sofern für jedes Projekt eine eigene DHL Versandart angelegt wird</li>
+<li>
+<strong>Aktiv</strong> → Durch Anhaken aktivierst du die Versandart und machst sie sicht- und nutzbar </li>
+<li>
+<strong>Kein Portocheck</strong> → Durch Anhaken wird kein Portocheck im Auftrag durchgeführt</li>
+<li>
+<strong>Drucker Paketmarke</strong> → Wähle aus dem Drop-Down Menü den Standarddrucker, welcher die Paketmarken druckt, aus</li>
+<li>
+<strong>Drucker Export</strong> → Wähle aus dem Drop-Down Menü den Standarddrucker aus, welcher die Exportpapiere druckt </li>
+<li>
+<strong>Versandmail</strong> → Wähle aus dem Drop-Down Menü das Verhalten der Versandmail aus. Standardverhalten bedeutetet, dass eine Standard-Trackingmail versendet wird, keine Versandmail bedeutet, dass keine Trackingmail bei dieser Versandart versendet wird und eigene Textvorlage bedeutet, dass für diese Versandart eine eigene Textvorlage für die Versandbestätigung verwendet wird, unabhängig vom Projekt und Logistikprozess</li>
+<li>
+<strong>Standardgewicht</strong> → Gib das Standardgewichts eines Pakets an</li>
+<li>
+<strong>Export als Einzeldatei</strong> → Durch Anhaken wird pro Paket eine eigene Datei verschickt</li>
+<li>
+<strong>Trackingnummer Startposition</strong> → Gib den Barcode der internen Startposition ein</li>
+<li>
+<strong>Trackingnummer Länge</strong> → Gib die gewünschte Länge der Trackingnummer ein. Gibst du "0" ein, wird alles bzw. die gesamte Trackingnummer verwendet</li>
+<li>
+<strong>Trackingnummer DPD Kennung entfernen</strong> → Durch Anhaken entfernst du die DPD Kennung aus der Trackingnummer</li>
+<li>
+<strong>DPD Kennung</strong> → Gib die DPD Kennung ein </li>
+<li>
+<strong>DPD Pfad</strong> → Gib den DPD Pfad an</li>
+<li>
+<strong>testen</strong> → Über die Schaltfläche "Testdatei anlegen" kannst du eine CSV-Testdatei anlegen. Klicke vorher aber auf die "Speichern"-Schaltfläche, um alle Daten zu sichern</li>
+<li>
+<strong>userdata</strong> →</li>
+<li>
+<strong>DPD Dateiendung</strong> → Gib die Dateiendung für DPD ein</li>
+<li>
+<strong>DPD Format</strong> → Bestimme das DPD Format. Folgende Variablen stehen dir zur Verfügung: <em>{NAME}, {NAME2}, {NAME3}, {STRASSE}, {HAUSNUMMER}, {PLZ}, {ORT}, {LAND}, {GEWICHT}, {VERFAHREN}, {PRODUKT}, {SERVICE}, {BETRAG}, {NACHNAHMETEXT}, {LIEFERSCHEINNUMMER}, {KUNDENNUMMER}, {INTERNETNUMMER}, {DATUMHEUTE}, {INTERNET}</em>
+</li>
+</ul>
+<p>Klicke abschließend auf die "Speichern"-Schaltfläche. </p>
+    </div>
+</body>
+</html>

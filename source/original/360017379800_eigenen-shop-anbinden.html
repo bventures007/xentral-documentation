@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eigenen Shop anbinden</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017379800
+    Titel: Eigenen Shop anbinden
+    URL: https://help.xentral.com/hc/de/articles/360017379800-Eigenen-Shop-anbinden
+    Erstellt: 2020-11-10T08:35:10Z
+    Aktualisiert: 2023-12-05T10:10:22Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 11291544329756
+    Export-Zeitpunkt: 2025-11-16 19:10:05
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Im Folgenden wird die Datenstruktur für den Warenkorb im Shopskeleton gezeigt.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-fc661074-e619-31af-f67c-af50f93dc2e6" id="UUID-fc661074-e619-31af-f67c-af50f93dc2e6_id_360017379800_id_toc-0"></a>Rechnungsadresse</h2>
+</div>
+<p>Hier können Angaben zu der Rechnungsadresse gemacht werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>$warenkorb[name] = "Musterfirma AG"; /* Bei Privatperson direkt Name der Person - Ansprechpartner bleibt dann leer */</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[anrede]="firma"; /* herr, frau oder firma */</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[ansprechpartner] = "Max Mustermann";</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[abteilung] = "Abteilung Entwicklung;</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[abteilung] = "Abteilung Entwicklung;</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[plz] = "12345";</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[ort] = "Musterdorf;</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[land] = "DE"; /* 2-stellig ISO */</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[email] = "email@email.de";</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-fc661074-e619-31af-f67c-af50f93dc2e6" id="UUID-fc661074-e619-31af-f67c-af50f93dc2e6_id_360017379800_id_toc-1"></a>Auftragsinformationen</h2>
+</div>
+<p>Hier können Angaben zu den Auftragsinformationen gemacht werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>$warenkorb[bestelldatum] = "2012-12-01"; /* Datum der Bestellung */</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[gesamtsumme] = 10.99; /* Endsumme die gezahlt wird */</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[transaktionsnummer] = 192939; /* z.B. Paypal, iPayment oder Billsafe Transaktionsnummer */</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[onlinebestellnummer] = 123456; /* Interne Shop Bestellnummer (Wichtig z.B. bei Vorkassen) */</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[versandkostennetto] = "3.31";</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[versandkostenbrutto] = "3.95";</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[freitext] = "Freitext auf Belegen wie Auftrag, Rechnung und Lieferschein";</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-fc661074-e619-31af-f67c-af50f93dc2e6" id="UUID-fc661074-e619-31af-f67c-af50f93dc2e6_id_360017379800_id_toc-2"></a>Steuer Informationen</h2>
+</div>
+<p>Hier können Angaben zu den Steuerinformationen gemacht werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>$warenkorb[steuerfrei] = 0; /* oder 1 wenn steuerfrei */</p>
+</li>
+<li class="listitem">
+<p>$warenkorb['vorabbezahltmarkieren']=1; /* Falls kein Zahlungseingang von Xentral aus gemacht wird */</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-fc661074-e619-31af-f67c-af50f93dc2e6" id="UUID-fc661074-e619-31af-f67c-af50f93dc2e6_id_360017379800_id_toc-3"></a>Lieferung</h2>
+</div>
+<p>Hier können Angaben zu der Lieferung gemacht werden:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>$warenkorb['lieferdatum']="2012-12-24"; /* Wunsch Lieferdatum des Kunden */</p>
+</li>
+<li class="listitem">
+<p>$warenkorb[lieferung] = "versandunternehmen"; /* bzw. selbstabholer oder gezielt dpd oder dhl */</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-fc661074-e619-31af-f67c-af50f93dc2e6" id="UUID-fc661074-e619-31af-f67c-af50f93dc2e6_id_360017379800_id_toc-4"></a>Abweichende Lieferadresse</h2>
+</div>
+<p>Diese Angaben sind auszufüllen, wenn eine andere Lieferadresse vorhanden ist.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>$warenkorb2[lieferadresse_name] = "";</p>
+</li>
+<li class="listitem">
+<p>$warenkorb2[lieferadresse_ansprechpartner] = "";</p>
+</li>
+<li class="listitem">
+<p>$warenkorb2[lieferadresse_strasse] = "";</p>
+</li>
+<li class="listitem">
+<p>$warenkorb2[lieferadresse_plz] = "";</p>
+</li>
+<li class="listitem">
+<p>$warenkorb2[lieferadresse_ort] = "";</p>
+</li>
+<li class="listitem">
+<p>$warenkorb2[lieferadresse_land] = "";</p>
+</li>
+<li class="listitem">
+<p>$warenkorb2[lieferadresse_abteilung] = "";</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-fc661074-e619-31af-f67c-af50f93dc2e6" id="UUID-fc661074-e619-31af-f67c-af50f93dc2e6_id_360017379800_id_toc-5"></a>Artikel Liste</h2>
+</div>
+<p>Hier können eliebig viele Positionen gebucht werden:</p>
+<p>$articlearray[] = array( 'articleid'=&gt;'12345', /* Artikelnummer aus Xentral / 'name'=&gt;'Name des Artikels', / Name des Artikels der im Auftrag, Rechnung und Lieferschein auftaucht. / 'price'=&gt;'41.97', / Netto Preis des Artikels / 'quantity'=&gt;1 / Menge des Artikels */ );</p>
+<p>Das Array ist am Schluss zuzuweisen:</p>
+<p>$warenkorb[articlelist]=$articlearray;</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-fc661074-e619-31af-f67c-af50f93dc2e6" id="UUID-fc661074-e619-31af-f67c-af50f93dc2e6_id_360017379800_id_toc-6"></a>Zahlungsweisen</h2>
+</div>
+<p>Die jeweiligen Zahlungsweisen müssen korrekt gemapped werden:</p>
+<p>$warenkorb[zahlungsweise] = "bar"; $warenkorb[zahlungsweise] = "rechnung"; $warenkorb[zahlungsweise] = "vorkasse"; $warenkorb[zahlungsweise] = "kreditkarte"; $warenkorb[zahlungsweise] = "lastschrift"; $warenkorb[zahlungsweise] = "paypal"; $warenkorb[zahlungsweise] = "nachnahme"; $warenkorb[zahlungsweise] = "Amazoncba"; $warenkorb[zahlungsweise] = "sofortueberweisung"; $warenkorb[zahlungsweise] = "billsafe"; $warenkorb[zahlungsweise] = "unbekannt";</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-fc661074-e619-31af-f67c-af50f93dc2e6" id="UUID-fc661074-e619-31af-f67c-af50f93dc2e6_id_360017379800_id_toc-7"></a>Funktionen</h2>
+</div>
+<p>====Artikel übertragen====</p>
+<p>===Staffelpreise===</p>
+<p>[1] =&gt; Array ( [ab_menge] =&gt; 10.0000 [preis] =&gt; 1.00000000 [bruttopreis] =&gt; 1.19 [waehrung] =&gt; EUR ) )</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

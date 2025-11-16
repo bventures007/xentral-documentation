@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versandarten: Hermes und alle Funktionen (Legacy)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360016723020
+    Titel: Versandarten: Hermes und alle Funktionen (Legacy)
+    URL: https://help.xentral.com/hc/de/articles/360016723020-Versandarten-Hermes-und-alle-Funktionen-Legacy
+    Erstellt: 2020-09-28T12:33:53Z
+    Aktualisiert: 2025-09-02T11:07:40Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 10235816100380
+    Export-Zeitpunkt: 2025-11-16 19:09:07
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div xml:lang="de" lang="de" dir="ltr" class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">
+<a id="UUID-990faad3-9bbc-5f97-f72b-e9bfb735c9d4_UUID-93802b4c-12bd-dc05-d708-4690f0bbbf93"></a>Legacy-Modul</h3>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</p>
+</li>
+<li class="listitem">
+<p>Das Modul ist in <span class="phrase">Xentral</span>-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</p>
+</li>
+</ul>
+</div>
+<p>Für weitere Informationen siehe auch <a class="xref linktype-component" href="https://help.xentral.com/hc/de/articles/6948113024412#UUID-330a3461-7c13-6974-5c82-68629050f3a6" title="Warum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?">Warum stuft <span class="phrase">Xentral</span> einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</a></p>
+</div>
+<p>In xentral hast du die Möglichkeit, eine Anbindung zum Versanddienstleister Hermes vorzunehmen. Zudem kannst du verschiedene Hermes Adressen anlegen und verwalten. Dieser Artikel beschreibt die einzelnen Einrichtungspunkte für eine erfolgreiche Anbindung.</p>
+<p>Eine allgemeine Übersicht über die Versandarten und Paketmarken, die du in xentral nutzen kannst, findest du <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/18567521362332#UUID-7d97af0c-3e39-6798-67c6-50f26028c174">hier</a>.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-990faad3-9bbc-5f97-f72b-e9bfb735c9d4" id="UUID-990faad3-9bbc-5f97-f72b-e9bfb735c9d4_id_360016723020_id_h_01F46JPASPB2XWY1P9KHN6T72S"></a>Features</h2>
+</div>
+<p>Hermes bietet dir folgende Features:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Auswahl des Produkts</p>
+</li>
+<li class="listitem">
+<p>Druck eines Demo-Labels</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-990faad3-9bbc-5f97-f72b-e9bfb735c9d4" id="UUID-990faad3-9bbc-5f97-f72b-e9bfb735c9d4_id_360016723020_id_h_01F46JPFN2HXY3WP4R4V0N844Q"></a>Anbindung von Hermes an xentral</h2>
+</div>
+<p>Die Zugangsdaten bzw. deine Oauth Resource Owner Username und Oauth Resource Password erfährst du bei deinem Geschäftskundenbetreuer bei Hermes.</p>
+<p>Hermes wird über die API an xentral angebunden. Seit dem 26. April 2021 gibt der Versanddienstleister nun vor, dass alle Requests an die Hermes Shipping Interface (HSI) API mit der Version 1.2 des Verschlüsselungsprotokolls TLS erfolgen. Requests mit den TLS-Versionen 1.0 und 1.1 sind nicht mehr möglich. Um zu überprüfen, ob TLS v1.2 auf deinem bzw. eurem Server bereits aktiviert ist, navigiere zu dem Modul <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/de/articles/360016725020#UUID-7c21ff2b-2ee6-8bf0-a7cf-f6faf8638ffe">System Health</a>. Dieses erreichst du entweder über App Center → System Health oder über das Menü rechts oben:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5009693383196" style="" alt="Hermes-1.png"></div>
+<p>In der System Health-Übersicht findest du im Bereich “Server” den Check für TLS v1.2:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5009693410204" style="" alt="TLS_1.2_in_System_Health.png"></div>
+<p>Wenn du eine On-Premise Installation verwendest, dann hilft dir das Icon zu erkennen, ob TLS v1.2 installiert ist. Sollte das nicht der Fall sein, bitte deinen Serveradministrator oder -hoster, die aktuellste Version von OpenSSL zu installieren, damit du TLS v1.2 verwenden kannst.</p>
+<p>Wenn du die xentral Cloud verwendest, dann ist TLS 1.2 bereits aktiv. Die xentral-Schnittstelle zu Hermes selbst forciert bei allen Requests bereits TLS v1.2, d.h. sobald du die aktuelle Version auf dem Server installiert hast, hast du alle Voraussetzungen zur Nutzung erfüllt.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-990faad3-9bbc-5f97-f72b-e9bfb735c9d4" id="UUID-990faad3-9bbc-5f97-f72b-e9bfb735c9d4_id_360016723020_id_h_01F46JPMSYZFDNGPDGQKYFVVTX"></a>Einstellungen in xentral</h2>
+</div>
+<p>Unter Administration → Einstellungen → Versandarten → Übersicht legst du mit "+NEU" eine neue Versandart an und wählst dann das Modul Hermes aus.</p>
+<p>Im Anschluss kannst du deine Zugangsdaten eintragen und andere Informationen einpflegen:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5009693439004" style="" alt="hermes1.png"></div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Bezeichnung</strong></span> → Wähle frei eine Bezeichnung für die Versandart. Diese wird in xentral u.a. im Auftrag zur Auswahl im Drop-Down Menü angezeigt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Typ</strong></span> → Gib den Typ/die Feldbezeichnung an. Diese kannst du generell beliebig wählen, sofern sie nicht für das Shop Mapping oder andere Mappings notwendig ist. Idealerweise behältst du die Voreinstellung bei</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Modul</strong></span> → Wähle "Hermes" aus dem Drop-Down Menü aus</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Projekt</strong></span> → Wähle optional ein Projekt aus, sofern für jedes Projekt eine eigene Hermes Versandart angelegt wird</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Aktiv</strong></span> → Durch Anhaken aktivierst du die Versandart und machst sie sicht- und nutzbar</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Kein Portocheck</strong></span> → Durch Anhaken wird kein Portocheck im Auftrag durchgeführt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Drucker Paketmarke</strong></span> → Wähle aus dem Drop-Down Menü den Standarddrucker aus, welcher die Paketmarken druckt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Drucker Export</strong></span> → Wähle aus dem Drop-Down Menü den Standarddrucker aus, welcher die Exportpapiere druckt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versandmail</strong></span> → Wähle aus dem Drop-Down Menü das Verhalten der Versandmail aus. "Standardverhalten" bedeutet, dass eine Standard-Trackingmail versendet wird, "keine Versandmail" bedeutet, dass keine Trackingmail bei dieser Versandart versendet wird und "eigene Textvorlage" bedeutet, dass für diese Versandart eine eigene Textvorlage für die Versandbestätigung verwendet wird, unabhängig vom Projekt und Logistikprozess</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versender Firma</strong></span> → Gib die Firmendaten des Versenders ein</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versender Ansprechpartner</strong></span> → Gib den Ansprechpartner bei der Versenderfirma an, diesen benötigst du z.B. für Export Sendungen</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versender Telefon</strong></span> → Gib die Telefonnummer des Versenders an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versender E-Mail</strong></span> → Gib die E-Mail Adresse des Versenders an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versender Strasse</strong></span> → Gib die Straße des Versenders an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versender Ort</strong></span> → Gib den Ort des Versenders an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versender PLZ</strong></span> → Gib die PLZ des Versenders an</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Versender Land</strong></span> → Gib den zweistelligen ISO-Code für das Versenderland an, für Deutschland ist dieser "DE", für Österreich "AT"</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Oauth Resource Owner Username</strong></span>→ Gib den Oauth-Benutzernamen an, diesen findest du im Hermes-Geschäftskundenportal oder im Profipaketservice</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Oauth Resource Owner Password</strong></span> → Gib das Oauth-Passwort an, dieses findest du im Hermes-Geschäftskundenportal oder im Profipaketservice</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Produkt</strong></span> → Wähle aus dem Drop-Down Menü das Produkt aus. Du kannst zwischen XS, S, M, L und XL wählen</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Standardgewicht</strong></span> → Gib das Standardgewicht für Pakete in kg an. Dieses wird im Paketmarkendruck gezogen und vorab ausgefüllt</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Länge</strong></span> → Gib optional die Standardlänge des Pakets in cm an. Diese wird immer verwendet, falls du sie angegeben und nicht im Paketmarkendialog verändert hast</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Breite</strong></span> → Gib optional die Standardbreite des Pakets in cm an. Diese wird immer verwendet, falls du sie angegeben und nicht im Paketmarkendialog verändert hast</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Höhe</strong></span> → Gib die Standardhöhe des Pakets in cm an. Diese wird immer verwendet, falls du sie angegeben und nicht im Paketmarkendialog verändert hast</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Demo-Label drucken</strong></span> → Durch Anhaken druckst du eine Demo-Paketmarke, die nicht berechnet wird</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Tracking übernehmen</strong></span> → Durch Anhaken wird die Trackingnummer nach dem Erstellen der Paketmarke automatisch in das Feld eingefügt und muss nicht mehr von der Paketmarke gescannt werden</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-990faad3-9bbc-5f97-f72b-e9bfb735c9d4" id="UUID-990faad3-9bbc-5f97-f72b-e9bfb735c9d4_id_360016723020_id_h_01F46JP6QZ4M905MNMMQFARD08"></a>Paketmarkendruck</h2>
+</div>
+<p>Sobald du alle Einstellungen wie oben beschrieben vorgenommen hast, kannst du den Paketmarkendruck im Versandzentrum oder auch in einem einzelnen Lieferschein testen. Wähle dazu im Lieferschein im Reiter "Lieferschein" die Versandart "Hermes" aus dem Drop-Down Menü aus:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5009694591132" style="" alt="hermes3.png"></div>
+<p>Klicke auf die "Speichern"-Schaltfläche, bevor du in den Paketmarkendialog navigierst.</p>
+<p>Klicke im Anschluss im Lieferschein auf den Reiter "Paketmarke" und drucke über "Paketmarke drucken" eine Paketmarke für die enthaltenen Artikel:</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/5009723159580" style="" alt="hermes4.png"></div>
+<p>Nachdem dein Testdruck abgeschlossen ist, kannst du im Anschluss die Paketmarke im Hermes-Geschäftskundenportal stornieren.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

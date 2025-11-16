@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Scripts</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 360017383780
+    Titel: Report Scripts
+    URL: https://help.xentral.com/hc/de/articles/360017383780-Report-Scripts
+    Erstellt: 2020-11-10T10:34:31Z
+    Aktualisiert: 2024-08-29T12:58:45Z
+    Draft: False
+    User Segment ID: 360000493960
+    Section ID: 360004832920
+    Export-Zeitpunkt: 2025-11-16 19:08:45
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage"></div>
+<p>Über individuelle Berichte können Datenexporte und auch der regelmäßige Transfer der Daten in andere Systeme oder per E-Mail realisiert werden. SQL-Berichte ermöglichen die Auswertung sämtlicher verfügbarer Daten in jeder erdenklichen Form und sind ein mächtiges Werkzeug zur Analyse und Bereitstellung von Daten zur weiteren Analyse in Business Intelligence Tools (BI-Systeme).</p>
+<p>Beginnend mit der Version 20.1 werden viele zusätzliche Report Scripts zur Verfügung stehen und das Modul weitere Funktionen beinhalten, die das Erstellen und Nutzen von Report Scripts zu einer einfachen Aufgabe werden lassen.</p>
+<p>Berichte lassen sich auf vielfältige Weise teilen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Einfache Freigabe für andere Benutzer im Berichte-Dashboard</p>
+</li>
+<li class="listitem">
+<p>Integration in der Software als Tabelle in einem zusätzlichen Tab (Register)</p>
+</li>
+<li class="listitem">
+<p>Integration in den Aktionsmenüs der Belege als Download</p>
+</li>
+<li class="listitem">
+<p>Regelmäßiger Versand per E-Mail</p>
+</li>
+<li class="listitem">
+<p>Regelmäßiges Übertragen per FTP</p>
+</li>
+<li class="listitem">
+<p>Bereitstellen per URL, auch für einen eingeschränkten Zeitraum</p>
+</li>
+<li class="listitem">
+<p>Freigabe zum Zugriff per API</p>
+</li>
+</ul>
+</div>
+<p>xentral bringt ab der Version 20.1 bereits eine große Zahl von Berichten mit und diese werden weiter ausgebaut. So werden zukünftig mit den meisten Modulen bereits einige Auswertungen mitgeliefert, die leicht durch eigene Reports ergänzt werden können. Der Austausch von Report Scripts ist durch Berichtsvorlagen möglich - Dateien in denen die Definitionen für Berichte schnell gespeichert und an anderer Stelle geladen werden können.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-0"></a>Datenbank-Struktur</h2>
+</div>
+<p>Die Datenbanktabellen sind hauptsächlich in deutscher Sprache benannt. Die Benennung folgt üblichen Standards und bietet daher einen schnellen Einstieg.</p>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-1"></a>Kurzer Blick auf die Tabellen</h3>
+</div>
+<p>Den schnellsten Weg zur Orientierung in der Datenbank befindet sich in der xentral Custom Suite im Register SQL Viewer. Dort kann eine rascher Blick auf alle Tabellen des Systems geworfen werden. Aus Performance-Gründen sind manche Tabellen in der Sicht auf Spalten oder Zeilen eingeschränkt. Alle Details befinden sich im Artikel zur XCS (Xentral Customizing Suite).</p>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996407578524" style="" alt="Report-Script-1.png"></div>
+<p>Die Abbildung zeigt einen Screenshot aus der xentral Customizing Suite mit der Tabelle adresse_rolle.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-2"></a>Gesamtübersicht</h3>
+</div>
+<p>Unabhängig von der xentral-Installation kann die eigene Datenbank jederzeit über das Backup-Tool als Datenbank-Snapshot heruntergeladen und auf einem lokalen Rechner angesehen werden. So können auch SQL-Statements für Reports Scripts (Berichte) erstellt und getestet werden. Dazu empfiehlt sich folgende Vorgehensweise: Das Backup der xentral Datenbank ist auf den lokalen Rechner zu laden. Dazu ist die Funktion "DB-Snapshot erstellen" zu verwenden und den Punkten 1. und 2. der Seite Datenbank Backup Erstellen zu folgen. Die heruntergeladene Datei kann dann z.B. in einer XAMPP-Umgebung in den dort vorhandene Datenbankserver geladen und SQL-Statements ausprobiert werden. XAMPP ist eine vollständig kostenlose, leicht zu installierende Apache-Distribution, die MariaDB, PHP und Perl enthält. Das XAMPP Open-Source-Paket wurde für eine extrem einfache Installation und Nutzung eingerichtet. XAMPP ist für Windows, Linus und MacOS in 15 Sprachen verfügbar und bietet eine einfache Komplettinstallation eines lauffähigen Webservers mit Datenbankserver und den notwendigsten Tools (wie z.B. PHP und phpMyAdmin). Darüber hinaus sind zu XAMP viele Anleitungen und Community Support online verfügbar.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-3"></a>Datenbank-Tabellen</h3>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-4"></a>Belege</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>auftrag</p>
+</li>
+<li class="listitem">
+<p>auftrag_position</p>
+</li>
+<li class="listitem">
+<p>rechnung</p>
+</li>
+<li class="listitem">
+<p>rechnung_position</p>
+</li>
+<li class="listitem">
+<p>lieferschein</p>
+</li>
+<li class="listitem">
+<p>lieferschein_position</p>
+</li>
+<li class="listitem">
+<p>gutschrift</p>
+</li>
+<li class="listitem">
+<p>gutschrift_position</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-5"></a>Adressen</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>adresse</p>
+</li>
+<li class="listitem">
+<p>ansprechpartner</p>
+</li>
+<li class="listitem">
+<p>lieferadressen</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-6"></a>Artikel</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>artikel</p>
+</li>
+<li class="listitem">
+<p>einkaufspreise</p>
+</li>
+<li class="listitem">
+<p>verkaufspreise</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-7"></a>Lager</h4>
+</div>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>lager</p>
+</li>
+<li class="listitem">
+<p>lager_platz</p>
+</li>
+<li class="listitem">
+<p>lager_platz_inhalt</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-8"></a>DB-Diagramm</h3>
+</div>
+<div class="mediaobject"><img src="https://help.xentral.com/hc/article_attachments/4996407627420" style="" alt="Report-Script-2.png"></div>
+<p>Die wichtigsten Tabellen aus dem xentral Datenbank-Schema befindet sich unter <a class="link" href="https://dbdiagram.io/embed/5da80fb302e6e93440f25074" target="_blank" rel="noopener">DB-Diagram.io</a>. Diese Struktur wird zukünftig auf alle Datenbanktabellen erweitert.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-9"></a>Beispiele</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-10"></a>ZM (Zusammenfassende Meldung)</h3>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-11"></a>Variablen</h4>
+</div>
+<p>{LAND} = DE; {DATUMVON} = 2019-01-01; {DATUMBIS} = 2019-12-31; {EULAENDER} = 'AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GB','GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT','RO','SE','SI','SK';</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-12"></a>SQL Statement</h4>
+</div>
+<p>SELECT belegnr, datum, name, kundennummer, land, ustid, SUM(soll) as soll FROM rechnung WHERE land != '{LAND}' AND land IN ({EULAENDER}) AND status != 'angelegt' AND ustid != '' AND datum &gt;= '{DATUMVON}' AND datum &lt;= '{DATUMBIS}' GROUP BY ustid</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-13"></a>Spalten</h4>
+</div>
+<p>Spaltennamen: Rechnung;Datum;Kdnr;Kunden;Land;USTID;Betrag Spaltenbreiten: 20;25;65;10;15;30;25 Spaltenausrichtung: L;L;L;L;L;L;R Hinweis: Sollen bei den Zahlen statt einem Punkt eher ein Komma verwendet werden (bsp: 13,10 statt 13.10), dann müsste die Struktur entsprechend geändert werden und in Zeile 1 des SQL-Statements das Wort "soll" z.B. ersetzt werden durch: FORMAT(soll,2,'de_DE') AS betrag</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-14"></a>Umsatz-Statistik</h3>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-15"></a>Variablen</h4>
+</div>
+<p>{DATUMVON} = 2019-01-01; {DATUMBIS} = 2019-12-31; {PROJEKT} = STANDARD;</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-16"></a>SQL Statement</h4>
+</div>
+<p>SELECT p.abkuerzung, ap.bezeichnung, COUNT(ap.auftrag), FORMAT(SUM(ap.umsatz_netto_gesamt),2,'de_DE'), FORMAT(SUM(ap.umsatz_brutto_gesamt),2,'de_DE') FROM auftrag_position ap LEFT JOIN projekt p ON ap.projekt = p.id LEFT JOIN auftrag au ON ap.auftrag = au.id WHERE au.datum &gt;= '{DATUMVON}' AND au.datum &lt;= '{DATUMBIS}' AND p.abkuerzung = '{PROJEKT}' GROUP BY ap.projekt, ap.artikel</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h4 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-17"></a>Spalten</h4>
+</div>
+<p>Spaltennamen: Projekt;Artikel;Anzahl Kunden/Aufträge;Umsatz netto;Umsatz brutto Spaltenbreiten: 20;30;15;15;15 Spaltenausrichtung: L;L;R;R;R</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-18"></a>Helpful: SQL- / Felddefinitionen</h2>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-19"></a>Eingangskanal für Aufträge</h3>
+</div>
+<p>Um die Herkunft von Aufträgen in SQL-Statements einzugrenzen kann das Feld shop ausgewertet werden. Es beinhaltet die id aus der Tabelle shopexport.</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>shop = 0 bedeutet: Der Auftrag wurde manuell angelegt oder über Belegimporter, API oder das Übertragungsmodul in das System importiert</p>
+</li>
+<li class="listitem">
+<p>shop &gt; 0 gibt die Shop Id (den Kanal) an aus der Tabelle shopexport an Alle importierten Aufträge werden mitgeloggt in der Tabelle shopimport_auftraege.</p>
+</li>
+</ul>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f" id="UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f_id_360017383780_id_toc-20"></a>Weitere Beispiele</h2>
+</div>
+<p>Weitere Beispiele befinden sich unter DB-Berichte im Anwender-Handbuch. Beginnend mit der Version 20.1 finden sich im Berichte-Modul viele Vorlagen für Berichte, die einfach verwendet oder durch kopieren auch rasch an die persönlichen Vorstellungen angepasst werden können.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop-Schnittstellen und Marktplatz-Integrationen (Einrichtung)</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 11739160988060
+    Titel: Shop-Schnittstellen und Marktplatz-Integrationen (Einrichtung)
+    URL: https://help.xentral.com/hc/de/articles/11739160988060-Shop-Schnittstellen-und-Marktplatz-Integrationen-Einrichtung
+    Erstellt: 2023-12-13T09:28:30Z
+    Aktualisiert: 2024-04-09T12:34:53Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 11738986039068
+    Export-Zeitpunkt: 2025-11-16 19:07:11
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section original-topic zd-article" xml:lang="de">
+<p>Bist du im E-Commerce tätig, bietest du deine Ware in einem Online-Shop, einem Markplatz oder in beiden an. Die beiden Vertriebsarten unterscheiden sich wie folgt:</p>
+<p>Ein Online-Shop besteht aus deiner eigenen Webseite, die du nach deinen Bedürfnissen individualisieren kannst. Dies erlaubt dir das Kundenerlebnis besser zu steuern und dich von der Masse abzuheben. Im Hintergrund arbeitet ein Shopsystem wie Shopify oder Shopware, das deine Aufträge entgegennimmt und an Xentral weiterleitet.</p>
+<p>Ein Marktplatz ist eine bestehende Plattform wie Amazon oder eBay, auf der du deine Artikel einstellen kannst. Aufgrund der hohen Nutzerzahlen dieser Plattformen, profitierst du von einer hohe Reichweite. Andererseits bist du von den Entscheidungen der Plattform abhängig und kannst deine Artikel nicht individuell präsentieren. Dies spart Zeit, macht es aber schwieriger deine eigene Marke zu etablieren.</p>
+<p><a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016756799#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">Online-Shops und Marktplätze</a> sind über Schnittstellen mit Xentral verbunden. Diese können z.B. Aufträge importieren, die Lagerzahlen über alle Shops/ Marktplätze abgleichen und die Trackingnummer an den Shop zurückmelden.</p>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Die klassischen Shop-Schnittstellen in Xentral werden nach und nach durch neue Schnittstellen ersetzt. Du kannst die neuen Schnittstellen am Wort “Connector” erkennen, z.B. Shopify-Connector. Diese sind leichter anzubinden und bieten erweiterte Funktionalitäten. Hast du deinen Shop bereits über eine klassische Schnittstelle angebunden, kannst du diese leicht auf die neue Schnittstelle migrieren.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bbc988ee-5261-42ac-fe21-dd5a95378c8a" id="UUID-bbc988ee-5261-42ac-fe21-dd5a95378c8a_id_VertriebskanalundShopMarktplatzanbindennewmenue-Online-ShopsundMarktpltzeanbindenklassisch"></a>Online-Shops und Marktplätze anbinden (klassisch)</h2>
+</div>
+<p>Einen Shop oder Marktplatz bindest du über die klassische Schnittstelle folgendermaßen an:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zu <span class="bold"><strong>Einstellungen &gt; Verkaufen &gt; Shops/ Marktplätze</strong></span>. Klicke auf <span class="bold"><strong>Verbindung hinzufügen</strong></span>.</p>
+</li>
+<li class="step">
+<p>Wähle den Shop/ Marktplatz aus, den du anbinden möchtest.</p>
+</li>
+<li class="step">
+<p>Gib die Zugangsdaten deines Shops oder Marktplatzes an. Dieser Schritt unterscheidet sich je nachdem, was du anbinden möchtest. Du wirst zu den Einstellungen der Schnittstelle weitergeleitet.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Verbindung prüfen</strong></span>, um die korrekte Anbindung zu überprüfen. Hierbei werden keine Daten des Shops oder von Xentral übertragen, sondern nur geprüft, ob eine Verbindung möglich ist.</p>
+<p>War die Verbindung erfolgreich, dann fahre bitte mit der Anbindung fort. Tritt ein Fehler auf, dann prüfe bitte deine Zugangsdaten.</p>
+</li>
+<li class="step">
+<p>Wähle den Importmodus. Dieser bestimmt wie Aufträge von Xentral importiert werden:</p>
+<ol type="a" class="substeps">
+<li class="step">
+<p><span class="bold"><strong>Demo (zum Testen)</strong></span>: Standardmäßig eingestellt. Wir empfehlen dir die Schnittstelle ausgiebig zu testen, bevor du in den Live-Betrieb wechselst. In diesem Modus wird der Auftragsstatus im Shop nicht verändert und keine Artikel und Lagerzahlen übertragen.</p>
+</li>
+<li class="step">
+<p><span class="bold"><strong>Manuell (mit Importzentrale)</strong></span>: Importiert Aufträge nur, wenn du in deiner Schnittstelle auf der rechten Seite im <span class="bold"><strong>Aktion</strong></span>-Menü auf <span class="bold"><strong>Aufträge abholen</strong></span> klickst. Der manuelle Import bietet dir die Möglichkeit deine Aufträge vor der Freigabe zu überprüfen. Dies ist besonders im B2B-Bereich wichtig, wenn du nur wenige, aber sehr wichtige Aufträge hast.</p>
+</li>
+<li class="step">
+<p><span class="bold"><strong>Automatisch (per Prozessstarter)</strong></span>: Importiert deine Aufträge in regelmäßigen Intervallen automatisch. Den Intervall legst du im <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">Prozessstarter</a> <span class="bold"><strong>Shopimporter</strong></span> fest. Dies ist der typische Modus für ein E-Commerce-Unternehmen im B2C-Bereich.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<p>Die Rückmeldung der Trackingnummer an den Shop ist standardmäßig voreingestellt. Du findest die Option unter <span class="bold"><strong>Reiter Details &gt; Unterreiter Einstellungen</strong></span> im Feld <span class="bold"><strong>Auftragsstatus rückmelden</strong></span>.</p>
+<p>Die Synchronisierung der Lagerzahlen findet statt, wenn die folgenden Voraussetzungen erfüllt sind:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Der Prozessstarter <span class="guilabel">Lagerzahlen (Shops)</span> mit dem Parameter <span class="guilabel">lagerzahlen</span> ist aktiv.</p>
+</li>
+<li class="listitem">
+<p>Im <span class="bold"><strong>Reiter Details &gt; Unterreiter Online-Shop Optionen</strong></span> eines Artikels sind die folgenden zwei Voraussetzungen erfüllt:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: circle;">
+<li class="listitem">
+<p>Die Option <span class="bold"><strong>Lagerzahlen Sync</strong></span> ist aktiviert.</p>
+</li>
+<li class="listitem">
+<p>Der Artikel ist mit der Shop-Schnittstelle verknüpft. Klicke hierfür im Bereich <span class="bold"><strong>Online-Shops</strong></span> auf <span class="bold"><strong>Neuer Eintrag</strong></span>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Bei einer neuen Schnittstelle kannst du die benötigten Features, wie die Synchronisierung der Lagerzahlen und Tracking direkt in der Schnittstelle steuern.</p>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h3 class="title">
+<a data-zd-article="UUID-bbc988ee-5261-42ac-fe21-dd5a95378c8a" id="UUID-bbc988ee-5261-42ac-fe21-dd5a95378c8a_id_VertriebskanalundShopMarktplatzanbindennewmenue-ArtikelausShopinXentralzuordnen-ArtikelFremdnummernklassisch"></a>Artikel aus Shop in Xentral zuordnen - Artikel Fremdnummern (klassisch)</h3>
+</div>
+<p><a class="link linktype-component linktextconsumer" href="https://help.xentral.com/hc/articles/360016758199#UUID-be6a2725-3071-98cf-ad2e-1a9016c503cc">Fremdnummern</a> dienen bei der klassischen Schnittstelle dazu eine Verbindung zwischen einem Shop oder Markplatz und Xentral herzustellen. Es gibt drei Möglichkeiten deine Fremdnummern anzupassen:</p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p>Im entsprechenden Artikel im Reiter <span class="bold"><strong>Fremdnummern</strong></span> für einen einzelnen Artikel</p>
+</li>
+<li class="listitem">
+<p>In der <span class="bold"><strong>Artikel Fremdnummern</strong></span> App für die manuelle Bearbeitung aller Artikel</p>
+</li>
+<li class="listitem">
+<p>In der Importzentrale für mehrere Artikel gleichzeitig über eine CSV-Datei</p>
+</li>
+</ul>
+</div>
+<p>Bei der Zuordnung einer Fremdnummer sind drei Informationen wichtig: die Artikelnummer in Xentral, die Bezeichnung und die Fremdnummer (Artikelnummer im Shop). Die Bezeichnung unterscheidet sich je nach Shop:</p>
+<div class="informaltable table-responsive">
+<table>
+<thead>
+<tr>
+<th>
+<p><span class="bold"><strong>Shop/ Marktplatz</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Art des Artikels</strong></span></p>
+</th>
+<th>
+<p><span class="bold"><strong>Bezeichnung</strong></span></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>Shopify</p>
+</td>
+<td>
+<p>Artikel</p>
+</td>
+<td>
+<p>shopifyproductid</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Shopify</p>
+</td>
+<td>
+<p>Variante</p>
+</td>
+<td>
+<p>shopifyvariantid</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>WooCommerce</p>
+</td>
+<td>
+<p>Artikel</p>
+</td>
+<td>
+<p>SKU</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Amazon</p>
+</td>
+<td>
+<p>Artikel (Fulfillment by Amazon)</p>
+</td>
+<td>
+<p>SKU_FBA</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Amazon</p>
+</td>
+<td>
+<p>Artikel (Fulfillment by Merchant)</p>
+</td>
+<td>
+<p>SKU_FBM</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>eBay</p>
+</td>
+<td>
+<p>Artikel</p>
+</td>
+<td>
+<p>eBayListing</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>eBay</p>
+</td>
+<td>
+<p>Variante</p>
+</td>
+<td>
+<p>SKU, alternativ: Bestandseinheit</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Kaufland</p>
+</td>
+<td>
+<p>Artikel</p>
+</td>
+<td>
+<p>apiunitid</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div dir="ltr" class="note note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Anmerkung</h3>
+<p>Für Shopware werden keine Fremdnummern im Artikel benötigt. Die Artikelnummern/ SKUs in Xentral müssen jedoch identisch zu den Artikelnummern in Shopware sein.</p>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div dir="ltr" class="section internal sub-topic">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-bbc988ee-5261-42ac-fe21-dd5a95378c8a" id="UUID-bbc988ee-5261-42ac-fe21-dd5a95378c8a_id_VertriebskanalundShopMarktplatzanbindennewmenue-Online-ShopsundMarktpltzeanbindenneueSchnittstelle"></a>Online-Shops und Marktplätze anbinden (neue Schnittstelle)</h2>
+</div>
+<p>Eine <a class="link linktype-component linktextconsumer" href="https://help.xentral.com/document/preview/77557#UUID-01f05285-a5d1-500d-fad2-4521da1df80c">neue Schnittstelle</a> (z.B. Shopify oder WooCommerce) kannst du wie folgt anbinden:</p>
+<div class="procedure">
+<ol class="procedure" type="1">
+<li class="step">
+<p>Navigiere zu <span class="bold"><strong>Einstellungen &gt; Verkaufen</strong></span> und wähle eine der neuen Schnittstellen aus, z.B. <span class="bold"><strong>Shopify Connector</strong></span> .</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Install App</strong></span> . Dieser Schritt ist nur bei der ersten Anbindung notwendig.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>+ Neue Integration</strong></span> .</p>
+</li>
+<li class="step">
+<p>Gib der Schnittstelle einen Namen und lasse den Schalter unter <span class="bold"><strong>Livemodus aktivieren</strong></span> links (inaktiv). Dies erlaubt dir die Schnittstelle vor dem Go-live ausführlich zu testen. Klicke auf <span class="bold"><strong>Weiter</strong></span> .</p>
+</li>
+<li class="step">
+<p>Erzeuge in deinem externen Shop ein Zugangstoken und gib anschließend die Zugangsdaten deines Shops in Xentral ein.</p>
+</li>
+<li class="step">
+<p>Klicke auf <span class="bold"><strong>Verbindung testen</strong></span> , um die korrekte Anbindung zu überprüfen. Hierbei werden keine Daten des Shops oder von Xentral übertragen, sondern nur geprüft, ob eine Verbindung möglich ist. Klicke auf <span class="bold"><strong>Weiter</strong></span> .</p>
+</li>
+<li class="step">
+<p>Wähle aus, welche Daten zwischen Xentral und deinem Shop ausgetauscht werden sollen. Du kannst hier unter anderem entscheiden, ob du Lagerzahlen, Preise und Tracking synchronisieren möchtest. Klicke anschließend auf <span class="bold"><strong>Speichern</strong></span> .</p>
+</li>
+</ol>
+</div>
+<p>Die Schnittstelle wird nun angelegt. Dies dauert einen kurzen Moment. Im Anschluss kannst du über die Verwaltungsoberfläche <span class="bold"><strong>Daten migrieren</strong></span>, <span class="bold"><strong>Artikel zuordnen</strong></span> sowie die Details zum Datenaustausch unter <span class="bold"><strong>Workflows einstellen</strong></span>. Test und Liveschaltung der Schnittstelle erfolgen ebenfalls unter <span class="bold"><strong>Workflows</strong></span>.</p>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>

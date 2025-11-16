@@ -1,0 +1,52 @@
+- amazon.php → Amazon Schnittstelle
+- api_test.phpapi_uebertragungen.php → Übertragenmodul (Fulfillment, Übertragungen, EDI, XML)
+- artikel_clean.php
+- artikel_zusammenfassen.phpartikelreplace.phpartikeluebertragen.php
+- aufgabenmails.php → Erinnerungs-E-Mail für Aufgabenauftraglagercheck.php
+- autoversand_berechnung.php (oder alt: → autorechner.php) → berechnet die Auftragsampeln neu
+- autoversand.php
+- autoversand_manuell.php → Warteschleife
+- autoversand_plus.php → automatische Versandübergabe (zu einer bestimmten Uhrzeit)
+- autoversand_standard.php → (ersetzt durch: autoversand_manuell)
+- berichte_ftp_uebertragen.php → Ablage von Berichten via FTP
+- cache.php
+- cleaner.phpcoface_import.php
+- convert_kontoblz_iban.php
+- csvimport.phpdaily.php
+- dateibaum.php
+- datenkorretur.php
+- docuvita.phpdropshippinglager.php
+- dummy_create_xml.php
+- emailbackup.php → Abholen von Mails für eine E-Mailadresse (Mein Bereich → E-Mail)
+- emailbackup2.php
+- etiketten.phpevent_api.php
+- exportmail.phpfileconvert.php
+- folgebestaetigung.php
+- forceupdate_lagerzahlen.php
+- getarticles.php
+- hourly.php
+- kalender.php
+- kontoauszugdatevkorrektur.php
+- lagerwert.php
+- lagerzahlen.php
+- lagerzahlen_alle.php
+- mahnwesencheck.php → Berechnung des Mahnwesensmlm.php
+- newsletter.php
+- openstreetmap.php
+- partner_shop.php
+- pdfarchiv.phppdfarchiv_app.php → PDF Archivierung
+- pdfmirror.php
+- provisionen.phpremoteaddfilesubjects.phpremotesendfiles.phprepair_index.php
+- shop_rueckmeldungen.phpshopexport.php
+- shopimport.php → automatische Auftragsabholung aus Shopshopware_partner.php
+- show_index.phpstarter.php
+- supportmails.phptest.phptickets.php → automatische Abholung von Mails ins Ticketsystem
+- ueberzahlterechnungen.php
+- umsatzstatistik.php
+- versandmailsundrueckmeldung.php
+- vertriebscockpit.php
+- webmailtest.php
+- wgettracking.php
+- wiedervorlage.php
+- zahlungseingang.php
+- zahlungsmail.php → Zahlungserinnerungs-E-Mail bei Vorkasse Aufträgen

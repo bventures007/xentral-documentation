@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Externe Hardware- & Geräte-Anbindung</title>
+    <!--
+    Zendesk Original HTML Export
+    Artikel-ID: 21778585091228
+    Titel: FAQ - Externe Hardware- & Geräte-Anbindung
+    URL: https://help.xentral.com/hc/de/articles/21778585091228-FAQ-Externe-Hardware-Ger%C3%A4te-Anbindung
+    Erstellt: 2025-08-17T06:49:09Z
+    Aktualisiert: 2025-08-17T07:02:35Z
+    Draft: False
+    User Segment ID: None
+    Section ID: 360004832880
+    Export-Zeitpunkt: 2025-11-16 19:08:29
+    -->
+</head>
+<body>
+    <div class="zendesk-article-content">
+        <div lang="de" dir="ltr" class="section zd-article" xml:lang="de">
+<p>In dieser FAQ-Sektion finden sich Antworten auf häufige Fragen zur Anbindung und Verwendung externer Hardware wie Scanner, Drucker, MDE-Geräte und mobile Endgeräte.</p>
+<div dir="ltr" class="section accordion sub-topic">
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="titlepage">
+<h2 class="title">
+<a data-zd-article="UUID-cbc957d5-1d7f-a5b6-c155-fed27a9951f0" id="UUID-cbc957d5-1d7f-a5b6-c155-fed27a9951f0_section-idm235108245951989"></a>Warum erkennt mein Barcodescanner bestimmte Zeichen - wie Sonderzeichen oder Leerzeichen - nicht korrekt (z. B. „&amp;“ oder Verwechslung von Z/Y)?</h2>
+</div>
+</div>
+<div class="panel-body collapse" id="UUID-cbc957d5-1d7f-a5b6-c155-fed27a9951f0_section-idm235108245951989_body">
+<p>Die Lesbarkeit hängt sowohl von der verwendeten Hardware als auch vom gewählten Zeichensatz bzw. Barcodetyp ab. Viele Scanner haben Einschränkungen bei Sonderzeichen wie &amp;amp;, %, $, /, , #, +, =, ? oder bei Umlauten (ä, ö, ü). Auch Leerzeichen sollten vermieden werden, da sie von weiterführenden Prozessen in Xentral oder angebundenen Systemen als Ende der Artikelnummer interpretiert werden. Best Practice ist es daher, Leerzeichen durch Minuszeichen (-) oder Unterstriche (_) zu ersetzen und auf Sonderzeichen zu verzichten.</p>
+<p><span class="bold"><strong>Praxisbeispiel</strong></span>: Wenn ein Scanner beim Scannen von Tracking-Nummern oder Artikeln Zeichen wie Z/Y vertauscht, liegt das meist an einer falschen Tastatur- oder Spracheinstellung (z. B. englisches Tastaturlayout). Die Umstellung erfolgt über spezielle Konfigurations-Barcodes, die im Handbuch des Geräts zu finden sind.</p>
+<p><span class="bold"><strong>Best Practices:</strong></span></p>
+<div class="itemizedlist">
+<ul class="itemizedlist" style="list-style-type: disc;">
+<li class="listitem">
+<p><span class="bold"><strong>Artikelnummern sauber pflegen</strong></span>: Nur Ziffern und Großbuchstaben verwenden, keine Leerzeichen oder Sonderzeichen. Leerzeichen wenn nötig durch - oder _ ersetzen.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Barcodetyp passend wählen</strong></span>: Für einfache Nummern eignen sich EAN/UPC oder Code39, für komplexere Nummern mit Sonderzeichen besser Code128 oder QR-Codes.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Scanner-Einstellungen prüfen</strong></span>: Tastaturlayout und Eingabemodus (z. B. HID vs. COM-Port) anpassen, um Probleme mit Zeichen oder Z/Y-Verwechslungen zu vermeiden.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Fremdnummern nutzen</strong></span>: Shop-SKUs können beim Import auf Xentral-Artikelnummern gemappt werden. So lassen sich auch externe Nummern zuverlässig scannen und verarbeiten.</p>
+</li>
+<li class="listitem">
+<p><span class="bold"><strong>Standardisierung im Betrieb</strong></span>: Möglichst einheitliche Barcodetypen und Nummernformate im gesamten Prozess einsetzen, um Fehlerquellen zu reduzieren.</p>
+</li>
+</ul>
+</div>
+<p><span class="bold"><strong>Unterschiede bei Barcodetypen:</strong></span></p>
+<div class="informaltable table-responsive">
+<table width="100%">
+<thead>
+<tr>
+<th>
+<p>Barcodetyp</p>
+</th>
+<th>
+<p>Unterstützte Zeichen</p>
+</th>
+<th>
+<p>Besonderheiten</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>Code39</p>
+</td>
+<td>
+<p>Ziffern, Großbuchstaben, einige Sonderzeichen (-, ., $, /, +, %, Leerstelle)</p>
+</td>
+<td>
+<p>Eingeschränkt, keine Kleinbuchstaben oder Umlaute</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Code128</p>
+</td>
+<td>
+<p>Vollständiger ASCII-Satz (alle 128 Zeichen)</p>
+</td>
+<td>
+<p>Flexibel, unterstützt Sonderzeichen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>EAN/UPC</p>
+</td>
+<td>
+<p>Nur Ziffern (0–9)</p>
+</td>
+<td>
+<p>Standard im Handel, keine Buchstaben oder Sonderzeichen</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>QR-Code</p>
+</td>
+<td>
+<p>Alphanumerisch, Sonderzeichen, UTF-8</p>
+</td>
+<td>
+<p>Sehr robust, unterstützt auch Umlaute und komplexe Daten</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+</div>
+<div class="glossary-definitions" style="display:none!important;"></div>
+</div>
+
+    </div>
+</body>
+</html>
