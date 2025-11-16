@@ -42,9 +42,6 @@ def clean_markdown_spacing(markdown):
         markdown = re.sub(r'\*\*\s+([^*\n]+?)\*\*', r'**\1**', markdown)  # ** text**
         markdown = re.sub(r'\*\*([^*\n]+?)\s+\*\*', r'**\1**', markdown)  # **text **
         
-        # Spezielle Fälle: ** Text**word -> **Text** word, aber auch ** Text** genannt -> **Text** genannt
-        markdown = re.sub(r'\*\*\s*([^*\n]+?)\s*\*\*([a-zA-ZÄÖÜäöüß])', r'**\1** \2', markdown)
-        markdown = re.sub(r'\*\*\s*([^*\n]+?)\s*\*\*(\s)', r'**\1**\2', markdown)  # Leerzeichen erhalten
         
         # * text * -> *text* (alle Varianten)
         markdown = re.sub(r'\*\s+([^*\n]+?)\s+\*', r'*\1*', markdown)
@@ -56,10 +53,50 @@ def clean_markdown_spacing(markdown):
         markdown = re.sub(r'`\s+([^`\n]+?)`', r'`\1`', markdown)  # ` code`
         markdown = re.sub(r'`([^`\n]+?)\s+`', r'`\1`', markdown)  # `code `
     
-    # 2. Leerzeichen vor Formatierungen hinzufügen (nach Wörtern und Satzzeichen)
+    # 2. KRITISCH: Spezifische Probleme mit fehlenden/falschen Leerzeichen beheben
+    # Diese Patterns müssen ZUERST kommen, bevor die allgemeinen Patterns
+    critical_spacing_fixes = [
+        # Spezielle Problemfälle aus dem tatsächlichen Text - ZUERST behandeln
+        (r'BereichAusführung Picklisten erstellungzur', r'Bereich **Ausführung Picklisten erstellung** zur'),
+        (r'Bereich\*\*Ausführung Picklisten erstellung\*\*zur', r'Bereich **Ausführung Picklisten erstellung** zur'),
+        
+        # ** text**word -> **text** word (das häufigste Problem)
+        (r'\*\* ([^*\n]+)\*\*([a-zA-ZÄÖÜäöüß])', r'**\1** \2'),
+        (r'\*\*([^*\n]+) \*\*([a-zA-ZÄÖÜäöüß])', r'**\1** \2'),
+        (r'\*\*([^*\n]+)\*\*([a-zA-ZÄÖÜäöüß])', r'**\1** \2'),
+        
+        # word** text** -> word **text**
+        (r'([a-zA-ZÄÖÜäöüß])\*\* ([^*\n]+)\*\*', r'\1 **\2**'),
+        (r'([a-zA-ZÄÖÜäöüß])\*\*([^*\n]+) \*\*', r'\1 **\2**'),
+        (r'([a-zA-ZÄÖÜäöüß])\*\*([^*\n]+)\*\*', r'\1 **\2**'),
+        
+        # Extra Leerzeichen VOR ** entfernen: word **text** -> word **text**
+        (r'([a-zA-ZÄÖÜäöüß0-9])\s+\*\*([^*\n]+)\*\*', r'\1 **\2**'),
+        
+        # Extra Leerzeichen NACH ** entfernen: **text ** -> **text**
+        (r'\*\*([^*\n]+)\s+\*\*', r'**\1**'),
+        
+        # Spezielle Problemfälle aus dem Text
+        (r'Kommissionierregeln\*\*genannt', r'Kommissionierregeln** genannt'),
+        (r'B2B\*\*verarbeiten', r'B2B** verarbeiten'),
+        (r'B2B\*\*zugeordnet', r'B2B** zugeordnet'),
+        (r'B2B\*\*ausschließen', r'B2B** ausschließen'),
+        (r'Standard\*\* übernehmen', r'Standard** übernehmen'),
+        
+        # Allgemeine Patterns mit besserer Logik
+        (r'([a-zA-ZÄÖÜäöüß0-9])\*\*([^*\n]+)\*\*', r'\1 **\2**'),
+        (r'\*\*([^*\n]+)\*\*([a-zA-ZÄÖÜäöüß0-9])', r'**\1** \2'),
+        
+        # Fehlende Leerzeichen zwischen normalen Wörtern und **text**
+        (r'([a-zA-ZÄÖÜäöüß])\*\*([^*\n]+)\*\*([a-zA-ZÄÖÜäöüß])', r'\1 **\2** \3'),
+    ]
+    
+    for pattern, replacement in critical_spacing_fixes:
+        markdown = re.sub(pattern, replacement, markdown)
+    
+    # 3. Normale Formatierungs-Patterns (nach den kritischen Fixes)
     before_formatting_patterns = [
         # Nach Wörtern/Zahlen - nur wenn KEIN Leerzeichen davor ist
-        (r'([a-zA-ZÄÖÜäöüß0-9])\*\*([^*\n]+)\*\*', r'\1 **\2**'),
         (r'([a-zA-ZÄÖÜäöüß0-9])\*([^*\n]+)\*', r'\1 *\2*'),
         (r'([a-zA-ZÄÖÜäöüß0-9])`([^`\n]+)`', r'\1 `\2`'),
         # Nach Satzzeichen - nur wenn KEIN Leerzeichen davor ist
@@ -71,10 +108,9 @@ def clean_markdown_spacing(markdown):
     for pattern, replacement in before_formatting_patterns:
         markdown = re.sub(pattern, replacement, markdown)
     
-    # 3. Leerzeichen nach Formatierungen hinzufügen, wo sie fehlen
+    # 4. Leerzeichen nach Formatierungen hinzufügen, wo sie fehlen
     after_formatting_patterns = [
         # Vor Wörtern/Zahlen - nur wenn KEIN Leerzeichen danach ist
-        (r'\*\*([^*\n]+)\*\*([a-zA-ZÄÖÜäöüß0-9])', r'**\1** \2'),
         (r'\*([^*\n]+)\*([a-zA-ZÄÖÜäöüß0-9])', r'*\1* \2'),
         (r'`([^`\n]+)`([a-zA-ZÄÖÜäöüß0-9])', r'`\1` \2'),
         # Vor Klammern
@@ -218,7 +254,7 @@ def process_element_inline(element):
         if text:
             # Prüfe ursprüngliches Element für führende/folgende Leerzeichen
             leading_space = ""
-            trailing_space = " "
+            trailing_space = ""
             
             # Wenn das Original-Element mit Leerzeichen beginnt/endet, beibehalten
             if len(element) > len(text):
@@ -232,15 +268,15 @@ def process_element_inline(element):
     
     if element.name in ['strong', 'b']:
         text = clean_text(element.get_text())
-        return f"**{text}** " if text else ""
+        return f"**{text}**" if text else ""
     
     if element.name in ['em', 'i']:
         text = clean_text(element.get_text())
-        return f"*{text}* " if text else ""
+        return f"*{text}*" if text else ""
     
     if element.name == 'code':
         text = element.get_text()
-        return f"`{text}` " if text else ""
+        return f"`{text}`" if text else ""
     
     # Span-Elemente mit Formatierung verarbeiten
     if element.name == 'span':
@@ -250,15 +286,13 @@ def process_element_inline(element):
             strong_elem = element.find(['strong', 'b'])
             if strong_elem:
                 text = clean_text(strong_elem.get_text())
-                # Prüfe ob nach dem span ein Leerzeichen folgt (durch nächstes Sibling)
-                return f"**{text}** " if text else ""
+                return f"**{text}**" if text else ""
         
         # Normale span - Inhalt rekursiv verarbeiten
         result = ""
         for child in element.children:
             result += process_element_inline(child)
-        # Bei spans immer ein Leerzeichen anhängen, da sie oft vor nachfolgendem Text stehen
-        return result + " " if result.strip() else ""
+        return result
     
     # Links verarbeiten
     if element.name == 'a':
@@ -413,7 +447,7 @@ def process_table(table):
     return markdown
 
 def process_list_in_table_cell(list_element):
-    """Verarbeitet Listen innerhalb von Tabellenzellen - kompakte Darstellung mit korrekten Leerzeichen"""
+    """Verarbeitet Listen innerhalb von Tabellenzellen - erzeugt echte Markdown-Listen"""
     result = ""
     
     for li in list_element.find_all('li', recursive=False):
@@ -436,20 +470,20 @@ def process_list_in_table_cell(list_element):
                 if p_content:
                     li_content += p_content + " "
             elif child.name in ['strong', 'b']:
-                # Fett markierte Texte mit korrekten Leerzeichen
+                # Fett markierte Texte ohne automatische Leerzeichen
                 text = clean_text(child.get_text())
                 if text:
-                    li_content += f"**{text}** "
+                    li_content += f"**{text}**"
             elif child.name in ['em', 'i']:
-                # Kursive Texte mit korrekten Leerzeichen
+                # Kursive Texte ohne automatische Leerzeichen
                 text = clean_text(child.get_text())
                 if text:
-                    li_content += f"*{text}* "
+                    li_content += f"*{text}*"
             elif child.name == 'code':
-                # Code mit korrekten Leerzeichen
+                # Code ohne automatische Leerzeichen
                 text = child.get_text()
                 if text:
-                    li_content += f"`{text}` "
+                    li_content += f"`{text}`"
             elif hasattr(child, 'children'):
                 # Verschachtelte Elemente rekursiv verarbeiten mit process_element_inline
                 for nested_child in child.children:
@@ -462,10 +496,8 @@ def process_list_in_table_cell(list_element):
         # Entferne nur führende Leerzeichen, aber behalte die abschließenden
         li_content = li_content.strip()
         if li_content:
-            if list_element.name == 'ol':
-                result += f"• {li_content}<br>"
-            else:
-                result += f"• {li_content}<br>"
+            # Echte Markdown-Listen in Tabellenzellen mit <br> für korrekte Darstellung
+            result += f"- {li_content}<br>"
     
     return result.rstrip('<br>')
 
@@ -521,15 +553,15 @@ def process_info_box(element):
         # Text-Formatierung
         if elem.name in ['strong', 'b']:
             text = clean_text(elem.get_text())
-            return f"**{text}** " if text else ""
+            return f"**{text}**" if text else ""
         
         if elem.name in ['em', 'i']:
             text = clean_text(elem.get_text())
-            return f"*{text}* " if text else ""
+            return f"*{text}*" if text else ""
         
         if elem.name == 'code':
             text = elem.get_text()
-            return f"`{text}` " if text else ""
+            return f"`{text}`" if text else ""
         
         # Listen
         if elem.name in ['ul', 'ol']:
@@ -700,12 +732,12 @@ def html_to_markdown(html_content):
         if element.name in ['strong', 'b']:
             text = clean_text(element.get_text())
             if text:
-                return f"**{text}** "
+                return f"**{text}**"
         
         if element.name in ['em', 'i']:
             text = clean_text(element.get_text())
             if text:
-                return f"*{text}* "
+                return f"*{text}*"
         
         # Span-Elemente mit bold class
         if element.name == 'span':
@@ -715,7 +747,7 @@ def html_to_markdown(html_content):
                 strong_elem = element.find(['strong', 'b'])
                 if strong_elem:
                     text = clean_text(strong_elem.get_text())
-                    return f"**{text}** " if text else ""
+                    return f"**{text}**" if text else ""
             
             # Normale span - Inhalt rekursiv verarbeiten
             result = ""
@@ -726,7 +758,7 @@ def html_to_markdown(html_content):
         # Code
         if element.name == 'code':
             text = element.get_text()
-            return f"`{text}` "
+            return f"`{text}`"
         
         if element.name == 'pre':
             text = element.get_text()
