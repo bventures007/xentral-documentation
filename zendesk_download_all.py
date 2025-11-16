@@ -56,7 +56,7 @@ class HTMLAnalyzer:
         self.session.auth = (f"{self.email}/token", self.api_token)
         
         # Ausgabeverzeichnisse für markdown erstellen (umbenannt von markdowndemo)
-        self.markdown_dir = Path("markdown")
+        self.markdown_dir = Path("source")
         self.original_html_dir = self.markdown_dir / "original"
         self.downloaded_images_dir = self.markdown_dir / "original" / "images"
         

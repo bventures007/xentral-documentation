@@ -2,7 +2,7 @@
 """
 Markdown to HTML Generator
  
-Dieses Tool konvertiert alle Markdown-Dateien aus dem markdown/ Ordner zu HTML im markdown/generated/ Ordner.
+Dieses Tool konvertiert alle Markdown-Dateien aus dem markdown/ Ordner zu HTML im source/generated/ Ordner.
 Es verwendet die bestehende MultiMarkdown-Funktionalität und erstellt eine komplette HTML-Dokumentation.
 """
 
@@ -15,7 +15,7 @@ from typing import List, Dict, Tuple
 from tqdm import tqdm
 
 # Import der bestehenden convert_markdown_file Funktionalität
-sys.path.append(str(Path(__file__).parent / 'markdown'))
+sys.path.append(str(Path(__file__).parent / 'source'))
 from markdown_to_html import convert_markdown_file
 
 
@@ -26,7 +26,7 @@ class MarkdownToHTMLGenerator:
         """
         # Verzeichnisse definieren
         self.base_dir = Path(__file__).parent
-        self.markdown_base_dir = self.base_dir / "markdown"
+        self.markdown_base_dir = self.base_dir / "source"
         self.markdown_dir = self.markdown_base_dir / "markdown"  # Die .md Dateien liegen in markdown/markdown/
         self.generated_dir = self.markdown_base_dir / "generated"
         self.generated_images_dir = self.generated_dir / "images"

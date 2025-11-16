@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 HTML to Markdown Batch Converter
-Konvertiert alle HTML-Dateien aus markdown/original/ zu Markdown-Dateien in markdown/
+Konvertiert alle HTML-Dateien aus source/original/ zu Markdown-Dateien in markdown/
 
 Dieses Tool:
 1. Löscht alle bestehenden .md Dateien im markdown/ Ordner
@@ -19,7 +19,7 @@ from typing import Dict, List, Tuple
 from tqdm import tqdm
 
 # Import der bestehenden Konvertierungsfunktion
-sys.path.append(str(Path(__file__).parent / 'markdown'))
+sys.path.append(str(Path(__file__).parent / 'source'))
 from html_to_markdown import html_to_markdown
 
 
@@ -30,7 +30,7 @@ class HTMLToMarkdownConverter:
         """
         # Verzeichnisse definieren
         self.base_dir = Path(__file__).parent
-        self.markdown_dir = self.base_dir / "markdown"
+        self.markdown_dir = self.base_dir / "source"
         self.original_html_dir = self.markdown_dir / "original"
         self.output_markdown_dir = self.markdown_dir / "markdown"
         
