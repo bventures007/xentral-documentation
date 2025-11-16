@@ -55,13 +55,19 @@ class HTMLAnalyzer:
         self.session = requests.Session()
         self.session.auth = (f"{self.email}/token", self.api_token)
         
-        # Ausgabeverzeichnisse erstellen
-        self.output_dir = Path("html_analysis_output")
-        self.examples_dir = self.output_dir / "html_examples"
-        self.original_html_dir = self.output_dir / "original_html"
-        self.downloaded_images_dir = self.output_dir / "downloaded_images"
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-        self.examples_dir.mkdir(parents=True, exist_ok=True)
+        # Ausgabeverzeichnisse für markdown erstellen (umbenannt von markdowndemo)
+        self.markdown_dir = Path("markdown")
+        self.original_html_dir = self.markdown_dir / "original"
+        self.downloaded_images_dir = self.markdown_dir / "original" / "images"
+        
+        # Backward compatibility - output_dir wird noch verwendet
+        self.output_dir = self.markdown_dir  # Fallback für Legacy-Code
+        self.examples_dir = self.original_html_dir  # Nicht verwendet, aber für Kompatibilität
+        
+        # Ordner leeren bevor Download startet
+        self.clear_directories()
+        
+        # Ordner erstellen
         self.original_html_dir.mkdir(parents=True, exist_ok=True)
         self.downloaded_images_dir.mkdir(parents=True, exist_ok=True)
         
@@ -116,6 +122,33 @@ class HTMLAnalyzer:
         print(f"  Base URL: {self.base_url}")
         print(f"  Ausgabeverzeichnis: {self.output_dir}")
         print(f"  Bild-Download-Verzeichnis: {self.downloaded_images_dir}")
+
+    def clear_directories(self) -> None:
+        """
+        Löscht alle HTML-Dateien und Bilder in den Zielordnern.
+        """
+        import shutil
+        
+        print("Lösche vorhandene Dateien...")
+        
+        # Original HTML-Ordner leeren
+        if self.original_html_dir.exists():
+            for file in self.original_html_dir.glob('*.html'):
+                try:
+                    file.unlink()
+                    print(f"  Gelöscht: {file}")
+                except Exception as e:
+                    print(f"  Fehler beim Löschen von {file}: {e}")
+        
+        # Images-Ordner leeren
+        if self.downloaded_images_dir.exists():
+            try:
+                shutil.rmtree(self.downloaded_images_dir)
+                print(f"  Ordner geleert: {self.downloaded_images_dir}")
+            except Exception as e:
+                print(f"  Fehler beim Leeren von {self.downloaded_images_dir}: {e}")
+        
+        print("Ordner bereinigt.")
 
     def get_all_sections(self) -> List[Dict]:
         """
@@ -325,9 +358,9 @@ class HTMLAnalyzer:
             Dictionary mit Download-Informationen oder None bei Fehler
         """
         try:
-            # Artikel-spezifisches Verzeichnis erstellen
-            article_dir = self.downloaded_images_dir / f"article_{article_id}"
-            article_dir.mkdir(exist_ok=True)
+            # Bilder direkt in images-Ordner speichern
+            article_dir = self.downloaded_images_dir
+            article_dir.mkdir(parents=True, exist_ok=True)
             
             # Absoluten URL erstellen falls nötig
             if url.startswith('//'):
@@ -366,8 +399,8 @@ class HTMLAnalyzer:
             # Bildanalyse
             properties = self._analyze_image_properties(image_data, file_path)
             
-            # Mapping speichern
-            relative_path = str(file_path.relative_to(self.output_dir))
+            # Mapping speichern (relativer Pfad zu markdown)
+            relative_path = str(file_path.relative_to(self.markdown_dir))
             self.image_url_mapping[url] = relative_path
             
             # Statistiken aktualisieren
@@ -446,11 +479,11 @@ class HTMLAnalyzer:
 
     def analyze_html_content(self, html_content: str, article_title: str = "", article_id: int = None) -> List[Tuple[str, int, str]]:
         """
-        Analysiert HTML-Inhalt und sammelt Statistiken sowie Bild-URLs für Download.
+        Extrahiert nur Bild-URLs für Download - alle anderen Analysen auskommentiert.
         
         Args:
             html_content: HTML-Inhalt des Artikels
-            article_title: Titel des Artikels für Beispiele
+            article_title: Titel des Artikels
             article_id: ID des Artikels
             
         Returns:
@@ -464,50 +497,51 @@ class HTMLAnalyzer:
         try:
             soup = BeautifulSoup(html_content, 'html.parser')
             
-            # HTML-Tags analysieren
-            self._analyze_html_tags(soup)
-            
-            # CSS-Klassen und IDs analysieren
-            self._analyze_css_classes_and_ids(soup)
-            
-            # HTML-Attribute analysieren
-            self._analyze_html_attributes(soup)
-            
-            # Bilder analysieren und URLs für Download sammeln
+            # NUR Bilder analysieren und URLs für Download sammeln
             image_urls_for_download = self._analyze_images(soup, article_title, article_id)
             
-            # Links analysieren
-            self._analyze_links(soup, article_title)
-            
-            # Tabellen analysieren
-            self._analyze_tables(soup, article_title)
-            
-            # Listen analysieren
-            self._analyze_lists(soup, article_title)
-            
-            # Code-Strukturen analysieren
-            self._analyze_code_structures(soup, article_title)
-            
-            # Spezielle Strukturen analysieren
-            self._analyze_special_structures(soup, article_title)
-            
-            # Text-Formatierung analysieren
-            self._analyze_text_formatting(soup)
-            
-            # Media-Elemente analysieren
-            self._analyze_media_elements(soup, article_title)
-            
-            # Form-Elemente analysieren
-            self._analyze_form_elements(soup)
-            
-            # Semantische Elemente analysieren
-            self._analyze_semantic_elements(soup)
-            
-            # HTML-Länge zur Gesamtstatistik hinzufügen
-            self.analysis_data['metadata']['total_html_length'] += len(html_content)
+            # # ALLE ANDEREN ANALYSEN AUSKOMMENTIERT:
+            # # HTML-Tags analysieren
+            # self._analyze_html_tags(soup)
+            #
+            # # CSS-Klassen und IDs analysieren
+            # self._analyze_css_classes_and_ids(soup)
+            #
+            # # HTML-Attribute analysieren
+            # self._analyze_html_attributes(soup)
+            #
+            # # Links analysieren
+            # self._analyze_links(soup, article_title)
+            #
+            # # Tabellen analysieren
+            # self._analyze_tables(soup, article_title)
+            #
+            # # Listen analysieren
+            # self._analyze_lists(soup, article_title)
+            #
+            # # Code-Strukturen analysieren
+            # self._analyze_code_structures(soup, article_title)
+            #
+            # # Spezielle Strukturen analysieren
+            # self._analyze_special_structures(soup, article_title)
+            #
+            # # Text-Formatierung analysieren
+            # self._analyze_text_formatting(soup)
+            #
+            # # Media-Elemente analysieren
+            # self._analyze_media_elements(soup, article_title)
+            #
+            # # Form-Elemente analysieren
+            # self._analyze_form_elements(soup)
+            #
+            # # Semantische Elemente analysieren
+            # self._analyze_semantic_elements(soup)
+            #
+            # # HTML-Länge zur Gesamtstatistik hinzufügen
+            # self.analysis_data['metadata']['total_html_length'] += len(html_content)
             
         except Exception as e:
-            print(f"Fehler bei der HTML-Analyse: {e}")
+            print(f"Fehler bei der Bild-Extraktion: {e}")
         
         return image_urls_for_download
 
@@ -864,7 +898,7 @@ class HTMLAnalyzer:
             print(f"✓ Erfolgreich heruntergeladen: {len(downloaded_images)} Bilder")
             
             # Bild-Download-Report speichern
-            self.save_image_download_report(downloaded_images)
+            # self.save_image_download_report(downloaded_images)
         else:
             print("\nKeine Bilder zum Download gefunden.")
         
@@ -1160,7 +1194,7 @@ Zendesk Subdomain: {self.analysis_data['metadata']['zendesk_subdomain']}
             print(f"Bild-Download-Report gespeichert: {image_report_path}")
             
             # Markdown-Index für heruntergeladene Bilder erstellen
-            self.save_image_index()
+            # self.save_image_index()
                 
         except Exception as e:
             print(f"Fehler beim Speichern des Bild-Download-Reports: {e}")
@@ -1247,15 +1281,15 @@ def main():
         print(f"Artikel analysiert: {stats['articles_analyzed']}")
         print(f"Fehler: {stats['articles_failed']}")
         
-        # Reports erstellen
-        print("\nErstelle Analyse-Reports...")
-        analyzer.save_json_report()
-        analyzer.save_markdown_summary()
-        analyzer.save_examples()
-        analyzer.save_original_html_index()
+        # # ALLE REPORT-ERSTELLUNGEN AUSKOMMENTIERT:
+        # print("\nErstelle Analyse-Reports...")
+        # analyzer.save_json_report()
+        # analyzer.save_markdown_summary()
+        # analyzer.save_examples()
+        # analyzer.save_original_html_index()
         
-        print(f"\nAlle Analyse-Dateien wurden in '{analyzer.output_dir}' gespeichert.")
-        print(f"Original HTML-Dateien wurden in '{analyzer.original_html_dir}' gespeichert.")
+        print(f"\nHTML-Download abgeschlossen!")
+        print(f"HTML-Dateien wurden in '{analyzer.original_html_dir}' gespeichert.")
         if analyzer.analysis_data['metadata']['total_images_downloaded'] > 0:
             print(f"Heruntergeladene Bilder wurden in '{analyzer.downloaded_images_dir}' gespeichert.")
             print(f"Gesamt: {analyzer.analysis_data['metadata']['total_images_downloaded']} Bilder ({round(analyzer.analysis_data['metadata']['total_image_size_bytes'] / (1024 * 1024), 2)} MB)")
