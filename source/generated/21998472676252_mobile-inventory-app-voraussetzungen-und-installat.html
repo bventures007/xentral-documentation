@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21998472676252 Mobile Inventory App Voraussetzungen Und Installat - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>21998472676252 Mobile Inventory App Voraussetzungen Und Installat</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>21998472676252 Mobile Inventory App Voraussetzungen Und Installat</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Du möchtest die Mobile Inventory App von Xentralfür die Inventur mithilfe mobiler Geräte in deinem Lager nutzen und fragst dich, was die allerersten Schritte sind? Dann bist du hier genau richtig.</p>
+<p>In diesem Artikel erfährst lernst du,</p>
+<ul>
+<li><a href="#UUID-32630639-9f22-b6e2-b021-26a264f6f6f7_section-idm235098416252108">auf welchen Geräten du die Mobile Inventory App nutzen kannst</a></li>
+<li><a href="#UUID-32630639-9f22-b6e2-b021-26a264f6f6f7_section-idm235098431517367">welche allgemeinen Voraussetzungen vorab erfüllt sein sollten, damit du bestmöglich mit der Mobile Inventory App arbeiten kannst</a></li>
+<li><a href="#UUID-32630639-9f22-b6e2-b021-26a264f6f6f7_section-idm235110522967304">wie du die Mobile Inventory App auf deinen Geräten installierst</a></li>
+<li><a href="#UUID-32630639-9f22-b6e2-b021-26a264f6f6f7_section-idm235110546247412">wie du die notwendigen Benutzerrechte für die Mobile Inventory App in Xentral vergibst</a> und</li>
+<li><a href="#UUID-32630639-9f22-b6e2-b021-26a264f6f6f7_section-idm235110546542098">wie du dich in die App einloggst</a>.</li>
+</ul>
+<h2 id="hardware-anforderungen-und-empfehlungen">Hardware-Anforderungen und Empfehlungen<a class="headerlink" href="#hardware-anforderungen-und-empfehlungen" title="Permanent link">&para;</a></h2>
+<p>Um von den Vorteilen der Mobile Inventory App zu profitieren und eine möglichst fehlerfreie Inventur durchzuführen, nutzt du bestenfalls ein professionelles MDE-Gerät, das für die typischen Arbeitsabläufe im Lager geeignet ist. Je nach Größe deines Lagers und deiner Mitarbeiteranzahl verfügst du gegebenenfalls bereits über solche Geräte.</p>
+<p>Wir empfehlen folgende Hersteller und Modelle:</p>
+<ul>
+<li>Zebra TC26</li>
+<li>Zebra MC 3300</li>
+<li>Honeywell</li>
+<li>Sunmi</li>
+</ul>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Für einen allerersten Test kannst du die Mobile Inventory App auch auf einem beliebigen Smartphone mit Android-Betriebssystem installieren. Voraussetzung hierfür ist, dass das Smartphone über eine integrierte Kamera verfügt, sodass du die Barcodes deiner Lagerplätze und Artikel scannen kannst.</p>
+<p>Wir empfehlen für den produktiven Einsatz der Mobile Inventory App dringend die Verwendung der oben genannten MDE-Geräate. Diese Geräte werden speziell für die Anforderungen der Lagerverwaltung konzipiert und bieten dir somit eine reibungslose und professionelle Benutzererfahrung.</p>
+</blockquote>
+<h2 id="allgemeine-voraussetzungen">Allgemeine Voraussetzungen<a class="headerlink" href="#allgemeine-voraussetzungen" title="Permanent link">&para;</a></h2>
+<p>Folgende Voraussetzungen gelten für die Mobile Inventory App, egal auf welchem Gerät du sie nutzt:</p>
+<p>-<strong>Aktuellste Xentral Version</strong>: Um die bestmöglichste Stabilität sicherzustellen, empfehlen wir dir, stehts die aktuellste Version von Xentral zu verwenden.
+-<strong>Verfügbarkeit nach Plan</strong>: Du kannst die Mobile Inventory App ab dem Business-Plan und höher nutzen. Verschaffe dir <a href="https://xentral.com/de/preise">hier</a> einen Einblick in alle verfügbaren Xentral-Pläne und ihren Funktionsumfang.
+-<strong>Barcodes für Lagerplätze und Artikel</strong>: Die Mobile Inventory App ist auf die Erfassung von Lagerplätzen und Artikeln per Barcode ausgelegt. Stelle sicher, dass all deine Artikel und Lagerplätze über eindeutige Barcodes verfügen.</p>
+<h2 id="mobile-inventory-app-installieren">Mobile Inventory App installieren<a class="headerlink" href="#mobile-inventory-app-installieren" title="Permanent link">&para;</a></h2>
+<p>Gehe wie folgt vor, um die Mobile Inventory App aus dem GooglePlay Store zu installieren:</p>
+<ol>
+<li>Nimm dein gewünschtes Gerät zur Hand und suche im Google Play Store nach der App namens <strong>Xentral Inventory</strong>.</li>
+<li>Tippe auf <strong>Installieren</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Falls dein MDE-Gerät nicht für Google-Dienste lizensiert ist, ist der oben beschriebene Installationsweg nicht möglich. Keine Sorge - du kannst die Mobile Inventory App trotzdem installieren, indem du die APK-Datei der App aus dem Google Play Store herunterlädst. Klicke auf den folgenden Link, um zu erfahren, wie das funktioniert und welche Schritte du in diesem Fall ausführen musst:</p>
+<ul>
+<li>Anleitung: Eine APK-Datei aus dem Google Play Store herunterladen</li>
+</ul>
+</blockquote>
+<h3 id="app-login-ermoglichen-und-pin-erstellen">App-Login ermöglichen und PIN erstellen<a class="headerlink" href="#app-login-ermoglichen-und-pin-erstellen" title="Permanent link">&para;</a></h3>
+<p>Nachdem du die App auf deinem Gerät installiert hast, sorgst du im nächsten Schritt dafür, dass Benutzer sich in die App einloggen und mit ihr arbeiten können.</p>
+<p>Der Login in die App funktioniert für jeden einzelnen App-Benutzer mithilfe eines persönlichen QR-Codes und einer PIN.</p>
+<p>Entscheide zunächst, welche Benutzer deiner Xentral-Instanz mit der Mobile Inventory App arbeiten sollen und daher Zugang zur App bekommen sollen. Fahre dann mit den unten beschriebenen Schritten fort, um den App-Login für diese Benutzer freizuschalten und die benötigten PINs für den Login in die App festzulegen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Falls du keine Berechtigung hast, um die Benutzerverwaltung aufrufen, kannst du die folgenden Schritte nicht durchführen. Besprich das weitere Vorgehen in diesem Fall bitte mit dem Admin deiner Xentral-Instanz.</p>
+</blockquote>
+<ol>
+<li>Öffne in Xentral das Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; Benutzerverwaltung &gt; Benutzer verwalten</strong>.</li>
+<li>Öffne den gewünschten Benutzer, indem du rechts auf das <strong>Stift-Symbol</strong> klickst.</li>
+<li>Klicke auf das Tab <strong>Mobile Apps</strong>.</li>
+<li>Falls noch kein QR-Code angezeigt wird, klicke auf <strong>Mobile Device Token erstellen</strong>.</li>
+<li>Gib im Feld <strong>PIN (4 Stellen, numerisch)</strong> die gewünschte PIN ein, die der Benutzer später für den App-Login verwenden wird.</li>
+<li>Klicke auf <strong>PIN aktualisieren</strong>.</li>
+</ol>
+<h3 id="benutzerrechte-fur-die-app-vergeben">Benutzerrechte für die App vergeben<a class="headerlink" href="#benutzerrechte-fur-die-app-vergeben" title="Permanent link">&para;</a></h3>
+<p>Um eine App mithilfe der Inventur vorzunehmen und alle benötigten Funktionen nutzen zu können, benötigen alle App-Benutzer, die <strong>keine Admins</strong> sind, mindestens die folgenden Berechtigungen:</p>
+<p>-<strong>Benutzer &gt; list </strong></p>
+<p>-<strong>Projekt &gt; list</strong></p>
+<p>-<strong>Warehouse &gt; exportproducts</strong></p>
+<p>Gehe wie folgt vor, um Benutzern diese Rechte zu erteilen.</p>
+<ol>
+<li>Öffne in Xentral das Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; Benutzerverwaltung &gt; Benutzer verwalten</strong>.</li>
+<li>Öffne den gewünschten Benutzer, indem du rechts auf das <strong>Stift-Symbol</strong> klickst.</li>
+<li>Klicke auf das Tab <strong>Rechte</strong>.</li>
+<li>Aktiviere im Bereich <strong>Benutzer </strong> das Recht <strong>list</strong>.</li>
+<li>Aktiviere im Bereich <strong>Projekt </strong> das Recht <strong>list</strong>.</li>
+<li>Aktiviere im Bereich <strong>Warehouse </strong> das Recht <strong>exportproducts</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es ist nicht notwendig, auf <strong>Speichern</strong> zu klicken. Sobald du das gewünschte Recht anklickst, wechselt die Farbe von grau zu blau. Mehr ist nicht notwendig, um das Recht zu vergeben.</p>
+</blockquote>
+<h2 id="in-die-mobile-inventory-app-einloggen">In die Mobile Inventory App einloggen<a class="headerlink" href="#in-die-mobile-inventory-app-einloggen" title="Permanent link">&para;</a></h2>
+<p>Nachdem du alle bisher beschriebenen Schritte durchgeführt hast, bist du startklar für den Login in die App.</p>
+<p>Gehe wie folgt vor, um dich in die Mobile Inventory App einzuloggen.</p>
+<ol>
+<li>Öffne auf deinem mobilen Gerät die Mobile Inventory App.</li>
+<li>Scanne am Bildschirm deines Computers den QR-Code, den du wie im Kapitel <a href="#app-login-ermoeglichen-und-pin-erstellen">App-Login ermöglichen und PIN erstellen</a> beschrieben erstellt hast.</li>
+<li>Gib die PIN ein, die du wie im Kapitel <a href="#app-login-ermoeglichen-und-pin-erstellen">App-Login ermöglichen und PIN erstellen</a> beschrieben erstellt hast.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

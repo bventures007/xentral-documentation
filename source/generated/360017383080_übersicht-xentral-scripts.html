@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017383080 Übersicht Xentral Scripts - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017383080 Übersicht Xentral Scripts</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017383080 Übersicht Xentral Scripts</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="flexibel-durch-anpassungen">Flexibel durch Anpassungen<a class="headerlink" href="#flexibel-durch-anpassungen" title="Permanent link">&para;</a></h2>
+<p>Mit Xentral Scripts steht unseren Nutzer eine mächtige Möglichkeit für Anpassungen der Software zur Verfügung. Diese können durch die eigene IT-Abteilung oder durch externe Agenturen und Technologie-Partner umgesetzt werden. Mit unserem Partnermodell bieten wir die &ldquo;Köpfe&rdquo;, Fähigkeiten und Ressourcen diese technischen Möglichkeiten zu Ihrem Nutzen einzusetzen.</p>
+<h2 id="was-bedeutet-anpassung">Was bedeutet Anpassung?<a class="headerlink" href="#was-bedeutet-anpassung" title="Permanent link">&para;</a></h2>
+<p>Die Basisversion von Xentral bietet bereits viele Konfigurationsmöglichkeiten, die Sie im Rahmen unseres Onboardingprozesses erläutert und eingerichtet bekommen können. Dazu gehören z.B. das Aussehen Ihrer Dokumente, die Einrichtung von Logistikprozessen oder die Anbindung verschiedener Versand- und Zahlungsdienstleister sowie von Marktplätzen und Online-Shops. Darüber hinaus können qualifizierte Partner</p>
+<ul>
+<li>eigene Prozesse definieren</li>
+<li>eigene Datenstrukturen integrieren</li>
+<li>eigene Reports und Auswertungen erstellen</li>
+<li>eigene Shopanbindungen entwickeln oder anpassen</li>
+<li>das Aussehen von Dokumente beliebig anpassen</li>
+<li>und einiges mehr</li>
+</ul>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Alle hier beschriebenen Methoden verändern das Aussehen oder Verhalten der Software ohne in die sog. Kernfunktionen von Xentral ERP einzugreifen. Unsere Technologiepartner arbeiten als Dienstleister also nicht an den Grundfunktionen der Software sondern passen Xentral an Ihre individuellen Bedürfnisse an.</p>
+</blockquote>
+<h2 id="informationen-fur-benutzer-und-interessenten">Informationen für Benutzer und Interessenten<a class="headerlink" href="#informationen-fur-benutzer-und-interessenten" title="Permanent link">&para;</a></h2>
+<p>Als Key User haben Sie Ihren Prozess im Kopf und wollen Ihr Geschäftsmodell langfristig auf sicherer und verlässlicher Software aufbauen. Dazu haben wir die Software und die Partner! Trotzdem können Fragen bleiben:</p>
+<ul>
+<li>Bleibt mein Xentral updatefähig?</li>
+<li>Welche Versionen von Xentral sind anpassbar?</li>
+<li>Wie ist der Ablauf und was kosten mich die Anpassungen?</li>
+<li>Wo finde ich Technologiepartner?</li>
+</ul>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Customizing ist ab der Enterprise-Version verfügbar.</p>
+</blockquote>
+<h2 id="informationen-fur-agenturen-und-technologiepartner">Informationen für Agenturen und Technologiepartner<a class="headerlink" href="#informationen-fur-agenturen-und-technologiepartner" title="Permanent link">&para;</a></h2>
+<p>Als Agentur oder Technolgie-Partner haben Sie Ihren Kunden im Kopf und wollen seine Anforderungen langfristig auf sicherer und verlässlicher Software aufbauen. Dazu bieten wir die Software und das Wissen!</p>
+<p>Im Folgenden haben wir die Möglichkeiten zusammengestellt, die Ihnen zur Anpssung von Xentral ERP zur Verfügung stehen. Dabei sind wir gerne ihr Backbone und unterstützen Sie im Hintergrund mit Wissen, Tipps und technischen Updates.</p>
+<h3 id="technisches-onboarding">Technisches Onboarding<a class="headerlink" href="#technisches-onboarding" title="Permanent link">&para;</a></h3>
+<p>Aller Anfang ist&hellip; leicht und schnell gemacht! Die Installation von Xentral und die ersten Schritte haben wir Ihnen auf unserer Seite<a href="https://community.xentral.com/hc/en-us">Technisches Onboarding für externe Entwickler</a>zusammengefasst.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Sie können die Installation und erste Arbeiten mit dem System selbst ausprobieren. Nach der Installation unserer Open Scource Version können Sie für die Dauer von 30 Tagen auf unsere kommerzielle Business Lizenz upgraden. Sollten Sie diese nach Ablauf der 30 Tage weiter für Ihre Entwicklung benötigen, verlängern wir die Lizenz gerne für die Dauer Ihres Entwicklungsprojektes.</p>
+</blockquote>
+<h3 id="xentral-scripts">Xentral Scripts<a class="headerlink" href="#xentral-scripts" title="Permanent link">&para;</a></h3>
+<p>Über Xentral Scripts kann an vielen Stellen das Verhalten der Software angepasst werden ohne in den Kern der Software einzugreifen. Dabei werden zukünftig immer mehr Funktionen auch zur direkten Nutzung ohne Programmierkenntnisse zur Verfügung stehen. All diese Möglichkeiten sind unter dem Namen &ldquo;Scripts&rdquo; zusammengefasst.</p>
+<ul>
+<li><a href="https://help.xentral.com/hc/articles/360017383320#UUID-d95af4ba-2c4e-63b4-d8e0-619d2f55f938">Template Scripts</a>: Anpassungen von PDF-Ausgabe, E-Mail-Templates, Layoutvorlagen, etc.</li>
+<li><a href="https://help.xentral.com/hc/articles/360017383560#UUID-0ab8a2ec-3102-6cb2-5879-04f321907e25">Trigger Scripts</a>: Reagieren auf Events und dadurch Anpassungen im Workflow, bei Versand und Zahloptionen, Druckereignisse, Regelmäßige Aktionnen (Prozessstarter)</li>
+<li><a href="https://help.xentral.com/hc/articles/360017383780#UUID-dd32ebb2-270f-7aa2-014d-779b1efe339f">Report Scripts</a>: Ausgabe von geschäftsspezifischen Geschäftszahlen</li>
+<li><a href="https://help.xentral.com/hc/articles/360017441419#UUID-4bcdf039-1256-c8d1-18b9-0a49563b7916">Converter Scripts</a>: Kundenspezifische Ausgabeformate und -strukturen im Export (CSV, XML, JSON, EDI) und im Import z.B. durch Datenwandlung im Shopimporter</li>
+<li>Dreh und Angelpunkt von Anpassungen ist unsere<a href="https://community.xentral.com/hc/en-us">Xentral Customizing Suite</a>.</li>
+</ul>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Durch Anpassungen am Kern der Software können auch Anpassungen an den hier beschriebenen Funktionen notwendig werden, vor allem, wenn Sie von hinzugekommenen Features neuerer Versionen profitieren möchten. Bitte beachten Sie daher bei Updates des Systems die Release-Notes.</p>
+</blockquote>
+<h3 id="xentral-rest-api">Xentral REST-API<a class="headerlink" href="#xentral-rest-api" title="Permanent link">&para;</a></h3>
+<p>Externe Dienste, Shops, mobile Geräte oder eigene Prozesse zur Datenmanipulation können über die REST-API angebunden werden. Darüber ist u.a. auch der Aufruf von Berichten möglich. Die API-Dokumentation liegt für jede Xentral-Version separat vor:</p>
+<ul>
+<li><a href="https://update.xentral.biz/apidoc/docs192.html">REST-API Dokumentation für Xentral 19.2</a></li>
+<li><a href="https://update.xentral.biz/apidoc/docs193.html">REST-API Dokumentation für Xentral 19.3</a></li>
+<li><a href="https://update.xentral.biz/apidoc/docs194.html">REST-API Dokumentation für Xentral 19.4</a></li>
+<li><a href="https://update.xentral.biz/apidoc/docs201.html">REST-API Dokumentation für Xentral 20.1</a></li>
+<li><a href="https://update.xentral.biz/apidoc/docs211.html">REST-API Dokumentation für Xentral 21.1</a></li>
+<li><a href="https://update.xentral.biz/apidoc/docs213.html">REST-API Dokumentation für Xentral 21.3</a></li>
+</ul>
+<h3 id="coding-best-practice-debugging">Coding Best Practice &amp; Debugging<a class="headerlink" href="#coding-best-practice-debugging" title="Permanent link">&para;</a></h3>
+<p>Grundsätzlich gilt: Die Verwendung Xentral-internen Funktionen, Interfaces und Services ist immer der eigenständigen Manipulation von Daten vorzuziehen. Aus der Inline-Dokumentation des Quellcodes gehen die Objekte und Methoden klar hervor. Bei Bedarf gibt es die Möglichkeit einer Entwickler-Schulung oder Support durch Mitarbeiter unseres Entwicklerteams (sog. Entwickler-Support).</p>
+<p><strong>Wichtigste Funktionen:</strong> Eine Übersicht zum Programmieren, den wichtigsten Objekten und Methoden finden Sie unter<a href="https://community.xentral.com/hc/en-us">Wichtige Funktionen</a>.</p>
+<p>Bei <strong>Entwicklungen für Cloud-Instanzen</strong> werden die Anpassungen zunächst auf einem lokalen Entwicklungssystem erstellt und getestet. Diese werden dann durch das xentral Team ins Deployment überführt. Dazu können die veränderten Dateien einfach per Ticketsystem (idealerweise über den Account des jeweiligen Kunden) eingereicht werden. Nach einer Prüfung werden diese dann auf den xentral Updateserver für den entsprechenden Kunden bereitgestellt und sind dann mit dem nächsten Update für diesen Kunden verfügbar.</p>
+<p>Ein Hinweis unserer Entwicklungsabteilung an alle Entwicklungspartner:<strong>Bitte für Dateinamen keine Großbuchstaben verwenden.</strong> Wir werden unser Handbuch entsprechend ergänzen - aber ein guter Leitfaden ist sicher diese Range an Zeichen: a-z 0-9 und der Unterstrich (_).</p>
+<h3 id="links-und-ressourcen">Links und Ressourcen<a class="headerlink" href="#links-und-ressourcen" title="Permanent link">&para;</a></h3>
+<p>Wir freuen uns auch über Ideen, Anregungen und Code-Beispiele in unserem Forum: https://forum.xentral.biz. Good to know: This page, our customizing and partner manual and a growing number of additional ressources are vailable in English.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

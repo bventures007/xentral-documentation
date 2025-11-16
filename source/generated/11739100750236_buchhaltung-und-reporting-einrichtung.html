@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11739100750236 Buchhaltung Und Reporting Einrichtung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>11739100750236 Buchhaltung Und Reporting Einrichtung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>11739100750236 Buchhaltung Und Reporting Einrichtung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="eine-rechnung-anlegen-schnellstart">Eine Rechnung anlegen (Schnellstart)<a class="headerlink" href="#eine-rechnung-anlegen-schnellstart" title="Permanent link">&para;</a></h2>
+<p>Eine Rechnung ist ein Dokument, mit dem du eine Lieferung oder sonstige Leistung gegenüber deinen Kunden abrechnest. Eine Rechnung enthält wichtige Angaben zu Leistung, Zahlung, Verkäufer und Kunden. Wenn du eine Rechnung versendest, ist sie verbindlich.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die rechtlichen Pflichtangaben, diegenerelle Verwendung der Versandartenund derZahlungsweisenkannst du in den Systemeinstellungen hinterlegen. Die Informationen findest du im Einrichtungspfad beiSystem und Einstellungen (Einrichtung).</p>
+<p>Steuersätze kannst du ebenfalls in den Systemeinstellungen global oder auf Projekt- oder Artikelebene definieren. Informationen dazu findest du bei Buchhaltung in den ArtikelnSteuern und WährungundSteuersätze.</p>
+<p><strong>Wichtig</strong></p>
+<p>Bevor du mit der Rechnung beginnst, stelle sicher, welche steuerrechtlichen Vorgaben für dein Geschäft gelten, indem du dich an dein lokales Steuerbüro oder das Finanzamt/Steuerbehörde wendest.</p>
+</blockquote>
+<p><strong>Eine neue Rechnung anlegen:</strong></p>
+<ol>
+<li>Gehe auf <strong>Buchhaltung <strong>&gt;</strong> Rechnungen</strong> und klicke auf <strong>+NEU</strong> um ein leeres neues Rechnungsdokument im Entwurfs Modus zu öffnen.</li>
+<li>Gib im Feld <strong>Kunde </strong> den Namen oder die Kundennummer ein und klicke auf <strong>Übernehmen</strong> um die Kundendaten aus den Stammdaten zu übernehmen.</li>
+<li>Trage weitere Daten ein oder nimm Änderungen vor z.B. andere Abweichende Lieferadresse oder Zahlungsweise als hinterlegt.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Alternativ kannst du eine Rechnung auch aus einem Auftrag erstellen. Klicke hierzu im Auftrag im Aktions-Menü auf <strong>Weiterführen als Rechnung </strong>. Die Daten werden aus dem Auftrag und aus den Stammdaten gezogen z.B. Abweichende Rechnungsadresse.<strong>Positionen einer Rechnung hinzufügen:</strong></p>
+</blockquote>
+<ol>
+<li>
+<p>Gehe in der Rechnung auf den Reiter <strong>Positionen. </strong></p>
+</li>
+<li>
+<p>Gib im Feld <strong>Artikel</strong> den Artikelnamen oder die Artikelnummer ein. Der Artikel wird geladen und du kannst mit TAB von links nach rechts die Werte anpassen.</p>
+</li>
+<li>Klicke auf <strong>einfügen</strong>. Der Artikel wird in der Positionstabelle gespeichert.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du Artikel in der Positionstabelle ändern möchtest, kannst du z.B. in Menge, Lieferdatum oder Preis klicken. Oder du kannst die gesamte Position mit <strong>bearbeiten </strong> editieren.<strong>Eine Rechnung freigeben und absenden:</strong></p>
+</blockquote>
+<ol>
+<li>Prüfe deinen Rechnungsbeleg in der Vorschau. Hier siehst du die eingestellten Steuern und Preise.</li>
+<li>
+<p>Klicke in der Rechnung auf den Button <strong>Freigabe </strong> und bestätige mit <strong>Jetzt freigeben.</strong>
+  Deine Rechnung erhält nun die nächste freie Nummer im Nummernkreis. (Info: Wenn du verschiedene Nummernkreise pro Projekt verwendest, wird jeweils die nächste freie Nummer auf das Projekt vergeben, das du in deinem Beleg eingestellt hast.)</p>
+</li>
+<li>
+<p>Du kannst die Rechnung nun absenden. Klicke in der Hinweis Meldung oben auf <strong>Dokument versenden </strong> oder alternativ wähle die <strong>Aktion </strong> über das Aktionsmenü aus:<strong>Rechnung abschicken.</strong></p>
+</li>
+<li>
+<p>Du kannst den Beleg ausdrucken oder per E-Mail versenden. Klicke auf <strong>Abschicken oder als versendet markieren </strong>, um dem Beleg den Status <strong>Versendet </strong> zu geben. Solltest due die Rechnung bereits verschickt haben, kannst du auch <strong>Sonstige</strong> als Absendegrund vergeben.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Schreibschutz</strong>: Die Rechnung erhält nach Versand einen Schreibschutz und ist für weitere Bearbeitung gesperrt. Du kannst in den Systemeinstellungen steuern, ob die Rechnung z.B von einem Admin oder deinem Steuerbüro nochmals geöffnet werden darf. In jeden Fall erhältst du bei Änderungen einen Protokolleintrag. Abgesendete Rechnungen solltest du über einen Storno-Beleg oder eine Gutschrift korrigieren und im Anschluss eine neue Rechnung ausstellen.</p>
+<p><strong>Logistik <strong>: Wenn du einen Logistikprozess verwendest und deine Kundenrechnungen in einem Prozessschritt versendest, wird der Beleg automatisch als Versendet markiert und der Schreibschutz gesetzt.</strong> Eine Rechnung als bezahlt markieren:</strong></p>
+</blockquote>
+<p>Du kannst eine<a href="https://help.xentral.com/hc/de/articles/360016722100-Rechnung">Rechnung manuell als bezahlt markieren</a>, einen<a href="https://help.xentral.com/hc/de/articles/360016758959-Zahlungseingang">Zahlungsabgleich mit einem Bankkonto</a>durchführen (lassen) oder bestimmte Zahlungsweisen über einen Vertriebskanal mit dem<a href="https://help.xentral.com/hc/de/articles/360017612200-Zahlungsweisen-Workflow">Status bezahlt markieren lassen</a>z.B. Kreditkarte über den Kanal Shopify oder alle Kreditkartenzahlungen.</p>
+<h2 id="eine-gutschrift-anlegen-schnellstart">Eine Gutschrift anlegen (Schnellstart)<a class="headerlink" href="#eine-gutschrift-anlegen-schnellstart" title="Permanent link">&para;</a></h2>
+<p>Wenn du deinem Kunden eine Rechnung ganz oder teilweise zurückerstattest, wird die Rechnung mit einer Gutschrift - einer speziellen Belegart rückgängig gemacht und der Geldbetrag in der Regel erstattet. Eine fehlerhaft angelegte Rechnung kannst du auch mit einer Stornorechnung korrigieren (= rückgängig machen). In der Buchhaltung wird die Stornierung immer durch ein &ldquo;Gegendokument&rdquo; vorgenommen.</p>
+<p>In Xentral wird eine Gutschrift als Stornorechnung ausgegeben, wenn die entsprechende Option angewählt ist. Du kannst also auch innerhalb deines Unternehmens beide Belegarten auswählen. Die Beträge im Beleg <strong>Stornorechnung</strong> werden negativ ausgewiesen, während sie in der Gutschrift positiv dargestellt sind.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bevor du mitGutschrift und Stornorechnungbeginnst, stelle sicher, welche Steuerrechtlichen Vorgaben für dein Geschäft gelten, indem du dich an dein lokales Steuerbüro oder das Finanzamt/Steuerbehörde wendest.</p>
+</blockquote>
+<p>Es gibt verschiedene Möglichkeiten in Xentral eine Rechnung zu stornieren oder als Gutschrift/Stornorechnung weiterzuführen: direkt über das Löschen-Symbol, über das Aktionsmenü oder ohne vorhergehende Rechnung rückwirkend oder verknüpft mit einer Rechnung erstellen können.</p>
+<p><strong>Eine neue Gutschrift anlegen (ohne Rechnungsbezug):</strong></p>
+<ol>
+<li>Gehe auf <strong>Buchhaltung <strong>&gt;</strong> Gutschriften</strong> und klicke auf <strong>+NEU</strong> um ein leeres neues Gutschrift Dokument im Entwurfs Modus zu öffnen.</li>
+<li>Gib im Feld <strong>Kunde </strong> den Namen oder die Kundennummer ein und klicke auf <strong>Übernehmen</strong> um die Kundendaten aus den Stammdaten zu übernehmen.Trage weitere Daten ein oder nimm Änderungen vor z.B. andere Rückzahlungsweise.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+<li>
+<p>Füge Positionen hinzu und vergib für das Dokument über die <strong>Freigabe </strong> eine Nummer aus dem Nummernkreis. Versende das Dokument. (Alle Schritte s.o. bei Rechnung).<strong>Eine neue Gutschrift/ Stornorechnung anlegen (mit Rechnungsbezug):</strong></p>
+</li>
+<li>
+<p>Gehe auf <strong>Buchhaltung </strong>&gt;<strong>Rechnungen <strong>und klicke auf das Aktionsmenü einer Rechnung:</strong> Als Gutschrift / Stornorechnung</strong>. Alternativ kannst du in der Rechnungsübersicht oder der Rechnung selbst auch auf das X-Symbol für Stornierung klicken.</p>
+</li>
+<li>Bestätige <strong>Wirklich als Gutschrift / Stornorechnung weiterführen </strong> mit <strong>OK</strong>. Die Rechnungsdaten und Positionen werden in die neue Gutschrift/ Stornorechnung übernommen.</li>
+<li>Vergib für das Dokument über die <strong>Freigabe</strong> eine Nummer aus dem Nummernkreis. Versende das Dokument. (Alle Schritte s.o. bei Rechnung).</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst in den Systemeinstellungen festlegen, ob als Standard Gutschrift oder Stornorechnung ausgewählt ist. Solltest du den anderen Beleg benötigen, kannst du in der Gutschrift den Haken Stornorechnung anklicken um das andere Dokument auszugeben. Beide Dokumenten Typen teilen sich einen Nummernkreis.</p>
+<p>Solltest du anstelle der <strong>Stornorechnung</strong> einen anderen Begriff wie z.B. “Rechnungskorrektur” benötigen, kannst du das ebenfalls in den Systemeinstellungen festlegen.</p>
+</blockquote>
+<h2 id="einen-kontenrahmen-anlegen">Einen Kontenrahmen anlegen<a class="headerlink" href="#einen-kontenrahmen-anlegen" title="Permanent link">&para;</a></h2>
+<p>Ein Kontenrahmen ist ein Verzeichnis aller Konten für deine Buchführung. Es ist ein standardisiertes Schema, das dir hilft deine Geschäftsvorfälle zu verbuchen.</p>
+<p>Im Modul <strong>Kontorahmen</strong> kannst du einen Kontenrahmen manuell anlegen oder aus einer anderen Software als CSV importieren. In Xentral bist du demzufolge nicht auf einen Kontenrahmen festgelegt sondern kannst dir die wichtigsten Konten frei anlegen. Die Umsatzerlöskonten (= Rechnungen und Gutschriften) hinterlegst du in den Grundeinstellungen. Solltest du mehrere Projekte verwenden (z.B. Niederlassung oder steuerrechtlich getrennter Channel) kannst du die Erlöskonten im Projekt festlagen. Projektbasierte Einstellungen haben Vorrang gegenüber globalen Grundeinstellungen.</p>
+<h2 id="eine-verbindlichkeit-anlegen-schnellstart">Eine Verbindlichkeit anlegen (Schnellstart)<a class="headerlink" href="#eine-verbindlichkeit-anlegen-schnellstart" title="Permanent link">&para;</a></h2>
+<p>Eine Verbindlichkeit ist deine Verpflichtung als Unternehmer gegenüber deinen Lieferanten oder Kunden. Eine Verbindlichkeit ist meist eine Geldleistung, die du deinem Lieferanten schuldest.</p>
+<p>Das Modul <strong>Verbindlichkeiten </strong> bietet dir Funktionen wie das Ablegen von Rechnungen, Buchung von Steuersätzen und Kontrolle der Rechnungseingangsprüfung. Es enthält auch Vorkontierung für die FIBU und ermöglicht die terminierte Ausgabe der Verbindlichkeit als SEPA-Überweisung mit Skonto-Einstellungen.<strong>Eine neue Verbindlichkeit legst du wie folgt an:</strong></p>
+<ol>
+<li>Gehe auf <strong>Buchhaltung </strong>&gt;<strong>Verbindlichkeiten <strong> und klicke auf</strong>+NEU</strong>.</li>
+<li>Klicke in das Feld <strong>Lieferant </strong> und füge einen Lieferanten aus deinem Adressstamm ein und klicke <strong>übernehmen</strong>. Die Lieferanten Adressdaten werden geladen.</li>
+<li>
+<p>Trage die Daten deiner Lieferantenrechnung ein:<strong>Rechnungsnummer <strong>,</strong> Rechnungsdatum <strong>,</strong> Betrag/Total (Brutto)<strong>,</strong> Buchungstext <strong>,</strong> Eingangsdatum <strong>,</strong> Zahlweise <strong>,</strong> Zahlbar bis</strong>.
+  (Optional kannst du weitere Felder zu Informationszwecken füllen und auch z.B. eine Bestellung verknüpfen.)</p>
+</li>
+<li>
+<p>Folgende <strong>Freigabe </strong> kannst du für den Beleg erteilen und die Ampel in der Verbindlichkeiten Übersicht steuern (Prozessfreigabe für die Zahlung aus Xentral):<strong>Waren-/Leistungsprüfung (Einkauf)<strong>: Mit dieser Freigabe schaltest du die Ampel grün und bestätigst den Wareneingang als vollständig eingetroffen.</strong> Rechnungseingangsprüfung (Buchhaltung)<strong>: Mit dieser Freigabe schaltest du die Ampel grün und bestätigst die Lieferantenrechnung als korrekt ein (Daten, Pflichtangaben und abgerechnete Ware).</strong> Info</strong>: Solange eine dieser Ampeln auf orange steht, wir die Verbindlichkeit nicht zur Zahlung freigegeben.</p>
+</li>
+<li>
+<p>Klicke auf <strong>Speichern</strong>.</p>
+</li>
+<li>Klicke auf <strong>Freigabe</strong> um der Verbindlichkeit eine fortlaufende Nummer aus dem Nummernkreis zuzuweisen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Lade die Lieferantenrechnung als PDF hoch um sie an Datev oder andere Buchhaltungssysteme zu übertragen. Kicke auf <strong>Datei auswählen </strong> um eine PDF Datei hochzuladen. Wähle die Datei und klicke auf <strong>Speichern <strong>. </strong> Eine Kontierung in einer Verbindlichkeit legst du wie folgt an:</strong></p>
+</blockquote>
+<ol>
+<li>Gehe auf <strong>Buchhaltung </strong>&gt;<strong>Verbindlichkeiten</strong> und klicke in eine Verbindlichkeit. (Verwende z.B. die Verbindlichkeit die du soeben neu angelegt hast)</li>
+<li>Klicke auf den Reiter <strong>Vorkontierung</strong>.</li>
+<li>Klicke auf+Neuer Eintrag.
+  Du erhältst ein Fenster in dem du folgende Daten eingeben kannst:<strong>Sachkonto <strong>,</strong> Betrag <strong>,</strong> Währung <strong>,</strong> Buchungstext <strong>,</strong> Belegfeld <strong>,</strong> Steuersatz <strong>,</strong> Kostenstelle</strong>.</li>
+</ol>
+<p>Hinweis: Trage ein Sachkonto aus deinem Kontenrahmen ein. Der Betrag wird dir bereits vorausgefüllt von deinen Eingaben aus der Verbindlichkeit aus dem Feld <strong>Betrag/Total (Brutto)</strong> übergeben. Du kannst den Betrag natürlich auch in mehrere Positionen aufteilen.</p>
+<ol>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Kontierung ist die Grundlage für deinen Buchhaltungsexport z.B. Datev Unternehmen Online. Das hinterlegte PDF im Reiter Zahlung wird ebenfalls mit zu Datev übertragen.</p>
+</blockquote>
+<p><strong>Eine neue Verbindlichkeit aus einer Bestellung anlegen:</strong></p>
+<ol>
+<li>Gehe auf <strong>Einkauf <strong>&gt;</strong> Bestellung <strong> und klicke in die Schnellansicht einer Bestellung in der Übersicht (=</strong> Mini-Detail <strong>). Klicke alternativ in eine Bestellung und gehe auf den Reiter </strong> Details <strong>&gt; Reiter: </strong> Protokoll</strong>.</li>
+<li>Klicke auf <strong>Verbindlichkeit anlegen </strong>. Du erhältst in einem neuen Tab die Verbindlichkeit auf diesen Lieferanten vorausgefüllt mit <strong>Lieferant </strong>,<strong>Bestellung <strong>,</strong> Betrag/Total (Brutto)<strong>,</strong> Zahlweise</strong>.</li>
+<li>Trage weitere Daten ein.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+<li>Klicke auf <strong>Freigabe</strong> um der Verbindlichkeit eine fortlaufende Nummer aus dem Nummernkreis zuzuweisen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>In der Bestellung wird die jede auf sie verknüpfte Verbindlichkeit angezeigt. Ebenso der Status der Freigabe und der Betrag. Du kannst aus den Bestellungen im Wareneingang prüfen, ob bereits Lieferantenrechnungen vorliegen.</p>
+</blockquote>
+<h2 id="buchhaltungsexport-datev">Buchhaltungsexport (Datev)<a class="headerlink" href="#buchhaltungsexport-datev" title="Permanent link">&para;</a></h2>
+<p>Xentral bietet drei Anbindungen an DATEV-Lösungen für den <strong>Financial Accounting Export</strong>:</p>
+<ul>
+<li>
+<p><a href="https://help.xentral.com/hc/de/articles/360016725100#UUID-ab78107e-071f-f5f8-0eec-571c0ab86efe">Finanzbuchhaltung Export (DATEV Export Einstellungen)</a> mit umfangreichen Funktionen für Buchhaltung, einschließlich CSV-Datei-Export (DATEV-Format z.B. Buchungsstapel) mit Belegdaten und Kontierung. (DATEV: Rechnungswesen z.B. Rechnungswesen Einzelplatz).
+  Die Kontierung der Steuersätze wird in Xentral aus dem Projekt oder aus den globalen Firmendaten gezogen (Projekt hat Vorrang vor globaler Einstellung).</p>
+</li>
+<li>
+<p>Export für <a href="https://help.xentral.com/hc/de/articles/360016725100-Finanzbuchhaltung-Export#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e_id_360016725100_id_h_01FBPV48PMV55B17Q293NJJAH5">DATEV Unternehmen online</a> XML Exportdateien in derselben Oberfläche s.o.. (DATEV:<strong>Rechnungsdatenservce</strong>: Schnisstelle, die das Belegbild und die Daten in das Vorsystem Datev Unternehmen online überträgt (Rechnungsservice 1.0)).</p>
+</li>
+<li>Kompletter digitaler Belegtransfer zu DATEV über die Schnittstelle zu <a href="https://help.xentral.com/document/preview/32568#UUID-51154d8c-fc15-a5e9-f5c5-27480b8d1a23">DATEV Rechnungsdatenservice 1.0</a>. Rechnungen, Gutschriften und Verbindlichkeiten werden über den Export (ohne Download und Upload von Dateien) zu DATEV übertragen.
+  (DATEV: Buchungsdatenservice -&gt; Belege werden in den Belegspeicher, der zu UO gehört, übertragen. Der Datensatz wird direkt in die Kanzlei übertragen - ist umfangreicher und enthält mehr Informationen z.B. ist die Kontierung enthalten).</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Anbindung erfolgt über den DATEV SmartLogin mit QR-Code.</p>
+</blockquote>
+<h2 id="analytics-und-reporting">Analytics und Reporting<a class="headerlink" href="#analytics-und-reporting" title="Permanent link">&para;</a></h2>
+<p>Deine Xentral-Instanz erhält eine Vielzahl an Daten, die du nutzen kannst, um das Wachstum deines Unternehmens zu steigern. Mit diesen Daten kannst du detaillierte Informationen zu deinem Kundenstamm erhalten, deine umsatzstärksten Artikel identifizieren und deine Lagerverwaltung optimieren. In Xentral gibt es viele Möglichkeiten deine Daten aufzubereiten, um dir eine datengestützte Entscheidungsfindung zu ermöglichen:</p>
+<ul>
+<li>Dashboards mit der Möglichkeit zu tieferen Analysen z.B. <a href="https://help.xentral.com/hc/de/articles/11386476280732#UUID-5972b047-ada0-8f08-0798-750d44d5e58e">Umsatzanalyse</a></li>
+<li>Datentabellen und <a href="https://help.xentral.com/hc/de/articles/360016759179-Die-Umsatzstatistik-verstehen">Statistiken</a> z.B. Rechnungsübersicht, Umsatzstatistik in Tabellenform</li>
+<li>Standardisierte Branchen Reports über das <a href="https://help.xentral.com/document/preview/62261#UUID-57f4e89a-384e-ed54-fd27-f8ee150f9d6e">Berichtemodul</a> mit der Option eigene SQL-Berichte zu erstellen z.B. Umsatz pro Artikel, Umsatz pro Shop/ Kanal</li>
+</ul>
+<h3 id="dashboards-nextgen">Dashboards (NextGen)<a class="headerlink" href="#dashboards-nextgen" title="Permanent link">&para;</a></h3>
+<p>Exklusiv in Xentral NextGen findest du unsere drei aktuellsten Reporting-Module mit Diagrammen und Tabellen, die dich bei der Aufbereitung deiner Daten unterstützen:</p>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/9822447988636#UUID-a0ebe0c0-0d66-9313-ecc1-2782c65f868a">Gesamtüberblick</a>: Allgemeine Leistungskennzahlen z.B. Offene Aufträge und Forderungen, zu versendende Pakete, Rücksendungen, Topseller Artikel</li>
+<li><a href="https://help.xentral.com/hc/de/articles/11386476280732#UUID-5972b047-ada0-8f08-0798-750d44d5e58e">Umsatzanalyse</a>: Umsatz- und Kostenentwicklung z.B. Nettoumsatz, Wareneinsatz auf Rechnungs- oder Auftragsbasis</li>
+<li><a href="https://help.xentral.com/hc/de/articles/12497042483996#UUID-7fbbd7cf-2a02-d440-94b8-a23fd157f7de">Lageranalyse</a>: Wert und Performance deiner Lagerbestände z.B. Lagermenge, Wert, ABC Kategorisierung</li>
+</ul>
+<p>Wähle einen Vergleichszeitraum und du erhältst eine Auswertung deiner Daten, die du bei Bedarf weiter verfeinern und individuell einstellen kannst.</p>
+<h4 id="gesamtuberblick">Gesamtüberblick<a class="headerlink" href="#gesamtuberblick" title="Permanent link">&para;</a></h4>
+<p>Der<a href="https://help.xentral.com/hc/de/articles/9822447988636#UUID-a0ebe0c0-0d66-9313-ecc1-2782c65f868a">Gesamtüberblick</a>gibt dir einen allgemeinen Überblick über die Kennzahlen deines Unternehmens, z.B. die Gesamtaufträge oder die Lagerumschlagsgeschwindigkeit. Das Board richtet sich damit vor allem an das Management deines Unternehmens, dass sich damit schnell über die wichtigsten Kennzahlen informieren und mit anderen Zeiträumen vergleichen kann.</p>
+<h4 id="umsatzanalyse">Umsatzanalyse<a class="headerlink" href="#umsatzanalyse" title="Permanent link">&para;</a></h4>
+<p>Die<a href="https://help.xentral.com/hc/de/articles/11386476280732#UUID-5972b047-ada0-8f08-0798-750d44d5e58e">Umsatzanalyse</a>erlaubt es dir deine Umsatzstatistiken ausführlicher auszuwerten. Er gibt dir zum einen schnellen Überblick über Nettoumsatz, Wareneinsatz und Deckungsbeitrag I, zum anderen kannst du über zahlreiche Filter deine Umsätze in einer Tabelle in der Tiefe analysieren. So kannst du z.B. die Verkaufszahlen eines Artikels in verschiedenen Ländern betrachten oder die Umsätze deiner Verkaufskanäle miteinander vergleichen.</p>
+<h4 id="lageranalyse">Lageranalyse<a class="headerlink" href="#lageranalyse" title="Permanent link">&para;</a></h4>
+<p>Mit der<a href="https://help.xentral.com/hc/de/articles/12497042483996#UUID-7fbbd7cf-2a02-d440-94b8-a23fd157f7de">Lageranalyse</a>kannst du hingegen einen besseren Eindruck über dein Lager erhalten. Hier findest du Daten zum Wert deiner Bestände, der Umschlagshäufigkeit und der Abverkaufsquote. Du kannst diese Daten mit vorherigen Zeiträumen vergleichen oder im Verlauf der Zeit betrachten, um so Trends identifizieren und dein Lager optimieren zu können. Auch hier kannst du in der Tabelle dein Lager in der Tiefe analysieren.</p>
+<h3 id="datentabellen-und-statistiken">Datentabellen und Statistiken<a class="headerlink" href="#datentabellen-und-statistiken" title="Permanent link">&para;</a></h3>
+<p>Du kannst in Xentral die aktuelle Ansicht deiner Datentabellen (z.B. Rechnungsübersicht, Gutschriftübersicht, Auftragsübersicht) exportieren und über Filter auf bestimmte Parameter einschränken z.B. Datumsbereich, Projekt/ Kanal, Kunde, Lieferant.</p>
+<p>Umfangreichere Exporte kannst du über das Modul<a href="https://help.xentral.com/hc/de/articles/360016759179-Die-Umsatzstatistik-verstehen">Umsatzstatistik</a>oder das Berichte Modul herunterladen.</p>
+<h3 id="standardisierte-branchen-reports-berichte-modul">Standardisierte Branchen Reports (Berichte Modul)<a class="headerlink" href="#standardisierte-branchen-reports-berichte-modul" title="Permanent link">&para;</a></h3>
+<p>Eine weitere wichtige Funktion sind<a href="https://help.xentral.com/hc/de/articles/360018546919-Berichte-in-Xentral-anlegen-und-verwenden">Berichte</a>. Diese geben dir einen Einblick in verschiedenste Daten deines Unternehmens, wie die Jahres-Bestseller oder Artikel mit einem kurzen MHD. Für typische Anwendungsfälle wie diese kannst du auf etwa hundert vorgefertigte und branchenübliche Berichte zurückgreifen. Du kannst auch eigene Berichte erstellen und an deine individuellen Bedürfnisse anpassen.</p>
+<h4 id="eigene-sql-berichte">Eigene SQL Berichte<a class="headerlink" href="#eigene-sql-berichte" title="Permanent link">&para;</a></h4>
+<p>In deinen eigenen Berichten kannst du deine Daten über SQL-Abfragen deiner Xentral-Datenbank analysieren. Die notwendigen Datenbanknamen und -tabellen zur Erstellung eigener Berichte findest du im Modul<a href="https://help.xentral.com/hc/de/articles/360016769400-Datenbank-Ansicht">Datenbankansicht</a>.</p>
+<p>Die Auswertung deiner Berichte kannst du im CSV- oder PDF-Format exportieren und z.B. in Drittsystemen weiterarbeiten. Du kannst deine Berichte automatisch in bestimmten Zeiträumen über (S)FTP, Mail, URL oder API an andere Systeme übertragen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du noch keine ausreichenden SQL-Kenntnisse hast, empfehlen wir dir, einen unsererPartnerzu kontaktieren. Er kann die gewünschten Berichte für dich anlegen.</p>
+<p><strong>Tipp</strong></p>
+<p>Sollten dir diese Datenexporte für deinen Einsatzzweck nicht ausreichen sind folgende Themen sinnvolle Ergänzungen sowie die Helpdesk KategorieFortgeschrittene Themen:</p>
+<ul>
+<li>NeueAPI (beta),API (alte REST API)</li>
+<li>Übertragen Modul(XML Logistik),Smarty Übertragen Modul,Einführung Smarty</li>
+</ul>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

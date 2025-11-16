@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11739102585756 Erste Schritte Stammdaten Aufträge Verkaufskanälep - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>11739102585756 Erste Schritte Stammdaten Aufträge Verkaufskanälep</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>11739102585756 Erste Schritte Stammdaten Aufträge Verkaufskanälep</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>In Xentral umfassen die Stammdaten Adressen und Artikel. Die Adressen bestehen aus deinen Kunden-, Lieferanten- und Mitarbeiterdaten, die Artikel aus deinen Waren. In den folgenden Abschnitten erfährst du, wie du diese anlegst und mit ihnen arbeitest.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst bereits bestehende Stammdaten aus einem anderen System oder anderen Quellen nach Xentral importieren. Voraussetzung dafür ist, dass die Daten als CSV-Datei vorliegen.</p>
+<p>Weitere hilfreiche Informationen zum Import findest du zusammengefasst unterErsteinrichtungsartikel - Stammdatenimport - Adressen, Artikeloder im Handbuchartikel zum Datenimport:Import von Stammdaten und Unternehmensdaten.</p>
+</blockquote>
+<p>Abschließend erfährst du etwas über das Arbeiten mit Aufträgen im Verkaufsprozess und der Abgrenzung einzelner Geschäftsbereiche mithilfe von Projekten.</p>
+<h2 id="adressen">Adressen<a class="headerlink" href="#adressen" title="Permanent link">&para;</a></h2>
+<p>Öffne in der linken Seitenleiste unter <strong>Verkaufen &gt; Adressen </strong>(im Classic Design:<strong>Stammdaten &gt; Adressen <strong>) die Adressenübersicht. Klicke hier auf</strong>+NEU <strong>, um eine neue Adresse anzulegen. Es öffnet sich ein Formular, welches für Kunden, Lieferanten und Mitarbeiter gleichermaßen gilt. Trage die neue Adresse in den Bereich<a href="https://help.xentral.com/hc/articles/4539623305500#UUID-e43fd5c1-e0e0-d665-e41b-d9f5cde1dbe9">Stammdaten</a>ein und klicke auf </strong> Speichern</strong>.</p>
+<p>Du wirst nun aufgefordert der Adresse eine<a href="https://help.xentral.com/hc/de/articles/4544271298716-Adressstammdaten-pflegen#UUID-cdc4cbcc-2c78-f143-6e7f-88d87e4192a6_id_4544271298716_id_h_01G21R9ABAF35B85PVPQRAVW29">Rolle</a>zuzuweisen. Dir stehen die Rollen <strong>Kunde </strong>,<strong>Lieferant </strong> und <strong>Mitarbeiter</strong> zur Verfügung, wobei auch eine Mehrfachauswahl möglich ist, wenn z.B. einer deiner Mitarbeiter gleichzeitig einer deiner Kunden ist. Je nachdem welche Rolle du zugewiesen hast, erhält die Adresse eine entsprechende Kunden-, Lieferanten- oder Mitarbeiternummer aus deinem Nummernkreis.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst der Adresse jederzeit im Reiter <strong>Rolle</strong> weitere Rollen zuweisen. Informationen dazu findest du im ArtikelAdressstammdaten pflegen.</p>
+<p>Je nach Rolle kannst du unterschiedliche Belege direkt aus der Adresse erstellen:</p>
+<ul>
+<li>Kunde: Angebot, Auftrag, Rechnung, Lieferschein, Gutschrift</li>
+<li>Lieferant: Bestellung.</li>
+</ul>
+<p><strong>Tipp</strong></p>
+<p>Wie deine Mitarbeiter Zugang zu deiner Xentral-Instanz bekommen und du ihre Benutzerrechte anpassen kannst, erfährst du im EinrichtungsartikelSystem und Einstellungen (Einrichtung).</p>
+</blockquote>
+<h3 id="besonderheiten-bei-adressen-fur-geschaftskunden-b2b">Besonderheiten bei Adressen für Geschäftskunden (B2B)<a class="headerlink" href="#besonderheiten-bei-adressen-fur-geschaftskunden-b2b" title="Permanent link">&para;</a></h3>
+<p>Ein Geschäftskunde unterscheiden sich oft in einigen Aspekten von einem Standardkunden:</p>
+<p>-<strong>Mehrere Standorte (Lager, Filialen, etc.)</strong>: Du kannst im Reiter <strong>Lieferadressen</strong> mehrere Lieferadressen hinterlegen und anschließend im Auftrag die richtige Adresse als abweichende Lieferadresse auswählen.
+-<strong>Abweichende Rechnungsadresse </strong>: Durch die Verwendung mehrerer Lieferadressen unterscheidet sich in der Regel die Rechnungs- von der Lieferadresse. Im <strong>Reiter Details &gt; Unterreiter Adressdaten </strong> kannst du im Bereich <strong>Stammdaten </strong> ein Häkchen bei <strong>Abw. Rechnungsadresse</strong> setzen und anschließend die Adresse eintragen.
+-<strong>Besteuerung </strong>: Im <strong>Reiter Details &gt; Unterreiter Zahlungskonditionen/ Besteuerung </strong> kannst du im Bereich <strong>Steuer/ Währung/ Zoll </strong> eine <strong>USt-ID</strong> (= Umsatzsteuer-Identifikationsnummer) hinterlegen, sodass dein Kunden den Vorsteuerabzug nutzen kann.
+-<strong>Zahlung per Rechnung </strong>: Im B2B-Bereich wird häufig mit Rechnung bezahlt. Im <strong>Reiter Details &gt; Unterreiter Zahlungskonditionen/ Besteuerung</strong> kannst du besondere Zahlungsbedingungen für Rechnungen hinterlegen.</p>
+<h2 id="artikel">Artikel<a class="headerlink" href="#artikel" title="Permanent link">&para;</a></h2>
+<p>Alles was du in Xentral verkaufst, wird als Artikel angesehen. Dazu gehören unter anderem die Lagerartikel, die du physisch in deinem Lager aufbewahrst und an deine Kunden verschickst. Zusätzlich werden aber auch nicht-physische Waren ohne Lagerbestand als Artikel angesehen. Zu dieser Kategorie gehören Versandkosten, Rabatte und Dienstleistungen.</p>
+<p>Deine Artikel findest du unter <strong>Verkaufen &gt; Artikel </strong>(im Classic Design:<strong> Stammdaten &gt; Artikel</strong>). Hier sind alle von dir angelegten Artikel in einer Tabelle gelistet. Du kannst<a href="https://help.xentral.com/hc/articles/5355868449180#UUID-33f03def-c1b7-78d7-cbf5-ea2efe31fe45">Artikel suchen, filtern und bestehende Artikel bearbeiten</a>. Hier ist auch der Startpunkt, um neue Artikel anzulegen.</p>
+<h3 id="artikel-anlegen">Artikel anlegen<a class="headerlink" href="#artikel-anlegen" title="Permanent link">&para;</a></h3>
+<p>Klicke in der Artikeltabelle rechts oben auf <strong>+ NEU</strong>, um einen<a href="https://help.xentral.com/hc/articles/5355868375324#UUID-7b466ccc-d331-8e18-2f8e-9a396ad6b84d">neuen Artikel anzulegen</a>. Es öffnet sich ein Formular, in dem du eine Artikelbezeichnung eingeben sowie die Art des Artikels bestimmen musst. Für die Art des Artikels stehen dir vier Möglichkeiten zur Verfügung:</p>
+<p>-<strong>Lagerartikel</strong>: Lagerartikel sind alle Artikel, für die ein Lagerbestand geführt wird.
+-<strong>Artikel ist Porto</strong>: Mit einem Portoartikel kannst du Versandgebühren als eigene Position in Belegen darstellen.
+-<strong>Artikel ist Rabatt</strong>: Mit einem Rabattartikel kannst du einen Rabatt auf den gesamten Auftrags- oder Rechnungswert gewähren und diesen im Beleg als eigene Position darstellen. Der Rabatt gewährt einen prozentuellen Nachlass auf den gesamten Auftrag.
+-<strong>Kein Häkchen</strong>: Setzt du bei keiner der Optionen ein Häkchen handelt es sich um eine Dienstleistung.</p>
+<p>Es gibt keine weiteren obligatorischen Felder. Die Artikelnummer wird automatisch aus dem entsprechenden Nummernkreis der gewählten <strong>Artikelkategorie </strong> vergeben. Den Verkaufspreis des Artikels legst du im Reiter <strong>Verkauf</strong> fest.</p>
+<p>Für Lagerartikel empfehlen wir dir dennoch die weiteren Felder bestmöglich zu befüllen, da sie in anderen Teilbereichen von Xentral eine wichtige Funktion haben können. So kannst du eine Artikelbeschreibung hinzufügen, die du an deine Online-Shops übertragen kannst oder eine Zolltarifnummer hinterlegen, die beim Versand ins Ausland wichtig wird. Eine Beschreibung weiterer Felder und ihrer Möglichkeiten findest du unter<a href="https://help.xentral.com/hc/articles/5355868406428#UUID-1d1e8a13-6479-2b8d-d64e-2d5a4a044eb1">Artikelstammdaten pflegen</a>.</p>
+<h3 id="stucklisten-anlegen">Stücklisten anlegen<a class="headerlink" href="#stucklisten-anlegen" title="Permanent link">&para;</a></h3>
+<p>Eine<a href="https://help.xentral.com/hc/articles/360019652739#UUID-443f8048-37aa-3974-fc46-63cd8ad757d1">Stückliste</a>ist ein Artikel, der aus mehreren Artikeln oder Komponenten besteht. In Xentral wird dabei zwischen zwei Arten von Stücklisten unterscheiden:</p>
+<p>-<strong>Stückliste</strong>: Eine Stückliste ist ein Artikel, der aus mehreren einzelnen Artikeln besteht, z.B. ein Geschenkkorb. Hierbei lagerst du die einzelnen Artikel zuvor aus und erstellst mithilfe der Stückliste einen neuen Artikel mit einer Artikelnummer und lagerst diesen einmal ein.
+-<strong>Just-in-Time (JIT) Stückliste</strong>: Die Just-in-Time Stückliste bietet dir mehr Flexibilität in der Lagerhaltung. Die Bestandteile der Stückliste haben einen eigenen Lagerplatz und können in unterschiedlichen Stücklisten angeboten werden. Die Stückliste wird im Pickprozess zusammengestellt und die einzelnen Bestandteile werden erst beim Kauf der Stückliste aus dem Lager ausgebucht. Hast du z.B. mehrere Elektronikartikel im Angebot, die als Zubehör das gleiche Ladekabel benötigen, kannst du Geräte und Kabel getrennt lagern, um Kosten zu sparen.</p>
+<p>Die Art der Stückliste legst du im Hauptartikel der Stückliste fest. Öffne einen Artikel und setze im Bereich <strong>Sonstige Einstellungen </strong> ein Häkchen bei <strong>Stückliste </strong> oder <strong>Just-In-Time Stückliste <strong>. Es erscheint der neue Reiter </strong> Stückliste</strong>. In diesem kannst du weitere Artikel zur Stückliste hinzufügen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst die Einzelpositionen deiner Stücklisten für den Kunden in Belegen anzeigen oder ausblenden lassen. Alternativ kannst die Positionen einer normalen Stückliste in die Artikelbeschreibung aufnehmen.</p>
+</blockquote>
+<h3 id="varianten-anlegen">Varianten anlegen<a class="headerlink" href="#varianten-anlegen" title="Permanent link">&para;</a></h3>
+<p>Über Varianten kannst du schnell eine Reihe an ähnlichen Artikeln anlegen, z.B. Kleidung in unterschiedlichen Größen und Farben. Varianten legst du in Xentral über das<a href="https://help.xentral.com/hc/articles/360016725120#UUID-44725c2a-a728-20a2-d526-e12c9e8d88eb">Matrixprodukt</a>an. Hierbei werden die Varianten aus einem allgemeinen Produkt (Elternartikel) hergeleitet, so können z.B. aus einem T-Shirt die Varianten rotes T-Shirt und blaues T-Shirt hergeleitet werden. Achte darauf die Artikelinformationen deines Elternartikels ausführlich zu pflegen, da dessen Artikelinformationen an die Varianten weitervererbt werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst einen Artikel auch direkt als eine Variante eines Elternartikels anlegen. Wir empfehlen jedoch deine Varianten immer über das Matrixprodukt anzulegen, da dieses eine einfachere Bearbeitung bietet und viele Online-Shops Varianten in Form des Matrixprodukts bevorzugen.</p>
+</blockquote>
+<p>Ein Matrixprodukt kannst du direkt im Artikel anlegen. Öffne den Artikel und setze im Bereich <strong>Varianten </strong> ein Häkchen bei <strong>Matrixprodukt <strong>. Es erscheint der neue Reiter </strong> Matrixprodukt <strong>. In diesem kannst du dem Artikel neue Eigenschaften zuordnen, z.B. eine Farbe. Klicke dazu auf </strong> neue Gruppe <strong>, um die Eigenschaft anzulegen. Anschließend kannst du der Gruppe über </strong> Option hinzufügen</strong>eine Ausprägung der Eigenschaft zuweisen, z.B. rot. In der graphischen Oberfläche kannst du aus den so entstehenden Kombinationen die Artikel auswählen, die du anlegen möchtest.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Die so hinzugefügten Gruppen und Optionen gelten nur für den ausgewählten Artikel. Hast du bestimmte Eigenschaften, die du immer wieder für unterschiedliche Artikel benutzen möchtest, kannst du diese im Modul <strong>Matrixprodukt</strong> anpassen.</p>
+<p>Hier kannst du eine sogenannte Grundtabelle anlegen, in der die Eigenschaft mit ihren Optionen dauerhaft gespeichert ist. So kannst du einen Artikel schnell mit den benötigten Eigenschaften versehen.</p>
+</blockquote>
+<h2 id="auftrage">Aufträge<a class="headerlink" href="#auftrage" title="Permanent link">&para;</a></h2>
+<p>Der<a href="https://help.xentral.com/hc/articles/6113604302620#UUID-a0cc0500-9af9-7a68-ed9d-3747c3458479">Auftrag</a>ist das wichtigste Element im Verkaufsprozess von Xentral. Aus diesem Beleg gehen alle weiteren Belege wie Lieferscheine und Rechnungen hervor.</p>
+<p>Aufträge können auf drei Arten angelegt werden:</p>
+<p>-<strong>Weiterführung eines Angebots</strong>: Dies ist besonders im B2B-Bereich üblich. Du kannst alle Daten des Angebots übernehmen und in einen Auftrag überführen.
+-<strong>manuell</strong>: Du kannst Aufträge, die per Telefon oder E-Mail eingehen, manuell im System anlegen.
+-<strong>automatisch</strong>: Dies ist der typische Fall im B2C-Bereich. Aufträge werden aus einem Online-Shop wie Shopify oder einem Marktplatz wie Amazon importiert und automatisch angelegt. Hierzu findest du mehr im Abschnitt Online-Shops.</p>
+<p>Eine Auflistung aller Aufträge findest du unter <strong>Verkaufen &gt; Auftrag </strong>(im Classic Design:<strong> Verkauf &gt; Auftrag</strong>). Hier kannst du Aufträge bearbeiten und neue Aufträge manuell anlegen.</p>
+<p>Bevor du mit der automatischen Anlage startest, empfehlen wir dir einige Aufträge manuell anzulegen, um dich mit den für einen Auftrag benötigten Informationen vertraut zu machen.</p>
+<h3 id="auftrag-manuell-anlegen">Auftrag manuell anlegen<a class="headerlink" href="#auftrag-manuell-anlegen" title="Permanent link">&para;</a></h3>
+<p>Klicke in der Auftragstabelle rechts oben auf <strong>+ NEU </strong>, um einen<a href="https://help.xentral.com/hc/articles/360016758399#UUID-aa321171-0ea6-5098-d7eb-a8175197d560">neuen Auftrag anzulegen</a>. Es öffnet sich ein neues Formular. In diesem solltest du zuerst im Feld <strong>Kunde </strong> eine Kundenadresse aus deinen Adressstammdaten auswählen und auf <strong>übernehmen </strong> klicken. Die für den Auftrag benötigten Stammdaten werden dann aus der Adresse übernommen. Dazu gehören neben der <strong>Adresse </strong> auch weitere Informationen wie <strong>Projekt </strong>,<strong>Zahlungsweise <strong>,</strong> Versandart </strong> und <strong>Besteuerung</strong>. Bei Bedarf kannst du diese aber auch manuell anpassen und z.B. eine abweichende Lieferadresse eintragen.</p>
+<p>Im Unterreiter <strong>Positionen </strong> kannst du dem Auftrag Artikel hinzufügen. Der Verkaufspreis wird den Artikelstammdaten entnommen, kann über das <strong>Stift</strong></p>
+<p>-Symbol aber auch manuell angepasst werden. Im Unterreiter <strong>Vorschau</strong> kannst du deine Angaben und die Gestaltung der Auftragsbestätigung überprüfen.</p>
+<p>Klicke abschließend auf <strong>Freigabe</strong>. Hierdurch erhält der Auftrag eine Auftragsnummer aus dem zentralen Nummernkreis und kann weiter verarbeitet werden. Freigegebene Aufträge können nicht mehr gelöscht, sondern nur noch storniert werden. Außerdem wird durch die Freigabe die Auftragsampel für den Auftrag in der Übersicht aktiviert.</p>
+<h3 id="die-auftragsampel-verwenden">Die Auftragsampel verwenden<a class="headerlink" href="#die-auftragsampel-verwenden" title="Permanent link">&para;</a></h3>
+<p>Die<a href="https://help.xentral.com/hc/articles/360016759019#UUID-a67e1eee-4a52-2b43-3f73-4782e28d05b7">Auftragsampel</a>hilft dir mithilfe farbiger Symbole dabei den aktuellen Status eines Auftrags nachzuvollziehen. Prozessschritte, die erfolgreich abgeschlossen wurden, werden grün angezeigt. Offene und noch zu prüfende Prozessschritte werden orange angezeigt.</p>
+<p><img alt="image-20240126-131415.png" src="https://help.xentral.com/hc/article_attachments/12913872428700" /></p>
+<p>Sobald alle Symbole grün angezeigt werden, kannst du den Auftrag an die Logistik weiter geben.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst Symbole der Auftragsampel unter <strong>Einstellungen &gt; Dein System einrichten &gt; Systemeinstellungen </strong> im Bereich <strong>Auftragsampel ausblenden</strong> aktivieren und deaktivieren.</p>
+</blockquote>
+<h3 id="auftrage-uber-das-aktion-menu-verarbeiten-lieferschein-und-rechnung">Aufträge über das Aktion-Menü verarbeiten (Lieferschein und Rechnung)<a class="headerlink" href="#auftrage-uber-das-aktion-menu-verarbeiten-lieferschein-und-rechnung" title="Permanent link">&para;</a></h3>
+<p>Über das <strong>Aktion </strong></p>
+<p>-Menü auf der rechten Seite kannst du einen<a href="https://help.xentral.com/hc/articles/6113558323740#UUID-82a95736-aa02-4bd6-342c-1f937e949928">Auftrag auf vielfältige Weise verarbeiten</a>. Du kannst unter anderem eine Auftragsbestätigung an deinen Kunden senden (<strong>Auftrag abschicken <strong>) oder die im Auftrag enthaltenen Artikel bei deinem Lieferanten nachbestellen (</strong> als Bestellung weiterführen</strong>). Die im Auftrag enthaltenen Informationen werden dabei komplett an den Folgebeleg weitergegeben und beeinflussen den Status des Auftrags nicht. Du kannst also mehrere unterschiedliche Belege aus einem Auftrag erstellen.</p>
+<p>Die zwei wichtigsten Belege, die aus dem Auftrag hervorgehen können, sind der Lieferschein (<strong>als Lieferschein weiterführen <strong>) und die Rechnung (</strong> als Rechnung weiterführen</strong>). Im Falle einer Retoure kannst du die Rechnung auch zu einer Gutschrift weiterführen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du einen Beleg in einen neuen überführst, z.B. einen Auftrag als Rechnung weiterführst, werden die Belege miteinander verknüpft. Im Protokoll kannst du dann auf alle verknüpften Belege zugreifen, d.h. in diesem Fall siehst du die Rechnung, deren Bearbeiter und das Datum der Rechnungserstellung.</p>
+</blockquote>
+<p>Bei der Übergabe an den Versand wird standardmäßig zu jedem Auftrag automatisch ein Lieferschein und eine Rechnung angelegt.</p>
+<h3 id="auftrag-an-die-logistik-weitergeben-auto-versand">Auftrag an die Logistik weitergeben (Auto-Versand)<a class="headerlink" href="#auftrag-an-die-logistik-weitergeben-auto-versand" title="Permanent link">&para;</a></h3>
+<p>Sind alle Symbole der Autragsampel grün, kannst du den<a href="https://help.xentral.com/hc/articles/6113578120092#UUID-99504608-d895-41ad-5059-de028e933077">Auftrag an die Logistik weitergeben</a>. Dazu stehen dir folgende Optionen zur Verfügung:</p>
+<p>-<strong>Einzelner Auftrag </strong>: Wähle im <strong>Aktion </strong></p>
+<p>-Menü des Auftrags <strong>Auto-Versand: an Versandzentrum übergeben</strong>.
+-<strong>Mehrere Aufträge <strong>: Markiere zuerst im Reiter <strong>Versandübergabe </strong> alle Aufträge, die du versenden möchtest. Wähle dann im Bereich <strong>Stapelverarbeitung </strong>“</strong> Auto-Versand <strong>” im Dropdown-Menü aus und klicke auf </strong> Ausführen</strong>.
+-<strong>Automatische Weitergabe</strong>: Hast du den <a href="https://help.xentral.com/hc/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">Prozessstarter</a> “autoversand_plus” eingerichtet, werden in regelmäßigen Abständen alle versandfertigen Aufträge automatisch an das Versandzentrum weitergeleitet.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Weitere Informationen zum Versandprozess findest du im ArtikelLogistik und Lagerverwaltung.</p>
+</blockquote>
+<h2 id="vertriebskanale-projekte">Vertriebskanäle/ Projekte<a class="headerlink" href="#vertriebskanale-projekte" title="Permanent link">&para;</a></h2>
+<p>Der Verkauf von Artikeln kann in Xentral über<a href="https://help.xentral.com/hc/articles/360016723620#UUID-47d62f4f-3eac-f7b6-5144-f2353584abd5">Projekte</a>gesteuert werden, die z. B. Einfluss auf den Import deiner Aufträge und deine Logistik haben. Du kannst mit Projekten Geschäftsbereiche voneinander abgrenzen (z.B. B2B und B2C) und eigene Logistikprozesse für jedes Projekt definieren.</p>
+<p>Bevor du ein Projekt anlegst, solltest du dir überlegen, wie du dein Unternehmen aufbauen und welche Bereiche du voneinander abtrennen möchtest:</p>
+<ul>
+<li>Zielgruppe (B2B, B2C)</li>
+<li>Währung, Zoll und Steuern (Inland, Ausland)</li>
+<li>Vertriebswege (Filialen, Fulfillment by Amazon (FBA)/Fulfillment by Merchant (FBM))</li>
+<li>Logistikprozesse (Paketversand, Spedition)</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wir empfehlen dir, für jeden Shop/ Marktplatz ein eigenes Projekt anzulegen. Dies ist besonders bei Amazon wichtig, falls du sowohl über FBA als auch über FBM verkaufst, da sich hier die Logistik drastisch unterscheidet.</p>
+</blockquote>
+<p>Projekte erlauben es dir auch bestimmte Unternehmensbereiche Mitarbeitern zuzuordnen. Neben der Vergabe von Rechten, ist dies eine weitere Möglichkeit um den Datenschutz in deinem Unternehmen zu gewährleisten.</p>
+<h3 id="projekt-einrichten">Projekt einrichten<a class="headerlink" href="#projekt-einrichten" title="Permanent link">&para;</a></h3>
+<p>Ein neues<a href="https://help.xentral.com/hc/articles/360016723620#UUID-47d62f4f-3eac-f7b6-5144-f2353584abd5">Projekt</a>kannst du unter <strong>Einstellungen &gt; Dein System einrichten &gt; Projekte </strong> erstellen. Dabei kannst du entweder ein komplett neues Projekt erstellen oder ein bestehendes kopieren und nur leicht abwandeln. Gib eine <strong>Bezeichnung </strong> und eine <strong>Kennung </strong> ein. Diese helfen dir dein Projekt in der Software zu identifizieren. Alle weiteren Felder sind optional. Klicke auf <strong>Weiter</strong>.</p>
+<p>Öffne anschließend den Reiter <strong>Einstellungen</strong>. Hier kannst du dein Projekt einrichten:</p>
+<p>-<strong>Grundeinstellungen</strong>: Entscheide, ob E-Mails für bezahlte oder verpasste Zahlungen und bei Stornierungen versendet werden sollen. Außerdem kannst du ein eigenes Briefpapier für das Projekt einrichten.
+-<strong>Logistik / Versand</strong>: Richte den Logistikprozess für das Projekt ein. Dazu gehören unter anderem die Wahl des Kommisionierverfahrens, eines Druckers und der zu druckenden Dokumente. Weitere Informationen zu Logistikprozessen findest du hier: <a href="https://help.xentral.com/hc/de/articles/11739147762332#UUID-3c034c43-eb9c-5e2a-81d3-c84579746e5d">Logistik und Lager (Einrichtung)</a>.
+-<strong>Eigene Nummernkreise</strong>: Mit projektspezifischen <a href="https://help.xentral.com/hc/de/articles/5697692402204-Nummernkreise-verwenden">Nummernkreisen</a> kannst du z.B. B2B und B2C steuerrechtlich trennen oder Aufträge aus dem Ausland besonders kennzeichnen.
+-<strong>Steuer / Währung</strong>: Gib finanzielle Informationen zum Projekt an. Hier kannst du z.B. die Steuersätze und Währung angeben, falls es sich um ein Projekt im Ausland handelt. Standardmäßig sind die Werte für Deutschland eingetragen.</p>
+<p>Optional kannst du noch Einstellungen zu deinem Kassensystem/ Point of Sale (POS) und die Adresse einer Filiale hinterlegen.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

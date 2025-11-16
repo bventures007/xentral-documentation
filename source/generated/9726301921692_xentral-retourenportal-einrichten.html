@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9726301921692 Xentral Retourenportal Einrichten - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>9726301921692 Xentral Retourenportal Einrichten</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>9726301921692 Xentral Retourenportal Einrichten</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>DasXentralRetourenportal unterstützt dich dabei, Retourenanmeldungen effizient und kundenfreundlich zu gestalten. Es ermöglicht deinen Kunden, Rücksendungen ihrer Bestellungen selbstständig über ein Online-Portal zu initiieren und zu verwalten. Diese Funktion vereinfacht nicht nur die Rücksendung von Waren, sondern hilft dir als Händler, das gesamte Retourenmanagement effizienter zu gestalten. DasXentralRetourenportal automatisiert den Retourenprozess für dich und für deine Kunden, indem es ihnen eine einfache Möglichkeit bietet, ihre bestellten Artikel zurückzuschicken. Du sparst auf diese Weise viel Zeit im Retourenprozess und bietest deinen Kunden eine angenehmere Erfahrung.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Video-Tutorial: Dein schneller Einstieg in das Retourenportal</strong></p>
+<p>Möchtest du dir innerhalb weniger Minuten einen Überblick über die Funktionen und die Nutzung des XentralRetourenportals verschaffen? Dann ist unser Video-Tutorial genau das Richtige für dich. Schau es dir gleich an!</p>
+<p><strong><a href="https://www.youtube.com/embed/2bZOX0u0-3M">YouTube Video</a><strong>&gt;</strong> Wichtig</strong></p>
+<p>Das sind die wichtigsten Merkmale und Vorteile des XentralRetourenportals:</p>
+<p>-<strong>Selbstbedienung für Endkunden</strong>: Kunden können über eine benutzerfreundliche Oberfläche selbstständig Retouren anmelden, ohne direkt mit dem Kundenservice in Kontakt treten zu müssen. Dies erhöht die Kundenzufriedenheit und reduziert gleichzeitig den Arbeitsaufwand für den Kundenservice.
+-<strong>Automatisierte Retourenabwicklung</strong>: Das Retourenportal automatisiert mehrere Schritte des Retourenprozesses, wie die Generierung von Rücksendeetiketten und die Erfassung von Retourengründen. So werden Zeit und Ressourcen eingespart.
+-<strong>Transparenz und Nachverfolgbarkeit</strong>: Sowohl du als auch deine Kunden haben die Möglichkeit, den Status von Retouren nachzuverfolgen. Dies schafft Transparenz im Retourenprozess und hilft bei der effizienten Bearbeitung von Kundenanfragen. Außerdem können retournierte Artikel schneller wieder in den Lagerbestand aufgenommen und für den Weiterverkauf verfügbar gemacht werden.
+-<strong>Anpassungsmöglichkeiten</strong>: Du kannst das Retourenportal an deine spezifischen Anforderungen anpassen, beispielsweise durch die Definition verschiedener Retourengründe oder die Anpassung der Kommunikation und des Designs des Portals.</p>
+</blockquote>
+<p>DasXentralRetourenportal ist besonders nützlich für dich, wenn du eine hohe Anzahl an Bestellungen und damit potentiellen Retouren verarbeitest. Durch die Optimierung des Retourenprozesses kannst du nicht nur deinen Arbeitsalltag effizienter gestalten, sondern auch ein positives Einkaufserlebnis für deine Kunden schaffen und sie so langfristig an dein Business binden.</p>
+<p>Um auf das Retourenportal zuzugreifen und deine individuell gewünschten Einstellungen vorzunehmen, gehe zu Xentral Startseite &gt; Rubrik: Lager &gt; Retourenportal.</p>
+<p>DasXentralRetourenportal verfügt über folgende Funktionalitäten:</p>
+<ul>
+<li>Automatische Synchronisierung der Retouren zwischen dem Retourenportal und Xentral</li>
+<li>Auswahl mehrerer Versanddienstleister durch die Anbindung von Shipcloud oder Sendcloud</li>
+<li>Direkte Anbindung an DHL Retoure</li>
+<li>Festlegung von Bedingungen für deine Retouren, z.B. dass bestimmte Artikel nicht retourniert werden können</li>
+<li>Übersicht der Retouren auf Basis einzelner Projekte</li>
+<li>Individualisiertes Retourenportal mit deinem Logo und deinen Unternehmensfarben</li>
+</ul>
+<p>Der Funktionsumfang des Retourenportals hängt von deinem genutzten Xentral-Plan ab. Du findest die aktuellen Bedingungen auf der Installationsseite der App imAppstore.</p>
+<h2 id="xentral-retourenportal-anbinden">Xentral Retourenportal anbinden<a class="headerlink" href="#xentral-retourenportal-anbinden" title="Permanent link">&para;</a></h2>
+<p>Gehe wie folgt vor, um das XentralRetourenportal anzubinden:</p>
+<ol>
+<li>Wähle die Xentral Retourenportal-Kachel im Bereich Lager des Launchpads aus.</li>
+<li>Klicke auf Kostenlos installieren. Ein neues Fenster öffnet sich und informiert dich über die von der App benötigten Berechtigungen. Das Xentral Retourenportal benötigt alle Berechtigungen um zu funktionieren und nutzt für die Verbindung zu Xentral einen <a href="https://help.xentral.com/hc/de/articles/6575192352796#UUID-fc8d34e6-410a-8cfc-35c1-c0b6dcd70701">Personal Access Token</a>.</li>
+<li>Klicke auf Erlauben.</li>
+</ol>
+<h2 id="versanddienstleister-anbinden">Versanddienstleister anbinden<a class="headerlink" href="#versanddienstleister-anbinden" title="Permanent link">&para;</a></h2>
+<p>Die folgenden Versanddienstleister sind aktuell für das XentralRetourenportal verfügbar:</p>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/22351538369564#UUID-a96d0d54-dc99-c597-149f-88b947df19e6">Shipcloud</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/22351538352924#UUID-9f51bd6e-fef2-53da-cbe3-31186c4c67b0">Sendcloud</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/22351508586268#UUID-a4bb51c4-7854-7566-d0b2-e1886c84b58b">Swiss Post</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/22351530435996#UUID-d5db8012-7858-8e7e-bdf3-9b21641b3c0f">DHL Retoure</a></li>
+</ul>
+<p>Du kannst mehrere Dienstleister gleichzeitig aktivieren und dann deinen bevorzugten Dienstleister auf der Projektebene auswählen.</p>
+<p>Gehe wie folgt vor, um einen Dienstleister anzubinden.</p>
+<ol>
+<li>Gehe zur Xentral Startseite.</li>
+<li>Klicke im Bereich <strong>Lager </strong> auf die Kachel <strong>Retourenportal</strong>.</li>
+<li>Klicke links auf den Menüpunkt <strong>Einstellungen</strong>.</li>
+<li>Wähle den gewünschten Versanddienstleister im Dropdown-Menü <strong>Versanddienstleister</strong> aus.</li>
+<li>Gib deine Anmeldedaten wie in den folgenden Abschnitten beschrieben ein.</li>
+</ol>
+<h3 id="shipcloud-anbinden">Shipcloud anbinden<a class="headerlink" href="#shipcloud-anbinden" title="Permanent link">&para;</a></h3>
+<p>Du kannst mehrere Versanddienstleister, wie DHL und DPD, über Shipcloud anbinden und für dein Retourenportal nutzen. Shipcloud bietet dir ihren Tarif für Geschäftskunden an, aber du kannst auch deine eigenen Verträge und Konditionen mit Versanddienstleistern in Shipcloud hinterlegen und nutzen.</p>
+<p>Gehe wie folgt vor, um Shipcloud anzubinden.</p>
+<ol>
+<li>Logge dich im <a href="https://app.shipcloud.io/users/sign_in">Shipcloud-Kundenportal</a> ein oder registriere dich, falls du noch nicht mit Shipcloud zusammenarbeitest.</li>
+<li>Klicke oben rechts auf deinen <strong>Benutzernamen </strong> und dann auf <strong>API-Schlüssel</strong>.</li>
+<li>Kopiere den API-Schlüssel.</li>
+<li>Navigiere zur Xentral Startseite.</li>
+<li>Klicke im Bereich <strong>Lager </strong> auf die Kachel <strong>Retourenportal</strong>.</li>
+<li>Klicke links auf den Menüpunkt <strong>Einstellungen</strong>.</li>
+<li>Wähle im Dropdown-Menü <strong>Versanddienstleister </strong> die Option <strong>Shipcloud</strong> aus.</li>
+<li>Füge den API-Schlüssel aus dem Shipcloud-Kundenportal im Feld Shipcloud API-Schlüssel ein.</li>
+<li>Klicke auf API-Verknüpfung testen.</li>
+</ol>
+<h3 id="dhl-retoure-anbinden">DHL Retoure anbinden<a class="headerlink" href="#dhl-retoure-anbinden" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um DHL Retoure anzubinden.</p>
+<ol>
+<li>Navigiere zur Xentral Startseite.</li>
+<li>Klicke im Bereich <strong>Lager </strong> auf die Kachel <strong>Retourenportal</strong>.</li>
+<li>Klicke links auf den Menüpunkt <strong>Einstellungen</strong>.</li>
+<li>Wähle im Dropdown-Menü <strong>Versanddienstleister </strong> die Option <strong>DHL Retoure</strong> aus.</li>
+<li>Gib Username und Passwort deines DHL-Geschätskundenkontos ein.</li>
+<li>Klicke auf API-Verknüpfung testen.</li>
+</ol>
+<h3 id="sendcloud-anbinden">Sendcloud anbinden<a class="headerlink" href="#sendcloud-anbinden" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um Sendcloud anzubinden.</p>
+<ol>
+<li>Navigiere zur Xentral Startseite.</li>
+<li>Klicke im Bereich <strong>Lager </strong> auf die Kachel <strong>Retourenportal</strong>.</li>
+<li>Klicke links auf den Menüpunkt <strong>Einstellungen</strong>.</li>
+<li>Wähle im Dropdown-Menü <strong>Versanddienstleister </strong> die Option <strong>Sendcloud</strong> aus.</li>
+<li>Gib deinen Sendcloud API Key und Sendcloud Secret Key ein.</li>
+<li>Klicke auf API-Verknüpfung testen.</li>
+</ol>
+<p>Du hast Sendcloud erfolgreich angebunden und kannst nun weitere Einstellungen für den Retourenprozess vornehmen.</p>
+<h3 id="swiss-post-anbinden">Swiss Post anbinden<a class="headerlink" href="#swiss-post-anbinden" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um Swiss Post anzubinden.</p>
+<ol>
+<li>Navigiere zur Xentral Startseite.</li>
+<li>Klicke im Bereich <strong>Lager </strong> auf die Kachel <strong>Retourenportal</strong>.</li>
+<li>Klicke links auf den Menüpunkt <strong>Einstellungen</strong>.</li>
+<li>Wähle im Dropdown-Menü <strong>Versanddienstleister </strong> die Option <strong>Swiss Post</strong> aus.</li>
+<li>Gib deinen Client Identifier, dein Client Secret und deine Frankierlizenz ein.</li>
+<li>Klicke auf API-Verknüpfung testen.</li>
+</ol>
+<h2 id="standardeinstellungen-vornehmen">Standardeinstellungen vornehmen<a class="headerlink" href="#standardeinstellungen-vornehmen" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Einstellungen</strong> nimmst du Standardeinstellungen für dein Retourenportal vor. Diese Einstellungen werden genutzt, wenn du keine spezifischen Einstellungen innerhalb deiner Projekte vorgenommen hast.</p>
+<p>Gehe wie folgt vor, um die Standardeinstellungen für das Retourenportal vorzunehmen.</p>
+<ol>
+<li>Klicke im Bereich <strong>Rücksendeadresse</strong> auf Adresse hinzufügen.</li>
+<li>Trage die Rücksendeadresse in die entsprechenden Felder ein.</li>
+<li>Klicke auf <strong>Adresse speichern</strong>.</li>
+<li>Wähle einen Standard Versanddienstleister aus dem Dropdown-Menü. Du kannst aus allen Versanddienstleistern auswählen, die du direkt angebunden oder gesammelt über die Plattformen Sendcloud oder Shipcloud hinterlegt hast.</li>
+<li>Wähle unten im Bereich <strong>Projekte</strong> die Projekte aus, für die du ein Retourenportal erstellen möchtest. Die hier ausgewählten Projekte werden anschließend links unter dem Menüpunkt Projekte aufgelistet. Dort kannst du später projektspezifische Einstellungen vornehmen.</li>
+<li>Wähle im Bereich <strong>Personalisierung</strong> eine Akzentfarbe (für hervorgehobene Elemente, z.B. die Weiter-Schaltfläche) und eine Sekundärfarbe (für zweitrangige Elemente, z.B. die Abbrechen-Schaltfläche) aus. Klicke auf die entsprechende farbige Kachel und wähle manuell eine Farbe aus. Trage alternativ einen HEX-, RGB- oder HSL-Code ein. Wechsle zwischen den unterschiedlichen Arten von Code, indem du auf klickst.</li>
+<li>Klicke im Bereich <strong>Logo </strong> auf Datei hochladen, um dein Firmenlogo hochzuladen. Um das Logo zu aktualisieren, klicke auf das existierende Logo und wähle anschließend ein neues Logo von deinem Computer aus. Du kannst das Logo löschen, indem du auf <strong>Fertig!</strong> Du hast die Standardeinstellungen erfolgreich vorgenommen und kannst nun spezifische Einstellungen für deine einzelnen Projekte bzw. Shops vornehmen.</li>
+</ol>
+<h2 id="spezifische-einstellungen-fur-ein-projekt-vornehmen">Spezifische Einstellungen für ein Projekt vornehmen<a class="headerlink" href="#spezifische-einstellungen-fur-ein-projekt-vornehmen" title="Permanent link">&para;</a></h2>
+<p>Unter dem MenüpunktProjekteauf der linken Seite kannst du alle Projekte einsehen, die mit deinem Retourenportal verbunden sind. Hier nimmst du spezifische Einstellungen für dein Retourenportal vor. Beispielsweise kannst du pro Projekt verschiedene Rückgabefristen und -bedingungen festlegen.</p>
+<p>Gehe wie folgt vor, um spezifische Einstellungen für ein Projekt vorzunehmen.</p>
+<ol>
+<li>Aktiviere die Option Kunden-Landingpage aktivieren. Hiermit aktivierst (oder deaktivierst) du das Retourenportal für dieses Projekt.</li>
+<li><em>Optional</em>: Aktiviere die Option Preis anzeigen, wenn Kunden während der Anlage der Retoure die Artikelpreise angezeigt werden sollen.</li>
+<li><em>Optional</em>: Aktiviere die Option Bestelldatum-Limit, um zu verhindern, dass Kunden vor Ablauf von 24 Stunden nach Auftragsanlage in Xentral eine Retoure anmelden können.</li>
+<li><em>Optional</em>: Aktiviere die Option Nur gelieferte Bestellungen, um festzulegen, dass Retouren erst angemeldet werden können, nachdem die Artikel an den Kunden ausgeliefert wurden.</li>
+<li><em>Optional</em>: Aktiviere die Option Mehrfach-Rückgabe-Limit, um zu verhindern, dass Kunden mehr als eine Retoure für den gleichen Auftrag anlegen.</li>
+<li><em>Optional</em>: Aktiviere die Option Nur Rückgabe für dieses Projekt, um die Anlage von Retouren nur für Aufträge aus dem gewählten Projekt zu erlauben, nicht jedoch für dein komplettes Xentral System.</li>
+<li>Wähle eine Retourenformular Variante aus dem Dropdown-Menü. Hiermit bestimmst du, welche Daten deine Kunden für die Anlage ihrer Retoure angeben müssen. Für B2C-Zwecke empfehlen wir die Auswahl <strong>Retoure per E-Mail und Shop Bestellnummer <strong>. Im B2B-Kontext solltest du die Option </strong> Retoure per Kunden-und Auftragsnummer</strong> nutzen.</li>
+<li>Gib eine Rückgabefrist (in Tagen) ein. Die Frist beginnt nach Erstellung des Kundenauftrags in Xentral. Nach Ablauf der Frist können Kunden ihre Artikel nicht mehr retournieren.</li>
+<li>Wähle deinen Standard Versanddienstleister aus dem Dropdown-Menü. Der Versanddienstleister, den du zuvor im Tab Einstellungen konfiguriert hast, ist hier standardmäßig ausgewählt.</li>
+<li>Wähle eine Rücksendeadresse aus dem Dropdown-Menü. Du kannst neue Adressen hinzufügen und bestehende bearbeiten, indem du auf Adressen verwalten klickst.</li>
+<li>Öffne das Dropdown-Menü Rücksendegründe. Beim Anlegen der Retoure müssen Kunden einen der aufgelisteten Gründe aus diesem Menü wählen. Klicke auf Rücksendegrund hinzufügen und trage den gewünschten Grund auf Englisch und Deutsch ein.</li>
+<li><em>Optional</em>: Richte Retourenbedingungen ein, indem du auf Retourenbedingungen bearbeiten klickst. Retourenbedingungen erlauben es dir die Festlegung von Regeln, die du dann auf bestimmte Artikel, Hersteller oder Länder anwenden kannst. Klicke auf Retourenbedingung hinzufügen, um eine neue Regel festzulegen. Die Bedingungen sind folgendermaßen aufgebaut:
+  Syntax: Wenn - Bedingung - Operator - Wert - Dann - Ergebnis</li>
+</ol>
+<p>Beispiel: Wenn - Artikelnummer - gleich - 12345 - Dann - Kein Paketlabel</p>
+<p>Klicke auf Speichern, um eine neue Bedingung hinzuzufügen. Klicke auf Löschen, um sie zu entfernen.</p>
+<p>Einige beispielhafte Anwendungsfälle für Retourenbedingungen findest du <a href="#UUID-34870d61-2b30-e125-f45a-52089034af14_section-idm464243484989603363959139635">in diesem Kapitel</a>.</p>
+<ol>
+<li><em>Optional</em>: Aktiviere die Option Gutschrift mit Retourenerstellung um in Xentral automatisch eine Gutschrift zu erstellen, sobald dein Kunde eine Retoure angemeldet hat.</li>
+<li><em>Optional</em>: Aktiviere die Option Aktivieren Stückliste, um Artikel, die Teile einer Stückliste sind, im Retourenportal einzeln anzuzeigen und diese Bestandteile somit für deine Kunden bei Anlage der Retoure einzeln auswählbar zu machen.</li>
+</ol>
+<h3 id="textvorlagen-bearbeiten">Textvorlagen bearbeiten<a class="headerlink" href="#textvorlagen-bearbeiten" title="Permanent link">&para;</a></h3>
+<p>Für jedes Projekt kannst du Textvorlagen für Bestätigungsmails und bestimmte Retourenbedingungen bearbeiten.</p>
+<p>Gehe wie folgt vor, um die Textvorlagen für dein Projekt oder Shop anzupassen.</p>
+<ol>
+<li>Klicke links unterhalb des Menüpunkts <strong>Projekte</strong> auf den Namen des gewünschten Projekts.</li>
+<li>Klicke im Bereich <strong>Retoureneinstellungen </strong> auf <strong>Bestätigungsmailtext bearbeiten</strong>. Hier kannst du den Standardtext für Bestätigungen auf Deutsch und Englisch bearbeiten. Dieser Text wird dann automatisch nach Anlage der Retoure an den Kunden versendet. Du kannst die folgenden Variablen verwenden, indem du den Begriff in Anführungszeichen setzt, z.B. &ldquo;Auftragsnummer&rdquo;.</li>
+<li>Klicke auf <strong>Infotexte verwalten</strong>, um Texte einzurichten, die in Fällen angezeigt werden, die in den Retourenbedingungen festgelegt wurden. Diese Texte sind in drei Kategorien unterteilt: Allgemein, Artikel und Bestellung. Allgemeine Infotexte sind immer verfügbar, wohingegen Infotexte für Artikel und Bestellungen nur in ihren jeweiligen Bereichen angewendet werden können.</li>
+<li>Im Dropdown-Menü Service kontaktieren Text kannst du einen Text auswählen, der versendet wird, sobald das Ergebnis Kundenservice kontaktieren von einer Retourenbedingung ausgelöst wird. Die E-Mail-Adresse deines Kundenservice gibst du im Feld Service Emailadresse ein.</li>
+</ol>
+<h3 id="retourenportal-personalisieren">Retourenportal personalisieren<a class="headerlink" href="#retourenportal-personalisieren" title="Permanent link">&para;</a></h3>
+<p>Du kannst jedes deiner Projekt mit einem eigenen Design ausstatten oder das Standard-Design nutzen, das du im TabEinstellungenfestgelegt hast.</p>
+<p>Gehe wie folgt vor, um dein Projekt oder Shop zu personalisieren.</p>
+<ol>
+<li>Klicke links unterhalb des Menüpunkts <strong>Projekte</strong> auf den Namen des gewünschten Projekts.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Personalisierung</strong> erreichst.</li>
+<li>Klicke auf Datei hochladen, um dein Firmenlogo hochzuladen. Um das Logo zu aktualisieren, klicke auf das existierende Logo und wähle anschließend ein neues Logo von deinem Computer aus. Du kannst das Logo löschen, indem du auf klickst.</li>
+<li>Wähle eine Akzentfarbe (für hervorgehobene Elemente, z.B. die Weiter-Schaltfläche) und eine Sekundärfarbe (für zweitrangige Elemente, z.B. die Abbrechen-Schaltfläche). Klicke auf die entsprechende farbige Kachel und wähle dann eine Farbe von Hand oder trage einen HEX-, RGB- oder HSL-Code ein. Du kannst zwischen den unterschiedlichen Arten von Code wechseln, indem du auf klickst.</li>
+<li>Trage den Shopnamen ein, den du auf deinem Retourenportal anzeigen möchtest. Der Name des ausgewählten Projekts ist standardmäßig hier eingetragen.</li>
+<li>Trage die notwendigen Links zu deinem Shop, Impressum, allgemeinen Geschäftsbedingungen und der Datenschutzerklärung in die entsprechenden Felder Shop Link, Impressum Link,<strong>AGB Link</strong> und Datenschutz Link ein.</li>
+</ol>
+<h3 id="beispielhafte-anwendungsfalle-fur-retourenbedingungen">Beispielhafte Anwendungsfälle für Retourenbedingungen<a class="headerlink" href="#beispielhafte-anwendungsfalle-fur-retourenbedingungen" title="Permanent link">&para;</a></h3>
+<p>Retourenbedingungen sind ein mächtiges Werkzeug, um dein Retourenportal an deine Bedürfnisse anzupassen. Die folgende Tabelle enthält einige beispielhafte Anwendungsfälle.</p>
+<table>
+<thead>
+<tr>
+<th>Anwendungsfall</th>
+<th>Retourenbedingung</th>
+<th>Erklärung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Die Retoure soll über das Retourenportal angekündigt werden, der Kunde soll jedoch nicht automatisch ein Versandlabel erhalten.</td>
+<td>Wenn - Artikelprojekt - gleich - Dein Shop - Dann - Kundenservice kontaktieren</td>
+<td>Kunden mit Retouren für diesen spezifischen Shop werden an den Kundenservice weitergeleitet. Dort erhalten sie alle weiteren Informationen, um den Retourenprozess abzuschließen.</td>
+</tr>
+<tr>
+<td>Schwere Retouren sollen mit einem bestimmten Versanddienstleister versendet werden.</td>
+<td>Wenn - Gesamtgewicht - größer als - 30 - Dann - Bestimmter Versanddienstleister - Beispielversanddienstleister</td>
+<td>Kunden erhalten für alle Retouren, die über 30 kg wiegen, ein Versandlabel für den ausgewählten Versanddienstleister.</td>
+</tr>
+<tr>
+<td>Bestimmte Artikel sollen nicht an deine Adresse, sondern an den Hersteller zurückgesendet werden.</td>
+<td>Wenn - Artikelhersteller - gleich - Beispielhersteller - Dann - Bestimmte Rücksendeadresse - Beispieladresse</td>
+<td>Kunden erhalten eine besondere Rücksendeadresse für Artikel von bestimmten Herstellern.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="das-retourenportal-aus-kundensicht">Das Retourenportal aus Kundensicht<a class="headerlink" href="#das-retourenportal-aus-kundensicht" title="Permanent link">&para;</a></h2>
+<p>Deine Kunden können über einen Link in deinem Shop oder in der Bestätigungsmail ihres Auftrags auf das Retourenportal zugreifen. Das Retourenportal nutzen sie folgendermaßen:</p>
+<ol>
+<li>Die Anmeldedaten werden eingetragen, z.B. Kundennummer und Auftragsnummer.</li>
+<li>Die zu retournierenden Artikel werden ausgewählt und Rücksendegründe angegeben.</li>
+<li>Die zu retournierenden Artikel werden erneut zusammengefasst dargestellt und per Klick auf Retoure erstellen bestätigt.</li>
+</ol>
+<p>Nachdem deine Kunden den Prozess abgeschlossen haben, können sie das Versandlabel und den Retourenbeleg selbstständig herunterladen und ausdrucken. Bei Bedarf können Kunden auch direkt eine Retoure für einen weiteren Auftrag starten.</p>
+<h2 id="retouren-verarbeiten">Retouren verarbeiten<a class="headerlink" href="#retouren-verarbeiten" title="Permanent link">&para;</a></h2>
+<p>Alle Retouren, die du über das Retourenportal erhältst, werden im ModulRetouren BelegeinXentral aufgelistet. Hier kannst du einen Lagerplatz für deine Retoure auswählen, eine Gutschrift erstellen und eine Ersatzlieferung anstoßen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zur Verarbeitung von Retouren und zum Modul <strong>Retouren Belege</strong> findest du im ArtikelDeine Retouren verwalten (Retouren Belege).</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

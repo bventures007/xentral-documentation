@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016773539 Smarty Im Übertragen Modul - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016773539 Smarty Im Übertragen Modul</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016773539 Smarty Im Übertragen Modul</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Das <strong>Übertragen-Modul <strong>ermöglicht es dir, eine Vielzahl von Belegen oder Daten aus xentral zu exportieren. Dabei werden dir neben verschiedenen Ausgabeformaten und Ausgabekanälen auch verschiedene Trigger zum Export angeboten (z.B. der Belegstatus, Label, ID oder Datum eines Beleges, etc.). Dazu verwendest du das</strong> Smarty Transfer-Modul</strong>.</p>
+<p>Mit Hilfe von Smarty kannst du nun das Zielformat der ausgegebenen Daten selbst definieren und mit Hilfe von</p>
+<ul>
+<li>Funktionen (wie z.B. truncate) bearbeiten,</li>
+<li>mit SQL-Abfragen anreichern</li>
+<li>und durch die Anwendung von Schleifen, Bedingungen o.ä. mit Logik verändern.</li>
+</ul>
+<p>Im Übertragen-Modul steht dir Smarty bei eingehenden und ausgehenden Nachrichten zur Verfügung. Dabei bestimmt das Template</p>
+<ul>
+<li>bei ausgehenden Nachrichten das von der Gegenstelle erwartete Zielformat</li>
+<li>bei eingehenden Nachrichten das xentral interne Format zur Verarbeitung (in den meisten Fällen xentral XML).</li>
+</ul>
+<h2 id="belegarten-und-daten">Belegarten und Daten<a class="headerlink" href="#belegarten-und-daten" title="Permanent link">&para;</a></h2>
+<p>Hier erfährst du, welche Belegarten und Daten du exportieren bzw. importieren kannst.</p>
+<h3 id="ausgehende-ubertragungen-und-daten">Ausgehende Übertragungen und Daten<a class="headerlink" href="#ausgehende-ubertragungen-und-daten" title="Permanent link">&para;</a></h3>
+<p>Im Übertragen-Modul kannst du per Smarty die folgenden Belegtypen exportieren:</p>
+<ul>
+<li>Auftrag</li>
+<li>Lieferschein</li>
+<li>Rechnung</li>
+<li>Gutschrift</li>
+<li>Angebot</li>
+<li>Bestellung</li>
+<li>Retoure</li>
+</ul>
+<p>Darüber hinaus kannst du die folgenden Daten mit Hilfe von Smarty Templates exportieren:</p>
+<ul>
+<li>Artikel</li>
+<li>Lagerzahlen</li>
+<li>Lagerbestände</li>
+<li>Lagerplätze</li>
+</ul>
+<h3 id="eingehende-ubertragungen-und-daten">Eingehende Übertragungen und Daten<a class="headerlink" href="#eingehende-ubertragungen-und-daten" title="Permanent link">&para;</a></h3>
+<p>Im Übertragen-Modul kannst du per Smarty die folgenden Belegtypen <strong>importieren</strong>:</p>
+<ul>
+<li>Auftrag: techn. Bezeichnung &lsquo;auftrag&rsquo; (XML, CSV)</li>
+<li>Bestellung: techn. Bezeichnung &lsquo;bestellung&rsquo; (XML, CSV)</li>
+<li>Produktion: techn. Bezeichnung &lsquo;produktion&rsquo; (XML, CSV)</li>
+<li>Retoure: techn. Bezeichnung &lsquo;retoure&rsquo; (XML, CSV)</li>
+</ul>
+<p>Darüberhinaus kannst du die folgenden Daten importieren (einlesen):</p>
+<ul>
+<li>Lagerzahlen</li>
+<li>Artikeldaten</li>
+<li>Tracking-Informationen</li>
+</ul>
+<p>Um alle Belegtypen zu importieren, musst du das Übertragungsformat <strong>smarty </strong> auswählen und <strong>speichern <strong>. Dann erscheint unter </strong> Beleg empfangen <strong>eine neue Checkbox, die </strong> alle Belegtypen importieren</strong>heißt.</p>
+<p>Fehler beim Auslesen kannst du teilweise aus dem Monitor bzw. der Logfile lesen.</p>
+<h2 id="smarty-ausgehend-outbound-oder-export">Smarty Ausgehend (outbound oder Export)<a class="headerlink" href="#smarty-ausgehend-outbound-oder-export" title="Permanent link">&para;</a></h2>
+<p>Daten aus xentral zu versenden (auch “outbound” genannt) ermöglicht es dir die Daten von xentral</p>
+<ol>
+<li>in ein Zielformat zu konvertieren und anschließend</li>
+<li>in ein Fremdsystem zu exportieren</li>
+</ol>
+<p>Eine Template-Datei könnte dabei z.B. folgendermaßen aussehen:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;auftrag&gt;
+  &lt;status&gt;{$beleg-&gt;status}&lt;/status&gt;
+  &lt;datum&gt;{$beleg-&gt;datum|date_format:'%d.%m.%Y'}&lt;/datum&gt;
+  &lt;lieferdatum&gt;{$beleg-&gt;lieferdatum}&lt;/lieferdatum&gt;
+  &lt;versandart&gt;{$beleg-&gt;versandart}&lt;/versandart&gt;
+  &lt;zahlungsweise&gt;{$beleg-&gt;zahlungsweise}&lt;/zahlungsweise&gt;
+  &lt;belegnr&gt;{$beleg-&gt;belegnr}&lt;/belegnr&gt;
+  &lt;kundennummer&gt;{$beleg-&gt;kundennummer}&lt;/kundennummer&gt;
+  &lt;name&gt;{$beleg-&gt;name}&lt;/name&gt;
+  &lt;strasse&gt;{$beleg-&gt;strasse}&lt;/strasse&gt;
+  &lt;plz&gt;{$beleg-&gt;plz}&lt;/plz&gt;
+  &lt;ort&gt;{$beleg-&gt;ort}&lt;/ort&gt;
+  &lt;positionen&gt;
+  {foreach from=$beleg-&gt;positionen key=keyrow item=position}{*Positionen*}
+  &lt;position&gt;
+&lt;nummer&gt;{$position-&gt;nummer}&lt;/nummer&gt;
+  &lt;bezeichnung&gt;{$position-&gt;bezeichnung}&lt;/bezeichnung&gt;
+  &lt;beschreibung&gt;{$position-&gt;beschreibung}&lt;/beschreibung&gt;
+  &lt;menge&gt;{$position-&gt;menge}&lt;/menge&gt;
+  &lt;preis&gt;{$position-&gt;preis}&lt;/preis&gt;
+  &lt;einheit&gt;{$position-&gt;einheit}&lt;/einheit&gt;
+&lt;/position&gt;
+  {/foreach}
+  &lt;/positionen&gt;
+  {if $beleg-&gt;versand}
+  &lt;tracking&gt;
+  {foreach from=$beleg-&gt;versand key=keyversand item=tracking}{*Versand*}
+&lt;tracking&gt;{$tracking-&gt;tracking}&lt;/tracking&gt;
+  {/foreach}
+  &lt;/tracking&gt;
+{/if}
+&lt;/auftrag&gt;
+</code></pre>
+<h2 id="smarty-eingehend-inbound-oder-import">Smarty Eingehend (inbound oder Import)<a class="headerlink" href="#smarty-eingehend-inbound-oder-import" title="Permanent link">&para;</a></h2>
+<p>Daten in xentral einzulesen (auch “inbound” genannt) ermöglicht es dir die Daten</p>
+<ol>
+<li>aus einem anderen System zu importieren,</li>
+<li>zu interpretieren, dann</li>
+<li>in ein xentral Zielformat zu konvertieren und anschließend</li>
+<li>in xentral zu importieren.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Alle Inhalte, die im Eingangskonverter eingegeben werden, orientieren sich an den Standard-Templates aus dem Übertragen-Modul. Diese stellen gleichzeitig auch das Maximum an zu verarbeitenden Informationen dar. Informationen, welche darüber hinaus geliefert werden, bleiben unbeachtet.</p>
+</blockquote>
+<p>Standardmäßig werden die meisten Inhalte korrekt über das $object-Array geparst. Wenn die Darstellung nicht passen sollte, kannst du mit alternativen Arrays arbeiten.</p>
+<h3 id="alternative-smarty-objects">Alternative smarty-objects<a class="headerlink" href="#alternative-smarty-objects" title="Permanent link">&para;</a></h3>
+<p>-<strong>$csv:</strong> ein Array aus Objekten mit dem Headerspalten als Keys
+-<strong>$csvwithoutheader:</strong> ein Array aus Objekten ohne Headerspalten; Aufruf der Spalten in der Notation col0, col1, usw.
+-<strong>$xml:</strong> ein Object das aus einem Xml gaparst wurde
+-<strong>$object:</strong> ist ein $xml falls Ursprungsdaten ein gültiges xml waren
+-<strong>$original:</strong> ist der Original-String des Eingangs</p>
+<h3 id="operationen">Operationen<a class="headerlink" href="#operationen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>{&ldquo;Der Auftrag enthält keine Positionen&rdquo;|error}
+  gibt einen Fehler an Smarty aus, der in den Übertragungsmonitor geloggt wird</p>
+</li>
+<li>
+<p>{&ldquo;SELECT nummer FROM artikel&rdquo;|assignsql assign=&rdquo;artikelnummern&rdquo;}
+  speichert das Ergebnis der SQL-Abfrage in die Variable $artikelnummern</p>
+</li>
+<li>
+<p>{$original|replace:&rdquo;1.0&rdquo;:&rdquo;2.0&rdquo;|getxml assign=&rdquo;neuesxml&rdquo;}
+  ersetzt alle Strings 1.0 zu 2.0 und speichert wandelt es in ein neues Objekt $neuesxml um</p>
+</li>
+<li>
+<p>{$position-&gt;nummer|pregreplace:&rsquo;/[^0-9]/&rsquo;:&rsquo;&lsquo;}
+  führt eine reguläre Ersetzung auf das eine Objekt aus</p>
+</li>
+</ul>
+<h3 id="beispiele">Beispiele<a class="headerlink" href="#beispiele" title="Permanent link">&para;</a></h3>
+<p>Nachfolgend zeigen wir dir Beispiele zur eingehenden Datenkonvertierung.</p>
+<h4 id="beispiel-1-umwandlung-csv-datei-in-xml-zur-auftragserstellung">Beispiel 1: Umwandlung CSV-Datei in xml zur Auftragserstellung<a class="headerlink" href="#beispiel-1-umwandlung-csv-datei-in-xml-zur-auftragserstellung" title="Permanent link">&para;</a></h4>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;response&gt;
+&lt;xml&gt;
+{assign var=&quot;letztebestellnummer&quot; value=0}{assign var=&quot;ersterbeleg&quot; value=1}
+
+&lt;auftrag_list&gt;{foreach from=$object key=keyrow item=position}{if $letztebestellnummer &lt;&gt; $position-&gt;beleg_belegnr and $ersterbeleg == 0}
+&lt;/auftrag_position_list&gt;
+&lt;/auftrag&gt;
+{/if}
+
+{if $letztebestellnummer &lt;&gt; $position-&gt;beleg_belegnr or $ersterbeleg == 1}
+&lt;auftrag&gt;
+{$ersterbeleg = 0}{$letztebestellnummer= $position-&gt;beleg_belegnr}
+&lt;datum&gt;{$position-&gt;beleg_datum|date_format:&quot;%d.%m.%Y&quot;}&lt;/datum&gt;
+&lt;versandart&gt;{$position-&gt;beleg_versandart}&lt;/versandart&gt;
+&lt;status&gt;{$position-&gt;beleg_status}&lt;/status&gt;
+&lt;projekt&gt;{$position-&gt;beleg_projekt}&lt;/projekt&gt;
+&lt;name&gt;{$position-&gt;beleg_name_firma|escape:&quot;html&quot;}&lt;/name&gt;
+&lt;adresszusatz&gt;{$position-&gt;beleg_name_nachname|escape:&quot;html&quot;} {$position-&gt;beleg_name_vorname|escape:&quot;html&quot;}&lt;/adresszusatz&gt;
+&lt;strasse&gt;{$position-&gt;beleg_adresse_strasse} {$position-&gt;beleg_adresse_hausnummer|escape:&quot;html&quot;}&lt;/strasse&gt;
+&lt;plz&gt;{$position-&gt;beleg_plz}&lt;/plz&gt;
+&lt;ort&gt;{$position-&gt;beleg_ort}&lt;/ort&gt;
+&lt;ihrebestellnummer&gt;{$position-&gt;beleg_belegnr}&lt;/ihrebestellnummer&gt;
+&lt;internebezeichnung&gt;{$position-&gt;POSNR|string_format:&quot;%.0f&quot;}&lt;/internebezeichnung&gt;
+&lt;email&gt;{$position-&gt;beleg_email}&lt;/email&gt;
+&lt;telefon&gt;{$position-&gt;beleg_telefon}&lt;/telefon&gt;
+&lt;lieferunterabteilung&gt;
+&lt;/lieferunterabteilung&gt;
+&lt;internebemerkung&gt;
+&lt;/internebemerkung&gt;
+&lt;auftrag_position_list&gt;{/if}
+&lt;auftrag_position&gt;
+&lt;name&gt;{$position-&gt;artikel_bezeichnung|escape:&quot;html&quot;}&lt;/name&gt;
+&lt;menge&gt;{$position-&gt;artikel_menge}&lt;/menge&gt;
+&lt;nummer&gt;{$position-&gt;artikel_nummer}&lt;/nummer&gt;
+&lt;/auftrag_position&gt;
+{/foreach}
+&lt;/auftrag_position_list&gt;
+&lt;/auftrag&gt;
+&lt;/auftrag_list&gt;
+&lt;/xml&gt;
+&lt;/response&gt;
+</code></pre>
+<h3 id="beispiel-2-falllprufung-fur-lagerzahlen-inklusive-sql-verwendung">Beispiel 2: Falllprüfung für Lagerzahlen inklusive SQL-Verwendung<a class="headerlink" href="#beispiel-2-falllprufung-fur-lagerzahlen-inklusive-sql-verwendung" title="Permanent link">&para;</a></h3>
+<p>Hintergrund: Lagerzahlen wurden von Fulfiller teilweise ohne MHD/Chargen-Infos übertragen. Via SQL wird geprüft, ob der Artikel MHD/Chargenpflichtig ist. Wenn ja, dann wird das template um statische Informationen erweitert.</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;response xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+&lt;xml&gt;
+&lt;artikel_list&gt;
+{assign var=&quot;counter&quot; value = 0}
+{foreach from=$object-&gt;xml-&gt;artikel_list-&gt;artikel key=key item=item}
+{assign var=&quot;Nummer&quot; value=$object-&gt;xml-&gt;artikel_list-&gt;artikel[$counter++]-&gt;nummer}
+{&quot;SELECT nummer, mindesthaltbarkeitsdatum, chargenverwaltung FROM artikel WHERE nummer = '$Nummer' and lagerartikel = 1 and geloescht&lt;&gt;1 &quot;|assignsql assign=&quot;artikel&quot;}
+&lt;artikel&gt;
+&lt;nummer&gt;{$item-&gt;nummer}&lt;/nummer&gt;
+&lt;lagerzahl&gt;{$item-&gt;lagerzahl}&lt;/lagerzahl&gt;
+{if!($item-&gt;lager_platz)}
+&lt;lager_platz&gt;Hauptlager&lt;/lager_platz&gt;{else} &lt;lager_platz&gt;{$item-&gt;lager_platz}&lt;/lager_platz&gt; {/if}
+{if $artikel[0]-&gt;nummer == $item-&gt;nummer &amp;&amp; $artikel[0]-&gt;mindesthaltbarkeitsdatum == 1 &amp;&amp; $artikel[0]-&gt;chargenverwaltung == 2}
+&lt;mhd&gt;31.12.9999&lt;/mhd&gt;
+&lt;charge&gt;DUMMY&lt;/charge&gt;
+{elseif $artikel[0]-&gt;nummer == $item-&gt;nummer &amp;&amp; $artikel[0]-&gt;chargenverwaltung == 2}
+&lt;charge&gt;DUMMY&lt;/charge&gt;
+{/if}
+&lt;/artikel&gt;
+{/foreach}
+&lt;/artikel_list&gt;
+&lt;/xml&gt;
+&lt;/response&gt;
+</code></pre>
+<h4 id="beispiel-3-einlesen-von-csv-dateien-ohne-kopfzeile">Beispiel 3: Einlesen von CSV-Dateien ohne Kopfzeile<a class="headerlink" href="#beispiel-3-einlesen-von-csv-dateien-ohne-kopfzeile" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Array von $csvwithoutheader wird nicht über den Bildschirm von $object ausgegeben. Den Inhalt aus $csvwithoutheader kannst du auch bspw. mit {$csvwithoutheader|@debug_print_var} ausgeben. Der Spaltenaufruf erfolgt über die Notation col0-n.</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;response xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+  &lt;xml&gt;
+  &lt;artikel_list&gt;
+ {foreach from=$csvwithoutheader key=keyrow item=Ab}
+  &lt;artikel&gt;
+  &lt;nummer&gt;{$Ab-&gt;col0}&lt;/nummer&gt;
+  &lt;lagerzahl&gt;{$Ab-&gt;col1}&lt;/lagerzahl&gt;
+&lt;/artikel&gt;
+{/foreach}
+  &lt;/artikel_list&gt;
+  &lt;/xml&gt;
+&lt;/response&gt;
+</code></pre>
+<h2 id="ubertragung-mit-typ-api">Übertragung mit Typ API<a class="headerlink" href="#ubertragung-mit-typ-api" title="Permanent link">&para;</a></h2>
+<p>API steht als technische Übertragungsart im Standard zur Verfügung. Weitere verfügbare Übertragungsarten sind FTP, FTPS (Benutzername und Passwort, keine Zertifikate), SFTP, E-Mail und die lokale Speicherung auf dem Server.</p>
+<p>Der Umgang mit Smarty erfolgt hier nach derselben Weise, wie wenn eine andere Übertragungsart verwendet wird. Allerdings können hier api-spezifische Anforderungen wie Authentifizierung, Header oder application-type zu beachten sein. Wenn du mit einer Authentifizierung arbeitest, die ein Passwort benötigt, werden im Tab <strong>Dateien</strong> werden keine Enträge angezeigt. Erfolgreiche Übertragungen können zum aktuellen Zeitpunkt nur im Übertragen-Monitor nachvollzogen werden, wenn zum entsprechenden Beleg bzw. der entsprechenden Aktion “hochgeladen” in einer grünen Erfolgsmeldung steht. Möglicherweise werden nur unzureichende Fehlermeldungen bei der Übertragung zurückgemeldet, weshalb du hier auf ein ausführliches error-logging vom Zielsystem angewiesen bist.</p>
+<h2 id="besonderheiten-im-ubertragen-modul">Besonderheiten im Übertragen-Modul<a class="headerlink" href="#besonderheiten-im-ubertragen-modul" title="Permanent link">&para;</a></h2>
+<p>Hier zeigen wir dir Besonderheiten von Smarty im Übertragen-Modul.</p>
+<h3 id="verknupfte-belege">Verknüpfte Belege<a class="headerlink" href="#verknupfte-belege" title="Permanent link">&para;</a></h3>
+<p>In allen Belegen kannst du mit Hilfe von Smarty auf verknüpfte Belege zugreifen. Wenn z.B. zu einem Auftrag ein Lieferschein existiert, existiert auch ein Array $beleg-&gt;lieferschein[], in dem dann die entsprechenden Informationen des referenzierten Lieferscheines zur Verfügung stehen. Auf diese Art kannst du schnell auf ergänzende Belegnummern, Lieferdaten, Chargen oder Seriennummern zurückgreifen - auch bei der Erstellung eines Auftrages. Die Lieferscheinnummer z.B. erreichst du direkt über $beleg-&gt;lieferschein[0]-&gt;belegnr</p>
+<p>Die Folgenden Daten stehen dir in den jeweiligen Belegen zur Verfügung, sofern ein entsprechender Beleg im System existiert.</p>
+<p>Im Auftrag:</p>
+<ul>
+<li>$beleg-&gt;bestellung[]</li>
+<li>$beleg-&gt;angebot[]</li>
+<li>$beleg-&gt;lieferschein[]</li>
+<li>$beleg-&gt;rechnung[]</li>
+<li>$beleg-&gt;retoure[]</li>
+<li>$beleg-&gt;gutschrift[]</li>
+</ul>
+<p>Im Lieferschein:</p>
+<ul>
+<li>$beleg-&gt;bestellung[]</li>
+<li>$beleg-&gt;rechnung[]</li>
+</ul>
+<p>Beispiele:</p>
+<p>Für die folgenden Beispiele benötigst du SQL. Die allgemeine Syntax für SQL-Abfragen im Übertragungen-Modul findest du im Abschnitt<a href="#UUID-7173bf6b-953d-0500-1285-3235d3cfce20_id_360016773539_id_h_01FDS6QHPZXY5NR99QCXDVX912">SQL-Abfragen</a>dieses Artikels.</p>
+<p><strong>Seriennummer <strong>: Die Seriennummer eines Lieferscheins ist in der Tabelle </strong> belege_chargesnmhd</strong> gespeichert. Du kannst über den folgenden SQL-Code auf den Wert zugreifen:</p>
+<pre><code>{foreach from=$beleg-&gt;positionen key=keyrow item=position}{*Positionen*}
+  &lt;position&gt;
+(...)
+  {&quot;SELECT wert FROM beleg_chargesnmhd WHERE doctype = 'lieferschein' AND type = 'sn' AND pos = '{$position-&gt;id}' &quot;|assignsql assign=&quot;sn&quot;}
+  &lt;seriennummer&gt;{$sn[0]-&gt;wert}&lt;/seriennummer&gt;
+```&lt;strong&gt;Internetnummer&lt;/strong&gt;: Um auf die Internetnummer eines mit dem Lieferschein verknüpften Auftrags zuzugreifen, kannst du den folgenden SQL-Code nutzen:```
+&lt;lieferschein&gt;
+(...)
+  {&quot;SELECT internet FROM auftrag WHERE id = '{$beleg-&gt;auftragid}' &quot;|assignsql assign=&quot;internet&quot;}
+  &lt;internet&gt;{$internet[0]-&gt;internet}&lt;/internet&gt;
+</code></pre>
+<p>In der Rechnung:</p>
+<ul>
+<li>$beleg-&gt;bestellung[]</li>
+<li>$beleg-&gt;lieferschein[]</li>
+</ul>
+<h4 id="artikelstammdaten-aus-positionen-ansprechen">ArtikelStammdaten aus Positionen ansprechen<a class="headerlink" href="#artikelstammdaten-aus-positionen-ansprechen" title="Permanent link">&para;</a></h4>
+<p>Über die Belegpositionen kannst du auch &ldquo;darunterliegende&rdquo; Strukturen abrufen, die nicht direkt im Beleg gespeichert sind. Ein Beispiel dafür ist das Gewicht eines Artikels. Dieses kannst du über {$position-&gt;articledata-&gt;gewicht} abrufen. So kannst du z.B. durch eine Multiplikation mit der Menge der Position und dem Aufaddieren aller Gewichte auch das Gesamtgewicht aller Artikel eines Beleges berechnen und übertragen. Über $position-&gt;articledata kannst du alle Spalten aus der Tabelle artikel ansprechen. Dabei solltest du immer beachten, ob Informationen aus den Artikel-Stammdaten evtl. in der Auftragsposition bereits verändert worden sein könnten. Im Zweifelsfall solltest du den Wert aus dem Beleg verwenden.</p>
+<h3 id="sql-abfragen">SQL-Abfragen<a class="headerlink" href="#sql-abfragen" title="Permanent link">&para;</a></h3>
+<p>Im Übertragen-Modul kannst du zur Anreicherung von Daten auch allgemeine SQL-Anfragen erstellen und in den ausgegebenen Templates ausgeben. Dazu verwendest du folgende Syntax:</p>
+<p><code>{"SELECT gln, rechnung_gln FROM adresse where lieferantennummer = '{$beleg-&gt;lieferantennummer}' "|assignsql assign="adressdata"}</code>Auf das Ergebnis kannst du dann über das zugewiesene Array adressdata zugreifen:<code>{$adressdata[0]-&gt;gln} // for the targeted call of the array</code></p>
+<h3 id="datenmanipulation-und-formatumwandlung">Datenmanipulation und Formatumwandlung<a class="headerlink" href="#datenmanipulation-und-formatumwandlung" title="Permanent link">&para;</a></h3>
+<p>Datumswerte können nach Anforderung ausgegeben werden:</p>
+<ul>
+<li>Int. Datumsformat (ISO 8601): {$beleg-&gt;datum|date_format:&rsquo;%Y-%m-%d&rsquo;}</li>
+<li>Deutsches Datumsformat (DIN 5008): {$beleg-&gt;datum|date_format:&rsquo;%d.%m.%Y&rsquo;}</li>
+</ul>
+<p>Zahlen können nach Bedarf umformatiert werden. Hier am Beispiel der Spalte &ldquo;Menge&rdquo;:</p>
+<ul>
+<li>Ausgabe ohne Nachkommastellen (als Ganzzahl): {$position-&gt;menge|string_format:&rsquo;%d&rsquo;}</li>
+<li>Ausgabe mit einer Nachkommastelle: {$position-&gt;menge|string_format:&rsquo;%.1f&rsquo;}</li>
+<li>Ausgabe mit zwei Nachkommastellen: {$position-&gt;menge|string_format:&rsquo;%.2f&rsquo;}</li>
+</ul>
+<p>Grundsätzlich können alle Formate ausgegeben werden, die durch die Funktion sprintf in PHP verfügbar sind.</p>
+<h2 id="felddefinitionen">Felddefinitionen<a class="headerlink" href="#felddefinitionen" title="Permanent link">&para;</a></h2>
+<p>Hier findest du eine Auflistung der verschiedenen Felddefinitionen. Eine vollständige Auflistung der verfügbaren Felder inkl. einer Übersetzung der Feldnamen und einer Beschreibung der Inhalte in Englisch ist jeweils unterhalb des Screenshots verlinkt.</p>
+<h3 id="lieferschein">Lieferschein<a class="headerlink" href="#lieferschein" title="Permanent link">&para;</a></h3>
+<p><img alt="smarty_delivery_note.png" src="https://help.xentral.com/hc/article_attachments/10728995013660" /></p>
+<p>Weitere Felddefinitionen findest du<a href="https://help.xentral.com/hc/de/articles/4405304107026#UUID-c256ae4c-84cd-1a0b-fb33-b5210d57d6da">hier</a>.</p>
+<h3 id="tracking-ruckmeldung">Tracking Rückmeldung<a class="headerlink" href="#tracking-ruckmeldung" title="Permanent link">&para;</a></h3>
+<p><img alt="smarty_tracking.png" src="https://help.xentral.com/hc/article_attachments/10729009114524" /></p>
+<p>Weitere Felddefinitionen findest du<a href="https://help.xentral.com/hc/de/articles/4405304107026#UUID-c256ae4c-84cd-1a0b-fb33-b5210d57d6da">hier</a>.</p>
+<h3 id="lagerzahlen-ruckmeldung">Lagerzahlen-Rückmeldung<a class="headerlink" href="#lagerzahlen-ruckmeldung" title="Permanent link">&para;</a></h3>
+<p><img alt="smarty_stock_figures.png" src="https://help.xentral.com/hc/article_attachments/10729029800860" /></p>
+<p>Weitere Felddefinitionen findest du<a href="https://help.xentral.com/hc/de/articles/4405304107026#UUID-c256ae4c-84cd-1a0b-fb33-b5210d57d6da">hier</a>.</p>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<p>Mit Hilfe der integrierten Template-Engine Smarty können einfach und flexibel zeichenbasierte Ausgabestrukturen von Datenformaten wie CSV, XML oder JSON an die Bedürfnisse des Kunden angepasst werden. Im Grunde muss lediglich das vorhandene Zielformat in eine Textdatei kopiert und mit den entsprechenden Variablen gefüllt werden. Diese können dabei noch umformatiert werden.</p>
+<p>Belegdaten finden sich z.B. in der Smarty-Variable $beleg und werden in gewohnter PHP-Objektschreibweise angesprochen, z.B. $beleg-&gt;kundennummer oder $beleg-&gt;belegnr. Die Namensgebung gleicht der Benennung von Datenbank-Spaltennamen.</p>
+<p>Auch ein Zugriff auf komplexere Strukturen ist möglich (je nach Beleg). So kann im Lieferschein auf den zu Grunde liegenden Auftrag zugegriffen werden: $beleg-&gt;auftrag-&gt;lieferdatum. Verkürztes Beispiel mit fiktivem Format:</p>
+<pre><code>{*Beleg-Stammdaten --------------------------------*}
+ {$beleg-&gt;status}
+ {$beleg-&gt;datum|date_format:'%d.%m.%Y'}
+ {$beleg-&gt;belegnr}
+ {$beleg-&gt;kundennummer}
+ {$beleg-&gt;name} 
+{*Access to data of the underlying order*} 
+{$beleg-&gt;auftrag-&gt;lieferdatum} 
+{*Other fields removed*}
+</code></pre>
+<pre><code>{*Positionen - Beginn ------------------------------*}
+ {*loop through all available items*}
+ {foreach from=$beleg-&gt;positionen key=keypos item=position}
+ {$position-&gt;nummer}
+ {$position-&gt;name}
+ {$position-&gt;beschreibung}
+ {$position-&gt;menge}
+ {$position-&gt;preis}
+ {*Other fields removed*}
+ {/foreach}
+{*Positionen - Ende --------------------------------*}
+</code></pre>
+<h2 id="beispiele_1">Beispiele<a class="headerlink" href="#beispiele_1" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden haben wir dir einige Beispiele zusammengefasst, die dir die Ausgabe verschiedener Lieferscheinformate in den Formaten EDI, CSV und XML ermöglichen. Bitte prüfe bei eigener Anwendung die Spaltenbeschriftungen (CSV), Tagnamen (XML) und EDI-Spezifikationen. Natürlich sind auch weitere Ausgabeformate (wie z.B. JSON) denkbar.</p>
+<h3 id="beispiel-lieferschein-csv-ausfuhrlich">Beispiel Lieferschein CSV (ausführlich)<a class="headerlink" href="#beispiel-lieferschein-csv-ausfuhrlich" title="Permanent link">&para;</a></h3>
+<p>Das folgende Beispiel listet ein ausführliches Beispiel für einen Export eines Lieferscheines in verschiedenen Formaten.</p>
+<h4 id="format-edi">Format EDI<a class="headerlink" href="#format-edi" title="Permanent link">&para;</a></h4>
+<ul>
+<li>wird ergänzt -</li>
+</ul>
+<h4 id="format-csv">Format CSV<a class="headerlink" href="#format-csv" title="Permanent link">&para;</a></h4>
+<p><code>"tracking"; "document_status"; "document_date"; "document_delivery_date"; "document_actual_delivery_date"; "document_shipping_method"; "document_payment_method"; "document_document_nr"; "document_main_document_nr"; "document_customer_number"; "document_name"; "document_department"; "document_subdepartment"; "document_address_addition"; "voucher_contact_person"; "voucher_phone"; "voucher_email"; "voucher_country"; "voucher_street"; "voucher_plz"; "voucher_location"; "voucher_project"; "voucher_action"; "voucher_internal_note"; "voucher_internal_name"; "voucher_free_text"; "voucher_your_order_number"; "voucher_delivery_condition"; "voucher_type"; "item_number"; "item_designation"; "item_description"; "item_quantity"; "item_price"; "item_discount"; "item_currency"; "item_delivery_date"; "item_sort"; "item_tax"; "item_unit"; "item_tariff_number"; "item_country_of_origin"; "item_article_number_customer"; "desired_delivery_date"; "item_free_field1"; "item_free_field2"; "item_free_field3"; "item_free_field40"{foreach from=$voucher-&gt;items key=keyrow item=item}{*items *}\"{$item-&gt;tracking}";\"{$voucher-&gt;status}";\"{$voucher-&gt;date|date_format: '%d. %m. %Y'}";\"{$voucher-&gt;delivery date}";\"{$voucher-&gt;actual delivery date}";\"{$voucher-&gt;shipping method}";\"{$voucher-&gt;payment method}";\"{$voucher-&gt;voucher_number}";\"{$voucher-&gt;main_voucher_number}"; \"{$voucher-&gt;name}";\"{$voucher-&gt;department}";\"{$voucher-&gt;subdepartment}";\"{$voucher-&gt;address}";\"{$voucher-&gt;contact person}";\"{$voucher-&gt;phone}";\"{$voucher-&gt;email}";\"{$voucher-&gt;country}"; \"{$voucher-&gt;street}";\"{$voucher-&gt;plz}";\"{$voucher-&gt;location}";\"{$voucher-&gt;project}";\"{$voucher-&gt;action}";\"{$voucher-&gt;internal remark}";\"{$voucher-&gt;internal name}";\"{$voucher-&gt;free text}"; \"{$document-&gt;your order number}";\"{$document-&gt;delivery condition}";\"{$document-&gt;type}";\"{$item-&gt;number}";\"{$item-&gt;designation}";\"{$item-&gt;description}";\"{$item-&gt;quantity|string_format: '%. 2f'}";\"{$item-&gt;price}";\"{$item-&gt;discount}";\"{$item-&gt;currency}";\"{$item-&gt;delivery date}";\"{$item-&gt;location}";\"{$item-&gt;sales tax}";\"{$item-&gt;unit}";\"{$item-&gt;tariff number}"; \"{$item-&gt;country of origin}";\"{$item-&gt;part number customer}";\"{$voucher-&gt;order-&gt;date of delivery}";\"{$item-&gt;free field1}";\"{$item-&gt;free field2}";\"{$item-&gt;free field3}";\{* If applicable. other free fields *}";\"{$position-&gt;freefield40}";\ {/foreach}</code>#### Format XML<code>{$voucher-&gt;status} {$voucher-&gt;date|date_format:'%d.%m.%Y'} {$voucher-&gt;delivery date} {$voucher-&gt;actual delivery date} {$voucher-&gt;shipping method} {$voucher-&gt;payment method} {$voucher-&gt;document number} {$voucher-&gt;main document number} {$voucher-&gt;customer number} {$voucher-&gt;name} {$voucher-&gt;department} {$voucher-&gt;subdepartment} {$voucher-&gt;address supplement} {$document-&gt;contact person} {$document-&gt;phone} {$document-&gt;email} {$document-&gt;country} {$document-&gt;street} {$documents-&gt;plz} {$voucher-&gt;location} {$voucher-&gt;project} {$voucher-&gt;action} {$voucher-&gt;internal remark} {$voucher-&gt;internal description} {$voucher-&gt;free text} {$voucher-&gt;your order number} {$voucher-&gt;delivery condition} {$voucher-&gt;type} {foreach from=$voucher-&gt;items key=keypos item=item} {$item-&gt;number} {$item- &gt;name} {$item-&gt;description} {$item-&gt;quantity} {$item-&gt;price} {$item-&gt;discount} {$item-&gt;currency} {$item-&gt;delivery date} {$item-&gt;location} {$item-&gt;tax} {$item-&gt;unit} {$item-&gt;tariff number} {$item-&gt;country of origin} {$item-&gt;article number customer} {$item-&gt;freefield1} {$item-&gt;freefield2} {$item-&gt;freefield3} {* Other free fields if necessary *} {$item-&gt;freefield40} {/foreach} {if $bill-&gt;shipping} {foreach from=$bill-&gt;shipping key=keyshipping item=tracking} {* shipping*} {$tracking-&gt;tracking} {/foreach} {/if}</code></p>
+<h3 id="beispiel-lieferschein-mit-mhd">Beispiel Lieferschein mit MHD<a class="headerlink" href="#beispiel-lieferschein-mit-mhd" title="Permanent link">&para;</a></h3>
+<p>Im Folgenden werden Beispiele als Ergänzung zu obigen Code-Beispielen gezeigt, die nur die Besonderheiten in Bezug auf MHDs in einer Position berücksichtigen.</p>
+<h4 id="format-csv_1">Format CSV<a class="headerlink" href="#format-csv_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>wird ergänzt -</li>
+</ul>
+<h4 id="format-xml">Format XML<a class="headerlink" href="#format-xml" title="Permanent link">&para;</a></h4>
+<ul>
+<li>wird ergänzt -</li>
+</ul>
+<h3 id="beispiel-lieferschein-mit-charge">Beispiel Lieferschein mit Charge<a class="headerlink" href="#beispiel-lieferschein-mit-charge" title="Permanent link">&para;</a></h3>
+<p>Im Folgenden werden Beispiele als Ergänzung zu obigen Code-Beispielen gezeigt, die nur die Besonderheiten in Bezug auf Chargen in einer Position berücksichtigen.</p>
+<h4 id="format-csv_2">Format CSV<a class="headerlink" href="#format-csv_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>wird ergänzt -</li>
+</ul>
+<h4 id="format-xml_1">Format XML<a class="headerlink" href="#format-xml_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>wird ergänzt -</li>
+</ul>
+<h3 id="beispiel-lieferschein-mit-charge-und-mhd">Beispiel Lieferschein mit Charge und MHD<a class="headerlink" href="#beispiel-lieferschein-mit-charge-und-mhd" title="Permanent link">&para;</a></h3>
+<p>Im Folgenden werden Beispiele als Ergänzung zu obigen Code-Beispielen gezeigt, die nur die Besonderheiten in Bezug auf MHDs und Chargen in einer Position berücksichtigen.</p>
+<h4 id="format-csv_3">Format CSV<a class="headerlink" href="#format-csv_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>wird ergänzt -</li>
+</ul>
+<h4 id="format-xml_2">Format XML<a class="headerlink" href="#format-xml_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>wird ergänzt -</li>
+</ul>
+<h3 id="beispiel-auftrag">Beispiel Auftrag<a class="headerlink" href="#beispiel-auftrag" title="Permanent link">&para;</a></h3>
+<p>Anwendbar nur bei direktem Fulfillment ohne Autoversand. Diese Option sollte genau geprüft werden, meistens ist die Übertragung von Lieferscheinen der optimale Weg.</p>
+<h4 id="format-edi_1">Format EDI<a class="headerlink" href="#format-edi_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>wird ergänzt -</li>
+</ul>
+<h4 id="format-csv_4">Format CSV<a class="headerlink" href="#format-csv_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>wird ergänzt -</li>
+</ul>
+<h4 id="format-xml_3">Format XML<a class="headerlink" href="#format-xml_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>wird ergänzt -</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

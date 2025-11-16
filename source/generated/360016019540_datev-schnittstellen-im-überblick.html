@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016019540 Datev Schnittstellen Im Überblick - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016019540 Datev Schnittstellen Im Überblick</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016019540 Datev Schnittstellen Im Überblick</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Xentral bietet drei Exportmöglichkeiten für die Buchhaltung: Über den <strong>Finanzbuchhaltung Export <strong>können Rechnungen, Gutschriften und Verbindlichkeiten als </strong> CSV-Dateien <strong>mit vollständigen Kontierungen ausgegeben werden. Diese Daten basieren auf projektbezogenen oder globalen Steuereinstellungen und lassen sich flexibel anpassen. Zusätzlich gibt es die Möglichkeit, speziell für </strong> DATEV Unternehmen Online <strong>formatierte Dateien zu exportieren, während eine dritte Option einen </strong> vollständig digitalen Belegtransfer <strong>ohne lokale Speicherung ermöglicht, abgesichert über den</strong> DATEV SmartLogin</strong>.</p>
+<p>Für die Anbindung an DATEV hast du diese Optionen:</p>
+<p>-<strong>Manueller Export <strong>: Buchhaltungsdaten als CSV (</strong> DATEV Format <strong>) oder </strong> XML</strong> exportieren und in DATEV hochladen.
+-<strong>Automatischer Export </strong>: Über den <strong>DATEV Rechnungsdatenservice 1.0</strong> werden die Daten direkt an DATEV übertragen, ohne zusätzlichen Aufwand.</p>
+<p>Diese Optionen ermöglichen es dir, Zeit zu sparen und sicherzustellen, dass dein Steuerberater auf die aktuellen Daten zugreifen kann.</p>
+<table>
+<thead>
+<tr>
+<th>Produkt</th>
+<th>Beschreibung</th>
+<th>Exportmethode</th>
+<th>Datenformat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#UUID-8983ff8b-79f9-5156-6c9e-8f282e6d4857_section-idm234547172619313">DATEV Rechnungswesen Einzelplatz</a></td>
+<td>Lokale Installation für eigenständige Buchhaltung.</td>
+<td>Manueller Export von Buchungsstapeln.</td>
+<td><strong>DATEV-Format</strong>(CSV)</td>
+</tr>
+<tr>
+<td><a href="#UUID-8983ff8b-79f9-5156-6c9e-8f282e6d4857_section-idm234547172983486">DATEV Unternehmen online</a> (manueller Export)</td>
+<td>Cloudbasierter Dienst für die Zusammenarbeit mit Steuerberatern.</td>
+<td>Manuelle Übertragung der Daten zu DATEV Unternehmen online.</td>
+<td><strong>XML </strong> und <strong>PDF</strong></td>
+</tr>
+<tr>
+<td><a href="#UUID-8983ff8b-79f9-5156-6c9e-8f282e6d4857_section-idm234547172983486">DATEV Unternehmen online</a> (<strong>Rechnungsdatenservice 1.0 <strong>)</td>
+<td>Automatisierte Schnittstelle für den direkten Belegtransfer.</td>
+<td>Direkte Übertragung der Daten via Schnittstelle.</td>
+<td></strong> XML</strong> (automatisiert)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Weitere Themen:</p>
+<ul>
+<li>Auf dieser Seite:Schnellstart: Anbindung von DATEV - Xentral</li>
+<li>Einstellungen für den DATEV Export(Konfigurationsmöglichkeiten)</li>
+<li>Kontierung undKontenrahmen:Verbindlichkeiten, Artikeleinstellungen</li>
+<li>Debitoren- und Kreditoren Stammdaten Export, eigene Debitoren-/Kreditoren Nummer, Sammeldebitoren.</li>
+<li>Nummernkreise passend für DATEVfür Belege (Rechnung, Gutschrift, Verbindlichkeit), Nummernkreise für Kunden-/Lieferanten</li>
+<li>Einrichtungsleitfaden:Buchhaltung und Reporting (Einrichtung)</li>
+</ul>
+<p><strong>Tipp</strong></p>
+<p>Die Xentral - DATEV informationen findest du parallel auch auf demDATEV Marktplatz.</p>
+</blockquote>
+<h2 id="datev-rechnungswesen-einzelplatz">DATEV Rechnungswesen Einzelplatz<a class="headerlink" href="#datev-rechnungswesen-einzelplatz" title="Permanent link">&para;</a></h2>
+<p><img alt="DATEV_FORMAT_Workflow_kurzueberblick.png" src="https://help.xentral.com/hc/article_attachments/17296943893020" /></p>
+<p>DATEV Rechnungswesen Einzelplatz ist eine Softwarelösung für Unternehmen, die ihre Buchhaltung selbstständig im Haus abwickeln möchten. Sie ermöglicht deinem Buchhaltungsteam, alle Geschäftsvorfälle wie Rechnungen und Verbindlichkeiten zu erfassen, Bilanzen und Gewinn- und Verlustrechnungen zu erstellen sowie Zahlungen zu überwachen. Alle Daten werden lokal verwaltet und lassen sich bei Bedarf als DATEV-Format (CSV) exportieren, um sie an ein Steuerbüro zu übermitteln. Diese Lösung bietet dir volle Kontrolle über deine Buchhaltung, während du gleichzeitig flexibel mit deinem Steuerberater zusammenarbeiten kannst.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Wie du den manuellen Export im DATEV Format erstellen kannst findest du hier:Finanzbuchhaltung Export (DATEV Export Einstellungen)</p>
+</blockquote>
+<h2 id="datev-unternehmen-online">DATEV Unternehmen online<a class="headerlink" href="#datev-unternehmen-online" title="Permanent link">&para;</a></h2>
+<p><img alt="DATEV_unternehmenonline_xml_Workflow_kurzueberblick.png" src="https://help.xentral.com/hc/article_attachments/17296943893660" /></p>
+<p>DATEV Unternehmen online ist eine cloudbasierte Lösung, die dir und deinem Buchhaltungsteam ermöglicht, alle Belege und Buchungen digital zu verwalten. Du kannst Belege direkt in der Cloud speichern und hast jederzeit Zugriff auf aktuelle Daten, was die Zusammenarbeit mit deinem Steuerberater vereinfacht. Dein Steuerberater kann auf die Buchhaltungsdaten in Echtzeit zugreifen und Aufgaben wie den Jahresabschluss direkt bearbeiten, ohne dass Daten manuell übertragen werden müssen. Dies macht den gesamten Buchhaltungsprozess effizienter und flexibler.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Wie du Unternehmen online an Xentral anbindest findest du hier:DATEV Unternehmen Online - XML Format</p>
+</blockquote>
+<h2 id="schnellstart-anbindung-von-datev-xentral">Schnellstart: Anbindung von DATEV - Xentral<a class="headerlink" href="#schnellstart-anbindung-von-datev-xentral" title="Permanent link">&para;</a></h2>
+<h3 id="1-initiale-stammdaten-einrichtung-fur-den-datev-export">(1) Initiale Stammdaten-Einrichtung für den DATEV-Export<a class="headerlink" href="#1-initiale-stammdaten-einrichtung-fur-den-datev-export" title="Permanent link">&para;</a></h3>
+<p>Für die initiale Einrichtung des DATEV-Datenaustauschs musst du wichtige Stammdaten wie <strong>Beraternummer </strong>,<strong>Mandantennummer </strong> und das <strong>Wirtschaftsjahr </strong> in das System eintragen. Diese Daten werden anschließend in die Exportdateien übernommen und ermöglichen eine korrekte Zuordnung der Buchhaltungsinformationen. Je nach Bedarf kannst du diese Einstellungen <strong>global </strong> oder auch <strong>projektspezifisch</strong> vornehmen, um den Export an die Anforderungen deines Unternehmens anzupassen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Wie du die Stammdaten (Mandanten-, Beraternummer und Wirtschaftsjahr) für Datev einträgst findest du hier:Einstellungen (Initiale Stammdaten-Einrichtung)</p>
+</blockquote>
+<h3 id="2-automatisierter-export-uber-die-datev-schnittstelle">(2) Automatisierter Export über die DATEV-Schnittstelle<a class="headerlink" href="#2-automatisierter-export-uber-die-datev-schnittstelle" title="Permanent link">&para;</a></h3>
+<p>In diesem Schritt wählst du den Export für eine automatische Übertragung über den DATEV Rechnungsdatenservice 1.0 aus. Diese Lösung ermöglicht es, Buchhaltungsdaten wie Rechnungen und Verbindlichkeiten ohne manuelles Eingreifen direkt an DATEV zu übermitteln. Hierfür muss die Schnittstelle einmalig konfiguriert werden, sodass zukünftige Exporte automatisch im Hintergrund erfolgen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Wie du den automatischen Export zu DATEV Unternehmen Online nutzt findest du hier:DATEV Rechnungsdatenservice 1.0 (Unternehmen Online)</p>
+</blockquote>
+<h3 id="3-manueller-export-uber-die-benutzeroberflache">(3) Manueller Export über die Benutzeroberfläche<a class="headerlink" href="#3-manueller-export-uber-die-benutzeroberflache" title="Permanent link">&para;</a></h3>
+<p>Alternativ kannst du den Export manuell über eine grafische Benutzeroberfläche durchführen. Über einen Button in den Buchhaltungs-Einstellungen kannst du Einstellungen wie die Kontierung und den Exportzeitraum festlegen. Der Export erfolgt dann als CSV- oder XML-Datei, die anschließend manuell in das Buchhaltungssystem hochgeladen wird.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Wie du den CSV and XML Download nutzt findest du hier:Finanzbuchhaltung Export (DATEV Export Einstellungen)</p>
+</blockquote>
+<h2 id="einstellungen-datev-export">Einstellungen DATEV Export<a class="headerlink" href="#einstellungen-datev-export" title="Permanent link">&para;</a></h2>
+<p>Einstellungen für das<a href="https://help.xentral.com/hc/de/articles/360016725100#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e">Datev Format</a>,<a href="https://help.xentral.com/hc/de/articles/16853858443292#UUID-ae91f160-799c-77e4-fb15-76cb4c8e70a2">DATEV Unternehmen Online - XML Format</a>,<a href="https://help.xentral.com/hc/de/articles/16853851788572#UUID-a0703471-aeb2-3876-7f6a-6b407c12941d">DATEV Rechnungsdatenservice 1.0 (Unternehmen Online)</a>.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

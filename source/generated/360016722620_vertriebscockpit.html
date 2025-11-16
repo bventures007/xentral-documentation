@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016722620 Vertriebscockpit - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016722620 Vertriebscockpit</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016722620 Vertriebscockpit</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>Das Modul Vertriebscockpit bietet Ihnen einen bequemen Überblick über alle Kunden, die speziell Ihnen als Vertrieb zugewiesen sind. Durch spezielle Übersichten und Filter haben Sie die Möglichkeit, alle wichtigen Verkaufszahlen und Aktivitäten Ihrer Kunden zu überwachen und bei Bedarf Schritte einzuleiten, damit Ihre Kunden zufrieden sind.</p>
+<p>App Center → Vertriebscockpit</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es handelt sich um ein Legacy-Modul, das nicht mehr von xentral unterstützt oder weiterentwickelt wird. Um unseren Kunden die Arbeit mit der vorhandenen Funktionsweise weiterhin zu ermöglichen, ist es noch immer im xentral App Store verfügbar.</p>
+</blockquote>
+<p>Wie schon erwähnt, ist es notwendig, dass der Mitarbeiter als „Vertrieb“ bei den Kunden (Stammdaten → Adressen) hinterlegt ist:</p>
+<p><img alt="SalesCockpit1.png" src="https://help.xentral.com/hc/article_attachments/5033228603420" /></p>
+<h3 id="ubersicht">Übersicht<a class="headerlink" href="#ubersicht" title="Permanent link">&para;</a></h3>
+<p>Auf der Startseite des Vertriebscockpits sieht man seine</p>
+<ul>
+<li>Letzten 5 Rechnungen</li>
+<li>Letzten 5 Angebote</li>
+<li>Umsatz für die laufende Woche, Monat, Jahr</li>
+<li>Wiedervorlagen</li>
+</ul>
+<p><img alt="SalesCockpit2.png" src="https://help.xentral.com/hc/article_attachments/5033183523868" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Rechnungs- und Angebotsnummern sind direkte Links zu den jeweiligen Dokumenten.</p>
+</blockquote>
+<p>Die Wiedervorlagen werden farblich voneinander getrennt und mit der folgenden Reihenfolge gelistet:</p>
+<ul>
+<li>Grün → Heute fällig</li>
+<li>Rot → In der Vergangenheit fällig</li>
+<li>Normal → In der Zukunft fällig</li>
+</ul>
+<p>Mit dem<img alt="SalesCockpitGreyArrow.png" src="https://help.xentral.com/hc/article_attachments/5033257178908" /></p>
+<p>Pfeil rechts kommen Sie direkt in die Korrespondenzen der Adresse und können dort die Wiedervorlagen bearbeiten.</p>
+<h3 id="umsatze">Umsätze<a class="headerlink" href="#umsatze" title="Permanent link">&para;</a></h3>
+<p>Im Tab Umsätze stehen für Sie Filter bereit, mit denen Sie zielsicher Ihre Wunsch-Kundengruppe finden und deren Rechnungsbeträge in Summe anzeigen können.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Einige Filterfelder stellen Sie unter dem Tab „Einstellungen“ ein.</p>
+</blockquote>
+<p>Die Felder „Umsatzpotential“ und „Kontaktursprung“ werden der Adresse als Gruppenkategorie übergeben. Wie Sie eine Gruppe und die Gruppenkategorien erstellen und zuweisen erfahren Sie hier:<a href="https://help.xentral.com/hc/articles/360016722000#UUID-27c9f5ac-bebe-bc23-79b2-b19285784cfc">Gruppen</a>.</p>
+<p>Beispiele für nützliche Filtereinstellungen:</p>
+<ul>
+<li>Alle Kunden einer bestimmten PLZ &amp; einer Umsatzhöhe bis 10000 Euro</li>
+<li>Alle Kunden eines bestimmten Landes mit Kontaktursprung der letzten Messe</li>
+<li>Alle Kunden eines Vertriebsmitarbeiters mit dem Umsatzpotential von über 10000 Euro</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Ab Version 17.2 gibt es nun eine neue Spalte „Letzter Kontakt“. Diese Spalte stellt das letzte Datum da, des letzten Eintrags unter Adressen → CRM. Also Belegdatum oder ein eingetragener Termin, Notiz, etc.</p>
+</blockquote>
+<p>Dazu benötigt man noch folgenden<a href="https://help.xentral.com/hc/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">Prozessstarter</a>:</p>
+<p><img alt="SalesCockpit3.png" src="https://help.xentral.com/hc/article_attachments/5033130803868" /></p>
+<h3 id="angebote">Angebote<a class="headerlink" href="#angebote" title="Permanent link">&para;</a></h3>
+<p>Das „Angebote“ Tab funktioniert entsprechend des „Umsätze“ Tabs. Nur werden hier statt Rechnungen, die erstellten Angebote berücksichtigt.</p>
+<h3 id="notizen">Notizen<a class="headerlink" href="#notizen" title="Permanent link">&para;</a></h3>
+<p>Im „Notizen“ Tab haben Sie die Möglichkeit, ihr CRM durch entsprechende Filter zu kontrollieren. Es werden hier Notizen und E-Mails in der Übersicht aufgeführt.</p>
+<p>Neben den Filtern aus dem „Einstellungen“ Tab (Kontaktursprung, Umsatzpotential, Freifelder) bekommen Sie hier auch folgende Felder an die Hand:</p>
+<ul>
+<li>Kunden mit Notizen: Zeigt alle Kunden an, die in diesem Zeitraum eine Notiz in den Adressdaten erhalten haben</li>
+<li>Kunden ohne Notizen: Zeigt alle Kunden an, die seit einem best. Datum keine Notizen mehr bekommen haben</li>
+<li>Kunden ohne offene Wiedervorlagen: Zeigt alle Kunden an, zu denen seit einem best. Datum keine Wiedervorlagen erstellt worden sind.</li>
+</ul>
+<p>Dies ermöglicht Ihnen die Kunden zu filtern, bei denen Sie nicht „aktiv“ waren und vielleicht wieder etwas mehr Aufmerksamkeit bräuchten, in Form von Angeboten / Wiedervorlagen. Vor allem in Kombination mit dem Umsatzpotential kann dies ein hilfreicher Filter sein.</p>
+<p>Beispiele für nützliche Filtereinstellungen:</p>
+<ul>
+<li>Zeige alle Kunden, die seit einem best. Datum keine Notizen und Wiedervorlagen bekamen</li>
+<li>Zeige alle Kunden, die seit einem best. Datum keine Wiedervorlagen bekamen und einem best. Vertriebsmitarbeiter zugeordnet sind</li>
+<li>Zeige alle Kunden, die seit einem best. Datum keine Wiedervorlagen bekamen und das Umsatzpotential über 15000 Euro haben</li>
+</ul>
+<h3 id="csv-export">CSV Export<a class="headerlink" href="#csv-export" title="Permanent link">&para;</a></h3>
+<p>Ein Klick auf dieses Tab erstellt eine umfangreiche CSV Datei aller Adressdaten mit hilfreichen Spalten, wie z.B.:</p>
+<ul>
+<li>Kontaktursprung</li>
+<li>Umsatzpotential</li>
+<li>Vertriebsmitarbeiter</li>
+<li>Datum der offenen Wiedervorlage</li>
+<li>Anzahl und Betragssumme der Angebote</li>
+<li>Gesamtumsatz</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dynamisch werden die 3 Spalten in den Vertriebscockpit - Einstellungen mit in die CSV gespeist (siehe nächster Punkt).</p>
+</blockquote>
+<h3 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h3>
+<p>Hier können Sie die Filterfelder wählen, die bei den einzelnen Tabs angezeigt werden.</p>
+<p><img alt="SalesCockpit4.png" src="https://help.xentral.com/hc/article_attachments/5033181389980" /></p>
+<h3 id="spezielle-rechteverteilung-durch-das-vertriebscockpit">Spezielle Rechteverteilung durch das Vertriebscockpit<a class="headerlink" href="#spezielle-rechteverteilung-durch-das-vertriebscockpit" title="Permanent link">&para;</a></h3>
+<p>Durch das Vertriebscockpit bekommen Sie auch eine spezielle Rechteeinstellung, die es ermöglicht Ihren Vertretern bestimmte Kunden zuzuordnen. Die Vertreter sehen dadurch auch nur die Kunden, denen Sie zugewiesen sind.</p>
+<p>Voraussetzung:</p>
+<ul>
+<li>In der Adresse muss der Vertriebsmitarbeiter unter dem Feld „Vertrieb“ hinterlegt sein.</li>
+<li>Die Vertreter-Adresse darf keine Projekte als Rollen haben.</li>
+<li>Das Projekt der Adressen darf nicht öffentlich für alle Mitarbeiter sein.</li>
+</ul>
+<p>Auswirkungen: Wenn diese Voraussetzungen erfüllt sind, trifft Folgendes für den eingeloggten Benutzer mit der Vertreteradresse zu:</p>
+<ul>
+<li>In den Adressen sieht er nur die Kunden, die im Feld Vertrieb seine Adresse haben</li>
+<li>In Belegen kann er nur seine Kunden auswählen und sieht auch in der Überschrift nur Belege mit seinen Kunden</li>
+</ul>
+<p>Soll ein solcher Mitarbeiter auch die Gruppen in den Adressen sehen, bedarf es eines Workarounds:</p>
+<ul>
+<li>Neues Projekt GRUPPEN erstellen</li>
+<li>Dem Vertreter die Rolle „Mitglied von Projekt GRUPPEN“ geben</li>
+<li>Den einzelnen Gruppen das Projekt GRUPPEN zuweisen.</li>
+</ul>
+<h3 id="erweiterungen-bei-den-adressen-durch-das-vertriebscockpit">Erweiterungen bei den Adressen durch das Vertriebscockpit<a class="headerlink" href="#erweiterungen-bei-den-adressen-durch-das-vertriebscockpit" title="Permanent link">&para;</a></h3>
+<p>Ab Version 19.1 sind bei den Adressen zusätzliche Angaben bei der Nutzung des Vertriebscockpits verfügbar.</p>
+<p>In der Adressübersicht sind nun die verwendeten Rollen in den Mini-Details einsehbar.</p>
+<p>Außerdem befinden sich unter den Adressdetails die Angaben zu den verwendeten Gruppen.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016722120 Zahlungsweisen Zahlungsbedingungen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016722120 Zahlungsweisen Zahlungsbedingungen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016722120 Zahlungsweisen Zahlungsbedingungen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Zahlungsweisen definieren, wie ein Kunde den offenen Betrag für Produkte oder Dienstleistungen begleichen kann. Sie regeln die Zahlungsbedingungen, wie etwa Fälligkeit, Skonto oder Zahlungsziele, und sind ein zentraler Bestandteil der Abwicklung von Transaktionen.</p>
+<p>InXentral stehen dir umfassende Funktionen zur Verfügung, um diese Zahlungsweisen flexibel zu gestalten und an die Anforderungen deines Unternehmens anzupassen. Du kannst Standardtexte definieren, mehrsprachige Texte hinterlegen und durch Variablen dynamische Informationen wie Skonto oder Zahlungsstatus in Belege einfügen.</p>
+<p>Die Konfiguration kannst du über die Smart-Suche über <strong>Zahlungsweisen <strong>und </strong> Zahlungsbedingungen <strong>finden oder zentral unter </strong> Einstellungen &gt; Buchhaltung &gt; Zahlungen &amp; Geschäftskonten &gt; Zahlungsweisen <strong>und</strong> Zahlungsbedingungen</strong>.</p>
+<h2 id="was-ist-zahlungsweise-und-zahlungsbedingung">Was ist Zahlungsweise und Zahlungsbedingung?<a class="headerlink" href="#was-ist-zahlungsweise-und-zahlungsbedingung" title="Permanent link">&para;</a></h2>
+<p><strong>Zahlungsweise:</strong> Eine Zahlungsweise beschreibt die konkrete Methode, wie eine Zahlung durchgeführt wird. Beispiele dafür sind Rechnung, Vorkasse, PayPal, Lastschrift oder Kreditkarte. Sie legt fest, über welchen Weg der Betrag vom Kunden an das Unternehmen transferiert wird.<strong> Zahlungsbedingung:</strong></p>
+<p>Eine Zahlungsbedingung definiert die Rahmenbedingungen einer Zahlung, wie beispielsweise Fälligkeit, Skontobedingungen oder Zahlungsziele. Sie beschreibt also, wann und unter welchen Konditionen eine Zahlung erfolgen soll, z. B. „Zahlbar innerhalb von 14 Tagen mit 2 % Skonto bei Zahlung innerhalb von 10 Tagen.“</p>
+<h2 id="gangige-zahlungsweisen-bei-xentral">Gängige Zahlungsweisen bei Xentral<a class="headerlink" href="#gangige-zahlungsweisen-bei-xentral" title="Permanent link">&para;</a></h2>
+<p>Zu den gängigen Zahlungsweisen zählen beispielsweise:</p>
+<p>-<strong>Zahlung auf Rechnung</strong>(sofort, mit Zahlungsziel oder Skonto).
+-<strong>Vorkasse</strong>(Bezahlung vor Lieferung).
+-<strong>Lastschrift</strong>(automatische Abbuchung vom Konto).
+-<strong>Online-Zahlungsmethoden</strong> wie PayPal oder Kreditkarte.
+-<strong>Barzahlung </strong> oder <strong>Nachnahme</strong>.</p>
+<h3 id="tabelle-standard-xentral-zahlungsweisen">Tabelle: Standard Xentral Zahlungsweisen<a class="headerlink" href="#tabelle-standard-xentral-zahlungsweisen" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Xentral-Zahlungsweise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kreditkarte</td>
+<td>Kreditkarte: Wird als Prepayment-Zahlungsart im Auftragswesen automatisch auf „bezahlt“ gesetzt.</td>
+</tr>
+<tr>
+<td>rechnung</td>
+<td>Rechnung: Wird als Zahlungsart mit Zahlungsziel genutzt; steuert Mahnwesen und Skontoberechnung.</td>
+</tr>
+<tr>
+<td>nachnahme</td>
+<td>Nachnahme: Zahlung erfolgt bei Lieferung; Auftragszahlstatus bleibt bis zur Abwicklung im Zahlungswesen offen.</td>
+</tr>
+<tr>
+<td>vorkasse</td>
+<td>Vorkasse: Auftrag bleibt bis Zahlungseingang auf „offen“; keine automatische Versandfreigabe.</td>
+</tr>
+<tr>
+<td>eckarte</td>
+<td>EC-Kartenzahlung: Wird als sofort bezahlte Zahlungsart im Kassen- oder POS-Bereich gesetzt.</td>
+</tr>
+<tr>
+<td>bar</td>
+<td>Barzahlung: Wird im Kassen- oder POS-Bereich sofort auf „bezahlt“ gesetzt. Wird auch häufig für Selbstabholung (Store Pickup) verwendet.</td>
+</tr>
+<tr>
+<td>paypal</td>
+<td>PayPal: Wird als Prepayment-Zahlungsart im Auftragswesen automatisch auf „bezahlt“ gesetzt, wenn über API bestätigt.</td>
+</tr>
+<tr>
+<td>lastschrift</td>
+<td>Lastschrifteinzug: Auftrag wird automatisch in den SEPA-Lastschriftlauf aufgenommen; nach Einzug als „bezahlt“ gesetzt.</td>
+</tr>
+<tr>
+<td>ratenzahlung</td>
+<td>Ratenzahlung: Auftrag bleibt offen; Zahlungsstatus wird nach externem Abgleich manuell oder automatisch aktualisiert.</td>
+</tr>
+<tr>
+<td>amazon</td>
+<td>Amazon Payments: Für Marketplace-Bestellungen; wird bei bestätigter Zahlung automatisch auf „bezahlt“ gesetzt.</td>
+</tr>
+<tr>
+<td>amazon_bestellung</td>
+<td>Nur Amazon Vendor: Amazon Bestellung: Für Amazon Vendor-Aufträge; dient zur internen Kennzeichnung von Lieferungen an Amazon.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="individuelle-anpassung-von-zahlungsweisen">Individuelle Anpassung von Zahlungsweisen<a class="headerlink" href="#individuelle-anpassung-von-zahlungsweisen" title="Permanent link">&para;</a></h2>
+<p>Du kannst in Xentral verschiedene Zahlungsarten freischalten und individuell konfigurieren. Dazu gehört unter anderem:</p>
+<ul>
+<li>Das Festlegen von spezifischen Standardtexten für jede Zahlungsweise.</li>
+<li>Die Pflege mehrsprachiger Texte für eine internationale Kommunikation.</li>
+<li>Die Automatisierung von Zahlungszielen und Skontoberechnungen bei der Zahlungsart „Rechnung“.</li>
+<li>Anlegen individueller Zahlungsweisen und deren Verhaltensweise.</li>
+</ul>
+<h2 id="zahlungsweisen-aktivieren-neu-anlegen">Zahlungsweisen aktivieren &amp; neu anlegen<a class="headerlink" href="#zahlungsweisen-aktivieren-neu-anlegen" title="Permanent link">&para;</a></h2>
+<p>InXentral kannst du Zahlungsweisen wie „Rechnung“, „Vorkasse“ oder „PayPal“ flexibel aktivieren, anpassen oder neue Zahlungsarten hinzufügen, um sie optimal auf dein Unternehmen abzustimmen. Zudem lassen sich für jede Zahlungsweise spezifische Bedingungen wie Zahlungsziel oder Skonto definieren.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>In Xentral stehen dir bereits Standard Zahlungsweisen wie z.B. Vorkasse, Rechnung zur Verfügung. Du kannst diese mit Textbausteinen erweitern oder individuell konfigurieren.</p>
+<p>Du kannst auch neue Zahlungsweisen hinzufügen oder spezielle B2B Zahlungsweisen anlegen und dieser ein Verhalten wie z.B. &lsquo;Vorkasse&rsquo; geben.</p>
+</blockquote>
+<p><img alt="zahlungsweisen_uebersicht_alle_angelegten.png" src="https://help.xentral.com/hc/article_attachments/17731662204188" /></p>
+<p><strong>Schritte um eine Zahlungsweise neu anzulegen:</strong></p>
+<ol>
+<li>Klicke auf <strong>Zahlungsweise hinzufügen</strong>, um eine neue Zahlungsweise zu erstellen.</li>
+<li>Wähle die gewünschte Zahlungsweise aus der Liste aus oder wähle &lsquo;Custom&rdquo; um eine eigene Zahlungsweise zu definieren.</li>
+<li>Trage die relevanten Daten ein und klicke auf &lsquo;<strong>Speichern</strong>&lsquo;.</li>
+<li>Die neue Zahlungsweise ist nun einsatzbereit und du kannst sie in deinen Prozessen verwenden.</li>
+</ol>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p><strong>Vermeide Doppelungen </strong> zu bereits bestehenden Zahlungsweisen in <strong>Bezeichnung </strong> und <strong>Typ</strong>. Ein Modul kann auch mehrfach verwendet werden.</p>
+<p><strong>Tipp</strong></p>
+<p>Eine Zahlungsweise in Xentral kannst du sie individuell konfigurieren und an spezielle Anforderungen, wie besondere Zahlungsarten oder Online-Shop-Mappings, anpassen. Nach dem &lsquo;Speichern&rsquo; steht die Zahlungsweise direkt in deinen Workflows - z.B. Dropdown im Auftragsdokument - zur Verfügung. Achte darauf, keine bereits existierenden Bezeichnungen oder Typen zu verwenden, um Verwechslungen zu vermeiden und die Übersichtlichkeit zu gewährleisten.</p>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Beispiele für eigene Zahlungsarten:</p>
+<p>Verhalten wie Vorkasse:</p>
+<p>-<strong>Manuelle Zahlungsprüfung</strong>– Für Bestellungen, die vor Freigabe manuell geprüft werden müssen, z. B. wegen komplexer Preisberechnung oder Bonitätsprüfung.
+-<strong>Sondervorkasse</strong>– Variante der Vorkasse mit gesondertem Typnamen, z. B. „Vorkasse bei Neukunden“. Auftrag wird erst nach Zahlungseingang freigegeben.</p>
+<p>Verhalten wie Rechnung:</p>
+<p>-<strong>Rahmenvertragsabrechnung</strong>– Abrechnung nach Lieferung mehrerer Positionen oder Teillieferungen aus einem Rahmenvertrag.
+-<strong>Zahlung auf Ziel</strong>– B2B-Variante mit festem Zahlungsziel, z. B. 30 Tage nach Rechnungsdatum. Lieferung erfolgt vor Zahlung, Mahnwesen aktiv nach Fristablauf.</p>
+<p><strong>Praxistipp</strong>: Wenn der Name einer Zahlungsweise vom Standard „Rechnung“ oder „Vorkasse“ abweicht, aber das Verhalten gleich bleibt, solltest du in Xentral trotzdem das Verhalten entsprechend setzen („Verhalten wie: Rechnung“ oder „Verhalten wie: Vorkasse“), damit Mahnwesen, Zahlungsprüfung und Ampel-Logik korrekt funktionieren.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bezeichnung</td>
+<td>Bezeichnung der Zahlungsweise im Dropdown in der Xentral Oberfläche.</td>
+</tr>
+<tr>
+<td>Typ</td>
+<td>Xentral Typ der Zahlungsweise z.B: &lsquo;rechnung&rsquo;, &lsquo;vorkasse&rsquo;, &lsquo;paypal&rsquo;, &lsquo;nachnahme&rsquo;, &lsquo;lastschrift&rsquo;, &lsquo;kreditkarte&rsquo;, &lsquo;eckarte&rsquo;, &lsquo;bar&rsquo;, &lsquo;amazon&rsquo;.</td>
+</tr>
+<tr>
+<td>Modul</td>
+<td>Einstellung für eine spezielle Modulanbindung: Rechnung, PayPalplus, Mollie, Klarna</td>
+</tr>
+<tr>
+<td>Text auf Beleg</td>
+<td>Standardtextfeld für dien Andruck einer Beschreibung zu dieser Zahlungsweise mit der Möglichkeit folgende Variablen zu verwenden: Variabeln: {ZAHLUNGBISDATUM}, {ZAHLUNGSZIELTAGE}, {ZAHLUNGSZIELSKONTO}, {ZAHLUNGSZIELSKONTOTOTAL}, {ZAHLUNGSZIELTAGESKONTO}, {ZAHLUNGSZIELSKONTODATUM}, {SOLL}, {SOLLMITSKONTO}, {SKONTOBETRAG}, {SKONTOFAEHIG}, {SKONTOFAEHIGNETTO}, {BELEGNR}, {NAME}, {STEUERNORMAL}, {GESAMTNETTONORMAL}, {STEUERERMAESSIGT}, {GESAMTNETTOERMAESSIGT}, {WAEHRUNG}, {TAGXMONAT} (Bei Modul Tagxmonat)</td>
+</tr>
+<tr>
+<td>Projekt</td>
+<td><em>Optional</em>: Projektauswahl für Zahlungsweisen, die nur in einem bestimmten Projekt angezeigt werden sollen z.B. B2B oder weitere Niederlassung.</td>
+</tr>
+<tr>
+<td>Autom. bezahlt (Rechnung)</td>
+<td>Setzt Zahlungsstatus einer Rechnung auf &lsquo;bezahlt&rsquo;. Diese Einstellung verhält sich so, als würde eine Rechnung manuell auf bezahlt gesetzt werden.</td>
+</tr>
+<tr>
+<td>Autom. bezahlt (Verbindlichkeit)</td>
+<td>Setzt Zahlungsstatus einer Verbindlichkeit auf &lsquo;bezahlt&rsquo; und verschiebt diese in das Verbindlichkeiten-Archiv. Diese Einstellung verhält sich so, als würde eine Verbindlichkeit manuell auf bezahlt gesetzt werden.Verbindlichkeiten werden automatisch auf bezahlt gesetzt.</td>
+</tr>
+<tr>
+<td>Verhalten wie</td>
+<td>Verhalten der Zahlungsweise wie Rechnung, Vorkasse, Lastschrift: - <strong>Rechnung <strong>: Wenn die Zahlungsweise „Rechnung“ gewählt wird, wird die Auftragsampel grün, was bedeutet, dass der Auftrag für die Zahlungsfreigabe bereit ist. Zusätzlich stehen Felder für Skonto und Zahlungsziele zur Verfügung, die direkt im Zahlungseingang berücksichtigt werden. Sollte das Zahlungsziel überschritten werden, wird die Rechnung automatisch ins Mahnwesen aufgenommen.<br>-</strong> Vorkasse <strong>: Bei der Zahlungsweise „Vorkasse“ bleibt die Auftragsampel rot, bis der Zahlungseingang erfolgt ist. Das verhindert die Freigabe des Auftrags, bevor die Zahlung eingegangen ist.<br>-</strong> Lastschrift</strong>: Wird die Zahlungsweise „Lastschrift“ verwendet, wird die Auftragsampel grün, sodass der Auftrag für die Zahlungsfreigabe bereit ist. Zudem werden alle Rechnungen mit dieser Zahlungsweise automatisch in den SEPA-Lastschriftverlauf aufgenommen.</td>
+</tr>
+<tr>
+<td>Aktiv</td>
+<td>Setzt die Zahlungsweise im System auf aktiv. Nicht mehr verwendete Zahlungsweisen können deaktiviert werden.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="festlegung-der-dokumenttexte-und-variablen">Festlegung der Dokumenttexte und Variablen<a class="headerlink" href="#festlegung-der-dokumenttexte-und-variablen" title="Permanent link">&para;</a></h2>
+<p>Administration → Einstellungen → Buchhaltung → Zahlungsweisenmethods</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du nichts festlegst, wird der Xentral <strong>Standard</strong> für die jeweiligen Zahlungsweisen angezeigt.</p>
+<p>Lege zu folgenden Standard-Zahlungsweisen individuelle Texte fest: &lsquo;Rechnung&rsquo;, &lsquo;Vorkasse&rsquo;, &lsquo;Nachnahme&rsquo;, &lsquo;Lastschrift&rsquo;, &lsquo;Barzahlung&rsquo;, &lsquo;PayPal&rsquo;, &lsquo;Kreditkarte&rsquo;, &lsquo;Amazon Payments&rsquo;, &lsquo;Ratenzahlung&rsquo; und &lsquo;EC-Kartenzahlung&rsquo;.</p>
+</blockquote>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Aktiviere das Häkchen für die Zahlungsweise, um eine Bedingung individuell zu überschreiben.</li>
+<li>Gib deinen Text und auch Variablen ein. Den Hinweissatz für einen Skontobetrag größer als 0% kannst du separat eingeben und steuern für Angebot/Auftrag und Rechnung.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Der neue Text wird in deinen Belegen, die aktuell in Bearbeitung sind sowie den neuen Belegen angezeigt. Archivierte Dokumente mit Schreibschutz bleiben unverändert.</p>
+<p><img alt="zahlungsbedingungen_textbausteine_individuelle_anpassung.png" src="https://help.xentral.com/hc/article_attachments/17731662206620" /></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{ZAHLUNGSZIELSKONTO}</td>
+<td>Prozent, wie viel Skonto gewährt wird (Dynamisch berechnet auf Gesamtbetrag ⇒ Skontogesperrte Artikel werden gegengerechnet)</td>
+</tr>
+<tr>
+<td>{ZAHLUNGSZIELSKONTOTOTAL}</td>
+<td>Prozent, wie viel Skonto gewährt wird (Fester Wert im Beleg, ohne dass skontogesperrte Artikel berücksichtigt werden)</td>
+</tr>
+<tr>
+<td>{ZAHLUNGSZIELTAGESKONTO}</td>
+<td>Anzahl der Tage, wie lange Skonto gewährt wird</td>
+</tr>
+<tr>
+<td>{ZAHLUNGSZIELSKONTODATUM}</td>
+<td>Datum, bis wann Skonto gewährt wird</td>
+</tr>
+<tr>
+<td>{SOLLMITSKONTO}</td>
+<td>Gesamtbetrag abzüglich Skonto (skontogesperrte Artikel werden berücksichtigt)</td>
+</tr>
+<tr>
+<td>{SKONTOBETRAG}</td>
+<td>Betrag, den der Kunde durch Skonto weniger zahlen muss</td>
+</tr>
+<tr>
+<td>{SKONTOFAEHIG}</td>
+<td>Gesamtbetrag (Brutto) der Positionen, die für Skonto in Frage kommen (ohne skontogesperrte Artikel)</td>
+</tr>
+<tr>
+<td>{SKONTOFAEHIGNETTO}</td>
+<td>Gesamtbetrag (Netto) der Positionen, die für Skonto in Frage kommen (ohne skontogesperrte Artikel)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p><strong>Skonto - Beispiel Textbausteine:</strong></p>
+<p>Rechnung zahlbar innerhalb {ZAHLUNGSZIELTAGE} Tage bis zum {ZAHLUNGBISDATUM}.</p>
+<p>Rechnung zahlbar innerhalb {ZAHLUNGSZIELTAGESKONTO} Tage bis zum {ZAHLUNGSZIELSKONTODATUM}, {ZAHLUNGSZIELSKONTO}% Skonto ({SKONTOBETRAG} {WAEHRUNG} brutto): {SOLLMITSKONTO} {WAEHRUNG} brutto.</p>
+<p>Bitte bezahlen Sie den Rechnungsbetrag von {SOLL} {WAEHRUNG} inkl. MwSt. innerhalb {ZAHLUNGSZIELTAGE} Tage bis zum {ZAHLUNGBISDATUM}.</p>
+</blockquote>
+<h3 id="sonstige-variablen">Sonstige Variablen<a class="headerlink" href="#sonstige-variablen" title="Permanent link">&para;</a></h3>
+<p>Weiterhin stehen die Variablen aus den Adressstammdaten zur Verfügung, wobei diese durch das Präfix „ADRESSE_“ kenntlich gemacht werden müssen, z.B. ADRESSE_INHABER.</p>
+<p>Andere verfügbare Variablen sind {ZAHLUNGSSTATUS} und {BEZAHLT_AM}. {ZAHLUNGSSTATUS} zeigt den aktuellen Status der Zahlung an, d.h. ob die Zahlung schon bezahlt wurde oder nicht. {BEZAHLT_AM} zeigt das Datum der Zahlung an.</p>
+<p>Du kannst diese Variablen, z.B. auch in einem IF-Block nutzen: {IF}{ZAHLUNGSSTATUS}=&rdquo;bezahlt&rdquo;{THEN}Der Rechnungsbetrag von {WAEHRUNG} {SOLL} wurde bereits mit der Anzahlungsrechnung am {BEZAHLT_AM} beglichen.{ELSE}Der Rechnungsbetrag von {WAEHRUNG} {SOLL} wurde noch nicht mit der Anzahlungsrechnung beglichen.{ENDIF}</p>
+<h2 id="variablen-und-bedingungen-in-zahlunginformationstexten">Variablen und Bedingungen in Zahlunginformationstexten<a class="headerlink" href="#variablen-und-bedingungen-in-zahlunginformationstexten" title="Permanent link">&para;</a></h2>
+<p>xx</p>
+<h3 id="zahlungsweisen-mit-wenn-dann-bedingungen-if-bedingungen">Zahlungsweisen mit Wenn-Dann-Bedingungen (IF-Bedingungen)<a class="headerlink" href="#zahlungsweisen-mit-wenn-dann-bedingungen-if-bedingungen" title="Permanent link">&para;</a></h3>
+<p>Die Texte für Zahlungsweisen können mit sogenannten IF-Blöcken abhängig von der Belegart unterschiedlich ausgegeben werden. So lässt sich z. B. für Angebote, Aufträge, Rechnungen oder Gutschriften ein jeweils eigener Text hinterlegen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p><strong>Praxisbeispiel: Unterschiedliche Zahlungstexte je Belegart</strong></p>
+<p>{IF}{BELEGART}=&rdquo;Angebot&rdquo;{THEN}Bitte beachten Sie: Der Auftrag wird nach Zahlungseingang bearbeitet.{ELSE}{ENDIF}</p>
+<p>{IF}{BELEGART}=&rdquo;Auftrag&rdquo;{THEN}Zahlen Sie bitte den vollständigen Betrag innerhalb von 7 Tagen, um den Auftrag zu sichern.</p>
+<p>{ELSE}{ENDIF} {IF}{BELEGART}=&rdquo;Rechnung&rdquo;{THEN}Bitte überweisen Sie den Rechnungsbetrag bis zum {ZAHLUNGBISDATUM}.{ELSE}{ENDIF}</p>
+<p>{IF}{BELEGART}=&rdquo;Gutschrift&rdquo;{THEN}Gutschrift: Eine Rückerstattung erfolgt per Banküberweisung innerhalb von 5 Werktagen.{ELSE}{ENDIF}</p>
+<p><strong>Ergebnis:</strong></p>
+<ul>
+<li>Auf einem Angebot erscheint ein Hinweis zu Vorauszahlung.</li>
+<li>Auf einem Auftrag steht eine klare Zahlungsfrist.</li>
+<li>Auf einer Rechnung wird automatisch das Zahlungsziel-Datum eingefügt.</li>
+<li>Auf einer Gutschrift wird die Rückerstattungsinformation angezeigt.</li>
+</ul>
+<p>So werden alle Belegarten automatisch mit den passenden Zahlungstexten versehen, ohne dass du Texte manuell anpassen musst.ChatGPT fragen</p>
+</blockquote>
+<h3 id="variable-aus-adresse">Variable aus Adresse<a class="headerlink" href="#variable-aus-adresse" title="Permanent link">&para;</a></h3>
+<p>Du kannst auch Variablen aus den Adressstammdaten verwenden.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Variablen aus Adresse einfügen:</strong></p>
+<p>Diese Variablen müssen immer mit dem Präfix <strong>ADRESSE_</strong> beginnen, z. B.<strong>ADRESSE_NAME <strong>für den Kundennamen oder</strong> ADRESSE_BANK </strong> und <strong>ADRESSE_IBAN</strong> für die Bankdaten.</p>
+</blockquote>
+<h2 id="zahlungsweisen-zwischen-xentral-und-shop-abgleichen">Zahlungsweisen zwischen Xentral und Shop abgleichen<a class="headerlink" href="#zahlungsweisen-zwischen-xentral-und-shop-abgleichen" title="Permanent link">&para;</a></h2>
+<p>Wenn du Bestellungen aus deinem Shop in Xentral importierst, wird jede Bestellung mit einer bestimmten Zahlungsart übergeben. Damit Xentral diese richtig erkennt und automatisch die passende interne Zahlungsweise setzt, musst du im Shopmodul die Verknüpfungen anlegen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Wenn du Zahlungsweisen zwischen deinem Shop und Xentral verknüpfst, kannst du drei Dinge festlegen:</p>
+<ul>
+<li>Was passiert, wenn der Shop keine Zahlungsart mitschickt – in diesem Fall kannst du eine Standardoption hinterlegen, die automatisch gesetzt wird, damit der Beleg vollständig bleibt.</li>
+<li>Du kannst bestimmen, wie die im Shop genutzten Zahlungsarten automatisch den passenden Zahlungsweisen in Xentral zugeordnet werden, damit z. B. „Kreditkarte“ oder „Vorkasse“ aus dem Shop auch in Xentral korrekt gesetzt werden.</li>
+<li>Du hast die Möglichkeit, für bestimmte Zahlungsarten den automatischen Versand zu deaktivieren, etwa wenn du vor dem Versand erst den Zahlungseingang prüfen möchtest.</li>
+</ul>
+<p><strong>Weitere Informationen und die genaue Einrichtung findest du in der Rubrik Online-Shop-Anbindung: Connect Shopintegrationen Zahlungsweisen z.B. Shopify Zahlungsarten</strong></p>
+</blockquote>
+<h2 id="einstellung-der-standard-zahlungsweise-in-den-grundeinstellungen">Einstellung der Standard-Zahlungsweise in den Grundeinstellungen<a class="headerlink" href="#einstellung-der-standard-zahlungsweise-in-den-grundeinstellungen" title="Permanent link">&para;</a></h2>
+<p>Eine Zahlungsweise kann als <strong>Standard Zahlungsweise </strong> in den <strong>Grundeinstellungen </strong> eingestellt werden. Sofern ein Kunden keine Standard Zahlungsweise hinterlegt hat, wird diese beim Anlegen des Belegs als Voreinstellung verwendet.<strong>Einstellungen &gt; Buchhaltung &gt; Steuer und Währung &gt; Steuer/Währung.</strong></p>
+<p><img alt="zahlungsweisen_systemstandard_einstellungen_001.png" src="https://help.xentral.com/hc/article_attachments/21671044111516" /></p>
+<h2 id="api-anbindung-von-zahlungsdienstleistern">API-Anbindung von Zahlungsdienstleistern<a class="headerlink" href="#api-anbindung-von-zahlungsdienstleistern" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Damit eine Zahlungsweise in Xentral mit einem externen Zahlungsanbieter (z. B. Klarna) funktioniert, musst du in den Einstellungen der Zahlungsweise die Zugangsdaten (API-Credentials) des Anbieters hinterlegen. Erst dann kann Xentral Zahlungsinformationen austauschen und Statusmeldungen vom Anbieter empfangen.</p>
+</blockquote>
+<h2 id="ubersetzungen-fur-zahlungstexte">Übersetzungen für Zahlungstexte<a class="headerlink" href="#ubersetzungen-fur-zahlungstexte" title="Permanent link">&para;</a></h2>
+<p>Zu den verschiedenen Texten können auch Übersetzungen gepflegt werden. Über das graue Globussymbol können in einem separaten Fenster die gewünschten Eintragungen gemacht werden.</p>
+<p>Klicke auf das Weltkugel Icon und füge eine Übersetzung in einer Sprache hinzu. Weiterführende Informationen zu Übersetzungen findest du im Artikel:<a href="https://help.xentral.com/hc/de/articles/360018755960#UUID-33aa426f-6d3b-9b74-1720-37db387d73bc">Übersetzungen</a>.</p>
+<p><img alt="zahlungsbedingung_uebersetzung_eintragen_001.png" src="https://help.xentral.com/hc/article_attachments/17731662207516" /></p>
+<h2 id="workflow-so-verwendest-du-zahlungsweisen-in-xentral">Workflow - So verwendest du Zahlungsweisen in Xentral<a class="headerlink" href="#workflow-so-verwendest-du-zahlungsweisen-in-xentral" title="Permanent link">&para;</a></h2>
+<p>Du kannst sie direkt in Belegen, in Kunden- oder Lieferantenadressen sowie in Projekten hinterlegen, damit Zahlungsziele, Skonto und weitere Konditionen automatisch übernommen werden.</p>
+<h3 id="auswahl-der-zahlungsweise-im-beleg">Auswahl der Zahlungsweise im Beleg<a class="headerlink" href="#auswahl-der-zahlungsweise-im-beleg" title="Permanent link">&para;</a></h3>
+<p>Eine Zahlungsweise kannst du direkt in einen Beleg einfügen. Öffne dazu den Beleg, scrolle zum Bereich Freitext und wähle im Dropdown-Feld <strong>Zahlungsweise </strong> die gewünschte Option aus. Klicke anschließend auf <strong>Speichern</strong>.</p>
+<p>Falls die gewählte Zahlungsweise erweiterte Eingabefelder hat (z. B. Zahlungsziel, Skonto, Skontotage), findest du diese in der Box rechts neben der Auswahl der Zahlungsweise.</p>
+<p><img alt="zahlungsweise_beleg_auswaehlen_001.png" src="https://help.xentral.com/hc/article_attachments/21670697851164" /></p>
+<h3 id="auswahl-der-zahlungsweise-in-der-adresse">Auswahl der Zahlungsweise in der Adresse<a class="headerlink" href="#auswahl-der-zahlungsweise-in-der-adresse" title="Permanent link">&para;</a></h3>
+<p>Eine Zahlungsweise kannst du direkt in einer Adresse hinterlegen. Öffne dazu den gewünschten Adressdatensatz, wähle im Dropdown Zahlungsweise die passende Option aus und speichere die Änderung. Bei einigen Zahlungsweisen stehen zusätzlich erweiterte Felder wie Zahlungsziel, Skonto oder Skontotage zur Verfügung. Die Zahlungsweise kann sowohl für Kunden als auch für Lieferanten festgelegt werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Legst du einen neuen Auftrag aus einer Kundenadresse an, wird automatisch die dort hinterlegte Zahlungsweise übernommen.</p>
+<p><em>Sonderfall (Nur, wenn du eine Standardzahlungsweise im Projekt hinterlegt hast): Ändert sich jedoch das Projekt in einem bestehenden Auftrag, wird die im Projekt hinterlegte Zahlungsweise geladen und ersetzt die aus der Kundenadresse.</em></p>
+</blockquote>
+<p><img alt="zahlungsweise_adresse_kunde_oder_lieferant_001.png" src="https://help.xentral.com/hc/article_attachments/21671046381852" /></p>
+<h3 id="auswahl-der-zahlungsweise-in-der-preisgruppe">Auswahl der Zahlungsweise in der Preisgruppe<a class="headerlink" href="#auswahl-der-zahlungsweise-in-der-preisgruppe" title="Permanent link">&para;</a></h3>
+<p>Eine Zahlungsweise kann in einer Preisgruppe eingegeben werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die in der Preisgruppe hinterlegte Einstellung wird nicht angewendet, wenn in der Adresse unter <strong>Zahlungskonditionen festschreiben </strong> die Option <strong>Immer diese verwenden (nie von Gruppe)</strong> ausgewählt ist.</p>
+</blockquote>
+<p><img alt="zahlungsweise_preisgruppe_001.png" src="https://help.xentral.com/hc/article_attachments/21670666097180" /></p>
+<p><img alt="zahlungsweise_festschreiben_preisgruppe_001.png" src="https://help.xentral.com/hc/article_attachments/21671044116252" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20444689988764 Wareneingang Gs1 - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>20444689988764 Wareneingang Gs1</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>20444689988764 Wareneingang Gs1</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das Modul <strong>Wareneingang (GS1)</strong> befindet sich aktuell im <strong> Beta-Status</strong>.</p>
+<p>Hast du Interesse, diese Funktion schon jetzt zu verwenden und zu testen? Dann wende dich ansupport@xentral.com, damit das Modul für deine XentralInstanz freigeschaltet wird.</p>
+<p><strong>Typischer Anwendungsfall </strong>: Diese Funktion richtet sich an Nutzer, die typischerweise im Wareneingang große Artikelmengen erfassen und direkt in die passenden Lagerplätze einlagern möchten. Außerdem ist das Modul <strong>Wareneingang (GS1)</strong> ideal für Geschäftsmodelle und Sortimente, bei denen ergänzende Artikelinformationen wie Mindesthaltbarkeitsdaten, Chargennummern und Seriennummern verpflichtend im ERP-System erfasst und gepflegt werden müssen (beispielsweise in der Lebensmittel- oder Elektronikbranche).</p>
+<p><strong>Verfügbarkeit </strong>: Bei der Erfassung eingehender Artikel im Wareneingang (Menü <strong>Lager &gt; Wareneingang (GS1)</strong>).</p>
+<p><strong>Nicht verfügbar in</strong>: Warenausgang, Versandzentrum, Kommissionierverfahren.</p>
+</blockquote>
+<p>Stell dir vor, du könntest Waren, die dein Lager erreichen, nicht nur schnell und unkompliziert in Xentral einbuchen, sondern auch direkt auf dem passenden Lagerplatz einlagern - und das alles mithilfe weniger Klicks und ohne die mühsame händische Eingabe von Artikelinformationen in verschiedenen Menüs. Vielleicht hast du auch ein Artikelsortiment, das die gleichzeitige Angabe von Mindesthaltbarkeitsdaten, Chargen oder Seriennummern erfordert und möchtest all diese Daten mit nur einem Scan erfassen? Oder erreichen dich ganz allgemein immer wieder umfangreiche Lieferungen mit vielen Artikeln?</p>
+<p>Für all diese Szenarien hältXentral eine Lösung bereit, die dir den Prozess stark vereinfacht: Das neue Modul <strong>Wareneingang (GS1)</strong>. Dieses Modul wurde gezielt für die Erfassung von Artikeln entwickelt, die auf ihrem Artikeletikett über GS1-Barcodes (vormals auch als EAN128 bekannt) verfügen. In diesen Barcodes ist eine Vielzahl von Informationen verschlüsselt, die die eindeutige Identifikation der Artikel erlauben. Du benötigst nur einen geeignetes MDE-Gerät oder Handscanner, um diese Informationen nahtlos in Xentral zu übernehmen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die folgenden Code-Typen kannst du mit dem Modul <strong>Wareneingang (GS1)</strong> erfassen:</p>
+<ul>
+<li>GS1 (vormals EAN128)(Strichcode)</li>
+<li>GS1-128(Strichcode)</li>
+<li>GS1 DataMatrix(QR-Code)</li>
+</ul>
+</blockquote>
+<h2 id="wann-sollte-ich-das-modul-verwenden">Wann sollte ich das Modul verwenden?<a class="headerlink" href="#wann-sollte-ich-das-modul-verwenden" title="Permanent link">&para;</a></h2>
+<p>-<strong>Erfassung großer Artikelmengen</strong>: Hast du regelmäßig umfangreiche Wareneingänge oder Retouren, bei denen zahlreiche Artikel in Xentral erfasst werden müssen? In Kombination mit einem Handscanner kannst du diese mühelos und zeitsparend erfassen.
+-<strong>Flexible Artikelsuche</strong>: Auch, wenn wir für die Arbeit mit dem neuen Modul grundsätzlich die Verwendung eines MDE-Geräts oder Handscanners empfehlen, kannst du die gewünschten Artikel auch per Volltextsuche des Artikelnamens oder per Eingabe der Artikelnummer schnell und komfortabel auswählen.
+-<strong>Transparenz und Produktsicherheit</strong>: Finden sich in deinem Sortiment Elektronikartikel, Lebensmittel oder Medizinprodukte? Für diese Artikel gelten Vorgaben wie beispielsweise die Erfassung der Seriennummer beim Wareneingang. Mit dem neuen Wareneingang erfasst du diese wichtigen Daten zuverlässig und sauber in Xentral, sodass die notwendige Rückverfolgbarkeit im Rahmen von Produktrückrufen oder Verordnungen wie der UDI (Unique Device Identification) stets gewährleistet ist.
+-<strong>Reduzierte Fehleranfälligkeit im Prozess</strong>: Durch die Scan-Funktionalität des Moduls vermeidest du Fehler, die bei der manuellen Eingabe von Mindesthaltbarkeitsdaten, Chargen oder Seriennummern auftreten können. Du kannst dir jederzeit sicher sein, dass die im Code verschlüsselten Informationen auch 1:1 in Xentral übernommen werden.
+-<strong>Deutlich vereinfachter Workflow</strong>: Im Gegensatz zu den bisherigen Funktionalitäten zum Wareneingang in Xentral musst du nicht mehr pro Artikel in verschiedenen Benutzeroberflächen händisch die Artikelanzahl oder zusätzliche Informationen wie Mindesthaltbarkeitsdatum und Chargen eingeben. Per Scan des Artikeletiketts und mit den passenden Voreinstellungen erfasst du all diese Informationen im Handumdrehen - das Ganze findet zentral in einer einzigen Benutzeroberfläche statt.
+-<strong>Abbildung diverser Anwendungsfälle</strong>: Durch die vorherige Festlegung von Bestandsbewegungsarten in Xentral kannst du mithilfe des neuen Moduls genau die Szenarien abbilden, die du für dein Business benötigst. So kannst du nicht nur klassische Wareneingänge aus Lieferantenbestellungen erfassen, sondern auch Artikel aus Retouren einbuchen und später über die Bestandsbewegungsarten jederzeit nachverfolgen, aus welchem Grund Artikel eingebucht wurden.</p>
+<h2 id="vorbereitende-einstellungen-vornehmen">Vorbereitende Einstellungen vornehmen<a class="headerlink" href="#vorbereitende-einstellungen-vornehmen" title="Permanent link">&para;</a></h2>
+<p>Bevor du das Modul <strong>Wareneingang (GS1)</strong> nutzt, solltest du einige vorbereitende Einstellungen in Xentral vornehmen. So stellst du sicher, dass du die Vorteile des neuen Wareneingangs nutzen kannst und die Artikelerfassung korrekt funktioniert. Die notwendigen Einstellungen reichen von der korrekten Pflege der EAN-Informationen in den Artikelstammdaten bis zur korrekten Konfiguration deines Handscanners. In den folgenden Kapiteln findest du alles Wissenswerte sowie präzise Anleitungen für jeden Schritt, sodass du optimal auf die produktive Arbeit mit dem Modul <strong> Wareneingang (GS1)</strong> vorbereitet bist.</p>
+<h3 id="ean-in-den-artikelstammdaten-hinterlegen">EAN in den Artikelstammdaten hinterlegen<a class="headerlink" href="#ean-in-den-artikelstammdaten-hinterlegen" title="Permanent link">&para;</a></h3>
+<p>Die EAN (European Article Number) ist die wichtigste Information, anhand derer deine Produkte in Xentral identifiziert werden. EANs müssen deshalb für jeden Artikel einzigartig vergeben werden und dürfen nicht doppelt vorkommen. Damit deine Artikel fehlerfrei per Scan im Modul <strong>Wareneingang (GS1)</strong> erfasst werden können, ist es unabdingbar, dass in den Stammdaten jeder deiner Artikel eine einzigartige EAN gepflegt ist.</p>
+<p>Gehe wie folgt vor, um die hinterlegten EANs zu prüfen und, falls nötig, zu vervollständigen.</p>
+<p><img alt="artikeleinstellungen-hersteller-de.png" src="https://help.xentral.com/hc/article_attachments/20444792857244" /></p>
+<ol>
+<li>Öffne das Menü <strong>Verkaufen &gt; Artikel</strong>.</li>
+<li>Öffne die Stammdaten des Artikels, dessen Informationen du prüfen oder anpassen möchtest, indem du rechts auf das <strong>Stift-Symbol</strong> klickst.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Hersteller</strong> erreichst.</li>
+<li>Trage im Feld <strong>EAN/GTIN/Barcode</strong> die EAN ein.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>EANs können in verschiedenen Längen vorliegen, also über 8, 12, 13 oder 14 Stellen verfügen. Die maximale Länge beträgt 14 Stellen.Xentral benötigt die EAN immer als 14-stellige Eingabe, um sie korrekt weiterverarbeiten zu können. Im Folgenden zeigen wir dir, wie du im Fall von EANs mit weniger als 14 Stellen umgehst, um diese verarbeitbar zu machen.</p>
+</blockquote>
+<h4 id="exkurs-umgang-mit-eans-mit-weniger-als-14-stellen">Exkurs: Umgang mit EANs mit weniger als 14 Stellen<a class="headerlink" href="#exkurs-umgang-mit-eans-mit-weniger-als-14-stellen" title="Permanent link">&para;</a></h4>
+<p>Je nachdem, ob du Xentral gerade erst einrichtest und beginnst, deine Artikelstammdaten zu pflegen, oder ob du bereits zahlreiche Artikel in Xentral angelegt hast, hast du mehrere Möglichkeiten, EANs mit weniger als 14 Stellen für die korrekte Erkennung und Verarbeitung im Modul <strong>Wareneingang (GS1)</strong> zu behandeln.</p>
+<p>-<strong>Option 1 </strong>: Du richtest Xentral gerade erst neu ein, oder hast einen überschaubares Artikelsortiment mit entsprechend wenigen Artikelstammdatensätzen. Gehe in diesem Fall <a href="#UUID-07e8ea33-d96c-5c3e-9afb-d853ae065708_section-idm234979199677624">wie oben beschrieben</a> vor, indem du im Feld <strong>EAN/GTIN/Barcode</strong> zunächst die EAN einträgst und dann das Feld mit führenden Nullen auffüllst, bis 14 Stellen erreicht sind (z.B. aus “12345678” wird “00000012345678”).
+-<strong>Option 2 </strong>: Lege im Menü <strong>Einstellungen &gt; Lager &amp; Logistik &gt; Lager &gt; Etiketten </strong> ein separates Etikettenlayout für GS1-Barcodes an, oder erweitere dein bestehendes Etikettenlayout. Öffne das Etikettenlayout per Klick auf das <strong>Stift-Symbol</strong>. Im Feld XML fügst du die Variable “01{EAN}” ein und stellst die benötigte Anzahl an Nullen der Variable voran. Wenn deine EANs 8-stellig sind, muss somit dein Etikettenlayout für GS1-Barcodes den Bestandteil 01000000{EAN} enthalten.
+  Als Ergebnis werden die fehlenden Stellen automatisch vor deinen in Xentral gepflegten EANs hinzugefügt und können anschließend beim Scan erfasst werden, ohne dass du mühsam manuelle Anpassungen in den Artikelstammdaten vornehmen musst.</p>
+<h3 id="fuhrung-von-mhd-chargen-und-seriennummern-in-den-artikelstammdaten-aktivieren">Führung von MHD, Chargen und Seriennummern in den Artikelstammdaten aktivieren<a class="headerlink" href="#fuhrung-von-mhd-chargen-und-seriennummern-in-den-artikelstammdaten-aktivieren" title="Permanent link">&para;</a></h3>
+<p>Mindesthaltbarkeitsdaten, Chargen und Seriennummern sind unerlässliche Artikeldaten, wenn dein Business sich um den Handel mit Lebensmitteln oder elektrischen Geräten dreht. Deshalb ist es auch für die Arbeit mit dem Modul <strong>Wareneingang (GS1)</strong> verpflichtend, dass diese Informationen auch in deinen Artikelstammdaten in Xentral geführt werden.. Andernfalls kommt es bei der Erfassung der Artikel per Scan zu Problemen, sodass Artikel mit MHDs, Chargen und Seriennummern nicht in Xentral erfasst und zugeordnet werden können.</p>
+<p>Gehe wie folgt vor, um die in Xentral hinterlegten Einstellungen zu prüfen und, falls nötig, vorzunehmen.</p>
+<p><img alt="artikeleinstellungen-sonstiges-de.png" src="https://help.xentral.com/hc/article_attachments/20444792858396" /></p>
+<ol>
+<li>Öffne das Menü <strong>Verkaufen &gt; Artikel</strong>.</li>
+<li>Öffne die Stammdaten des Artikels, dessen Einstellungen du prüfen oder anpassen möchtest, indem du rechts auf das <strong>Stift-Symbol</strong> klickst.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Sonstige Einstellungen</strong> erreichst.</li>
+<li><em>Falls Mindesthaltbarkeitsdaten verwendet werden </em>: Aktiviere die Option <strong>Mindesthaltbarkeitsdatum</strong>.</li>
+<li><em>Falls Chargen verwendet werden </em>: Triff für die Option Chargenverwaltung die Auswahl <strong>aktivieren</strong>.</li>
+<li><em>Falls Seriennummern verwendet werden </em>: Triff für die Option Seriennummern die Auswahl <strong>Originale einlagern und nutzen</strong>.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h3 id="standard-lagerplatz-in-den-artikelstammdaten-hinterlegen">Standard-Lagerplatz in den Artikelstammdaten hinterlegen<a class="headerlink" href="#standard-lagerplatz-in-den-artikelstammdaten-hinterlegen" title="Permanent link">&para;</a></h3>
+<p>Am Einfachsten machst du dir die Buchung des Wareneingangs mit dem Modul <strong>Wareneingang (GS1)</strong>, wenn du für deine Artikel Standard-Lagerplätze vergibst. So wird für jeden gescannten Artikel direkt der zugewiesene Standard-Lagerplatz vorausgewählt, ohne dass du weitere Eingaben oder Einstellungen vornehmen musst. Auf diese Weise arbeitest du besonders zeiteffizient, wenn du große Wareneingänge mit zahlreichen Positionen in Xentral erfassen möchtest.</p>
+<p>Gehe wie folgt vor, um deinen Artikeln Standard-Lagerplätze zuzuweisen.</p>
+<ol>
+<li>Öffne das Menü <strong>Verkaufen &gt; Artikel</strong>.</li>
+<li>Öffne den gewünschten Artikel, indem du rechts auf das <strong>Stift-Symbol</strong> klickst.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Lager / Abmessungen</strong> erreichst.</li>
+<li>Wähle im Feld <strong>Standardlager</strong> den Standard-Lagerplatz des Artikels aus.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p><img alt="artikeleinstellungen-lager-abmessungen-de.png" src="https://help.xentral.com/hc/article_attachments/20444825592476" /></p>
+<h3 id="lagerbewegungsarten-anlegen">Lagerbewegungsarten anlegen<a class="headerlink" href="#lagerbewegungsarten-anlegen" title="Permanent link">&para;</a></h3>
+<p>Lagerbewegungsarten in Xentral dienen dazu, Warenbewegungen im System individuell zu kennzeichnen und damit auch nachzuvollziehen, welche Gründe es für bestimmte Warenbewegungen gab. Für die Arbeit mit dem Modul <strong>Wareneingang (GS1)</strong> werden Lagerbewegungsarten mit der Richtung <strong>Eingang</strong> benötigt. Du solltest im Vorfeld alle deine benötigten Wareneingangsgründe in Form von Lagerbewegungsarten in Xentral anlegen (z.B.: “Wareneingang Nachbestellung”, “Retoure” und “Wareneingang Fund”). Die Lagerbewegungsarten wählst du dann später bei der Erfassung von Wareneingangen mit dem Modul <strong>Wareneingang (GS1)</strong> aus und kannst somit die Gründe deiner Wareneingänge transparent in Xentral festhalten und nachverfolgen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wie du Lagerbewegungsarten in Xentral anlegst, ist im ArtikelLagerbewegungsartenbeschrieben.</p>
+</blockquote>
+<h3 id="mde-gerat-oder-handscanner-vorbereiten">MDE-Gerät oder Handscanner vorbereiten<a class="headerlink" href="#mde-gerat-oder-handscanner-vorbereiten" title="Permanent link">&para;</a></h3>
+<p>Nachdem du deine Artikelstammdaten in Xentral geprüft und bei Bedarf aktualisiert hast, solltest du noch dein MDE-Gerät oder Handscanner für die Erfassung von Artikeln im Wareneingang prüfen und einrichten. Dazu benötigst du das Handbuch deines Scanners. Anschließend nimmst du den finalen Test im Modul <strong>Scanner-Test</strong> in Xentral vor.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Genauere Informationen und eine Anleitung für das Testen der Scanner-Konfiguration findest du im ArtikelScanner für GS1 einrichten (Scanner-Test).</p>
+</blockquote>
+<h2 id="wareneingang-erfassen">Wareneingang erfassen<a class="headerlink" href="#wareneingang-erfassen" title="Permanent link">&para;</a></h2>
+<p>Vorausgesetzt, dass du alle notwendigen Einstellungen sowohl in Xentral als auch an deinem MDE-Gerät oder Handscanner vorgenommen hast, kannst du nun mit der Erfassung von Artikeln im Wareneingang beginnen.</p>
+<p>Im Folgenden erfährst du Schritt für Schritt, was zu tun ist und welche Möglichkeiten dir im Menü <strong>Lager &gt; Wareneingang (GS1)</strong> zur Verfügung stehen, wie beispielsweise die Anpassung der erfassten Artikelmengen, die Angabe von Mindesthaltbarkeits- und Chargeninformationen sowie die Auswahl des Ziellagerplatzes, auf dem die Artikel eingebucht werden.</p>
+<h3 id="gelieferte-artikel-erfassen">Gelieferte Artikel erfassen<a class="headerlink" href="#gelieferte-artikel-erfassen" title="Permanent link">&para;</a></h3>
+<p>Typischerweise erreichen Artikel entweder von deinem Lieferanten (im Rahmen einer Nachbestellung) oder aufgrund von Retouren dein Lager.</p>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Wähle vor dem Beginn der Artikelerfassung den korrekten Anlass (in Xentral: <em>Lagerbewegungsart</em>) aus, sodass die Artikel später korrekt in deinem System verbucht werden.</p>
+<p>Zur Erinnerung: Wie du Lagerbewegungsarten für die verschiedenen Szenarien des Wareneingangs anlegst und was dabei wichtig ist, ist<a href="#UUID-07e8ea33-d96c-5c3e-9afb-d853ae065708_section-idm234979219706728">in diesem Kapitel</a>beschrieben.</p>
+<p>Je nach Anwendungsfall hast du im Modul <strong>Wareneingang (GS1)</strong> die folgenden Möglichkeiten, Artikel zu erfassen. Schau dir die Tabelle unten an, um zu erfahren, wie du pro Anwendungsfall am Besten vorgehst.</p>
+<table>
+<thead>
+<tr>
+<th>Anwendungsfall</th>
+<th>Vorgehensweise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eine Bestellung, die du bei deinem Lieferanten getätigt hast, hat dein Lager erreicht. Nun möchtest du die Waren annehmen und den Wareneingang der gelieferten Artikel in Xentral erfassen.</td>
+<td>Nutze das Suchfeld, um die Bestellnummer entweder zu scannen oder manuell einzugeben. Bei manueller Eingabe kannst du aus einer Liste an Bestellnummern, die in Xentral vorhanden sind, den korrekten Eintrag wählen. Im Anschluss fährst du mit der Erfassung der Artikel fort. Xentral prüft bei jedem Artikelscan, ob der Artikel in der ausgewählten Bestellung enthalten ist. Du erhältst eine Fehlermeldung, falls dies nicht der Fall ist. ⚠️<strong>Wichtig:</strong> Beachte, dass du bei diesem Anwendungsfall zu Beginn eine Lagerbewegungsart auswählen musst, die als Referenzdokument eine Bestellung erwartet. Zudem muss in der Lagerbewegungsart die Richtung Eingang eingestellt sein.</td>
+</tr>
+<tr>
+<td>Dich hat eine Retoure von einem Endkunden erreicht. Nun möchtest du die retournierten Artikel in deinen Warenbestand in Xentral einbuchen.</td>
+<td>Nutze das Suchfeld, um die Retourennummer entweder zu scannen oder manuell einzugeben. Bei manueller Eingabe kannst du aus einer Liste an Retourennummern, die in Xentral vorhanden sind, den korrekten Eintrag wählen. Im Anschluss fährst du mit der Erfassung der Artikel fort. Xentral prüft bei jedem Artikelscan, ob der Artikel in der ausgewählten Retoure enthalten ist. Du erhältst eine Fehlermeldung, falls dies nicht der Fall ist. Die erfassten Artikel und die dazugehören Artikelinformationen werden nach der Artikelerfassung in der Artikeltabelle angezeigt. Dort kannst du die erfassten Informationen prüfen und bei Bedarf anpassen. ⚠️<strong>Wichtig:</strong> Beachte, dass du bei diesem Anwendungsfall zu Beginn eine Lagerbewegungsart auswählen musst, die als Referenzdokument eine Retoure erwartet. Zudem muss in der Lagerbewegungsart die Richtung Eingang eingestellt sein.</td>
+</tr>
+<tr>
+<td>Du hast Artikel in deinem Lager gefunden, hast eine außerplanmäßige Lieferung deines Lieferanten erhalten oder dich hat eine unangemeldete Retoure erreicht. Es besteht also kein Zusammenhang zu einer bereits in Xentral vorhandenen Retoure oder Bestellung bei einem Lieferanten.</td>
+<td>Nutze das Suchfeld, um den Artikel entweder zu scannen oder die Artikelnummer oder den Artikelnamen manuell einzugeben. Die erfassten Artikel und die dazugehören Artikelinformationen werden nach der Artikelerfassung in der Artikeltabelle angezeigt. Dort kannst du die erfassten Informationen prüfen und bei Bedarf anpassen. ⚠️<strong>Wichtig:</strong> Beachte, dass du auch bei diesem Anwendungsfall zu Beginn eine geeignete Lagerbewegungsart angeben musst. Beispiel: Erstelle für die Einbuchung gefundener Artikel eine Lagerbewegungsart mit der Richtung Eingang und dem Namen “Wareneingang (Fund”). Stelle sicher, dass in den Einstellungen der Lagerbewegungsart für die Einstellung Referenzdokument die Option Nicht erforderlich aktiviert ist. Die Angabe eines Referenzdokumentes ist bei diesem Beispiel nicht notwendig, da ein solches in diesem Anwendungsfall nicht vorliegt und somit auch nicht zugeordnet werden kann.</td>
+</tr>
+</tbody>
+</table>
+<p>Im Folgenden beschreiben wir den grundlegenden Ablauf des Wareneingangs im Menü <strong>Lager &gt; Wareneingang (GS1)</strong>.</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Wareneingang (GS1)</strong>.</li>
+<li>Wähle oben links im Feld <strong>Lagerbewegungsart</strong> die passende Lagerbewegungsart aus.</li>
+<li>Lege oben rechts im Bereich <strong>Ziel-Lagerplatz </strong> fest, auf welchen Lagerplatz die erfassten Artikel bei Abschluss des Wareneingangs automatisch eingebucht werden sollen. Aktivierst du die Option <strong>Standardlagerplatz</strong>, wird automatisch der in den Stammdaten des jeweiligen Artikels festgelegte Standardlagerplatz ausgewählt. Alternativ kannst du die Option darunter auswählen und im Suchfeld einen spezifischen Lagerplatz auswählen, auf den dann alle Artikel eingelagert werden.</li>
+<li>Erfasse nun die Artikel, die dein Lager erreicht haben. Du kannst Artikel auf verschiedenen Wegen erfassen:
+  -<strong>Per MDE-Gerät oder Handscanner </strong>: Wir empfehlen dir diese Methode, da sie die Möglichkeit für Fehler drastisch reduziert. Scanne ganz einfach das GS1-Etikett auf den gelieferten Artikeln. Hast du mehrere Exemplare eines Artikels erhalten? Dann führe einfach wiederholte Scans des Artikels durch, bis die gelieferte Menge in der Spalte <strong>Menge</strong> der Artikeltabelle angezeigt wird.
+  -<strong>Per manueller Artikelsuche </strong>: Im Feld <strong>Barcode </strong> kannst du den Artikelnamen oder Teile des Artikelnamens eingeben und kannst den passenden Artikel aus den Suchergebnissen auswählen. Ebenso kannst du die Artikelnummer des Artikels in Xentral eingeben, um den Artikel auszuwählen. Diese Methode ist im Vergleich zum Barcode-Scan deutlich fehleranfälliger. Die gelieferten Artikelmengen musst du bei dieser Vorgehensweise zudem manuell in der Spalte <strong>Menge</strong> der Artikeltabelle eintragen.</li>
+<li>Sobald du alle Artikel erfasst hast, klicke oben rechts auf <strong>Alles einlagern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Möchtest du vor dem Abschluss des Wareneingangs noch Anpassungen an den erfassten Informationen vornehmen, zum Beispiel Ziellagerorte oder die Anzahl bestimmter Artikel ändern? Dann schau dirdas folgende Kapitelan, um zu erfahren, wie dies funktioniert.</p>
+</blockquote>
+<h3 id="erfasste-daten-andern-oder-entfernen">Erfasste Daten ändern oder entfernen<a class="headerlink" href="#erfasste-daten-andern-oder-entfernen" title="Permanent link">&para;</a></h3>
+<p>Solange du die in der Artikeltabelle erfassten Positionen noch nicht per Klick auf <strong>Alles einlagern</strong> bestätigt hast, kannst du die Informationen jederzeit manuell anpassen. Nachfolgend findest du einige Anwendungsfälle, bei denen eine Anpassung der angezeigten Informationen notwendig ist und du lernst, wie du diese Anpassungen vornimmst.</p>
+<ul>
+<li>Du hast ein Exemplar eines bereits erfassten Artikels vergessen, oder ein Exemplar zu viel gescannt: Per Klick auf die angezeigte Anzahl in der Spalte <strong>Menge</strong> kannst du die Menge manuell anpassen. Bei zu wenig erfassten Exemplaren kannst du ganz einfach das Artikeletikett erneut scannen. Die Artikelmenge wird automatisch in der Tabelle angepasst.</li>
+<li>Du möchtest den Lagerort eines bereits erfassten Artikels ändern: Klicke beim Eintrag des gewünschten Artikels auf den Lagerplatz, der in der Spalte <strong>Lagerplatz</strong> angezeigt wird. Aus dem nun angezeigten Dropdown-Menü kannst du nun den passenden Lagerplatz auswählen.</li>
+<li>Du möchtest einen Artikel vollständig aus dem Wareneingang entfernen. Klicke in der Zeile des betroffenen Artikels auf <strong>Löschen </strong>(<strong> Papierkorb-Symbol <strong>rechts). Bestätige anschließend die Sicherheitsabfrage, indem du auch dort auf </strong> Löschen</strong> klickst.</li>
+<li>Bei Bedarf kannst du auch alle erfassten Artikel unkompliziert aus dem aktuellen Wareneingang entfernen. Klicke dazu oben rechts auf <strong>Alles verwerfen </strong>. Bestätige anschließend die Sicherheitsabfrage, indem du auch dort auf <strong>Alles verwerfen</strong> klickst.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst die Breite der einzelnen Spalte in der Artikeltabelle anpassen, um die gewünschten Informationen mehr oder weniger prominent darzustellen und zu vermeiden, dass beispielsweise lange Artikelnummern abgeschnitten dargestellt werden. Außerdem kannst du die Reihenfolge der Spalten verändern.</p>
+<p>Änderungen, die du auf folgenden Wegen vornimmst, werden pro Benutzer gespeichert. Wenn du das Modul <strong>Wareneingang (GS1)</strong> das nächste Mal betrittst, werden deine Änderungen also für deinen Benutzer beibehalten. Für andere Xentral-Beutzer gilt dies genau so.</p>
+<p>-<strong>Spaltenbreiten anpassen</strong>: Bewege den Cursor an den rechten Rand der Spalte, die du breiter oder schmaler einstellen möchtest. Sobald die Darstellung des Cursors sich von einer Faust zu einem Pfeil mit zwei Spitzen und einer senkrechten Linie ändert, kannst du mit gedrückter Maustaste die Spalte nach links bewegen, um sie schmaler anzuzeigen, oder nach rechts, um sie zu verbreitern.
+-<strong>Reihenfolge der Spalten ändern</strong>: Bewege den Cursor auf die Spaltenüberschrift. Sobald die Darstellung des Cursors zu einer Faust wird, halte die Maustaste gedrückt und platziere die Spalte per Drag-and-Drop an der gewünschten Position.</p>
+</blockquote>
+<h2 id="wareneingang-per-wareneingangsbeleg-prufen">Wareneingang per Wareneingangsbeleg prüfen<a class="headerlink" href="#wareneingang-per-wareneingangsbeleg-prufen" title="Permanent link">&para;</a></h2>
+<p>Nachdem du wie oben beschrieben deine gelieferten Artikel im Menü <strong>Lager &gt; Wareneingang (GS1)</strong> erfasst und eingelagert hast, kannst du diesen Vorgang sowie alle eingelagerten Artikel noch einmal überprüfen. InXentralführst du diesen separaten Schritt im separaten Modul <strong> Wareneingangsbeleg</strong> durch. Dort kannst du die erfassten Daten im Nachhinein genau einsehen und, falls gewünscht, eine weitere Qualitätskontrolle der eingelagerten Artikel vornehmen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die folgenden Schritte sind nicht verpflichtend, sondern optional. Du kannst selbst entscheiden, ob die nachgelagerte Prüfung des Wareneingangs für den Workflow in deinem Unternehmen sinnvoll ist.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um den Wareneingangsbeleg zu prüfen.</p>
+<ol>
+<li>Nutze die Smart Search, um das Modul <strong>Wareneingangsbeleg</strong> zu öffnen.</li>
+<li>Öffne deinen soeben abgeschlossenen Wareneingang, indem du beim gewünschten Eintrag in der Liste auf <strong>Prüfen</strong> klickst.</li>
+<li>Prüfe die Einträge in der Liste.</li>
+<li>Klicke auf <strong>Beleg abschließen</strong>.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

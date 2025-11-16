@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16510599518876 Otto Connector Workflows Konfigurieren - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>16510599518876 Otto Connector Workflows Konfigurieren</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>16510599518876 Otto Connector Workflows Konfigurieren</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="uberblick">Überblick<a class="headerlink" href="#uberblick" title="Permanent link">&para;</a></h2>
+<p>Im Bereich Workflows kannst du nun die Details zu den gewählten Features konfigurieren und die Features einzeln aktiv schalten. Du erreichst die Workflows unter dem Pfad <strong>Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; OTTO &gt; Workflows</strong>.</p>
+<p><img alt="connect_artikelzuordnung_weiter-zu-workflows.png" src="https://help.xentral.com/hc/article_attachments/20880693772572" /></p>
+<h2 id="allgemeine-funktionen">Allgemeine Funktionen<a class="headerlink" href="#allgemeine-funktionen" title="Permanent link">&para;</a></h2>
+<h3 id="integrationsmodus">Integrationsmodus<a class="headerlink" href="#integrationsmodus" title="Permanent link">&para;</a></h3>
+<p>Die Schaltfläche “Aktivsteht dir in jedem Reiter zur Verfügung. Sie bezieht sich jeweils auf den Reiter, in dem du dich gerade befindest.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Schaltfläche benötigst du erst, nachdem du alle Einstellungen vorgenommen und getestet hast und alles bereit ist für den produktiven Einsatz deiner Schnittstelle.</p>
+<p><strong>Belasse den Schalter bis zum Abschluss deiner Tests auf links (inaktiv).</strong></p>
+</blockquote>
+<p><img alt="Otto__Workflows__Allgemein__Integrationsmodus__png.png" src="https://help.xentral.com/hc/article_attachments/20957207420828" /></p>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Erst nachdem deine Einrichtung und Tests abgeschlossen sind, kannst du die Schnittstelle produktiv schalten. Beachte dazu die Hinweise in diesem<a href="https://help.xentral.com/hc/de/articles/18589740879132#UUID-76f3afac-0b29-56cb-47ca-10af39e437d6">Handbuchabschnitt</a>.</p>
+<h2 id="features-reiter">Features-Reiter<a class="headerlink" href="#features-reiter" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden findest du zu jedem Feature detaillierte Konfigurationsmöglichkeiten.</p>
+<h3 id="reiter-bestand">Reiter “Bestand”<a class="headerlink" href="#reiter-bestand" title="Permanent link">&para;</a></h3>
+<h4 id="lager">Lager<a class="headerlink" href="#lager" title="Permanent link">&para;</a></h4>
+<p>“Auswahl Xentral Lager”: Hake hier die Xentral-Lagerorte an, aus denen die Bestände (summiert) an denMarktplatzgemeldet werden.</p>
+<p><img alt="OttoSW6Woo_Workflows_Bestand_Lagerzuordnung.png" src="https://help.xentral.com/hc/article_attachments/19113152314396" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wenn du einen neuen Lagerort angelegt hast, der im Auswahlfeld noch nicht zur Verfügung steht, klicke auf <strong>Optionen neu laden</strong>, um die Auswahl zu aktualisieren.</p>
+</blockquote>
+<h4 id="lagerbestand-berechnen">Lagerbestand berechnen<a class="headerlink" href="#lagerbestand-berechnen" title="Permanent link">&para;</a></h4>
+<p><img alt="Shared_Workflows_Bestand_Berechnen.png" src="https://help.xentral.com/hc/article_attachments/19113152315676" /></p>
+<p>Wähle folgende Optionen aus, um die an den Shop übertragene Bestandsmenge zu manipulieren:</p>
+<ul>
+<li>“Reservierungen beachten”: Setze den Schalter nach rechts, wenn die reservierte Menge vom Lagerbestand abgezogen werden soll.</li>
+<li>“Offene Bestellungen beachten”: Setze den Schalter nach rechts, wenn offene Auftragsmengen abgezogen werden sollen.</li>
+<li>“Lagerkorrekturwert beachten”: Setze den Schalter nach rechts, wenn der Lagerbestand um den im Artikel festgelegten Lagerkorrekturwert verändert werden soll. Das Feld “Lagerkorrekturwert” findest du unter <strong>Artikel &gt; Details &gt; Online-Shop Optionen </strong>, Bereich <strong>Lagerbestand</strong>.</li>
+<li>“Pseudo Lagerzahl statt echten Lagerzahlen verwenden”: Setze den Schalter nach rechts, wenn statt dem berechneten Lagerbestand eine im Artikelstamm festgelegte Pseudomenge übertragen werden soll. Das Feld <strong>Pseudo Lagerzahl </strong> findest du ebenfalls unter <strong>Artikel &gt; Details &gt; Online-Shop Optionen </strong>, Bereich <strong>Lagerbestand</strong>.</li>
+</ul>
+<h3 id="reiter-auftrage">Reiter “Aufträge”<a class="headerlink" href="#reiter-auftrage" title="Permanent link">&para;</a></h3>
+<p>Der Reiter Aufträge ist das Kernstück der Workflow-Konfiguration. Hier legst du unter anderem fest, wie Lieferbedingungen verknüpft werden, auf welche Artikelnummern Versandgebühren und Rabatte gebucht werden, wie mit Kommentaren verfahren werden soll und wie Kunden angelegt und zugeordnet werden.</p>
+<h4 id="update-strategie">Update Strategie<a class="headerlink" href="#update-strategie" title="Permanent link">&para;</a></h4>
+<p>Trage ein, welcher Name als Bearbeiter in die importierten Aufträge eingetragen werden soll:</p>
+<p><img alt="Otto_Workflows_Auftrage_Updatestrategie.png" src="https://help.xentral.com/hc/article_attachments/19113137537692" /></p>
+<h4 id="versandkosten">Versandkosten<a class="headerlink" href="#versandkosten" title="Permanent link">&para;</a></h4>
+<p><img alt="TB_Workflows_Auftrage_Versandkosten.png" src="https://help.xentral.com/hc/article_attachments/20345630245916" /></p>
+<ul>
+<li>Ordne unter <strong>Artikelnummer für Versandkosten</strong> den Porto-Artikel zu, auf den Versandgebühren geschrieben werden sollen.</li>
+</ul>
+<h4 id="steuern">Steuern<a class="headerlink" href="#steuern" title="Permanent link">&para;</a></h4>
+<p><img alt="OTTO_Workflows_Auftrage_Steuern.png" src="https://help.xentral.com/hc/article_attachments/20345604358684" /></p>
+<ul>
+<li>Falls du eine USt-Identprüfung bereits im Shop abgedeckt hast, kannst du den Auswahlschalter <strong>USt-IdNr. automatisch als geprüft kennzeichnen</strong> nach rechts stellen, um eine Doppelprüfung zu vermeiden.</li>
+<li>
+<p>Wenn dein jährlicher EU-weite Gesamtumsatz unter 10.000 EUR liegt, kannst du aktivieren, um die Mehrwertsteuer im Land des Lagerstandortes zu entrichten.<strong>Besteuerung abhängig vom Lagerstandardort machen </strong></p>
+</li>
+<li>
+<p>Wenn du <strong>Gesamtbetrag festsetzen </strong> aktivierst, übernimmt Xentral des Gesamtbetrag aus dem Verkaufskanal und berechnet ihn nicht als Summe aus den Einzelpreisen. So werden Rundungsdifferenzen vermieden. Aktivierst du diese Schaltfläche, kannst du im nächsten Feld die <strong>maximale Differenz</strong> zwischen den Beträgen in Verkaufskanal und Xentral definieren. Überschreitet die Differenz eines Auftrags die von dir festgelegte Grenze, so wird der Autoversand für diesen Auftrag deaktiviert und du kannst die notwendigen Korrekturen vornehmen.</p>
+</li>
+</ul>
+<h4 id="rabatte">Rabatte<a class="headerlink" href="#rabatte" title="Permanent link">&para;</a></h4>
+<p><img alt="TB_Workflows_Auftrage_WahrungRabatte.png" src="https://help.xentral.com/hc/article_attachments/20345604359196" /></p>
+<ul>
+<li>Weise einen <strong>Rabatt</strong></li>
+</ul>
+<p>-Artikel zu, auf den Gutschriften und Rabatte gebucht werden sollen.</p>
+<h4 id="auftragspositionen">Auftragspositionen<a class="headerlink" href="#auftragspositionen" title="Permanent link">&para;</a></h4>
+<p><img alt="Otto_Workflows_Auftrage_Auftragspositionen.png" src="https://help.xentral.com/hc/article_attachments/19113152322204" /></p>
+<ul>
+<li>Standardmäßig wird eine Bestellzeile im Marktplatz, die mehr als 1 Stück eines Artikels enthält, in mehrere Auftragszeilen mit jeweils 1 Stück aufgeteilt. Um das zu vermeiden, empfehlen wir, diese Schaltfläche zu aktivieren. So wird nur eine Auftragszeile mit der gesamten Artikelmenge erstellt.</li>
+</ul>
+<h4 id="zahlungsarten">Zahlungsarten<a class="headerlink" href="#zahlungsarten" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Hinterlege bei der “Standardzahlungsart” eine Zahlungsweise, die verwendet werden soll, falls keine Zahlungsweise vom Marktplatz übergeben wird.</li>
+<li>Hinterlege unter “Zahlungsarten Zuordnung” die Beziehung der OTTO-Zahlungsweisen zu Xentral-Zahlungsarten. Du kannst mehrere OTTO-Zahlungsweisen mit einer Xentral-Zahlungsart verknüpfen oder jeweils eigene Xentral-Zahlungsarten verwenden. Wichtig ist hierbei, dass du die Schreibweise von OTTO korrekt übernimmst. Folgende Zahlungsweisen stehen zur Verfügung:</li>
+<li>Du kannst außerdem Zahlungsarten auswählen, für die kein Autoversand gelten soll. Solche Aufträge werden importiert und können im weiteren Verlauf manuell in den Versand gegeben werden.</li>
+</ul>
+<h4 id="versandarten-und-lieferbedingungen">Versandarten und Lieferbedingungen<a class="headerlink" href="#versandarten-und-lieferbedingungen" title="Permanent link">&para;</a></h4>
+<p><img alt="Otto_Workflows_Auftrage_Versandarten.png" src="https://help.xentral.com/hc/article_attachments/21740257565468" /></p>
+<ul>
+<li>Das Feld “Welche Lieferbedingungen sollen für den Auftragsimport für diesen Onlineshop gelten?” kannst du leer lassen, da das Feld bei OTTO nicht benutzt wird.</li>
+<li>Hinterlege bei der “Standardversandart” eine Versandart, die verwendet werden soll, falls keine Versandart vom Marktplatz übergeben wird.</li>
+<li>Hinterlege unter “Versandarten Zuordnung” die Beziehung der OTTO-Versandart zu Xentral-Versandarten. Du kannst mehrere OTTO-Versandarten mit einer Xentral-Versandart verknüpfen oder jeweils eigene Xentral-Versandarten verwenden. Wichtig ist hierbei, dass du die Schreibweise von OTTO korrekt übernimmst. Folgende Versandarten stehen bei OTTO zur Verfügung:</li>
+<li>“Fast-Lane Versandarten”: Falls du deinen Kunden Express-Versandarten anbieten möchtest, kannst du auf dieses Feld klicken und dort die zutreffenden Versandarten anhaken. Wird von OTTO eine dieser Versandweisen übergeben, wird das Fast-Lane-Flag im Auftrag automatisch gesetzt.</li>
+<li>“Belege im Autoversand erstellen”: Wähle hier, welche Belege im Autoversand erstellt werden sollen. Die Option “Nur Rechnung” bietet sich z. B. an, wenn du einen Abholprozess abbilden möchtest.</li>
+</ul>
+<h4 id="projekt">Projekt<a class="headerlink" href="#projekt" title="Permanent link">&para;</a></h4>
+<p><img alt="Otto_Workflows_Auftrage_Projekt.png" src="https://help.xentral.com/hc/article_attachments/19113137543580" /></p>
+<p>Wähle ein <strong>Standardprojekt</strong>, das standardmäßig in die importierten Aufträge eingefügt wird.</p>
+<h4 id="kundenzuordnung">Kundenzuordnung<a class="headerlink" href="#kundenzuordnung" title="Permanent link">&para;</a></h4>
+<p>In den folgenden Feldern legst du fest, wie Kunden zwischen deinem Shop und Xentral verknüpft werden sollen. Wir unterscheiden zwischen im Shop angelegten Kunden und Gastkunden, die kein Konto angelegt haben.</p>
+<p><img alt="Shared_Workflows_Auftrage_Kundenzuordnung.png" src="https://help.xentral.com/hc/article_attachments/19113152330396" /></p>
+<ul>
+<li>Für Kunden sowie für Kunden ohne Kundenkonto (Gastkunden) hast du folgende Optionen:</li>
+<li>
+<p>Hast du bei mind. einem der beiden vorhergehenden Felder die Option “Kunde aus Bestellung auf einen bestehenden Kunden zuordnen” gewählt, legst du im Feld <strong>Kundenzuordnung</strong> fest, anhand welcher Kriterien die Zuordnung erfolgt, wobei die Prüfreihenfolge “Kundennummer” vor “Mail-Adresse” vor “Name &amp; Adresse” ist.</p>
+</li>
+<li>
+<p>Bestimme schließlich im Feld <strong>Wenn kein Kunde gefunden wird, dann:</strong> wie verfahren werden soll, falls kein Kunde zugeordnet werden kann:</p>
+</li>
+<li>Setze den Auswahlschieber bei <strong>Bestehende Kunden nur innerhalb des Projektes zuordnen?</strong> nach rechts, wenn du die Suche nach Kunden auf das -spezifische Projekt in Xentral einschränken möchtest. Üblicherweise bleibt diese Schaltfläche deaktiviert.</li>
+<li>Hast du oben bei der Kundenanlage die Option “Jeden Kunden auf Default-Kunden schreiben” gewählt, trägst du schließlich im Feld “Default-Kunden auswählen” eine entsprechende Kundennummer ein.</li>
+</ul>
+<h4 id="positionen">Positionen<a class="headerlink" href="#positionen" title="Permanent link">&para;</a></h4>
+<p>Setze den Auftragsschalter nach rechts, wenn du in den Belegen die Artikelbezeichnung aus dem XentralArtikelstamm andrucken möchtest. Dies ist beispielsweise sinnvoll, wenn du im Shop andere Bezeichnungen (z. B. für SEO-Zwecke) verwendest, als du in der Auftragsabwicklung nutzen möchtest. Du kannst außerdem wählen, ob bzw. welche Artikelbeschreibung in den Auftragspositionen angezeigt werden soll:</p>
+<p><img alt="Shared_Workflows_Auftrage_Positionen.png" src="https://help.xentral.com/hc/article_attachments/19113137553692" /></p>
+<h3 id="reiter-auftragsstatus-tracking">Reiter “Auftragsstatus &amp; Tracking”<a class="headerlink" href="#reiter-auftragsstatus-tracking" title="Permanent link">&para;</a></h3>
+<h4 id="update-strategie_1">Update Strategie<a class="headerlink" href="#update-strategie_1" title="Permanent link">&para;</a></h4>
+<p><img alt="connect_workflows_auftragsstatus_update_otto.png" src="https://help.xentral.com/hc/article_attachments/19113137554972" /></p>
+<p>Setze den Schalter “Aufträge automatisch im Shop stornieren” nach rechts, wenn du Aufträge, die in Xentral storniert werden, auch im Marktplatz stornieren möchtest. Dies hat nur Auswirkungen auf noch nicht versendete Aufträge.</p>
+<h4 id="versanddienstleister-zuordnung">Versanddienstleister-Zuordnung<a class="headerlink" href="#versanddienstleister-zuordnung" title="Permanent link">&para;</a></h4>
+<p><img alt="connect_workflow_versanddienstleister_otto.png" src="https://help.xentral.com/hc/article_attachments/19113152354972" /></p>
+<p>Hier weist du die Versandarten aus Xentral den Versanddienstleister-Codes von Otto zu, damit die Trackinginformationen korrekt an Otto zurück übermittelt werden können.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beachte die Vorgaben zurShopeinrichtung. Der Versand- und Retouren-Prozess für den Paketversand ist ausschließlich über DHL automatisiert. Solltest du einen anderen Versanddienstleister nutzen, denke daran, auch den Abschnitt &ldquo;Retouren&rdquo; weiter unten zu bearbeiten.</p>
+</blockquote>
+<h4 id="lageradresse">Lageradresse<a class="headerlink" href="#lageradresse" title="Permanent link">&para;</a></h4>
+<p><img alt="connect_workflows_lageradresse.png" src="https://help.xentral.com/hc/article_attachments/19113137558172" /></p>
+<p>Trage in den Feldern Postleitzahl, Stadt und Land die Daten des Versandlagers ein, aus dem du versendest. Dies ist wichtig, damit die Steuerberechnung korrekt erfolgen kann.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Berücksichtige in diesem Zusammenhang auch die Lieferschwellen-Thematik. Nähere Informationen dazu findest duhier.</p>
+</blockquote>
+<h4 id="retouren">Retouren<a class="headerlink" href="#retouren" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Falls du deinen Versand- und Retouren-Prozess an einen Fulfiller ausgelagert hast, oder deine Pakete mit einem anderen Dienstleister als DHL versendest, frage bei deinem Versanddienstleister einen Retourennummernpool an und trage ihn hier ein.</p>
+<p><strong>Anmerkung</strong></p>
+<p>Falls du nur den automatisierten Prozess über DHL-Paketversand nutzt, brauchst du an dieser Stelle nichts eintragen.</p>
+</blockquote>
+<p><img alt="connect_workflows_retouren.png" src="https://help.xentral.com/hc/article_attachments/19113152357788" /></p>
+<p>Trage den Retourennummernpool deines Versanddienstleisters ein. Die Angabe kann mit beliebigen Trennzeichen (z. B. Leerzeichen, Komma, Semikolon) erfolgen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die Connect-Schnittstelle verwendet automatisch die nächste freie Retourennummer des Pools und meldet diese bei der Statusmeldung einer Lieferung an den Marktplatz. Dies stellt sicher, dass die Lieferung als “fulfilled” im Marktplatz markiert wird. Wir empfehlen, den Retourennummernpool so groß zu wählen, dass das Sendungsvolumen von sechs Monaten abgedeckt ist, danach können Retourennummern wiederverwendet werden. Ein Ergänzen des Retourennummernpools ist jederzeit möglich.</p>
+</blockquote>
+<h2 id="testphase-und-produktivschaltung">Testphase und Produktivschaltung<a class="headerlink" href="#testphase-und-produktivschaltung" title="Permanent link">&para;</a></h2>
+<h3 id="testphase">Testphase<a class="headerlink" href="#testphase" title="Permanent link">&para;</a></h3>
+<p>Wenn du alle Einstellungen in den Workflows vorgenommen hast, solltest du die Anbindung ausgiebig testen.</p>
+<p>Schränke die<a href="https://help.xentral.com/hc/de/articles/16510627621532#UUID-eecfb261-6503-5309-fcae-89ad123f65c3">Artikelzuordnung</a>auf wenige Artikel ein.</p>
+<p>Nutze einige Testdaten und führe die Tests mit Hilfe der Funktionen im<a href="https://help.xentral.com/hc/de/articles/16510622825756#UUID-cc81f147-fc32-992b-080c-a5e78d6107b5">Journal</a>durch.</p>
+<h3 id="produktivschaltung">Produktivschaltung<a class="headerlink" href="#produktivschaltung" title="Permanent link">&para;</a></h3>
+<p>Sobald die Schnittstelle die Testdaten richtig und wie erwartet übergibt, kannst du mit der<a href="https://help.xentral.com/hc/de/articles/18589740879132#UUID-76f3afac-0b29-56cb-47ca-10af39e437d6">Produktiv-Schaltung</a>fortfahren.</p>
+<p><strong>Viel Spaß mit deiner neuen Schnittstelle!</strong></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

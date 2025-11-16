@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017436999 Beispielmodule Programmieren - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017436999 Beispielmodule Programmieren</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017436999 Beispielmodule Programmieren</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das Beispiel geht ab Version 17.1 Ein Modul besteht aus mindestens einer PHP-Datei.php für den Code der im Hintergrund ablaufen soll und einer Template-Datei.tpl die für die Darstellung von HTML sorgt. Die PHP-Datei wird zuerst beschrieben, ganz unten befinden sich die Template-Dateien.</p>
+</blockquote>
+<h2 id="php-datei-beispielmodulphp">PHP-Datei beispielmodul.php<a class="headerlink" href="#php-datei-beispielmodulphp" title="Permanent link">&para;</a></h2>
+<p>Zuerst wird die Klasse für das Modul erstellt, wie hier das Beispielmodul. Mit der darin enthaltenen, statischen Funktion TableSearch werden alle Live Tabellen für das Modul definiert. Innerhalb von TableSearch() werden mit einem switch alle Live Tabellen aufgezählt. Live Tabellen können beliebig benannt werden. In der Variable $heading ist ein Array mit den Spaltennamen die in der Live Tabelle angezeigt werden. Mit der Variable $width werden die einzelnen Spaltenbreiten in prozentualer Angabe in einem Array festgelegt. Die Variable $findcols beinhaltet ein Array mit den Datenbankspalten die in der Live Tabelle sortierbar sind. $searchsql legt im Array die Datenbankspalten fest, die im Suchfenster durchsucht werden können. In der Variable $menue werden, falls benötigt, die Menüpunkte für die Einträge der Live Tabelle definiert, wie in diesem Beispiel edit und delete. Im dazugehörigen Link von ist hinter action der jeweiligen ActionHandler ersichtlich, der bei einem Klick auf ausgeführt wird. In der Variable $sql wird die SQL Abfrage eingetragen, von welcher das Ergebnis in der Live Tabelle gesehen werden so. Zu beachten ist, dass das WHERE der Abfrage in der Variable $where eingetragen werden muss. Dasselbe gilt für GROUP BY, was in der Variable $groupby steht. $count sorgt für die Darstellung der Anzahl der Einträge die angezeigt werden unterhalb der Live Tabelle.</p>
+<p>?php //WAWIFILEONLYON VERSION=ALL</p>
+<p>class Beispielmodul { var $app;</p>
+<p>static function TableSearch(&amp;$app, $name, $erlaubtevars) { // in dieses switch alle lokalen Tabellen (diese Live Tabellen mit Suche etc.) für dieses Modul switch($name) { case &ldquo;beispielmodul_list&rdquo;: $allowed[&lsquo;beispielmodul&rsquo;] = array(&lsquo;list&rsquo;);</p>
+<pre><code> $heading = array('Adresse', 'Datum', 'Beschreibung', 'Menü');
+  $width = array('40%', '30%', '20%', '10%');
+
+  $findcols = array('b.id', 'b.adresse', 'b.datum', 'b.beschreibung');
+  $searchsql = array('b.id', 'b.adresse', 'b.datum', 'b.beschreibung');
+
+  $defaultorder = 1;
+  $defaultorderdesc = 0;
+
+  $jahr = date(&quot;Y&quot;);
+
+  $menu = &quot;&lt;a href=\&quot;index.php?module=beispielmodul&amp;action=edit&amp;id=%value%\&quot;&gt;&lt;img src=\&quot;./themes/{$app-&gt;Conf-&gt;WFconf['defaulttheme']}/images/edit.png\&quot; border=\&quot;0\&quot;&gt;&lt;/a&gt;&quot;;
+
+  $sql = &quot;SELECT SQL_CALC_FOUND_ROWS b.id, b.adresse, b.datum, b.beschreibung, b.id FROM beispielmodul b&quot;; 
+
+  $where = &quot; YEAR(b.datum) &lt; '$jahr'&quot;;
+
+  $groupby = &quot;GROUP BY b.datum&quot;;
+
+  $count = &quot;SELECT count(DISTINCT b.id) FROM beispielmodul b WHERE $where&quot;;
+  break; 
+}
+
+$erg = false;
+
+foreach($erlaubtevars as $k =&gt; $v)
+{
+  if(isset($$v))$erg[$v] = $$v;
+}
+return $erg;
+</code></pre>
+<p>Danach folgt die Funktion __construct() die den Konstruktor darstellt und alle ActionHandler festlegt. Der ActionHandler definiert im ersten Parameter welches Action gemeint ist und im zweiten Parameter die zugehörige Funktion die beim jeweiligen Action ausgeführt werden soll. Die ActionHandler können ebenfalls beliebig benannt werden. Außerdem wird die Funktion Install() aufgerufen.</p>
+<p>function __construct($app, $intern = false) { $this-&gt;app=&amp;$app; if($intern)return; $this-&gt;app-&gt;ActionHandlerInit($this); //Ab hier alle ActionHandler definieren die das Modul hat $this-&gt;app-&gt;ActionHandler(&ldquo;list&rdquo;, &ldquo;BeispielmodulList&rdquo;); $this-&gt;app-&gt;ActionHandler(&ldquo;create&rdquo;, &ldquo;BeispielmodulCreate&rdquo;); $this-&gt;app-&gt;ActionHandler(&ldquo;edit&rdquo;, &ldquo;BeispielmodulEdit&rdquo;); $this-&gt;app-&gt;ActionHandler(&ldquo;delete&rdquo;, &ldquo;BeispielmodulDelete&rdquo;);</p>
+<p>$this-&gt;app-&gt;ActionHandlerListen($app); $this-&gt;Install();}</p>
+<p>Um neue Tabellen und Spalten in der Datenbank anzulegen, wird eine neue Funktion namens Install() angelegt. Innerhalb dieser Funktion werden die Funktionen CheckTable() und CheckColumn() verwendet. CheckTable() prüft, ob die Tabelle bereits in der Datenbank vorhanden ist und legt sie an falls das nicht der Fall ist. CheckColumn() prüft, ob die Spalten in der angegebenen Tabelle bereits existieren und legt sie an falls das nicht der Fall ist.</p>
+<p>function Install() { $this-&gt;app-&gt;erp-&gt;CheckTable(&ldquo;beispielmodul&rdquo;); $this-&gt;app-&gt;erp-&gt;CheckColumn(&ldquo;id&rdquo;, &ldquo;int(11)&rdquo;, &ldquo;beispielmodul&rdquo;, &ldquo;NOT NULL AUTO_INCREMENT&rdquo;); $this-&gt;app-&gt;erp-&gt;CheckColumn(&ldquo;adresse&rdquo;, &ldquo;int(11)&rdquo;, &ldquo;beispielmodul&rdquo;, &ldquo;NOT NULL&rdquo;); $this-&gt;app-&gt;erp-&gt;CheckColumn(&ldquo;datum&rdquo;, &ldquo;DATE&rdquo;, &ldquo;beispielmodul&rdquo;, &ldquo;NOT NULL&rdquo;); $this-&gt;app-&gt;erp-&gt;CheckColumn(&ldquo;beschreibung&rdquo;, &ldquo;VARCHAR(255)&rdquo;, &ldquo;beispielmodul&rdquo;, &ldquo;NOT NULL&rdquo;);}</p>
+<p>Als nächstes folgen die einzelnen Funktionen die durch die ActionHandler aufgerufen werden. BeispielmodulList() sorgt dafür, das alles angezeigt wird, was der Benutzer beim Aufruf des Moduls sehen soll. Die Funktionen MenuEintrag fügen neue Menüpunkte zur Navigation des Moduls hinzu. TableSearch gibt an, welche Live Tabelle zur Darstellung der Daten verwendet werden soll, in diesem Falle die Live Tabelle beispielmodul_list. Ohne die Angabe einer Template-Datei mit der Funktion Parse, kann kein Inhalt dargestellt werden.</p>
+<p>function BeispielmodulList() { $this-&gt;app-&gt;erp-&gt;MenuEintrag(&ldquo;index.php?module=beispielmodul&amp;action=create&rdquo;,&rdquo;Neuer Eintrag&rdquo;); $this-&gt;app-&gt;erp-&gt;MenuEintrag(&ldquo;index.php?module=beispielmodul&amp;action=list&rdquo;,&rdquo;Übersicht&rdquo;);</p>
+<pre><code>$this-&gt;app-&gt;YUI-&gt;TableSearch('TAB1','example_module_list', &quot;show&quot;,&quot;&quot;,&quot;&quot;,basename(__FILE__), __CLASS__);
+$this-&gt;app-&gt;Tpl-&gt;Parse(&quot;PAGE&quot;, &quot;example_module_list.tpl&quot;);
+
+</code></pre>
+<p>Innerhalb der Funktion BeispielmodulEdit() wird der Code definiert, der bei einem Klick auf das Edit Symbol eines Eintrags der Live Tabelle ausgeführt werden soll. Zuerst wird mit MenuEintrag neue Menüpunkte zum Modul hinzugefügt. Einer der auf die aktuelle Seite verweist und einer der zurück auf die Live Tabelle verlinkt. Über GET wird in die Variable $id die ID von dem zu bearbeitenden Auftrag übertragen. Mit POST wird der Wert des Speichern Buttons geholt. Außerdem wird ein Array erstellt, dass über GetInput (weiteres weiter unten) die Werte aus den Eingabefeldern holt. Ist die ID gesetzt und eine Zahl und der Speichern Button wurde gedrückt, wird geprüft ob alle Pflichtfelder befüllt wurden. Ist dies nicht der Fall, erhält die Variable $error eine jeweilige Fehlermeldung. Ist die Variable $error nicht leer, sprich nicht alle Pflichtfelder wurden befüllt, wird eine Fehlermeldung im Templatefeldbereich MESSAGE angezeigt. Andernfalls wird der bisherige Eintrag mit UPDATE aktualisiert und eine Erfolgsmeldung wird angezeigt. Desweiteren wird das derzeitige für diesen Eintrag hinterlegte Datum aus der Datenbank geholt. Selbiges gilt für die Beschreibung. Mit Hilfe von Set werden diese Werte in die Eingabefelder voreingetragen, damit die Person, wenn sie die Einträge bearbeiten will sieht, welche Werte genau sie bearbeitet. Parse gibt zum Schluss an welche Template-Datei verwendet werden soll.</p>
+<p>function BeispielmodulEdit() { $this-&gt;app-&gt;erp-&gt;MenuEintrag(&ldquo;index.php?module=beispielmodul&amp;action=edit&amp;id=$id&rdquo;,&rdquo;Details&rdquo;); $this-&gt;app-&gt;erp-&gt;MenuEintrag(&ldquo;index.php?module=beispielmodul&amp;action=list&rdquo;,&rdquo;Zurück zur Übersicht&rdquo;);</p>
+<pre><code>$id = (int)$this-&gt;app-&gt;Secure-&gt;GetGET('id');
+$store = $this-&gt;app-&gt;Secure-&gt;GetPOST('store');
+
+$input = array();
+
+$input = $this-&gt;GetInput();
+
+if(is_numeric($id) &amp;&amp; $store!=''){
+
+  $error = '';
+  if($input['date']=='') $error.= 'Please enter a date.&lt;br&gt;';
+  if($input['description'] == '') $error.= 'Please enter a description.&lt;br&gt;';
+
+  if($error!=''){
+  $this-&gt;app-&gt;Tpl-&gt;Set('MESSAGE',&quot;&lt;div class=\&quot;error\&quot;&gt;$error&lt;/div&gt;&quot;);
+}else{
+  if($error == &quot;&quot;){
+  $this-&gt;app-&gt;DB-&gt;Update(&quot;UPDATE example module SET date ='{$input['date']}', description='{$input['description']}' WHERE id = '$id' LIMIT 1&quot;);
+
+  $this-&gt;app-&gt;Tpl-&gt;Set('MESSAGE', &quot;&lt;div class=\&quot;success\&quot;&gt;The settings were successfully &amp;uuml;baccepted.&lt;/div&gt;&quot;);
+}
+}
+}
+$date = $this-&gt;app-&gt;DB-&gt;Select(&quot;SELECT date FROM example module WHERE id = '$id'&quot;);
+$description = $this-&gt;app-&gt;DB-&gt;Select(&quot;SELECT description FROM example module WHERE id = '$id'&quot;);
+
+$this-&gt;app-&gt;Tpl-&gt;Set('DATE', $date);
+$this-&gt;app-&gt;Tpl-&gt;Set('DESCRIPTION', $description);
+
+$this-&gt;app-&gt;Tpl-&gt;Parse('PAGE', &quot;example_module_edit.tpl&quot;);
+}
+</code></pre>
+<p>BeispielmodulDelete() löscht den gewählten Eintrag aus der Live Tabelle bei Klick auf das Delete Symbol. Mittels der Variable $_SERVER[&lsquo;HTTP_REFERER&rsquo;] kann ermittelt werden, von welcher Seite der Benutzer kam, also in diesem Fall die aktuelle Seite mit der Live Tabelle. Über GetGET wird die ID des zu löschenden Eintrages geholt und mit einem MySQL Statement wird der Eintrag anschließend gelöscht. Zum Schluss wird auf die bisherige Seite weitergeleitet.</p>
+<p>function BeispielmodulDelete() { $ref = $_SERVER[&lsquo;HTTP_REFERER&rsquo;]; $id = $this-&gt;app-&gt;Secure-&gt;GetGET(&ldquo;id&rdquo;); $this-&gt;app-&gt;DB-&gt;DELETE(&ldquo;DELETE FROM beispielmodul WHERE id = &lsquo;$id&rsquo; LIMIT 1&rdquo;);</p>
+<pre><code>header(&quot;Location: $ref&quot;);
+exit;
+
+</code></pre>
+<p>Die Funktion BeispielmodulCreate() legt einen neuen Eintrag in der Datenbanktabelle beispielmodul an. Zuerst wird mit MenuEintrag ein neuer Menüpunkt zum Modul hinzugefügt, der zurück auf die Live Tabelle verweist. Mit der Funktion GetInput werden die Werte aus den Eingabefeldern geholt. Die Erklärung zu dieser Funktion erfolgt weiter unten. Über GetPOST wird der Wert des Speichern Buttons geholt. Wenn dieser Wert nicht leer ist, also gedrückt wurde, wird geprüft, ob die Pflichtfelder bei der Eingabe ausgefüllt wurden. Falls diese nicht ausgefüllt wurden, erhält die Variable $error eine jeweilige Fehlermeldung. Enthält die Variable $error nun also einen Wert, wird die Fehlermeldung im Templatefeldbereich MESSAGE ausgegeben. Andernfalls wird der neue Eintrag hinzugefügt und die Meldung des erfolgreichen Hinzufügens wird angezeigt. Ist der Speichern Button nicht gedrückt worden, werden die Eingabefelder mittels der Funktion SetInput (wird weiter unten erklärt) mit den bisherigen eingegebenen Werten gefüllt. BeispielmodulCreate() verweist am Ende auf ein anderes Template, da die Oberfläche eine andere ist als bei BeispielmodulList(), jedoch kann das selbe Template wie bei BeispielmodulEdit() verwendet werden, da die Oberflächen bei beiden gleich ist.</p>
+<p>function BeispielmodulCreate() { $this-&gt;app-&gt;erp-&gt;MenuEintrag(&ldquo;index.php?module=beispielmodul&amp;action=list&rdquo;,&rdquo;Zurück zur Übersicht&rdquo;);</p>
+<pre><code>$input = $this-&gt;GetInput();
+$speichern = $this-&gt;app-&gt;Secure-&gt;GetPOST(&quot;speichern&quot;);
+
+if($speichern!= &quot;&quot;){
+
+  $error = '';
+
+  if($input['datum']=='') $error.= 'Geben Sie bitte ein Datum ein.&lt;br&gt;';
+  if($input['beschreibung']=='') $error.= 'Geben Sie bitte eine Beschreibung ein.&lt;br&gt;';
+
+  if($error!=''){
+  $this-&gt;app-&gt;Tpl-&gt;Set('MESSAGE', &quot;&lt;div class=\&quot;error\&quot;&gt;$error&lt;/div&gt;&quot;);
+}else{
+  $this-&gt;app-&gt;DB-&gt;Insert(&quot;INSERT INTO beispielmodul (datum, beschreibung) VALUES ('{$input['datum']}', '{$input['beschreibung']}')&quot;);
+  $newid = $this-&gt;app-&gt;DB-&gt;GetInsertID();
+  $msg = $this-&gt;app-&gt;erp-&gt;base64_url_encode(&quot;&lt;div class=\&quot;success\&quot;&gt;Der Eintrag wurde erfolgreich angelegt.&lt;/div&gt;&quot;);
+  header(&quot;Location: index.php?module=beispielmodul&amp;action=edit&amp;id=$newid&amp;msg=$msg&quot;);
+  exit;
+}
+}
+
+$this-&gt;SetInput($input); 
+
+$this-&gt;app-&gt;Tpl-&gt;Parse('PAGE', &quot;beispielmodul_edit.tpl&quot;);
+</code></pre>
+<p>Die Funktion GetInput erstellt eine Variable namens $input, welche ein Array beinhalten wird. Am Index datum des Arrays wird der Wert mittels POST aus der Variablen datum geholt. Selbiges geschieht für den Index beschreibung. Zum Schluss wird das Array bei return zurückgegeben.</p>
+<p>function GetInput(){ $input = array(); $input[&lsquo;datum&rsquo;] = $this-&gt;app-&gt;Secure-&gt;GetPOST(&lsquo;datum&rsquo;); $input[&lsquo;beschreibung&rsquo;] = $this-&gt;app-&gt;Secure-&gt;GetPOST(&lsquo;beschreibung&rsquo;);</p>
+<p><code>return $input;</code></p>
+<p>Die Funktion SetInput erhält als Parameter ein Array. Mittels der Funktion Set werden die Textfelder für Datum und Beschreibung an der Stelle DATUM und BESCHREIBUNG gefüllt.</p>
+<p>[en-us] function SetInput($input){ function SetInput($input){ $this-&gt;app-&gt;Tpl-&gt;Set(&lsquo;DATUM&rsquo;, $input[&lsquo;datum&rsquo;]); $this-&gt;app-&gt;Tpl-&gt;Set(&lsquo;BESCHREIBUNG&rsquo;, $input[&lsquo;beschreibung&rsquo;]);}this-&gt;app-&gt;Tpl-&gt;Set(&lsquo;DATE&rsquo;, $input[&lsquo;date&rsquo;]); $this-&gt;app-&gt;Tpl-&gt;Set(&lsquo;DESCRIPTION&rsquo;, $input[&lsquo;description&rsquo;]);}</p>
+<h3 id="template-datei-beispielmodul_listtpl">Template-Datei beispielmodul_list.tpl<a class="headerlink" href="#template-datei-beispielmodul_listtpl" title="Permanent link">&para;</a></h3>
+<pre><code>&lt;div id=&quot;tabs-1&quot;&gt;
+  [MESSAGE]
+  [TAB1]
+  [TAB1NEXT]
+&lt;/div&gt;
+
+```### Template-Datei beispielmodul_edit.tpl```
+&lt;div id=&quot;tabs-1&quot;&gt;
+  [MESSAGE]
+  &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
+  &lt;fieldset&gt;
+  &lt;legend&gt;Land&lt;/legend&gt;
+  &lt;table width=&quot;100%&quot; border=&quot;0&quot; class=&quot;mkTableFormular&quot;&gt;
+  &lt;tr&gt;&lt;td&gt;Datum: &lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;datum&quot; value=&quot;[DATUM]&quot; size=&quot;40&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Beschreibung: &lt;/td&gt;&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;beschreibung&quot; value=&quot;[BESCHREIBUNG]&quot; size=&quot;40&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/fieldset&gt;
+  &lt;input type=&quot;submit&quot; name=&quot;speichern&quot; value=&quot;Speichern&quot; style=&quot;float:right&quot;/&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

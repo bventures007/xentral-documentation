@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016725120 Matrixprodukt Artikelvarianten Erstellen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016725120 Matrixprodukt Artikelvarianten Erstellen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016725120 Matrixprodukt Artikelvarianten Erstellen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Das Modul <strong>Matrixprodukt</strong> in Xentral erlaubt dir, innerhalb kurzer Zeit zahlreiche Varianten eines Artikels zu erstellen. Diese Varianten unterscheiden sich in bestimmten Eigenschaften wie z.B. Farbe oder Größe.</p>
+<p>Die Matrix ist die Kombination dieser Eigenschaften in einer Tabelle. Beim Verkauf eines T-Shirts in zwei Größen und drei Farben entstehen somit sechs mögliche Varianten. In folgendem Beispiel werden T-Shirts der Größe S nur in rot verkauft, die der Größe M in allen verfügbaren Farben.</p>
+<table>
+<thead>
+<tr>
+<th>Größe</th>
+<th>Farbe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rot</td>
+<td>blau</td>
+</tr>
+<tr>
+<td>S</td>
+<td>x</td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+<tr>
+<td>M</td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<p>Haben deine Artikel oft ähnliche Eigenschaften, solltest du eine<a href="#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29_N1657635501298">Grundtabelle anlegen</a>. Sind deine Artikel sehr unterschiedlich oder benötigst du nur einen Matrixartikel, kannst du auch direkt zum Abschnitt<a href="#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29_N1657635521146">Matrixartikel anlegen</a>springen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Eigenschaften werden in Xentral in diesem Zusammenhang als <strong>Gruppe </strong> bezeichnet. Die Ausprägung der Eigenschaft bzw. Gruppe wird <strong>Option</strong> genannt.</p>
+</blockquote>
+<h2 id="grundtabelle-fur-artikeleigenschaften-erstellen">Grundtabelle für Artikeleigenschaften erstellen<a class="headerlink" href="#grundtabelle-fur-artikeleigenschaften-erstellen" title="Permanent link">&para;</a></h2>
+<p>Eine Grundtabelle erlaubt dir, immer wieder verwendbare Artikeleigenschaften (Gruppen) für deine Matrixprodukte zu erstellen. So kannst du z.B. die Gruppe <strong>Größe</strong> nicht nur für ein T-Shirt, sondern auch für eine Hose verwenden. Eine Grundtabelle legst du wie folgt an:</p>
+<ol>
+<li>Nutze die Smart Search, um das Modul <strong>Matrixprodukt</strong> zu öffnen.</li>
+<li>Klicke auf + NEU.</li>
+<li>Gib im Feld Name die gewünschte Gruppe (z.B Größe) ein. Achte darauf, dass bei Aktiv ein Haken gesetzt ist.
+1.<strong>Optional</strong>: Du kannst diese Gruppe auch nur für ein bestimmtes Projekt aktivieren. Bleibt das Feld leer, gibt es keine Einschränkungen.</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+<p>Nun musst du definieren, wie diese Gruppe ausgeprägt sein kann. InXentral wird diese Ausprägung <strong>Option</strong> genannt. Ein T-Shirt mit der Gruppe Größe kann z.B. die Optionen S, M und L haben.</p>
+<p>Die Optionen legst du wie folgt an:</p>
+<ol>
+<li>Klicke im Modul Matrixprodukt bei der gewünschten Gruppe (z.B. Größe) auf das Pfeil-Symbol.</li>
+<li>Klicke auf + Neuer Eintrag.</li>
+<li>Gib im Feld Name die gewünschte Option (z.B. L) ein. Achte darauf, dass bei Aktiv ein Haken gesetzt ist.
+1.<strong>Optional</strong>: Du kannst unter Anhang an Artikelnummer eine Zeichenfolge festlegen, die zur Artikelnummer der Variante hinzugefügt werden kann. Weiterhin kannst du über die Einstellung Sortierung festlegen, in welcher Reihenfolge die Optionen in der Tabelle erscheinen.</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+<p>Du hast nun eine Grundtabelle erstellt und kannst diese auf einen Artikel anwenden.</p>
+<h2 id="matrixartikel-anlegen">Matrixartikel anlegen<a class="headerlink" href="#matrixartikel-anlegen" title="Permanent link">&para;</a></h2>
+<p>Gehe wie folgt vor, um einen Matrixartikel anzulegen:</p>
+<ol>
+<li>Lege einen neuen Artikel an oder öffne einen bestehenden Artikel.</li>
+<li>Öffne das Tab Details.</li>
+<li>Aktiviere im Bereich <strong>Varianten</strong> die Option Matrixprodukt.</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+<p>In der Artikelansicht erscheint das neue TabMatrixprodukt.</p>
+<p>Dieser Artikel ist der Eltern-Artikel. Die durch das Matrixprodukt erschaffenen Kinder-Varianten erben ihre Daten und Einstellungen wieArtikelbezeichnungundHerstellervon diesem Artikel. Auch dieArtikelnummerkann automatisch basierend auf diesem Eltern-Artikel vergeben werden.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Du kannst dir viel Arbeit ersparen, wenn du den Eltern-Artikel ausführlich bearbeitest. Durch die Vererbung der Daten brauchst du in den Kinder-Artikeln nur noch wenige Anpassungen durchzuführen.</p>
+<p><strong>Wichtig</strong></p>
+<p>Wir empfehlen, dass der Eltern-Artikel ein Platzhalter oder ein Konzept ist, wie z.B. ein allgemeines T-Shirt ohne weitere Angaben. Aus diesem Artikel leiten sich dann die konkreten Artikel ab. Diese Art der Datenstruktur wird von vielen Online-Shops erwartet.</p>
+<p><strong>Warnung</strong></p>
+<p>Der Eltern-Artikel darf in den Artikelstammdaten <strong>nicht</strong> als Lagerartikel markiert werden, da es andernfalls zu Problemen beim Lagerabgleich der zugehörigen Varianten kommt.</p>
+</blockquote>
+<h2 id="varianten-erzeugen">Varianten erzeugen<a class="headerlink" href="#varianten-erzeugen" title="Permanent link">&para;</a></h2>
+<p>Aus dem Matrixartikel können zahlreiche Varianten erzeugt werden. Hierfür stehen dir zwei Möglichkeiten zur Verfügung: Die Standard- und die Listenansicht.</p>
+<p>Die jeweiligen Besonderheiten sind in folgender Tabelle zusammengefasst:</p>
+<table>
+<thead>
+<tr>
+<th>Standardansicht</th>
+<th>Listenansicht</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schnell und komfortabel durch grafische Oberfläche</td>
+<td>Höhere Übersicht bei vielen Artikelvarianten durch tabellarische Listenform</td>
+</tr>
+<tr>
+<td>Wiederverwendung von Gruppen durch Anwendung der Grundtabelle</td>
+<td>Keine Verwendung der Grundtabelle, Gruppen und Optionen müssen immer manuell angelegt werden</td>
+</tr>
+<tr>
+<td>Bis zu vier Gruppen können verwendet werden</td>
+<td>Beliebig viele Gruppen können verwendet werden</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Shopify erlaubt pro Artikel maximal 100 Varianten. Behalte diese Einschränkung beim Erzeugen der Varianten im Hinterkopf, falls du Shopify nutzt.</p>
+</blockquote>
+<h2 id="varianten-in-der-standardansicht-erzeugen">Varianten in der Standardansicht erzeugen<a class="headerlink" href="#varianten-in-der-standardansicht-erzeugen" title="Permanent link">&para;</a></h2>
+<p>Gehe in der Standardansicht zur Erstellung der Matrix wie folgt vor:</p>
+<ol>
+<li>Klicke in deinem Matrixartikel auf das Tab Matrixprodukt.</li>
+<li>Klicke auf neue Gruppe.</li>
+<li>Wähle die gewünschte Gruppe (z.B. Größe) in der Grundtabelle und die gewünschten Optionen. Es besteht die Möglichkeit weniger Optionen zu nutzen, als in der Grundtabelle verfügbar sind.
+1.<strong>Alternativ</strong>: Lege eine neue Gruppe an und füge dieser manuell Optionen hinzu. Diese Gruppe ist nur in diesem Artikel verfügbar.</li>
+<li>Klicke auf Speichern.</li>
+<li>Du kannst weitere Gruppen (z.B. Farbe) auf dieselbe Weise hinzufügen.</li>
+</ol>
+<p>Du erhältst eine Matrix, bei der du alle möglichen Kombinationen deiner Optionen sehen kannst.</p>
+<p><img alt="Matrix_Product_Create_Variants.png" src="https://help.xentral.com/hc/article_attachments/5355868786460" /></p>
+<p>Aus dieser Matrix kannst du nun die Varianten erstellen:</p>
+<ol>
+<li>Wähle die Artikel aus, die du erstellen möchtest. Du kannst hierbei einzelne Felder, ganze Zeilen und Spalten oder alle Artikel auswählen.</li>
+<li>Erzeuge die ausgewählten Varianten über die Schaltfläche Fehlende Artikel erzeugen.</li>
+</ol>
+<p>Es erscheint ein neues Fenster, in dem du die<a href="#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29_N1657636332857">Artikelnummer</a>und die<a href="#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29_N1657636353376">Artikelbezeichnung</a>zuweisen kannst.</p>
+<p>In der Standardansicht kannst du denExpertenmodus für die Optionenöffnen. In diesem Modus werden deine Optionen in Listenform dargestellt. Außerdem kannst du hier einen Anhang an die Artikelnummer definieren. Diesen kannst du nach Erstellung der Varianten an die Artikelnummer anhängen (siehe Abschnitt<a href="#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29_N1657636332857">Artikelnummer zuweisen</a>).</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Du kannst die Matrix frei nach deinen Bedürfnissen anpassen. Du kannst neue Gruppen und Optionen hinzufügen, bestehende bearbeiten und die Sortierung anpassen. Diese Änderungen beziehen sich nur auf diesen Artikel.</p>
+</blockquote>
+<h2 id="varianten-in-der-listenansicht-erzeugen">Varianten in der Listenansicht erzeugen<a class="headerlink" href="#varianten-in-der-listenansicht-erzeugen" title="Permanent link">&para;</a></h2>
+<p>Als Alternative zur Standardansicht, kannst du die Matrixvarianten auch in der Listenansicht erzeugen.</p>
+<p>Um Varianten in der Listenansicht zu erzeugen, gehe wie folgt vor:</p>
+<ol>
+<li>Klicke in deinem Matrixartikel auf das Tab Matrixprodukt.</li>
+<li>Klicke auf Zu Listenansicht wechseln.</li>
+<li>Klicke auf Neue Gruppe und wähle eine Bezeichnung.</li>
+<li>Erstelle auf diese Weise weitere Gruppen, bis du alle deine benötigten Gruppen erstellt hast.</li>
+<li>Klicke auf Neue Option.</li>
+<li>Wähle die zugehörige Gruppe aus der Auswahlliste und wähle eine Bezeichnung für deine Option.</li>
+<li>Erstelle auf diese Weise weitere Optionen, bis du alle deine benötigten Optionen erstellt hast.</li>
+<li>Wähle die Artikel aus, die du erstellen möchtest. Setze dazu auf der linken Seite der Tabelle einen Haken in der entsprechenden Artikelvariante. Du kannst auch alle Artikel gleichzeitig markieren.</li>
+<li>Erzeuge die ausgewählten Varianten über die Schaltfläche Fehlende Artikel erzeugen.</li>
+</ol>
+<p>Es erscheint ein neues Fenster, in dem du die<a href="#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29_N1657636332857">Artikelnummer</a>und die<a href="#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29_N1657636353376">Artikelbezeichnung</a>zuweisen kannst.</p>
+<h2 id="artikelnummer-zuweisen">Artikelnummer zuweisen<a class="headerlink" href="#artikelnummer-zuweisen" title="Permanent link">&para;</a></h2>
+<p>Das Zuweisen einer Artikelnummer ist nur bei der Erstellung des Artikels möglich. Dazu stehen dir mehrere Möglichkeiten zur Auswahl. Diese sind:</p>
+<ul>
+<li>Artikelnummern aus Nummernkreis von Hauptkategorie verwenden: Der Nummernkreis wird vom Eltern-Artikel übernommen und weitere Nummern werden in dieser Kategorie fortlaufend erzeugt (z.B 1000028, 1000029, usw.).</li>
+<li>Artikelnummer aus Optionen an Hauptnummer anfügen: Die Artikelnummer des Eltern-Artikels wird mit den gewählten Optionen kombiniert (z.B. 1000027-L-ROT). Sollte in einer Option ein Umlaut oder Sonderzeichen vorhanden sein, so wird dieser nicht angezeigt (aus grün wird GRN).</li>
+<li>Artikelnummern aus Hauptnummer und Anhang an Artikelnummern bilden: Die Artikelnummer des Eltern-Artikels wird mit dem in der Grundtabelle definierten Anhang kombiniert. Dieser kann aus einer beliebigen Zeichenfolge bestehen. Dabei werden keine Trennzeichen genutzt (z.B 1000027BEISPIEL1).</li>
+<li>Artikelnummern von Hauptartikel mit Suffix: Die Artikelnummer des Eltern-Artikels wird mit einem Trennzeichen und einer Nummer kombiniert. Diese sind frei wählbar. Auch die Anzahl der Stellen kann selbst gewählt werden (z.B 1000027-001).</li>
+</ul>
+<h2 id="artikelbezeichnung-zuweisen">Artikelbezeichnung zuweisen<a class="headerlink" href="#artikelbezeichnung-zuweisen" title="Permanent link">&para;</a></h2>
+<p>Die erzeugten Varianten werden automatisch in den Artikel-Stammdaten als Variante des Eltern-Artikels gekennzeichnet. Das Zuweisen einer zusätzlichen Artikelbezeichnung ist nur bei der Erstellung des Artikels möglich. Dafür stehen zwei Optionen zur Auswahl. Diese sind:</p>
+<ul>
+<li>Optionen an Artikelbezeichnung der Unterartikel hängen: Die Eigenschaften und Optionen werden in der Artikelbezeichnung der Variante genannt (z.B. T-Shirt Größe: L Farbe: Rot).</li>
+<li>Zusatzbezeichnung als Lieferantenbezeichnung im Einkaufspreis anlegen: Der an die Artikelbezeichnung angehängte Zusatz (z.B. Größe: L Farbe: rot) wird auch als Artikelbezeichnung beim Lieferanten angelegt, sofern der Matrixartikel bereits einen Einkaufspreis besitzt.</li>
+</ul>
+<h2 id="mehrere-matrixvarianten-auf-einmal-bearbeiten">Mehrere Matrixvarianten auf einmal bearbeiten<a class="headerlink" href="#mehrere-matrixvarianten-auf-einmal-bearbeiten" title="Permanent link">&para;</a></h2>
+<p>Die Massenbearbeitung der Varianten ist jederzeit im Eltern-Artikel im TabMatrixproduktmöglich. Gehe dazu wie folgt vor:</p>
+<ol>
+<li>Wähle die zu bearbeitenden Kind-Artikel in der Matrix aus.</li>
+<li>Klicke auf Massenbearbeitung öffnen.</li>
+<li>Wähle die zu bearbeitenden Parameter aus z.B. Einkaufs- und Verkaufspreise.</li>
+<li>Klicke auf Weiter.</li>
+<li>Bearbeite die gewünschten Parameter.</li>
+<li>Klicke auf <strong>Weiter</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wird der Haken über der Spalte gesetzt, reicht es, die erste Zeile auszufüllen und dann im BereichStapelverarbeitungWerte mit Markierung aus Zeile 1 für alle Artikel übernehmenzu wählen. Klicke aufausführen. Dieser Eintrag wird dann auf alle folgenden Artikel übertragen.</p>
+</blockquote>
+<p>Du erhältst die NachrichtArtikel wurden gespeichert!. Du hast die ausgewählten Artikel somit alle erfolgreich bearbeitet.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Manche Felder können über die Massenbearbeitung bearbeitet, jedoch nicht geleert bzw. gelöscht werden. Wird ein Feld in der Massenbearbeitung leer gelassen, belässtXentral den bisherigen Eintrag im Feld. Manche Textfelder können durch ein “-” ersetzt werden, wenn sie nicht für Belege oder Ähnliches benötigt werden.</p>
+</blockquote>
+<h2 id="matrix-mit-mehr-als-zwei-gruppen-anlegen">Matrix mit mehr als zwei Gruppen anlegen<a class="headerlink" href="#matrix-mit-mehr-als-zwei-gruppen-anlegen" title="Permanent link">&para;</a></h2>
+<p>Gibt es zu einem Artikel mehr als zwei Gruppen, reicht eine einfache Tabelle nicht mehr aus. Die weitere Gruppe muss mit allen bisherigen Varianten kombiniert werden können. Dies wird möglich, indem die neue Gruppe der bestehenden Tabelle vorangestellt wird. Die bestehende Tabelle muss also für jede Option der neuen Gruppe ein Mal kopiert werden (siehe Screenshot).</p>
+<p><img alt="Matrix_Product_Multiple_Groups.png" src="https://help.xentral.com/hc/article_attachments/5355893162268" /></p>
+<p>Auf diese Weise können in der Standardansicht bis zu vier Gruppen zum Matrixartikel hinzugefügt werden. Um mehr als vier Gruppen hinzuzufügen, musst du in die Listenansicht wechseln. Hier kannst du beliebig viele Gruppen hinzufügen, kannst aber bei mehr als vier Gruppen nicht mehr in die Standardansicht wechseln.</p>
+<p>Die Handhabung und Verwendungsweise der Matrix mit mehreren Gruppen ist identisch zur Matrix mit zwei Gruppen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Falls sehr viele Variantenartikel erzeugt werden, kann das Anlegen der Artikel einige Zeit dauern. In dieser Zeit darf das Tab nicht geschlossen werden.</p>
+</blockquote>
+<h2 id="standard-import-von-matrixprodukten">Standard-Import von Matrixprodukten<a class="headerlink" href="#standard-import-von-matrixprodukten" title="Permanent link">&para;</a></h2>
+<p>Den Standard-Import von Matrixprodukten mit einer Importvorlage findest du hier:<a href="https://help.xentral.com/hc/de/articles/360016758939#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574">Import von Matrixprodukten</a>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Über die Importzentrale können maximal Matrizen mit zwei Gruppen importiert werden. Artikel mit mehr als zwei Gruppen müssen direkt über die Oberfläche des Matrixprodukts erzeugt werden.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

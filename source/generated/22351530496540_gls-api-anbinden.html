@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22351530496540 Gls Api Anbinden - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>22351530496540 Gls Api Anbinden</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>22351530496540 Gls Api Anbinden</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Die Versandart <strong>GLS (API)</strong> in Xentral ermöglicht dir den nationalen Versand deiner Waren mit dem Versanddienstleister GLS.</p>
+<p>Um deine Produkte mit dem Versanddienstleister GLS zu versenden, benötigst du spezielle Zugangsdaten von GLS. Mithilfe dieser Zugangsdaten kannst du Xentral anschließend ganz einfach an die GLS-Schnittstelle anbinden. Zusätzlich kannst du die Versandart <strong>GLS (API)</strong> wie folgt in deinen Versandprozess integrieren:</p>
+<ul>
+<li>Manuelle Erstellung von Versandlabels zu einzelnen Lieferscheinen</li>
+<li>Automatische Erstellung von Versandlabels innerhalb verschiedener Logistikprozesse</li>
+<li>Zuverlässiger Versand verschiedener Sendungsgrößen</li>
+<li>Transparente Rückmeldung von Tracking-Nummern an deine Online-Shops und sonstige Verkaufsplattformen</li>
+</ul>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Arbeitest du bislang noch nicht als Geschäftskunde mit GLS zusammen oder möchtest dir einen Überblick über die E-Commerce Lösungen dieses Versanddienstleisters verschaffen? Dann schauhier bei GLSvorbei, um mehr über eine mögliche Zusammenarbeit und die verschiedenen Services zu erfahren.</p>
+<p><strong>Wichtig</strong></p>
+<p><strong>Wichtige Einschränkungen</strong></p>
+<ul>
+<li>Mit der Versandart <strong>GLS (API)</strong> in Xentral ist es nicht möglich, den Versand deiner Waren ins Ausland abzubilden. Möchtest du deinen Kunden trotzdem internationalen Versand mit GLS anbinden, musst du dafür die Versandart <strong> Shipcloud</strong> einrichten und verwenden. In Shipcloud ist der internationale Versand mit GLS integrierbar und kann somit auch aus Xentral heraus umgesetzt werden. Weitere Informationen findest du im ArtikelShipcloud anbinden.</li>
+<li>Die Erstellung und Abwicklung von Retouren mit der Versandart <strong>GLS (API)</strong> ist in Xentral <strong> nicht möglich</strong>.</li>
+</ul>
+</blockquote>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<p>DieXentralVersandart <strong>GLS (API)</strong> bietet dir die folgenden Features:</p>
+<ul>
+<li>Auswahl zusätzlicher<a href="https://www.gls-pakete.de/geschaeftlich-versenden/versand-national">Services</a> für den Versand mit GLS</li>
+<li>
+<p>Angabe weiterer Versenderadressen über das Xentral Modul <strong>GLS</strong></p>
+</li>
+<li>
+<p>Auswahl von Frankaturen für verschiedene Anwendungsfälle</p>
+</li>
+</ul>
+<h2 id="gls-an-xentral-anbinden">GLS an Xentral anbinden<a class="headerlink" href="#gls-an-xentral-anbinden" title="Permanent link">&para;</a></h2>
+<p>Um <strong>GLS (API)</strong> in Xentral als Versandart zu nutzen, legst du zunächst eine neue Versandart an. Anschließend aktivierst du diese mit deinen vorliegenden Zugangsdaten von GLS. Es braucht nur einige Minuten und wenige Schritte, bist du deine ersten Produkte mit GLS versenden kannst!</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Für die Anbindung der Versandart <strong>GLS (API)</strong> musst du dich für den Zugang zur API-Schnittstelle von GLS freischalten lassen und über die entsprechenden Zugangsdaten verfügen. Diese Daten gibst du später in den Einstellungen der Versandart an.</p>
+<p>Du benötigst die Zugangsdaten <strong>API Username </strong>,<strong>API Passwort <strong>,</strong> CustomerID </strong> und <strong>ContactID </strong> zwingend für die Einrichtung der Versandart <strong>GLS (API)</strong> in Xentral.</p>
+</blockquote>
+<h3 id="zugangsdaten-in-xentral-eingeben">Zugangsdaten in Xentral eingeben<a class="headerlink" href="#zugangsdaten-in-xentral-eingeben" title="Permanent link">&para;</a></h3>
+<p>Im ersten Schritt legst du eine neue Versandart in Xentral an und gibst du die Zugangsdaten ein, die du von deinem GLS-Kundenbetreuer erhalten hast.</p>
+<ol>
+<li>Suche mithilfe der Smart Search nach <strong>Versandarten</strong>.</li>
+<li>Klicke oben rechts auf <strong>+NEU</strong>.</li>
+<li>Klicke auf <strong>GLS (API)</strong>.</li>
+<li>Gib deine GLS-Zugangsdaten wie unten beschrieben ein.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p><img alt="gls-1.png" src="https://help.xentral.com/hc/article_attachments/22351556726428" /></p>
+<table>
+<thead>
+<tr>
+<th>GLS Username</th>
+<th>Gib deinen API-Benutzernamen für den Zugriff auf die GLS-Schnittstelle ein. Diese Information erhältst du bei deinem Kundenbetreuer bei GLS.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GLS Passwort</strong></td>
+<td>Gib dein API-Passwort für den Zugriff auf die GLS-Schnittstelle ein. Diese Information erhältst du bei deinem Kundenbetreuer bei GLS.</td>
+</tr>
+<tr>
+<td><strong>GLS Customer ID</strong></td>
+<td>Gib deine GLS Kunden-ID für den Zugriff auf die GLS-Schnittstelle ein. Diese Information erhältst du bei deinem Kundenbetreuer bei GLS.</td>
+</tr>
+<tr>
+<td><strong>GLS Contact ID</strong></td>
+<td>Gib deine GLS Contact ID für den Zugriff auf die GLS-Schnittstelle ein. Diese Information erhältst du bei deinem Kundenbetreuer bei GLS.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="einstellungen-in-xentral-vornehmen">Einstellungen in Xentral vornehmen<a class="headerlink" href="#einstellungen-in-xentral-vornehmen" title="Permanent link">&para;</a></h3>
+<p>Nachdem du die Versandart wie oben beschrieben angelegt und deine Zugangsdaten eingegeben hast, kannst du damit fortfahren, die Einstellungen für die Versandart <strong>GLS (API)</strong> in Xentral vorzunehmen.</p>
+<p>Falls du dich nicht mehr in den Einstellungen der Versandart <strong>GLS (API)</strong> befindest, gehe wie folgt vor, um zu den Einstellungen zu gelangen:</p>
+<ol>
+<li>Suche mithilfe der Smart Search nach <strong>Versandarten</strong>.</li>
+<li>Klicke bei der Versandart, für die du Einstellungen vornehmen möchtest, rechts auf das <strong>Stift-Symbol</strong>.</li>
+<li>Aktiviere im Bereich <strong>Experte </strong> die Option <strong>Zusätzliche Einstellungen anzeigen</strong>.</li>
+<li>Nimm die Einstellungen anhand der Informationen in der folgenden Tabelle vor.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p><img alt="gls-expert.png" src="https://help.xentral.com/hc/article_attachments/22351544717980" /></p>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bezeichnung</strong></td>
+<td>Hier findest du die Bezeichnung der Versandart, wie sie in Xentral beispielsweise bei der Auftragsbearbeitung angezeigt wird. Die Bezeichnung ist nur für dich und deine Mitarbeiter sichtbar. Achte darauf, dass jede Bezeichnung nur einmal in Xentral vorkommt, damit die Versandart stets eindeutig identifiziert werden kann.</td>
+</tr>
+<tr>
+<td><strong>Typ <strong></td>
+<td>Dies ist eine interne Feldbezeichnung, die für die Zuordnung bei deinen Online-Shops und anderen Verkaufsplattformen benötigt wird. ⚠️</strong> Wichtig:</strong> Verändere diese Bezeichnung nicht!</td>
+</tr>
+<tr>
+<td><strong>Modul</strong></td>
+<td>Wähle das passende Modul aus dem Dropdown-Menü. Dabei muss der Modulname identisch zum Namen der Versandart sein, die du gerade einrichtest.</td>
+</tr>
+<tr>
+<td><strong>Projekt <strong></td>
+<td></strong> Optional</strong>: Gib eine Projektzuordnung an. Diese wird benötigt, wenn du die Versandart auf einen bestimmten Verkaufskanal oder ein Projekt (beispielsweise eine spezifische Niederlassung) beschränken möchtest. Lasse das Feld leer, falls die Versandart in allen Projekten genutzt werden soll.</td>
+</tr>
+<tr>
+<td><strong>Aktiv <strong></td>
+<td>Aktiviere diese Option, sobald du alle benötigten Einstellungen für die Versandart vorgenommen hast. 💬</strong> Anmerkung:</strong> Nicht mehr verwendete Versandarten kannst du später deaktivieren. Beachte jedoch, dass deaktivierte Versandarten nur noch in bereits erstellten Belegen angezeigt werden. In neu erstellten Belegen und in Benutzerflächen wie der Auftragsübersicht oder in den Kundendaten steht eine deaktivierte Versandart nicht mehr zur Auswahl zur Verfügung. Du kannst Versandarten auch löschen. Dadurch wird jedoch auch die Versandhistorie gelöscht. Deshalb solltest du nur fälschlicherweise angelegte Versandarten löschen, die du nicht produktiv genutzt hast.</td>
+</tr>
+<tr>
+<td><strong>Kein Portocheck</strong></td>
+<td>Mit dieser Option kannst du den Porto-Check im Auftrag deaktivieren. Bleibt der Porto-Check aktiv, zeigt die Auftragsampel ein rotes Symbol für den Portocheck an, falls nicht mindestens ein Portoartikel in den Auftragspositionen enthalten ist. So wird verhindert, dass bei manuell angelegten Aufträgen der Portoartikel vergessen wird. Überlege anhand deiner eigenen Workflows und Arbeitsweise mit Xentral, ob du diese Option aktivieren oder deaktivieren willst. Legst du typischerweise viele Aufträge manuell in Xentral an, kann es sinnvoll sein, diese Option nicht zu aktivieren, sodass gerade bei hochpreisigen Artikeln das Porto immer zuverlässig am Auftrag hinterlegt wird.</td>
+</tr>
+<tr>
+<td><strong>Drucker Versandlabel</strong></td>
+<td>Wähle aus dem Dropdown-Menü den Drucker aus, der standardmäßig für die Versandlabels genutzt werden soll. Beachte, dass hier nur Drucker auswählbar sind, die du wie im Artikel<a href="https://help.xentral.com/hc/de/articles/360016756299#UUID-24ed3a57-a4df-da7a-08f6-141949df3855">Deinen Drucker mit Xentral verbinden</a> beschrieben bereits in Xentral eingerichtet hast. Je nachdem, wie und wo der Versandprozess in deinem Unternehmen abläuft, kannst du hier genau den Drucker auswählen, den du benötigst - egal ob direkt am Schreibtisch oder am Packtisch im Lager.</td>
+</tr>
+<tr>
+<td><strong>Drucker Export <strong></td>
+<td>💬</strong> Anmerkung:</strong> Diese Einstellung ist nur relevant, wenn die Versandart Zollliferungen, also Sendungen in Länder außerhalb der Europäischen Union, unterstützt. Dies ist bei der Versandart GLS (API) nicht der Fall. Triff hier also keine Auswahl.</td>
+</tr>
+<tr>
+<td><strong>Versand-E-mail <strong></td>
+<td>Lege hier fest, nach welchen Regeln Versandbenachrichtigungen per E-Mail an deine Kunden verschickt werden sollen, sobald sich die Sendung auf dem Weg befindet. Die folgenden drei Optionen stehen dir zur Verfügung:</strong> Standardverhalten <strong>: Die Logistikeinstellungen aus dem Projekt werden verwendet. Diese Einstellungen nimmst du im Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; Projekte &gt; Projekt öffnen &gt; Tab: Einstellungen &gt; Tab: Logistik / Versand </strong> vor. In den Bereichen <strong>Stufe 1 (Pick/Kommissionierung)</strong> und <strong>Stufe 2 (Pack)</strong> definierst du über die Checkboxen namens E-Mail, bei welchen Schritten deine Kunden über den Stand der Auftragsbearbeitung informiert werden.</strong> Keine Versandmail <strong>: Für diese Versandart wird keine Versandinformation per E-Mail versendet.</strong> Eigene Textvorlage </strong>: Für diese Versandart wird die ausgewählte Textvorlage per E-Mail versendet. Diese Vorlage musst du vorab im Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; Belege &gt; Textvorlagen </strong> erstellen. Anschließend wählst du die gewünschte Vorlage im Dropdown-Menü <strong>Textvorlage</strong> aus. Durch diese Auswahl werden die Logistikeinstellungen des Projekts für diese Versandart nicht genutzt.</td>
+</tr>
+<tr>
+<td><strong>Textvorlage <strong></td>
+<td>Diese Einstellung ist nur verfügbar, wenn du dich bei der Einstellung</strong> Versandmail </strong> für die Option <strong>Eigene Textvorlage</strong> entschieden hast. Wähle hier eine spezifische Textvorlage, die für diese Versandart verschickt werden soll. Hierbei kann es sich zum Beispiel um eine speziell auf den Versanddienstleister zugeschnittene Information oder eine Information für Selbstabholer handeln, die je nach Niederlassung abweichen kann.</td>
+</tr>
+<tr>
+<td><strong>Lieferungen unterstützt <strong></td>
+<td>Diese Option wird bei der Anlage der Versandart standardmäßig aktiviert. Sobald du alle weiteren benötigten Einstellungen vorgenommen und die Versandart auf</strong> Aktiv</strong> gestellt hast, kannst du die Versandart in Aufträgen, Lieferscheinen und im Versandzentrum auswählen.</td>
+</tr>
+<tr>
+<td><strong>Retouren unterstützt</strong></td>
+<td>Aktiviere diese Option, um zu erlauben, dass Retouren zu Aufträgen angelegt werden können, die ursprünglich mit dieser Versandart erstellt wurden.</td>
+</tr>
+<tr>
+<td><strong>Bevorzugte Rücksendemethode</strong></td>
+<td>Wähle eine bevorzugte Versandart für Retouren aus. Sobald in Xentral manuell eine Retoure zu einem Auftrag mit der vorliegenden Versandart angelegt ist, wird die hier gewählte Versandart automatisch im Retourenauftrag vorausgewählt. Diese Einstellung greift nur in Fällen der manuellen Retourenerstellung.</td>
+</tr>
+<tr>
+<td><strong>Service <strong></td>
+<td>Wähle hier den Versandservice aus, den du bei GLS vertraglich gebucht hast. Weitere Informationen zu den verfügbaren Services findest du weiter unten im Kapitel<a href="#UUID-a683a6ec-53f9-7d41-f28f-7f81c97057af_id_360016725060_id_toc-5">GLS-Versandservices in Xentral hinzufügen</a>. ⚠️</strong> Wichtig:</strong> Besprich die verfügbaren Versandservices und die dazugehörigen Details in jedem Fall mit deinem Kundenbetreuer bei GLS, bevor du hier eine Option auswählst und die Versandart produktiv nutzt.</td>
+</tr>
+<tr>
+<td><strong>Frankatur <strong></td>
+<td>💬</strong> Anmerkung:</strong> Diese Option ist nicht relevant und ohne Funktion, da mit der Versandart GLS (API) keine Exportsendungen beauftragt oder abgewickelt werden können. Deshalb sind auch keine Einstellungen zur Frankatur notwendig.</td>
+</tr>
+<tr>
+<td><strong>Referenz für Nachnahme <strong></td>
+<td>Wenn du bei GLS den Service</strong> CashService </strong> (Nachnahme) gebucht hast, solltest du hier eine Referenz angeben, die später als zusätzliche Information auf dem Versandlabel abgedruckt wird. Du kannst auch einen Freitext eingeben. Folgende Variablen stehen dir dafür zur Verfügung: {AUFTRAGSNUMMER}, {RECHNUNGSNUMMER}, {LIEFERSCHEINNUMMER}, {INTERNET}. Die Referenz erscheint anschließend in der Zeile <strong>Ref. No</strong> auf dem Versandlabel:</td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+<tr>
+<td><strong>Mindestgewicht <strong></td>
+<td>Trage hier das erforderliche Mindestgewicht für GLS-Sendungen ein. Jeder Wert größer als 0 ist erlaubt. Erkundige dich im Zweifel bei deinem GLS-Kundenbetreuer, welche Angabe hier erwartet wird. 🚨</strong> Warnung:</strong> Dieses Feld muss zwingend ausgefüllt werden. Andernfalls erscheint bei der Erstellung des Versandlabels eine Fehlermeldung. Zusätzlich darf keine der Lieferscheinpositionen die Menge 0 aufweisen, da dies ebenfalls zu Fehlern bei der Versandanmeldung bei GLS führt. Sind in deinem Lieferschein Positionen mit 0 enthalten, bearbeite den Lieferschein zuerst und lagere bei Bedarf nicht lieferbare Artikel in einen Teillieferschein aus.</td>
+</tr>
+<tr>
+<td><strong>Gewicht anpassen in <strong></td>
+<td>Zur Erstellung des Versandlabels wird eine genaue Berechnung des Gesamtgewichts der Sendung inklusive Verpackungsmaterial benötigt.Xentral berechnet das Sendungsgewicht automatisiert im Hintergrund, indem das Gesamtgewicht der im Auftrag enthaltenen Positionen addiert wird. Mit der vorliegenden Option wird diesem Gewicht ein von dir festgelegtes Gewicht hinzugefügt. So entsteht ein Gesamtwert für die Versandanmeldung, der bei der Erstellung des Versandlabels berücksichtigt und automatisch an den Versanddienstleister gemeldet wird. Entscheide, ob das zusätzliche Gewicht des Verpackungsmaterials in</strong> kg </strong> oder <strong>%</strong> angegeben werden soll. Mithilfe der folgenden Einstellung namens <strong> Gewicht anpassen um</strong> definierst du das zusätzliche Gewicht genauer.</td>
+</tr>
+<tr>
+<td><strong>Gewicht anpassen um <strong></td>
+<td>Mithilfe dieser Einstellung bestimmst du deine Angaben für die Einstellung</strong> Gewicht anpassen in</strong> näher. Gib hier das zusätzliche Sendungsgewicht je nach vorheriger Auswahl in Kilogramm oder Prozent ein. Für welche Berechnungsart und welche konkreten Werte du dich entscheidest, hängt von der Verpackungsart deiner Produkte und deinen verwendeten Verpackungsmaterialien ab.</td>
+</tr>
+<tr>
+<td><strong>Tracking übernehmen</strong></td>
+<td>Aktiviere diese Option, um die Tracking-Nummer nach der Erstellung des Versandlabels direkt im dazugehörigen Auftrag und im Lieferschein in Xentral zu speichern. So bleibt die Tracking-Nummer dauerhaft in deinem System vermerkt und du musst das Versandlabel nach der Erstellung nicht erneut scannen, um diese Daten in Xentral zu erfassen.</td>
+</tr>
+<tr>
+<td><strong>Versandlabel vorab generieren</strong></td>
+<td>Aktiviere diese Option, um Versandlabels vorab im Hintergrund zu generieren, sobald ein Auftrag mit dieser Versandart in den Auto-Versand übergeben wird. So funktioniert das Drucken der Versandlabels in Xentral deutlich schneller, vor allem wenn du täglich eine sehr große Anzahl von Sendungen verschickst. Weitere Informationen zu dieser Einstellung solltest du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016757139#UUID-8ee2b6e8-1c6c-8f2e-1259-35d3532701b0">Versandzentrum (Packtisch-Modul): Kommissionieren, Verpacken und Versenden</a> nachlesen, bevor du die Option aktivierst.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gls-versandservices-in-xentral-hinzufugen">GLS-Versandservices in Xentral hinzufügen<a class="headerlink" href="#gls-versandservices-in-xentral-hinzufugen" title="Permanent link">&para;</a></h2>
+<p>Direkt bei GLS hast du die Möglichkeit, weitere Versandservices zu deinem Vertrag zu buchen. Diese Versandservices beinhalten beispielsweise verschiedene Varianten des Expressversands, die<a href="https://www.gls-pakete.de/geschaeftlich-versenden/versand-express">direkt bei GLS genauer erläutert werden</a>.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Wenn du mehrere GLS-Versandservices parallel verwendest, musst du hierfür verschiedene Versandarten in Xentral anlegen. Für jeden Versandservice wird eine separate Versandart benötigt.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um Versandservices von GLS in Xentral hinzuzufügen.</p>
+<ol>
+<li>Suche mithilfe der Smart Search nach <strong>Versandarten</strong>.</li>
+<li>Klicke bei der Versandart, für die du einen Versandservice hinzufügen möchtest rechts auf das <strong>Stift-Symbol</strong>.</li>
+<li>Aktiviere im Bereich Experte die Option <strong>Zusätzliche Einstellungen anzeigen</strong>.</li>
+<li>Wähle bei der Einstellung <strong>Service</strong> den gewünschten Versandservice aus dem Dropdown-Menü aus. Die Tabelle unten erhält weitere Informationen zu den verfügbaren Services.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p><img alt="gls_services.png" src="https://help.xentral.com/hc/article_attachments/22351556839708" /></p>
+<table>
+<thead>
+<tr>
+<th>Name der Option in Xentral</th>
+<th>Weitere Informationen zum Service</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Normal</strong></td>
+<td>Diese Option bildet den Standardversand ohne weitere Services bei GLS ab.</td>
+</tr>
+<tr>
+<td><strong>Flex Delivery Service <strong></td>
+<td>Diese Option entspricht dem Service</strong> FlexDeliveryService</strong> bei GLS. Hierbei werden dem Empfänger unterschiedliche Optionen zum Paketempfang angeboten, wie beispielsweise die Zustellung am Wunschtag, an eine neue Adresse oder an einen GLS Paketshop. Weitere Informationen zu diesem Service findest du <a href="https://www.gls-pakete.de/glossar/flexdeliveryservice">direkt bei GLS</a>.</td>
+</tr>
+<tr>
+<td><strong>Deposit Service <strong></td>
+<td>Diese Option entspricht dem Service</strong> DepositService</strong> bei GLS. Die Sendung wird an einem vom Empfänger festgelegten Ablageort platziert, sodass sie direkt beim ersten Zustellversuch zugestellt werden kann. Weitere Informationen zu diesem Service findest du <a href="https://www.gls-pakete.de/glossar/depositservice">direkt bei GLS</a>.</td>
+</tr>
+<tr>
+<td><strong>Express / Garantie 24 <strong></td>
+<td>Diese Option entspricht dem Service</strong> Guaranteed24Service</strong> bei GLS. Hierbei handelt es sich um eine Zustellung über Nacht, sodass Sendungen in jedem Fall innerhalb von 24 Stunden beim Empfänger ankommen. Weitere Informationen zu diesem Service findest du <a href="https://www.gls-pakete.de/glossar/guaranteed24service">direkt bei GLS</a>.</td>
+</tr>
+<tr>
+<td><strong>Nachnahme <strong></td>
+<td>Diese Option entspricht dem Service</strong> CashService</strong> bei GLS. Wenn eine Sendung per Nachnahme zugestellt wird, zahlt der Empfänger den Rechnungsbetrag direkt beim Zusteller in bar. GLS leitet die Zahlung anschließend per Überweisung an dich weiter. Weitere Informationen zu diesem Service findest du <a href="https://www.gls-pakete.de/glossar/cashservice">direkt bei GLS</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="zusatzliche-versenderadresse-in-xentral-verwenden">Zusätzliche Versenderadresse in Xentral verwenden<a class="headerlink" href="#zusatzliche-versenderadresse-in-xentral-verwenden" title="Permanent link">&para;</a></h2>
+<p>InXentral hast du die Möglichkeit, zusätzliche Versenderadressen für die Versandart <strong>GLS (API)</strong> zu hinterlegen. Wenn du deine Produkte von verschiedenen Filialen oder Standorten an deine Kunden versendest, kannst du bei der Erstellung des Versandlabels in Xentral die passende Absenderadresse auswählen, sodass diese korrekt auf dem Label abgedruckt wird.</p>
+<p>Gehe zunächst wie folgt vor, um eine oder mehrere zusätzliche Versenderadressen in Xentral zu hinterlegen.</p>
+<ol>
+<li>Suche mithilfe der Smart Search nach <strong>GLS</strong>.</li>
+<li>Klicke oben rechts auf <strong>+NEU</strong>.</li>
+<li>Gib die gewünschten Adressdaten für die zusätzliche Versenderadresse ein.</li>
+<li>Gib im Feld <strong>Vorlage</strong> einen Namen für die Adresse ein, sodass du später einfacher eine Auswahl treffen kannst und weißt, um welche Adresse es sich handelt. Wenn du Produkte beispielsweise aus mehreren Filialen verschickst, kannst du Kennzeichnungen wie &ldquo;Filiale 2&rdquo; oder ähnliches nutzen.</li>
+<li>Gib optional eine <strong>Notiz </strong> ein. Diese Notiz ist nicht für deine Kunden sichtbar, sondern dient als interner Vermerk für dich und deine Mitarbeiter. Diese Notiz kann später lediglich innerhalb der gespeicherten Adressen im Modul <strong>GLS</strong> eingesehen werden.</li>
+<li>Aktiviere die Option <strong>Aktiv</strong>, damit die Adresse bei der Erstellung des Versandlabels zur Auswahl bereit steht.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Im Menü <strong>Lager &gt; Lieferschein </strong> kannst du im Tab <strong>Details </strong> eines Lieferscheins die Versandart <strong>GLS</strong> auswählen. Dort befindet sich ein Dropdown-Menü, in dem du aus allen angelegten Versenderadressen auswählen kannst. Die ausgewählte Adresse wird dann als Absender auf dem Versandlabel angegeben.</p>
+<h2 id="versandlabel-drucken">Versandlabel drucken<a class="headerlink" href="#versandlabel-drucken" title="Permanent link">&para;</a></h2>
+<p>Sobald du alle Einstellungen wie oben beschrieben vorgenommen hast, kannst du den Druck von Versandlabels im Versandzentrum oder auch in einem einzelnen Lieferschein testen. Gehe dazu wie folgt vor.</p>
+<ol>
+<li>Öffne per Klick auf das Stift-Symbol rechts einen Lieferschein im Menü <strong>Lager &gt; Lieferschein</strong>.</li>
+<li>Öffne das Tab <strong>Details</strong>.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Lieferschein</strong> erreichst.</li>
+<li>Wähle die Versandart <strong>GLS (API)</strong> aus dem Dropdown-Menü <strong> Versandart</strong> aus.</li>
+<li>Klicke auf <strong>Speichern </strong>. Anschließend wirst du direkt in das Tab <strong>Versandlabel </strong> des Lieferscheins weitergeleitet. Passe, falls nötig, die Adressdaten an und klicke auf <strong>Versandlabel drucken</strong>.</li>
+<li>Lade das Versandlabel herunter. Anschließend kannst du es öffnen und auf etwaige Fehler prüfen.</li>
+</ol>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Wenn du Versandlabels mit falschen Angaben oder zu Testzwecken erstellt hast, musst du diese zwingend imGLS-Geschäftskundenportal (YourGLS)stornieren. Die Stornierung von Versandlabels direkt in Xentral ist nicht möglich.</p>
+</blockquote>
+<h2 id="versandlabel-fur-gls-drucken">Versandlabel für GLS drucken<a class="headerlink" href="#versandlabel-fur-gls-drucken" title="Permanent link">&para;</a></h2>
+<p>Sobald du alle Einstellungen wie oben beschrieben vorgenommen hast, kannst du den Druck des Versandlabels im Versandzentrum oder auch in einem einzelnen Lieferschein testen. Wähle dazu im Lieferschein im Tab <strong>Lieferschein </strong> die Versandart <strong>GLS (API)</strong> aus dem Dropdown-Menü aus.</p>
+<p>Klicke auf <strong>Speichern</strong>.</p>
+<p>Öffne dann im Lieferschein das Tab <strong>Versandlabel </strong>. Klicke auf <strong>Versandlabel drucken</strong>.</p>
+<p>Nachdem dein Testdruck abgeschlossen ist, kannst du im Anschluss das Versandlabel im GLS-Geschäftskundenportal stornieren.</p>
+<h2 id="haufige-fehlermeldungen-und-losungen">Häufige Fehlermeldungen und Lösungen<a class="headerlink" href="#haufige-fehlermeldungen-und-losungen" title="Permanent link">&para;</a></h2>
+<p>In diesem Kapitel haben wir die Fehlermeldungen aufgelistet, die bei der Verwendung der Versandart <strong>GLS (API)</strong> in Xentral auftreten können.</p>
+<table>
+<thead>
+<tr>
+<th>Fehlermeldung</th>
+<th>Erläuterung und Lösung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The user is allowed to access the API, but lacks necessary rights (account registration incomplete)</strong></td>
+<td>Diese Fehlermeldung wird direkt von GLS an Xentral übergeben. Dieser konkrete Fehler tritt auf, wenn es bei dem API-Account, der bei der Einrichtung der Versandart in Xentral angegeben wurde, Berechtigungen fehlen. Dadurch ist die Erzeugung eines Versandlabels nicht möglich. Kontaktiere deinen GLS-Kundenbetreuer, um die Berechtigungen überprüfen und anpassen zu lassen.</td>
+</tr>
+<tr>
+<td><strong>Quantity must be greater than zero.</strong></td>
+<td>Diese Fehlermeldung tritt bei der Erstellung des GLS-Versandlabels auf, wenn sich im Lieferschein Positionen mit der Menge 0 befinden. Entferne die entsprechenden Positionen aus dem Lieferschein, indem du die nicht lieferbaren Positionen in eine Teillieferung oder einen Teilauftrag überführst. Anschließend kannst du das Versandlabel wie gewünscht erstellen.</td>
+</tr>
+<tr>
+<td><strong>Internal system error. Please try again later.</strong></td>
+<td>Fehlermeldungen dieser Art können bei der Erstellung des GLS-Versandlabels auftreten und bedeuten in der Regel, dass bei GLS eine technische Störung vorliegt und deshalb die Kommunikation mit der Schnittstelle des Versanddienstleisters momentan nicht möglich ist. Kontaktiere in diesem Fall deinen GLS-Kundenbetreuer, um mehr zum aktuellen Status und zur voraussichtlichen Störungsdauer zu erfahren.</td>
+</tr>
+<tr>
+<td>Meldung mit dem Bestandteil <strong>Argument #8 ($MinimalWeight) must be of type string, null given <strong></td>
+<td>Fehlermeldungen dieser Art treten bei der Erstellung des GLS-Versandlabels auf, wenn du im Feld</strong> Mindestgewicht </strong>in den Einstellungen der Versandart <strong>GLS </strong> keinen Wert eingetragen hast. Nähere Informationen zu den Einstellungen findest du im Kapitel <a href="#einstellungen-in-xentralvornehmen">Einstellungen in Xentralvornehmen</a> Trage einen Wert im Feld <strong>Mindestgewicht</strong> ein, um das Versandlabel erzeugen zu können. Besprich außerdem mit deinem GLS-Kundenbetreuer, welche Eingabe hier erwartet wird.</td>
+</tr>
+<tr>
+<td><strong>An error occurred when validating input: The provided shipper is not allowed to create shipments.</strong></td>
+<td>Diese Fehlermeldung kann verschiedene Ursachen haben. Es kann beispielsweise sein, dass für dein GLS-Geschäftskundenkonto noch nicht die erforderlichen Berechtigungen und Freigaben erteilt wurden, um Versandlabels über ein externes Tool wie Xentral anzufordern und zu erstellen. Kontaktiere deinen GLS-Kundenbetreuer, um die benötigten Freigaben überprüfen und anpassen zu lassen.</td>
+</tr>
+</tbody>
+</table>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

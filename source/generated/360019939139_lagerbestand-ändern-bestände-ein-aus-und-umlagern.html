@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360019939139 Lagerbestand Ändern Bestände Ein Aus Und Umlagern - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360019939139 Lagerbestand Ändern Bestände Ein Aus Und Umlagern</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360019939139 Lagerbestand Ändern Bestände Ein Aus Und Umlagern</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>InXentral ist die Anpassung von Beständen ein Prozess, bei dem die Bestandsmengen für Produkte oder Artikel in der Lagerverwaltung oder im Warenwirtschaftssystem von Xentral aktualisiert oder korrigiert werden. Dies kann erforderlich sein, um Änderungen im tatsächlichen Lagerbestand widerzuspiegeln, die durch verschiedene Ereignisse wie Verkäufe, Einkäufe, Rücksendungen oder Inventuren entstehen. Durch die Anpassung der Bestände in Xentral kannst du sicherstellen, dass deine Lagerbestände stets genau und aktuell sind. Dies verbessert wiederum die Effizienz der Lagerverwaltung und die Genauigkeit der Bestandsführung.</p>
+<p>InXentral kannst du Bestände auf verschiedenen Wegen anpassen:</p>
+<ul>
+<li><strong>Manuelle Bestandsanpassung</strong>: Du kannst den Bestand eines bestimmten Produkts manuell über die Benutzeroberfläche von Xentral verändern. Dies kann beispielsweise erforderlich sein, wenn du feststellst, dass der physische Lagerbestand von der im System erfassten Menge abweicht.
+-<strong>Bestandsreduktion durch Verkauf</strong>: Wenn du Produkte verkaufst, werden die Bestände automatisch entsprechend der Anzahl der verkauften Einheiten aktualisiert - sowohl in Xentral als auch in deinen angebundenen Shops und Marktplätzen.
+-<strong>Bestandserhöhung durch Einkauf</strong>: Wenn du neue Produkte oder Artikel bei deinem Lieferanten nachbestellst, wird der Bestand automatisch erhöht, um die neu eingelagerten Einheiten widerzuspiegeln.
+-<strong>Rücksendungen und Retouren</strong>: Im Fall von Rücksendungen oder Retouren kannst du den Bestand der zurückgegebenen Artikel in Xentral anpassen, um die Rückführung in das Lager zu verwalten.
+-<strong>Inventur</strong>: Nach einer Inventur kannst du die tatsächlichen Bestände mit den erwarteten Beständen abgleichen und Anpassungen vornehmen, um etwaige Diskrepanzen zu korrigieren.
+-<strong>Fulfillment (3PL)</strong>: Wenn du deine Waren auch über einen Fulfillment-Dienstleister versenden lässt, bekommst du Bestandsänderungen im dortigen Lager mitgeteilt. Du kannst diese einspielen oder automatisch übermitteln lassen.
+-<strong>Bestandsänderungen durch API oder individuelle Schnittstellen</strong>: Deine IT-Abteilung kann Bestandsänderungen mit individuellen Schnittstellen oder anderen ERP-Systemen über die Xentral API melden und durchführen.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<ul>
+<li>In diesem Kapitelerfährst du mehr über Bestandsanpassungen für Artikel mit MHD und Chargeninformationen.</li>
+<li>Wie du Seriennummern scannst und einlagerst, erfährst du im ArtikelSeriennummern.</li>
+</ul>
+</blockquote>
+<h2 id="bestande-einlagern-auslagern-und-umlagern">Bestände einlagern, auslagern und umlagern<a class="headerlink" href="#bestande-einlagern-auslagern-und-umlagern" title="Permanent link">&para;</a></h2>
+<p>Die nachfolgend beschriebenen Funktionen kannst du verwenden, wenn du die Bestände einzelner Artikel manuell ändern möchtest oder keine automatisierten Prozesse wie beispielsweise Wareneingang, Logistikprozesse und Lagerautomatisierung benötigst.</p>
+<p>1.<strong>Einlagern von Artikeln</strong>: Diese Funktion nutzt du, um Artikel in das Lager einzubuchen. So kannst du neue Wareneingänge erfassen und den Bestand entsprechend aktualisieren.
+1.<strong>Auslagern von Artikeln</strong>: Mit dieser Funktion kannst du Artikel aus deinem Lager entnehmen. Du kannst den Bestand entsprechend reduzieren, wenn Artikel verkauft werden oder aus anderen Gründen das Lager verlassen.
+1.<strong>Umlagern von Artikeln</strong>: Du kannst Artikel von einem Lagerort zum anderen zu verschieben, sei es innerhalb desselben Lagers oder zwischen verschiedenen Lagerstandorten. Dies kann nützlich sein, um Bestände auszugleichen, die Nutzung der Lagerkapazität zu optimieren oder Artikel näher am Versandort zu platzieren. Neben der Standard-Umlagerung kann es sich auch um eine Umbuchung auf ein Verbrauchslager zur Verschrottung handeln.
+1.<strong>Bestandsmenge eines Artikels erhöhen</strong>: Diese Funktion ermöglicht es dir, Artikel zu einer bestehenden Menge in einen Lagerplatz hinzuzubuchen.</p>
+<h2 id="bestand-im-artikel-andern">Bestand im Artikel ändern<a class="headerlink" href="#bestand-im-artikel-andern" title="Permanent link">&para;</a></h2>
+<p>Warenbestände kannst du direkt in einem Artikel in Xentraländern. Gehe dazu wie folgt vor.</p>
+<p><img alt="artikel-tab-lager.png" src="https://help.xentral.com/hc/article_attachments/20214282115228" /></p>
+<ol>
+<li>Öffne das Menü <strong>Verkaufen &gt; Artikel</strong>.</li>
+<li>Klicke rechts neben dem Artikel, dessen Bestand du anpassen willst, auf das <strong>Stift-Symbol</strong>.</li>
+<li>Öffne das Tab <strong>Lager</strong>.</li>
+<li>Klicke auf <strong>Artikel in neuen Lagerplatz einlagern</strong>.</li>
+</ol>
+<h3 id="einlagern-von-artikeln-im-artikel">Einlagern von Artikeln (im Artikel)<a class="headerlink" href="#einlagern-von-artikeln-im-artikel" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um einen Artikel in einem Lagerplatz einzulagern, also erstmalig in dein Lager aufzunehmen.</p>
+<ol>
+<li>Öffne <a href="#UUID-74e768cf-9c8b-07e0-b413-beda2cd85171_id_Bestnde-Lagerbestandndernein-ausundumlagernPaligo-BestandimArtikelndern">wie oben beschrieben</a> das Tab <strong>Lager</strong> des gewünschten Artikels.</li>
+<li>Klicke auf <strong>Artikel in einen neuen Lagerplatz einlagern</strong>.</li>
+<li>Gib die einzulagernde <strong>Menge </strong> und den <strong>Lagerplatz </strong>(= Regal) ein. Hat der Artikel ein <strong> Standardlager</strong> hinterlegt oder ist in ein Lager eingelagert worden, bekommst du den Lagerplatz (= Regal) fettgedruckt vorgeschlagen und kannst den Platz anklicken um das Feld zu füllen.</li>
+<li>Triff optional eine Auswahl für die Optionen <strong>Lagerbewegungsarten </strong> und <strong>Referenz-Dokument</strong>. Die verfügbaren Auswahlmöglichkeiten richten sich nach den Lagerbewegungsarten, die in deinem System angelegt wurden. Weitere Informationen dazu findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/15209373703324#UUID-1a2f6ec1-1b2a-b2f4-30df-53a5a605164b">Lagerbewegungsarten</a>.</li>
+<li>Klicke auf <strong>Weiter</strong> um den Artikel in den Lagerplatz einzubuchen.</li>
+</ol>
+<p><img alt="image-20240314-135051.png" src="https://help.xentral.com/hc/article_attachments/13098783551388" /></p>
+<p><img alt="image-20240314-135243.png" src="https://help.xentral.com/hc/article_attachments/13098803247516" /></p>
+<p><img alt="image-20240314-135330.png" src="https://help.xentral.com/hc/article_attachments/13098788993820" /></p>
+<h3 id="auslagern-von-artikeln-im-artikel">Auslagern von Artikeln (im Artikel)<a class="headerlink" href="#auslagern-von-artikeln-im-artikel" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um Artikel endgültig aus einem Lagerplatz und damit auch aus dem Lager auszulagern.</p>
+<ol>
+<li>Öffne <a href="#UUID-74e768cf-9c8b-07e0-b413-beda2cd85171_id_Bestnde-Lagerbestandndernein-ausundumlagernPaligo-BestandimArtikelndern">wie oben beschrieben</a> das Tab <strong>Lager</strong> des gewünschten Artikels.</li>
+<li>Klicke auf das <strong>Minus-Symbol</strong>, um den Artikelbestand auszubuchen.</li>
+<li>Gib die auszulagernde <strong>Menge</strong> ein, die aus diesem Lagerplatz (= Regal) genommen werden soll.</li>
+<li>Klicke auf <strong>OK</strong>.</li>
+<li>Gib einen <strong>Auslagerungsgrund</strong> an, z.B. Korrekturbuchung oder Warendefekt.</li>
+<li>Klicke auf <strong>OK</strong>, um den Artikel aus dem Lagerplatz auszubuchen.</li>
+</ol>
+<p><img alt="image-20240314-140107.png" src="https://help.xentral.com/hc/article_attachments/13098803328156" /></p>
+<p><img alt="image-20240314-140142.png" src="https://help.xentral.com/hc/article_attachments/13098783755292" /></p>
+<p><img alt="image-20240314-140243.png" src="https://help.xentral.com/hc/article_attachments/13098811531292" /></p>
+<p><img alt="image-20240314-140341.png" src="https://help.xentral.com/hc/article_attachments/13098789197468" /></p>
+<h3 id="umlagern-von-artikeln-im-artikel">Umlagern von Artikeln (im Artikel)<a class="headerlink" href="#umlagern-von-artikeln-im-artikel" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um einen Artikel von einem Lagerplatz in einen anderen Lagerplatz umzulagern.</p>
+<ol>
+<li>Öffne <a href="#UUID-74e768cf-9c8b-07e0-b413-beda2cd85171_id_Bestnde-Lagerbestandndernein-ausundumlagernPaligo-BestandimArtikelndern">wie oben beschrieben</a> das Tab <strong>Lager</strong> des gewünschten Artikels.</li>
+<li>Klicke auf das <strong>Umlagern-Symbol</strong>, um den Artikelbestand in einen anderen Lagerplatz zu buchen.</li>
+<li>Gib die auszulagernde <strong>Menge</strong> ein, die aus diesem Regal genommen werden und umgebucht werden soll.</li>
+<li>Klicke auf <strong>OK</strong>.</li>
+<li>Gib einen <strong>Umlagerungsgrund</strong> an, z.B. Bestandsverschiebung.</li>
+<li>Klicke auf <strong>OK</strong>, um den Artikel aus dem ursprünglichen Lagerplatz auszubuchen.</li>
+<li>Gib den neuen <strong>Lagerplatz </strong>(= Regal) ein. Ist in den Artikelstammdaten ein <strong> Standardlager</strong> hinterlegt oder ist in ein Lager eingelagert worden, bekommst du den Lagerplatz (= Regal) fettgedruckt vorgeschlagen und kannst den Platz anklicken, um das Feld zu füllen.</li>
+<li>Triff optional eine Auswahl für die Optionen <strong>Lagerbewegungsarten </strong> und <strong>Referenz-Dokument</strong>. Die verfügbaren Auswahlmöglichkeiten richten sich nach den Lagerbewegungsarten, die in deinem System angelegt wurden. Weitere Informationen dazu findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/15209373703324#UUID-1a2f6ec1-1b2a-b2f4-30df-53a5a605164b">Lagerbewegungsarten</a>.</li>
+<li>Klicke auf <strong>Weiter</strong>, um den Artikel in den neuen Lagerplatz einzubuchen.</li>
+</ol>
+<p><img alt="image-20240314-140730.png" src="https://help.xentral.com/hc/article_attachments/13098773470876" /></p>
+<p><img alt="image-20240314-140805.png" src="https://help.xentral.com/hc/article_attachments/13098798172572" /></p>
+<p><img alt="image-20240314-140846.png" src="https://help.xentral.com/hc/article_attachments/13098773566236" /></p>
+<p><img alt="image-20240314-140917.png" src="https://help.xentral.com/hc/article_attachments/13098784027036" /></p>
+<p><img alt="image-20240314-140943.png" src="https://help.xentral.com/hc/article_attachments/13098798292124" /></p>
+<h3 id="bestandsmenge-eines-artikels-erhohen-uber-artikel">Bestandsmenge eines Artikels erhöhen (über Artikel)<a class="headerlink" href="#bestandsmenge-eines-artikels-erhohen-uber-artikel" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um einen Artikel auf einen Lagerplatz einzubuchen und somit die Bestandsmenge an diesem Lagerplatz zu erhöhen.</p>
+<ol>
+<li>Öffne <a href="#UUID-74e768cf-9c8b-07e0-b413-beda2cd85171_id_Bestnde-Lagerbestandndernein-ausundumlagernPaligo-BestandimArtikelndern">wie oben beschrieben</a> das Tab <strong>Lager</strong> des gewünschten Artikels.</li>
+<li>Klicke auf das <strong>Plus-Symbol</strong>, um den Artikelbestand einzubuchen.</li>
+<li>Gib die einzulagernde <strong>Menge</strong> ein, die dem Lagerplatz hinzugebucht werden soll.</li>
+<li>Klicke auf <strong>OK</strong>.</li>
+<li>Gib einen Grund für die <strong>Bestandserhöhung</strong> an, z.B. Wareneingang LS12345.</li>
+<li>Klicke auf <strong>OK</strong>, um den Artikelbestand einzubuchen.</li>
+</ol>
+<p><img alt="image-20240314-141124.png" src="https://help.xentral.com/hc/article_attachments/13098773692444" /></p>
+<p><img alt="image-20240314-141157.png" src="https://help.xentral.com/hc/article_attachments/13098798413468" /></p>
+<p><img alt="image-20240314-141224.png" src="https://help.xentral.com/hc/article_attachments/13098798468380" /></p>
+<p><img alt="image-20240314-141241.png" src="https://help.xentral.com/hc/article_attachments/13098811922332" /></p>
+<h3 id="letzte-bewegungen-einsehen-im-artikel">Letzte Bewegungen einsehen (im Artikel)<a class="headerlink" href="#letzte-bewegungen-einsehen-im-artikel" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um die letzten Bestandsbewegungen eines Artikels direkt im Artikel einzusehen.</p>
+<p>Scrolle im Tab <strong>Lager</strong> des Artikels zum unteren Bereich. Hier findest du die Bestandsbewegungen inklusive folgender Informationen:</p>
+<p>Datum der Bestandsänderung, Lagerplatz, gebuchte Menge, VPE Information aus dem Artikelstamm, Buchungsrichtung (Eingang, Ausgang), Buchungsreferenz (Grund der Lagerbewegung), Bearbeiter, Projekt, Inventur (sofern die Buchung über einen Inventurvorgang getätigt wurde).</p>
+<p><img alt="image-20240314-164730.png" src="https://help.xentral.com/hc/article_attachments/13098811968028" /></p>
+<h2 id="bestand-im-lager-andern">Bestand im Lager ändern<a class="headerlink" href="#bestand-im-lager-andern" title="Permanent link">&para;</a></h2>
+<p>Warenbestände kannst du auch direkt im Lager mithilfe der Funktion <strong>Ein- und Auslagern</strong> anpassen. Gehe dazu wie folgt vor.</p>
+<ul>
+<li>Öffne das Menü <strong>Lager &gt; Ein- und Auslagern</strong>.</li>
+</ul>
+<h3 id="einlagern-von-artikeln-uber-lager">Einlagern von Artikeln (über Lager)<a class="headerlink" href="#einlagern-von-artikeln-uber-lager" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um Artikel in einen Lagerplatz einzulagern, also erstmalig in deinem Lager aufzunehmen.</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Ein- und Auslagern</strong>.</li>
+<li>Klicke auf <strong>Einlagern</strong>.</li>
+<li>Gib die einzulagernde <strong>Menge </strong>, die <strong>Artikelnummer </strong> ein und klicke auf <strong>Weiter </strong>. (Optional kannst du das Artikeletikett auch Scannen. Optional kannst du auch <strong>Projekt </strong> und <strong>Grund</strong> der Einlagerung angeben.)</li>
+<li>Triff optional eine Auswahl für die Optionen <strong>Lagerbewegungsarten </strong> und <strong>Referenz-Dokument</strong>. Die verfügbaren Auswahlmöglichkeiten richten sich nach den Lagerbewegungsarten, die in deinem System angelegt wurden. Weitere Informationen dazu findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/15209373703324#UUID-1a2f6ec1-1b2a-b2f4-30df-53a5a605164b">Lagerbewegungsarten</a>.</li>
+<li>Gib den <strong>Lagerplatz </strong>(= Regal) ein. Ist in den Artikelstammdaten ein <strong> Standardlager</strong> hinterlegt oder ist in ein Lager eingelagert worden, bekommst du den Lagerplatz (= Regal) fettgedruckt vorgeschlagen und kannst den Platz anklicken um das Feld zu füllen.</li>
+<li>Klicke auf <strong>Weiter</strong>, um den Artikel in den Lagerplatz einzubuchen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Anschluss erhältst du die neue Eingabemaske für den nächsten einzulagernden Artikel inklusive der Erfolgsbestätigung für deine soeben getätigte Einlagerung. So kannst du deine Einlagerung nochmals überprüfen und, falls nötig, eine Korrektur vornehmen.</p>
+</blockquote>
+<p><img alt="image-20240315-135053.png" src="https://help.xentral.com/hc/article_attachments/13098803917212" /></p>
+<p><img alt="image-20240315-135222.png" src="https://help.xentral.com/hc/article_attachments/13098812065308" /></p>
+<p><img alt="image-20240315-135444.png" src="https://help.xentral.com/hc/article_attachments/13098784451740" /></p>
+<h3 id="auslagern-von-artikeln-uber-lager">Auslagern von Artikeln (über Lager)<a class="headerlink" href="#auslagern-von-artikeln-uber-lager" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um Artikel endgültig aus einem Lagerplatz und damit auch aus dem Lager zu entnehmen.</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Ein- und Auslagern</strong>.</li>
+<li>Klicke auf <strong>Auslagern</strong>.</li>
+<li>Gib die auszulagernde <strong>Menge </strong>, die <strong>Artikelnummer </strong> ein und klicke auf <strong>Weiter </strong>. (Optional kannst du auch <strong>Projekt </strong> und <strong>Grund</strong> der Einlagerung angeben). Du kannst einen Artikel auch auf einen Mitarbeiter/ Kunden oder Lieferanten auslagern, um die Adressinformation neben dem Grund der Auslagerung mit anzugeben.</li>
+<li>Triff optional eine Auswahl für die Optionen <strong>Lagerbewegungsarten </strong> und <strong>Referenz-Dokument</strong>. Die verfügbaren Auswahlmöglichkeiten richten sich nach den Lagerbewegungsarten, die in deinem System angelegt wurden. Weitere Informationen dazu findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/15209373703324#UUID-1a2f6ec1-1b2a-b2f4-30df-53a5a605164b">Lagerbewegungsarten</a>.</li>
+<li>Gib den <strong>Lagerplatz </strong>(= Regal) ein. Hat der Artikel ein <strong> Standardlager</strong> hinterlegt oder ist in ein Lager eingelagert worden, bekommst du den Lagerplatz (= Regal) fettgedruckt vorgeschlagen und kannst den Platz anklicken um das Feld zu füllen.</li>
+<li>Klicke auf <strong>Weiter</strong>, um den Artikel in den Lagerplatz einzubuchen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Anschluss erhältst du die neue Eingabemaske für den nächsten auszulagernden Artikel inklusive der Erfolgsbestätigung für deine soeben getätigte Auslagerung. So kannst du deine Auslagerung nochmals überprüfen und bei Bedarf Korrekturen vornehmen.</p>
+<p>Du erhältst ebenso eine Information über den aktuellen Bestand auf diesem Lagerplatz und für diesen Artikel gesamt.</p>
+</blockquote>
+<p><img alt="image-20240315-135833.png" src="https://help.xentral.com/hc/article_attachments/13098812150044" /></p>
+<p><img alt="image-20240315-140103.png" src="https://help.xentral.com/hc/article_attachments/13098784523420" /></p>
+<p><img alt="image-20240315-140117.png" src="https://help.xentral.com/hc/article_attachments/13098804127516" /></p>
+<h3 id="umlagern-von-artikeln-uber-lager">Umlagern von Artikeln (über Lager)<a class="headerlink" href="#umlagern-von-artikeln-uber-lager" title="Permanent link">&para;</a></h3>
+<p><strong>Artikel aus einem Lagerplatz umlagern:</strong></p>
+<ol>
+<li>Klicke auf das Tab:<strong>Umlagern</strong>.</li>
+<li>Gib die auszulagernde <strong>Menge </strong>, die <strong>Artikelnummer </strong> ein und klicke auf <strong>Weiter </strong>. (Optional kannst du auch <strong>Projekt </strong> und <strong>Grund</strong> der Einlagerung angeben). Du kannst einen Artikel auch auf einen Mitarbeiter, Kunden oder Lieferanten auslagern, um die Adressinformation neben dem Grund der Auslagerung mit anzugeben.</li>
+<li>Triff optional eine Auswahl für die Optionen <strong>Lagerbewegungsarten </strong> und <strong>Referenz-Dokument</strong>. Die verfügbaren Auswahlmöglichkeiten richten sich nach den Lagerbewegungsarten, die in deinem System angelegt wurden. Weitere Informationen dazu findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/15209373703324#UUID-1a2f6ec1-1b2a-b2f4-30df-53a5a605164b">Lagerbewegungsarten</a>.</li>
+<li>Gib den <strong>Lagerplatz </strong>(= Regal) ein von dem der Artikel <strong> ausgebucht</strong> werden soll. Du bekommst den Lagerplatz (= Regal) fettgedruckt vorgeschlagen, in denen der Artikel eingelagert ist und kannst den Platz anklicken um das Feld zu füllen.</li>
+<li>Klicke auf <strong>Weiter</strong>.</li>
+<li>Gib den <strong>Lagerplatz </strong>(= Regal) ein, auf den der Artikel eingelagert werden soll (= Ziellagerplatz). Hat der Artikel ein <strong>Standardlager</strong> hinterlegt oder ist in ein Lager eingelagert worden, bekommst du den Lagerplatz (= Regal) fettgedruckt vorgeschlagen und kannst den Platz anklicken um das Feld zu füllen. Wähle alternativ ein anderes Lager im Feld <strong>Ziellagerplatz</strong> aus.</li>
+<li>Klicke auf <strong>Weiter</strong> um den Artikel in den Lagerplatz einzubuchen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Anschluss erhältst du die neue Eingabemaske für den nächsten umzulagernden Artikel inklusive der Erfolgsbestätigung für deine soeben getätigte Einlagerung. So kannst du deine Einlagerung nochmals überprüfen und bei Bedarf Korrekturen vornehmen.</p>
+<p>Du erhältst ebenso eine Information über den aktuellen Bestand auf diesem Lagerplatz und für diesen Artikel gesamt.</p>
+</blockquote>
+<p><img alt="image-20240315-141151.png" src="https://help.xentral.com/hc/article_attachments/13098812288284" /></p>
+<p><img alt="image-20240315-141603.png" src="https://help.xentral.com/hc/article_attachments/13098774270108" /></p>
+<p><img alt="image-20240315-141527.png" src="https://help.xentral.com/hc/article_attachments/13098784684828" /></p>
+<p><img alt="image-20240315-141648.png" src="https://help.xentral.com/hc/article_attachments/13098784717724" /></p>
+<h3 id="schnellauslagern-von-artikeln-uber-lager">Schnellauslagern von Artikeln (über Lager)<a class="headerlink" href="#schnellauslagern-von-artikeln-uber-lager" title="Permanent link">&para;</a></h3>
+<p><strong>Artikel aus einem Lagerplatz Schnellauslagern:</strong></p>
+<ol>
+<li>
+<p>Klicke auf das Tab:<strong>Schnell-Auslagern.</strong></p>
+</li>
+<li>
+<p>Gib die auszulagernde <strong>Menge <strong>, die </strong> Artikelnummer <strong>ein und klicke auf </strong> Weiter <strong>. Optional kannst du den </strong> Grund</strong> der Auslagerung angeben.</p>
+</li>
+<li>Triff optional eine Auswahl für die Optionen <strong>Lagerbewegungsarten </strong> und <strong>Referenz-Dokument</strong>. Die verfügbaren Auswahlmöglichkeiten richten sich nach den Lagerbewegungsarten, die in deinem System angelegt wurden. Weitere Informationen dazu findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/15209373703324#UUID-1a2f6ec1-1b2a-b2f4-30df-53a5a605164b">Lagerbewegungsarten</a>.</li>
+<li>Klicke auf Weiter.</li>
+<li>Der Artikel wird aus dem Standardlager (wenn Bestand vorhanden) oder dem nächsten Lager mit Bestand ausgebucht.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Anschluss erhältst du die neue Eingabemaske für den nächsten auszulagernden Artikel inklusive der Erfolgsbestätigung für deine soeben getätigte Auslagerung. So kannst du deine Auslagerung nochmals überprüfen und bei Bedarf Korrekturen vornehmen.</p>
+<p>Die eingegebenen Werte der vorherigen Buchung werden für deine nächste Buchung vorgeschlagen. So kannst du bei der Schnell-Auslagerung mehrerer Artikel und wiederkehrender Prozesse Zeit sparen.</p>
+</blockquote>
+<p><img alt="image-20240315-142243.png" src="https://help.xentral.com/hc/article_attachments/13098774395292" /></p>
+<p><img alt="image-20240315-142258.png" src="https://help.xentral.com/hc/article_attachments/13098799173020" /></p>
+<h3 id="schnellumlagern-von-artikeln-uber-lager">Schnellumlagern von Artikeln (über Lager)<a class="headerlink" href="#schnellumlagern-von-artikeln-uber-lager" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um einen Artikel schnell von einem Lagerplatz zu einem anderen Lagerplatz umzulagern.</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Ein- und Auslagern</strong>.</li>
+<li>Klicke auf <strong>Schnell-Umlagern</strong>.</li>
+<li>Gib die umzulagernde <strong>Menge </strong> und die <strong>Artikelnummer </strong> ein. Gib optional den <strong>Grund</strong> der Auslagerung an.</li>
+<li>Klicke auf <strong>Weiter</strong>.</li>
+<li>Triff optional eine Auswahl für die Optionen <strong>Lagerbewegungsarten </strong> und <strong>Referenz-Dokument</strong>. Die verfügbaren Auswahlmöglichkeiten richten sich nach den Lagerbewegungsarten, die in deinem System angelegt wurden. Weitere Informationen dazu findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/15209373703324#UUID-1a2f6ec1-1b2a-b2f4-30df-53a5a605164b">Lagerbewegungsarten</a>.</li>
+<li>Gib das <strong>Ziellager</strong> ein.</li>
+<li>Klicke auf <strong>Weiter</strong>.</li>
+<li>Der Artikel wird aus dem Standardlager (wenn Bestand vorhanden) oder dem nächsten Lager mit Bestand ausgebucht.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Anschluss erhältst du die neue Eingabemaske für den nächsten umzulagernden Artikel inklusive der Erfolgsbestätigung für deine soeben getätigte Umlagerung. So kannst du deine Umlagerung nochmals überprüfen und bei Bedarf Korrekturen vornehmen.</p>
+<p>Die eingegebenen Werte der vorherigen Buchung werden für deine nächste Buchung vorgeschlagen. So kannst du bei der Schnell-Umlagerung mehrerer Artikel und wiederkehrender Prozesse Zeit sparen.</p>
+</blockquote>
+<p><img alt="image-20240315-142416.png" src="https://help.xentral.com/hc/article_attachments/13098790295708" /></p>
+<p><img alt="image-20240315-142431.png" src="https://help.xentral.com/hc/article_attachments/13098799311516" /></p>
+<h3 id="letzte-bewegungen-einsehen-im-lager">Letzte Bewegungen einsehen (im Lager)<a class="headerlink" href="#letzte-bewegungen-einsehen-im-lager" title="Permanent link">&para;</a></h3>
+<p>Im Tab <strong>Letzte Bewegungen </strong> des Menüs <strong>Lager &gt; Ein- und Auslagern</strong> findest du eine Auflistung der Bestandsbewegungen inklusive der folgenden Informationen:</p>
+<p>Datum der Bestandsänderung, Lagerplatz, gebuchte Menge, Artikelnummer des gebuchten Artikels, Artikelname, Buchungsrichtung (Eingang, Ausgang), Buchungsreferenz (Grund der Lagerbewegung), Bearbeiter, Projekt.</p>
+<p><img alt="image-20240314-150241.png" src="https://help.xentral.com/hc/article_attachments/13098799351708" /></p>
+<h3 id="zwischenlager-im-lager">Zwischenlager (im Lager)<a class="headerlink" href="#zwischenlager-im-lager" title="Permanent link">&para;</a></h3>
+<p>Im Tab <strong>Zwischenlager </strong> des Menüs <strong>Lager &gt; Ein- und Auslagern</strong> findest du tagesaktuelle Ein- und Ausgänge, die im Zwischenlager stattgefunden haben.</p>
+<p>InXentral ist das Zwischenlager ein spezifischer Lagerort oder Standort, der dazu dient, temporär Artikel zu lagern, bevor sie an ihren endgültigen Bestimmungsort im Lager gelangen. Das Zwischenlager wird häufig verwendet, um Waren vorzubereiten, zu sortieren oder zu prüfen, bevor sie in das Hauptlager eingelagert oder von dort aus versandt werden.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zum Zwischenlager findest du im ArtikelZwischenlager.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

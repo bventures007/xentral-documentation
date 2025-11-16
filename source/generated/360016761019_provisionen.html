@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016761019 Provisionen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016761019 Provisionen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016761019 Provisionen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Das Modul Provisionsabrechnung ermöglicht die Abbildung der Vertriebsstruktur sowie eine flexible Festlegung und Abrechnung von Verkaufsprovisionen. Die vordefinierten Provisionen werden dem im Auftrag eingetragenen „Vertreter“ zugeschlagen und bei Verkäufen über eine Kasse dem jeweils angemeldeten Kassierer. Falls bereits über artikelspezifische Provisionsrichtlinien verfügt wird, können diese auch über den Stammdatenimport wiederhergestellt werden, wie hier beschrieben.</p>
+<h2 id="vertriebsstruktur">Vertriebsstruktur<a class="headerlink" href="#vertriebsstruktur" title="Permanent link">&para;</a></h2>
+<p>Im Reiter „Vertreter“ kann zunächst eine Zuordnung zwischen Vertriebsmitarbeitern und Vertriebsleitern vorgenommen werden, um die grundsätzlichen Beziehungen der Vertriebsstruktur widerzuspiegeln. Dies dient dazu, den Vertriebsleitern auch Provisionsbeteiligungen für Vertreter in dem Verantwortungsbereich zukommen zu lassen. Hierzu sind einfach die Felder für den &ldquo;Vertreter&rdquo; und seinen jeweiligen &ldquo;Vertriebsleiter&rdquo; auszufüllen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Ohne Hierarchie ist hier keine Zuordnung notwendig, in diesem Fall kannst du gleich beim nächsten Schritt weitermachen.</p>
+</blockquote>
+<p>Soll eine bestehende Verknüpfung zwischen Vertriebsleitern und den Mitarbeitern übernommen werden, kann diese mittels eines CSV-Datensatzes über die nachstehend abgebildete Oberfläche komfortabel importiert werden.</p>
+<p><img alt="Provisionen-2.png" src="https://help.xentral.com/hc/article_attachments/5077573390492/uuid-2d467bcf-a886-4b87-c109-e7e21414ae1d.png" /></p>
+<p>Hierzu ist zunächst die Zeile anzugeben, aus der die ersten &ldquo;realen&rdquo; Werte (ohne mögliche Überschriften o.ä.) zu entnehmen sind. Nachdem das entsprechende Trennzeichen und Charset ausgewählt wurde, reicht die Angabe zweier zusammengehöriger Mitarbeiternummern für einen erfolgreichen Import aus. Alternativ können auch die IDs der Mitarbeiter verwendet werden, welche in der Adresszeile des Browsers einsehbar sind, sofern diese in den Stammdaten des entsprechenden Angestellten befinden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bei den Variablen &lsquo;vertreter&rsquo; und &lsquo;vertriebsleitung&rsquo; wird jeweils die ID aus xentral benötigt.</p>
+</blockquote>
+<h2 id="festlegung-des-begunstigten">Festlegung des Begünstigten<a class="headerlink" href="#festlegung-des-begunstigten" title="Permanent link">&para;</a></h2>
+<p>Damit ein Auftrag im Provisionssystem berücksichtigt wird, muss in den Auftragsdetails unter &ldquo;Vertrieb&rdquo; eine Adresse aus den Stammdaten ausgewählt werden. Dazu ist das Stift-Symbol hinter dem Textfeld zu berücksichtigen. Bei Verkäufen über eine POS/Kasse wird automatisch der angemeldete Kassierer und die verkauften Artikel (für die ein Provisionssatz definiert wurde) im Provisionssystem erfasst.</p>
+<p>Alternativ kann pro Adresse ein fester bzw. vordefinierter Vertriebsmitarbeiter hinterlegt werden, der in einem Auftrag als Standardwert gezogen wird.</p>
+<h2 id="definition-von-provisionssatzen">Definition von Provisionssätzen<a class="headerlink" href="#definition-von-provisionssatzen" title="Permanent link">&para;</a></h2>
+<p>Bei der Definition von Provisionssätzen stehen verschiedene Möglichkeiten zur Verfügung, die sich alle im Reiter &ldquo;Provision pro Artikel&rdquo; unter &ldquo;Buchhaltung → Provisionen&rdquo; befinden. Im Bereich &ldquo;Anlegen&rdquo; kann ein &ldquo;Artikel&rdquo;, ein Prozentsatz im Feld &ldquo;Provision&rdquo; (einfache Zahl genügt) sowie die Berechnungsgrundlage im Feld &ldquo;Typ&rdquo; hinterlegen, um einen artikelspezifischen Provisionssatz vorzugeben. Je nach Wunsch können die Provisionen auf Basis von Verkaufs- und Einkaufspreisen, Stückerlösen oder Preisen abzüglich möglicher Rabatte kalkuliert werden.</p>
+<p>Im Feld &ldquo;Vertriebsleiter Provision&rdquo; kann zusätzlich eine Provision für den Vertriebsleiter eingetragen werden, die im Vorfeld dem entsprechenden Vertreter zugeordnet wurde. Jeder Auftrag, der den ausgewählten Artikel sowie einen gültigen Eintrag im Feld &ldquo;Vertrieb&rdquo; enthält, wird fortan automatisch mit der angelegten Provision versehen, wobei bei entsprechender Einstellung der Vertriebsleiter eine gesondert festgelegte Provision erhält. Falls dieser Mechanismus auf einen Teil der Belegschaft beschränkt wird oder bspw. unterschiedliche Provisionssätze für verschiedene Mitarbeiter verwendet werden sollen, ist zusätzlich das Feld &ldquo;Vertreter&rdquo; auszufüllen, wodurch sich die gesamte Berechnung ausschließlich auf den eingetragenen Mitarbeiter bezieht. Weiterhin lässt sich eine globale Provision festlegen, die auf alle Artikel ohne provisionstechnische Spezifikationen angewendet wird. Auch an dieser Stelle lässt sich über das Feld &ldquo;Vertreter&rdquo; der zu berücksichtigende Mitarbeiterkreis flexibel einstellen. Soll die Abrechnung unabhänging von einem Artikel erfolgen, so kann das Feld &ldquo;Artikel&rdquo; leer gelassen werden und beispielsweise nur ein Vertreter und eine Provision eingetragen werden.</p>
+<p>Wird die Provision auf Basis des Erlöses oder des Einkaufspreises eines Artikels angelegt, so wird der günstigste Einkaufspreis des Artikels herangezogen, falls der Artikel mehrere Einkaufspreise bei verschiedenen Lieferanten hat.</p>
+<h2 id="vorschau">Vorschau<a class="headerlink" href="#vorschau" title="Permanent link">&para;</a></h2>
+<p>Mit einem Klick auf &ldquo;Abrechnung anlegen&rdquo; in der Vorschau erscheint die Oberfläche &ldquo;Buchhaltung → Provisionen → Abrechnungen&rdquo;, wo zahlreiche Abrechnungsarten zur Verfügung stehen.</p>
+<p>In der Startansicht werden die wichtigsten Informationen zu historischen Abrechnungen angezeigt, wodurch die Umsatz- und Provisionshöhen unmittelbar abgelesen werden können. Auf der rechten Seite befinden sich neben jeder Abrechnung drei Download Buttons , über welche sich verschiedene Dokumente im CSV-Format heruntergeladen werden können. Die erste Tabelle gibt Aufschluss darüber, welche Verkäufer in welcher Höhe Umsätze getätigt haben und welche Provisionen sowohl der Vertriebsleitung als auch den Mitarbeitern im abgerechneten Zeitraum zuzurechnen sind. Während die erste Tabelle mit aggregierten Werten arbeitet, befinden sich in der zweiten Tabelle sämtliche verkaufte Artikel mit zusätzlichen Informationen. Die dritte Tabelle enthält wiederum summierte Werte, die nach Artikelkategorien aufgeschlüsselt sind. Schließlich können über die Minidetail-Ansicht weitere Informationen zu den einzelnen Positionen der gewählten Abrechnung aufgerufen werden, die sich von der Rechnungsnummer und den Kunden bis hin zu Artikelnummern und Provisionen erstrecken und wie gewohnt über einen Klick auf den Download Button als CSV Datei heruntergeladen werden können.</p>
+<h2 id="abrechnung">Abrechnung<a class="headerlink" href="#abrechnung" title="Permanent link">&para;</a></h2>
+<p>Mit einem Klick auf &ldquo;Abrechnung anlegen&rdquo; in der Vorschau erscheint die Oberfläche &ldquo;Buchhaltung → Provisionen → Abrechnungen&rdquo;, wo zahlreiche Abrechnungsarten zur Verfügung stehen.</p>
+<p>In der Startansicht werden die wichtigsten Informationen zu historischen Abrechnungen angezeigt, wodurch die Umsatz- und Provisionshöhen unmittelbar abgelesen werden können. Auf der rechten Seite befinden sich neben jeder Abrechnung drei Download Buttons , über welche sich verschiedene Dokumente im CSV-Format heruntergeladen werden können. Die erste Tabelle gibt Aufschluss darüber, welche Verkäufer in welcher Höhe Umsätze getätigt haben und welche Provisionen sowohl der Vertriebsleitung als auch den Mitarbeitern im abgerechneten Zeitraum zuzurechnen sind.</p>
+<p>Während die erste Tabelle mit aggregierten Werten arbeitet, befinden sich in der zweiten Tabelle sämtliche verkaufte Artikel mit zusätzlichen Informationen.</p>
+<p>Die dritte Tabelle enthält wiederum summierte Werte, die nach Artikelkategorien aufgeschlüsselt sind.</p>
+<p>Schließlich können über die Minidetail-Ansicht weitere Informationen zu den einzelnen Positionen der gewählten Abrechnung aufgerufen werden, die sich von der Rechnungsnummer und den Kunden bis hin zu Artikelnummern und Provisionen erstrecken und wie gewohnt über einen Klick auf den Download Button als CSV Datei heruntergeladen werden können.</p>
+<h3 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h3>
+<p>Um für die angelegten Provisionsabrechnungen nun im Folgenden eine Gutschrift für die Vertriebsmitarbeiter erstellen zu können, muss im Reiter &ldquo;Einstellungen&rdquo; zuerst ein Provisionsartikel hinterlegt werden, auf den die Abrechnung gebucht werden kann. Zudem kann hier eingestellt werden, ob die Provision vom Rabatt absolut abgezogen wird. So kann ein Vertreter, dem 20% Provision zu stehen, einen Rabatt von 5% auf den Auftrag gewähren und die Provision wird dadurch auf 15% reduziert.</p>
+<p>Hierfür kann im Artikelstamm ein &ldquo;Provisionsabrechnungsartikel&rdquo; (oder ähnliche Bezeichnung) angelegt werden, der dann für alle zukünftigen Abrechnungen verwendet werden kann. Zudem empfiehlt sich der Haken bei &ldquo;Detaillierte Aufstellung in Gutschrift&rdquo; um die provisionierten Auftragspositionen besser nachvollziehen zu können. Sollte diese Option nicht gewählt sein, dann werden alle Abrechnungen auf den &ldquo;Provisionsabrechnungsartikel&rdquo; umgelegt. Wählt man die Einstellungsmöglichkeit &ldquo;Rechnung bezahlt am Verwenden (Rechnungen ohne bezahlt am Eintrag werden ignoriert)&rdquo; so werden nur Rechnungen in die Provisionsabrechnung mit aufgenommen für die entweder ein Zahlungseingang der Rechnungssumme statt gefunden hat oder die Rechnung manuell auf bezahlt gesetzt worden ist.</p>
+<h3 id="gutschrift-fur-abrechnung-erstellen">Gutschrift für Abrechnung erstellen<a class="headerlink" href="#gutschrift-fur-abrechnung-erstellen" title="Permanent link">&para;</a></h3>
+<p>Im nächsten Schritt kann unter &ldquo;Buchhaltung → Provisionen → Abrechnungen&rdquo; durch Klick auf den Pfeil eine Gutschrift für die ausgewählte Provisionsabrechnung erstellt werden.</p>
+<p>Die Gutschrift befindet sich dann im Folgenden unter Buchhaltung → Gutschrift/Stornorechnung im Reiter &ldquo;in Bearbeitung&rdquo;.</p>
+<p>Unter dem Reiter &ldquo;Vorschau&rdquo; kann ein Entwurf der Gutschrift betrachtet werden.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

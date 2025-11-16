@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016756919 Pos Funktionen Und Bedienung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016756919 Pos Funktionen Und Bedienung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016756919 Pos Funktionen Und Bedienung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Update zur neuen POS in Xentral (Stand: 15.06.2025, open beta Version)</strong></p>
+<p>Als Bestandskunde kannst du die neue POS ganz einfach selbst aktivieren: Über einen <strong>Button in der POS </strong> schaltest du <strong>das neue Modul eigenständig frei</strong>.</p>
+<p>Für den Umstieg empfehlen wir einen Blick in die aktuelle Dokumentation zur neuen POS, die dich bei der Einrichtung und Umstellung unterstützt.</p>
+<p>Folgende Neuerungen wurden umgesetzt – und so gelingt dir der <strong>schnelle und reibungslose Umstieg von der alten zur neuen POS</strong>:</p>
+<p>-<strong>Modernisierte Benutzeroberfläche</strong>: Die neue POS bietet ein frisches, modulares Design mit optimierter Nutzerführung – ideal für schnelles Kassieren und klare Abläufe.
+-<strong>Browser- und App-Kompatibilität </strong>: Die POS läuft plattformunabhängig auf <strong>Windows, macOS (NEUE Desktopversion)</strong> und bald auch als App für iPad/ Android– direkt im Browser. Die bisherige Web-Browseranwendung bleibt zusätzlich bestehen.
+-<strong>Hardwareanbindung <strong>:Drucker und Kassenschubladen werden jetzt über eine zentrale POS-App angebunden. Das vereinfacht Konfiguration und Wartung. Vorhandene IP-fähige Geräte können weiterverwendet werden. Wenn du bereits ein bestehendes Drucker-Setup mit Adapterbox nutzt, kannst du diese auch mit der neuen POS-Anwendung weiterhin in der Übergangszeit verwenden.</strong> Wichtig </strong>: Langfristig solltest du für die <strong>neuen Desktop-Apps</strong> den Drucker einmalig neu in der App einrichten. Die Einrichtung sind wenige Klicks und hier erklärt.
+-<strong>Vereinfachter Umstieg für Bestandskunden</strong>: Du kannst die neue POS direkt im System per Button aktivieren – ganz ohne Supportanfrage oder Wartezeit.
+-<strong>Neue Zahlungsfunktionen</strong>: Mischzahlungen (z. B. Bar + EC) und Teilzahlungen über Rechnungsnummern sind jetzt möglich – ideal für Omnichannel- und Filialprozesse.
+-<strong>TSE &amp; RKSV konform</strong>: Die neue POS ist vollständig vorbereitet für rechtliche Anforderungen in Deutschland und Österreich. TSE-Module können weiterhin genutzt werden.
+-<strong>Kartenzahlung: Integration vorbereitet</strong>: Aktuell erfolgtKartenzahlung noch manuell oder über externe Terminals. Geplant ist eine Partnerintegration (z. B. Mollie, Sumup) in den kommenden Wochen.
+-<strong>Daten und Artikel bleiben erhalten <strong>: Artikelstammdaten, Kunden und Kassenlogik sind weiterhin nutzbar – es ist keine Migration deiner POS-Daten notwendig, nur das Setup wird aktualisiert.</strong> Wichtig</strong>: Schliesse idealerweise alle alten Vorgänge ab z.B. alte Teilrechnungen etc.</p>
+</blockquote>
+<p>In der Benutzeroberfläche lassen sich Artikel schnell per Scan oder manuell in den Warenkorb legen, Rabatte und Trinkgelder vergeben sowie unterschiedliche Zahlungsarten auswählen – etwa Barzahlung, EC, Kreditkarte oder Überweisung. Je nach Bedarf kannst du zwischen anonymem Verkauf (Laufkundschaft) und der Auswahl eines festen Kundenstamms wechseln.</p>
+<p>Nach dem Verkauf wird der Vorgang automatisch im System erfasst – inklusive Belegerstellung, Lagerbuchung und Eintrag ins Kassenbuch. Die POS lässt sich flexibel konfigurieren, für verschiedene Standorte und Mitarbeitende einrichten und ist nahtlos mit allen Xentral-Modulen verbunden. Damit ist sie die ideale Lösung für Unternehmen, die stationären Verkauf und digitale Geschäftsprozesse effizient miteinander verbinden möchten.</p>
+<p><img alt="POS_Kassen_Screen.png" src="https://help.xentral.com/hc/article_attachments/19097024444700" /></p>
+<h2 id="schnellstart-pos">Schnellstart POS<a class="headerlink" href="#schnellstart-pos" title="Permanent link">&para;</a></h2>
+<p>Der Schnellstart für die POS (Point of Sale) zeigt dir kompakt und übersichtlich, wie du Verkaufsprozesse direkt an der Kasse durchführst - ideal, um sofort mit dem Kassieren loszulegen.</p>
+<h3 id="anmeldung-als-kassierer-schritte-erster-verkauf">Anmeldung als Kassierer <strong>Schritte &lsquo;Erster Verkauf&rsquo;: </strong><a class="headerlink" href="#anmeldung-als-kassierer-schritte-erster-verkauf" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Gehe zu <strong>Verkauf &gt; POS</strong>.</li>
+<li>Melde dich mit deiner <strong>Kassierer-Nummer</strong> an.</li>
+<li>Verwende im Standard automatisch &lsquo;<strong>Laufkundschaft <strong>&rsquo; für anonyme Verkäufe oder wähle einen </strong> Kunden</strong> aus den Stammdaten aus.</li>
+<li>Füge <strong>Artikel </strong> dem <strong>Warenkorb</strong> hinzu: Durch Anklicken, über die Suche oder direkt über Barcodescanner (Fokus im blauen Eingabefeld).</li>
+</ol>
+<h3 id="transaktion-durchfuhren-schritte-ersten-verkauf-abschlieen">Transaktion durchführen <strong>Schritte &lsquo;Ersten Verkauf abschließen&rsquo;: </strong><a class="headerlink" href="#transaktion-durchfuhren-schritte-ersten-verkauf-abschlieen" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Klicke auf &lsquo;<strong>Verkaufen</strong>&lsquo;.</li>
+<li>Wähle eine Zahlungsart z.B. &lsquo;<strong>Bar</strong>&lsquo;.</li>
+<li>Gib je nach Zahlungsweise die <strong>Beträge</strong> für Geldbetrag, Geld gegeben oder Trinkgeld ein.</li>
+<li>Klicke auf &lsquo;<strong>Abschliessen</strong>&lsquo;, um die Transaktion einzubuchen.</li>
+<li>Die <strong>Belege</strong> werden automatisch erzeugt und gedruckt z.B. Quittung.</li>
+</ol>
+<h2 id="pos-funktionen-im-verkaufsprozess">POS-Funktionen im Verkaufsprozess<a class="headerlink" href="#pos-funktionen-im-verkaufsprozess" title="Permanent link">&para;</a></h2>
+<p>Die POS-Funktionen im Verkaufsprozess unterstützen dich bei allen typischen Abläufen im Kassenalltag – vom Hinzufügen von Artikeln über die Kundenauswahl bis hin zu Rabatten, Zahlungen und der finalen Belegerstellung.</p>
+<h3 id="artikel-eingeben-artikelkategorien-durchsuchen">Artikel eingeben &amp; Artikelkategorien durchsuchen<a class="headerlink" href="#artikel-eingeben-artikelkategorien-durchsuchen" title="Permanent link">&para;</a></h3>
+<p>Du kannst Artikel auf verschiedene Arten zum Warenkorb hinzufügen: per Klick auf die Artikelkachel, über die Artikelsuche oder direkt per Barcodescanner (der Cursor muss im blauen Eingabefeld stehen).</p>
+<p><strong>Schritte Artikel eingeben:</strong></p>
+<p>-<strong>Klick auf die Artikelkachel</strong>: Klicke auf die Artikelkachel, der Artikel wird dem Warenkorb hinzugefügt. Wenn du die Menge erhöhen willst, klicke auf das Plus Icon. Für Menge reduzieren entsprechend auf das Minus.
+-<strong>Über Artikelsuche hinzufügen</strong>: Gib die Artikelbezeichnung oder Nummer in das Suchfeld ein, klicke den Artikelvorschlag an. Der Artikel wird dem Warenkorb hinzugefügt. Wird ein Artikel mehrfach auf diese Weise hinzugefügt, erhöht sich die Artikelmenge entsprechend im Warenkorb.
+-<strong>Artikel Barcode einscannen <strong>: Scanne den Artikel ein z.B. das Artikeletikett mit der Artikelnummer. Der Artikel wird direkt in den Warenkorb eingefügt. Wird ein Artikel mehrfach auf diese Weise hinzugefügt, erhöht sich die Artikelmenge entsprechend im Warenkorb.</strong> Schritte Artikelkategorie durchsuchen:</strong></p>
+<p>Klicke Artikelkategorien an, um Artikel und Sortimente schneller zu finden.</p>
+<p><img alt="pos_artikelkategorie_verwenden_001.png" src="https://help.xentral.com/hc/article_attachments/19073879782812" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst den Artikelbaum entsprechend für die POS konfigurieren und festlegen, was hier als Kacheln angezeigt wird. Gehe dazu auf das Tab <strong>Einstellungen</strong> und wähle den entsprechenden Menüpunkt imArtikelbaumaus. Wenn du nichts auswählst werden alle Artikel angezeigt (ausgenommen Artikel vom Typ Porto etc.).</p>
+</blockquote>
+<p><img alt="pos_artikelbaum_artikel_auswahl_kacheln_001.png" src="https://help.xentral.com/hc/article_attachments/20549233844764" /></p>
+<h3 id="laufkundschaft-kunden-einfugen-neu-anlegen-und-bearbeiten">Laufkundschaft, Kunden einfügen, neu anlegen und bearbeiten<a class="headerlink" href="#laufkundschaft-kunden-einfugen-neu-anlegen-und-bearbeiten" title="Permanent link">&para;</a></h3>
+<p>In der POS kannst du Verkäufe sowohl an anonyme Laufkundschaft als auch an bestehende oder neu angelegte Kundenadressen durchführen – je nachdem, ob du eine einfache Abwicklung oder eine personalisierte Rechnung mit Kundenbezug benötigst.</p>
+<p><strong>Schritte Laufkundschaft abkassieren:</strong></p>
+<p>Wenn keine spezielle Kundenadresse ausgewählt ist, wird der Vorgang automatisch auf &lsquo;Laufkundschaft&rsquo; gebucht.</p>
+<p><img alt="POS_Laufkundschaft_001.png" src="https://help.xentral.com/hc/article_attachments/19073919736348" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Adresse und Bezeichnung für diese anonyme Kaufoption kannst du in den POS Einstellungen konfigurieren.</p>
+</blockquote>
+<p><strong>Schritte Kunden aus Stammdaten einfügen:</strong></p>
+<p>Eine Adresse aus dem Kundenstamm kannst du über die Adresssuche auswählen. Klicke den Kunden an z.B. &lsquo;Max Mustermann&rsquo; mit der Kundennummer &lsquo;10003&rsquo;. Der Kundendatensatz wird eingefügt.</p>
+<p><img alt="pos_adresse_kunden_einfugen_001.png" src="https://help.xentral.com/hc/article_attachments/19073919737244" /></p>
+<p><strong>Schritte neuen Kunden anlegen:</strong> Einen <strong> neuen Kunden <strong>kannst du über das </strong> Plus-Icon <strong>anlegen. Trage die Kundendaten (Privatadresse oder Firma) ein und klicke auf </strong> Speichern</strong>. Der neue Kunde wird im Kundenstamm auf das Projekt der POS angelegt und erhält die nächste freie Nummer in diesem Nummernkreis.</p>
+<p><img alt="pos_neuen_kunden_anlegen_001.png" src="https://help.xentral.com/hc/article_attachments/19073919738396" /></p>
+<p><img alt="POS_neukunde_einfugen_001.png" src="https://help.xentral.com/hc/article_attachments/19073919739036" /></p>
+<p><strong>Schritte Stammkundenadresse bearbeiten:</strong> Eine Adresse eines Bestandskunden kannst du nach dem Einfügen der Kundenadresse bearbeiten. Klicke auf das Stift-Icon, ändere die Stammdaten und klicke auf <strong> Speichern</strong>.</p>
+<p><img alt="pos_stammkunde_bearbeiten_0011.png" src="https://help.xentral.com/hc/article_attachments/19097024446748" /></p>
+<h3 id="vorgang-speichern-und-wieder-laden">Vorgang speichern und wieder laden<a class="headerlink" href="#vorgang-speichern-und-wieder-laden" title="Permanent link">&para;</a></h3>
+<p>In der POS hast du die Möglichkeit, einen begonnenen Verkaufsvorgang zwischenzuspeichern und später wieder aufzurufen – ideal, wenn ein Kunde noch stöbern möchte oder kurz unterbricht.</p>
+<p><strong>Schritte Vorgang speichern:</strong> Klicke auf das <strong> Speichern-Icon</strong> um den aktuell eingetragenen Vorgang unter deiner Kassierernummer zu speichern.</p>
+<p><img alt="pos_vorgang_speichern_001.png" src="https://help.xentral.com/hc/article_attachments/19097010751516" /></p>
+<p><strong>Schritte Vorgang laden:</strong></p>
+<p>Klicke auf das Laden-Icon um aus der Liste der gespeicherten Vorgänge einen Warenkorb auszuwählen. Diesem Warenkorb kannst du z.B. weitere Artikel hinzufügen oder entfernen, abkassieren oder nochmals speichern.</p>
+<p><img alt="pos_vorgang_laden_001.png" src="https://help.xentral.com/hc/article_attachments/19055658881180" /></p>
+<h3 id="rabatte">Rabatte<a class="headerlink" href="#rabatte" title="Permanent link">&para;</a></h3>
+<p>In der POS kannst du Rabatte einfach und flexibel vergeben – entweder prozentual oder als fixer Eurobetrag, direkt auf einzelne Artikel oder auf den gesamten Warenkorb.</p>
+<p><strong>Schritte einen Rabatt pro Artikel vergeben:</strong></p>
+<p>Prozentuale Rabatte kannst du direkt pro Artikel vergeben, indem du den Artikel im Warenkorb anklickst und im Bearbeitungsdialog den gewünschten Prozentsatz einträgst. Der Rabatt wird automatisch auf den Einzelpreis angewendet und in der Gesamtsumme berücksichtigt.</p>
+<p><img alt="pos_artikel_rabatt_einzeln_vergeben_001.png" src="https://help.xentral.com/hc/article_attachments/19055687770140" /></p>
+<p><strong>Schritte Rabatt auf den ganzen Warenkorb vergeben:</strong></p>
+<p>Über die Schaltfläche &lsquo;% Rabatt&rsquo; kannst du einen prozentualen Rabatt auf den gesamten Warenkorb anwenden, z. B. 10 %. Dabei wird der Rabatt für alle Artikel eingefügt – individuelle Rabatte auf Positionsebene werden dabei mit dem neuen Prozentsatz überschrieben.</p>
+<p><img alt="pos_rabatt_auf_gesamten_warenkorb_001.png" src="https://help.xentral.com/hc/article_attachments/19097024448796" /></p>
+<p><img alt="pos_rabatt_auf_gesamten_warenkorb_002.png" src="https://help.xentral.com/hc/article_attachments/19097024450332" /></p>
+<p><strong>Schritte Rabatt als Betrag vergeben:</strong></p>
+<ul>
+<li>Für einen Euro Rabatt wähle den Rabattartikel für die POS aus und lege diesen wie einen normalen Warenartikel in den Warenkorb. Der Rabatt wird in der Summe abgezogen.</li>
+</ul>
+<p><img alt="pos_euro_rabatt_001.png" src="https://help.xentral.com/hc/article_attachments/19097010756124" /></p>
+<p>-<strong>Rabattfunktion Warenkorb</strong>: Du kannst alternativ auch einen Euro Rabatt auf den Warenkorb vergeben indem du das Rabatt Icon anwählst, einen Betrag eingibst und bestätigst. Der Betrag wird in der Endsumme im Warenkorb abgezogen und als Position im Rechnungsbeleg aufgelistet. Verwendet wird hier ebenfalls der Rabattartikel für die POS.</p>
+<h3 id="einlage-entnahme">Einlage &amp; Entnahme<a class="headerlink" href="#einlage-entnahme" title="Permanent link">&para;</a></h3>
+<p>In der POS kannst du jederzeit Bargeldbeträge in die Kasse einlegen oder entnehmen – z. B. für Wechselgeld, Tagesabschlüsse oder Trinkgeld – und diese mit einem passenden Buchungsgrund dokumentieren.</p>
+<p><strong>Schritte Einlage buchen:</strong> Klicke für eine Einlage auf das &lsquo;<strong> Einlage-Icon <strong>&lsquo;, gib Betrag und Buchungsgrund ein, z. B. „200 EUR – Geldtransit Deutsche Bank 1800“, und bestätige mit &lsquo;</strong> OK <strong>&lsquo;. Wähle anschließend das passende Buchhaltungskonto (z. B. 1460 für Geldtransit im SKR04) aus und klicke erneut auf &lsquo;</strong> OK <strong>&rsquo; – der Betrag wird automatisch im Journal verbucht. </strong> Schritte Entnahme buchen:<strong> Klicke für eine Entnahme auf das &lsquo;</strong> Entnahme-Icon <strong>&lsquo;, gib Betrag und Buchungsgrund ein z. B. „200 EUR – Geldtransit Deutsche Bank 1800&rdquo; - und bestätige mit &lsquo;</strong> OK <strong>&lsquo;. Wähle anschließend das passende Buchhaltungskonto (z. B. 1460 für Geldtransit im SKR04) aus und klicke erneut auf &lsquo;</strong> OK</strong>&rsquo; – der Betrag wird dann automatisch im Journal verbucht.</p>
+<p><img alt="pos_entnahme_001.png" src="https://help.xentral.com/hc/article_attachments/19055658882076" /></p>
+<p><img alt="POS_Entnahme_kontierung_001.png" src="https://help.xentral.com/hc/article_attachments/19055658883612" /></p>
+<p><img alt="pos_entnahme_journalbuchung.png" src="https://help.xentral.com/hc/article_attachments/19055687772444" /></p>
+<h3 id="seriennummern-verwenden">Seriennummern verwenden<a class="headerlink" href="#seriennummern-verwenden" title="Permanent link">&para;</a></h3>
+<p>Mit der Seriennummern-Funktion in der POS kannst du beim Verkauf gezielt Seriennummern einzelner Artikel erfassen und so eine lückenlose Rückverfolgbarkeit sicherstellen – direkt im Verkaufsprozess an der Kasse.</p>
+<p>Für Seriennummer Artikel wirst du beim Verkauf über die POS automatisch zur Eingabe der Seriennummer aufgefordert.</p>
+<h3 id="chargen-und-mhd-in-der-pos">Chargen und MHD in der POS<a class="headerlink" href="#chargen-und-mhd-in-der-pos" title="Permanent link">&para;</a></h3>
+<p>Mit der Funktion für MHD (Mindesthaltbarkeitsdatum) und Chargen kannst du in der POS Artikel mit Haltbarkeits- oder Produktionskennzeichnung verkaufen.</p>
+<p>Für MHD und Charge Artikel wirst du beim Verkauf über die POS automatisch zur Eingabe des Mindesthaltbarkeitsdatums und der Charge aufgefordert.</p>
+<h2 id="pos-zahlungsoptionen-rechnungsabschluss">POS-Zahlungsoptionen &amp; Rechnungsabschluss<a class="headerlink" href="#pos-zahlungsoptionen-rechnungsabschluss" title="Permanent link">&para;</a></h2>
+<p>xx</p>
+<h3 id="zahlungsoptionen">Zahlungsoptionen<a class="headerlink" href="#zahlungsoptionen" title="Permanent link">&para;</a></h3>
+<p>In der Xentral POS stehen dir verschiedene Zahlungsarten zur Verfügung, um deinen Verkaufsprozess flexibel und kundenorientiert abzuwickeln. Je nach Kundensituation und Geschäftsmodell kannst du zwischen den folgenden Optionen wählen:</p>
+<p>-<strong>Bar</strong>: Klassische Bargeldzahlung – du gibst den erhaltenen Betrag ein, und das System berechnet automatisch das Rückgeld.
+-<strong>EC</strong>: Zahlung per Girokarte (elektronisches Lastschriftverfahren), bei Bedarf mit angebundenem EC-Terminal.
+-<strong>Kreditkarte</strong>: Bezahlung mit gängigen Kreditkarten – ebenfalls möglich mit externem Terminal, das den Betrag automatisch übernimmt.
+-<strong>Überweisung</strong>: Wird meist für größere Beträge oder Geschäftskunden genutzt – der offene Betrag wird in der Buchhaltung entsprechend markiert.
+- Trinkgeld: Optional kann bei Kartenzahlungen oder Barzahlung ein Trinkgeld erfasst werden. Dieses wird über Einlage- oder Entnahmebuchungen ins Journal übernommen.
+- Quittung: Eine einfache Zahlungsbestätigung, die keinen Rechnungsposten erzeugt – ideal für anonyme Laufkundschaft oder Barverkäufe ohne Rechnungsstellung.</p>
+<p><img alt="pos_vorgang_abschliessen.png" src="https://help.xentral.com/hc/article_attachments/19097010757788" /></p>
+<h3 id="teilzahlung-mit-mehreren-zahlungsmitteln-an-der-pos">Teilzahlung mit mehreren Zahlungsmitteln an der POS<a class="headerlink" href="#teilzahlung-mit-mehreren-zahlungsmitteln-an-der-pos" title="Permanent link">&para;</a></h3>
+<p>Wenn ein Kunde mit verschiedenen Zahlungsmitteln gleichzeitig bezahlen möchte (z. B. einen Teil bar und den Rest per EC-Karte), kannst du die Beträge an der xentral POS flexibel aufteilen.</p>
+<ul>
+<li>Gib dazu zuerst den Betrag für die erste Zahlungsart ein (z. B. Barzahlung), bestätige ihn mit dem Button &lsquo;Teilzahlung&rsquo;.</li>
+<li>Wähle anschließend die zweite Zahlungsart (z. B. EC-Karte) für den verbleibenden offenen Betrag. Bestätige alle Teilbeträge mit &lsquo;Teilzahlung&rsquo; um weitere Einträge in die Tabelle zu buchen.</li>
+<li>Bestätige den letzten offenen Betrag mit &lsquo;Abschliessen&rsquo;. Der Verkauf wird gebucht.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die POS erkennt automatisch, welcher Betrag bereits bezahlt wurde, und zeigt dir jeweils den noch offenen Rest an. Erst wenn der gesamte Betrag gedeckt ist, kann der Verkauf abgeschlossen und der Beleg erstellt werden.</p>
+</blockquote>
+<p><img alt="pos_teilzahlung.png" src="https://help.xentral.com/hc/article_attachments/19097010758172" /></p>
+<h3 id="teilrechnung">Teilrechnung<a class="headerlink" href="#teilrechnung" title="Permanent link">&para;</a></h3>
+<h2 id="storno-teil-und-komplettstorno-von-belegen-in-der-pos">Storno: Teil- und Komplettstorno von Belegen in der POS<a class="headerlink" href="#storno-teil-und-komplettstorno-von-belegen-in-der-pos" title="Permanent link">&para;</a></h2>
+<p>In der POS-Oberfläche können bestehende Aufträge oder Rechnungen storniert werden – entweder vollständig oder teilweise. Damit lassen sich Rückgaben oder Korrekturen schnell und nachvollziehbar abwickeln.</p>
+<h3 id="komplettstorno-gesamten-beleg-stornieren">Komplettstorno (gesamten Beleg stornieren)<a class="headerlink" href="#komplettstorno-gesamten-beleg-stornieren" title="Permanent link">&para;</a></h3>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Klicke auf „Beleg laden“ und gib die Belegnummer ein.</li>
+<li>Wähle „Komplettstorno“.</li>
+<li>Alle Artikelpositionen werden automatisch in die POS geladen.</li>
+<li>Klicke auf die rote Storno-Schaltfläche, um eine Gutschrift zu erzeugen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Dabei passiert Folgendes:</p>
+<ul>
+<li>Der vollständige Betrag wird als Gutschrift ausgestellt.</li>
+<li>Die zugehörige Rechnung wird automatisch storniert.</li>
+<li>Die Buchung wird im POS-Tagesabschluss als Entnahme markiert.</li>
+<li>Die Gutschrift erscheint im Kassenbuch und steht für die Buchhaltung zur Verfügung.</li>
+</ul>
+<p>So bleibt der komplette Vorgang transparent nachvollziehbar – sowohl für deine interne Kasse als auch für die Finanzbuchhaltung.</p>
+</blockquote>
+<h3 id="teilstorno-einzelpositionen-stornieren">Teilstorno (Einzelpositionen stornieren)<a class="headerlink" href="#teilstorno-einzelpositionen-stornieren" title="Permanent link">&para;</a></h3>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Klicke auf „Beleg laden“ in der POS-Oberfläche.</li>
+<li>Gib die Belegnummer des zu stornierenden Auftrags oder der Rechnung ein.</li>
+<li>Wähle die Option „Teilstorno“.</li>
+<li>Im folgenden Dialog werden alle Positionen des Belegs angezeigt. Gib bei den gewünschten Positionen die Menge an, die storniert werden soll.</li>
+<li>Klicke auf „Übernehmen“, um diese Positionen in die POS-Oberfläche zu laden.</li>
+<li>Schließe den Vorgang wie gewohnt ab.</li>
+</ol>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Bei einem Teilstorno musst du eine manuelle Rückbuchung ins Lager durchführen, da keine automatische Einlagerung erfolgt.</p>
+<h2 id="belege-laden-und-abrechnen-in-der-pos">Belege laden und abrechnen in der POS<a class="headerlink" href="#belege-laden-und-abrechnen-in-der-pos" title="Permanent link">&para;</a></h2>
+<p>Mit der Belegladen-Funktion kannst du bestehende Aufträge oder Rechnungen in die POS-Oberfläche übernehmen und direkt abkassieren – ideal für Anzahlungsvorgänge, spätere Bezahlungen oder für Kunden mit bereits erstelltem Auftrag.</p>
+<p><strong>Schritte</strong>:</p>
+<ol>
+<li>Öffne die POS-Oberfläche.</li>
+<li>Klicke auf „Beleg laden“ (unten rechts).</li>
+<li>Gib im Dialogfenster die Auftrags- oder Rechnungsnummer ein.</li>
+<li>Klicke auf „Über Kasse abrechnen“.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Die POS übernimmt automatisch:</p>
+<ul>
+<li>Alle Positionen des Belegs (Artikel, Mengen, Preise)</li>
+<li>Die Adressdaten des Kunden aus dem Originalbeleg</li>
+</ul>
+</blockquote>
+<p>Anschließend kannst du den Beleg wie jeden normalen Verkaufsvorgang über die POS abrechnen – inklusive Auswahl der Zahlungsart, Rechnung oder Quittung, sowie optionalem Rabatt oder Trinkgeld.</p>
+<h3 id="achtung_1">Achtung<a class="headerlink" href="#achtung_1" title="Permanent link">&para;</a></h3>
+<p>Das Zahlungsdatum auf dem Kassenzettel entspricht dem POS-Zahlungstag, während das Rechnungsdatum weiterhin dem ursprünglichen Belegdatum entspricht.</p>
+<h2 id="kassenabschlusse">Kassenabschlüsse<a class="headerlink" href="#kassenabschlusse" title="Permanent link">&para;</a></h2>
+<p>Der Kassenabschluss in Xentral umfasst die tägliche Erfassung aller POS-Vorgänge, das Zählen des Bargelds sowie die Erstellung eines übersichtlichen Monatsabschlusses mit allen Tagesdaten.</p>
+<h3 id="tagesabschluss">Tagesabschluss<a class="headerlink" href="#tagesabschluss" title="Permanent link">&para;</a></h3>
+<p>Der Tagesabschluss fasst automatisch alle POS-Vorgänge eines Tages zusammen. Er dient der Kontrolle, Dokumentation und Vorbereitung für die Buchhaltung und muss nicht manuell ausgelöst werden – er wird beim ersten POS-Start des Tages automatisch begonnen.</p>
+<p>Am Ende des Tages kannst du die Bargeldzählung durchführen und die Daten mit einem Klick „festschreiben“ – dabei wird der gezählte Betrag in den Abschluss übernommen und als abgeschlossen markiert.</p>
+<p>Über das PDF-Icon rechts in der Ansicht kannst du den Tagesabschluss als PDF einsehen oder herunterladen. In der Übersicht sind alle relevanten Kassenbewegungen und Eckdaten enthalten:</p>
+<ul>
+<li>Einnahmen pro Zahlungsart (Bar, EC, Kreditkarte, etc.)</li>
+<li>Stornierte Belege, z. B. durch Rückgabe oder Komplettstorno</li>
+<li>Einlagen und Entnahmen mit Buchungsgrund</li>
+<li>Summe der Bareinnahmen, jeweils als Brutto- und Nettobetrag</li>
+<li>Kassenanfangsbestand und Kassenendbestand</li>
+<li>Gezähltes Bargeld, aufgeteilt in Münzen und Scheine</li>
+</ul>
+<p>Der Tagesabschluss bildet die Grundlage für Monatsberichte, Kassenjournal. Ein Beispiel-PDF zeigt alle Daten strukturiert über mehrere Seiten.</p>
+<h3 id="monatsabschluss">Monatsabschluss<a class="headerlink" href="#monatsabschluss" title="Permanent link">&para;</a></h3>
+<p>Im Monatsabschluss kannst du eine kompakte Übersicht über alle Tagesabschlüsse eines ausgewählten Monats erstellen. Dabei wird automatisch ein Sammel-PDF generiert, das die kumulierten Werte des gesamten Zeitraums enthält.</p>
+<p>Du erhältst so einen übersichtlichen Gesamtbericht mit allen wichtigen Kennzahlen – inklusive Gesamteinnahmen, Stornos, Einlagen und Entnahmen – zusammengefasst auf Monatsbasis. Ideal für die Weitergabe an dein Steuerbüro oder zur internen Auswertung.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Detailtiefe von Tages- und Monatsabschlüssen kannst du in den POS-Einstellungen im Projekt anpassen.</p>
+</blockquote>
+<h3 id="bargeld-zahlen">Bargeld zählen<a class="headerlink" href="#bargeld-zahlen" title="Permanent link">&para;</a></h3>
+<p>Im Bereich Bargeld zählen kannst du zum Tagesabschluss hin den tatsächlichen Kassenbestand erfassen. Trage dazu die Anzahl der vorhandenen Münzen und Scheine in die entsprechenden Felder ein.</p>
+<ul>
+<li>Mit „Gezählte Werte jetzt festschreiben“ übernimmst du die erfassten Bargeldwerte in den Tagesabschluss. Diese gelten dann als offiziell gezählter Kassenbestand und werden im Abschluss gespeichert.</li>
+<li>Mit „Gezählte Werte speichern ohne Korrekturbuchung“ speicherst du die Zählung, ohne dass automatisch eine Korrekturbuchung im Kassenbuch erzeugt wird – diese Option eignet sich zur internen Kontrolle, ohne den offiziellen Buchungsfluss zu beeinflussen.</li>
+</ul>
+<h3 id="achtung_2">Achtung<a class="headerlink" href="#achtung_2" title="Permanent link">&para;</a></h3>
+<p>Achte darauf, den Zählvorgang erst dann festzuschreiben, wenn du die Kassenschublade final gezählt hast. Eine nachträgliche Änderung ist nicht mehr möglich.</p>
+<p><img alt="pos_zaehlprotokoll.png" src="https://help.xentral.com/hc/article_attachments/19055637499804" /></p>
+<h2 id="kassenbuchhaltung-zahlungseingang-datev">Kassenbuchhaltung: Zahlungseingang &amp; DATEV<a class="headerlink" href="#kassenbuchhaltung-zahlungseingang-datev" title="Permanent link">&para;</a></h2>
+<p>POS-Umsätze lassen sich entweder einzeln über den Zahlungseingang importieren oder gesammelt als Tages- oder Monatsabschluss einsehen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Freiwillig nutzbar – aber nützlich für den Export <strong>: Die Nutzung des Kassenbuchs ist optional. Verwende es vor allem dann, wenn du einen exportfähigen Buchungsdatensatz brauchst – z. B. für DATEV oder einen anderen Buchhaltungsimport.</strong> Wofür brauche ich bei der POS ein Kassenbuch?</strong></p>
+</blockquote>
+<p>Neben dem Kassenjournal sowie den Tages- und Monatsabschlüssen kannst du in Xentral auch ein separates Kassenbuch nutzen, um Barzahlungen, Trikgeldbuchungen, Einlagen und Entnahmen als Buchungszeilen (bzw. Buchungssätze) darzustellen und diese bei Bedarf für die Buchhaltung zu exportieren.</p>
+<p>Diese Funktion ist vor allem dann hilfreich, wenn du die POS-Daten regelmäßig an dein Steuerbüro übergeben möchtest – und dir das manuelle Abtippen ersparen willst.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du im <strong>B2B </strong></p>
+</blockquote>
+<p>-Bereich tätig bist und nur <strong>wenige </strong>, aber <strong>hochpreisige</strong><strong>Verkäufe</strong> über die POS abwickelst, kannst du die Buchungen gezielt im Xentral-Zahlungseingang prüfen, auf Erlös- und Kostenkonten buchen und wie ein klassisches Bankkonto weiterverarbeiten oder exportieren.</p>
+<blockquote>
+<p>Für <strong>B2C </strong> mit <strong>vielen Einzeltransaktionen </strong> empfiehlt sich hingegen der <strong>Tagesabschluss</strong> mit Übergabe der Tagessummen s.o. – das ist deutlich effizienter und sorgt für eine saubere, gebündelte Buchführung.</p>
+</blockquote>
+<p><img alt="pos_kassenbuch.png" src="https://help.xentral.com/hc/article_attachments/19073879796124" /></p>
+<p><strong>Zahlungsweisen Kontoauszug – z. B. für Kartenzahlungen</strong></p>
+<p>Du hast außerdem die Möglichkeit, für bestimmte Zahlungsweisen – z. B. Kreditkartenzahlungen – ein eigenes, separates Kassenbuch anzulegen. So kannst du Transaktionen direkt aus der POS automatisch diesem separaten Kassenbuch zuweisen – ganz ohne manuelles Erfassen und ohne auf papierbasierte Monatsabrechnungen deines Kartenanbieters warten zu müssen.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Wichtiger Hinweis zur Struktur:<strong>Lege für jede Zahlungsweise ein eigenes Kassenbuch an.</strong></p>
+<p>Lasse Kartenzahlungen <strong>nicht</strong> in das Hauptkassenbuch der POS buchen, da sich sonst Barzahlungen und Kartenzahlungen vermischen.</p>
+<p>Dadurch stimmen die Bar-Salden im Kassenbuch nicht mehr mit dem POS-Journal überein – was zu Problemen beim Kassenabgleich führen kann - du musst hin- und herrechnen, da sich in Kassenbuch verschiedene Zahlungsmittel befinden.</p>
+</blockquote>
+<h2 id="kassenschublade-bondrucker-belegausdruck">Kassenschublade, Bondrucker &amp; Belegausdruck<a class="headerlink" href="#kassenschublade-bondrucker-belegausdruck" title="Permanent link">&para;</a></h2>
+<p>Die folgenden Funktionen unterstützen dich bei der Ausgabe von Belegen und der Nutzung der Kassenschublade direkt an der POS.</p>
+<h3 id="kassenschublade-offnen">Kassenschublade öffnen<a class="headerlink" href="#kassenschublade-offnen" title="Permanent link">&para;</a></h3>
+<p>Du kannst die Kassenschublade manuell oder automatisch während des Verkaufsprozesses öffnen:</p>
+<p>-<strong>Schublade öffnen über Startseite</strong>: Klicke auf das Icon „Schublade öffnen“, um die Kasse manuell zu öffnen.</p>
+<p><img alt="pos_kassenschublade_oeffnen_001.png" src="https://help.xentral.com/hc/article_attachments/19097024455452" /></p>
+<p>-<strong>Schublade öffnen beim Abschluss</strong>: Die Kassenschublade öffnet sich automatisch beim Verkaufsabschluss im Abschlussdialog.</p>
+<p><img alt="pos_vorgang_abschliessen_kassenschublade_001.png" src="https://help.xentral.com/hc/article_attachments/19097010761244" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

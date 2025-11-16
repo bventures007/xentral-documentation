@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016722900 Lagerstruktur Erstellen Xentral Lagerverwaltung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016722900 Lagerstruktur Erstellen Xentral Lagerverwaltung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016722900 Lagerstruktur Erstellen Xentral Lagerverwaltung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Eine klare Lagerstruktur ist entscheidend für dein Unternehmen, wenn du physische Produkte lagerst und verwaltest. Die Lagerstruktur erleichtert die Organisation und Lokalisierung von Artikeln, optimiert den Lagerplatz, reduziert Fehler beim Ein- und Auslagern von Waren sowie verbessert Arbeitsabläufe und Effizienz. Zudem fördert sie Anpassungsfähigkeit, steigert Kundenzufriedenheit und verbessert die Profitabilität deines Unternehmens.</p>
+<p><strong>Erste Schritte für eine Lagerstruktur:</strong> In einem Lager kannst du deine Produkte und Materialien für den Verkauf verfügbar halten. Ein Lager hilft dir deine Warenbestände im Blick zu behalten und Wareneingänge und Ausgänge zu sehen.</p>
+<p>Dieser Artikel gliedert sich in folgende Themenbereiche, um dich bestmöglich bei deinen Überlegungen zur Lagerstruktur zu unterstützen und dir einen Überblick über die möglichen Einstellungen in Xentral zu geben:</p>
+<ul>
+<li><a href="#UUID-68ecb8fb-7078-0b9e-b30e-517c2bb64756_id_Lagerstrukturpaligoexport-EineStrukturfrdasLagerfestlegen">Lagerstruktur festlegen</a></li>
+<li><a href="#UUID-68ecb8fb-7078-0b9e-b30e-517c2bb64756_id_Lagerstrukturpaligoexport-EinLageraktivierenundeinrichten">Lager aktivieren und einrichten</a></li>
+<li><a href="#UUID-68ecb8fb-7078-0b9e-b30e-517c2bb64756_id_Lagerstrukturpaligoexport-LagerpltzemitCSVimportieren-oderschnellanlegen">Lagerplätze per CSV importieren</a></li>
+<li><a href="#UUID-68ecb8fb-7078-0b9e-b30e-517c2bb64756_id_Lagerstrukturpaligoexport-LagerundLagerpltzemitBarcodeetikettieren">Lager und Lagerplätze mit Barcodes etikettieren</a></li>
+<li><a href="#UUID-68ecb8fb-7078-0b9e-b30e-517c2bb64756_id_Lagerstrukturpaligoexport-LagerneinenTypzuweisen-NachschublagerVerbrauchslagerSperrlagerProduktionslager">Lagertyp zuweisen</a></li>
+<li><a href="#UUID-68ecb8fb-7078-0b9e-b30e-517c2bb64756_id_Lagerstrukturpaligoexport-ProjektlagerundbevorzugtesLager">Projektlager und bevorzugtes Lager</a></li>
+<li><a href="#UUID-68ecb8fb-7078-0b9e-b30e-517c2bb64756_id_Lagerstrukturpaligoexport-LagerBestand">Lagerbestand einsehen</a></li>
+<li><a href="#UUID-68ecb8fb-7078-0b9e-b30e-517c2bb64756_id_Lagerstrukturpaligoexport-Reservierungen">Bestandsreservierungen steuern</a></li>
+<li><a href="#UUID-68ecb8fb-7078-0b9e-b30e-517c2bb64756_id_Lagerstrukturpaligoexport-Lagerbestandsberechnung">Lagerwert und Lagerbestandsberechnung</a></li>
+</ul>
+<h2 id="lagerstruktur-festlegen">Lagerstruktur festlegen<a class="headerlink" href="#lagerstruktur-festlegen" title="Permanent link">&para;</a></h2>
+<p>Ein Lager in Xentral kann aus mehreren Ebenen bestehen. Dabei hast du die Möglichkeit verschiedene Strukturen anzulegen und später flexibel zu erweitern oder anzupassen. Trotzdem solltest du vor der Einrichtung eines Lagers in Xentral verschiedene Überlegungen durchführen, um deine Warenbestände später gut im Griff zu behalten.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Folgende Grundsätze haben sich bei der Lagerhaltung bewährt:</p>
+<p>-<strong>Weniger ist mehr.</strong> Wenn du deine finale Lagerstruktur noch nicht kennst, kannst du erstmal mit einem Lager starten und später verfeinern und expandieren. Wenn du den ersten Schritt gut planst und für den Anfang unnötige Komplexität vermeidest, kannst du erstmal loslegen, ohne den Überblick zu verlieren.
+-<strong>Du kennst bereits deine Lagerstruktur?</strong> Wenn sich deine bisherige Lagerstruktur bewährt hat oder relativ einfach ist, solltest du an dieser Stelle prüfen, ob deine Zielstruktur in Xentral zu deinen bisherigen Workflows passt. Du kannst die Chance nutzen, Abläufe anzupassen und allgemeine Änderungen vorzunehmen. Eine bewährte Struktur hilft auch deinem Team, den Überblick im Lager zu behalten.</p>
+</blockquote>
+<p>Ein Lager in Xentral besteht grundsätzlich aus zwei Ebenen: Lager und Regale.</p>
+<p>Dabei kannst du entscheiden, ob ein Lager ein Bereich, ein Raum oder ein Gebäude sein soll. Dasselbe gilt für die zweite Ebene: Ein Regal kann ein tatsächliches Regal, ein Fach oder ein Sichtlagerkasten sein.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>In automatischen Prozessen, Lagerausbuchungen oder Vertriebskanälen wird meist aus einem Lager ausgebucht. Der genaue Ort für den Kommissionierprozess ergibt sich aus dem Regal, also dem Lagerplatz, an dem die Ware auch tatsächlich liegt und vom Lagerpersonal entnommen wird.</p>
+</blockquote>
+<h2 id="lager-aktivieren-und-einrichten">Lager aktivieren und einrichten<a class="headerlink" href="#lager-aktivieren-und-einrichten" title="Permanent link">&para;</a></h2>
+<h3 id="uberlegungen-zur-beschriftungsreihenfolge-fur-lager-und-regale">Überlegungen zur Beschriftungsreihenfolge für Lager und Regale<a class="headerlink" href="#uberlegungen-zur-beschriftungsreihenfolge-fur-lager-und-regale" title="Permanent link">&para;</a></h3>
+<p>Wähle eine Bezeichnung aus fortlaufenden Zeichen wie Buchstaben und Zahlen - ohne Leerzeichen oder Sonderzeichen. Beispielsweise kannst du dein <strong>Lager </strong> mit “Hauptlager” benennen und den <strong>Regalen</strong> in diesem Lager eine Nummerierung wie HL0101A, …., HL9999Z zuweisen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beim Einlagern einzelner Artikel in Xentralwählst du ein konkretes Regal aus. Das bedeutet, dass du entweder im Wareneingang oder direkt am Regal entscheidest, wo die Ware ihren Platz findet.</p>
+<p>Planst du mit einer Vielzahl von Plätzen, kannst du Regale im Gesamtsystem mit einer Kennung anlegen. Im Folgenden findest du zwei Beispiele.</p>
+</blockquote>
+<h4 id="kleine-und-uberschaubare-lager">Kleine und überschaubare Lager<a class="headerlink" href="#kleine-und-uberschaubare-lager" title="Permanent link">&para;</a></h4>
+<p>Wenn dein Lager für den Produktversand nur aus einem Raum besteht, kannst du diesen direkt als dein Hauptlager benennen und die Plätze, an denen die Produkte eingelagert werden mit einer Kennung beschriften. Dabei spielt es zunächst keine Rolle, ob du jedes Fach oder an einer Stelle auch ein ganzes Regal oder einen Platz am Boden als Regal oder Lagerplatz benennst.</p>
+<p>Achte jedoch darauf, die Benennung logisch und für dein Team in einer nachvollziehbaren Reihenfolge vorzunehmen. Dies erleichtert später das Auffinden der Lagerplätze.</p>
+<p>Beispiele für eine einfache Lageraufteilung:</p>
+<ul>
+<li>Dein <strong>Lager</strong> benennst du mit der Bezeichnung “Hauptlager”</li>
+<li>Deine <strong>Regale / Lagerplätze </strong> benennst du pro Regalfach oder Sichtlagerkasten mit den fortlaufenden Bezeichnungen: HL001A, …., HL999Z.<strong>HL <strong>→ Kennung für dein Hauptlager: sie zeigt dir in Xentral, dass du das Regal in deinem Hauptlagerraum platziert hast und du musst nicht überlegen, in welchen Raum du gehen musst.</strong> 001 <strong>→ Nummer für dein Regal: wähle die Stellenanzahl so, dass sie zu deinen notwendingen Anforderungen passt. Je mehr Regale in deinem Raum Platz finden müssen oder je kleinteiliger deine Produkte sind, desto mehr Ziffern oder Buchstaben benötigst du für die Aufteilung. Z.B kannst du für Schmuckteile, Schrauben, Elektronikbauteile auch Schubladenelemente verwenden und einzeln beschriften.</strong> A</strong> → Buchstabe für dein Fach: wähle die Anzahl der Buchstaben so, dass sie für dein Regal ausreichend sind.</li>
+</ul>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Je länger und komplizierter die Lagerplatzbezeichnungen, desto schwieriger für dich und dein Team sich diese zu merken. Überlege, was gebraucht wird - schaust du und dein Team nur auf die letzte Ziffer, oder auch vorne auf den Raum um zu wissen wo die Ware gepickt werden muss?</p>
+<p>Gleich lange Zeichenfolgen erleichtern ebenfalls die Suche nach dem richtigen Platz.</p>
+<p>Mögliche gute Varianten (entscheide dich für eine): H01A, HL001A, HL01AA.</p>
+</blockquote>
+<p><img alt="warehouse_structure_001.png" src="https://help.xentral.com/hc/article_attachments/13072433902492" /></p>
+<h4 id="groe-lager-mit-mehreren-standorten">Große Lager mit mehreren Standorten<a class="headerlink" href="#groe-lager-mit-mehreren-standorten" title="Permanent link">&para;</a></h4>
+<p>Du hast mehrere Räume, kombinierst Versand mit einer eigenen Produktion und wickelst sowohl B2B- als auch B2C-Aufträge ab? Dann verfügst du sicherlich schon über einige Erfahrungswerte im Lageraufbau. Hier findest du ein paar Ideen und Beispiele für flexible Strukturen oder unterschiedliche Kombinationen.</p>
+<ul>
+<li>Dein <strong>Lager</strong> benennst du mit der Bezeichnung “Hauptlager”, “Augsburg”, “Muenchen”</li>
+<li>Deine <strong>Regale / Lagerplätze </strong> benennst du pro Regalfach, Sichtlagerkasten, Palettenplatz oder Fläche <strong>HL </strong>→ Kennung für dein Hauptlager,<strong>AL <strong>→ Kennung für Lager Augsburg,</strong> ML <strong>→ Kennung für Lager München,</strong> PL <strong>→ Kennung für ein Produktionslager,</strong> NL <strong>→ könnte ein Nachschublagerplatz sein.</strong> 0101 </strong>→ z.B. 4-stellige Durchnummerierung, die ersten beiden Ziffern stehen für das Regal, die beiden folgenden sind für die Fächer frei wählbar <strong>A</strong> → Buchstabe steuert die Fachaufteilung für eine eigene Sichtlagerkiste (Ersatzteile) oder z.B. eine ESD-Kiste mit mehreren Fachunterteilungen (hier können auch z.B. 2 Buchstaben verwendet werden)</li>
+</ul>
+<p>Beispiele für größere Lageraufteilungen mit mehreren Räumen:</p>
+<ul>
+<li>Dein <strong>Lager</strong> benennst du mit “Lager3”</li>
+<li>Deine <strong>Regale / Lagerplätze </strong> benennst du nach diesem Schema:<strong>L3 <strong>→ Kennung für dein “Lager 3”</strong> 0 <strong> oder</strong> 1 <strong>→ Kennung für “linkes Regal” und “rechtes Regal”</strong>AA <strong>→ Regal A und Fach A</strong> 01 <strong>→ Fachunterteilung 01</strong> L30AA01 <strong>→ Lagerraum 3, linke Regalseite, Regal A, Fach A, Fachunterteilung 01</strong> L31AZ13</strong>→ Lagerraum 3, rechte Regalseite, Regal A, Fach Z, Fachunterteilung 13</li>
+</ul>
+<p><img alt="warehouse_structure_002.png" src="https://help.xentral.com/hc/article_attachments/13072409600284" /></p>
+<h2 id="neues-lager-und-regale-anlegen">Neues Lager und Regale anlegen<a class="headerlink" href="#neues-lager-und-regale-anlegen" title="Permanent link">&para;</a></h2>
+<p>Um Produkte in Xentral einzulagern, brauchst du ein <strong>Lager </strong> und zu diesem Lager mindestens ein <strong>Regal</strong>.</p>
+<p>Gehe zunächst wie folgt vor, um ein neues Lager in Xentral anzulegen.</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Lagerverwaltung</strong></li>
+</ol>
+<p>-
+1. Klicke auf <strong>+ NEU</strong>.
+1. Vergib im Feld <strong>Lager</strong> eine Bezeichnung für das neue Lager.
+1.<strong>Optional </strong>: Ordne dem Lager ein <strong>Projekt</strong> zu, um das Lager auf einen bestimmten Geschäftsbereich einzugrenzen.
+1.<strong>Optional </strong>: Gib eine <strong>Adresse</strong> für das Lager an. Diese Angabe ist wichtig, wenn es sich um ein Kommissionslager oder den Standort einer externen Produktion handelt.
+1. Klicke auf <strong>Speichern</strong>.</p>
+<h3 id="lagerplatz-regal-manuell-anlegen">Lagerplatz (Regal) manuell anlegen<a class="headerlink" href="#lagerplatz-regal-manuell-anlegen" title="Permanent link">&para;</a></h3>
+<p>Nachdem du wie oben beschrieben ein Lager erstellt hast, fährst du damit fort, innerhalb dieses Lagers die einzelnen Lagerplätze anzulegen.</p>
+<ol>
+<li>Öffne das Tab <strong>Lagerplätze</strong>.</li>
+<li>Klicke auf <strong>Neuen Lagerplatz anlegen</strong>.</li>
+<li>Gib deinem <strong>Lagerplatz</strong>(Regal) eine Bezeichnung aus zusammenhängenden Zeichen/Ziffern z.B. HL001, HL0101A etc.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du benötigst mindestens einen Lagerplatz, um Artikel in Xentral einzulagern.</p>
+</blockquote>
+<h3 id="lagerplatze-per-csv-oder-freifeld-importieren">Lagerplätze per CSV oder Freifeld importieren<a class="headerlink" href="#lagerplatze-per-csv-oder-freifeld-importieren" title="Permanent link">&para;</a></h3>
+<p>Im Tab <strong>Lagerplätze importieren</strong> kannst du einen Schnellimport der Lagerplätze über per Freifeld oder über einen CSV-Import vornehmen. Somit ersparst du dir die oben beschriebene manuelle Anlage jedes einzelnen Lagerplatzes.</p>
+<p>Die Bezeichnungen der Lager können bei der reguläre Vergabe nur maximal 15 Zeichen lang sein. Die Überschreitung der 15 Zeichen kann bei der Erstellung von Etiketten für Lagerplätze zu Problemen führen.</p>
+<p>Gehe wie folgt vor, um Lagerplätze per Freifeld anzulegen:</p>
+<ol>
+<li>Öffne im Menü <strong>Lager &gt; Lagerverwaltung</strong> und öffne das gewünschte Lager.</li>
+<li>Öffne das Tab <strong>Lagerplätze</strong>.</li>
+<li>Klicke auf <strong>Lagerplätze importieren</strong>.</li>
+<li>Trage mit ENTER getrennt untereinander die neu anzulegenden Lagerplätze ein. Alternativ kannst du die Lagerplätze auch per Komma trennen.</li>
+<li>Klicke auf <strong>Lagerplätze anlegen</strong>.</li>
+</ol>
+<p>Möchtest du deine Lagerplätze lieber aus einer bereits bestehenden CSV-Datei heraus erstellen? Dann nutze die Einstellungen im Bereich <strong>Lagerplätze CSV Import</strong>, um eine entsprechende CSV-Datei auszuwählen.</p>
+<ol>
+<li>Öffne im Menü <strong>Lager &gt; Lagerverwaltung</strong> das gewünschte Lager.</li>
+<li>Öffne das Tab <strong>Lagerplätze</strong>.</li>
+<li>Klicke auf <strong>Lagerplätze importieren</strong>.</li>
+<li>Wähle per Klick auf <strong>Datei auswählen </strong> im Bereich <strong>Lagerplätze CSV Import</strong> deine CSV-Datei aus.
+  Die folgenden Spalten sind innerhalb deiner CSV-Datei erlaubt:</li>
+</ol>
+<ul>
+<li>lagerplatz</li>
+<li>adressid</li>
+<li>nachschublager</li>
+<li>verbrauchslager</li>
+<li>sperrlager</li>
+<li>poslager</li>
+<li>reihenfolge</li>
+<li>laenge</li>
+<li>breite</li>
+<li>hoehe</li>
+<li>lagerplatz</li>
+<li>kategorie
+1. Klicke auf <strong>Lagerplätze anlegen</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Sollte versehentlich ein Lagerplatz doppelt in deiner CSV-Datei enthalten sein, wird dieser nicht doppelt, sondern nur einmal angelegt.</p>
+</blockquote>
+<h3 id="sortierung-und-laufwegoptimierung">Sortierung und Laufwegoptimierung<a class="headerlink" href="#sortierung-und-laufwegoptimierung" title="Permanent link">&para;</a></h3>
+<p>Damit die Laufwegoptimierung während der Kommissionierung funktioniert, müssen alle Lagerplätze mit einer Sortiernummer versehen werden. Diese Sortiernummer legt die Reihenfolge fest, in der die Lagerplätze beim Kommissionieren angelaufen werden. Xentral nutzt diese Information, um die optimale Route durch das Lager zu berechnen und unnötige Laufwege zu vermeiden. Das Feld „Reihenfolge“ im CSV-Import dient genau diesem Zweck: Es bestimmt die Sortierung der Lagerplätze. Eine aufsteigende Sortierung (z. B. 1, 2, 3 …) spiegelt die physische Reihenfolge der Plätze im Lager wider. Je präziser diese Reihenfolge die tatsächlichen Wege abbildet, desto effizienter kann die Kommissionierung ablaufen.</p>
+<p>In Xentral wird die Laufwegoptimierung vor allem durch <strong>Picking-App </strong>,<strong>Multi-Order-Picking (mobil)</strong> und die <strong>Batch-Kommissionierung </strong> erreicht: Beide Verfahren führen den Kommissionierer entlang einer optimierten Lagerroute. Während das Multi-Order-Picking den kürzesten Weg automatisch berechnet, reduziert die Sammelkommissionierung mit <strong>Pickliste</strong> Laufwege lediglich manuell, ohne dynamische Routenoptimierung.</p>
+<h3 id="lager-und-lagerplatze-mit-barcodes-etikettieren">Lager und Lagerplätze mit Barcodes etikettieren<a class="headerlink" href="#lager-und-lagerplatze-mit-barcodes-etikettieren" title="Permanent link">&para;</a></h3>
+<p>Für jeden angelegten Lagerplatz kannst du ein Etikett mit einem Barcode ausdrucken. Klicke dazu auf das <strong>Barcode-Symbol </strong> des Lagerplatzes unter <strong>Lagerplätze &gt; Übersicht</strong> und drucke das Etikett aus. Durch die Etikettierung wird dir und deinem Team ermöglicht, Lagerplätze schneller zu identifizieren. Außerdem werden Barcode-Etiketten für moderne Kommissionierverfahren mit mobilen Geräten benötigt.</p>
+<p>Du hast folgende Möglichkeiten, um Etiketten für Lager und Lagerplätze auszudricken:</p>
+<ul>
+<li>Ein einzelnes Etikett für einen Lagerplatz herunterladen und ausdrucken</li>
+<li>Alle Etiketten für alle Lagerplätze eines Lager herunterladen und ausdrucken</li>
+<li>Alle Etiketten für einen Lagerbereich herunterladen und ausdrucken</li>
+</ul>
+<p>Gehe wie folgt vor, um ein einzelnes Etikett für einen Lagerplatz herunterladen und auszudrucken.</p>
+<ol>
+<li>Öffne im Menü <strong>Lager &gt; Lagerverwaltung</strong> das gewünschte Lager.</li>
+<li>Öffne das Tab <strong>Lagerplätze</strong>.</li>
+<li>
+<p>Klicke auf das <strong>Barcode-Symbol </strong> im Tab <strong>Übersicht </strong></p>
+</li>
+<li>
+<p>Klicke auf <strong>Ok</strong>, um das Etikett als PDF herunterzuladen.</p>
+</li>
+</ol>
+<p><img alt="warehouse_structure_006.png" src="https://help.xentral.com/hc/article_attachments/13072452168988" /></p>
+<p><img alt="warehouse_structure_007.png" src="https://help.xentral.com/hc/article_attachments/13072434276764" /></p>
+<p>Gehe wie folgt vor, um Etiketten für alle Lagerplätze innerhalb eines Lagers herunterzuladen und auszudrucken.</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Lagerverwaltung</strong>.</li>
+<li>Klicke auf das <strong>Barcode-Icon</strong> neben dem gewünschten Lager.</li>
+<li>Klicke auf <strong>Ok</strong>, um das Etikett als PDF herunterzuladen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Etiketten erhältst du einzeln in einem Download Ordner. Möchtest du die Etiketten über einen Etikettendrucker gesammelt ausdrucken, benötigst du einen Etikettendrucker, der in Xentral angebunden wurde. Weitere Informationen zur Anbindung von Druckern findest duin diesem Artikel. Weiterhin musst du ein geeignetesEtikettenlayout anlegen.</p>
+</blockquote>
+<p><img alt="warehouse_structure_008.png" src="https://help.xentral.com/hc/article_attachments/13072438216348" /></p>
+<p>Gehe wie folgt vor, um Etiketten für alle Lagerplätze innerhalb eines von dir festgelegten Lagerbereichs herunterzuladen und auszudrucken.</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Lagerverwaltung</strong>.</li>
+<li>Öffne das Tab <strong>Lageretiketten</strong>.</li>
+<li>Wähle im Feld <strong>Lagerplatz (von)</strong> einen Lagerplatz als Startwert aus.</li>
+<li>Lege im Feld <strong>Lagerplatz bis</strong> einen Lagerplatz als Endwert fest.</li>
+<li>Klicke auf <strong>Drucken</strong> um die Etiketten als PDF zu erhalten.</li>
+</ol>
+<p><img alt="warehouse_structure_009.png" src="https://help.xentral.com/hc/article_attachments/13072467548572" /></p>
+<h2 id="lagertyp-zuweisen">Lagertyp zuweisen<a class="headerlink" href="#lagertyp-zuweisen" title="Permanent link">&para;</a></h2>
+<p>Du kannst Lagern einen Typ zuweisen. Somit legst du fest, für welchen Zweck das Lager verwendet wird.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Vergibst du keinen speziellen Lagertyp, wird das Lager für sämtliche Vorgänge genutzt und in allen relevanten Modulen und Benutzeroberflächen in Xentral angezeigt.</p>
+</blockquote>
+<ul>
+<li>Lagerplätze vom Typ <strong>Nachschublagerplatz</strong> werden nicht für die Logistik verwendet, aber im Auftrag als Bestand angezeigt.
+-<strong>Verbrauchslagerplätze</strong> kannst du verwenden, um Artikel aus Beständen auszubuchen.
+-<strong>Sperrlagerplätze</strong> werden von der Logistik nicht verwendet und auch nicht in Beständen angezeigt.
+-<strong>Produktionslager </strong> werden für die Verwendung des Moduls <strong>Produktion</strong> benötigt.</li>
+</ul>
+<p>Gehe wie folgt vor, um einem Lager in Xentral einen Typ zuzuweisen.</p>
+<ol>
+<li>
+<p>Öffne das Menü <strong>Lager &gt; Lagerverwaltung</strong>.
+  Gehe in der Lagerübersicht auf ein <strong>Lager</strong> und klicke mit dem Stift Icon in das Lager.</p>
+</li>
+<li>
+<p>Öffne das gewünschte Lager.</p>
+</li>
+<li>Öffne das Tab <strong>Lagerplätze</strong>.</li>
+<li>Öffne per Klick auf das <strong>Stift-Symbol</strong> einen Lagerplatz.</li>
+<li>Wähle im Bereich <strong>Lagertyp</strong> den gewünschten Lagertyp aus.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p><img alt="warehouse_structure_011.png" src="https://help.xentral.com/hc/article_attachments/19368066368028" /></p>
+<h3 id="nachschublagerplatz">Nachschublagerplatz<a class="headerlink" href="#nachschublagerplatz" title="Permanent link">&para;</a></h3>
+<p>Ein Nachschublagerplatz ist für Ware vorgesehen, die du erst demnächst benötigst. Aufträge für die Logistik bedienen sich nicht aus diesem Lager. Der Nachschublagerplatz ist eine Art gesperrter Lagerplatz, das zwar in der Bestandsberechnung angezeigt, aber nicht für Kommissionierprozesse verwendet wird. Du kannst es verwenden, wenn du weite Wege im Lager hast oder einen Sicherheitsbestand haben möchtest, den niemand angreifen kann. Erst die aktive Umlagerung in ein Lager, das für den Versand verwendet wird sorgt dafür, dass Aufträge auf den Bestand zugreifen können.</p>
+<p>Wenn du gewisse Artikelmengen als Nachschub bereithalten willst, diese aber nicht automatisch als verfügbare Menge für deinen Logistikprozess verwendet werden soll, oder du eine Produktpalette erst an den neuen Lagerplatz für die Kommissionierung bringen möchtest, kannst du für einen deiner Lagerplätze den Typ <strong>Nachschublagerplatz</strong> auswählen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Der Nachschublagerplatz wird für Aufträge und Produktionen nicht vorgeschlagen. Der Bestand wird dir z.B. im Auftragsprotokoll bei den gekauften Artikeln eines Kunden angezeigt, so dass du den Gesamtbestand sehen kannst. Ist die gesamte Artikelmenge für einen Auftrag ausreichend, jedoch ein Teil der Artikel in einem Nachschublagerplatz vorhanden, wird die Lagerampel im Auftrag orange dargestellt. Für den Bestellvorschlag zählt die Ware auf einem Nachschublagerplatz mit.</p>
+</blockquote>
+<h3 id="verbrauchslagerplatz">Verbrauchslagerplatz<a class="headerlink" href="#verbrauchslagerplatz" title="Permanent link">&para;</a></h3>
+<p>Wenn du Bestände einbuchen möchtest, diese aber in deiner Produktübersicht oder im Lagerbestand nicht auftauchen sollen, kannst du den Typ <strong>Verbrauchslagerplatz</strong> verwenden. In diesem Lager werden Bestände nicht geführt, jedoch werden alle eingebuchten Artikel als Buchungshistorie aufgelistet. Das Lager kann z.B. für Verbrauch oder Verschrottung verwendet werden.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Vorsicht: Wenn du einen Lagerplatz zum Typ <strong>Verbrauchslagerplatz </strong> änderst und auf den Lagerplätzen dieses Lagers bereits Bestände vorhanden sind, werden diese Bestände unwiderruflich aus Xentral entfernt. Die Bestände werden <strong>nicht</strong> wiederhergestellt, wenn du den Lagerplatztyp zurück änderst.</p>
+</blockquote>
+<h3 id="sperrlagerplatz">Sperrlagerplatz<a class="headerlink" href="#sperrlagerplatz" title="Permanent link">&para;</a></h3>
+<p>Wenn du Bestände einbuchen möchtest, diese aber nicht für die Logistik verwendet werden dürfen, kannst du den Typ <strong>Kein Auto-Versand (Sperrlagerplatz)</strong> verwenden. Dieser Lagerplatz kann z.B. für defekte Retourenartikel verwendet werden. Auch Büromaterialien oder Artikel, die nicht für den Verkauf bestimmt sind, kannst du hier einlagern.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Lagerampel im Auftrag bleibt rot, wenn nur noch in einem Sperrlagerplatz Warenbestand vorhanden ist. Die Ware wird auch nicht für den Bestellvorschlag berücksichtigt - es ist so, als wäre dieses Lager leer.</p>
+</blockquote>
+<h3 id="produktionslager">Produktionslager<a class="headerlink" href="#produktionslager" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Verwendung des Lagertyps <strong>Produktionslager </strong> setzt das Modul <strong>Produktion</strong> voraus.</p>
+</blockquote>
+<p>Wenn du das Modul <strong>Produktion</strong> verwendest und dein Lager auf bestimmte Plätze, aus denen für einen Produktion entnommen werden darf, einschränken möchtest, kannst du diese Funktion für bestimmte Lager setzen. Sobald ein Lagerplatz diese Einstellung aktiviert hat, wird dieses Lager in der Produktion als bevorzugtes Lager angezeigt, alle Lager ohne diese Einstellung werden nicht mehr vorgeschlagen.</p>
+<p>Wenn die Einstellung bei keinem Lager gesetzt ist, werden alle Lager in der Produktion zur Auswahl angezeigt.</p>
+<h3 id="pos-lager">POS Lager<a class="headerlink" href="#pos-lager" title="Permanent link">&para;</a></h3>
+<p>In Verwendung mit XentralPOS kannst du ein Lager für die Entnahme der POS freigeben.</p>
+<p>Wähle den Typ <strong>Sperrlagerplatz </strong>. Du erhältst nun die Einstellung <strong>POS Lager</strong>. Aktiviere diese Option, damit die POS den Bestand für diese Lager verändern darf. Die Logistik greift auf diesen Lagerplatz nicht zu.</p>
+<p>Möchtest du die POS auf ein Versandlager zugreifen lassen, benötigst du diese Einstellung nicht.</p>
+<p>Zusätzlich kannst du im Modul <strong>POS</strong> ein Lager auswählen, auf das die POS zugreifen soll.</p>
+<h2 id="projektlager-und-bevorzugtes-lager">Projektlager und bevorzugtes Lager<a class="headerlink" href="#projektlager-und-bevorzugtes-lager" title="Permanent link">&para;</a></h2>
+<p>Mit einem Projektlager kannst du ein Lager oder mehrere Lager mit einem festen Logistikprozess verknüpfen.</p>
+<p>-<strong>Projektlager</strong>: Ein Logistikprozess soll auf bestimmte Lager zugreifen und auf andere nicht</p>
+<p>-<strong>Bevorzugtes Lager</strong>: Ein oder mehrere Logistikprozesse sollen auf genau ein Lager zugreifen</p>
+<h3 id="projektlager">Projektlager<a class="headerlink" href="#projektlager" title="Permanent link">&para;</a></h3>
+<p>Wenn du Aufträge eines Verkaufskanals einem eindeutigen Lager zuordnen willst, kannst du ein Lager einem Projekt zuordnen. Ein Projektlager ist also ein Lager, das nur von dem Projekt angebucht werden kann, das mit diesem Lager verknüpft ist. Zusätzlich muss das Lager als Projektlager eingestellt sein, sodass kein anderer Verkaufskanal Zugriff auf den Warenbestand hat.</p>
+<p><strong>Beispiel <strong>: Du hast einen Shopify-Channel am Standort München und einen Shopware-Channel am Standort Berlin. Beide Verkaufskanäle müssen also auf ihr dediziertes Lager zugreifen können. Du hast Ware, die du in großen Mengen orderst z.B. Food und kannst innerhalb von 2 Tagen auch Ware von Lager zu Lager versenden. Eventuell hast du auch einen Nachschublagerplatz, aus dem du beide Lager (München und Berlin) je nach Bedarf bedienen willst. </strong> Beispiel B2B</strong>: Du hast einen Shopify Shop für deine B2C-Kunden und einen separates B2B-Lager. In diesem Fall kannst du ein Lager (das B2B Lager) als Projektlager auswählen. Alle Aufträge mit dem Projekt B2B greifen dann nur auf das B2B-Lager zu. Alle Aufträge der Shops und Marktplätze buchen Warenbestände aus anderen Lagern aus.</p>
+<p>Gehe wie folgt vor, um ein Projektlager zu definieren.</p>
+<ol>
+<li>
+<p>Öffne das Menü <strong>Lager &gt; Lagerverwaltung</strong>.
+  Wähle ein Lager unter <strong>Lagerverwaltung</strong> und ordne dieses einem Projekt zu.</p>
+</li>
+<li>
+<p>Öffne das gewünschte Lager.</p>
+</li>
+<li>Wähle im Feld <strong>Projekt</strong> ein Projekt aus, das du dem Lager fest zuordnen möchtest.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+<li>Aktiviere die Option <strong>Projektlager </strong> unter <strong>Projekt &gt; Einstellungen &gt; Logistik / Versand </strong> im Bereich <strong>Optionen <strong>. Lasse das </strong> Bevorzugtes Lager</strong> unausgefüllt.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h3 id="bevorzugtes-lager">Bevorzugtes Lager<a class="headerlink" href="#bevorzugtes-lager" title="Permanent link">&para;</a></h3>
+<p>Dein Anwendungsfall: Ein oder mehrere Projekte sollen Bestand aus einem Lager ausbuchen. Das bedeutet, dass Aufträge und Lieferscheine dieser Projekte Warenbestand aus dem gewählten Lager ausbuchen. Bei Bedarf dürfen auch andere Projekte auf dieses Lager zugreifen.</p>
+<p>Folgende Schritte sind notwendig, um ein bevorzugtes Lager zu definieren.</p>
+<ul>
+<li>Dem Lager unter <strong>Lagerverwaltung </strong> darf <strong>kein</strong> Projekt zugewiesen werden, da es sich um mehrere Projekte handeln kann.</li>
+<li>Wähle ein <strong>bevorzugtes Lager </strong> unter <strong>Projekt &gt; Einstellungen &gt; Logistik / Versand </strong> im Bereich <strong>Optionen</strong>.</li>
+</ul>
+<h2 id="lagerbestand-einsehen">Lagerbestand einsehen<a class="headerlink" href="#lagerbestand-einsehen" title="Permanent link">&para;</a></h2>
+<p>Den <strong>Lagerbestand</strong> kannst du in Xentral auf Artikelebene, für alle Lagerplätze eines Lagers oder in der Gesamtübersicht aller bestehenden Lager einsehen.</p>
+<h3 id="gesamten-lagerbestand-einsehen">Gesamten Lagerbestand einsehen<a class="headerlink" href="#gesamten-lagerbestand-einsehen" title="Permanent link">&para;</a></h3>
+<p>Eine Übersicht des gesamten aktuellen Lagerbestandes kannst du im Menü <strong>Lager &gt; Lagerverwaltung </strong> im Tab <strong>Lagerbestand </strong> einsehen. Artikel ohne Bestand kannst du im Hauptfilter auswählen. In der Tabelle kannst du nach <strong>Artikelnummer <strong>, </strong> Artikelbezeichnung <strong>, </strong> Charge <strong>, </strong> Chargenmenge <strong>, </strong> Mindeshaltbarkeitsdatum <strong>, </strong> Lagerplatz, Projekt, Artikelmenge, Verkaufbare <strong>und</strong> Reservierter Artikelmenge</strong>filtern.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Die <strong>verkaufbare Menge</strong> eines Artikels findest du auch direkt in der Lagerbestandsansicht im Artikel. Hier wird die Stückzahl der verkaufbaren Artikel angezeigt und berechnet.</p>
+<p>Beispiel:<strong>Lagerbestand: 14 | Reserviert: 0 | Offene Aufträge: 5 | Verkaufte: 5 | Berechneter Bestand: 9 | Verkaufbare: 9 | Berechneter Bestand mit offenen Bestellungen: 9 </strong> Wähle die gewünschten Einträge aus und klicke auf <strong> CSV <strong>, </strong> Excel <strong>, </strong> PDF <strong>oder</strong> Drucken</strong>, um die Daten im gewünschten Format zu exportieren.</p>
+</blockquote>
+<p><img alt="warehouse_structure_013.png" src="https://help.xentral.com/hc/article_attachments/13072422302364" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Für größere Exporte kannst du auch das Modul <strong>Berichte </strong> oder die <strong>Xentral API</strong> verwenden.</p>
+</blockquote>
+<h3 id="bestand-pro-lagerplatz-einsehen">Bestand pro Lagerplatz einsehen<a class="headerlink" href="#bestand-pro-lagerplatz-einsehen" title="Permanent link">&para;</a></h3>
+<p>Eine Übersicht des aktuellen Lagerbestandes auf einem speziellen Lager kannst du unter <strong>Lager &gt; Lagerverwaltung &gt; Tab: Übersicht &gt; Lager öffnen &gt; Tab: Bestand</strong> einsehen.</p>
+<p>Die gewünschten Artikel und Lagerplätze kannst du im Hauptfilter auswählen. In der Tabelle kannst du nach <strong>Regal (= Lagerplatz)</strong>,<strong>Artikelnummer <strong>,</strong> Artikelbezeichnung <strong>,</strong> Projekt, Artikelmenge, Verkaufbare </strong> und <strong>Reservierter Artikelmenge</strong> filtern.</p>
+<p><img alt="warehouse_structure_014.png" src="https://help.xentral.com/hc/article_attachments/13072410236700" /></p>
+<h3 id="bestand-pro-artikel-einsehen">Bestand pro Artikel einsehen<a class="headerlink" href="#bestand-pro-artikel-einsehen" title="Permanent link">&para;</a></h3>
+<p>Eine Übersicht des aktuellen Lagerbestandes für spezielle <strong>Artikel </strong> kannst du im Tab <strong>Lager</strong> der Artikelstammdaten einsehen</p>
+<p><img alt="warehouse_structure_015.png" src="https://help.xentral.com/hc/article_attachments/13072422429340" /></p>
+<h2 id="bestandsreservierungen-steuern">Bestandsreservierungen steuern<a class="headerlink" href="#bestandsreservierungen-steuern" title="Permanent link">&para;</a></h2>
+<p>Reservierungen können für einzelne Großaufträge oder die gesamte Ware vorgenommen werden. Du kannst also bestimmen, ob du Lagerbestände für alle offenen Aufträge oder nur für größere Aufträge vorab reservieren möchtest.</p>
+<h3 id="reservierung-pro-auftrag">Reservierung pro Auftrag<a class="headerlink" href="#reservierung-pro-auftrag" title="Permanent link">&para;</a></h3>
+<p>Reservierungen kannst du direkt im Auftrag priorisiert vergeben. Öffne zunächst einen Auftrag im Menü <strong>Verkaufen &gt; Auftrag </strong>. Öffne dann das <strong>Aktionsmenü </strong> oben rechts und klicke auf <strong>alle Artikel reservieren</strong>. Die Artikel dieses einen Auftrages werden reserviert.</p>
+<h3 id="reservierung-im-artikel">Reservierung im Artikel<a class="headerlink" href="#reservierung-im-artikel" title="Permanent link">&para;</a></h3>
+<p>Reservierungen werden dir für jedem Artikel im Tab <strong>Lager</strong> angezeigt. Auch hier kannst du Reservierungen löschen und bei Bedarf über den Auftrag wieder neu hinzufügen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du Reservierungen löscht und automatische Logistikprozesse Aufträge verarbeiten, kann es zu Zwischenverkäufen kommen, denn die Ware wird mit Löschung der Reservierung für einen Moment wieder freigegeben.</p>
+</blockquote>
+<h3 id="automatische-reservierung">Automatische Reservierung<a class="headerlink" href="#automatische-reservierung" title="Permanent link">&para;</a></h3>
+<p>Du kannst Reservierungen auch systemweit automatisch einstellen. Der Prozessstarter <strong>autoversand_berechnend</strong> reserviert automatisch zuerst bestellte Aufträge, sofern Reservierungen in den Projekteinstellungen aktiviert ist.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Reservierung wird die verkaufbare Menge von Artikeln einberechnet und vom Lagerbestand abgezogen, der an deine Verkaufsplattformen gemeldet wird. Wenn du beispielsweise 10 Artikel lagernd hast und 2 Stück davon bereits in einem Auftrag reserviert sind, werden 8 Stück an den Shop zurück gemeldet.</p>
+</blockquote>
+<h2 id="lagerwert-und-lagerbestandsberechnung">Lagerwert und Lagerbestandsberechnung<a class="headerlink" href="#lagerwert-und-lagerbestandsberechnung" title="Permanent link">&para;</a></h2>
+<p>Öffne das Menü <strong>Lager &gt; Lagerverwaltung </strong> und klicke dann auf das Tab <strong>Lagerbestandsberechnung</strong>. Diese Übersicht ermöglicht dir eine grobe Einschätzung über den Lagerwert, ohne eine Inventur durchführen zu müssen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bevor du die Lagerbestandsberechnung verwendest informiere dich, welche steuerrechtlichen Vorgaben für dein Geschäft gelten. Wende dich dazu an deinen Steuerberater oder das Finanzamt. Die Lagerbestandsberechnung in Xentral ersetzt ausdrücklich keine ordnungsgemäße Inventur.</p>
+<p><strong>Tipp</strong></p>
+<p>Die im Artikel gepflegten Werte und Preise werden täglich um 0:00 Uhr über einen automatischen Prozess abgespeichert und in dieser Tabelle angezeigt. Voraussetzung ist die Aktivierung desProzesstarters <strong>lagerwert</strong>.</p>
+</blockquote>
+<p><img alt="warehouse_structure_018.png" src="https://help.xentral.com/hc/article_attachments/13072452900252" /></p>
+<p>Wähle bei Bedarf eine der folgenden Optionen aus dem Dropdown-Menü <strong>Preis</strong> aus, um weitere Informationen in der Übersicht anzuzeigen:</p>
+<p>-<strong>Letzter EK live (mit aktuellem Wert)</strong>: Die Bestände des gewählten Datums werden mit den aktuellen Einkaufspreisen angezeigt.
+-<strong>Kalkulierter EK (live mit aktuellem Wert)</strong>: Die Bestände des gewählten Datums werden mit den aktuell kalkulierten Einkaufspreisen angezeigt.
+-<strong>Inventurwert (live mit aktuellem Wert)</strong>: Die Bestände des gewählten Datums werden mit den aktuellen Inventurwerten angezeigt.
+-<strong>Letzter EK (nur aus Archiv)</strong>: Die Bestände des gewählten Datums werden mit den letzten Einkaufspreisen aus dem Archiv angezeigt.
+-<strong>Kalkulierter EK (nur aus Archiv)</strong>: Die Bestände des gewählten Datums werden mit früher kalkulierten Einkaufspreisen angezeigt.
+-<strong>Inventurwert (nur aus Archiv)</strong>: Die Bestände des gewählten Datums werden mit früher vorliegenden Inventurwerten angezeigt.</p>
+<h2 id="anhang-weitere-beispiele-fur-eine-lagerstruktur">Anhang: Weitere Beispiele für eine Lagerstruktur<a class="headerlink" href="#anhang-weitere-beispiele-fur-eine-lagerstruktur" title="Permanent link">&para;</a></h2>
+<p>Beispiel für einfachen Lageraufbau: Raum + Regal1. Lagerraum: Lager1 2. Lagerregale: L1001, L1002, L1003,&hellip;</p>
+<ul>
+<li>L1001: L1 = Lager1</li>
+<li>L1001: 001 = Regal 001 oder Fach 001</li>
+</ul>
+<p>Beispiel für durchschnittlichen Lageraufbau: Raum + Regal + Fach (+ Fachunterteilung)1. Lagerraum: Lager2 2. Lagerregale: L211A01, L211A02, L211A03,&hellip;, L216Z01, L216Z02,&hellip;</p>
+<ul>
+<li>L211A25: L2 = Lager2</li>
+<li>L211A25: 11 = Regal 11 oder Fach 11</li>
+<li>L211A25: A25 = Fach A25 oder Fach A, Sichtlagerkasten 25</li>
+</ul>
+<p>Beispiel für komplexeren Lageraufbau: Raum + Raumunterteilung + Regal + Fach (+ Fachunterteilung)1. Lagerraum: Lager3 2. Lagerregale: L30AA01 - L300AA0n,&hellip;L30AB01 - L30AB0n&hellip;, L30ZZ01 - L30ZZmn</p>
+<ul>
+<li>L31AA01: L31 = Lager3, 1. Reihe oder L31 = Lager3, rechts und L32 = Lager 3, links</li>
+<li>L31AA01: AA = Regal A, Fach A</li>
+<li>L31AA01: 01= Fachunterteilung 01</li>
+</ul>
+<p>Beispiel für verteilten Lageraufbau: Niederlassung + Raum + Regal + Fach (+ Fachunterteilung)1. Lagerraum: Lager Berlin 2. Lagerregale: BL2AB01,&hellip;, BL2ZZ99</p>
+<ul>
+<li>BL2AB01 = Berlin</li>
+<li>BL2AB01 = Lager2</li>
+<li>BL2AB01 = Regal A</li>
+<li>BL2AB01 = Fach B01 oder Fach B und Fachunterteilung 01</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

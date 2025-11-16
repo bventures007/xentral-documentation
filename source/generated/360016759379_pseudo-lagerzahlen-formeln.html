@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016759379 Pseudo Lagerzahlen Formeln - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016759379 Pseudo Lagerzahlen Formeln</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016759379 Pseudo Lagerzahlen Formeln</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit den so genannten <strong>Pseudo-Lagerzahlen</strong> kannst du direkt in Xentral flexibel steuern, welche Lagerbestände an deine Online-Shops und Marktplätze gemeldet werden. Die Lagerbestände können dadurch unabhängig vom tatsächlich vorhandenen physikalischen Bestand auf deinen Verkaufsplattformen angezeigt werden. So kannst du Bestandsreserven sichern oder das Kaufverhalten deiner Endkunden durch gezielte Bestandsanzeigen beeinflussen.</p>
+<p>Besonders hilfreich sind Pseudo-Lagerzahlen, wenn du auf mehreren Plattformen verkaufst, unterschiedliche Lagerorte nutzt oder separate Projekte für dein B2B- und B2C-Business nutzt. Durch einfach konfigurierbare Regeln und Bedingungen passt du die Bestandsmeldung individuell an. So sorgst du für mehr Kontrolle und vermeidest Überverkäufe.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Video-Tutorial: Dein schneller Einstieg in die Pseudo-Lagerzahlen Formeln</strong></p>
+<p>Möchtest du dir innerhalb weniger Minuten einen Überblick über die Funktionen und die Nutzung der Pseudo-Lagerzahlen in Xentral verschaffen? Dann ist unser Video-Tutorial genau das Richtige für dich. Schau es dir gleich an!</p>
+<p><strong><a href="https://www.youtube.com/embed/00fODraHaNk">YouTube Video</a></strong></p>
+</blockquote>
+<h2 id="typische-anwendungsfalle-fur-pseudo-lagerzahlen">Typische Anwendungsfälle für Pseudo-Lagerzahlen<a class="headerlink" href="#typische-anwendungsfalle-fur-pseudo-lagerzahlen" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden findest du einige praxisnahe Beispiele für die Verwendung von Pseudo-Lagerzahlen:</p>
+<ul>
+<li>Du verkaufst ein besonders stark nachgefragtes Produkt auf mehreren Marktplätzen (z. B. Amazon, eBay und in deinem Shopify-Shop). Das Produkt ist physisch nur im Hauptlager vorhanden. Um zu verhindern, dass es durch parallele Bestellungen auf verschiedenen Plattformen zu Überverkäufen kommt, kannst du eine Pseudo-Lagerzahlen Formel erstellen, die immer eine bestimmte Stückzahl als Reserve zurückhält.</li>
+<li>Du nutzt Shopify als deinen Premium-B2C-Verkaufskanal. Auf Amazon hingegen vertreibst du dein Produkt an ein breites Publikum. Das Produkt ist bei dir in zwei Lagern physisch vorhanden - für den schnellen Amazon-Versand im Hauptlager und für den etwas arbeitsintensiveren Versand an deine Premiumkunden in einem separaten Lager. In diesem Fall macht es Sinn, den kompletten Bestand des Hauptlagers im Shopify-Shop anzuzeigen. Falls der Gesamtbestand des Produkts einen gewissen Sicherheitsbestand unterschreitet, kannst du für Amazon den Bestand des Hauptlagers und des separaten Lagers kombiniert melden. So kannst du bei sinkenden Beständen trotzdem den Versand und die rechtzeitige Nachbestellung des Artikels gewährleisten.</li>
+<li>Neben deinem B2C-Vertrieb über die gängigen Verkaufsplattformen vertreibst du Produkte auch an Geschäfts- und Großkunden (B2B). Für jedes dieser beiden Geschäftsmodelle nutzt du getrennte Bereiche in deinem Lager. Dabei sollen Bestände gezielt nur dem jeweils passenden Kanal zugewiesen werden, z.B. weil du für B2B-Bestellungen ganze Paletten vorhältst, während du im B2C-Shop einzelne Produkte verkaufst. Um diese Trennung abzubilden, erstellst du zwei Regeln: Eine, die den verfügbaren Bestand aus dem B2B-Projektlager meldet und eine weitere für das B2C-Lager. So trennst du deine Bestände klar nach Geschäftsmodellen und reduzierst Fehlbuchungen.</li>
+</ul>
+<h2 id="pseudo-lagerzahlen-formeln-erstellen">Pseudo-Lagerzahlen Formeln erstellen<a class="headerlink" href="#pseudo-lagerzahlen-formeln-erstellen" title="Permanent link">&para;</a></h2>
+<p>InXentral kannst du Formeln für Pseudo-Lagerzahlen sowohl in den Artikelstammdaten als auch in den Einstellungen der jeweiligen Shop-Schnittstelle hinterlegen. Wo du die Formeln hinterlegst, hängt von deinen Anforderungen ab:</p>
+<p>-<strong>In den Artikelstammdaten</strong>: Nutze diese Vorgehensweise, wenn du für bestimmte Artikel abweichende Bestandszahlen auf all deinen Verkaufsplattformen anzeigen möchtest.
+-<strong>In den Einstellungen der Shop-Schnittstelle</strong>: Bei dieser Methode schränkst du die Bestandsanzeige pro Shop-Schnittstelle ein. Die eingetragene Formel wird dann auf alle Produkte angewendet, die über den jeweiligen Shop zum Verkauf angeboten werden.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>InXentral hinterlegte Pseudo-Lagerzahlen Formeln werden in folgender Reihenfolge geprüft und abgearbeitet:</p>
+<ul>
+<li>Es existierenFormeln in den Artikelstammdaten: Die Formeln werden angewendet, weitere Formeln werden nicht beachtet.</li>
+<li>Es existierenFormeln in den Einstellungen der Shop-Schnittstelle: Die Formeln werden angewendet, weitere Formeln werden nicht beachtet (auch, wenn Formeln in den Artikelstammdaten hinterlegt sind).</li>
+<li>Weder in den Artikelstammdaten noch in der Shop-Schnittstelle sind Formeln hinterlegt: In diesem Fall wird logischerweise auch keine Formel angewandt, sondern der Lagerbestand (abzüglich Reservierungen und offener Aufträge) wird als verfügbare Menge angezeigt. AnmerkungBeachte, dass die Option <strong>Auto-Reservierung im Lager </strong> in den Projekteinstellugnen unter <strong>Tab: Logistik / Versand &gt; Bereich: Optionen</strong> aktiviert sein muss, damit Xentral die benötigten Bestände für offene Aufträge bereits im Lager reserviert.</li>
+</ul>
+</blockquote>
+<h3 id="pseudo-lagerzahlen-formeln-in-den-artikelstammdaten-hinterlegen">Pseudo-Lagerzahlen Formeln in den Artikelstammdaten hinterlegen<a class="headerlink" href="#pseudo-lagerzahlen-formeln-in-den-artikelstammdaten-hinterlegen" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um Formeln für die Meldung von Pseudo-Lagerzahlen an einen Online-Shop zu hinterlegen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beachte, dass bei dieser Vorgehensweise die Formeln nur für die Bestandsanzeige dieses spezifischen Artikels gelten. Weitere Artikel, die du im selben Online-Shop verkaufst, bleiben davon unberührt. Wenn du Pseudo-Lagerzahlen für alle auf einer Verkaufsplattform gelisteten Artikel nutzen möchtest, musst du wie weiter unten im KapitelPseudo-Lagerzahlen Formeln in der Shop-Schnittstelle hinterlegenbeschrieben vorgehen.</p>
+</blockquote>
+<ol>
+<li>Öffne das Menü <strong>Verkaufen &gt; Artikel</strong>.</li>
+<li>Öffne den gewünschten Artikel, indem du rechts auf das <strong>Stift-Symbol</strong> klickst.</li>
+<li>Klicke auf <strong>Online-Shop Optionen</strong>.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Lagerbestand</strong> erreichst.</li>
+<li>Gib im Feld <strong>Pseudo Lagerzahl</strong> die Formel(n) ein, anhand derer die Bestandszahlen berechnet und anschließend an deinen Online-Shop übermittelt werden sollen.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h3 id="pseudo-lagerzahlen-formeln-in-der-shop-schnittstelle-hinterlegen">Pseudo-Lagerzahlen Formeln in der Shop-Schnittstelle hinterlegen<a class="headerlink" href="#pseudo-lagerzahlen-formeln-in-der-shop-schnittstelle-hinterlegen" title="Permanent link">&para;</a></h3>
+<p>Wenn du Pseudo-Lagerzahlen pro Online-Shop übermitteln möchtest, gibst du die Formeln direkt in den Einstellungen der Shop-Schnittstelle ein. Im folgenden Beispiel legen wir Pseudo-Lagerzahlen für den Marktplatz <strong>Shopify</strong> an.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Beachte, dass bei dieser Vorgehensweise die Formeln für <strong>alle Artikel</strong> gilt, die auf diesem Online-Shop gelistet werden.Individuell am Artikel hinterlegte Formelnwerden also nicht mehr berücksichtigt, sobald du Pseudo-Lagerzahlen Formeln in den Einstellungen der Shop-Schnittstelle hinterlegt hast!</p>
+</blockquote>
+<ol>
+<li>Öffne das Menü <strong>Einstellungen &gt; Verkaufen &gt; Shops / Marktplätze &gt; Shops &amp; Marktplätze Übersicht</strong>.</li>
+<li>Klicke auf den Eintrag des Shops, für den du Pseudo-Lagerzahlen einrichten möchtest. In diesem Beispiel ist das der Eintrag <strong>Shopify</strong>.</li>
+<li>Klicke auf <strong>Einstellungen</strong>.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Artikel Import / Export</strong> erreichst.</li>
+<li>Gib im Feld <strong>Pseudolager Regeln</strong> die Formel(n) ein, anhand derer die Bestandszahlen berechnet und anschließend an den Online-Shop übermittelt werden sollen.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h2 id="formeln-fur-pseudo-lagerzahlen-aufbauen">Formeln für Pseudo-Lagerzahlen aufbauen<a class="headerlink" href="#formeln-fur-pseudo-lagerzahlen-aufbauen" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Beachte folgende Regeln und Einschränkungen beim Aufbau deiner Formeln:</p>
+<ul>
+<li>Die Verwendung von Klammern ist <strong>nicht zulässig</strong>.</li>
+<li>Vor und nachallen Operatorenmuss bei dir immer ein Leerzeichen stehen, damit die Zeichenkette nicht fälschlicherweise als Lagerplatz interpretiert wird.</li>
+<li>Du kannst beliebig viele Formeln nacheinander angeben. Als Trennzeichen benutzt du ein Semikolon (<strong>;</strong>).</li>
+<li>Bei Eingabe mehrerer Formeln werden die Formeln von oben nach unten geprüft und berücksichtigt. Achte also auf die Reihenfolge, in der du die Formeln eingibst.</li>
+<li>Um Bedingungen abzubilden, gibst du zuerst den WENN-Teil ein, dann ein Pipe-Zeichen (<strong>|</strong>) und dann den DANN-Teil.</li>
+<li>Formeln, die du in der Shop-Schnittstelle eingibst, dürfen nicht auf <strong>0</strong> enden.</li>
+</ul>
+</blockquote>
+<p>Schauen wir uns zunächst folgendes Beispiel an, um zu sehen, wie du Formeln für Lagerzahlen aufbaust.</p>
+<pre><code>LP_HL001A - OFFEN &gt; 10 AND L_Hauptlager &gt; 20 | L_Hauptlager; 
+LP_HL001B - RES &gt; 10 | LP_HL001B; 
+5 
+</code></pre>
+<p>In diesem Beispiel gibt es drei Formeln, die durch ein Semikolon (<strong>;</strong>) getrennt sind. Das Pipe-Zeichen (<strong>|</strong>) bewirkt, dass die Zeichenfolge vor dem Zeichen als Bedingung und der Wert danach als Formel verwendet wird, sobald die Bedingung zutrifft.</p>
+<table>
+<thead>
+<tr>
+<th>Formel</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LP_HL001A - OFFEN &gt; 10 AND L_Hauptlager &gt; 20 | L_Hauptlager;</td>
+<td><strong>WENN </strong> der Bestand auf Lagerplatz HL001A abzüglich aller offenen Aufträge größer 10 ist <strong>UND </strong> gleichzeitig der Bestand am Hauptlager größer als 20 ist,<strong>DANN</strong> wird der gesamte Bestand des Hauptlagers gemeldet.</td>
+</tr>
+<tr>
+<td>LP_HL001B - RES &gt; 10 | LP_HL001B;</td>
+<td><strong>WENN </strong> der Bestand auf Lagerplatz HL001B abzüglich aller reservierten Artikel größer als 10 ist,<strong>DANN</strong> wird der gesamte Lagerbestand des Lagerplatzes LP_HL001B gemeldet.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Treffen die beiden vorherigen Bedingungen <strong>nicht zu </strong>, wird ein statischer Bestand von <strong>5</strong> gemeldet.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="beispiel-feste-bestande-melden">Beispiel: Feste Bestände melden<a class="headerlink" href="#beispiel-feste-bestande-melden" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Melde immer nur einen statischen Bestand von 100 Exemplaren:</li>
+</ul>
+<h3 id="beispiel-einschrankung-auf-lager-oder-lagerplatz">Beispiel: Einschränkung auf Lager oder Lagerplatz<a class="headerlink" href="#beispiel-einschrankung-auf-lager-oder-lagerplatz" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Melde nur im Hauptlager vorhandene Bestände:</li>
+<li>Melde nur Bestände eines bestimmten Lagerplatzes (in diesem Beispiel Lagerplatz <strong>HL001A</strong>):</li>
+</ul>
+<h3 id="beispiel-einschrankung-auf-projekt-oder-lager">Beispiel: Einschränkung auf Projekt oder Lager<a class="headerlink" href="#beispiel-einschrankung-auf-projekt-oder-lager" title="Permanent link">&para;</a></h3>
+<p>Dieses Beispiel ist hilfreich, wenn du deine Lagerbestände je nach Projekt unterschiedlich angeben möchtest. Das kann erforderlich sein, wenn du über verschiedene Online-Shops verkaufst und auf jeder dieser Plattformen unterschiedliche Bestandsinformationen anzeigen möchtest.</p>
+<ul>
+<li>Melde nur Bestände, die im Rahmen des Shopify-Projekts reserviert sind:</li>
+<li>Melde nur Bestände, die im Rahmen des Projekts <strong>B2C</strong> verfügbar, also nicht für aktuelle Aufträge reserviert sind:</li>
+<li>Melde nur Bestände, die im Hauptlager reserviert sind:</li>
+<li>Melde nur Bestände, die im Hauptlager verfügbar, also nicht reserviert sind:</li>
+</ul>
+<h3 id="beispiel-verwendung-von-bedingungen">Beispiel: Verwendung von Bedingungen<a class="headerlink" href="#beispiel-verwendung-von-bedingungen" title="Permanent link">&para;</a></h3>
+<p>Stelle dir folgenden Anwendungsfall vor: Wenn im Hauptlager ein Bestand von mehr als 200 Stück vorhanden sind, soll der Bestand des Hauptlagers gemeldet werden. Für den Fall, dass die Bedingung (mehr als 200 Stück)<strong>nicht</strong> erfüllt ist, soll der Bestand des Hauptlagers und der Bestand des Nachschublagerplatzes gemeldet werden.</p>
+<p>Die entsprechende Formel ist wie folgt aufgebaut:</p>
+<p><code>L:Hauptlager &gt; 200 | L:Hauptlager; L:Nachschublagerplatz + L:Hauptlager</code></p>
+<p>Hierbei trennt das Semikolon die beiden zurückzumeldenden Werte der voran gestellten Bedingung, vergleichbar mit</p>
+<p>-<strong>WENN</strong> Hauptlager &gt; 200
+-<strong>DANN</strong> Hauptlager
+-<strong>SONST</strong> Hauptlager und Nachschublagerplatz</p>
+<h3 id="verfugbare-variablen-und-operatoren-fur-pseudo-lagerzahlen-formeln">Verfügbare Variablen und Operatoren für Pseudo-Lagerzahlen Formeln<a class="headerlink" href="#verfugbare-variablen-und-operatoren-fur-pseudo-lagerzahlen-formeln" title="Permanent link">&para;</a></h3>
+<p>Folgende Variablen kannst du in Pseudo-Lagerzahlen Formeln verwenden:</p>
+<table>
+<thead>
+<tr>
+<th>Variable(n)</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RES </strong> oder <strong>RESERVIERT</strong></td>
+<td>Bestand, der bereits für Aufträge reserviert ist</td>
+</tr>
+<tr>
+<td><strong>OFFEN</strong></td>
+<td>Bestand, der in offenen Aufträgen enthalten ist</td>
+</tr>
+<tr>
+<td><strong>LP_Kurzbezeichnung </strong> oder <strong>LP:Kurzbezeichnung</strong></td>
+<td>Lagerplatz</td>
+</tr>
+<tr>
+<td><strong>L_Bezeichnung </strong> oder <strong>L:Bezeichnung</strong></td>
+<td>Lager</td>
+</tr>
+<tr>
+<td><strong>PR:Projektkennung</strong></td>
+<td>Projekt</td>
+</tr>
+<tr>
+<td><strong>RES:PR:Projektkennung</strong></td>
+<td>Bestand, der bereits für Aufträge eines bestimmten Projekts reserviert ist</td>
+</tr>
+</tbody>
+</table>
+<p>Folgende Operatoren kannst du in Pseudo-Lagerzahlen verwenden:</p>
+<ul>
+<li>AND</li>
+<li>OR</li>
+<li>&lt;</li>
+<li>
+<blockquote></blockquote>
+</li>
+<li>&lt;=</li>
+<li>
+<blockquote>
+<p>=</p>
+</blockquote>
+</li>
+<li>&rdquo;=&rdquo;</li>
+<li>&lt;&gt; bzw.!=</li>
+<li>&rdquo;+&rdquo;</li>
+<li>&rdquo;-&ldquo;</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

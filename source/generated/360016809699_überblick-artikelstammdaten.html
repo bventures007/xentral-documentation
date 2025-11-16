@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016809699 Überblick Artikelstammdaten - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016809699 Überblick Artikelstammdaten</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016809699 Überblick Artikelstammdaten</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Deine Artikelstammdaten kannst du an folgender Stelle anlegen und pflegen:</p>
+<p>ImXentral NextGenDesign:Verkaufen &gt; Artikel</p>
+<p>Im klassischen Design:Stammdaten &gt; Artikel</p>
+<p>Das Artikelmodul ist die zentrale Stelle für deine Artikelpflege. Hier findest du die Informationen zu deinem Artikel wie Basisinformationen, Artikeleigenschaften, Artikelkategorie, Kalkulationen, Lagerinformationen, angehängte Informationen, etc.</p>
+<p>Achte darauf, deine Artikelstammdaten möglichst vollständig und fehlerfrei zu pflegen. Je mehr Informationen im Modul hinterlegt sind, desto genauer sind die Ergebnisse und deine Unterlagen. Da viele Prozesse auf die diese Informationen zugreifen, z.B. bei Aufträgen und Belegerstellen, in der Logistik etc., ersparen gut gepflegte Stammdaten außerdem manuelle Nacharbeit.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Übersichtstabellen im Xentral NextGen Design</strong></p>
+<p>Die Übersichtstabellen wurden im Xentral NextGenDesign überarbeitet. Zu den neuen verbesserten Features gehören: Eine bessere Filterung von Inhalten, das Anpassen von Tabellenspalten und eine Vorschau der Tabelleninhalte. Um mehr über Übersichtstabellen im Xentral NextGenDesign zu lernen, lies bitte den ArtikelMit Übersichtstabellen arbeiten.</p>
+</blockquote>
+<p>Folgende Aktivitäten/Optionen stehen dir im Artikelmodul zur Verfügung:</p>
+<p><a href="https://help.xentral.com/hc/articles/5355836726300#UUID-3cd4bce2-10a9-376f-21d7-073803f90b89">Artikelstammdaten importieren</a></p>
+<p><a href="https://help.xentral.com/hc/articles/5355868375324#UUID-c9cdd935-de37-0d83-e09e-9583c906530b">Artikelstammdaten anlegen</a></p>
+<p><a href="https://help.xentral.com/hc/articles/5355868406428#UUID-35fc0d39-4557-b521-a4f2-903bc9300155">Artikelstammdaten pflegen</a></p>
+<p><a href="https://help.xentral.com/hc/articles/360016725120#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29">Matrixprodukt - Artikelvarianten erstellen</a></p>
+<p><a href="https://help.xentral.com/hc/articles/360019652739#UUID-18545569-5289-eec8-d211-563ad49820ec">Stücklisten und Just-in-Time-Stücklisten verwenden</a></p>
+<p><a href="https://help.xentral.com/hc/articles/360020498940#UUID-129b4c96-c86b-29be-cdd3-5a9e88e2267b">Artikelbilder verwenden</a></p>
+<p><a href="https://help.xentral.com/hc/articles/5355878386972#UUID-c9335983-3274-9673-4754-dcbdeb6cdb3b">Artikeleigenschaften anlegen und pflegen</a></p>
+<p><a href="https://help.xentral.com/hc/articles/5355892884636#UUID-6c75a569-127d-79e1-11f6-25496e2be5f4">Artikelkategorien und Artikelbaum verwenden</a></p>
+<p><a href="https://help.xentral.com/hc/articles/5355868449180#UUID-e1daaca7-09b9-aeca-0f3f-ffe588913fc3">Artikelübersicht verwenden</a></p>
+<p><a href="https://help.xentral.com/hc/articles/360016758199#UUID-af5d8ee2-07dd-16dd-7655-bfa265d5cd7c">Artikel aus Fremdsystemen in Xentral zuordnen - Artikel Fremdnummern</a></p>
+<p><a href="https://help.xentral.com/hc/articles/5355851775004#UUID-df5aaaed-9b2f-bf83-4b4b-3d1a7a9755c1">Artikelstammdaten exportieren</a></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

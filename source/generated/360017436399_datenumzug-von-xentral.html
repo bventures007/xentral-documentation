@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017436399 Datenumzug Von Xentral - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017436399 Datenumzug Von Xentral</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017436399 Datenumzug Von Xentral</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>End-of-Life für On-Premise-Instanzen</strong></p>
+<p>Ende März 2023 beenden wir die Unterstützung von Xentral-Instanzen, die „On-Premise“ von unseren Kunden selbst gehostet werden. Wir empfehlen dir daher, deine Xentral-Instanz in unsere Cloud zu migrieren. Kontaktiere uns gerne jederzeit unteraccount@xentral.com, um diesbezügliche Fragen zu klären oder einen Termin für deine Migration zu buchen. Alternativ kannst du weitere Informationen aufunserer Websiteoder inunserer Communityfinden.</p>
+<p>Beachte bitte, dass wir Ende März 2023 jegliche Supportleistungen für On-Premise-Instanzen beenden. Wir stellen dann keine weiteren Bug-Fixes oder Updates mehr zur Verfügung. Außerdem wird es keine weitere Open-Source-Version mehr geben.</p>
+</blockquote>
+<h2 id="serverumzug">Serverumzug<a class="headerlink" href="#serverumzug" title="Permanent link">&para;</a></h2>
+<p>Zum Umzug des Servers als Gesamtsystem ist der Artikel &ldquo;<a href="https://help.xentral.com/hc/articles/360018524479#UUID-f0aa2bc6-d019-74a9-1053-60e773da2da7">Serverumzug von xentral zu xentral</a>&rdquo; zu beachten.</p>
+<h3 id="vorbereitungen">Vorbereitungen<a class="headerlink" href="#vorbereitungen" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Um die folgenden vorhandenen Terminal Befehle ausführen zu können, kann es nötig sein &ldquo;sudo&rdquo; davor zu schreiben, um Zugriff zu erhalten</p>
+</blockquote>
+<ul>
+<li>Exportieren des Datenbank Dump vom alten System:</li>
+<li>
+<p>entweder über <strong>Administration &gt; System &gt; Backup &gt; System-Backup herunterladen &gt; Backup erstellen</strong></p>
+</li>
+<li>
+<p>oder den userdata Ordner aus /var/www/html/wawision/ über ssh kopieren, falls das System-Backup zu groß ist</p>
+</li>
+<li>Die heruntergeladenen Dateien mit z.B.: scp -r /Pfad/Datei benutzer@dnsname:Pfad auf den neuen Server kopieren</li>
+<li>Über ssh auf dem neuen Server anmelden z.B.: ssh benutzer@dnsname</li>
+<li>Den vorhandenen userdata Ordner in /var/www/html/wawision umbenennen z.B. in userdata</li>
+<li>Neuen userdata Ordner nach /var/www/html/wawision verschieben</li>
+<li>
+<p>Im userdata Ordner sind Unterordner in denen wiederum Unterordner mit dem Namen der alten Datenbank existieren. Diese Ordner müssen in den neuen Datenbanknamen umbenannt werden.
+-<strong>Meistens sind folgende Ordner betroffen:</strong></p>
+</li>
+<li>
+<p>Ordner dms</p>
+</li>
+<li>Ordner emailbackup (falls vorhanden)</li>
+<li>Ordner pdfarchiv</li>
+<li>Ordner pdfmirror</li>
+<li>Falls weitere Ordner vorhanden sind, müssen diese überprüft werden ob sich in den Unterordnern Unterordner mit alten Datenbanknamen befinden und umbenannt werden. Vorhandene Dateien mit dem Datenbanknamen im Namen müssen ebenfalls umbenannt werden, wie z.B. das Briefpapier.</li>
+</ul>
+<h3 id="datenbank-einspielen">Datenbank einspielen<a class="headerlink" href="#datenbank-einspielen" title="Permanent link">&para;</a></h3>
+<p>IT Kenntnisse sind dafür zwingend erforderlich!</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Bei Unkenntnis können Datenverluste erzeugt werden. xentral übernimmt dafür keine Gewähr.</p>
+</blockquote>
+<ul>
+<li>Datenbank (extra exportieren oder im über die Oberfläche erstellten System-Backup vorhanden) am neuen Server einspielen mit z.B.:
+  mysql -u benutzername -p use NameDerNeuenDatenbank; source Pfad/DateinameDerZuImportierendenDatenbank;</li>
+</ul>
+<p><strong>Beispiel:</strong></p>
+<ul>
+<li>In der conf/user.inc.php muss die neue Datenbankverbindung und der Pfad zum userdata Ordner eingetragen werden</li>
+<li>Um die Datenbank zu aktualisieren, muss noch php upgradedbonly.php ausgeführt werden <strong>Besonderheiten beim Wechsel zwischen MariaDB und MySql.</strong> Unter Umständen können Views beim Ex- und Import der Datenbank in diesem Fall verloren gehen. Nach einem Update des Systems sind die Views wieder verfügbar. Bei einem Wechsel der von MariaDB zu MySQL oder umgekehrt kann aber das erneute Einspielen eines Scriptes notwendig werden.</li>
+</ul>
+<p>Bitte beachten, dass im untenstehenden Code Datenbankbenutzer angepasst werden muss:</p>
+<p><code>``'DEFINER=</code> xentral <code>@</code> localhost`&rsquo;
+SET SQL_MODE = &ldquo;NO_AUTO_VALUE_ON_ZERO&rdquo;;
+SET time_zone = &ldquo;+00:00&rdquo;;</p>
+<p>/<em>!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT</em>/;
+/<em>!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS</em>/;
+/<em>!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION</em>/;
+/<em>!40101 SET NAMES utf8</em>/;</p>
+<p>Substitute structure of the view &lsquo;documents</p>
+<p>CREATE TABLE IF NOT EXISTS <code>vouchers</code> (<code>id</code> int(11)
+, <code>address</code> int(11)
+, <code>date</code> date
+, <code>document number</code> varchar(255)
+, <code>status</code> varchar(64)
+, <code>country</code> varchar(255)
+, <code>type</code> varchar(10)
+, <code>sales_net</code> decimal(19,2)
+, <code>revenue_net</code> decimal(19,2)
+, <code>coverage_contribution</code> decimal(11,2)
+, <code>commission_sum</code> decimal(11,2)
+, <code>sales_id</code> int(11)
+, <code>group</code> int(11)
+);</p>
+<hr />
+<p>Substitute structure of the view `voucher_total</p>
+<p>CREATE TABLE IF NOT EXISTS <code>vouchertotal</code> (<code>id</code> int(11)
+, <code>address</code> int(11)
+, <code>date</code> date
+, <code>document number</code> varchar(255)
+, <code>status</code> varchar(64)
+, <code>country</code> varchar(255)
+, <code>type</code> varchar(12)
+, <code>net_sales</code> varchar(23)
+, <code>sales_gross</code> varchar(23)
+, <code>revenue_net</code> varchar(21)
+, <code>coverage_contribution</code> varchar(13)
+, <code>commission_total</code> varchar(13)
+, <code>salesid</code> varchar(11)
+, <code>group</code> varchar(11)
+, <code>project</code> varchar(222)
+);</p>
+<hr />
+<p>&ndash;
+&ndash; proxy structure of view <code>belegeregs</code>
+&ndash;
+CREATE TABLE IF NOT EXISTS <code>belegeregs</code> (<code>id</code> int(11)
+, <code>address</code> int(11)<code>date</code> date
+, <code>document number</code> varchar(255)
+, <code>status</code> varchar(64)
+, <code>country</code> varchar(255)
+, <code>type</code> varchar(10)
+, <code>sales_net</code> decimal(19,2)
+, <code>revenue_net</code> decimal(19,2)
+, <code>coverage_contribution</code> decimal(11,2)
+, <code>commission_sum</code> decimal(11,2)
+, <code>sales_id</code> int(11)
+, <code>group</code> int(11)
+, <code>project</code> varchar(222)
+);</p>
+<hr />
+<p>&ndash;
+&ndash; structure of the view <code>vouchers
+--
+DROP TABLE IF EXISTS</code>vouchers`;</p>
+<p>CREATE ALGORITHM=UNDEFINED DEFINER=<code>xentral</code>@<code>localhost</code>SQL SECURITY DEFINER VIEW<code>vouchers</code>AS select<code>invoice</code>. <code>id</code>AS<code>id</code>, <code>invoice</code>. <code>address</code>AS<code>address</code>, <code>invoice</code>. <code>date</code>AS<code>date</code>, <code>invoice</code>. <code>legnr</code>AS<code>legnr</code>, <code>invoice</code>. <code>status</code>AS<code>status</code>, <code>invoice</code>. <code>country</code>AS<code>country</code>, <code>invoice</code>AS<code>type</code>, <code>invoice</code>. <code>sales_net</code>AS<code>sales_net</code>, <code>invoice</code>. <code>revenue_net</code>AS<code>revenue_net</code>, <code>invoice</code>. <code>coverage_contribution</code>AS<code>coverage_contribution</code>, <code>invoice</code>. <code>commission_sum</code>AS<code>commission_sum</code>, <code>invoice</code>. <code>salesid</code>AS<code>salesid</code>, <code>invoice</code>. <code>group</code>AS<code>group</code>from<code>invoice</code>where (<code>invoice</code>. <code>status</code>&lt;&gt; &lsquo;created&rsquo;) union all select<code>credit</code>. <code>id</code>AS<code>id</code>, <code>credit</code>. <code>address</code>AS<code>address</code>, <code>credit</code>. <code>date</code>AS<code>date</code>, <code>credit</code>. <code>voucher_no</code>AS<code>voucher_no</code>, <code>credit</code>. <code>status</code>AS<code>status</code>, <code>credit</code>. <code>country</code>AS<code>country</code>,&rsquo;credit<code>AS</code>type<code>,(</code> credit <code>.</code> sales_net <code>*-(1)) AS</code> sales_net <em>-1 <code>,(</code> credit <code>.</code> erloes_net <code>*-(1)) AS</code> revenue_net </em>-1 <code>,(</code> credit <code>.</code> contribution_to_coverage <code>*-(1)) AS</code> coverage_contribution <em>-1 <code>,(</code> credit_statement <code>.</code> commission_sum <code>*-(1)) AS</code> commission_sum</em>-1 <code>,</code> gutschrift <code>.</code> vertriebid <code>AS</code> vertriebid <code>,</code> gutschrift <code>.</code> group <code>AS</code> group <code>from</code> gutschrift <code>where (</code> gutschrift <code>.</code> status` &lt;&gt; &lsquo;created&rsquo;);</p>
+<hr />
+<p>&ndash;
+&ndash; structure of the view <code>voucher_total
+--
+DROP TABLE IF EXISTS</code>voucher total`;</p>
+<p>CREATE ALGORITHM=UNDEFINED DEFINER=<code>xentral</code>@<code>localhost</code>SQL SECURITY DEFINER VIEW<code>vouchertotal</code>AS select<code>invoice</code>. <code>id</code>AS<code>id</code>, <code>invoice</code>. <code>address</code>AS<code>address</code>, <code>invoice</code>. <code>date</code>AS<code>date</code>, <code>invoice</code>. <code>invoice</code>AS<code>invoice</code>, <code>invoice</code>. <code>status</code>AS<code>status</code>, <code>invoice</code>. <code>country</code>AS<code>country</code>, <code>invoice</code>AS<code>type</code>, <code>invoice</code>. <code>sales_net</code>AS<code>sales_net</code>, <code>invoice</code>. <code>debit</code>AS<code>sales_gross</code>, <code>invoice</code>. <code>sales_net</code>AS<code>sales_net</code>, <code>invoice</code>. <code>contribution</code>AS<code>contribution</code>, <code>invoice</code>. <code>commission_sum</code>AS<code>commission_sum</code>, <code>invoice</code>. <code>salesid</code>AS<code>salesid</code>, <code>invoice</code>. <code>group</code>AS<code>group</code>, <code>invoice</code>. <code>project</code>AS<code>project</code>from<code>invoice</code>union all select<code>credit</code>. <code>id</code>AS<code>id</code>, <code>credit</code>. <code>address</code>AS<code>address</code>, <code>credit</code>. <code>date</code>AS<code>date</code>, <code>credit</code>. <code>voucher_no</code>AS<code>voucher_no</code>, <code>credit</code>. <code>status</code>AS<code>status</code>, <code>credit</code>. <code>country</code>AS<code>country</code>,&rsquo;credit<code>AS</code>type<code>,(</code> credit <code>.</code> sales_net <code>*-(1)) AS</code> sales_net <em>-1 <code>,(</code> credit <code>.</code> debit <code>*-(1)) AS</code> sales_gross </em>-1 <code>,(</code> credit <code>.</code> erloes_net <code>*-(1)) AS</code> revenue_net <em>-1 <code>,(</code> credit <code>.</code> contribution_to_coverage <code>*-(1)) AS</code> coverage_contribution </em>-1 <code>,(</code> credit_statement <code>.</code> commission_sum <code>*-(1)) AS</code> commission_sum*-1 <code>,</code> credit <code>.</code> salesid <code>AS</code> salesid <code>,</code> credit <code>.</code> group <code>AS</code> group <code>,</code> credit <code>.</code> project <code>AS</code> project <code>from</code> credit <code>union all select</code> order <code>.</code> id <code>AS</code> id <code>,</code> order <code>.</code> address <code>AS</code> address <code>,</code> order <code>.</code> date <code>AS</code> date <code>,</code> order <code>.</code> voucher <code>AS</code> voucher <code>,</code> order <code>.</code> status <code>AS</code> status <code>,</code> order <code>.</code> country <code>AS</code> country <code>,'order</code> AS <code>type</code>, <code>order</code>. <code>sales_net</code>AS<code>sales_net</code>, <code>order</code>. <code>total</code>AS<code>sales_gross</code>, <code>order</code>. <code>revenue_net</code>AS<code>revenue_net</code>, <code>order</code>. <code>coverage_contribution</code>AS<code>coverage_contribution</code>, <code>order</code>. <code>commission_sum</code>AS<code>commission_sum</code>, <code>order</code>. <code>salesid</code>AS<code>salesid</code>, <code>order</code>. <code>group</code>AS<code>group</code>, <code>order</code>. <code>project</code>AS<code>project</code>from<code>order</code>union all select<code>order</code>. <code>id</code>AS<code>id</code>, <code>order</code>. <code>address</code>AS<code>address</code>, <code>order</code>. <code>date</code>AS<code>date</code>, <code>order</code>. <code>order_id</code>AS<code>order_id</code>, <code>order</code>. <code>status</code>AS<code>status</code>, <code>order</code>. <code>country</code>AS<code>country</code>, <code>order</code>AS<code>type</code>, <code>order</code>. <code>total</code>AS<code>sales_net</code>, <code>order</code>. <code>total</code>AS<code>sales_gross</code>,&lsquo;0&rsquo; AS<code>erloes_net</code>,&lsquo;0&rsquo; AS<code>coverage</code>,&lsquo;0&rsquo; AS<code>commission_total</code>,&lsquo;0&rsquo; AS<code>salesid</code>,&lsquo;0&rsquo; AS<code>group</code>, <code>order</code>. <code>project</code>AS<code>project</code>from<code>order</code>union all select<code>delivery_note</code>. <code>id</code>AS<code>id</code>, <code>delivery_note</code>. <code>address</code>AS<code>address</code>, <code>delivery note</code>. <code>date</code>AS<code>date</code>, <code>delivery note</code>. <code>document number</code>AS<code>document number</code>, <code>delivery note</code>. <code>status</code>AS<code>status</code>, <code>delivery note</code>. <code>country</code>AS<code>country</code>, <code>delivery note</code>AS<code>type</code>, <code>0</code>AS<code>sales_net</code>, <code>0</code>AS<code>sales_gross</code>, <code>0</code>AS<code>erloes_net</code>, <code>0</code>AS<code>coverage_contribution</code>, <code>0</code>AS<code>commission_total</code>, <code>0</code>AS<code>salesid</code>, <code>0</code>AS<code>group</code>, <code>delivery note</code>. <code>project</code>AS<code>project</code>from<code>delivery note</code>;</p>
+<hr />
+<p>&ndash;
+&ndash; structure of the view <code>belegeregs</code>
+&ndash;
+DROP TABLE IF EXISTS <code>belegeregs</code>;</p>
+<p>CREATE ALGORITHM=UNDEFINED DEFINER=<code>xentral</code>@<code>localhost</code>SQL SECURITY DEFINER VIEW<code>documents</code>AS select<code>invoice</code>. <code>id</code>AS<code>id</code>, <code>invoice</code>. <code>address</code>AS<code>address</code>, <code>invoice</code>. <code>date</code>AS<code>date</code>, <code>invoice</code>. <code>documents</code>AS<code>documents</code>, <code>invoice</code>. <code>status</code>AS<code>status</code>, <code>invoice</code>. <code>country</code>AS<code>country</code>, <code>invoice</code>AS<code>type</code>, <code>invoice</code>. <code>sales_net</code>AS<code>sales_net</code>, <code>invoice</code>. <code>revenue_net</code>AS<code>revenue_net</code>, <code>invoice</code>. <code>coverage_contribution</code>AS<code>coverage_contribution</code>, <code>invoice</code>. <code>commission_sum</code>AS<code>commission_sum</code>, <code>invoice</code>. <code>salesid</code>AS<code>salesid</code>, <code>invoice</code>. <code>group</code>AS<code>group</code>, <code>invoice</code>. <code>project</code>AS<code>project</code>from<code>invoice</code>union all select<code>credit</code>. <code>id</code>AS<code>id</code>, <code>credit</code>. <code>address</code>AS<code>address</code>, <code>credit_credit</code>. <code>date</code>AS<code>date</code>, <code>credit_credit</code>. <code>voucher_no</code>AS<code>voucher_no</code>, <code>credit_credit</code>. <code>status</code>AS<code>status</code>, <code>credit_credit</code>. <code>country</code>AS<code>country</code>,&rsquo;credit_credit<code>AS</code>type<code>,(</code> credit_credit <code>.</code> sales_net <code>*-(1)) AS</code> sales_net <em>-1 <code>,(</code> credit <code>.</code> erloes_net <code>*-(1)) AS</code> revenue_net </em>-1 <code>,(</code> credit <code>.</code> contribution_to_coverage <code>*-(1)) AS</code> coverage_contribution <em>-1 <code>,(</code> credit_statement <code>.</code> commission_sum <code>*-(1)) AS</code> commission_sum</em>-1 <code>,</code> credit <code>.</code> salesid <code>AS</code> salesid <code>,</code> credit <code>.</code> group <code>AS</code> group <code>,</code> credit <code>.</code> project <code>AS</code> project <code>from</code> credit`;</p>
+<p>/<em>!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT</em>/;
+/<em>!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS</em>/;
+/<em>!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION</em>/;</p>
+<p>```</p>
+<h3 id="finale-anpassungen">Finale Anpassungen<a class="headerlink" href="#finale-anpassungen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Über die Oberfläche von xentral sollte noch ein Update durchgeführt werden, genaueres siehe &ldquo;Zugang zum Updateserver&rdquo;</li>
+<li>Zum Schluss muss der Webserver auf den userdata Ordner zugreifen können. Dies geschieht mit chown -R www-data:www-data *</li>
+<li>Um zu überprüfen ob der Webserver auf den userdata Ordner zugreifen kann, kann über die Oberfläche von xentral eine Datei bei einem Artikel oder einer Adresse hochgeladen und anschließend wieder heruntergeladen werden. Hat die Datei eine Größe von 0 Byte stimmen vermutlich die Rechte nicht. Kann die Datei allerdings geöffnet werden, hat alles geklappt.</li>
+</ul>
+<h2 id="datenumzug-fur-ein-testsystem">Datenumzug für ein Testsystem<a class="headerlink" href="#datenumzug-fur-ein-testsystem" title="Permanent link">&para;</a></h2>
+<p>Eine Kopie auf ein bestehendes neues Testsystem verläuft im Grunde genauso wie ein Datenumzug des Live-Systems auf einen anderen Server.</p>
+<p>Folgendes muss hierbei zusätzlich beachtet und eingestellt werden:Erklärung:</p>
+<ul>
+<li>Wenn die DB kopiert und sich anschließend angemeldet wird, steckt die alte &ldquo;Lizenz+Schluessel&rdquo; (also die Zugangsdaten zum Updateserver) in den Firmendaten.</li>
+<li>D.h. es muss dann vorab per phpmyadmin die neue &ldquo;Lizenz+Schluessel&rdquo; für das Testsystem eingespielt werden.</li>
+<li>In der Tabelle Firmendaten können die über den phpmyadmin auch ausgetauscht werden.</li>
+<li>Update dein System anschließend über die Oberfläche auf [[http://url/update.php]]</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

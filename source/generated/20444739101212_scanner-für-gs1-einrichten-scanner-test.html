@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20444739101212 Scanner Für Gs1 Einrichten Scanner Test - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>20444739101212 Scanner Für Gs1 Einrichten Scanner Test</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>20444739101212 Scanner Für Gs1 Einrichten Scanner Test</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das Modul <strong>Scanner-Test </strong> befindet sich aktuell im <strong>Beta-Status</strong>.</p>
+<p>Hast du Interesse, diese Funktion schon jetzt zu verwenden und zu testen? Dann wende dich ansupport@xentral.com, damit das Modul für deine Xentral-Instanz freigeschaltet wird.</p>
+<p><strong>Typischer Anwendungsfall </strong>: Diese Funktion richtet sich an Nutzer, die mit dem Modul <strong>Wareneingang (GS1)</strong> arbeiten und Artikel per MDE-Gerät oder Handscanner erfassen möchten. Im vorliegenden Artikel werden die benötigten Voreinstellungen für diese Geräte beschrieben.</p>
+<p><strong>Relevanz </strong>: Das Modul <strong>Scanner-Test </strong> ist ausschließlich für die Erfassung von gelieferten Artikeln im Menü <strong>Lager &gt; Wareneingang (GS1)</strong> relevant.</p>
+<p><strong>Nicht relevant für </strong>: Das Modul <strong>Scanner-Test</strong> ist nicht relevant für Warenausgang, Versandzentrum, Kommissionierverfahren.</p>
+</blockquote>
+<p>MDE-Geräte und Handscanner sind unerlässliche und effiziente Tools im Logistik-Alltag: Mit ihrer Hilfe erfasst du Barcodes und damit auch die Vielzahl der darin verschlüsselten Informationen, um sie anschließend in Xentral weiterzuverarbeiten. Höchstwahrscheinlich nutzt du an mindestens einem Computer in deinem Lager bereits einen Handscanner, beispielsweise um Artikel am Packtisch im<a href="https://help.xentral.com/hc/de/articles/360016757139#UUID-8ee2b6e8-1c6c-8f2e-1259-35d3532701b0">Xentral Versandzentrum</a>zu erfassen, bevor sie verpackt und versandt werden.</p>
+<p>Besonders für die Arbeit mit dem neuen Modul <strong>Wareneinang (GS1)</strong> empfehlen wir dir die Nutzung eines zeitgemäßen MDE-Geräts. Der Grund? Gerade bei umfangreichen Wareneingängen mit zahlreichen Artikeln ist die manuelle Auswahl von Artikeln und die Eingabe der entsprechenden Informationen nicht nur mühsam und zeitintensiv, sondern auch fehleranfällig.</p>
+<p>Im vorliegenden Artikel erfährst du,<a href="#UUID-94d554c0-9368-d875-caaa-e688ccdf6367_section-idm234979286100035">welche MDE-Modelle wir empfehlen</a>und welche Einstellungen du vorab vornehmen musst, um deine Geräte korrekt einzustellen und somit effizient und fehlerfrei mit dem Modul <strong>Wareneingang (GS1)</strong> zu arbeiten.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Bitte beachte, dass wir trotz aller Bemühungen nicht für jeden Hersteller oder jedes Modell ausführliche Anleitungen bereitstellen können. Prüfe deshalb in jedem Fall auch die Betriebsanleitung deines Handscanners oder MDE-Geräts. Wir stellen in diesem Artikel eine spezifische Anleitung für Zebra-MDEs vor, können aber nicht in jedem Einzelfall die Durchführbarkeit der Einrichtung garantieren.</p>
+</blockquote>
+<h2 id="empfohlene-mde-gerate">Empfohlene MDE-Geräte<a class="headerlink" href="#empfohlene-mde-gerate" title="Permanent link">&para;</a></h2>
+<p>Für die Artikelerfassung im Modul <strong>Wareneingang (GS1)</strong> empfehlen wir die folgenden MDE-Geräte:</p>
+<ul>
+<li>Zebra TC 21</li>
+<li>Zebra TC 22</li>
+<li>Zebra TC 26</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es ist möglich, auch Modelle von anderen Herstellen zu verwenden. Stelle in diesem Fall aber sicher, dass du über die Bedienungsanleitung deines MDE-Geräts oder Handscanners verfügst und die Konfiguration selbstständig vornimmst undmithilfe des Moduls Scanner-Test testest, bevor du produktiv mit dem Modul <strong>Wareneingang (GS1)</strong> arbeitest.</p>
+</blockquote>
+<h2 id="einstellungen-fur-zebra-mdes">Einstellungen für Zebra-MDEs<a class="headerlink" href="#einstellungen-fur-zebra-mdes" title="Permanent link">&para;</a></h2>
+<p>Auf den oben genannten und den meisten gängigen MDEs des Herstellers Zebra musst du die App <strong>DataWedge</strong> direkt auf dem Gerät nutzen, um darin ein neues Profil für die Erkennung von GS1-Barcodes zu erstellen. Ohne dieses Profil kann das Gerät die im Barcode verschlüsselten Daten nicht korrekt entschlüsseln.</p>
+<p>Gehe wie folgt vor, um das DataWedge-Profil für die Erfassung von GS1-Barcodes zu erstellen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Verwendest du mehrere Zebra-MDEs in deinem Lager? Dann musst du die unten beschriebenen Einstellungen nur auf einem einzigen Gerät vornehmen. Zebra bietet die Möglichkeit, bereits erstellte DataWedge-Profile auf weitere Geräte zu übertragen.</p>
+<p>Für weitere Informationen steht dir dazu dieoffizielle Anleitung von Zebrazur Verfügung. Gehe hier bitte sorgfältig vor und kontaktiere im Zweifel den Zebra-Support, um Fehler zu vermeiden.</p>
+</blockquote>
+<ol>
+<li>Nimm dein Zebra-MDE zur Hand und öffne auf dem Startbildschirm die App <strong>DataWedge</strong>.</li>
+<li>Stelle sicher, dass du dich im Menü <strong>DataWedge-Profile</strong> befindest.</li>
+<li>Öffne oben rechts das <strong>Dreipunkt-Menü </strong> und tippe auf <strong>+ Neues Profil</strong>.</li>
+<li>Gib einen aussagekräftigen Namen für das Profil ein, z.B. &ldquo;Barcode GS1&rdquo;. Tippe dann auf <strong>OK</strong>.</li>
+<li>Tippe auf das soeben erstellte Profil, um es zu öffnen.</li>
+<li>Aktiviere die Option <strong>Profil aktiviert</strong>.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Barcode-Eingabe</strong> erreichst.</li>
+<li>Aktiviere die Einstellung <strong>Scannereingabe aktivieren/deaktivieren</strong>.</li>
+<li>Tippe auf <strong>Scanner-Einstellungen konfigurieren</strong>.</li>
+<li>Tippe auf <strong>Scan-Parameter</strong>.</li>
+<li>Wähle die Option <strong>Code-ID-Typ - Ziel</strong>.</li>
+<li>Navigiere zu <strong>Barcode-Eingabe &gt; Scanner-Einstellungen konfigurieren</strong>.</li>
+<li>Aktiviere beim Menüpunkt <strong>Decoder</strong> die folgenden Optionen:
+  -<strong>Code128 </strong></li>
+</ol>
+<p>-<strong>Code39</strong></p>
+<p>-<strong>EAN8</strong></p>
+<p>-<strong>EAN13</strong></p>
+<p>-<strong>GS1 DataBar</strong></p>
+<p>-<strong>Erweiterter GS1-Barcode</strong></p>
+<p>-<strong>GS1 DataMatrix</strong></p>
+<p>-<strong>GS1 QRCode</strong></p>
+<ol>
+<li>Tippe unten links auf deinem Gerät auf <strong>Zurück</strong>(Pfeil nach links), um in die Profile instellungen zurückzukehren.</li>
+<li>Navigiere zum Bereich <strong>Tastenanschlag-Ausgabe &gt; Schlüsselereignisoptionen</strong>.</li>
+<li>Nimm im Bereich <strong>Schlüsselereignisoptionen</strong> folgende Einstellungen vor:</li>
+<li>Aktiviere die Einstellung <strong>Zeichen als Ereignisse senden</strong>.</li>
+<li>Aktiviere die Einstellung <strong>Tastenanschlagausgabe </strong> im Bereich <strong>Erweiterte Datenformatierung</strong>.</li>
+<li>Gehe zum Bereich <strong>Einfache Datenformatierung </strong> und aktiviere die Optionen <strong>Aktivieren </strong>,<strong>Daten senden </strong> und <strong>Senden mit EINGABE</strong>.</li>
+<li>Navigiere zu <strong>Tastenanschlag-Ausgabe &gt; Erweiterte Datenformatierung &gt; Regeln</strong>.</li>
+<li>Öffne den Eintrag <strong>Rule0</strong>.</li>
+<li>Tippe auf die entsprechende Checkbox, um die Regel zu <strong>aktivieren</strong>.</li>
+<li>Tippe oben rechts auf das Drei-Punkte-Menü und dann auf <strong>Neue Aktion</strong>.</li>
+<li>Tippe auf <strong>Ersatzzeichenfolge</strong>.</li>
+<li>Tippe auf den <strong>Ersatzzeichenfolge</strong>.</li>
+<li>Gib im oberen Eintrag die im Screenshot gezeigte Zeichenfolge ein.</li>
+<li>Tippe auf <strong>OK</strong>.</li>
+<li>Tippe erneut auf <strong>Ersatzzeichenfolge </strong> und gib zusätzlich die Zeichenfolge <strong><a class="wikilink" href="/GS/">GS</a></strong> ein. Anschließend solltest du folgende Zeichenfolgen hinterlegt haben:</li>
+</ol>
+<h2 id="einstellungen-fur-handscanner">Einstellungen für Handscanner<a class="headerlink" href="#einstellungen-fur-handscanner" title="Permanent link">&para;</a></h2>
+<p>Handscanner sind Datenerfassungsgeräte, die per USB oder per Bluetooth an deinen Computer angeschlossen sind. Im Gegensatz zu MDE-Geräten verfügen sie über kein eigenes Display. Die grundlegende Funktion ist jedoch gleich: Mit dem Handscanner erfasst du die Barcodes deiner Produkte. Daraufhin werden die im Barcode verschlüsselten Informationen entschlüsselt und somit die Datenerfassung in Xentral ermöglicht.</p>
+<p>Im Folgenden weisen wir auf die Einstellungen hin, die für Handscanner notwendig sind, um erfolgreich mit dem Modul <strong>Wareneingang (GS1)</strong> zu arbeiten. Du findest zunächst allgemeine Einstellungen, die grundsätzlich für jeden Handscanner ausgeführt werden müssen. Weiter unten stellen wir eine beispielhafte Anleitung inklusive der zu scannenden Barcodes für das Modell Netum C750 zur Verfügung.</p>
+<h3 id="allgemein-benotigte-einstellungen-fur-handscanner">Allgemein benötigte Einstellungen für Handscanner<a class="headerlink" href="#allgemein-benotigte-einstellungen-fur-handscanner" title="Permanent link">&para;</a></h3>
+<p>Die folgenden Einstellungen solltest du unabhängig von Hersteller oder Modell an deinem Handscanner vornehmen, damit GS1 Barcodes korrekt erfasst werden:</p>
+<p>-<strong>AIM Identifier</strong> aktivieren
+- Zeilenumbruch-Bezeichnung auf <strong>CR</strong> umstellen
+-<strong>ASCII-Modus</strong> einschalten
+-<strong>GS1-128 Barcodes</strong> aktivieren</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Du bist dir nicht sicher, wie du die oben genannten Einstellungen vornimmst? Das Handbuch deines Handscanners hilft dir weiter. In vielen Fällen enthalten diese Handbücher einen Barcode pro benötigter Einstellung, den du ganz einfach abscannen kannst.</p>
+</blockquote>
+<h3 id="netum-c750-einrichten">Netum C750 einrichten<a class="headerlink" href="#netum-c750-einrichten" title="Permanent link">&para;</a></h3>
+<p>In diesem Kapitel erfährst du, welche Schritte du konkret durchführen musst, wenn du den Handscanner Netum C750 verwendest. Bei diesem Modell scannst du eine Abfolge von Barcodes, um die passende Konfiguration auf dem Gerät herzustellen.</p>
+<p>Die folgende Tabelle zeigt dir alle erforderlichen Schritte und den benötigten Barcode, den du direkt von deinem Bildschirm abscannen kannst.</p>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Barcode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AIM Identifier aktivieren</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Zeilenumbruch-Bezeichnung auf CR umstellen</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ASCII-Modus einschalten</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GS1-128 Barcodes aktivieren</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="scanner-konfiguration-testen">Scanner-Konfiguration testen<a class="headerlink" href="#scanner-konfiguration-testen" title="Permanent link">&para;</a></h2>
+<p>Gehe abschließend wie folgt vor, um zu testen, dass die Konfiguration deines MDE-Geräts oder Handscanners korrekt funktioniert.</p>
+<ol>
+<li>Öffne Xentral auf deinem Computer.</li>
+<li>Öffne das Menü <strong>Lager &gt; Scanner-Test</strong>.</li>
+<li>Platziere den Cursor im Feld <strong>Scan barcode</strong>.</li>
+<li>Nimm deinen Handscanner oder MDE-Gerät zur Hand und scanne den angezeigten QR-Code.</li>
+</ol>
+<p><img alt="scanner-test-de.png" src="https://help.xentral.com/hc/article_attachments/20444776499100" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Solltest du bei einzelnen Punkten <strong>rote Meldungen</strong> angezeigt bekommen, ist dein MDE-Gerät oder Handscanner noch nicht korrekt eingestellt. Falls du ein MDE-Gerät des Herstellers Zebra verwendest, prüfe noch einmal die Anleitungim vorherigen Kapitel. Nutzt du andere Geräte, solltest du die jeweilige Betriebsanleitung konsultieren.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

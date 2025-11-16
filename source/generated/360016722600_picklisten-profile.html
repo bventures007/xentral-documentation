@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016722600 Picklisten Profile - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016722600 Picklisten Profile</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016722600 Picklisten Profile</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="was-ist-ein-picklisten-profil">Was ist ein Picklisten-Profil?<a class="headerlink" href="#was-ist-ein-picklisten-profil" title="Permanent link">&para;</a></h2>
+<p>Ein <strong>Picklisten-Profil <strong>(auch </strong> Kommissionierregeln</strong> genannt) ist ein vorab eingestelltes Set an Regeln und Parametern für den Kommissionierprozess in Xentral. Picklisten-Profile enthalten so genannte Kommissionierregeln und bestimmen somit die Art und Weise, wie Aufträge im Lager gepickt werden sollen. Somit kannst du deinen Kommissionierprozess flexibel an bestimmte Geschäftsbedürfnisse, Lagerstrukturen und Kundenanforderungen anpassen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Video-Tutorial: Dein schneller Einstieg in die Picklisten-Profile</strong></p>
+<p>Möchtest du dir innerhalb weniger Minuten einen Überblick über die Funktionen und die Nutzung der Picklisten-Profile in Xentral verschaffen? Dann ist unser Video-Tutorial genau das Richtige für dich. Schau es dir gleich an!</p>
+<p><strong><a href="https://www.youtube.com/embed/bLoycg_jtTs">YouTube Video</a></strong></p>
+</blockquote>
+<h2 id="warum-sollte-ich-ein-picklisten-profil-einrichten">Warum sollte ich ein Picklisten-Profil einrichten?<a class="headerlink" href="#warum-sollte-ich-ein-picklisten-profil-einrichten" title="Permanent link">&para;</a></h2>
+<p><img alt="Picklisten-Profile_Workflow_001.png" src="https://help.xentral.com/hc/article_attachments/15565371997340" /></p>
+<p>Picklisten-Profile ermöglichen es dir, deine Logistikprozesse präzise zu steuern und zu optimieren, indem du Regeln und Filter für die Kommissionierung anpasst, die genau auf deine Geschäftsbedürfnisse zugeschnitten sind. Mit der Definition von Picklisten-Profilen kannst du die Geschwindigkeit deiner Auftragsabwicklung erhöhen, Fehler minimieren und auch neue Geschäftsanforderungen schnell integrieren.</p>
+<p>Das bedeutet für dein Unternehmen, dass du deine Lagerabläufe verbessern, die Zeit, die du für das Kommissionieren brauchst, verkürzen und Kosten durch genauere Lagerbewegungen und bessere Nutzung deiner Ressourcen senken kannst. Das Einrichten und regelmäßige Anpassen von Picklisten-Profilen in Xentral ist daher eine wichtige Strategie, um den heutigen Marktanforderungen gerecht zu werden.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Entscheidungshilfe zur Einrichtung von Picklisten-Profilen</strong></p>
+<ul>
+<li>Ein wichtiger Grund <strong>für die Einrichtung eines Picklisten-Profils</strong> kann sein, wenn du ein E-Commerce- und B2B-Geschäft betreibst, das während der Feiertage täglich Hunderte von Bestellungen bearbeitet. Ein automatisiertes Picklisten-Profil hilft dir, schnell auf Spitzenzeiten zu reagieren und die Kundenzufriedenheit durch eine zügige Versandabwicklung sicherzustellen.</li>
+<li>Ein Grund,<strong>bei deinen bisherigen Prozessen zu bleiben</strong>, könnte sein, wenn du eine kleinere mittelständische Firma im Bereich elektronische Schaltungen führst, die vor allem regional tätig ist. Hier kann ein manueller, genau überwachter Kommissionierprozess sicherstellen, dass jede Schaltung sorgfältig geprüft wird. So wird eine hohe Produktqualität gewährleistet, die durch automatisierte Abläufe möglicherweise nicht erreicht werden kann.</li>
+</ul>
+</blockquote>
+<h2 id="erstellung-und-einrichtung-von-picklisten-profilen">Erstellung und Einrichtung von Picklisten-Profilen<a class="headerlink" href="#erstellung-und-einrichtung-von-picklisten-profilen" title="Permanent link">&para;</a></h2>
+<p>Bevor du Picklisten-Profile in Xentral verwenden kannst, musst du sie erstellen und deine gewünschten Einstellungen vornehmen. Die Einrichtungsschritte und Einstellungsmöglichkeiten werden im Folgenden detailliert beschrieben.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Beachte bei der Verwendung von Picklisten-Profilen folgende Hinweise:</p>
+<ul>
+<li>Picklisten und damit auch Picklisten-Profile berücksichtigen nur Artikel, die in den Artikelstammdaten als Lagerartikel markiert wurden, also bei denen unter <strong>Verkaufen &gt; Artikel &gt; Artikel öffnen &gt; Tab: Details &gt; Bereich: Artikeloptionen </strong> die Option <strong>Lagerartikel</strong> aktiviert ist.</li>
+<li>Schule deine Mitarbeiter im Umgang mit bereits eingerichteten Picklisten-Profilen und prüfe im festen Abständen, ob bestehende Prozesse reibungslos ablaufen.</li>
+<li>Optimiere deine Prozesse, wenn du beispielsweise im Saisongeschäft tätig bist oder neue Verkaufskanäle integrierst, die das Verhalten deiner Automatisierung beeinflussen werden.</li>
+</ul>
+</blockquote>
+<h3 id="picklisten-profil-erstellen">Picklisten-Profil erstellen<a class="headerlink" href="#picklisten-profil-erstellen" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um ein neues Picklisten-Profil in Xentral zu erstellen.</p>
+<ol>
+<li>
+<p>Öffne das Menü <strong>Lager &gt; Picklisten-Profile </strong>.<strong>Alternativ </strong>: Gehe zu <strong>Einstellungen &gt; Lager &amp; Logistik &gt; Logistik &gt; Picklisten-Profile</strong>.</p>
+</li>
+<li>
+<p>Klicke oben rechts auf <strong>+NEU </strong> oder <strong>+Profil hinzufügen</strong>.</p>
+</li>
+<li>Vergib eine <strong>Bezeichnung </strong>(z. B. &ldquo;B2B&rdquo; oder &ldquo;1-Position-Aufträge&rdquo;) und ergänze optional eine <strong>Beschreibung</strong> im Feld <strong>Kommentar</strong>, um spätere Anpassungen zu erleichtern.</li>
+<li>Nutze die Einstellungen, um die <strong>Kriterien für das Picklisten-Profil</strong> zu definieren, darunter:
+  - <a href="#einstellungsbereich-pickliste">Einstellungsbereich <strong>Pickliste</strong></a>: Name, Aktivierung und Beschreibung des Profils.
+  - <a href="#einstellungsbereich-eigenschaften-pickliste">Einstellungsbereich <strong>Eigenschaften Pickliste</strong></a> Anzahl und Umfang der zu bearbeitenden Picklisten.
+  - <a href="#einstellungsbereich-auswahl-auftraege">Einstellungsbereich <strong>Auswahl Aufträge</strong></a>: Kriterien für Aufträge je nach Positionen, Gewicht, Volumen und Fast-Lane.
+  - <a href="#einstellungsbereich-einschraenkung-pro-artikel">Einstellungsbereich <strong>Einschränkung pro Artikel</strong></a>: Begrenzungen für Gewicht, Volumen und Stückzahl von Artikeln.
+  - <a href="#einstellungsbereich-ausfuehrung-picklistenerstellung">Einstellungsbereich <strong>Ausführung Picklistenerstellung</strong></a>: Automatische oder manuelle Erstellung mit Zeitsteuerung.
+  - <a href="#einstellungsbereich-filter-auftraege">Einstellungsbereich <strong>Filter Aufträge</strong></a>: Ausschluss von Projekten, Artikeln, Shops oder anderen Kriterien.
+  - <a href="#einstellungsbereich-versandeinstellungen">Einstellungsbereich <strong>Versandeinstellungen</strong></a>: Druckoptionen, Auswahl eines Kommissionierverfahrens und KIstenbestätigung für Multi-Order-Picking.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h4 id="einstellungsbereich-pickliste">Einstellungsbereich Pickliste<a class="headerlink" href="#einstellungsbereich-pickliste" title="Permanent link">&para;</a></h4>
+<p>Die folgenden allgemeinen Einstellungen stehen im Bereich <strong>Pickliste</strong> zur Verfügung.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Ein aktiviertes Picklisten-Profil wird unter Umständen sofort von Xentral abgearbeitet. Belasse das Profil daher auf <strong>inaktiv</strong>, bis du alle gewünschten Einstellungen abschließend vorgenommen hast. Zu Testzwecken kannst du Picklisten-Profile auch deaktivieren und nur ein einziges Profil aktiv schalten.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bezeichnung</strong></td>
+<td>Vergib hier eine eindeutige Bezeichnung für das Picklisten-Profil. Diese Bezeichnung wird dir und deinen Mitarbeitern dann in Xentral angezeigt und ist für deine Kunden nicht sichtbar.</td>
+</tr>
+<tr>
+<td><strong>Aktiv <strong></td>
+<td>Sobald du diese Option aktivierst, werden die festgelegten Regeln angewandt und der Prozess ausgeführt. 🚨</strong> Warnung:</strong> Aktiviere diese Option erst, wenn du alle gewünschten Einstellungen für das Picklisten-Profil abschließend vorgenommen hast.</td>
+</tr>
+<tr>
+<td><strong>Kommentar <strong></td>
+<td>Beschreibe die Zielsetzung des Picklisten-Profils, dessen spezifische Verwendung und die gesteuerten Logistikabläufe. Der Kommentar dient dir und deinen Mitarbeitern zu internen Informationszwecken. Du kannst beispielsweise angeben, welcher Verkaufskanal auf welche Weise optimiert wird, etwa für schnelle E-Commerce-Bestellungen während des Black Friday.</strong> Beispiel für einen Kommentar:</strong> Alle Einpositionsaufträge außer im Projekt <strong>B2B </strong> verarbeiten. - Pro Pickliste maximal 25 Aufträge<br>- Maximal 5 Picklisten gleichzeitig<br>- Automatische Ausführung um 07:00 Uhr, 08:00 Uhr und 09:00 Uhr<br>- Nur Aufträge mit 1 Artikelposition berücksichtigen<br>- Projekt <strong>B2B </strong> ausschließen<br>- Druckereinstellungen aus den Projekt <strong>Standard</strong> übernehmen</td>
+</tr>
+</tbody>
+</table>
+<h4 id="einstellungsbereich-eigenschaften-pickliste">Einstellungsbereich Eigenschaften Pickliste<a class="headerlink" href="#einstellungsbereich-eigenschaften-pickliste" title="Permanent link">&para;</a></h4>
+<p>Die folgenden Einstellungen stehen im Bereich <strong>Eigenschaften Pickliste</strong> zur Verfügung.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Aufträge <strong></td>
+<td>Lege die minimale und maximale Anzahl von Aufträgen fest, die auf einer Pickliste enthalten sein sollen. Soll eine unbegrenzte Anzahl an Aufträgen pro Pickliste enthalten sein, lasse dieses Feld leer oder gib den Wert</strong> 0</strong> ein. Bei Überschreitung der maximalen System-Anzahl werden automatisch zusätzliche Picklisten generiert.</td>
+</tr>
+<tr>
+<td><strong>Anzahl Picklisten max.</strong></td>
+<td>Lege die maximale Anzahl an gleichzeitig (also im selben Durchlauf) erstellten Picklisten fest. Mit dieser Funktion kannst du steuern, wie viele Picklisten und damit Kommissionierläufe du manuell an deine Logistik übergibst. Soll eine unbegrenzte Anzahl an Picklisten an die Logistik übergeben werden, lasse dieses Feld leer oder gib den Wert <strong>0</strong> ein.</td>
+</tr>
+<tr>
+<td><strong>Stück <strong></td>
+<td>Definiere die minimale und maximale Artikel-Stückzahl innerhalb einer Pickliste. Der Wert</strong> 0</strong> oder keine Eingabe in diesem Feld bedeutet, dass die Artikel-Stückzahl nicht begrenzt wird. Sind mehr als die hier festgelegte maximale Stückzahl in Aufträgen versandbereit, werden entsprechend mehrere Picklisten erstellt.</td>
+</tr>
+<tr>
+<td><strong>Identischer Paketinhalt <strong></td>
+<td>Wenn du diese Option aktivierst, werden nur Aufträge, die aus identischen Artikel in identischen Stückzahlen bestehen, auf der Pickliste inkludiert. ⚠️</strong> Wichtig:</strong> Diese Option funktioniert nicht für Artikel, an denen Informationen zu Mindesthaltbarkeitsdaten und Chargen hinterlegt sind.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="einstellungsbereich-auswahl-auftrage">Einstellungsbereich Auswahl Aufträge<a class="headerlink" href="#einstellungsbereich-auswahl-auftrage" title="Permanent link">&para;</a></h4>
+<p>Die folgenden Einstellungen stehen im Bereich <strong>Auswahl Aufträge</strong> zur Verfügung.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Positionen <strong></td>
+<td>Diese Einstellung begrenzt die Aufträge auf der Pickliste auf diejenigen, deren Anzahl an Positionen innerhalb der festgelegten Werte liegt. Trage</strong> 0</strong> ein oder lasse das Feld leer, um unbegrenzt viele Positionen zuzulassen.</td>
+</tr>
+<tr>
+<td><strong>Gewicht <strong></td>
+<td>Wähle für die Pickliste nur Aufträge aus, deren Gesamtgewicht aller Artikel innerhalb der spezifizierten Grenzen liegt. Gib</strong> 0</strong> ein oder lasse das Feld leer, um keine Gewichtsbegrenzung festzulegen. Artikel, bei denen kein Gewicht in den Artikelstammdaten in Xentral gepflegt ist, werden durch diese Einstellung nicht berücksichtigt.</td>
+</tr>
+<tr>
+<td><strong>Volumen <strong></td>
+<td>Für die Pickliste werden nur Aufträge berücksichtigt, deren Gesamtvolumen aller Artikel innerhalb der festgelegten Grenzen liegt. Ein Wert von</strong> 0 <strong> oder ein leeres Feld setzt keine Volumenbegrenzung. Gib das Volumen in cm^3 (Kubikzentimetern) ein. Artikel, bei denen kein Volumen in den Artikelstammdaten in Xentral gepflegt ist, werden durch diese Einstellung nicht berücksichtigt. 💬</strong>Anmerkung:</strong> Beachte, dass das Volumen als Summe berechnet wird und nur einen Anhaltspunkt für den tatsächlichen Platzbedarf darstellt.</td>
+</tr>
+<tr>
+<td><strong>Fastlane</strong></td>
+<td>Diese Einstellung übernimmt nur Aufträge mit der Markierung <a href="https://help.xentral.com/hc/de/articles/360018083500#UUID-f6daef86-8b7a-d629-b91b-0175831892b3">Fastlane</a> auf die Pickliste. Verwende diese Option, wenn du Express-Bestellungen oder Amazon Prime Bestellungen besonders schnell verarbeiten möchtest.</td>
+</tr>
+<tr>
+<td><strong>Keine MHD/Charge</strong></td>
+<td>Schließe Aufträge mit Artikeln aus, an denen Informationen zu <a href="https://help.xentral.com/hc/de/articles/360016809139#UUID-ddd51275-43f8-cc56-88e0-387a6516464b">Mindesthaltbarkeitsdaten</a> und <a href="https://help.xentral.com/hc/de/articles/360016763899#UUID-6274d0d0-27bd-7f73-0f27-3f4bfa57e888">Chargen</a> hinterlegt sind.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="einstellungsbereich-einschrankung-pro-artikel">Einstellungsbereich Einschränkung pro Artikel<a class="headerlink" href="#einstellungsbereich-einschrankung-pro-artikel" title="Permanent link">&para;</a></h4>
+<p>Die folgenden Einstellungen stehen im Bereich <strong>Einschränkung pro Artikel</strong> zur Verfügung.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die unten beschriebenen Kriterien müssen für <strong>alle Artikel</strong>, die sich in einem Auftrag befinden, zutreffen. Entspricht nur einer der Artikel im Auftrag der Vorgabe, wird der entsprechende Auftrag nicht durch das Picklisten-Profil abgearbeitet.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gewicht <strong></td>
+<td>Diese Einstellung beschränkt die Pickliste auf Artikel, deren Gewicht pro Einheit innerhalb der festgelegten Werte liegt. Trage</strong> 0</strong> ein oder lasse das Feld leer, um keine Gewichtsbegrenzung festzulegen.</td>
+</tr>
+<tr>
+<td><strong>Volumen <strong></td>
+<td>Diese Einstellung grenzt die Pickliste auf Artikel ein, deren Volumen pro Stück innerhalb der angegebenen Werte liegt. Trage</strong> 0</strong> ein oder lasse das Feld leer, um keine Volumenbegrenzung festzulegen. Das Volumen muss in cm^3 (Kubikzentimetern) eingegeben werden.</td>
+</tr>
+<tr>
+<td><strong>Stück <strong></td>
+<td>Diese Einstellung beschränkt die Pickliste auf Artikel, deren Stückzahl pro Position innerhalb der spezifizierten Werte liegt. Trage</strong> 0</strong> ein oder lasse das Feld leer, um keine Mengenbegrenzung festzulegen.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="einstellungsbereich-ausfuhrung-picklisten-erstellung">Einstellungsbereich Ausführung Picklisten erstellung<a class="headerlink" href="#einstellungsbereich-ausfuhrung-picklisten-erstellung" title="Permanent link">&para;</a></h4>
+<p>Die folgenden Einstellungen stehen im Bereich <strong>Ausführung Picklisten erstellung</strong> zur Verfügung.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Automat. Ausführung</strong></td>
+<td>Aktiviere eine automatische Prozessteuerung für die Erstellung der Picklisten und Übergabe der enthaltenen Aufträge an die Logistik.</td>
+</tr>
+<tr>
+<td><strong>Uhrzeit</strong></td>
+<td>Die eingegebene Uhrzeit oder mehrere Uhrzeiten legen fest, wann deine Picklisten automatisch erstellt und die Aufträge an die Logistik übergeben werden. Nutze diese Einstellung, um die Intervalle für die Prozessautomatisierung zu steuern.</td>
+</tr>
+<tr>
+<td><strong>Reihenfolge</strong></td>
+<td>Die hier festgelegte Reihenfolge bestimmt die Priorität der Ausführung, wenn mehrere Prozesse oder Picklisten gleichzeitig gestartet werden. Stelle sicher, dass die Reihenfolge die gewünschte Priorität deiner Prozesse widerspiegelt.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="einstellungsbereich-filter-auftrage">Einstellungsbereich Filter Aufträge<a class="headerlink" href="#einstellungsbereich-filter-auftrage" title="Permanent link">&para;</a></h4>
+<p>Die folgenden Einstellungen stehen im Bereich <strong>Filter Aufträge</strong> zur Verfügung.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Projekte</strong></td>
+<td>Wählt für die Pickliste nur Aufträge aus, die zu den festgelegten Projekten gehören. Deaktiviere diese Option, um spezifische Projekte auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Artikel</strong></td>
+<td>Wählt für die Pickliste nur Aufträge, die mindestens einen der spezifizierten Artikel enthalten. Deaktiviere diese Option, um bestimmte Artikel auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Eigenschaften</strong></td>
+<td>Wählt für die Pickliste nur Aufträge mit Artikeln, die bestimmte Eigenschaften aufweisen. Deaktiviere diese Option, um spezifische Eigenschaften auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Freifelder</strong></td>
+<td>Wählt für die Pickliste nur Aufträge, deren Artikel definierte Freifeldwerte enthalten. Deaktiviere diese Option, um bestimmte Freifeldwerte auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Shops</strong></td>
+<td>Wählt für die Pickliste nur Aufträge aus, die aus bestimmten Shops importiert wurden. Deaktiviere diese Option, um spezifische Shops auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Lieferland</strong></td>
+<td>Wählt für die Pickliste nur Aufträge, die in die festgelegten Lieferländer versendet werden. Deaktiviere diese Option, um bestimmte Länder auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Kategorie</strong></td>
+<td>Wählt für die Pickliste nur Aufträge, die Artikel einer bestimmten Kategorie enthalten. Deaktiviere diese Option, um bestimmte Kategorien auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Versandart</strong></td>
+<td>Wählt für die Pickliste nur Aufträge, die bestimmte Versandarten verwenden. Deaktiviere diese Option, um bestimmte Versandarten auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Zahlungsart</strong></td>
+<td>Wählt für die Pickliste nur Aufträge, die über festgelegte Zahlungsarten abgewickelt wurden. Deaktiviere diese Option, um bestimmte Zahlungsarten auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Gruppe</strong></td>
+<td>Wählt für die Pickliste nur Aufträge, die an Kunden aus spezifizierten Gruppen verschickt werden. Deaktiviere diese Option, um bestimmte Kundengruppen auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Lager</strong></td>
+<td>Wählt für die Pickliste nur Aufträge, die Artikel aus bestimmten Lagern enthalten. Deaktiviere diese Option, um bestimmte Lager auszuschließen.</td>
+</tr>
+<tr>
+<td><strong>Lagerplatz</strong></td>
+<td>Wählt für die Pickliste nur Aufträge, die Artikel von bestimmten Lagerplätzen enthalten. Deaktiviere diese Option, um bestimmte Lagerplätze auszuschließen.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="einstellungsbereich-versandeinstellungen">Einstellungsbereich Versandeinstellungen<a class="headerlink" href="#einstellungsbereich-versandeinstellungen" title="Permanent link">&para;</a></h4>
+<p>Die folgenden Einstellungen stehen im Bereich <strong>Versandeinstellungen</strong> zur Verfügung.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Belegdrucker Stufe 1 (Pick/Kommissionierung)</strong></td>
+<td>Wähle einen Drucker aus, der in Stufe 1 des Logistikprozesses für Belege genutzt werden soll.</td>
+</tr>
+<tr>
+<td><strong>Drucker Versandlabel</strong></td>
+<td>Wähle einen Drucker aus, der für Versandlabels genutzt werden soll.</td>
+</tr>
+<tr>
+<td><strong>Versandlabel drucken</strong></td>
+<td>Aktiviere diese Option, um die Versandlabels für Aufträge, die durch das Picklisten-Profil abgearbeitet werden, automatisch zu erzeugen und ausdrucken zu lassen.</td>
+</tr>
+<tr>
+<td><strong>Massenlabeldruck mit Begrenzung <strong></td>
+<td>Aktiviere diese Option, wenn Versandlabels für Aufträge, die durch das Picklisten-Profil abgearbeitet werden, automatisch als Stapel gedruckt werden sollen. 💬</strong> Anmerkung:</strong> Diese Option ist nur relevant, wenn du die Funktionalität zum Sammeldruck von Versandlabels in Xentral nutzen möchtest. Schau dir unbedingt den Artikel Sammeldruck von Versandlabels an, um mehr über typische Anwendungsfälle und die notwendigen Einstellungen zu erfahren.</td>
+</tr>
+<tr>
+<td><strong>Kommissionierverfahren</strong></td>
+<td>Diese Option erlaubt dir, die Auftrage der Pickliste mithilfe eines einstufigen Logistikprozesses abzuarbeiten. Verwende diese Option, wenn die betroffenen Aufträge zu einem Projekt gehören, in dem in den Projekteinstellungen ursprünglich ein zweistufiger Logistikprozess definiert wurde. Wählst du hier ein abweichendes Kommissionierverfahren aus, werden die Projekteinstellungen ignoriert und die betroffenen Aufträge mithilfe des Picklisten-Profils am Versandzentrum &ldquo;vorbei geführt&rdquo; und können in einem Schritt abgearbeitet werden.</td>
+</tr>
+<tr>
+<td><strong>Zusammenführen der Dokumentenverarbeitung auf Stufe 1</strong></td>
+<td>Aktiviere diese Option, um die Projekteinstellungen zu übersteuern, falls im Projekt betroffener Aufträge ein Belegdruck in Stufe 2 des Logistikprozesses eingestellt wurde. Mithilfe dieser Option werden Belege wie Rechnungen und Lieferscheine gesammelt bereits in Stufe 1 ausgedruckt, statt erst im Versandzentrum.</td>
+</tr>
+<tr>
+<td><strong>Profil für mobile Kommissionierung <strong></td>
+<td>Wähle ein Profil aus, das du zuvor im Modul</strong> Mobile Pick-Profile </strong> erstellt hast. 💬<strong>Anmerkung:</strong> Diese Einstellung ist nur relevant, wenn du die Mobile Picking App mit dem Kommissioniermodus Single-Item-Pick benutzt.</td>
+</tr>
+<tr>
+<td><strong>Kistenbestätigung überspringen</strong></td>
+<td>Diese Einstellung ist nur relevant, wenn du das Modul <a href="https://help.xentral.com/hc/de/articles/360016721080#UUID-956d8415-1374-323b-6023-f9a789a6e245">Multi-Order Picking</a> nutzt. Sie sorgt dafür, dass die Kistenbestätigung für diese Pickliste übersprungen wird.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="praxisbeispiele-zur-einrichtung-von-picklisten-profilen">Praxisbeispiele zur Einrichtung von Picklisten-Profilen<a class="headerlink" href="#praxisbeispiele-zur-einrichtung-von-picklisten-profilen" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden findest du verschiedene Praxisbeispiele sowie eine Auflistung aller jeweils notwendigen Einstellungen für Picklisten-Profile. Diese Anwendungsfälle fokussieren sich auf den Ausschluss oder die gezielte Abarbeitung von B2B-Aufträgen.</p>
+<h3 id="b2b-auftrage-taglich-um-1100-uhr-als-eigener-kommissionierlauf">B2B-Aufträge täglich um 11:00 Uhr als eigener Kommissionierlauf<a class="headerlink" href="#b2b-auftrage-taglich-um-1100-uhr-als-eigener-kommissionierlauf" title="Permanent link">&para;</a></h3>
+<p>Nimm die unten genannten Einstellungen vor, um täglich automatisiert um 11:00 Uhr Picklisten für Aufträge aus dem Projekt <strong>B2B</strong> zu erstellen und diese Aufträge anschließend gesammelt in der Logistik abzuarbeiten.</p>
+<ul>
+<li>Maximal 10 Aufträge pro Pickliste</li>
+<li>Automatische Ausführung um 11:00 Uhr</li>
+<li>Projekt <strong>B2B</strong> auswählen</li>
+<li>Druckereinstellungen aus dem Projekt <strong>B2B</strong> übernehmen</li>
+</ul>
+<p><img alt="image-20240801-194338.png" src="https://help.xentral.com/hc/article_attachments/15227284674204" /></p>
+<h3 id="alle-auftrage-mit-einer-position-auer-b2b-projekt-verarbeiten">Alle Aufträge mit einer Position (außer B2B-Projekt) verarbeiten<a class="headerlink" href="#alle-auftrage-mit-einer-position-auer-b2b-projekt-verarbeiten" title="Permanent link">&para;</a></h3>
+<p>Nimm die unten genannten Einstellungen vor, um automatisiert Picklisten mit Aufträgen zu erstellen, die jeweils lediglich eine Position beinhalten. Dabei werden Aufträge des Projekts <strong>B2B</strong> von der automatischen Erstellung der Picklisten ausgeschlossen.</p>
+<ul>
+<li>Pro Pickliste maximal 25 Aufträge</li>
+<li>Maximal 5 Picklisten gleichzeitig</li>
+<li>Automatische Ausführung um 07:00 Uhr, 08:00 Uhr und 09:00 Uhr</li>
+<li>Nur Aufträge mit 1 Artikelposition berücksichtigen</li>
+<li>Projekt <strong>B2B</strong> ausschließen</li>
+<li>Druckereinstellungen aus den Projekteinstellungen übernehmen</li>
+</ul>
+<p><img alt="image-20240801-161357.png" src="https://help.xentral.com/hc/article_attachments/15227345260060" /></p>
+<h2 id="automatische-und-manuelle-erstellung-von-picklisten">Automatische und manuelle Erstellung von Picklisten<a class="headerlink" href="#automatische-und-manuelle-erstellung-von-picklisten" title="Permanent link">&para;</a></h2>
+<p>Mit Picklisten-Profilen kannst du Kommissionierläufe manuell starten oder sie automatisch generieren lassen. Du kannst die Abarbeitung von Picklisten selbst anstoßen, wenn besondere Bedürfnisse vorliegen, oder eine Automatik nutzen, die Aufträge zu vorgegebenen Zeiten verarbeitet und verschiedene Picklisten nach Prioritäten sortiert.</p>
+<h3 id="picklisten-manuell-erstellen">Picklisten manuell erstellen<a class="headerlink" href="#picklisten-manuell-erstellen" title="Permanent link">&para;</a></h3>
+<p>Die manuelle Übergabe von Picklisten-Profilen bietet dir die Kontrolle, spezifische Aufträge gezielt für die Verarbeitung auszuwählen, indem du einzelne oder alle Picklisten manuell zusammenstellst. Diese Methode ermöglicht eine flexible Anpassung an wechselnde Prioritäten und Anforderungen in deinem Tagesgeschäft. Du gibst die Aufträge, die die festgelegten Kriterien erfüllen, direkt für die weitere Logistikverarbeitung aus und gibst sie frei.</p>
+<p><strong>Beispiel <strong>: In der unten gezeigte Abbildung sind mehrere Aufträge mit grünen Auftragsampeln versandbereit. Da sie dem Projekt </strong> B2B</strong> zugeordnet sind, erfüllen sie die Kriterien des B2B Picklisten-Profils aus dem<a href="#UUID-639a7179-6df9-467b-1821-cda20df3f8be_id_PicklistenProfileKommissionierregelnPaligo-BeispielfreinPicklistenprofilPicklistenfrB2Bimmerum1100UhralseigenerKommissionierlauf">oben erläuterten Beispiel</a>und werden somit für die Verarbeitung durch das entsprechende Picklisten-Profil vorgeschlagen.</p>
+<p><img alt="image-20240801-174435.png" src="https://help.xentral.com/hc/article_attachments/15227296835740" /></p>
+<p><strong>Schritte zur manuellen Erzeugung einer Pickliste:</strong></p>
+<ol>
+<li>
+<p>Öffne das Menü <strong>Lager &gt; Picklisten-Profile</strong>.
+  Wähle ein Picklisten-Profil aus, indem du im Dropdown-Menü das gewünschte Profil anwählst, z.B.<strong>B2B</strong>.</p>
+</li>
+<li>
+<p>Wähle aus dem Dropdown-Menü oberhalb der Tabelle das gewünschte Picklisten-Profil aus.
+ <strong>Optional </strong>: Starte per Klick auf <strong>Alle</strong> die gleichzeitige Berechnung aller in Xentral vorhandenen Picklisten-Profile aus.</p>
+</li>
+<li>
+<p>Klicke auf <strong>Neu berechnen</strong>, um die Berechnung der Picklisten-Profile zu starten.</p>
+</li>
+<li>Nach der Berechnung werden die gefundenen Aufträge für das ausgewählte Picklisten-Profil unten in der Liste angezeigt. Pro Auftrag wird die Nummer des jeweiligen Kommissionierlaufs in der Spalte <strong>Charge</strong> angezeigt.</li>
+<li>Per Klick auf die Schaltfläche <strong>Einzeln </strong> oder <strong>Alle</strong> kannst du die Kommissionierläufe manuell verarbeiten.</li>
+<li>Die Einträge werden nun im Tab <strong>Warteschlange </strong> angezeigt. Dort warten sie auf die Weiterverarbeitung eines automatischen Logistikprozesses, der sie abschließt.<strong>Hinweis </strong>: Alle Aufträge, die sich aktuell in der Warteschlange befinden, kannst du auch im Menü <strong>Verkaufen &gt; Auftrag &gt; Tab:Versandübergabe</strong> einsehen.</li>
+</ol>
+<p>Der Prozessstarter verarbeitet alle Kommissionierläufe in der Warteschlange automatisch. Der benötigte Prozess heißt <strong>Batches </strong> Du kannst ihn im Modul <strong>Prozessstarter</strong> aufrufen und einrichten. Weitere Informationen zu diesem Modul findest du <a href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">in diesem Artikel</a>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Ergebnis </strong>: Die Aufträge werden entsprechend den Einstellungen im Projekt <strong>B2B</strong> in diesem Beispiel zu Lieferschein und Rechnung weitergeführt. Die Artikel werden aus dem Lager ausgebucht und die Lieferscheine mit Lagerplatz über den Lagerdrucker ausgedruckt. Die Kommissionierung der B2B-Aufträge kann im Lager getrennt von B2C-Aufträgen starten.</p>
+<p>Im Protokoll der übergebenen Aufträge (die Ampel-Symbole sind mit grauen Haken markiert) kannst du die Ausführungsart über das Picklisten-Profil <strong>B2B </strong> sehen. Die Zahl <strong>1</strong> bezeichnet dabei den ersten Stapel.</p>
+</blockquote>
+<p><img alt="image-20240801-175840.png" src="https://help.xentral.com/hc/article_attachments/15227284448156" /></p>
+<h3 id="picklisten-automatisiert-im-hintergrund-erzeugen">Picklisten automatisiert im Hintergrund erzeugen<a class="headerlink" href="#picklisten-automatisiert-im-hintergrund-erzeugen" title="Permanent link">&para;</a></h3>
+<p>Im Gegensatz zum manuellen Handling von Picklisten-Profilen musst du bei der automatischen Verarbeitung nicht selbst überprüfen, welche Picklisten erstellt werden können. Stattdessen werden die Zeitsteuerung und die Kriterien automatisch im Hintergrund berechnet, geprüft und die entsprechenden Kommissionierläufe generiert.</p>
+<p>Wird beispielsweise ein Picklisten-Profil namens <strong>alle Prio-Aufträge </strong> um 6:00 Uhr morgens berechnet, werden automatisch alle zugehörigen Aufträge an das Lager übergeben und der im Picklisten-Profil konfigurierte Prozess gestartet. So werden etwa alle Amazon-Aufträge für <strong>Packtisch 1</strong> und alle Shopify-Aufträge für <strong> Packtisch 2</strong> automatisch verarbeitet und je nach Einstellung entweder als Papier-Pickliste ausgedruckt oder für die Kommissionierung mit mobilen Geräten vorbereitet.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Durch individuelle Einstellungen wie Kommissionierverfahren und eine vollautomatisierte Erstellung von Picklisten kannst du rund um die Uhr steuern, wie deine hauseigene Logistik oder deinen Fulfillment-Dienstleister mit Picklisten und Aufträgen versorgt werden.</p>
+</blockquote>
+<p><strong>Schritte zur vollautomatisierten Erstellung von Picklisten:</strong></p>
+<ol>
+<li>Erstelle zunächst im Menü <strong>Lager &gt; Picklisten Profile</strong> Picklisten-Profile. Eine Übersicht über die notwendigen Schritte und verfügbaren Einstellungen findest du <a href="#UUID-639a7179-6df9-467b-1821-cda20df3f8be_section-idm234762766663551">in diesem Kapitel</a>.</li>
+<li>Lege in den Einstellungen der Picklisten-Profile Uhrzeiten oder Kriterien für die Abarbeitung an. Vergib optional ebenfalls Prioritäten.</li>
+<li>Stelle im Modul <strong>Prozessstarter </strong> den Prozess <strong>Batches</strong> ein.</li>
+<li>Lege zusätzlich ein Picklisten-Profil an, das zum Schluss alle offenen Aufträge mit grüner Auftragsampel abarbeitet. So sorgst du dafür, dass kein Auftrag übrig bleibt, der nicht durch einen automatischen Prozess abgearbeitet wurde.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360021241459 Versandregeln - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360021241459 Versandregeln</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360021241459 Versandregeln</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mithilfe des Moduls <strong>Versandregeln</strong> kannst du flexible Regelwerke aufbauen, anhand derer Xentral automatisch eine Versandart für einen Auftrag auswählt, sobald ebendiese Versandregeln zutreffen. Versandregeln können auf dem Umsatz, dem Gewicht, den enthaltenen Artikeln, dem Lieferland, der Zahlungsweise oder anderen Parametern basieren.</p>
+<p>Durch die Verwendung von Versandregeln kannst du einen Teil deiner Versandabwicklung automatisieren und somit Zeit sparen, da du in diesem Fall nicht mehr den Versanddienstleister in jedem Auftrag manuell auswählen musst. Stattdessen wird der Versanddienstleister automatisch aufgrund der von dir bestimmten Kriterien vorausgewählt.</p>
+<h2 id="typische-anwendungsfalle-fur-versandregeln">Typische Anwendungsfälle für Versandregeln<a class="headerlink" href="#typische-anwendungsfalle-fur-versandregeln" title="Permanent link">&para;</a></h2>
+<p>Die Festlegung von Versandregeln ist besonders dann für dich interessant, wenn du mit mehr als einem Versanddienstleister zusammenarbeitest und zusätzlich auch in mehrere Länder versendest. Im Folgenden findest du einige praxisnahe Beispiele:</p>
+<ul>
+<li>In der Praxis werden Versandregeln oft verwendet, um die Versandart für Aufträge zu ändern, die bestimmte Werte überschreiten. Ein Anwendungsfall ist beispielsweise die Änderung der Versandart je nach Sendungsgewicht. In diesem Fall wird bis zu einem Sendungsgewicht von 1,00 kg die Versandart <strong>DHL Kleinpaket </strong> gewählt und ab 1,01 kg der reguläre Paketversand über die Versandart <strong>DHL National </strong>. Bei einem Sendungsgewicht über 31,5 kg wird die Versandart <strong>Spedition</strong> zugeordnet.</li>
+<li>Die Versandart kann auch auf Basis des Ziellandes ausgewählt werden. Beispielsweise kannst du alle Aufträge mit dem Zielland <strong>Deutschland </strong> in der Empfängeradresse automatisch mit der Versandart <strong>DHL National </strong> versehen lassen, und analog dazu alle Aufträge mit dem Zielland <strong>Österreich </strong> per <strong>POST.AT </strong> versenden. Für die restlichen EU-Länder kann dann die Versandart <strong>UPS</strong> automatisch zugeordnet werden.</li>
+<li>Du bietest deine Artikel auf verschiedenen Verkaufskanälen an. Einige davon erfordern vielleicht einen schnelleren Versand der Artikel. Du kannst ganz einfach Versandregeln pro Verkaufskanal erstellen, sodass du Bestellungen aus bestimmten Verkaufskanälen eine Express-Versandart zuweisen kannst. So entsprichst du den Anforderungen des jeweiligen Marktplatzes und stellst zusätzlich sicher, dass die bestellten Artikel schnell bei denen Endkunden ankommen.</li>
+</ul>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<p>Das Modul <strong>Versandregeln</strong> in Xentral enthält die folgenden Features:</p>
+<ul>
+<li>Definition von Regeln, sodass Xentral automatisch eine bestimmte Versandart auswählt, sobald bestimmte Bedingungen zutreffen</li>
+<li>Anwendung der Regeln auf manuelle und importierte Aufträge: Bei manuellen Aufträgen schlägt Xentral dir eine Änderung der Versandmethode vor. Bei importierten Aufträgen wird die Versandart automatisch anhand der Regeln angepasst.</li>
+<li>Festlegung einer Vielzahl von Versandregeln und gezielte Steuerung der Anwendung mithilfe von Prioritäten</li>
+</ul>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Beachte die folgenden Einschränkungen für die Verwendung von Versandregeln in Xentral:</p>
+<ul>
+<li>Es ist nicht möglich, automatisch die optimale Versandart auszuwählen, z.B. im Hinblick auf die Versandkosten. Die Auswahl der Versandart basiert einzig und allein auf den Einstellungen, die du innerhalb der Versandregeln vornimmst.</li>
+<li>Falls Aufträge durch das Modul <strong>Übertragungen</strong> in Xentral importiert werden, kann die Versandart nicht mithilfe von Versandregeln geändert werden.</li>
+</ul>
+</blockquote>
+<h2 id="versandregeln-erstellen">Versandregeln erstellen<a class="headerlink" href="#versandregeln-erstellen" title="Permanent link">&para;</a></h2>
+<p>Gehe wie folgt vor, um Versandregeln in Xentral zu erstellen.</p>
+<ol>
+<li>Nutze die Smart Search, um das Modul <strong>Versandregeln</strong> zu öffnen.</li>
+<li>Klicke oben rechts im Bereich <strong>Aktionen </strong> auf <strong>+ Neue Regel</strong>.</li>
+<li>Nimm die Einstellungen wie in der folgenden Tabelle beschrieben vor.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p><img alt="versandregel-einstellungen-1-en.png" src="https://help.xentral.com/hc/article_attachments/21202734246812" /></p>
+<p><img alt="versandregel-einstellungen-2-en.png" src="https://help.xentral.com/hc/article_attachments/21202780174108" /></p>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>Gib hier einen beliebigen Namen für die Versandregel ein. Dieser Name ist nur in Xentral für dich und deine Mitarbeiter sichtbar, jedoch nicht für deine Endkunden.</td>
+</tr>
+<tr>
+<td><strong>Ziel-Versandart</strong></td>
+<td>Wähle die gewünschte Ziel-Versandart aus, die Aufträgen mit den festgelegten Kriterien zugeordnet werden soll. Wenn die Regel zutrifft, wird bei manueller Auftragseingabe ein Hinweis nach der Freigabe angezeigt. Bei Aufträgen, die aus einem Onlineshop importiert wurden, wird eine passende Regel automatisch angewandt und die Versandart im Auftrag verändert, ohne dass du selbst aktiv werden musst.</td>
+</tr>
+<tr>
+<td><strong>Aktiv <strong></td>
+<td>Aktiviere diese Option, um die Versandregel in Xentral zu aktivieren. Nur so kann die Versandregel vorgeschlagen oder automatisch ausgeführt werden. ⚠️</strong> Wichtig:</strong> Deaktivierte Versandregeln finden keine Anwendung!</td>
+</tr>
+<tr>
+<td><strong>Prio <strong></td>
+<td>Mithilfe der Priorisierung legst du fest, welche Regel gelten soll, falls zwei unterschiedliche Regeln auf denselben Auftrag zutreffen. Je kleiner die Zahl, die du hier eingibst, desto höher ist die Gewichtung der Regel. - Eingabe</strong> 0 <strong>: Höchste Gewichtung. Die Versandregel hat somit Vorrang vor anderen möglicherweise zutreffenden Versandregeln<br>- Eingabe</strong>1 <strong>: Zweithöchste Gewichtung. Trifft gleichzeitig eine Versandregel mit der Priorität</strong> 0 <strong> auf einen Auftrag zu, so findet die Regel mit der Priorität</strong>1</strong> keine Anwendung.</td>
+</tr>
+<tr>
+<td><strong>Artikel <strong></td>
+<td>Nutze diese Einstellung, um die Versandregel je nach bestimmten, im Auftrag enthaltenen Artikeln einzugrenzen. ⚠️</strong> Wichtig:</strong> Achte bei dieser Einstellung darauf, welche Operatoren du verwendest. Bei Verwendung der Operatoren &lt;, &gt; oder zwischen musst du die Artikel-ID und ausdrücklich nicht die Artikelnummer angeben. Am Einfachsten findest du die Artikel-ID, wenn du im Menü Verkaufen &gt; Artikel den gewünschten Artikel öffnest. Die allerletzten Ziffern der URL (oben in der Adressleiste deines Browsers, direkt nach dem =-Zeichen) stellen die Artikel-ID dar. Du kannst sie anschließend bei der Erstellung der Regel im Modul Versandregeln eintragen.</td>
+</tr>
+<tr>
+<td><strong>Fast-Lane</strong></td>
+<td>Wähle aus, ob die Versandregel für Aufträge greifen sollen, die zuvor mithilfe der <a href="https://help.xentral.com/hc/de/articles/360018083500#UUID-f6daef86-8b7a-d629-b91b-0175831892b3">Fast-Lane</a> als priorisierte Aufträge markiert wurden.</td>
+</tr>
+<tr>
+<td><strong>Auftragssumme</strong></td>
+<td>Hier kannst du Eingrenzungen bezüglich der Auftragssumme vornehmen, sodass die Versandregel, falls gewünscht, gezielt auf besonders niedrige oder hohe Auftragssummen angewandt werden kann.</td>
+</tr>
+<tr>
+<td><strong>Zahlungsweise</strong></td>
+<td>Lege eine Zahlungsweise fest, damit die Versandregel nur für Aufträge mit genau dieser Zahlungsweise angewandt wird.</td>
+</tr>
+<tr>
+<td><strong>Versandart <strong></td>
+<td>Wähle hier die Versandart aus, die ursprünglich am Auftrag hinterlegt ist. Die Versandregel greift dann für alle Aufträge mit dieser Versandart und ändert sie zur zuvor in der Regel definierten</strong> Ziel-Versandart</strong>.</td>
+</tr>
+<tr>
+<td><strong>Projekt <strong></td>
+<td>Diese Einstellung erlaubt dir, die Versandregel gezielt auf die Aufträge eines bestimmten Projekts anzuwenden. ⚠️</strong> Wichtig:</strong> Die Versandregel greift in diesem Fall lediglich für Aufträge des ausgewählten Projekts und lässt alle Aufträge aus anderen Projekten unberührt, auch wenn die in der Versandregel definierten Kriterien auch dort zutreffen würden. Überlege dir also sorgfältig, ob du diese Einstellung nutzt!</td>
+</tr>
+<tr>
+<td><strong>Lieferland</strong></td>
+<td>Wähle ein Lieferland aus, für die die Versandregel gelten soll. Das Lieferland ist in diesem Fall das Zielland, in die die Bestellung geliefert wird, also das Land der Kundenadresse.</td>
+</tr>
+<tr>
+<td><strong>Shop</strong></td>
+<td>Wähle hier den Shop aus, über den der Auftrag dich erreicht hat. Somit wird die Versandregel nur für Aufträge aus diesem spezifischen Verkaufskanal angewandt.</td>
+</tr>
+<tr>
+<td><strong>Volumen <strong></td>
+<td>Gib hier das Volumen des Auftrags ein, um die Versandregel anhand dieser Eigenschaft anzuwenden. 💬</strong> Anmerkung:</strong> Deine Angabe in diesem Feld muss der Summe der Volumina aller Artikel im Auftrag entsprechen. Du kannst das Volumen eines Artikels berechnen, indem du die Maße miteinander multiplizierst (Länge x Breite x Höhe). Beispielrechnung: Länge: 5 cm, Breite: 10 cm, Höhe: 25 cm = 1250. Die Abmessungen des Artikels findest du unter Verkaufen &gt; Artikel &gt; [Artikel öffnen] &gt; Bereich: Lager/Abmessungen.</td>
+</tr>
+<tr>
+<td><strong>Gewicht</strong></td>
+<td>Schränke die Versandregel anhand des Gesamtgewichts des Auftrags ein. Bei Gewichtsangaben unter 1 kg muss ein Dezimalpunkt verwendet werden. Angaben, die ein Komma enthalten werden nicht gewertet. Ein Gewicht von 100 g gibst du also als 0.1 kg an.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="verfugbare-operatoren-fur-versandregeln">Verfügbare Operatoren für Versandregeln<a class="headerlink" href="#verfugbare-operatoren-fur-versandregeln" title="Permanent link">&para;</a></h3>
+<p>Innerhalb der Einstellungen für Versandregeln sind verschiedene Operatoren verfügbar. Diese Operatoren kannst du nach Belieben verwenden oder leer lassen, falls ein Kriterium nicht in der Regel angewandt werden soll.</p>
+<p>Es gibt einen Unterschied zwischen den Operatoren <strong>=</strong> und <strong>in <strong>. Betrachten wir die Einstellung</strong> Artikel</strong>, erkennst du folgende Unterschiede:</p>
+<ul>
+<li>Verwendung des Operators <strong>=</strong>: Nur ein bestimmter Artikel darf exklusiv im Auftrag enthalten sein, damit die Versandregel Anwendung findet. Sind weitere Artikel im Auftrag enthalten, wird die Regel <strong>nicht</strong> angewandt.</li>
+<li>Verwendung des Operators <strong>in</strong>: Hiermit können mehrere Artikel zu einer Versandregel hinzugefügt werden. Ist ein beliebiger Artikel dieser Versandregel in einem Auftrag enthalten, wird die Regel angewandt. Dabei können auch andere Artikel im Auftrag enthalten sein.
+-<strong>Besonderheiten bei JIT-Stücklisten </strong>: Just-in-time (JIT) Stücklisten kannst du nur mit dem Operator <strong>in </strong> registrieren. Die Verwendung des Operators <strong>=</strong> ist <strong> nicht</strong> möglich.</li>
+</ul>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Beachte, dass nicht jeder Operator für jede Einstellungsmöglichkeit sinnvoll ist. Die Operatoren <strong>&lt;</strong> und <strong>&gt;</strong> machen bei metrischen Angaben wie beispielsweise dem <strong>Gewicht</strong> Sinn, finden aber keine Anwendung bei den Einstellungen zum <strong>Projekt</strong>.</p>
+</blockquote>
+<h2 id="versandregeln-anwenden">Versandregeln anwenden<a class="headerlink" href="#versandregeln-anwenden" title="Permanent link">&para;</a></h2>
+<p>Nachdem du<a href="#UUID-b0348b4e-1c8b-a85c-4458-f5fd59567909_id_360021241459_id_h_01FAMTHGP40ZP37SCKMZEDC08D">wie oben beschrieben</a>deine benötigten Versandregeln in Xentral erstellt hast, fragst du dich vermutlich, wie diese Versandregeln konkret zur Anwendung kommen.</p>
+<p>Die Antwort hängt davon ab, ob du deine Aufträge manuell angelegt hast, oder ob Aufträge automatisiert (z.B. über einen Online-Shop) in Xentral importiert werden.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Benötigst du noch mehr Informationen zur manuellen Auftragsanlage oder einen Überblick über die Möglichkeiten zum Auftragsimport in Xentral? Dann schau dir folgende Artikel genauer an:</p>
+<ul>
+<li>Auftragserfassung und Datenpflege</li>
+<li>Aufträge importieren und exportieren</li>
+</ul>
+</blockquote>
+<p>-<strong>Manuelle Auftragsanlage </strong>: Sobald du in einem manuell angelegten Auftrag auf <strong>Freigeben </strong> klickst, wird eine Meldung mit dem Text &ldquo;Es wurde eine Versandregel gefunden. Versandart ändern?&rdquo; angezeigt, falls eine Versandregel zutrifft. Per Klick auf <strong>Versandart ändern</strong> wird die Ziel-Versandart im Auftrag hinterlegt.
+-<strong>Automatischer Auftragsimport</strong>: Diese Aufträge erreichen dein System über die Schnittstelle zu deinen angebundene Online-Shops oder sonstige Importmöglichkeiten. Im Zuge dieses Imports wird die von dir aufgestellte Versandregel automatisch berücksichtigt und die gewünschte Ziel-Versandart am Auftrag hinterlegt. Du hier also nicht aktiv werden und kannst wie gewohnt mit der Auftragsbearbeitung fortfahren.</p>
+<h2 id="historie-einsehen">Historie einsehen<a class="headerlink" href="#historie-einsehen" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Historie </strong> werden die Aufträge angezeigt, bei denen du im Zuge der manuellen Auftragsanlage in XentralAuftrag bei der Meldung &ldquo;Es wurde eine Versandregel gefunden. Versandart ändern?&rdquo; auf <strong>Versandart ändern</strong> geklickt hast. Die Ansicht der ausgeführten Änderungen in der Historie erlaubt dir, im Zweifelsfall nachzuvollziehen, ob und welche Regeln angewandt wurden.</p>
+<h2 id="beispielhafte-anwendungsfalle">Beispielhafte Anwendungsfälle<a class="headerlink" href="#beispielhafte-anwendungsfalle" title="Permanent link">&para;</a></h2>
+<h3 id="versandart-nach-sendungsgewicht-zuordnen">Versandart nach Sendungsgewicht zuordnen<a class="headerlink" href="#versandart-nach-sendungsgewicht-zuordnen" title="Permanent link">&para;</a></h3>
+<p>In der Praxis werden oft Versandregeln genutzt, die eine Änderung der Versandart nach Gewichtsstaffeln vorsieht. In diesen Fällen ist es nützlich, wenn du dir vorab eine Gewichtsstaffel erstellst und erst dann für jede Regel eine entsprechende Versandregel in Xentral anlegst.</p>
+<p>Hier ist eine Beispiel-Matrix für eine Gewichtsstaffel:</p>
+<table>
+<thead>
+<tr>
+<th>Regel</th>
+<th>von</th>
+<th>bis</th>
+<th>Versand per</th>
+<th>Versandart in Xentral</th>
+<th>Produkt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gewicht in kg</td>
+<td>0.01</td>
+<td>0.5</td>
+<td>Warensendung</td>
+<td><strong>internetmarke</strong></td>
+<td>Bücher- und Warensendung 500 g</td>
+</tr>
+<tr>
+<td>kg</td>
+<td>0.51</td>
+<td>1.0</td>
+<td>DHL Kleinpaket (ehemals Warenpost)</td>
+<td><strong>dhl</strong></td>
+<td>Bücher- und Warensendung 1000 g</td>
+</tr>
+<tr>
+<td>kg</td>
+<td>1.01</td>
+<td>3.0</td>
+<td>DHL Paket National</td>
+<td><strong>dhl</strong></td>
+<td>Paket (bis 31,5 kg)</td>
+</tr>
+<tr>
+<td>kg</td>
+<td>3.01</td>
+<td>31.5</td>
+<td>DPD Classic</td>
+<td><strong>dpdapi</strong></td>
+<td>Paket (bis 31,5 kg)</td>
+</tr>
+<tr>
+<td>kg</td>
+<td>31.6</td>
+<td>1000</td>
+<td>Spedition</td>
+<td><strong>spedition</strong></td>
+<td>Palettenversand</td>
+</tr>
+</tbody>
+</table>
+<p>Unabhängig mit welcher Versandart die Aufträge im System importiert oder angelegt werden, soll laut der Gewichts-Regel die gewünschte Versandart gewählt werden.</p>
+<p>Lege entsprechend fünf verschiedene Versandregeln fest. Für diese gibst du eine Bezeichnung und die Gewichtsspanne sowie die gewünschte Versandart ein.</p>
+<h3 id="versandart-nach-sendungsgewicht-und-lieferland-zuordnen">Versandart nach Sendungsgewicht und Lieferland zuordnen<a class="headerlink" href="#versandart-nach-sendungsgewicht-und-lieferland-zuordnen" title="Permanent link">&para;</a></h3>
+<p>Ein weiterer Anwendungsfall ist die automatische Zuordnung einer Versandart für bestimmte Lieferländer. Die Zuordnung je nach Lieferland wird häufig zusätzlich zu einer Staffelung nach Sendungsgewicht vorgenommen. Wir erweitern in diesem Anwendungsfall also das oben beschriebene Beispiel zum Sendungsgewicht um das zusätzliche Kriterium des Lieferlands.</p>
+<p>Im folgenden Beispiel soll die zuvor erstellte Gewichtsklasse generell, also unabhängig vom Lieferland, gültig sein. Nur für den Fall, dass das Zielland Österreich ist, soll den Aufträgen eine andere Versandart zugeordnet werden.</p>
+<p>Wir fügen also folgende Regel für das Lieferland Österreich hinzu. Hier soll generell immer DPD gewählt werden, egal welches Gewicht der Auftrag hat:</p>
+<table>
+<thead>
+<tr>
+<th>Regel</th>
+<th>=</th>
+<th>Versand per</th>
+<th>Versandart in Xentral</th>
+<th>Produkt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lieferland</td>
+<td>Österreich</td>
+<td>DPD</td>
+<td><strong>dpdapi</strong></td>
+<td>Paket</td>
+</tr>
+</tbody>
+</table>
+<p>InXentral gibst du bei der Neuanlage der Regel die Priorität <strong>0</strong> sowie das Lieferland Österreich an.</p>
+<p>Da in den Regeln nach Gewichten zuvor keine Vorgabe für das Lieferland eingetragen wurde, müssen wir hier mit einer Priorisierung arbeiten. Denn bei Aufträgen mit dem Lieferland Österreich würde nun eine Regel aufgrund des Gewicht und dem Land greifen.</p>
+<p>Durch Vergabe der Priorität <strong>0</strong> wird die Regel nach Lieferland bevorzugt. Alle weiteren Regeln werden schwächer gewichtet (0 &gt; 1 &gt; 2 &gt; 3 &gt; 4 &gt; 5).</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

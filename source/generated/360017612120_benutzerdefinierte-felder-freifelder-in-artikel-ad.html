@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017612120 Benutzerdefinierte Felder Freifelder In Artikel Ad - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017612120 Benutzerdefinierte Felder Freifelder In Artikel Ad</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017612120 Benutzerdefinierte Felder Freifelder In Artikel Ad</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>In Xentral ermöglichen <strong>Freifelder</strong> eine individuelle und flexible Erweiterung der Standarddaten in verschiedenen Modulen. Sie bieten dir die Möglichkeit, zusätzliche Informationen zu erfassen, die über die regulär verfügbaren Felder hinausgehen – beispielsweise produktspezifische Eigenschaften, interne Bemerkungen, kundenspezifische Klassifizierungen oder projektspezifische Informationen.</p>
+<p>Freifelder sind vollständig konfigurierbar: Du kannst sie <strong>aktivieren </strong>,<strong>benennen <strong>, einem bestimmten <strong>Typ zuweisen </strong> (z. B. einzeiliges Textfeld, Datum, Auswahlmenü), ihre <strong>Position innerhalb der Maske </strong> oder im <strong>PDF-Dokument </strong> bestimmen und festlegen,</strong> ob und wo</strong> sie im System angezeigt werden sollen.</p>
+<p><img alt="Artikelfreifelder_konfiguration.png" src="https://help.xentral.com/hc/article_attachments/21878908399644" /></p>
+<h2 id="wann-freifelder-verwenden-standardfeld-oder-freifeld">Wann Freifelder verwenden: Standardfeld oder Freifeld?<a class="headerlink" href="#wann-freifelder-verwenden-standardfeld-oder-freifeld" title="Permanent link">&para;</a></h2>
+<p>Standardfelder verwenden, wenn die Info für Xentral-Logik wichtig ist (Steuern, Zahlungen, Versand, Integrationen).</p>
+<p>Freifelder nutzen für Zusatz- oder Individualdaten, die keine Xentral Kernprozesse beeinflussen bzw. die als Zusatzdaten für dein Businessmodell mit ausgewertet werden - aber keine ERP Xentral Standardfelder sind.</p>
+<p><strong>Beispiele Standardfelder (immer nutzen):</strong> Typische Standardfelder sind etwa Zahlungskonditionen, die für Mahnwesen und Rechnungen relevant sind, die USt-ID, die für Steuerprüfung und innergemeinschaftliche Lieferungen benötigt wird, die Versandart bzw. der Carrier, die für Labelerzeugung und Versandautomation gebraucht werden, sowie Trackingnummern, die für Kundenbenachrichtigungen und Belege genutzt werden. Ebenso zählen Bankdaten wie IBAN oder BIC, die für SEPA-Zahlungsprozesse notwendig sind, und Adressstammdaten, die für Versand und Reporting eine zentrale Rolle spielen, zu den Standardfeldern.<strong> Beispiele Freifelder (sinnvoll für):</strong></p>
+<p>Freifelder machen hingegen dort Sinn, wo individuelle Zusatzinformationen benötigt werden, etwa bei Gravur- oder Wunschtexten für Produkte, bei technischen Zusatzdaten wie der Leistung eines Solarmoduls, bei internen Attributen wie einem VIP-Status oder Vertriebsgebiet, bei Formeleingaben wie Länge, Breite oder Preis pro Quadratmeter oder bei Zusatzinformationen aus Shops wie einem Geschenkverpackungstext.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Praxisregel:</p>
+<ul>
+<li>Alles, was Xentral Pflichtdaten oder Standard-Automationen betrifft → Standardfeld.</li>
+<li>Alles, was individuell, kundenspezifisch oder rein intern ist → Freifeld.</li>
+</ul>
+</blockquote>
+<h2 id="freifelder-in-stammdaten">Freifelder in Stammdaten<a class="headerlink" href="#freifelder-in-stammdaten" title="Permanent link">&para;</a></h2>
+<p>Freifelder lassen sich in folgenden Stammdatenbereichen einsetzen:</p>
+<p>-<strong>Artikel</strong>: bis zu 40 frei benennbare Felder, inklusive Übersetzungen und Shop-Integration
+-<strong>Adressen</strong>: bis zu 20 Felder, davon zwei für die Adresssuche verwendbar
+-<strong>Projekte</strong>: bis zu 10 Felder, individuell darstellbar in projektbezogenen Tabellen</p>
+<p>Diese Felder eignen sich besonders zur strukturierten Erfassung zusätzlicher Daten und lassen sich in der Benutzeroberfläche an zentraler Stelle pflegen:<strong>Einstellungen &gt; Stammdaten &gt; Freifelder</strong>.</p>
+<h2 id="freifelder-in-belegen">Freifelder in Belegen<a class="headerlink" href="#freifelder-in-belegen" title="Permanent link">&para;</a></h2>
+<p>Darüber hinaus kannst du Freifelder in verschiedenen Belegarten einblenden lassen – zur Anzeige relevanter Informationen im operativen Ablauf sowie in gedruckten oder versendeten Dokumenten.</p>
+<p>Die folgenden Belegtypen unterstützen die Verwendung von Freifeldern:</p>
+<ul>
+<li>Angebot, Auftrag,</li>
+<li>Rechnung, Gutschrift, Proforma-Rechnung (nur bei aktiviertem Modul),</li>
+<li>Lieferschein, Kommissionierschein,</li>
+<li>Bestellung,</li>
+<li>Preisanfrage und Produktion (nur bei aktiviertem Modul).</li>
+</ul>
+<p>Die Anzeige in den Belegen wird über eine zentrale Einstellungs-Matrix gesteuert und kann bei Bedarf individuell für jedes Freifeld aktiviert oder deaktiviert werden. Auch eine Darstellung in PDFs ist konfigurierbar, sodass Freifelder z. B. im Angebots- oder Auftragsdokument sichtbar sind.</p>
+<h2 id="praxisbeispiele-fur-freifelder">Praxisbeispiele für Freifelder<a class="headerlink" href="#praxisbeispiele-fur-freifelder" title="Permanent link">&para;</a></h2>
+<p>Freifelder lassen sich in Xentral sehr vielseitig einsetzen – von der Abbildung kundenspezifischer Daten über die Erweiterung von Artikelinformationen bis hin zur Nutzung als Parameter für Berechnungen und individuelle Kalkulationen.</p>
+<h3 id="kundenspezifische-daten-personalisierungen-in-den-prozessfluss-integrieren">Kundenspezifische Daten (Personalisierungen) in den Prozessfluss integrieren<a class="headerlink" href="#kundenspezifische-daten-personalisierungen-in-den-prozessfluss-integrieren" title="Permanent link">&para;</a></h3>
+<p>Freifelder eignen sich ideal, um kundenspezifische Anpassungen direkt im ERP-System abzubilden. Ein typisches Beispiel sind Customizing-Artikel, wie etwa Produkte mit individueller Beschriftung, Namen oder Lasergravur.</p>
+<ul>
+<li>In den Artikelstammdaten legst du ein oder mehrere Freifelder an, z. B. Beschriftung, Gravurtext oder Kundenname.</li>
+<li>Diese Felder kannst du so konfigurieren, dass sie in Aufträgen und Rechnungen angezeigt werden oder nur intern genutzt werden.</li>
+<li>Über die API können solche Parameter auch direkt aus einem Webshop importiert werden, sodass kundenindividuelle Angaben automatisch in Xentral landen.</li>
+<li>Vorteil: Die Informationen begleiten den gesamten Prozess – von der Bestellung über die Produktion bis hin zum Lieferschein.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Kundenspezifische Daten (z. B. Gravurtext):</p>
+<p><strong>Konfiguration:</strong></p>
+<ul>
+<li>Bereich: Artikel-Freifelder</li>
+<li>Bezeichnung: Gravurtext</li>
+<li>Typ: mehrzeilig</li>
+<li>Spalte: 1</li>
+<li>Anzeige im PDF: Auftrag, Rechnung</li>
+</ul>
+<p><strong>Einsatz:</strong></p>
+<ul>
+<li>Gravurtext wird im Auftrag erfasst und im PDF angezeigt</li>
+<li>Optionaler Import der Daten aus dem Shop via API</li>
+</ul>
+</blockquote>
+<h4 id="erweiterte-artikelfelder">Erweiterte Artikelfelder<a class="headerlink" href="#erweiterte-artikelfelder" title="Permanent link">&para;</a></h4>
+<p>Mit Freifeldern lassen sich Produkte um zusätzliche technische oder inhaltliche Informationen erweitern, die im Standard nicht vorhanden sind.</p>
+<p>Beispiele aus der Praxis:</p>
+<p>-<strong>Solartechnik</strong>: Leistung in Watt-Peak, Wirkungsgrad oder Modulgröße.
+-<strong>Lebensmittel</strong>: Nährwerte, Allergene oder Zutatenlisten.
+-<strong>Maschinenbau</strong>: Spezifikationen wie Drehzahl, Leistungsaufnahme oder Maße.</p>
+<p>Diese Freifelder können sowohl in der Artikelmaske gepflegt als auch in <strong>Dokumenten oder Shops</strong> sichtbar gemacht werden. So lassen sich detaillierte Produktinformationen zentral verwalten und überall nutzen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Erweiterte Artikelfelder (z. B. Solarpanel-Leistung)</p>
+<p><strong>Konfiguration:</strong></p>
+<ul>
+<li>Bereich: Artikel-Freifelder</li>
+<li>Bezeichnung: Leistung (Wp)</li>
+<li>Typ: einzeilig</li>
+<li>Spalte: 2</li>
+<li>Anzeige im PDF: Angebot, Auftrag, Rechnung</li>
+</ul>
+<p><strong>Einsatz:</strong></p>
+<ul>
+<li>Technische Daten wie Leistung werden im Artikel gepflegt</li>
+<li>Angaben erscheinen automatisch im Angebotsdokument</li>
+</ul>
+</blockquote>
+<h4 id="freifelder-fur-formeln-und-kalkulationen">Freifelder für Formeln und Kalkulationen<a class="headerlink" href="#freifelder-fur-formeln-und-kalkulationen" title="Permanent link">&para;</a></h4>
+<p>Neben der reinen Datenerfassung können Freifelder auch als <strong>Parameter für Berechnungen</strong> dienen.</p>
+<p>Dadurch kannst du <strong>individuelle Kalkulationen</strong> direkt im ERP-System abbilden.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zum Thema <strong>Formeln</strong> findest du ausführlich im ArtikelFormeln.</p>
+</blockquote>
+<p>Beispiele:</p>
+<p>-<strong>Zuschnitt und Maßanfertigungen</strong>: Eingabe von Länge, Breite und Höhe in Freifeldern → automatische Berechnung des Preises oder Materialbedarfs.
+-<strong>Preisberechnungen</strong>: Freifeld für Rohstoffpreis kombiniert mit Mengenangaben → automatisierte Kalkulation der Endkosten.
+-<strong>Kundenspezifische Konfigurationen</strong>: Eingabe von Parametern wie Farbe, Größe oder Ausstattung → dynamische Preis- oder Produktionsanpassung.</p>
+<p>So werden Freifelder zu einem wichtigen Werkzeug, um <strong>maßgeschneiderte Produkte und Services</strong> im System abzubilden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Formeln und Kalkulationen (z. B. Zuschnitte)</p>
+<p><strong>Konfiguration:</strong></p>
+<ul>
+<li>Bereich: Artikel-Freifelder</li>
+<li>Bezeichnung: Länge → Typ: einzeilig</li>
+<li>Bezeichnung: Breite → Typ: einzeilig</li>
+<li>Bezeichnung: Preis/m² → Typ: einzeilig</li>
+<li>Spalte: 1 oder 2 (je nach Platzierung)</li>
+<li>Anzeige im PDF: Auftrag, Rechnung</li>
+</ul>
+<p><strong>Einsatz:</strong></p>
+<ul>
+<li>Maße werden direkt im Auftrag eingegeben</li>
+<li>Endpreis wird automatisch aus Länge × Breite × Preis/m² kalkuliert</li>
+<li>Ideal für Maßanfertigungen oder Zuschnitte</li>
+</ul>
+</blockquote>
+<h2 id="einrichtung-von-freifeldern-schritte-um-freifelder-einzurichten">Einrichtung von Freifeldern <strong>Schritte um Freifelder einzurichten: </strong><a class="headerlink" href="#einrichtung-von-freifeldern-schritte-um-freifelder-einzurichten" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Gehe zu <strong>Einstellungen &gt; Stammdaten &gt; Freifelder</strong>.</li>
+<li>Wähle den Bereich, in dem du Felder einrichten möchtest (Artikel, Adresse, Projekt).
+1.<strong>Aktiviere</strong> das gewünschte Freifeld über die Checkbox.</li>
+<li>Vergib eine <strong>Bezeichnung</strong>(z. B. „Material“ oder „Lieferbedingung“).</li>
+<li>Wähle den passenden <strong>Feldtyp</strong>(Einzeilig, Mehrzeilig, Datum, Checkbox, Selectfeld).</li>
+<li>Lege fest, wo das Feld angezeigt werden soll (Spalte 1,2 und Reihenfolge 1-n).</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h2 id="ubersicht-der-oberflache-zur-konfiguration-von-freifeldern">Übersicht der Oberfläche zur Konfiguration von Freifeldern<a class="headerlink" href="#ubersicht-der-oberflache-zur-konfiguration-von-freifeldern" title="Permanent link">&para;</a></h2>
+<p>Die Tabellen zeigen, welche Eingabefelder in Artikeln, Adressen und Projekten verfügbar sind, welche Funktion sie erfüllen und welche Optionen jeweils zur Auswahl stehen.</p>
+<p><strong>Artikel-Freifelder:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feld</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aktiviert</td>
+<td>Checkbox zum Ein- oder Ausschalten des Freifeldes. Nur aktivierte Felder können genutzt werden.</td>
+</tr>
+<tr>
+<td>Bezeichnung</td>
+<td>Freitextfeld für den Namen des Freifeldes (z. B. Material, Farbe, HS-Code).</td>
+</tr>
+<tr>
+<td>Typ</td>
+<td>Art der Eingabe: einzeilig, mehrzeilig, Datum, Checkbox oder Selectfeld.</td>
+</tr>
+<tr>
+<td>Spalte</td>
+<td>Position in der Artikelmaske: keine (Reiter „Parameter/Freifelder“), 1 (linke Seite im Tab „Artikel“), 2 (rechte Seite im Tab „Artikel“).</td>
+</tr>
+<tr>
+<td>Reihenfolge</td>
+<td>Zahl zur Festlegung der Anzeigereihenfolge (0, 1, 2 …).</td>
+</tr>
+<tr>
+<td>Anzeige im PDF</td>
+<td>Steuerung, in welchen Belegen das Freifeld angezeigt wird (z. B. Angebot, Auftrag, Rechnung, Lieferschein, Bestellung, Produktion).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Adress-Freifelder:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feld</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bezeichnung</td>
+<td>Freitextfeld für den Namen des Freifeldes (z. B. Kundengruppe, Region).</td>
+</tr>
+<tr>
+<td>Typ</td>
+<td>Art der Eingabe: einzeilig, mehrzeilig, Datum, Checkbox oder Selectfeld.</td>
+</tr>
+<tr>
+<td>Spalte</td>
+<td>Position in der Adressmaske: keine, 1 (linke Seite), 2 (rechte Seite).</td>
+</tr>
+<tr>
+<td>Reihenfolge</td>
+<td>Zahl zur Festlegung der Reihenfolge der Anzeige (0, 1, 2 …).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Projekt-Freifelder:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feld</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bezeichnung</td>
+<td>Freitextfeld für den Namen des Freifeldes (z. B. Projektart, Kostenstelle).</td>
+</tr>
+<tr>
+<td>Typ</td>
+<td>Art der Eingabe: einzeilig, mehrzeilig, Datum, Checkbox oder Selectfeld.</td>
+</tr>
+<tr>
+<td>Spalte</td>
+<td>Position in der Projektmaske: keine, 1 (linke Seite), 2 (rechte Seite).</td>
+</tr>
+<tr>
+<td>Reihenfolge</td>
+<td>Zahl zur Festlegung der Anzeigereihenfolge (0, 1, 2 …).</td>
+</tr>
+<tr>
+<td>Tabelle</td>
+<td>Gibt an, ob das Freifeld in der Projekt-Tabelle angezeigt wird. Werte: 0 = nein, &gt;0 = ja.</td>
+</tr>
+<tr>
+<td>Spaltenbreite in %</td>
+<td>Legt die Breite in Projekt-Tabellen fest. Standardwert: 10 %, individuell anpassbar.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beleg-Freifelder:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feld</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aktiviert</td>
+<td>Checkbox zum Ein- oder Ausschalten der Nutzung von Freifeldern in Belegen.</td>
+</tr>
+<tr>
+<td>Zuordnung</td>
+<td>Über eine Haken-Matrix lässt sich festlegen, in welchen Belegarten das Freifeld sichtbar ist. Typische Belege sind Angebot, Auftrag, Rechnung, Gutschrift, Lieferschein, Bestellung, Produktion sowie optionale Belegarten wie Proforma oder Preisanfrage.</td>
+</tr>
+<tr>
+<td>Anzeige im PDF</td>
+<td>Wenn aktiviert, erscheint das Freifeld auch im generierten Beleg-PDF.</td>
+</tr>
+<tr>
+<td>Bearbeitung im Beleg</td>
+<td>Aktive Freifelder erscheinen im Bearbeitungsmodus des Belegs und können dort befüllt oder angepasst werden. Hinweis: Nur in nicht gesperrten Dokumenten verfügbar.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="freifelder-in-artikeln">Freifelder in Artikeln<a class="headerlink" href="#freifelder-in-artikeln" title="Permanent link">&para;</a></h2>
+<p>In Artikeln kannst du bis zu 40 Freifelder definieren. Diese können individuell beschriftet und in der Artikelmaske eingeblendet werden.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Gehe zu <strong>Einstellungen &gt; Stammdaten &gt; Freifelder</strong>.</li>
+<li>Setze im Bereich <strong>Artikel-Freifelder </strong> den Haken, um ein Feld zu <strong>aktivieren</strong>.</li>
+<li>Trage eine <strong>Bezeichnung</strong> ein.</li>
+<li>Wähle den Feldtyp:</li>
+<li>Lege im Dropdown Spalte fest, wo das Feld angezeigt werden soll:</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h3 id="ubersetzbare-freifelder-in-artikeln">Übersetzbare Freifelder in Artikeln<a class="headerlink" href="#ubersetzbare-freifelder-in-artikeln" title="Permanent link">&para;</a></h3>
+<p>Im Artikel-Tab Freifelder kannst du Feldinhalte für verschiedene Sprachen hinterlegen.</p>
+<ul>
+<li>Standardmäßig ist Deutsch vorausgefüllt.</li>
+<li>Über <strong>Fehlende Spracheinträge nachladen</strong> werden weitere Sprachen automatisch ergänzt.</li>
+<li>Diese Übersetzungen können bei angebundenen Shops (z. B. Shopware) exportiert werden.</li>
+</ul>
+<h3 id="erweiterte-artikelsuche">Erweiterte Artikelsuche<a class="headerlink" href="#erweiterte-artikelsuche" title="Permanent link">&para;</a></h3>
+<p>Die Felder Freifeld 1 und Freifeld 2 können für die Artikelsuche aktiviert werden.<strong>Einstellungen &gt; Grundeinstellungen &gt; System</strong>.</p>
+<h2 id="freifelder-in-adressen">Freifelder in Adressen<a class="headerlink" href="#freifelder-in-adressen" title="Permanent link">&para;</a></h2>
+<p>Auch in den Adress-Stammdaten kannst du Freifelder definieren, um individuelle Zusatzinformationen zu Kunden, Lieferanten oder Ansprechpartnern zu speichern. Insgesamt stehen dir hier 20 Felder zur Verfügung.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Gehe zu <strong>Einstellungen &gt; Stammdaten &gt; Freifelder</strong>.</li>
+<li>Setze im Bereich <strong>Adress-Freifelder </strong> den Haken, um ein Feld zu <strong>aktivieren</strong>.</li>
+<li>Gib eine <strong>Bezeichnung</strong> ein, die den Zweck klar beschreibt (z. B. „Kundengruppe“, „Region“, „Vertriebsgebiet“).</li>
+<li>Wähle den passenden <strong>Feldtyp</strong>:</li>
+<li>Lege die <strong>Spalte</strong> fest, in der das Feld erscheinen soll: keine, 1 (linke Seite), 2 (rechte Seite).</li>
+<li>Bestimme die <strong>Reihenfolge</strong>, in der die Felder angezeigt werden sollen.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h3 id="anzeige-in-der-adresse">Anzeige in der Adresse<a class="headerlink" href="#anzeige-in-der-adresse" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Aktivierte Freifelder kannst du in den Tab Weitere Felder der Adresse einblenden.</li>
+<li>Besonders wichtige Felder lassen sich ganz nach vorne verschieben, sodass sie sofort sichtbar sind.</li>
+</ul>
+<h3 id="adresssuche-mit-freifeldern">Adresssuche mit Freifeldern<a class="headerlink" href="#adresssuche-mit-freifeldern" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Über die <strong>erweiterte Adresssuche </strong> kannst du <strong>Freifeld 1 und 2</strong> durchsuchbar machen.
+-<strong>Einstellungen &gt; Gruneinstellungen &gt; System &gt; Sonstiges. </strong></p>
+</li>
+<li>
+<p>Besonderheit: Der Inhalt von <strong>Freifeld 1</strong> wird in der Suchergebnisliste <strong>in Klammern hinter der Adresse angezeigt</strong>.</p>
+</li>
+</ul>
+<h2 id="freifelder-in-projekten">Freifelder in Projekten<a class="headerlink" href="#freifelder-in-projekten" title="Permanent link">&para;</a></h2>
+<p>Auch Projekte können zusätzliche Informationen über Freifelder speichern. Insgesamt stehen hier 10 Felder zur Verfügung.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Gehe zu <strong>Einstellungen &gt; Stammdaten &gt; Freifelder</strong>.</li>
+<li>Setze im Bereich <strong>Projekt-Freifelder </strong> den Haken, um ein Feld zu <strong>aktivieren</strong>.</li>
+<li>Trage eine <strong>Bezeichnung</strong> ein (z. B. „Projektart“, „Abteilung“).</li>
+<li>Wähle den <strong>Feldtyp</strong>(einzeilig, mehrzeilig, Datum, Checkbox oder Selectfeld).</li>
+<li>Lege die <strong>Spalte</strong> fest, in der das Feld im Projekt angezeigt werden soll.</li>
+<li>Definiere die <strong>Reihenfolge</strong>, wenn mehrere Felder aktiv sind.</li>
+<li>Optional: Stelle ein, ob das Freifeld auch in der Projekt-Tabelle erscheinen soll.</li>
+<li>Klicke auf <strong>Speichern </strong>.<strong>Besonderheiten bei Projekten</strong>: Zusätzlich kannst du die Spaltenbreite in % bestimmen, wenn das Freifeld in einer Projektübersichtstabelle angezeigt wird. Standardmäßig ist die Breite auf 10 % eingestellt, kann aber flexibel angepasst werden, um längere Inhalte sichtbar zu machen.</li>
+</ol>
+<h2 id="freifelder-in-belegen_1">Freifelder in Belegen<a class="headerlink" href="#freifelder-in-belegen_1" title="Permanent link">&para;</a></h2>
+<p>Neben Stammdaten lassen sich Freifelder auch in <strong>Belegen</strong> verwenden, damit Zusatzinformationen direkt im operativen Geschäft (z. B. Angebot, Auftrag, Rechnung) erscheinen.</p>
+<p>Unterstützte Belegarten:</p>
+<ul>
+<li>Angebot</li>
+<li>Auftrag</li>
+<li>Rechnung</li>
+<li>Gutschrift</li>
+<li>Lieferschein</li>
+<li>Kommissionierschein</li>
+<li>Bestellung</li>
+<li>Proforma-Rechnung (nur mit Modul)</li>
+<li>Preisanfrage</li>
+<li>Produktion <strong>Schritte: </strong></li>
+</ul>
+<ol>
+<li>Aktiviere unter <strong>Einstellungen &gt; Administration &gt; Systemeinstellungen &gt; Belege </strong> die Option <strong>Positionen mit Freifelder</strong>.</li>
+<li>Öffne die Optionen-Matrix zur Zuordnung.<strong>Einstellungen &gt; Stammdaten &gt; Freifelder</strong>.</li>
+<li>Setze die <strong>Haken </strong> bei den <strong>Belegarten</strong>, in denen das jeweilige Freifeld sichtbar sein soll.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h3 id="anzeige-freifelder-in-belegen">Anzeige Freifelder in Belegen<a class="headerlink" href="#anzeige-freifelder-in-belegen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Aktivierte Freifelder werden im Beleg (z. B. Auftrag) unter den Artikelpositionen angezeigt.</li>
+<li>Im <strong>Bearbeitungsmodus</strong> kannst du die Inhalte der Felder direkt editieren.</li>
+<li>Im generierten <strong>PDF-Dokument</strong> erscheinen die Felder, wenn die Option „Anzeige im PDF“ aktiviert ist.</li>
+<li>Wichtig: Freifelder werden nur bei <strong>nicht gesperrten Dokumenten</strong> nachgeladen.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Praxisbeispiel:</p>
+<ul>
+<li>Ein Artikel hat das Freifeld „Material“ mit dem Inhalt „925 Sterling Silber“.</li>
+<li>Dieses Feld wurde für den Belegtyp <strong>Auftrag</strong> aktiviert.</li>
+<li>Ergebnis: Das Feld erscheint sowohl im <strong>Auftrags-PDF</strong> als auch im Bearbeitungsmodus des Auftrags.</li>
+</ul>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

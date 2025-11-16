@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16510637433628 Otto Connector Einstellungen Anpassen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>16510637433628 Otto Connector Einstellungen Anpassen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>16510637433628 Otto Connector Einstellungen Anpassen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="uberblick">Überblick<a class="headerlink" href="#uberblick" title="Permanent link">&para;</a></h2>
+<p>Um die Schnittstelle in den Produktivmodus zu setzen, folge dem Menüpfad <strong>Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; OTTO</strong>. Wähle dann dasZahnrädchen.</p>
+<p><img alt="connect_einstellungen_otto.png" src="https://help.xentral.com/hc/article_attachments/19385168766364" /></p>
+<h3 id="grundeinstellungen">Grundeinstellungen<a class="headerlink" href="#grundeinstellungen" title="Permanent link">&para;</a></h3>
+<p>Hier kannst du den Namen der Integration ändern, den Produktivmodus aktivieren / deaktivieren und bei Bedarf die bei der initialen Einrichtung gewählten Features anpassen.</p>
+<p><img alt="OTTO__Einstellungen__StatusFeatures.png" src="https://help.xentral.com/hc/article_attachments/20957182391708" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Detailanpassungen an einzelnen Features kannst du im BereichWorkflowsvornehmen.</p>
+</blockquote>
+<h2 id="erweiterte-einstellungen">Erweiterte Einstellungen<a class="headerlink" href="#erweiterte-einstellungen" title="Permanent link">&para;</a></h2>
+<p>Im Reiter Erweiterte Einstellungen kannst dudie Verknüpfung der Artikel über Fremdnummern (statt über Artikelnummern/SKUs) freischalten.</p>
+<h3 id="verarbeitung-von-fremdnummern">Verarbeitung von Fremdnummern<a class="headerlink" href="#verarbeitung-von-fremdnummern" title="Permanent link">&para;</a></h3>
+<h4 id="uberblick_1">Überblick<a class="headerlink" href="#uberblick_1" title="Permanent link">&para;</a></h4>
+<p>Standardmäßig sind Artikel zwischen Xentral und dem Shop/Marktplatz über die Artikelnummer (SKU) miteinander verknüpft. Für den Fall, dass du im Shop/Marktplatz andere SKUs verwendest als in Xentral, kannst du den Abgleich über die Fremdnummern aktivieren.</p>
+<h4 id="eingabe-und-pflege-der-fremdnummern">Eingabe und Pflege der Fremdnummern<a class="headerlink" href="#eingabe-und-pflege-der-fremdnummern" title="Permanent link">&para;</a></h4>
+<p>Du kannst Fremdnummern grundsätzlich auf zwei Arten eingeben und verwalten:</p>
+<ol>
+<li>Mit der App <strong>Artikel Fremdnummern</strong>(Suche über die Supersearch): Hier kannst du für alle in Xentral hinterlegten Artikel Fremdnummern anlegen und verwalten.</li>
+<li>Unter<strong>Stammdaten &gt; Artikel &gt;<em> Artikel öffnen </em>&gt; Reiter Fremdnummern</strong>. Hier kannst du Fremdnummern für den geöffneten Artikel eintragen und pflegen.</li>
+</ol>
+<p>Wenn du mehr Informationen zum Anlegen und Verwalten von Fremdnummern brauchst, findest du hier den entsprechenden<a href="https://help.xentral.com/hc/de/articles/360016758199#UUID-af5d8ee2-07dd-16dd-7655-bfa265d5cd7c">Hilfe-Artikel</a>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p><em>Beispiel</em></p>
+<p>Angenommen, du verkaufst die beiden Artikel &ldquo;Wasser Kirsche&rdquo; und &ldquo;Wasser Himbeere&rdquo;, die in Xentral die Artikelnummern PN-100012 bzw. PN-100014 haben, in drei verschiedenen Shops. Dort haben die Artikel jeweils unterschiedliche SKUs.</p>
+<p>Du trägst die je Shop gültige <strong>Fremdnummer <strong>ein, verknüpfst den </strong> Shop <strong>und wählst eine eindeutige</strong> Bezeichnung</strong> für die jeweilige Fremdnummern-Kategorie.</p>
+<p><strong>Anmerkung</strong></p>
+<p>Als Fremdnummer musst du die shop-/marktplatzseitige SKU verwenden. Andere Felder wie Produkt-ID o. ä. sind nicht wirksam.</p>
+</blockquote>
+<h4 id="aktivierung-der-fremdnummern-verknupfung-in-der-shop-schnittstelle">Aktivierung der Fremdnummern-Verknüpfung in der Shop-Schnittstelle<a class="headerlink" href="#aktivierung-der-fremdnummern-verknupfung-in-der-shop-schnittstelle" title="Permanent link">&para;</a></h4>
+<p>Um die Fremdnummern-Verknüpfung zu aktivieren, gehe wie folgt vor:</p>
+<p><img alt="Otto_Einstellungen_ErweiterteEinstellungen_Fremdnummern.png" src="https://help.xentral.com/hc/article_attachments/19385107419804" /></p>
+<ol>
+<li>Navigiere in den Einstellungen zum Reiter &ldquo;Erweiterte Einstellungen&rdquo;.</li>
+<li>Setze die Schaltfläche Fremdnummern nach rechts (aktiv).</li>
+<li>Trage die Bezeichnung der Fremdnummern-Kategorie in das Feld ein.</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+<h4 id="loschen-von-artikelnummern">Löschen von Artikelnummern<a class="headerlink" href="#loschen-von-artikelnummern" title="Permanent link">&para;</a></h4>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Beachte, dass Einträge aus der Fremdnummern-Tabelle entfernt werden, wenn ein Artikel in Xentral gelöscht wird. Deshalb werden Artikel im Shop/Marktplatz bei aktiver Fremdnummern-Verknüpfung nicht automatisch gelöscht, wenn sie in Xentral gelöscht werden. In diesem Fall musst du die Löschung im Shop manuell vornehmen.</p>
+<p>Generell empfehlen wir jedoch, Artikel nicht zu löschen, sondern nur inaktiv zu setzen.</p>
+<h2 id="loschen-der-integration">Löschen der Integration<a class="headerlink" href="#loschen-der-integration" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p><strong>Diese Funktion entfernt die Integration unwiderruflich. Dies bedeutet, dass alle verbundenen Daten und Einstellungen entfernt werden und die Integration nicht wiederhergestellt werden kann. </strong> Wenn du dir ganz sicher bist, dass du die Integration nicht mehr benötigst, z. B. weil du sie nur testweise angelegt hattest, kannst du die Funktion im Abschnitt <strong>Gefahrenbereich</strong> verwenden. Stelle sicher, dass du alle benötigten Daten gesichert hast und dass du die richtige Integration ausgewählt hast. Klicke dann auf <strong>Löschen</strong>.</p>
+</blockquote>
+<p><img alt="Mirakl_Einstellungen_Loschfunktion.png" src="https://help.xentral.com/hc/article_attachments/19385168775836" /></p>
+<p>Du erhälst eine Sicherheitsabfrage, die du bestätigen musst. Die Integration wird nach Bestätigung endgültig und unwiderruflich entfernt.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

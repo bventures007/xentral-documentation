@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360020014200 Xentral Allgemein - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360020014200 Xentral Allgemein</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360020014200 Xentral Allgemein</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="inhaltsverzeichnis">Inhaltsverzeichnis<a class="headerlink" href="#inhaltsverzeichnis" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Welche Unternehmensprozesse sind in xentral abbildbar?</li>
+<li>Was kann mit xentral automatisiert werden?</li>
+<li>Welche Shops kann ich an xentral anbinden?</li>
+<li>Diese Themen sind wichtig für deinen Start</li>
+<li>Firmendaten einrichten</li>
+<li>Steuer / Währung</li>
+<li>Einrichten des Briefpapiers</li>
+<li>Briefpapier hinterlegen</li>
+<li>Aufbau um das Briefpapier einzustellen</li>
+<li>Elemente auf dem Briefpapier</li>
+<li>Schriftart und Schriftgröße</li>
+<li>Textvorlagen</li>
+<li>Für was braucht man Textvorlagen?</li>
+<li>Texte hinterlegen</li>
+<li>Wichtige Variablen</li>
+<li>Zahlungsweisen</li>
+<li>Anlegen und Bearbeiten von Zahlungsweisen</li>
+<li>Konfiguration der Zahlungsweisen</li>
+<li>Geschäftsbriefvorlagen</li>
+<li>Welche Geschäftsbriefvorlagen gibt es?</li>
+<li>Wie können die Geschäftsbriefvorlagen angepasst werden?</li>
+<li>Nummernkreise definieren</li>
+<li>Wann sollte man den Nummernkreis einstellen?</li>
+<li>Wie sollte man den Nummernkreis vergeben?</li>
+<li>Nummernkreise einstellen</li>
+<li>Beispiel für einen bewährten Nummernkreis</li>
+<li>Variablen im Nummernkreis</li>
+<li>Mahnwesen</li>
+<li>Prinzip des Mahnwesens</li>
+<li>Einstellungen im Mahnwesen</li>
+<li>Benutzer und Rechtevergabe</li>
+<li>Account-Typen</li>
+<li>Standard-User anpassen</li>
+<li>Weitere Benutzer anlegen</li>
+<li>Rechte verteilen</li>
+<li>Benutzervorlage und Rechte kopieren</li>
+<li>Standard E-Mail einrichten</li>
+<li>Dokumentendrucker einrichten</li>
+<li>PDF Download Drucker</li>
+<li>Anbindung eines physischen Druckers über ein Mac Mini</li>
+<li>Etikettendrucker einrichten</li>
+<li>Grundlegende Informationen zu Adapterboxen</li>
+<li>Einrichtung der Hardware</li>
+<li>Einstellungen in Xentral</li>
+<li>Geschäftskonten einrichten</li>
+<li>Wozu brauche ich einen Kontoimport?</li>
+<li>Möglichkeiten ein Geschäftskonto anzubinden</li>
+<li>Geschäftskonto erstellen</li>
+<li>Verwendung in den einzelnen Bereichen</li>
+<li>Versanddienstleister - Paketmarken erstellen</li>
+<li>Was sind die Vorteile einen Versanddienstleister an Xentral anzubinden?</li>
+<li>Versanddienstleister in Xentral</li>
+<li>Paketmarke erstellen</li>
+<li>Lagerstruktur definieren</li>
+<li>Lagerhaltung: Ja oder nein?</li>
+<li>Wie verwalte ich meine Lagerartikel?</li>
+<li>Anlegen von Lager und Regalen</li>
+<li>Lagerstruktur aufbauen</li>
+<li>Adressen importieren</li>
+<li>Alt-Daten als CSV-Datei vorhanden?</li>
+<li>Tipps zum Importieren von Daten</li>
+<li>Standard-Importvorlagen verwenden</li>
+<li>Adress-Typen für den Import</li>
+<li>Artikel importieren</li>
+<li>Reihenfolge der Importe</li>
+<li>Standard-Importvorlagen für Artikel</li>
+<li>Artikel-Preise importieren</li>
+<li>Bestehende Artikel updaten</li>
+</ul>
+<h2 id="welche-unternehmensprozesse-sind-in-xentral-abbildbar">Welche Unternehmensprozesse sind in xentral abbildbar?<a class="headerlink" href="#welche-unternehmensprozesse-sind-in-xentral-abbildbar" title="Permanent link">&para;</a></h2>
+<p>In xentral können viele gängige Unternehmensprozesse abgebildet und oft auch automatisiert werden. Angefangen bei der Auftragsbearbeitung über die Rechnungsstellung und Retourenbearbeitung kann auch der Einkauf und die Buchhaltung mit Verbindlichkeiten mit xentral optimiert werden.</p>
+<h3 id="auftragsbearbeitung">Auftragsbearbeitung<a class="headerlink" href="#auftragsbearbeitung" title="Permanent link">&para;</a></h3>
+<p>Im Zuge der Auftragsbearbeitung werden zunächst Aufträge aus dem Shop importiert. Anschließend wird z.B. überprüft ob die Ware bezahlt und auf Lager ist, bevor eine automatisierte Übergabe an die Logistik stattfindet. Hier findet die Kommissionierung der Ware und der Druck von Lieferschein und Versandlabel statt. Die Ware kann nun versendet werden.</p>
+<p>Interessante Artikel:<a href="https://community.xentral.com/hc/de/articles/360016758399-Auftrag">Auftrag</a>,<a href="https://community.xentral.com/hc/de/articles/360016810080-Top-1-Autoversand">Übergabe Logistik</a></p>
+<h3 id="rechnungsstellung">Rechnungsstellung<a class="headerlink" href="#rechnungsstellung" title="Permanent link">&para;</a></h3>
+<p>Dieser Prozess beinhaltet neben der automatisierten Rechnungserstellung auch den automatischen Zahlungsabgleich, das Mahnen bei nicht bezahlten Rechnungen und den Finanzbuchhaltungsexport zur weiteren Vearbeitung.</p>
+<p>Interessante Artikel:<a href="https://community.xentral.com/hc/de/articles/360016759159-Rechnung">Rechnung</a>,<a href="https://community.xentral.com/hc/de/articles/360016758959-Zahlungseingang">Zahlungsabgleich</a>,<a href="https://community.xentral.com/hc/de/articles/360016721760-Mahnwesen">Mahnwesen</a>,<a href="https://community.xentral.com/hc/de/articles/360016725100-Finanzbuchhaltung-Export">Finanzbuchhaltungsexport</a></p>
+<h3 id="retourenbearbeitung">Retourenbearbeitung<a class="headerlink" href="#retourenbearbeitung" title="Permanent link">&para;</a></h3>
+<p>Dieser Prozess umfasst die alle notwendigen Schritte von der Erfassung der Retoure über die Erstellung im Auftrag und die individuelle Bearbeitung hin zur Ausstellung einer Gutschrift und dem Abgleich des Kontos.</p>
+<p>Interessante Artikel:<a href="https://community.xentral.com/hc/de/articles/360016764099-Retouren-Belege">Retourenbeleg</a>,<a href="https://community.xentral.com/hc/de/articles/360016722700-Gutschrift-Stornorechnung">Gutschrift</a>,<a href="https://community.xentral.com/hc/de/articles/360016758959-Zahlungseingang">Abgleich des Kontos</a></p>
+<h3 id="einkauf">Einkauf<a class="headerlink" href="#einkauf" title="Permanent link">&para;</a></h3>
+<p>Der in xentral abbildbare Einkaufsprozess beginnt mit der Erzeugung und Übermittlung einer Bestellung und endet mit der Buchung des Wareneingang und der Einlagerung auf die Lagerplätze.</p>
+<p>Interessante Artikel:<a href="https://community.xentral.com/hc/de/articles/360016719720-Bestellvorschlag">Bestellung</a>,<a href="https://community.xentral.com/hc/de/articles/360016763959-Wareneingang-Paket-Annahme">Wareneingang</a></p>
+<h3 id="buchhaltung-mit-verbindlichkeiten">Buchhaltung mit Verbindlichkeiten<a class="headerlink" href="#buchhaltung-mit-verbindlichkeiten" title="Permanent link">&para;</a></h3>
+<p>In diesem Prozess geht es darum Verbindlichkeiten korrekt zu erfassen und zuzuordnen, diese durch Prüfung von Wareneingang und Abgleich mit der Bestellung zu validieren und anschließend in den Zahlungsverkehr zu laden. Nachdem die Zahlung ausgeführt wurde erfolgt eine Statusänderung und die Verbindlichkeiten können für die Finanzbuchhaltung exportiert werden.</p>
+<p>Interessante Artikel:<a href="https://community.xentral.com/hc/de/articles/360016721380-Verbindlichkeiten">Verbindlichkeiten</a>,<a href="https://community.xentral.com/hc/de/articles/360016724700-Zahlungsverkehr">Überweisung</a>,<a href="https://community.xentral.com/hc/de/articles/360016758959-Zahlungseingang">Zahlungsabgleich</a>,<a href="https://community.xentral.com/hc/de/articles/360016725100-Finanzbuchhaltung-Export">Finanzbuchhaltungsexport</a></p>
+<h2 id="was-kann-mit-xentral-automatisiert-werden">Was kann mit xentral automatisiert werden?<a class="headerlink" href="#was-kann-mit-xentral-automatisiert-werden" title="Permanent link">&para;</a></h2>
+<p>Alle Geschäftsprozesse, die automatisierbar sind, sollen auch wirklich ohne den Mausklick eines Mitarbeiters ablaufen. Bsp. Logistikprozesse wie</p>
+<ul>
+<li>Warenannahme und Weiterverarbeitung</li>
+<li>Sortierung und Lagerung der Waren</li>
+<li>Kontrolle der freizugebenden Bestellungen</li>
+<li>Versand</li>
+</ul>
+<h2 id="welche-shops-kann-ich-an-xentral-anbinden">Welche Shops kann ich an xentral anbinden?<a class="headerlink" href="#welche-shops-kann-ich-an-xentral-anbinden" title="Permanent link">&para;</a></h2>
+<p>In xentral werden Schnittstellen für viele bekannte Online Shops angeboten, dazu zählen Online-Marktplätze wie Amazon und eBay oder Schnittstellen zu selbsterstellten Shops mit E-Commerce Software wie Shopify, Woocommerce oder Shopware. Genaueres zu den verfügbaren Schnittstellen für Shops gibt es im Artikel eCommerce und Informationen zur Einrichtung der Schnittstellen im Artikel<a href="https://community.xentral.com/hc/de/articles/360016756799-Online-Shops">Online Shops</a>.</p>
+<p>Verlinkung auf eComm Artikel</p>
+<h2 id="diese-themen-sind-wichtig-fur-deinen-start">Diese Themen sind wichtig für deinen Start<a class="headerlink" href="#diese-themen-sind-wichtig-fur-deinen-start" title="Permanent link">&para;</a></h2>
+<p>Die wichtigsten Themen für die Einrichtung von xentral und die ersten Schritte im neuen ERP-System können auch in dieser<a href="https://www.youtube.com/playlist?list=PLqxPSU-2o9lTmjhE22w7GYGg6y5ctXSK8">Playlist</a>auf dem Youtube-Kanal von xentral gefunden werden. In den folgenden Abschnitten wird ein Einrichtungsplan mit den wichtigsten Einstellungen und Funktionen für einen gelungenen Start mit xentral durchgegangen.</p>
+<h3 id="firmendaten-einrichten">Firmendaten einrichten<a class="headerlink" href="#firmendaten-einrichten" title="Permanent link">&para;</a></h3>
+<p>Die Grundeinstellungen können unterAdministration→Einstellungen→System→Grundeinstellungen oder durch Eingabe von  &ldquo;Grundeinstellungen&rdquo; in der SuperSearch gefunden werden. Die folgenden Punkte sind dabei wichtig.</p>
+<p><strong>Firmenanschrift hinterlegen</strong></p>
+<p>Hier wird die Firmenanschrift des Hauptsitzes hinterlegt.<img alt="blobid1.png" src="https://help.xentral.com/hc/article_attachments/360023480579/blobid1.png" /></p>
+<p>Weiterführende Informationen sind auch in folgendem Helpdesk Artikel zu finden:<a href="https://community.xentral.com/hc/de/articles/360016760679-Grundeinstellungen#toc-0">Firmenanschrift</a></p>
+<h3 id="steuer-wahrung">Steuer / Währung<a class="headerlink" href="#steuer-wahrung" title="Permanent link">&para;</a></h3>
+<p>Bitte hier mindestens folgende Punkte überprüfen:</p>
+<ul>
+<li>Steuersatz normal → 19%</li>
+<li>Steuersatz ermäßigt → 7%</li>
+<li>Netto oder Brutto Rechnungen → aktuell so eingestellt, dass Firmen netto bekommen und Privatkunden brutto</li>
+<li>Währung → EUR</li>
+<li>Standard Zahlweise → Rechnung (wird als Default-Wert in Belege übernommen, kann später noch feiner auf Adresssebene abgeändert werden)</li>
+<li>Standard Versandart → hier gleich auf den Paketdienstleister stellen, der hauptsächlich verwendet wird</li>
+<li>auf Basis der hier hinterlegten Standard Marge wird später im Rahmen der Anlage von Artikeln ein Verkaufspreis auf Basis des Einkaufspreises vorgeschlagen</li>
+</ul>
+<p>Im unteren Bereich Finanzbuchhaltung Export Kontenrahmen bitte mit dem Steuerberater bzw.  der Buchhaltung klären, ob die Erlöskonten angepasst werden sollen.<img alt="blobid0.png" src="https://help.xentral.com/hc/article_attachments/360023455640/blobid0.png" /></p>
+<p>Weiterführende Informationen sind auch in folgendem Helpdesk Artikel zu finden:<a href="https://community.xentral.com/hc/de/articles/360016774199-Steuers%C3%A4tze">Steuersätze</a></p>
+<p><strong>Zentrale Systemeinstellungen</strong></p>
+<p>Folgende Dinge lassen sich hier unter anderem zentral einstellen:</p>
+<ul>
+<li>Welche Zusatzinformationen zum Artikel in den Belegen von Xentral mit abgebildet werden (Seriennummern, EANs, Zolltarifnummern, MHD usw.)</li>
+<li>Wie viele Einträge in der Listenansicht von Artikel-, Auftrags- und Adresslisten usw. angezeigt werden</li>
+<li>Wie die Beschriftung /Bezeichnung von Elementen der Belege erfolgen soll ● Welche Spalten in der Auftragstabelle zusätzlich angezeigt werden sollen</li>
+</ul>
+<p>Sollten im Verlauf der Einrichtung Fragen zu Konfigurationsmöglichkeiten aufkommen, gerne  dazu ein neues Ticket eröffnen, dann können wir gerne die entsprechende Systemeinstellung  mitteilen. Aktuell geht es nur um einen ersten Überblick.</p>
+<p>Weiterführende Informationen sind auch auf unserem Helpdesk zu finden:<a href="https://community.xentral.com/hc/de/articles/360016760679-Grundeinstellungen#toc-83">System</a></p>
+<h3 id="einrichten-des-briefpapiers">Einrichten des Briefpapiers<a class="headerlink" href="#einrichten-des-briefpapiers" title="Permanent link">&para;</a></h3>
+<p>Pfad: Administration → Einstellungen → Grundeinstellungen → Briefkopf</p>
+<p>Es gibt in Xentral umfangreiche Möglichkeiten das eigene Briefpapier zu gestalten. Man kann einen eigenen PDF-Hintergrund mit Logo und Footer hinterlegen und diverse Abstände und Positionierungen von Elementen auf Belegen einstellen.</p>
+<h4 id="briefpapier-hinterlegen">Briefpapier hinterlegen<a class="headerlink" href="#briefpapier-hinterlegen" title="Permanent link">&para;</a></h4>
+<p>Man erstellt ein Dokument mit Logo und Footer in Word oder ähnlichem Programm und exportiert dieses als PDF.
+<a href="https://xentral.com/helpdesk/kurzanleitung-grundeinrichtung-der-firmendaten-briefkopf#nav-pdf-als-hintergrund">PDF als Briefpapier hinterlegen</a></p>
+<h4 id="aufbau-um-das-briefpapier-einzustellen">Aufbau um das Briefpapier einzustellen<a class="headerlink" href="#aufbau-um-das-briefpapier-einzustellen" title="Permanent link">&para;</a></h4>
+<p>Man benötigt hierfür:</p>
+<ul>
+<li>Eine Kunden-Adresse in den Stammdaten</li>
+<li>1 - 2 Artikel zum Einfügen in der Artikeltabelle</li>
+</ul>
+<p>Man erstellt einen Beleg-Entwurf auf diesen Kunden (z.B. Angebot). Einen Entwurf kann man jederzeit wieder löschen.</p>
+<p>Die Briefkopf-Einstellungen öffnet man in einem Browser-Tab und den Beleg-Entwurf im anderen Tab.
+Wenn man eine Einstellung getätigt und gespeichert hat, kann man im Beleg kurz zwischen dem <em>Positionen</em> und <em>Vorschau</em> Untertab wechseln um die Änderungen auf dem Beleg zu begutachten und ggf. weiter anzupassen.</p>
+<p>​<img alt="" src="images/?name=file-1.png" /></p>
+<p>​</p>
+<h4 id="elemente-auf-dem-briefpapier">Elemente auf dem Briefpapier<a class="headerlink" href="#elemente-auf-dem-briefpapier" title="Permanent link">&para;</a></h4>
+<p>Viele Elemente auf dem Briefpapier lassen sich anpassen.</p>
+<p>​<img alt="" src="images/?name=file-2.png" /></p>
+<p>​</p>
+<p><strong>Hinweis:</strong>
+Das Briefpapier ist standardmäßig schon komplett eingestellt und kann in den meisten Fällen unverändert übernommen werden.</p>
+<p>Die nachfolgenden Optionen sind darüber hinaus eine Auflistung aller <strong>optionalen</strong> Einstellungs-Möglichkeiten für die einzelnen Elemente, falls doch etwas angepasst werden soll.</p>
+<ol>
+<li>Logo</li>
+<li>Absender</li>
+<li>Empfänger</li>
+<li>Infobox</li>
+<li>Betreff</li>
+<li>Textvorlage vor der Artikeltabelle</li>
+<li>Artikeltabelle</li>
+<li>Textvorlage nach der Artikeltabelle</li>
+<li>Barcode</li>
+<li>Seitenanzahl</li>
+<li>Footer</li>
+</ol>
+<p>Weiterführende Informationen:<a href="https://xentral.com/helpdesk/kurzanleitung-grundeinrichtung-der-firmendaten-briefkopf#nav-elemente-auf-dem-briefpapier">Elemente auf dem Briefpapier</a></p>
+<h4 id="schriftart-und-schriftgroe">Schriftart und Schriftgröße<a class="headerlink" href="#schriftart-und-schriftgroe" title="Permanent link">&para;</a></h4>
+<p>Eine Anleitung zur eigenen Schriftart findet man hier:<a href="https://xentral.com/helpdesk/kurzanleitung-grundeinrichtung-der-firmendaten-briefkopf#nav-eigene-schriftarten-einf-gen">Eigene Schriftart einfügen</a></p>
+<p>Für die Schriftgröße gibt es in den Einstellungen für viele Elemente ein Schriftgröße Feld.</p>
+<h3 id="textvorlagen">Textvorlagen<a class="headerlink" href="#textvorlagen" title="Permanent link">&para;</a></h3>
+<p>Pfad: Administration → Einstellungen → Grundeinstellungen → Textvorlagen</p>
+<p>Mit Textvorlagen kann man wiederkehrende Geschäfts-Texte auf Belegen einstellen um sich manuelle Tiparbeit zu sparen.</p>
+<h4 id="fur-was-braucht-man-textvorlagen">Für was braucht man Textvorlagen?<a class="headerlink" href="#fur-was-braucht-man-textvorlagen" title="Permanent link">&para;</a></h4>
+<p>Textvorlagen werden automatisch beim Erstellen von Belegen vor und nach der Artikeltabelle auf dem Beleg eingefügt.</p>
+<p>Bei der Abwicklung standardmäßiger Geschäftsvorfälle muss man dadurch im Normalfall nichts mehr <strong>manuell </strong> tippen.<strong>Hinweis:</strong> Es handelt sich hierbei um Standardtexte, die immer auf dem Beleg erscheinen und nicht individuell ausgestellt werden können. Es sollten somit nur allgemeine Texte hinterlegt werden, die immer auf dem Beleg stehen können.</p>
+<h4 id="texte-hinterlegen">Texte hinterlegen<a class="headerlink" href="#texte-hinterlegen" title="Permanent link">&para;</a></h4>
+<p>Bei den Texten muss man sich überlegen ob man den Text vor (1.) oder nach (2.) der Artikeltabelle im Beleg haben will.</p>
+<p>​<img alt="" src="images/?name=file.png" /></p>
+<p>​</p>
+<p>Auf dem Beleg sehen die Einstellungen, dann entsprechend so aus:
+Variablen werden mit dem Inhalt gefüllt und IF-Bedingungen nur dargestellt, falls zutreffend.</p>
+<p>​<img alt="" src="images/?name=file-1.png" /></p>
+<p>​</p>
+<h4 id="wichtige-variablen">Wichtige Variablen<a class="headerlink" href="#wichtige-variablen" title="Permanent link">&para;</a></h4>
+<p>Beleg-Adresse</p>
+<ul>
+<li>{ANSCHREIBEN} → Adress-Anschreiben Feld. Siehe auch: Personalisierte Anrede</li>
+<li>{FREIFELD1} → Adress-Freifeld 1</li>
+<li>{FREIFELD2} → Adress-Freifeld 2</li>
+<li>{FREIFELD3} → Adress-Freifeld 3</li>
+<li>{KUNDENNUMMER} → Kundennummer des Kunden</li>
+<li>{LAND} → ISO Länderkürzel</li>
+<li>{LIEFERADRESSE} → Lieferadresse (nur wenn Lieferadresse als abweichend angegeben)</li>
+<li>
+<p>{USTID} → Umsatzsteuernummer des Kunden</p>
+</li>
+<li>
+<p>{GLN} → Adress-GLN</p>
+</li>
+<li>{LIEFERGLN} → GLN aus der Lieferadresse</li>
+<li>{ADRESSE_RECHNUNG_GLN} → GLN aus der abweichenden Rechnungsadresse</li>
+</ul>
+<p>Beleg-Details</p>
+<ul>
+<li>{BELEGNUMMER} → Belegnummer des aktuellen Dokumentes</li>
+<li>{IHREBESTELLNUMMBER} → Ihre Bestellnummer / Kommission</li>
+<li>{INTERNET} → Shop-Bestellnummer bei importierten Aufträgen</li>
+<li>{LIEFERBEDINGUNG} → Lieferbedingungen z.B. Frei Haus</li>
+<li>{LIEFERTERMIN} → Feld Wunschliefertermin</li>
+<li>{TRACKINGNUMMER} → Trackingnummer falls Paketmarke erzeugt und Tracking bestätigt</li>
+<li>{VERSANDARTBEZEICHNUNG} → Bezeichnung der Versandart</li>
+</ul>
+<p>Beleg-Positionen</p>
+<ul>
+<li>{ANZAHLTEILE} → Gesamtmenge aller Positionen</li>
+<li>{NETTOGEWICHT} → Gesamtgewicht aller Positionen</li>
+</ul>
+<p>Eine Anleitung wie man Variablen mit IF-Abfragen verknüpft, findet man hier:
+<a href="https://xentral.com/helpdesk/kurzanleitung-grundeinrichtung-der-firmendaten-textvorlagen#nav-if-block-mit-variablen">IF Block mit Variablen</a></p>
+<p>Weiterführende Informationen finden sich auch auf unserem Helpdesk:
+<a href="https://xentral.com/helpdesk/kurzanleitung-grundeinrichtung-der-firmendaten-textvorlagen">Textvorlagen einstellen</a></p>
+<h3 id="zahlungsweisen">Zahlungsweisen<a class="headerlink" href="#zahlungsweisen" title="Permanent link">&para;</a></h3>
+<p>Pfad: Administration → Einstellungen → Zahlungsweisen</p>
+<p>Zahlungsweisen ermöglichen in xentral die Einstellung bestimmter Zahlungsarten in Belegen, die dann mit ihrer Typeinstellung eine bestimmte Verhaltensweise zur Folge haben (Beispiel: Vorkasse → Warten auf Zahlungseingang). Des weiteren können Texte zahlungsweisenspezifisch für Belege hinterlegt werden. Die Funktionsweise ähnelt den Textvorlagen.</p>
+<p><strong>Hinweis:</strong> Das Anbinden von Geschäftskonten zum Zahlungsabgleich wird in einem späteren Ticket erläutert, hier geht es um das Einpflegen von Texten für die Zahlungsweisen. Soll ein Text für alle Zahlungsweisen gelten, so sollte dieser bereits unter Administration <em>→</em> Grundeinstellungen <em>→</em> Textvorlagen gepflegt worden sein. <strong>Zusatzinformation:</strong> Aus systemhistorischen Gründen wurden die Zahlungsweisentext ursprünglich wie auch die Textvorlagen unter * Administration → Einstellungen → Grundeinstellungen<em>gepflegt. Da aufgrund dessen die Zahlungsweisen in zwei unterschiedlichen Bereichen gepflegt werden mussten, ist das in der aktuelle Version zusammen geführt worden. Der Bereich * Zahlungsweisen</em>in den Grundeinstellungen kann also ignoriert werden.</p>
+<h4 id="anlegen-und-bearbeiten-von-zahlungsweisen">Anlegen und Bearbeiten von Zahlungsweisen<a class="headerlink" href="#anlegen-und-bearbeiten-von-zahlungsweisen" title="Permanent link">&para;</a></h4>
+<p>Die Zahlungsweisen können in xentral unter <em>Administration → Einstellungen → Zahlungsweisen</em> hinterlegt werden. Folgende Zahlungsweisen sind in xentral voreingestellt wählbar:</p>
+<ul>
+<li>Amazon</li>
+<li>Barzahlung</li>
+<li>Billsafe</li>
+<li>EC-Karte</li>
+<li>Kreditkarte</li>
+<li>Lastschrift</li>
+<li>Nachnahme</li>
+<li>Paypal</li>
+<li>Ratenzahlung</li>
+<li>Rechnung</li>
+<li>Secupay</li>
+<li>Sofortüberweisung</li>
+<li>Vorkasse</li>
+</ul>
+<p>Sobald hier eine Zahlungsweise hinterlegt ist, steht diese zur Auswahl auf Belegen zur Verfügung. Die jeweilige Zahlungsweise kann bearbeiten werden, indem man in der Zahlungsweisen Übersicht auf Bleistift-Button geht:</p>
+<p>​<img alt="" src="images/?name=file.png" /></p>
+<p>​</p>
+<p>Neben den voreingestellten können auch neue Zahlungsweisen hinzugefügt werden. Dies erfolgt unter <em>Administration → Einstellungen → Zahlungsweisen → NEU</em>. Wenn die gewünschte Zahlungsweise nicht vorhanden ist, kann eine eigene Zahlungsweise über den Button &ldquo;Custom&rdquo; angelegt und definiert werden.</p>
+<h4 id="konfiguration-der-zahlungsweisen">Konfiguration der Zahlungsweisen<a class="headerlink" href="#konfiguration-der-zahlungsweisen" title="Permanent link">&para;</a></h4>
+<p>Im Folgenden ein kurzes Beispiel zum Hinterlegen des ZahlungsweisenTexts, der Einblendung auf dem Rechnungsbeleg und einigen weiteren Einstellungen:</p>
+<p>​<img alt="" src="images/?name=file-1.png" /></p>
+<p>​</p>
+<ul>
+<li>Autom. bezahlt (Rechnung) → Setzt Zahlungsstatus einer Rechnung auf &lsquo;bezahlt&rsquo;. Diese Einstellung verhält sich so, als würde eine Rechnung manuell auf bezahlt gesetzt werden.</li>
+<li>Verhalten wie → Rechnung / Vorkasse / Lastschrift: Setzt das Verhalten einer neu angelegten Zahlungsweise wie bei Vorkasse, Lastschrift oder Rechnung (z.B. Mahnwesenverhalten). Beeinflusst z.B. die Skontofelder im Beleg - bei Verhalten Rechnung hat man mehr Felder zur Auswahl als bei Vorkasse/Lastschrift. Außerdem wird bei Vorkasse Auträgen auf den Zahlungseingang gewartet, bevor diese weiter verarbeitet werden.</li>
+<li>Text auf Beleg → Hier wird der zahlungsweisenspezifische Text gepflegt.</li>
+</ul>
+<p>So sieht der Rechnungsbeleg (innerhalb einer Rechnung im Reiter Vorschau) mit diesem Text aus:</p>
+<p>​<img alt="" src="images/?name=file-2.png" /></p>
+<p>​</p>
+<p>Weiterführende Informationen sind auch auf unserem Helpdesk zu finden:
+<a href="https://xentral.com/helpdesk/kurzanleitung-grundeinrichtung-der-firmendaten-zahlungsweisen-neu">Zahlungsweisen</a></p>
+<h3 id="geschaftsbriefvorlagen">Geschäftsbriefvorlagen<a class="headerlink" href="#geschaftsbriefvorlagen" title="Permanent link">&para;</a></h3>
+<p>Pfad: Administration → Einstellungen → Geschäftsbrief Vorlagen</p>
+<p>Geschäftsbriefvorlagen erleichtern das Versenden von Dokumenten, indem automatisch eine Textvorlage als Anschreiben oder E-Mail erstellt wird. Die gespeicherte Vorlage wird automatisch beim Anlegen eines neuen Dokumentes geladen und kann entweder manuell einzeln oder in Kombination mit einem Logistikprozess versendet werden.</p>
+<p><strong>Hinweis</strong>: Wann genau die Geschäftsbriefvorlagen versendet werden, wird noch einmal in späteren Einrichtungstickets erklärt. Hier geht es darum ein Grundverständnis für die Funktion der Geschäftsbriefvorlagen zu schaffen.</p>
+<h4 id="welche-geschaftsbriefvorlagen-gibt-es">Welche Geschäftsbriefvorlagen gibt es?<a class="headerlink" href="#welche-geschaftsbriefvorlagen-gibt-es" title="Permanent link">&para;</a></h4>
+<p>Geschäftsbriefvorlagen können beim (automatisierten) Versand von Belegen oder anderen Benachrichtigungen an den Kunden verwendet werden:</p>
+<ul>
+<li>(automatische) E-Mail beim Versand von Angebot / Auftrag / Bestellung / Lieferschein / Gutschrift / Preisanfrage</li>
+<li>Selbstabholer Benachrichtigung</li>
+<li>Versandbenachrichtigung mit Trackingnummer</li>
+<li>Ausstehende Zahlung</li>
+<li>Zahlungsdifferenz</li>
+<li>Zahlungseingang</li>
+<li>Stornierung</li>
+<li>Mahnwesen Texte</li>
+</ul>
+<h4 id="wie-konnen-die-geschaftsbriefvorlagen-angepasst-werden">Wie können die Geschäftsbriefvorlagen angepasst werden?<a class="headerlink" href="#wie-konnen-die-geschaftsbriefvorlagen-angepasst-werden" title="Permanent link">&para;</a></h4>
+<p>Unter <em>Administration → Einstellungen → Geschäftsbrief Vorlagen</em> können neue Vorlagen angelegt oder bereits bestehende Vorlagen editiert werden:</p>
+<p>​<img alt="" src="images/?name=file.png" /></p>
+<p>​</p>
+<p>Folgende Felder sind dabei zu berücksichtigen:</p>
+<ul>
+<li>Typ: Diese Bezeichnung (Typ) muss unbedingt genau so gewählt werden wie im Standard vorhanden. Andernfalls ist die Geschäftsbriefvorlage nicht automatisch vom System abrufbar sein und somit nicht funktionieren.</li>
+<li>Sprache: Für die Geschäftsbriefvorlagen steht standardmäßig &ldquo;deutsch&rdquo; und &ldquo;englisch&rdquo; für die Belegsprache zur Verfügung. Sobald ein Beleg auf einen Kunden erstellt wird, der die entsprechende Belegsprache eingestellt hat, wird diese Vorlage verwendet.</li>
+<li>Projekt: In dieses Feld wird entweder nichts eingegeben (leer = Vorlage gilt für alle Projekte), oder das jeweilige Projekt, für das der Text geladen werden soll.</li>
+<li>Dateien: Hier können Dateien hinterlegt werden, welche bei jedem Versand einer Vorlage diesen Typs mitgeschickt werden soll, beispielsweise AGBs.</li>
+</ul>
+<p>​<img alt="" src="images/?name=file-1.png" /></p>
+<p>​</p>
+<p>Weiterführende Informationen sind auch auf unserem Helpdesk zu finden:
+<a href="https://xentral.com/helpdesk/kurzanleitung-geschaeftsbriefvorlagen-anpassen">Geschäftsbriefvorlagen anpassen</a></p>
+<h3 id="nummernkreise-definieren">Nummernkreise definieren<a class="headerlink" href="#nummernkreise-definieren" title="Permanent link">&para;</a></h3>
+<p>Pfad: Administration → Einstellungen → Grundeinstellungen → Nummernkreise</p>
+<p>Aus den Nummernkreisen werden unter anderem die Belegnummern, Adressnummern und Artikelnummern erzeugt.</p>
+<h4 id="wann-sollte-man-den-nummernkreis-einstellen">Wann sollte man den Nummernkreis einstellen?<a class="headerlink" href="#wann-sollte-man-den-nummernkreis-einstellen" title="Permanent link">&para;</a></h4>
+<p>Bevor die ersten Adressen und Belege angelegt und freigegeben werden.
+Diese beziehen die nächste Nummer immer aus dem Nummernkreis und können zumindest bei Belegen nicht mehr geändert werden.</p>
+<h4 id="wie-sollte-man-den-nummernkreis-vergeben">Wie sollte man den Nummernkreis vergeben?<a class="headerlink" href="#wie-sollte-man-den-nummernkreis-vergeben" title="Permanent link">&para;</a></h4>
+<p><strong>Am Anfang muss man sich fragen:</strong>
+a) alten Nummernkreis übernehmen
+b) neuen Nummernkreis definieren</p>
+<p>Falls ein komplett neuer Nummernkreis erstellt wird, sollte man diesen mit dem <strong>Steuerberater absprechen </strong>.<strong>Wichtige Hinweise zur Wahl des Nummernkreises:</strong></p>
+<ul>
+<li>Es können Buchstaben verwendet werden (außer bei Kunden und Lieferanten), aber am Ende muss eine fortlaufende Nummer stehen (z.B. 10000)</li>
+<li>Die Nummernkreise sollten alle unterschiedlich sein und sich nicht überschneiden können (z.B. Kunden: 100000 und Lieferanten: 400000)</li>
+<li>Die Anzahl der Stellen sollten sich im Laufe nicht ändern. (nicht bei 1 anfangen sondern z.B. 100001)</li>
+<li>Lieferanten und Kundennummern sollten die gleiche Anzahl an Stellen haben. Außerdem sollten diese 5-stellig, 6-stellig oder 7-stellig ohne Buchstaben sein um Probleme beim Buchhaltungs-Export vorzubeugen.</li>
+<li>Falls projekt-spezifische Nummernkreise verwendet werden, dürfen diese nicht identisch sein (mehr dazu im Ticket &ldquo;Projekte&rdquo;).</li>
+</ul>
+<h4 id="nummernkreise-einstellen">Nummernkreise einstellen<a class="headerlink" href="#nummernkreise-einstellen" title="Permanent link">&para;</a></h4>
+<p>Mit einem Klick auf den <em>bearbeiten</em> Button kann man die nächste Nummer ändern.</p>
+<p>​​<img alt="" src="images/?name=file-2.png" /></p>
+<p>​</p>
+<p>​<img alt="" src="images/?name=file-3.png" /></p>
+<p>​</p>
+<h4 id="beispiel-fur-einen-bewahrten-nummernkreis">Beispiel für einen bewährten Nummernkreis<a class="headerlink" href="#beispiel-fur-einen-bewahrten-nummernkreis" title="Permanent link">&para;</a></h4>
+<p>Wichtig ist z.B. die zu erwartende Anzahl neuer Kunden und Dokumente pro Jahr.
+Die Nummernkreise sollten auf jeden Fall groß genug gewählt werden.</p>
+<ul>
+<li>Angebotsnummer: 100000</li>
+<li>Auftragsnummer: 200000</li>
+<li>Lieferscheinnummer: 300000</li>
+<li>Rechnungsnummer: 400000</li>
+<li>Gutschriftennummer: 900000</li>
+<li>Bestellungsnummer: 100000</li>
+<li>Arbeitsnachweisnummer: 300000</li>
+<li>Reisekostennummer: 30000</li>
+<li>Produktionsnummer: 40000</li>
+<li>Anfragenummer: 50000</li>
+<li>Kundennummer: 10000</li>
+<li>Lieferantennummer: 70000</li>
+<li>Mitarbeiternummer: 90000</li>
+<li>Artikelnummer: 1000000</li>
+</ul>
+<p>Weiterführende Informationen:
+<a href="https://xentral.com/helpdesk/kurzanleitung-grundeinrichtung-der-firmendaten-nummernkreise#nav-nummernkreise-definieren">Nummernkreise definieren</a></p>
+<h4 id="variablen-im-nummernkreis">Variablen im Nummernkreis<a class="headerlink" href="#variablen-im-nummernkreis" title="Permanent link">&para;</a></h4>
+<p>Man kann Variablen im Nummernkreis verwenden:
+z.B. {JAHR}-10000 gibt als Nummer 2020-10000 <strong>Mögliche Variablen:</strong></p>
+<ul>
+<li>{JAHR} → 4-stellige Anzeige des Jahres</li>
+<li>{MONAT} → Anzeige des aktuellen Monates</li>
+<li>{TAG} → Anzeige des aktuellen Tages</li>
+<li>{KW} → Anzeige der aktuellen Kalenderwoche</li>
+<li>{ADRESSE_} → Inhalte der Beleg-Adresse: z.B. {ADRESSE_KUNDENNUMMER}, {ADRESSE_FREIFELD1}, etc.</li>
+</ul>
+<p>Weiterführende Informationen finden sich auch auf unserem Helpdesk:
+<a href="https://xentral.com/helpdesk/kurzanleitung-grundeinrichtung-der-firmendaten-nummernkreise">Nummernkreise definieren</a></p>
+<h3 id="mahnwesen">Mahnwesen<a class="headerlink" href="#mahnwesen" title="Permanent link">&para;</a></h3>
+<p>Pfad: Buchhaltung → Mahnwesen</p>
+<p>Offene Rechnungen können automatisch an das Mahnwesen übergeben werden, wenn das Zahlungsziel einer Rechnung überschritten oder die Zahlungsfrist abgelaufen ist. Dabei kann von der ersten Zahlungserinnerung bis hin zur letzten Mahnstaffel ein angelegtes Mahndokument an den Schuldner versendet werden. Auch für Unternehmen, die bisher kein Mahnwesen genutzt haben, kann es interessant sein diese Option mit dem neuen Warenwirtschaftssystem zu erkunden.</p>
+<h4 id="prinzip-des-mahnwesens">Prinzip des Mahnwesens<a class="headerlink" href="#prinzip-des-mahnwesens" title="Permanent link">&para;</a></h4>
+<p>Offene Rechnungen werden an das Mahnwesen automatisch weitergegeben wenn Folgendes zutrifft:</p>
+<ul>
+<li>Vorkasse-Rechnungen: Die vordefinierte Bezahlfrist ist abgelaufen</li>
+<li>Nachträgliche Zahlungsweisen: Das vordefinierte Zahlungsziel wurde erreicht</li>
+</ul>
+<p>Rechnungen, die auf diese Kriterien zutreffen, sammeln sich unter <em>Buchhaltung → Mahnwesen</em>.</p>
+<p>Innerhalb des Mahnwesens gibt es in Xentral 5 Mahnstufen (Zahlungserinnerung, Mahnung 1, Mahnung 2, Mahnung 3, Inkasso). Damit eine Rechnung in die nächste Mahnstufe kommt, muss Folgendes zutreffen:</p>
+<ul>
+<li>Vordefinierte Zeit seit der letzten Mahnstufe ist abgelaufen</li>
+<li>Mahnung/Zahlungserinnerung der vorherigen Stufe wurde versandt (per E-Mail oder Drucker)</li>
+</ul>
+<h4 id="einstellungen-im-mahnwesen">Einstellungen im Mahnwesen<a class="headerlink" href="#einstellungen-im-mahnwesen" title="Permanent link">&para;</a></h4>
+<p>Unter <em>Buchhaltung → Mahnwesen → Einstellungen</em> finden sich die Einstellungen für das Mahnwesen:</p>
+<p>​<img alt="" src="images/?name=file.png" /></p>
+<p>​</p>
+<p>Als Erstes können folgende Einstellungen festgelegt werden:</p>
+<ul>
+<li>Tage seit letzter Stufe: Wie viele Tage sollen zwischen den einzelnen Mahnstufen vergehen, bis die Rechnung in die nächste Mahnstufe kommt?</li>
+<li>Mailversand: Soll eine E-Mail mit dem Mahndokument versendet werden? Falls nicht, werden die Mahnungen ausgedruckt.</li>
+<li>Mahngebühr: Welche Mahngebühr soll ab einer gewissen Mahnstufe fällig werden?</li>
+<li>Pos in Tabelle anzeigen: Soll die Artikeltabelle mit den Rechnungspositionen auch im Mahndokument angezeigt werden?</li>
+</ul>
+<p>Vorkasse-Aufräge, für welche noch keine Rechnung erstellt wurde, landen nicht direkt im Mahnwesen, es kann allerdings eine Zahlungserinnerung für Aufträge versendet werden. Der Abstand der Tage kann im Bereich &ldquo;Vorkasse E-Mail Erinnerung (Auftrag)&rdquo; eingetragen werden.</p>
+<p>Unter dem Reiter &ldquo;Mahntexte&rdquo; sind die Variablen aufgelistet, die in den Mahntexten verwendet werden können. Die eigenen Mahntexte für jeweilige Mahnstufe können in Geschäftsbriefvorlagen definiert werden.
+Pfad: Administration → Einstellungen → Geschäftsbrief Vorlagen: <em>​​</em></p>
+<p>Die entsprechenden Typbezeichungen sind wie folgt:</p>
+<ul>
+<li>ZahlungMiss → Vorkasse E-Mail Erinnerung (Auftrag)</li>
+<li>MahnwesenZahlungserinnerung</li>
+<li>MahnwesenMahnung1-3</li>
+<li>MahnwesenInkasso <strong>Hinweis</strong>: Zur Formulierung der Mahntexte wird empfohlen das Steuerbüro oder den Rechtsberater zu befragen.</li>
+</ul>
+<p>Weiterführende Informationen sind auch auf unserem Helpdesk zu finden:
+<a href="https://xentral.com/helpdesk/kurzanleitung-mahnwesen">Mahnwesen verwenden</a></p>
+<h3 id="benutzer-und-rechtevergabe">Benutzer und Rechtevergabe<a class="headerlink" href="#benutzer-und-rechtevergabe" title="Permanent link">&para;</a></h3>
+<p>Pfad: Administration → Einstellungen → Benutzer</p>
+<p>Benutzer werden benötigt um sich in Xentral einloggen zu können. Mit der Rechtevergabe kann man die angezeigten Funktionen für andere Benutzer beschränken.</p>
+<p><strong>Hinweis:</strong>
+Wie viele Benutzer angelegt werden können, hängt von der Anzahl der erworbenen Lizenzen ab.</p>
+<h4 id="account-typen-administrator-besitzt-alle-rechte-es-muss-immer-mindestens-1-administrator-im-system-angelegt-seinbenutzer-rechtevergabe-moglich-um-sichtbare-oberflachen-funktionen-fur-den-benutzer-einzuschranken-lightuser-eingeschrankter-lizenztyp-mit-maximal-20-zu-vergebenden-rechten-option-taucht-nur-in-auswahl-auf-wenn-lizenz-gebucht-ist">Account-Typen <strong>Administrator </strong>→ Besitzt alle Rechte. Es muss immer mindestens 1 Administrator im System angelegt sein.<strong>Benutzer </strong>→ Rechtevergabe möglich um sichtbare Oberflächen / Funktionen für den Benutzer einzuschränken <strong>Lightuser </strong>→ Eingeschränkter Lizenztyp mit maximal 20 zu vergebenden Rechten (Option taucht <strong>nur</strong> in Auswahl auf, wenn Lizenz gebucht ist)<a class="headerlink" href="#account-typen-administrator-besitzt-alle-rechte-es-muss-immer-mindestens-1-administrator-im-system-angelegt-seinbenutzer-rechtevergabe-moglich-um-sichtbare-oberflachen-funktionen-fur-den-benutzer-einzuschranken-lightuser-eingeschrankter-lizenztyp-mit-maximal-20-zu-vergebenden-rechten-option-taucht-nur-in-auswahl-auf-wenn-lizenz-gebucht-ist" title="Permanent link">&para;</a></h4>
+<p>​<img alt="" src="images/?name=file.png" /></p>
+<p>​</p>
+<h4 id="standard-user-anpassen">Standard-User anpassen<a class="headerlink" href="#standard-user-anpassen" title="Permanent link">&para;</a></h4>
+<p>Anfangs ist in Xentral immer ein Benutzer angelegt: &ldquo;admin&rdquo;
+Dieser Benutzer ist vom Typ Administrator um sich nicht auszusperren.</p>
+<p>Ein Benutzer muss immer mit einer Adresse aus den Stammdaten verknüpft werden.
+Dazu ist schon eine Adresse &ldquo;Administrator&rdquo; angelegt. Man kann diese Adresse direkt auf sich selbst umbenennen.</p>
+<p>Die Änderung kann hier vorgenommen werden:
+Stammdaten → Adressen → Administrator auswählen →<em>Namen, etc. anpassen </em>→<em> speichern</em></p>
+<p>​<img alt="" src="images/?name=file-1.png" /></p>
+<p>​</p>
+<p>Danach kann man den Benutzernamen (Login) und das Passwort für den Benutzer &ldquo;admin&rdquo; ändern:
+Administration → Einstellungen <em>→</em><em>admin auswählen → Benutzername &amp; Passwort ändern </em>→<em> speichern</em></p>
+<p>​<img alt="" src="images/?name=file-2.png" /></p>
+<p>​</p>
+<h4 id="weitere-benutzer-anlegen">Weitere Benutzer anlegen<a class="headerlink" href="#weitere-benutzer-anlegen" title="Permanent link">&para;</a></h4>
+<p>Je nach Lizenz-Anzahl können weitere Benutzer angelegt werden.</p>
+<ol>
+<li>In den Stammdaten eine neue Adresse anlegen</li>
+<li>Dieser Adresse die Rolle &ldquo;Mitarbeiter&rdquo; geben</li>
+<li>Einen neuen Benutzer anlegen und diesen mit der Adresse verknüpfen</li>
+</ol>
+<h4 id="rechte-verteilen">Rechte verteilen<a class="headerlink" href="#rechte-verteilen" title="Permanent link">&para;</a></h4>
+<p>Die Rechte können im Benutzer im Untertab &ldquo;Rechte&rdquo; eingestellt werden.</p>
+<p>Zunächst geht es um die <strong>Grobeinteilung</strong> der Rechte.
+Hierzu geht man Schritt für Schritt das Xentral Menü durch und überlegt für jeden Punkt ob der Mitarbeiter diesen sehen soll.</p>
+<p>​<img alt="" src="images/?name=file-3.png" /></p>
+<p>​</p>
+<p>Jeder Menü-Punkt ist ein Rechteblöcke (z.B. &ldquo;Adressen&rdquo;, &ldquo;Artikel&rdquo;, &ldquo;Projekte&rdquo;, etc.).
+<a href="https://xentral.com/helpdesk/kurzanleitung-benutzerrechtevergabe#nav-5--einstellungen-im-benutzeraccount-vornehmen">Aktivieren oder deaktivieren eines Rechteblocks</a></p>
+<p>Bei Bedarf kann innerhalb des Rechteblocks noch feiner die einzelnen Funktionen eingestellt werden.
+<a href="https://xentral.com/helpdesk/kurzanleitung-benutzerrechtevergabe#nav-5--einstellungen-im-benutzeraccount-vornehmen">Feinjustierung der einzelnen Rechte</a></p>
+<p><strong>Fehlende Rechte über den Systemlog herausfinden:</strong>
+<a href="https://xentral.com/helpdesk/kurzanleitung-benutzerrechtevergabe#nav-systemlog">Info zum Systemlog</a></p>
+<ul>
+<li>Als Administrator eingelogged und die Benutzer-Verwaltung &amp; Systemlog offen</li>
+<li>In einem anderen Browser als Benutzer einloggen und die benötigten Oberflächen durchklicken</li>
+</ul>
+<p>Sollte man als Benutzer nun auf ein fehlendes Recht treffen, wird dies im Systemlog aufgeführt und man kann es in der Benutzer-Verwaltung anpassen.</p>
+<p>​<img alt="" src="images/?name=file-4.png" /></p>
+<p>​</p>
+<h4 id="benutzervorlage-und-rechte-kopieren">Benutzervorlage und Rechte kopieren<a class="headerlink" href="#benutzervorlage-und-rechte-kopieren" title="Permanent link">&para;</a></h4>
+<p>Falls Benutzer die selben Rechte haben (Abteilungen) gibt es 2 Möglichkeiten, damit man nicht in allen Benutzern die Rechtevergabe durchführen muss.</p>
+<p><strong>Benutzervorlagen:</strong>
+Administration → Einstellungen → Benutzer Vorlage</p>
+<p>Weiterführende Info:<a href="https://xentral.com/helpdesk/kurzanleitung-benutzer-benutzervorlagen-einrichten-und-verwenden">Benutzervorlagen anlegen</a>
+Beispiel-Vorlagen findet man hier:<a href="https://github.com/xentral-erp-software-gmbh/downloads/blob/master/benutzervorlagen.zip">Benutzervorlagen.zip</a></p>
+<p><strong>Benutzer-Rechte kopieren:</strong>
+Beim Anlegen eines neuen Benutzers gibt es im Benutzer unten ein Dropdown um Rechte von bestehenden Benutzern zu kopieren</p>
+<p>​<img alt="" src="images/?name=file-5.png" /></p>
+<p>​</p>
+<p>Weiterführende Informationen finden sich auch auf unserem Helpdesk:
+<a href="https://xentral.com/helpdesk/kurzanleitung-benutzerrechtevergabe">Benutzer und Benutzerrechte</a></p>
+<h3 id="standard-e-mail-einrichten">Standard E-Mail einrichten<a class="headerlink" href="#standard-e-mail-einrichten" title="Permanent link">&para;</a></h3>
+<p>Pfad: Administration → Einstellungen → Grundeinstellungen → E-Mail</p>
+<p>Diese E-Mail Adresse wird für das Abschicken von Dokumenten aus Xentral verwendet. Diese Grundfunktionalität kann später bei Bedarf noch erweitert werden. Erst einmal bietet es sich an z.B. eine &ldquo;<a href="mailto:info@">info@</a>&hellip;,<a href="mailto:mail@">mail@</a>&hellip; oder<a href="mailto:office@">office@</a>&hellip; zu verwenden.</p>
+<p><strong>Hinweis:</strong> Auch wenn zu einem späteren Zeitpunkt bspw. projektspezifische E-Mail Accounts angebunden werden, muss in den Grundeinstellungen zwingend eine E-Mail Adresse zum Versenden von Mails hinterlegt sein.</p>
+<p>Folgende Schritte sind für die Aktivierung notwendig (ausführliche Feldbeschreibung sind auch im Helpdesk zu finden):</p>
+<ol>
+<li>Zugangsdaten Webmail Account eingeben (Mailserver Account Daten von Eurer IT) (Pflichtangaben)</li>
+<li>Testmail Empfänger eintragen (um die Funktion der E-Mail zu prüfen) (optional)</li>
+<li>Absenderadresse, Betreff und zentrale E-Mail-Signaturdaten eintragen (Pflichtangaben)</li>
+<li>Wichtig: die E-Mail Adresse des Accounts (1.) muss mit den Adressdaten (3.) übereinstimmen. Die meisten Webmailer unterbinden den Versand von unterschiedlichen Accounts</li>
+<li>E-Mail Grussformel (empfohlen)</li>
+<li>E-Mail Kopieempfänger (optional)</li>
+</ol>
+<p>Zum Testen der Mailfunktion einen Testmail Empfänger (2.) (am besten direkt schnell die eigene E-Mail Adresse) eintragen, dann speichern (Button klicken) und die Testmail senden (Button klicken). Wenn die E-Mail ankommt klappt die Funktion.</p>
+<p>Zudem bietet es sich an, einen neuen leeren Email-Account für die Blindkopie (BCC) in den Einstellungen zu hinterlegen. Damit kann man einen guten Überblick über den Dokumentenversand an die Kunden bekommen bzw. stets die Kontrolle haben, was an den Kunden übermittelt worden ist.</p>
+<p>​<img alt="" src="images/?name=file.png" /></p>
+<p>​</p>
+<p>Weiterführende Informationen finden sich auch auf unserem Helpdesk:
+<a href="https://xentral.com/helpdesk/kurzanleitung-grundeinrichtung-der-firmendaten-email">Standard-E-Mail einrichten</a></p>
+<h3 id="dokumentendrucker-einrichten">Dokumentendrucker einrichten<a class="headerlink" href="#dokumentendrucker-einrichten" title="Permanent link">&para;</a></h3>
+<p>Pfad: Administration <em>→</em> Einstellungen <em>→</em> Drucker</p>
+<p>Mit einem an xentral angebundenen Dokumentendrucker können automatisch Belege oder Versandlabel aus xentral heraus gedruckt werden oder ein PDF Download angestoßen werden.</p>
+<p><strong>Hinweis</strong>: Aufgrund der Komplexität der Anbindungsarten werden in diesem Ticket nur die zwei einfachsten Anbindungen erklärt. Die weiteren Anbindungsarten werden zwar im Helpdesk erklärt, können aber von uns in der Einrichtung nicht unterstütz werden.</p>
+<h4 id="pdf-download-drucker">PDF Download Drucker<a class="headerlink" href="#pdf-download-drucker" title="Permanent link">&para;</a></h4>
+<p>Wenn es nicht ganz so viele Aufträge und damit zu druckende Dokumente am Tag gibt, empfehlen wir unseren Kunden immer den einfachen &ldquo;Download Drucker&rdquo;. Auch solange noch kein physischer Drucker angebunden ist, sollte zumindest ein PDF Drucker angebunden sein, damit Workflows bereits getestet werden können.</p>
+<p>Beim PDF Download Druck springt ein PDF Popup auf, mit welchem das Dokument schnell geöffnet und gedruckt werden kann. Über den Spooler können die Dateien einzeln als PDF oder stapelweise als ZIP Ordner oder Sammel-PDF mit mehreren PDFs heruntergeladen werden:</p>
+<p>​<img alt="" src="images/?name=file-1.png" /></p>
+<p>​</p>
+<p>Das PDF kann damit in dann im bevorzugten PDF-Reader geöffnet, nochmal geprüft und bequem mit der Druckoption im PDF-Reader an den angeschlossenen Drucker am PC/Netzwerk gedruckt werden.</p>
+<p>Vorteile dieser Variante:</p>
+<ul>
+<li>Schnell und simpel eingerichtet</li>
+<li>Keine technischen Kenntnisse nötig</li>
+<li>Keine zusätzlichen Kosten durch evtl. Druckerserver</li>
+</ul>
+<p>Der PDF Download Drucker wird unter <em>Administration → Einstellungen → Drucker→ NEU</em> angelegt <em>.</em></p>
+<p>Hier eine beliebige Bezeichnung für den Drucker auswählen, die Optionen wie im Screenshot gezeigt einstellen und im Anschluss speichern:</p>
+<p>​<img alt="" src="images/?name=file-2.png" /></p>
+<p>​</p>
+<p>Die anderen Einstellungen auf dieser Seite können für den Download-Drucker ignoriert werden. Der PDF Download Drucker ist damit fertig eingerichtet.</p>
+<h4 id="anbindung-eines-physischen-druckers-uber-ein-mac-mini">Anbindung eines physischen Druckers über ein Mac Mini<a class="headerlink" href="#anbindung-eines-physischen-druckers-uber-ein-mac-mini" title="Permanent link">&para;</a></h4>
+<p>Grundsätzlich empfehlen wir die Anbindung eines physischen Druckers über den xentral Drucker Spooler auf einem Mac Mini (falls unter Windows gearbeitet wird) oder einem Mac oder Linux Gerät. Da es hier um die Anbindung von Hardware an xentral geht, am besten einen Kollegen aus der Technik hinzuziehen. Eine Schritt für Schritt Anleitung zur Einrichtung des automatischen Druckens über den xentral Drucker Spooler ist auf unserem Helpdesk zu finden:<a href="https://xentral.com/helpdesk/kurzanleitung-drucker-einrichten#nav--drucker-einrichten-auf-einen-mac-mini-">Drucker einrichten auf einem Mac Mini</a></p>
+<p>Den xentral Spooler kann man unter folgendem Link herunterladen:
+<a href="https://github.com/xentral-erp-software-gmbh/downloads">https://github.com/xentral-erp-software-gmbh/downloads</a>
+​<img alt="" src="images/?name=file-3.png" /></p>
+<p>​</p>
+<p>In Xentral sind u.a. folgende Einstellungen notwendig:</p>
+<p>​<img alt="" src="images/?name=file-4.png" /></p>
+<p>​</p>
+<p>Weiterführende Informationen sind auch auf unserem Helpdesk zu finden:
+<a href="https://xentral.com/helpdesk/kurzanleitung-drucker-einrichten">Drucker einrichten</a>
+<a href="https://xentral.com/helpdesk/kurzanleitung-drucker-einrichten#nav-1--pdf-druck">Weitere Anbindungsmöglichkeiten</a></p>
+<h3 id="etikettendrucker-einrichten">Etikettendrucker einrichten<a class="headerlink" href="#etikettendrucker-einrichten" title="Permanent link">&para;</a></h3>
+<p>Pfad: Administration <em>→</em> Einstellungen <em>→</em> Drucker</p>
+<p>Einen Etikettendrucker kann man in verschiedenen Bereichen in xentral verwenden. Zum Beispiel für Lageretiketten (zum Beschriften/Scannen der Läger), Artikeletiketten (Labeln beim Wareneingang), Seriennummern (Einlagern/Produktion) und ähliches.</p>
+<p><strong>Hinweis</strong>: Für den Druck von Versandlabeln bzw. Paketmarken kann der Drucker als regulärer Dokumentendrucker angebunden werden (siehe anderes Ticket). Es ist keine Anbindung über eine Adapterbox notwendig. Dieses Ticket wird nur benötigt, wenn XML Etiketten (Lager-, Artikeletiketten, etc.) über xentral gedruckt werden sollen. Alle Informationen in diesem Ticket beziehen sich auf den Etikettendrucker Zebra GK420t. Andere Modelle werden nicht aktiv von uns unterstützt.</p>
+<h4 id="grundlegende-informationen-zu-adapterboxen">Grundlegende Informationen zu Adapterboxen<a class="headerlink" href="#grundlegende-informationen-zu-adapterboxen" title="Permanent link">&para;</a></h4>
+<p>Xentral ist eine Software, die meist auf einem Webserver, oft im Rechenzentrum, betrieben wird. Wenn man automatisiert Belege oder Etiketten drucken möchte, muss man es schaffen die PDF Dateien vom Webserver zum Drucker zu übertragen.</p>
+<p>Man macht das auf eine einfache Art und Weise. Man legt am Server PDF Dateien ab, die regelmäßig von einem Programm auf einen lokalen Rechner kopiert werden, die dann sozusagen als Stapel gedruckt werden. So eine Softwarekette ist nicht ganz einfach einzurichten aber machbar. Allerdings muss immer der Treiber auf dem lokalen Rechner o.ä. gewartet und gepflegt sein. Unter Windows muss man eigentlich nach jedem Update prüfen, ob noch alles passt.</p>
+<p>Aus diesem Grund haben wir uns entschieden die Kommunikation über die Adapterbox zu vereinfachen. Das bedeutet, dass man nicht PDF Dateien kopieren und lokal in einen Drucker schleusen muss. Die Adapterbox erhält die Druckaufträge über eine API. Die Treiber für unsere empfohlenen Drucker (s.u. &ldquo;Einrichtung der Hardware&rdquo;) sind in der Adapterbox installiert, d.h. man braucht sich darum nicht zu kümmern.</p>
+<p><strong>Hinweis:</strong> Eigene Etikettendrucker kann man mit unserem xentral Drucker Spooler (gibt es nur für MacOS und Ubuntu Linux) über die API an Xentral anbinden. Zudem muss man im Etikettendrucker einstellen, dass eine PDF erstellt werden soll. Normalerweise wird das Etikett intern über ein eigenes XML Format an die Adapterbox übertragen. Für diese Art der Anbindung leisten wir allerdingt keinen Support.</p>
+<p>Ein weiterer Vorteil der Anbindung über eine Adapterbox ist, dass dieser auch über das WLAN verwendet werden kann und nicht zwingend ein Netzwerkanschluss im Lager notwenig ist. Dazu muss die Adapterbox wie ein normaler Rechner ins WLAN eingebunden werden. Für die Konfiguration des WLANs des Raspberry PI finden sich zahlreiche Anleitungen im Netz. (Stichwort „Wlan Raspberry PI“).</p>
+<p>Das Setup, mit über eine Adapterbox angebunden Etikettdrucker, sieht dann wie folgt aus:</p>
+<p>​<img alt="" src="images/?name=file.jpg" /></p>
+<p>​</p>
+<p>Mit Hilfe von Adapterboxen können auch andere Geräte an xentral angebunden werden. Allerdings is pro Adapterbox nur der Anschluss eines Geräts möglich, da sie als embedded System nur die Anfragen eines Geräts abwickelt:</p>
+<ul>
+<li>Zebradrucker</li>
+<li>Waage (von xentral unterstützte Modelle)</li>
+<li>Bondrucker + Schublade</li>
+</ul>
+<h4 id="einrichtung-der-hardware-hinweis-die-anleitung-bezieht-sich-auf-den-etikettendrucker-zebra-gk420t-andere-modelle-werden-nicht-aktiv-von-uns-unterstutzt">Einrichtung der Hardware <strong>Hinweis:</strong> Die Anleitung bezieht sich auf den Etikettendrucker Zebra GK420t. Andere Modelle werden nicht aktiv von uns unterstützt.<a class="headerlink" href="#einrichtung-der-hardware-hinweis-die-anleitung-bezieht-sich-auf-den-etikettendrucker-zebra-gk420t-andere-modelle-werden-nicht-aktiv-von-uns-unterstutzt" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Entpacken und Überprüfen auf Vollständigkeit</li>
+<li>Einlegen der Thermofolie</li>
+<li>Einlegen der Etiketten</li>
+<li>Automatische Kalibrierung des Druckbereichs</li>
+<li>Kalibrierung der Druckintensität</li>
+</ol>
+<p>Diese Schritte sind einzeln mit vielen erklärenden Bildern in unserem Helpdesk beschrieben:<a href="https://xentral.com/helpdesk/etikettendrucker#nav-schritt-1--entpacken-und--berpr-fen-auf--vollst-ndigkeit">Etikettendrucker einrichten</a></p>
+<h4 id="einstellungen-in-xentral">Einstellungen in Xentral<a class="headerlink" href="#einstellungen-in-xentral" title="Permanent link">&para;</a></h4>
+<p>Nachdem der Etikettendrucker eingerichtet wurde, folgen nun die Einstellungen in xentral.</p>
+<ol>
+<li>API Key generieren</li>
+<li>Adapterbox konfigurieren</li>
+<li>Drucker in xentral anlegen</li>
+</ol>
+<p>Dazu bitte Schritt für Schritt die ausführliche Anleitung hier befolgen:<a href="https://xentral.com/helpdesk/etikettendrucker#nav-schritt-7--einrichtung-in-xentral">Einstellungen der Adapterbox / Etikettendrucker</a></p>
+<p>Wie Etiketten in xentral angelegt werden können ist hier erklärt:<a href="https://xentral.com/helpdesk/etikettenlayout-erstellen">Etikettenlayout erstellen</a></p>
+<p>Weiterführende Informationen sind auch auf unserem Helpdesk zu finden:
+<a href="https://xentral.com/helpdesk/etikettendrucker">Etikettendrucker</a></p>
+<h3 id="geschaftskonten-einrichten">Geschäftskonten einrichten<a class="headerlink" href="#geschaftskonten-einrichten" title="Permanent link">&para;</a></h3>
+<p>Pfad:Administration <strong>→</strong> Einstellungen <strong>→</strong> Geschäftskonten</p>
+<p>Durch Geschäftskonten können Konten an Xentral angebunden werden und eingehende Zahlungen mit Belegen verknüpft werden.</p>
+<h4 id="wozu-brauche-ich-einen-kontoimport">Wozu brauche ich einen Kontoimport?<a class="headerlink" href="#wozu-brauche-ich-einen-kontoimport" title="Permanent link">&para;</a></h4>
+<p><strong>Folgende Funktionen werden durch den Kontoimport ermöglicht:</strong></p>
+<ul>
+<li>Auftragsampel → Bezahlt-Icon für Vorkasse wird auf grün gestellt und somit freigegeben</li>
+<li>OPOS-Liste im Mahnwesen → automatischer „bezahlt“-Abgleich</li>
+<li>SEPA-Überweisungen &amp; Lastschrifteinzug → Vorraussetzung für XML-Datei Export in Banksoftware</li>
+<li>Buchhaltungsexport → Export der verknüpften Zahlungen in Buchhaltungsprogramme (z.B. Datev, Addison)</li>
+<li>
+<p>Kontoauszugszeilen → Digitales Archiv inkl. Suchfunktion über alle Buchungen <strong>In folgenden Fällen wird der Kontoimport eher nicht benötigt:</strong></p>
+</li>
+<li>
+<p>Die Anzahl der Aufträge / Rechnungen pro Tag ist gering genug um die Zahlung manuell zu bestätigen (bis 10 Aufträge)</p>
+</li>
+<li>Die Kontoauszüge können nicht als CSV-Datei / automatischer Abgleich erhalten werden und das Anlegen von Hand zuviel Zeit erfordert <strong>Praxistipp:</strong></li>
+</ul>
+<p>Auch bei kleinen Firmen kann der Import der Kontoauszüge durchaus Sinn machen und zwar immer dann, wenn:</p>
+<ul>
+<li>die manuelle Zuordnung und Prüfung der Zahlungen mehr Zeit in Anspruch nimmt, als ein täglicher Kontoimport (ca. 5-10 Minuten für 5 Konten je nach Menge der Buchungen)</li>
+<li>Kunden häufig telefonisch / per Mail anfragen und sofort nachgesehen werden soll, wann der Kunde wie bezahlt hat und ob sein Auftrag versendet wurde</li>
+</ul>
+<h4 id="moglichkeiten-ein-geschaftskonto-anzubinden-es-gibt-2-arten-von-anbindungen">Möglichkeiten ein Geschäftskonto anzubinden <strong>Es gibt 2 Arten von Anbindungen:</strong><a class="headerlink" href="#moglichkeiten-ein-geschaftskonto-anzubinden-es-gibt-2-arten-von-anbindungen" title="Permanent link">&para;</a></h4>
+<ul>
+<li>CSV Import</li>
+<li>API Schnittstelle (automatisch)</li>
+</ul>
+<p><strong>CSV Import:</strong>
+Sollte es keine automatische Anbindung an das Geschäftskonto geben, gibt es dort in den allermeisten Fällen immer noch einen CSV Export.</p>
+<ol>
+<li>CSV-Export aus dem entsprechenden Geschäftskonten-Portal</li>
+<li>Einspielen der CSV Datei im davor konfigurierten Geschäftskonto in Xentral</li>
+<li>Verknüpfen der Zahlungen in Xentral</li>
+</ol>
+<p>Weiterführende Informationen dazu:<a href="https://xentral.com/helpdesk/kurzanleitung-geschaeftskonten-einrichten-und-verwenden#nav-csv-import-feldeinstellungen">CSV Import für Geschäftskonten</a>
+<strong>API Schnittstelle:</strong>
+Eine direkte Anbindung macht den Import der Zahlungen komfortabler.
+Hier kann mit einem Klick oder ganz automatisch via Hintergrundprozess die Zahlungen eingelesen werden.</p>
+<ul>
+<li>Bankkonten: HBCI4PHP</li>
+<li>Paypal: Paypal API</li>
+<li>Shopify Payments: Shopify API</li>
+<li>Stripe: Stripe API</li>
+</ul>
+<p>Eine komplette Auflistung findet man hier:<a href="https://xentral.com/helpdesk/kurzanleitung-geschaeftskonten-einrichten-und-verwenden">Geschäftskonten anlegen</a></p>
+<h4 id="geschaftskonto-erstellen">Geschäftskonto erstellen<a class="headerlink" href="#geschaftskonto-erstellen" title="Permanent link">&para;</a></h4>
+<p>Ist man sich im Klaren wie das Geschäftskonto angelegt werden kann, erstellt man ein Geschäftskonto mit dem entsprechenden Typ.</p>
+<p>​<img alt="" src="images/?name=file.png" /></p>
+<p>​</p>
+<p>Die Einstellungen weiter unten im Geschäftskonto sind individuell je Konto-Typ mit den eigenen Daten aufzufüllen.</p>
+<p>Weiterführende Informationen:<a href="https://xentral.com/helpdesk/kurzanleitung-geschaeftskonten-einrichten-und-verwenden#nav-neues-konto-anlegen">Neues Geschäftskonto anlegen</a></p>
+<p><strong>Hinweis:</strong>
+Falls das Konto für den SEPA-Zahlungsverkehr verwendet werden soll:
+<a href="https://xentral.com/helpdesk/kurzanleitung-sepa-zahlungsverkehr">SEPA-Zahlungsverkehr einrichten</a></p>
+<h4 id="verwendung-in-den-einzelnen-bereichen-kunden-zahlungen">Verwendung in den einzelnen Bereichen <strong>Kunden-Zahlungen</strong><a class="headerlink" href="#verwendung-in-den-einzelnen-bereichen-kunden-zahlungen" title="Permanent link">&para;</a></h4>
+<p>Zahlungen von Kunden - Verknüpfung auf Belege - Übersicht im Mahnwesen - Lastschrifteinzug</p>
+<ul>
+<li>Zahlungseingang und Kontoimport</li>
+<li>Mahnwesen verwenden</li>
+<li>
+<p>Lastschriften einziehen <strong>Lieferanten-Zahlungen</strong>
+Erfassung von Verbindlichkeiten - Bezahlung der Verbindlichkeiten über Sepa-XML</p>
+</li>
+<li>
+<p>Verbindlichkeiten erfassen und bezahlen (Sepa XML)</p>
+</li>
+</ul>
+<p><strong>Buchhaltung</strong>
+Export der Konten für die Buchhaltung</p>
+<ul>
+<li>Export für die Buchhaltung</li>
+</ul>
+<p>Weiterführende Informationen finden sich auch auf unserem Helpdesk:
+<a href="https://xentral.com/helpdesk/kurzanleitung-geschaeftskonten-einrichten-und-verwenden">Geschäftskonten einrichten</a></p>
+<h3 id="versanddienstleister-paketmarken-erstellen">Versanddienstleister - Paketmarken erstellen<a class="headerlink" href="#versanddienstleister-paketmarken-erstellen" title="Permanent link">&para;</a></h3>
+<p>Pfad: Administration <strong>→</strong> Einstellungen <strong>→</strong> Versandarten</p>
+<p>Durch das Anbinden eines Versanddienstleisters kann man in Xentral Paketmarken erzeugen.</p>
+<h4 id="was-sind-die-vorteile-einen-versanddienstleister-an-xentral-anzubinden">Was sind die Vorteile einen Versanddienstleister an Xentral anzubinden?<a class="headerlink" href="#was-sind-die-vorteile-einen-versanddienstleister-an-xentral-anzubinden" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Paketmarken aus den Lieferschein-Informationen mit wenigen Klicks erstellen</li>
+<li>Automatische Rückmeldung an den Versanddienstleister für die Abrechnung</li>
+<li>Trackingnummern einlesen → Versandmail an Kunden und Versand-Bestätigung an den Shop senden</li>
+</ul>
+<h4 id="versanddienstleister-in-xentral">Versanddienstleister in Xentral<a class="headerlink" href="#versanddienstleister-in-xentral" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Amazon Prime</li>
+<li>DHL Versenden</li>
+<li>Deutsche Post Internetmarke</li>
+<li>DPD</li>
+<li>GLS</li>
+<li>GO!</li>
+<li>Sendcloud</li>
+<li>Shipcloud</li>
+<li>UPS</li>
+</ul>
+<p>Weitere Versanddienstleister:<a href="https://xentral.com/benutzer-handbuch/technische-einrichtung-von-modulen-sonderfunktionen/versanddienstleister-paketmarken">Liste der Versandarten</a></p>
+<h4 id="paketmarke-erstellen">Paketmarke erstellen<a class="headerlink" href="#paketmarke-erstellen" title="Permanent link">&para;</a></h4>
+<p>Es gibt 3 Möglichkeiten eine Paketmarke in Xentral zu erstellen</p>
+<ul>
+<li>Lieferschein → Paketmarke Tab</li>
+<li>Lager → Versandzentrum → Paketmarke drucken</li>
+<li>Autoversand mit speziellen Vorraussetzungen <strong>Lieferschein → Paketmarke Tab</strong></li>
+</ul>
+<p>​<img alt="" src="images/?name=file-1.png" /></p>
+<p>​</p>
+<p><strong>Lager → Versandzentrum → Paketmarke drucken</strong></p>
+<ul>
+<li>Logistikprozess im Projekt mit Versandzentrum auswählen (mehr dazu im Logistikprozess-Ticket)</li>
+<li>Lieferschein im Versandzentrum bearbeiten</li>
+<li>
+<p>Paketmarke drucken sobald Lieferschein-Positionen abgearbeitet <strong>Autoversand mit speziellen Vorraussetzungen</strong></p>
+</li>
+<li>
+<p>Logistikprozess im Projekt mit Versandzentrum auswählen (mehr dazu im Logistikprozess-Ticket)</p>
+</li>
+<li>Aufträge an den Autoversand geben</li>
+<li>Folgende Vorraussetzungen müssen erfüllt sein: - Ein physischer Drucker angebunden ist → kein PDF / Download-Drucker möglich - Der Prozessstarter Autoversand manuell / Autoversand Plus aktiv <strong>Hinweis:</strong>
+Es empfiehlt sich bei Tests die Paketmarke im entsprechenden Portal zu stornieren, da sonst unnötige Kosten entstehen können.</li>
+</ul>
+<p>Weiterführende Informationen finden sich auch auf unserem Helpdesk:
+<a href="https://xentral.com/benutzer-handbuch/technische-einrichtung-von-modulen-sonderfunktionen/versanddienstleister-paketmarken">Versanddienstleister einstellen</a></p>
+<h3 id="lagerstruktur-definieren">Lagerstruktur definieren<a class="headerlink" href="#lagerstruktur-definieren" title="Permanent link">&para;</a></h3>
+<p>Pfad: Lager <strong>→</strong> Lagerverwaltung</p>
+<p>Durch eine Lagerstruktur legt man die Läger und Lagerplätze in Xentral fest, auf die ein Artikel eingelagert werden kann.</p>
+<h4 id="lagerhaltung-ja-oder-nein">Lagerhaltung: Ja oder nein?<a class="headerlink" href="#lagerhaltung-ja-oder-nein" title="Permanent link">&para;</a></h4>
+<p><strong>Keine Lagerhaltung:</strong> Wenn keine Lagermengen erfasst werden sollen, da z.B. nur wenige Artikel vorhanden sind und sowieso immer Übersicht herrscht. In diesem Fall empfiehlt sich trotzdem zumindest ein Hauptlager mit einem Regalplatz anzulegen.<strong> Lagerhaltung:</strong> Es gibt Artikel bei denen die Lagermengen getrackt werden sollen. In den Artikel-Details werden diese Artikel mit der Option * Lagerartikel*gekennzeichnet um deren Lagerverwaltung zu aktivieren, erst dann können Bestände zu diesem Artikel erfasst werden.</p>
+<h4 id="wie-verwalte-ich-meine-lagerartikel">Wie verwalte ich meine Lagerartikel?<a class="headerlink" href="#wie-verwalte-ich-meine-lagerartikel" title="Permanent link">&para;</a></h4>
+<p><strong>Alle Lagerartikel auf einen Lagerplatz einlagern:</strong> Das Lager ist nicht groß und eine Lagerunterteilung braucht es nicht.<strong> Lagerartikel auf verschiedene Lagerplätze einlagern:</strong>
+Das Lager wird auf verschiedene Lagerplätze aufgeteilt, da es für 1 Lagerplatz zu groß und unübersichtlich ist. Ggf. sogar verschiedene Läger bei räumlicher Trennung: Verschiedene Etagen, Gebäude oder gleich ein Außenlager.</p>
+<h4 id="anlegen-von-lager-und-regalen">Anlegen von Lager und Regalen<a class="headerlink" href="#anlegen-von-lager-und-regalen" title="Permanent link">&para;</a></h4>
+<p>Ein Lager in Xentral besteht grundsätzlich immer aus 2 Ebenen:</p>
+<ol>
+<li>Lager: Bezeichnung für den Ort, Raum, Etage, etc.</li>
+<li>Regal: Bezeichnung für Regal, Fach, Sichtkiste, etc. → eigentlicher Lagerplatz, der beim Einlagern/Auslagern in Xentral abgefragt wird</li>
+</ol>
+<p>Meistens hat man z.B. ein Hauptlager in dem Regalfächer die einzelne Lagerstruktur bilden.</p>
+<p><strong>Lager anlegen:</strong> Ein neues Lager legt man unter * Lager → Lagerverwaltung → NEU*an.</p>
+<p>​<img alt="" src="images/?name=file.png" /></p>
+<p>​</p>
+<p><strong>Hinweis <strong>: Projekt und Adresse sind optionale Angaben und können leer gelassen werden. </strong> Regal anlegen:</strong> Danach kann man die einzelnen Lagerplätze im Tab * Regale → neues Regal anlegen*hinzufügen:</p>
+<p>​<img alt="" src="images/?name=file-1.png" /></p>
+<p>​</p>
+<p>Nur die Bezeichnung ist hier ein Pflichtfeld. Es können dafür nur Buchstaben und Ziffern verwendet werden. Sonder- und vor allem Leerzeichen funktionieren nicht.</p>
+<p>Lagertypen werden standardmäßig leer gelassen, außer eine Option trifft auf den Regalplatz zu.
+Die speziellen Regaltypen werden hier beschrieben:<a href="https://xentral.com/helpdesk/kurzanleitung-lager-einrichten#nav-regaltypen">Regaltypen in Xentral</a></p>
+<p><strong>Hinweis</strong>: Die Lagereigenschaften sind optional und dienen nur als Information. Diese Werte werden nicht in Xentral ausgewertet.</p>
+<h4 id="lagerstruktur-aufbauen">Lagerstruktur aufbauen<a class="headerlink" href="#lagerstruktur-aufbauen" title="Permanent link">&para;</a></h4>
+<p>Durch die Benennung der Lagerplätze (Regale) kann man sich eine beliebige Lagerstruktur aufbauen.</p>
+<p><strong>Fallbeispiel eines Standard Lageraufbaus:</strong>
+Raum + Regal + Fach + Sichtlagerkiste</p>
+<ul>
+<li>HL0101A</li>
+<li>HL0101B</li>
+<li>HL0101C</li>
+<li>
+<p>…</p>
+</li>
+<li>
+<p>HL0102A</p>
+</li>
+<li>HL0102B</li>
+<li>
+<p>…</p>
+</li>
+<li>
+<p>HL0233A</p>
+</li>
+<li>
+<p>HL0233B <strong>Erklärung der Bezeichnung:</strong></p>
+</li>
+<li>
+<p>HL → Raum: sollten es mehrere Räume werden, ist gleich ersichtlich, in welchem Raum der Artikel eingelagert ist</p>
+</li>
+<li>
+<p>0101 → Regal und Fächer: die erste 2-stellige Zahl steht für das Regal, die letzten beiden Ziffern für das Fach</p>
+</li>
+<li>
+<p>A → Fachaufteilung: z.B. jeweils eine eigene Sichtlagerkiste oder eine ESD-Kiste mit mehreren Fachunterteilungen</p>
+</li>
+</ul>
+<p>Mehr Beispiele für eine sinnvolle Lagerbezeichnung gibt es im Helpdesk:<a href="https://xentral.biz/helpdesk/kurzanleitung-lager-einrichten#nav-weitere-beispiele-f-r-die-strukturierung-von-lagern">Beispiele für Lagerstrukturen</a></p>
+<p>Weiterführende Informationen finden sich auch auf unserem Helpdesk:
+<a href="https://xentral.com/helpdesk/kurzanleitung-lager-einrichten">Lager einrichten</a></p>
+<h3 id="adressen-importieren">Adressen importieren<a class="headerlink" href="#adressen-importieren" title="Permanent link">&para;</a></h3>
+<p>Pfad: Verwaltung <strong>→</strong> Import/Export Zentrale <strong>→</strong> Stammdaten Import</p>
+<p>Mit dem Adress-Import lassen sich Alt-Daten aus vorherigen Systemen via CSV Datei nach Xentral importieren.</p>
+<h4 id="alt-daten-als-csv-datei-vorhanden">Alt-Daten als CSV-Datei vorhanden?<a class="headerlink" href="#alt-daten-als-csv-datei-vorhanden" title="Permanent link">&para;</a></h4>
+<p><strong>Möglicher Ursprung dieser Excel- oder CSV-Dateien:</strong></p>
+<ul>
+<li>Gepflegte Adressdaten in Excel oder ähnlichen Tabellen-Programm</li>
+<li>Exportfunktion im Alt-System</li>
+<li>Exportfunktion im Shop-System <strong>Hinweis:</strong>
+Wie die Exportfunktion des Alt- oder Shop-System funktioniert, entnimmt man bitte deren Dokumentation oder frägt direkt beim entsprechenden Support der eingesetzten Software nach.</li>
+</ul>
+<h4 id="tipps-zum-importieren-von-daten">Tipps zum Importieren von Daten<a class="headerlink" href="#tipps-zum-importieren-von-daten" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Nie sofort die ganze CSV Datei importieren. Immer einen &ldquo;Testlauf&rdquo; mit 1 - 2 Zeilen durchführen, danach die Ergebnisse prüfen und erst dann die ganze Datei importieren.</li>
+<li>Wenn man nicht mit dem Umgang von CSV Dateien vertraut ist, empfiehlt es sich einen Kollegen aus der eigenen Technik-Abteilung zur Unterstützung zu holen</li>
+<li>Bei der Bearbeitung der Daten statt Excel eher Open Office / Libre Office verwenden. Hier kann man die Formatierung einfacher anpassen. Dazu findet man hier weitere Infos: Tipps im Umgang mit CSV-Dateien</li>
+</ul>
+<h4 id="standard-importvorlagen-verwenden">Standard-Importvorlagen verwenden<a class="headerlink" href="#standard-importvorlagen-verwenden" title="Permanent link">&para;</a></h4>
+<p>In Xentral befinden sich standardmäßig angelegte Importvorlagen, die man auf zwei Arten verwenden kann:</p>
+<ul>
+<li>CSV Dateien wie Standard-Importvorlagen aufbauen / umbauen</li>
+<li>Importvorlage Struktur an vorhandene CSV Dateien anpassen</li>
+</ul>
+<p>​<img alt="" src="images/?name=file-2.png" /></p>
+<p>​</p>
+<p><strong>Importvorlage anpassen:</strong>
+Mit einem Klick auf das Stift-Icon kann man die Importvorlage bearbeiten.</p>
+<p>Eine Erklärung der einzelnen Feldern findet man hier:<a href="https://xentral.com/helpdesk/kurzanleitung-import-von-stammdaten#nav-importieren-von-stammdaten">Importvorlage erstellen</a></p>
+<p>​<img alt="" src="images/?name=file-3.png" /></p>
+<p>​</p>
+<p><strong>Aufbau der CSV Felder:</strong></p>
+<ul>
+<li>Spalten-Nummer → In welcher Spalte in der CSV Datei steht der Inhalt? Gefolgt von einem Doppelpunkt (:)</li>
+<li>Variablen-Name → Welcher Inhalt steht in dieser Spalte? Gefolgt von einem Strichpunkt (;)</li>
+</ul>
+<p>Eine Auflistung der wichtigsten Variablen-Namen findet man im Helpdesk:
+<a href="https://xentral.biz/helpdesk/kurzanleitung-import-von-stammdaten#nav-die-wichtigsten-importvariablen-f-r-adressen">Wichtige Importvariablen für Adressen</a></p>
+<p>Sollte es kein direktes Feld in Xentral für einen Inhalt geben, kann man in den Adressen sogenannte Freifelder füllen, die man in der Adresse unter <em>Details → Sonstige Daten</em> findet. Die Variablen lauten: freifeld1 - freifeld10</p>
+<h4 id="adress-typen-fur-den-import">Adress-Typen für den Import<a class="headerlink" href="#adress-typen-fur-den-import" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Kunden (Privat- / Geschäftskunden)</li>
+<li>Lieferanten</li>
+<li>Ansprechpartner</li>
+</ul>
+<p>Wichtig hierbei ist, dass pro Adresse nur eine Zeile in der CSV Datei verwendet wird.</p>
+<p><strong>Hinweis:</strong> Es wird empfohlen separate CSV Dateien und Importvorlagen für die oben genannten Adress-Typen zu erstellen und diese nacheinander zu importieren.<strong> Kundennummer / Lieferantennummer direkt aus dem Nummernkreis in Xentral vergeben:</strong> In der Spalte für Kundennummer / Lieferantennummer in der CSV-Datei den Inhalt <strong> NEU</strong> einfügen.</p>
+<p>​<img alt="" src="images/?name=file-4.png" /></p>
+<p>​</p>
+<p>Weiterführende Informationen finden sich auch auf unserem Helpdesk:
+<a href="https://xentral.com/helpdesk/kurzanleitung-import-von-stammdaten#nav-adressen-import">Importieren von Adressen</a></p>
+<h3 id="artikel-importieren">Artikel importieren<a class="headerlink" href="#artikel-importieren" title="Permanent link">&para;</a></h3>
+<p>Pfad:Verwaltung <strong>→</strong> Import/Export Zentrale <strong>→</strong> Stammdaten Import</p>
+<p>Mit dem Artikel-Import lassen sich Alt-Daten aus vorherigen Systemen via CSV Datei nach Xentral importieren.</p>
+<p><strong>Hinweis</strong>:
+Dieses Ticket setzt die Anleitungen und Tipps des vorherigen Tickets zum Adress-Import voraus.</p>
+<h4 id="reihenfolge-der-importe">Reihenfolge der Importe<a class="headerlink" href="#reihenfolge-der-importe" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Adressimport: Der Artikelimport sollte immer erst nach dem Adressimport erfolgen, da hier z.B. Lieferantennummern für Einkaufspreise bereits vorhanden sein müssen.</li>
+<li>Normaler Artikelimport: Innerhalb der Artikelimporte sollte natürlich erst der &ldquo;normale&rdquo; Artikelimport erfolgen, ohne Verknüpfungen wie Varianten oder Stücklisten zu berücksichtigen.</li>
+<li>Optional - Stücklisten und Varianten: Sind die Artikel zufriedenstellend nach Xentral importiert worden, können durch die anderen Importvorlagen Stücklisten und Varianten bestimmt werden <strong>Hinweis:</strong>
+Es wird empfohlen separate CSV Dateien und Importvorlagen für die oben genannten Artikelimporte zu erstellen und diese nacheinander zu importieren. Es geht zwar theoretisch alles in einer Importvorlage, aber diese wird erfahrungsgemäß sehr unübersichtlich und fehleranfällig.</li>
+</ol>
+<h4 id="standard-importvorlagen-fur-artikel">Standard-Importvorlagen für Artikel<a class="headerlink" href="#standard-importvorlagen-fur-artikel" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Normaler Artikel-Import</li>
+<li>Artikel Stücklisten erstellen</li>
+<li>Artikel-Varianten verknüpfen <strong>Hinweis:</strong>
+Eine vollständige Liste der wichtigen Variablen für den Artikelimport findet man hier:
+<a href="https://xentral.biz/helpdesk/kurzanleitung-import-von-stammdaten#nav-artikel-import">Wichtige Importvariablen für Artikel</a></li>
+</ul>
+<h4 id="artikel-preise-importieren-einkaufspreise">Artikel-Preise importieren <strong>Einkaufspreise:</strong><a class="headerlink" href="#artikel-preise-importieren-einkaufspreise" title="Permanent link">&para;</a></h4>
+<p>Es können bis zu 3 Einkaufspreise pro Artikel auf einmal importieret werden.</p>
+<ul>
+<li>nummer → Artikelnummer in Xentral (Pflichtfeld)</li>
+<li>lieferantennummer → Lieferantennummer in Xentral (Pflichtfeld)</li>
+<li>lieferanteinkaufnetto → Einkaufspreis (Pflichtfeld) - Staffelpreise mit lieferanteinkaufnetto2, lieferanteinkaufnetto3</li>
+<li>lieferanteinkaufwaehrung → Einkaufswährung (Pflichtfeld) - Staffelpreise mit lieferanteinkaufwaehrung2, lieferanteinkaufwaehrung3</li>
+<li>lieferanteinkaufmenge → Einkaufsmenge (optional) - Standardpreis mit Menge 1 angeben - Staffelpreise mit lieferanteinkaufmenge2, lieferanteinkaufmenge3</li>
+<li>lieferantbestellnummer → Artikelnummer des Lieferanten (optional) - Staffelpreise mit lieferantbestellnummer2, lieferantbestellnummer3</li>
+</ul>
+<p>Staffelpreise müssen immer für den <strong>selben</strong> Lieferanten angegeben werden.
+Weiterführende Info:<a href="https://xentral.com/helpdesk/kurzanleitung-import-von-stammdaten#nav-import-3--einkaufspreis--lieferantendaten">Einkaufspreise importieren</a>
+<strong>Verkaufspreise:</strong>
+Es können bis zu 10 Verkaufspreise pro Artikel auf einmal importiert werden.</p>
+<ul>
+<li>nummer → Artikelnummer in Xentral (Pflichtfeld)</li>
+<li>verkaufspreis1netto → Verkaufspreis (Pflichtfeld) - Staffelpreise mit verkaufspreisXnetto (X = 2-10)</li>
+<li>verkaufspreis1waehrung → Verkaufswährung (Pflichtfeld) - Inhalt in CSV: EUR, USD, CFD, etc. - Staffelpreise mit verkaufspreisXwaehrung (X = 1-10)</li>
+<li>verkaufspreis1menge → Verkaufsmenge (optional) - Standardpreis mit Menge 1 angeben - Staffelpreis mit verkaufspreisXmenge (X = 1-10)</li>
+</ul>
+<p>Weiterführende Info:<a href="https://xentral.com/helpdesk/kurzanleitung-import-von-stammdaten#nav-import-2--verkaufspreise">Verkaufspreise importieren</a>
+Gruppenspezifische Verkaufspreise:<a href="https://xentral.com/helpdesk/kurzanleitung-import-von-stammdaten#nav--import-5--gruppenpreise-beispiel">Gruppenpreise importieren</a></p>
+<h4 id="bestehende-artikel-updaten">Bestehende Artikel updaten<a class="headerlink" href="#bestehende-artikel-updaten" title="Permanent link">&para;</a></h4>
+<p>Bereits vorhandene Artikel in Xentral können unter Angabe der <strong>Artikelnummer </strong> via der Importvorlage geupdatet werden.<strong>Beispiel:</strong> Standard-Verkaufspreise könnten mit einer einfachen Imporvorlage geupdatet werden.<strong> Importvorlage:<strong>​<img alt="" src="images/?name=file.png" /></strong> Inhalt der CSV-Datei:</strong></p>
+<p>​<img alt="" src="images/?name=file-1.png" /></p>
+<p>​</p>
+<p><strong>Vorschau nach Upload der CSV-Datei:</strong></p>
+<p>​<img alt="" src="images/?name=file-2.png" /></p>
+<p>​</p>
+<p>Weiterführende Informationen finden sich auch auf unserem Helpdesk:
+<a href="https://xentral.com/helpdesk/kurzanleitung-import-von-stammdaten#nav-artikel-import">Import von Artikeln</a></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

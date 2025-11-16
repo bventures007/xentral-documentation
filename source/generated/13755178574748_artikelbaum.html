@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13755178574748 Artikelbaum - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>13755178574748 Artikelbaum</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>13755178574748 Artikelbaum</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Der Artikelbaum erlaubt es dir deine Artikel in Kategorien zu gruppieren, die du frei nach deinen Bedürfnissen einteilen kannst. Du kannst mehrere Ebenen nutzen, um deine Kategorien und Unterkategorien einzuteilen und so einen Eindruck über die Struktur deiner Artikel und ihre Hierarchie bekommen. Dies kann besonders hilfreich sein, falls du selbst Artikel produzierst.</p>
+<p>Du kannst den Artikelbaum für Folgendes verwenden:</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die folgenden Shop-Schnittstellen werden unterstützt:</p>
+<p>-<strong>Connect</strong>: Shopify, WooCommerce, Shopware 6
+-<strong>Classic (alte Schnittstellen)</strong>: Shopware 5, Shopware 6, Magento 2</p>
+</blockquote>
+<ul>
+<li>Manueller Export zu einem unterstützten Online-Shop, um dort Artikelkategorien anzulegen</li>
+<li>Die Navigation deiner Artikelstammdaten verbessern</li>
+</ul>
+<p><img alt="itemtree_overview.png" src="https://help.xentral.com/hc/article_attachments/13755176592668" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Kategorien werden für den Export von Kategorien an einige Online-Shops benötigt und unterscheiden sich von den Kategorien imArtikelkategorien-Modul. Die Kategorien desArtikelkategorien-Moduls werden für artikelspezifische Nummernkreise verwendet, wie in dem folgenden Artikel beschrieben:Artikelnummernkreis und SKU (Stock Keeping Unit) (Xentral Artikelkategorien).</p>
+<p>Bist du auf der Suche nach Informationen zu Stücklisten, findest du hier weitere Informationenen:Stückliste, Informationen zu Varianten findest du in diesem Artikel:Matrixprodukt - Artikelvarianten erstellen.</p>
+</blockquote>
+<h2 id="artikelbaum-anlegen">Artikelbaum anlegen<a class="headerlink" href="#artikelbaum-anlegen" title="Permanent link">&para;</a></h2>
+<p>Du findest das ModulArtikelbaummithilfe derSmart Searchoder unterAppstore &gt; Stammdaten &gt; Artikelbaum.</p>
+<p>Mit demArtikelbaum-Modul kannst du eine strukturierte Übersicht aller Artikel anhand von Artikelkategorien und Unterkategorien aufbauen. Damit bekommst du eine Übersicht über deine Artikel und ihre Beziehung zueinander.</p>
+<p>Mit dem FeldBezeichnungkannst du nach Artikelkategorien und Unterkategorien suchen.</p>
+<h3 id="eine-kategorie-dem-artikelbaum-hinzufugen">Eine Kategorie dem Artikelbaum hinzufügen<a class="headerlink" href="#eine-kategorie-dem-artikelbaum-hinzufugen" title="Permanent link">&para;</a></h3>
+<p>Um eine neue Artikelkategorie anzulegen:</p>
+<ol>
+<li>Klicke im links angezeigten Artikelbaum aufNeue Kategorie anlegen am unteren Ende des Baums.</li>
+<li>Gib einen Namen für deine Artikelkategorie in das FeldNameein, z.B. Verbrauchsmaterial, Kaffeezubehör, Bücher, Multimedia etc.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Deine neue Artikelkategorie wird im Artikelbaum links angezeigt. Die Kategorien im Artikelbaum werden immer alphabetisch angezeigt, d.h. die Reihenfolge kann hier nicht geändert werden.</p>
+<h3 id="eine-unterkategorie-dem-artikelbaum-hinzufugen">Eine Unterkategorie dem Artikelbaum hinzufügen<a class="headerlink" href="#eine-unterkategorie-dem-artikelbaum-hinzufugen" title="Permanent link">&para;</a></h3>
+<p>Zu jeder Artikelkategorie kannst du bei Bedarf Unterkategorien anlegen, um deine Artikelgruppierungen zu verfeinern.</p>
+<p>Um eine neue Unterkategorie anzulegen:</p>
+<ol>
+<li>Klicke im Artikelbaum auf die Artikelkategorie, für die du eine Unterkategorie anlegen möchtest.</li>
+<li>Gib im Eingabeformular rechts im BereichNeue Unterkategorieein Namen für deine Unterkategorie ein..</li>
+<li>Klicke aufSpeichernneben dem Namensfeld.</li>
+</ol>
+<p>Die neue Unterkategorie wird im Artikelbaum unter der Hauptkategorie angezeigt.</p>
+<h3 id="artikelkategorie-aus-dem-artikelbaum-loschen">Artikelkategorie aus dem Artikelbaum löschen<a class="headerlink" href="#artikelkategorie-aus-dem-artikelbaum-loschen" title="Permanent link">&para;</a></h3>
+<p>Um eine Artikelkategorie zu löschen:</p>
+<ol>
+<li>Klicke im Artikelbaum auf die Artikelkategorie, die du löschen möchtest.</li>
+<li>Klicke im BereichEinstellungenneben dem Namen deiner Artikelkategorie aufLöschen.</li>
+<li>Klicke im angezeigten Dialogfenster aufOK, um die Artikelkategorie zu löschen.</li>
+</ol>
+<p>Die Artikelkategorie wurde gelöscht und wird nicht mehr in deinem Artikelbaum angezeigt.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beim Löschen einer Artikelkategorie werden auch alle dazugehörigen Unterkategorien gelöscht.</p>
+</blockquote>
+<h2 id="artikelkategorien-zu-artikeln-zuweisen">Artikelkategorien zu Artikeln zuweisen<a class="headerlink" href="#artikelkategorien-zu-artikeln-zuweisen" title="Permanent link">&para;</a></h2>
+<p>Damit ein Artikel in einer Artikelkategorie des Artikelbaums gelistet wird, muss die Kategorie zuvor in den Artikelstammdaten zugewiesen werden. Du kannst dies entweder<a href="#UUID-eb54ff2b-e31a-4c0a-9e21-47b7c87bc184_N1713363311076">manuell bei einem einzelnen Artikel</a>oder über eine CSV-Datei in der Importzentrale für mehrere Artikel gleichzeitig durchführen.</p>
+<p>Ein Artikel kann mehreren Kategorien zugewiesen werden. Ein Artikel kann z.B. gleichzeitig unter <strong>Kleidung </strong> und <strong>Aktionsware</strong> gelistet sein.</p>
+<h3 id="artikelkategorien-einem-artikel-zuweisen">Artikelkategorien einem Artikel zuweisen<a class="headerlink" href="#artikelkategorien-einem-artikel-zuweisen" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um Kategorien einem einzelnen Artikel zuzuweisen</p>
+<ol>
+<li>Navigiere zu Verkaufen &gt; Artikel, öffne deinen Artikel und dann den ReiterArtikelbaum.</li>
+<li>Klicke aufBearbeitung aktivierenüber dem Artikelbaum.</li>
+<li>Setze ein Häkchen bei den Artikelkategorien oder Unterkategorien, denen dein Artikel zugewiesen werden soll.</li>
+</ol>
+<p>Deine Änderungen werden automatisch gespeichert.</p>
+<h2 id="artikelkategorien-mehreren-artikeln-uber-die-importzentrale-zuweisen">Artikelkategorien mehreren Artikeln über die Importzentrale zuweisen<a class="headerlink" href="#artikelkategorien-mehreren-artikeln-uber-die-importzentrale-zuweisen" title="Permanent link">&para;</a></h2>
+<p>Du kannst gleichzeitig mehrere Kategorien zu mehreren Artikeln in deinen Stammdaten zuweisen, indem du die Importzentrale verwendest. Dies ist besonders hilfreich, falls du viele verschiedene Artikel hast und die Kategorien gesammelt hinzufügen möchtest. Weitere Informationen dazu findest du im folgenden Artikel:<a href="https://help.xentral.com/hc/de/articles/360016758939#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_UUID-fca5cf5e-2230-4155-1d41-3fa58014783d">Artikelkategorien im Artikelbaum mehreren Artikeln über die Importzentrale zuweisen</a>.</p>
+<h2 id="artikelbaum-zu-einem-online-shop-exportieren">Artikelbaum zu einem Online-Shop exportieren<a class="headerlink" href="#artikelbaum-zu-einem-online-shop-exportieren" title="Permanent link">&para;</a></h2>
+<p>Du kannst den Artikelbaum zu manchen Online-Shops exportieren, um automatisch deine gewünschten Kategorien und Shopstrukturen anzulegen. Du kannst wählen, welcher Teil des Baumes exportiert werden soll, indem du eine Root-Kategorie in der Xentral-Schnittstelle deines Shops auswählst. Diese Kategorie ist die Grundlage auf welcher der Artikelbaum zum Shop exportiert wird.</p>
+<p><img alt="onlineshop_itemtree_root.png" src="https://help.xentral.com/hc/article_attachments/13755176826908" /></p>
+<p>Im Beispiel auf dem Screenshot, werden nur Kategorien und Artikel, die mit der <strong>Handelsware</strong> Kategorie verknüpft sind, zum Shop exportiert. Setzt du bei der obersten Box ein Häkchen, wird jede Kategorie exportiert.</p>
+<p>Du kannst den Artikelbaum dann im ReiterSchnittstelledeiner Shop-Schnittstelle exportieren, indem du aufArtikelbaum übertragenim Aktion-Menü auf der rechten Seite klickst. Diese Option ist nur verfügbar, wenn der Shop Artikelbäume unterstützt.</p>
+<p><img alt="onlineshop_transfer_itemtree.png" src="https://help.xentral.com/hc/article_attachments/13755161069084" /></p>
+<h2 id="artikelbaum-in-der-artikelubersicht-anzeigen">Artikelbaum in der Artikelübersicht anzeigen<a class="headerlink" href="#artikelbaum-in-der-artikelubersicht-anzeigen" title="Permanent link">&para;</a></h2>
+<p>Du kannst dir den Artikelbaum in der Artikelübersicht anzeigen lassen. Dies kann dir helfen deine Artikel einfacher zu filtern, indem du deine eigenen Kategorien verwendest.</p>
+<p>Um den Artikelbaum in der Übersicht anzuzeigen:</p>
+<ol>
+<li>Navigiere zuAdministration &gt; System &gt; Grundeinstellungen &gt; System.</li>
+<li>Aktiviere im BereichArtikeldie OptionArtikelbaum in Übersicht.</li>
+</ol>
+<p>Der Artikelbaum wird links in der Artikelübersicht für alle Nutzer angezeigt. Es ist nicht möglich, die Anzeige des Artikelbaums nur für bestimmte Nutzer zu aktivieren oder zu deaktivieren.</p>
+<p><img alt="itemtree_productoverview.png" src="https://help.xentral.com/hc/article_attachments/13755176998172" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

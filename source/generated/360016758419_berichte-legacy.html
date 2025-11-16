@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016758419 Berichte Legacy - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016758419 Berichte Legacy</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016758419 Berichte Legacy</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>In xentral können eigene Berichte mit Hilfe von SQL Statements angelegt und als PDF/CSV exportiert oder per FTP und E-Mail versendet werden.</p>
+<p>Über App Center → Berichte (Legacy) können Berichte bearbeitet werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es handelt sich um ein Legacy-Modul, das nicht mehr von Xentral supportet oder weiterentwickelt wird. Um unseren Kunden die Arbeit mit der vorhandenen Funktionsweise weiterhin zu ermöglichen, ist es noch immer im Xentral App Store verfügbar.</p>
+</blockquote>
+<h2 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h2>
+<p>Im Reiter &ldquo;Einstellung&rdquo; werden die benötigten Informationen für den Bericht eingetragen.</p>
+<p>In den Feldern ist dabei Folgendes einzugeben:</p>
+<ul>
+<li>Name→ Der Name des Berichts, kann frei gewählt werden</li>
+<li>Projekt→ Projekt des Berichts kann optional angegeben werden</li>
+<li>Beschreibung→ Optionale Beschreibung zur Anzeige des Berichts</li>
+<li>Variablen→ Optionale Definition von Variablen, die dann im SQL-Statement dementsprechend ersetzt werden</li>
+<li>Struktur→ SQL-Statement, welches die Struktur des Berichts festlegtreport</li>
+<li>Spaltenname→ Bezeichnung der Spalten, in denen die Daten auftauchen (z.B. Datum, Kunde, Betrag)</li>
+<li>Spaltenbreite→ Optional kann die Spaltenbreite in Millimetern angegeben werden, die Gesamtbreite beträgt 190mm190mm</li>
+<li>Spaltenausrichtung→ Die Ausrichtung des Textes kann in allen Feldern der Spalte, R (rechtsbündig), L (linksbündig), oder C (zentriert), optional angegeben werdenoptionally</li>
+<li>Interne Bemerkung→ Eine interne Anmerkung kann optional erstellt werden, diese ist im Bericht nicht einzusehen</li>
+</ul>
+<h2 id="variablen">Variablen<a class="headerlink" href="#variablen" title="Permanent link">&para;</a></h2>
+<p>Es ist möglich, Variablen in Berichten zu deklarieren und diese im SQL-Statement zu nutzen.</p>
+<p>Die entsprechende Syntax sieht dann so aus, das Semikolon muss am Ende eingefügt werden: {DATUMVON} = 2018-10-01; Im Bericht werden die Variablen folgendermaßen eingefügt:</p>
+<p><img alt="berichte_20.png" src="https://help.xentral.com/hc/article_attachments/5041750824092" /></p>
+<h2 id="ftp-ubertragung-und-e-mail">FTP-Übertragung und E-Mail<a class="headerlink" href="#ftp-ubertragung-und-e-mail" title="Permanent link">&para;</a></h2>
+<p>Erstellte Berichte können über FTP übertragen sowie in regelmäßigen Abständen und zu bestimmten Zeitpunkten per E-Mail versendet werden.</p>
+<p>Die Funktion muss aktiviert und alle Felder gefüllt werden:</p>
+<ul>
+<li>E-Mail Empfänger→ E-Mail-Adresse, an die der Bericht versendet werden soll</li>
+<li>E-Mail Betreffzeile→ Betreff, den die E-Mail haben soll</li>
+<li>Uhrzeit→ Uhrzeit, zu der die E-Mail verschickt werden soll</li>
+<li>Dateiname→ Name der Datei, die der Bericht ausgeben soll. Dabei muss die Endung des entsprechenden Dateityps angefügt werden, z.B..csv oder.txt</li>
+</ul>
+<p>Damit das Verschicken der E-Mails funktioniert, muss der Prozessstarter &ldquo;Berichte FTP Übertragungen&rdquo; aktiv und korrekt konfiguriert sein. Die Einstellungen könnten folgendermaßen aussehen:</p>
+<ul>
+<li>Bezeichnung→ Als Bezeichnung ist &ldquo;Berichte FTP Übertragung&rdquo; einzugeben</li>
+<li>Art→ Aus dem Drop-Down-Menü ist als Art &ldquo;periodisch&rdquo; auszuwählen</li>
+<li>Wochentag→ Aus dem Drop-Down-Menü ist &ldquo;Jeden Tag&rdquo; auszuwählen</li>
+<li>Startzeit→ Es ist die vorgegebene Startzeit zu belassen</li>
+<li>Letzte Ausführung→ Es ist die vorgegebene Endzeit zu belassen</li>
+<li>Periode→ Als Periode ist 1 in min. anzugeben</li>
+<li>Typ→ Als Typ ist &ldquo;Cronjob&rdquo; aus dem Drop-Down-Menü auszuwählen</li>
+<li>Parameter→ Als Parameter ist &ldquo;berichte_ftp_uebertragen&rdquo; einzugeben</li>
+<li>Aktiv→ Durch Anhaken wird der Prozessstarter aktiviert</li>
+</ul>
+<h2 id="beispielberichte">Beispielberichte<a class="headerlink" href="#beispielberichte" title="Permanent link">&para;</a></h2>
+<h3 id="zm">ZM<a class="headerlink" href="#zm" title="Permanent link">&para;</a></h3>
+<p><code>SELECT belegnr, datum, name, kundennummer, land, ustid, SUM(soll) as sollFROM rechnungWHERE land!= '{LAND}' AND land IN ({EULAENDER}) AND status!= 'angelegt' AND ustid!= &lt;em&gt; AND datum &gt;= '{DATUMVON}' AND datum &lt;= '{DATUMBIS}'GROUP BY ustid&lt;/em&gt;</code> Variablen: <code>{LAND} = DE;{DATUMVON} = 2019-01-01;{DATUMBIS} = 2019-12-31;{EULAENDER} = 'AT','BE','BG','CY','CZ','DE','DK','EE','ES','FI','FR','GB','GR','HR','HU','IE','IT','LT','LU','LV','MT','NL','PL','PT','RO','SE','SI','SK';</code></p>
+<p>Spaltenname: Rechnung;Datum;Kunden;Kdnr;Land;USTID;Betrag</p>
+<p>Spaltenbreite: 20;25;65;15;10;30;25</p>
+<p>Spaltenausrichtung: L;L;L;L;L;L;L</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Soll bei Zahlen statt einem Punkt ein Komma stehen (bsp: 13,10 statt 13.10), muss die Struktur entsprechend geändert werden: FORMAT(soll,2,&rsquo;de_DE&rsquo;</p>
+</blockquote>
+<h3 id="verkaufte-artikel-gerat-ins-ausland">Verkaufte Artikel (Gerät) ins Ausland<a class="headerlink" href="#verkaufte-artikel-gerat-ins-ausland" title="Permanent link">&para;</a></h3>
+<p>SELECT lieferschein_position.nummer,lieferschein_position.bezeichnung,lieferschein.land,round(auftrag_position.preis,2),(auftrag_position.preis * lieferschein_position.menge),lieferschein.auftrag,DATE_FORMAT(lieferschein.datum,&rsquo;%d.%m.%Y&rsquo;),artikel.geraet,lieferschein_position.mengeFROM lieferschein_positionLEFT JOIN lieferschein ON lieferschein.id=lieferschein_position.lieferscheinLEFT JOIN artikel ON artikel.id=lieferschein_position.artikelLEFT JOIN auftrag_position ON auftrag_position.id=lieferschein_position.auftrag_position_idWHERE artikel.geraet=1 AND lieferschein.land!=&rsquo;DE&rsquo;AND lieferschein.datum &gt;=&lsquo;2016-01-01&rsquo; AND lieferschein.datum &lt; &lsquo;2016-07-31&rsquo;</p>
+<p>Spaltennamen: Artikelnummer;Artikelbezeichnung;Land;AB Preis;AB;Datum;Gerät;Menge</p>
+<p>Spaltenbreite: 20;50;10;20;20;20;20;20</p>
+<p>Spaltenausrichtung: L;L;L;L;L;L;L;L</p>
+<h3 id="lieferschein-mit-lieferadresse-und-produkt">Lieferschein mit Lieferadresse und Produkt<a class="headerlink" href="#lieferschein-mit-lieferadresse-und-produkt" title="Permanent link">&para;</a></h3>
+<p>Über das SQL-Statement werden nachstehende Informationen aus dem Lieferschein gezogen:</p>
+<ul>
+<li>Lieferadresse des Kunden</li>
+<li>Alle Kunden, die ein bestimmtes Produkt bestellt haben (Artikel ID)</li>
+<li>Lieferscheine über einen bestimmten Datumsbereich</li>
+</ul>
+<p>SELECT l.belegnr,l.datum,l.name,l.ansprechpartner,l.abteilung,l.unterabteilung,l.adresszusatz,l.land,l.strasse,l.plz,l.ort, a.name_de,a.nummer FROM lieferschein l LEFT JOIN lieferschein_position lp ON lp.lieferschein=l.id LEFT JOIN artikel a ON a.id=lp.artikel WHERE lp.artikel=212 AND l.datum&gt;=&lsquo;2017-08-01&rsquo; AND l.datum &lt;=&lsquo;2017-12-31&rsquo; ANDl.status=&rsquo;versendet&rsquo;</p>
+<h3 id="lagerbestand-frei-verfugbare-artikel">Lagerbestand frei verfügbare Artikel<a class="headerlink" href="#lagerbestand-frei-verfugbare-artikel" title="Permanent link">&para;</a></h3>
+<p>SELECT a.nummer,a.name_de,TRIM(IFNULL((SELECT SUM(lpi.menge) FROM lager_platz_inhalt lpi WHERE lpi.artikel=a.id),0)-IFNULL((SELECT SUM(ap.menge) FROM auftrag_position ap LEFT JOIN auftrag auf ON auf.id=ap.auftrag WHERE ap.artikel=a.id AND (auf.status=&rsquo;freigegeben&rsquo; OR auf.status=&rsquo;versendet&rsquo;)),0))+0 FROM artikel a WHERE a.geloescht!=1</p>
+<h3 id="alle-artikel-mit-fremdnummern">Alle Artikel mit Fremdnummern<a class="headerlink" href="#alle-artikel-mit-fremdnummern" title="Permanent link">&para;</a></h3>
+<p><code>SELECT artikel.nummer, artikel.name_de, artikelnummer_fremdnummern.nummer as fremdnummer, artikelnummer_fremdnummern.bezeichnung FROM artikelnummer_fremdnummern LEFT JOIN artikel ON artikel.id=artikelnummer_fremdnummern.artikel</code></p>
+<h3 id="alle-kunden-mit-letztem-bestelldatum">Alle Kunden mit letztem Bestelldatum<a class="headerlink" href="#alle-kunden-mit-letztem-bestelldatum" title="Permanent link">&para;</a></h3>
+<p>SELECT MAX(datum), name, kundennummer FROM auftrag WHERE status!=&rsquo;angelegt&rsquo; AND datum &gt;=&lsquo;2018-01-01&rsquo; AND datum&lt;&lsquo;2018-04-01&rsquo; GROUP by adresse</p>
+<h3 id="mit-ausgabe-projekt-und-projekt">Mit Ausgabe Projekt und Projekt<a class="headerlink" href="#mit-ausgabe-projekt-und-projekt" title="Permanent link">&para;</a></h3>
+<p>IDSELECT MAX(a.datum), a.name, a.kundennummer, p.abkuerzung FROM auftrag a LEFT JOIN projekt p ON p.id=a.projekt WHERE a.status!=&rsquo;angelegt&rsquo; AND a.datum &gt;=&lsquo;2018-01-01&rsquo; AND a.projekt=&lsquo;1&rsquo; AND a.datum&lt;&lsquo;2018-04-01&rsquo; GROUP by a.adresse</p>
+<h3 id="rechnung-mit-manueller-zahlungsfestsetzung">Rechnung mit manueller Zahlungsfestsetzung<a class="headerlink" href="#rechnung-mit-manueller-zahlungsfestsetzung" title="Permanent link">&para;</a></h3>
+<p>Folgende Angaben sind zu verwenden:</p>
+<ul>
+<li>Info: liefert alle Rechnungen als Bericht, die den Haken &ldquo;Alle Einstellungen manuell festsetzen&rdquo; gesetzt haben.</li>
+<li>&ldquo;als.csv anzeigen&rdquo; verwenden</li>
+</ul>
+<p>Struktur: SELECT r.belegnr,r.datum,r.name FROM rechnung r WHERE r.mahnwesenfestsetzen=&lsquo;1&rsquo;</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

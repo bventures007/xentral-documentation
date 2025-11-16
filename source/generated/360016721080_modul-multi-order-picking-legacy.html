@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016721080 Modul Multi Order Picking Legacy - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016721080 Modul Multi Order Picking Legacy</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016721080 Modul Multi Order Picking Legacy</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die in diesem Artikel beschriebene Funktionalität zum Modul Multi-Order-Picking ist veraltet. Nutze stattdessen die <strong>Mobile Picking App</strong>. Du kannst die neue App kostenlos auf dein MDE-Gerät oder Smartphone herunterladen und für die mobile Kommissionierung in deinem Lager nutzen.</p>
+<p>Alle Informationen zur Einrichtung und Nutzung der App findest du im ArtikelMobile Picking App: Deine neue Lösung für effiziente Kommissionierläufe.</p>
+</blockquote>
+<h2 id="was-ist-multi-order-picking">Was ist Multi-Order-Picking?<a class="headerlink" href="#was-ist-multi-order-picking" title="Permanent link">&para;</a></h2>
+<p><strong>Multi-Order-Picking <strong>findet in Verbindung mit einem </strong> Kommissionierwagen <strong>und </strong> mobilen Geräten <strong>statt. Es handelt sich um einen fortschrittlichen und effizienten Ansatz in der Lagerlogistik, bei dem mit Hilfe eines mobilen Datenerfassungsgeräts (MDE-Gerät oder Smartphone mit Barcode-Scanner) im Lager mehrere Kundenaufträge gleichzeitig in einem Durchgang (auch</strong> Kommissionerlauf</strong> genannt) kommissioniert werden. Dabei nutzt das Lagerpersonal einen Kommissionierwagen, der es ermöglicht, die Artikel für verschiedene Aufträge geordnet zu sammeln und zum Packtisch zu transportieren.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Merke: Beim Multi-Order-Picking werden <strong>mehrere Aufträge gleichzeitig </strong> kommissioniert, wobei die Artikel <strong>je nach Auftrag zunächst getrennt in Transportboxen zwischengelagert</strong> und anschließend zum Packtisch transportiert werden.</p>
+</blockquote>
+<h2 id="wissenswertes-zum-multi-order-picking">Wissenswertes zum Multi-Order-Picking<a class="headerlink" href="#wissenswertes-zum-multi-order-picking" title="Permanent link">&para;</a></h2>
+<p>Die folgenden beiden Abbildungen geben dir einen Überblick über den Ablauf des Multi-Order-Picking in einem typischen Lager sowie über die Reihenfolge der jeweiligen Arbeitsschritte in Xentral.</p>
+<p><img alt="mop_kommissionierung_BILD_Workflow.png" src="https://help.xentral.com/hc/article_attachments/15571583681180" /></p>
+<p><img alt="MOP_Workflow_overview_000.png" src="https://help.xentral.com/hc/article_attachments/15550902373276" /></p>
+<h3 id="vorteile-und-anwendungsgebiete-des-multi-order-picking">Vorteile und Anwendungsgebiete des Multi-Order-Picking<a class="headerlink" href="#vorteile-und-anwendungsgebiete-des-multi-order-picking" title="Permanent link">&para;</a></h3>
+<p>-<strong>Multi-Order-Picking</strong> ermöglicht es dir, Artikel für mehrere Aufträge gleichzeitig während eines einzigen Rundgangs durch dein Lager zu sammeln. Dabei kann die Effizienz gesteigert werden, indem Laufwege im Lager reduziert werden.
+-<strong>Verwendung von Picklisten-Profilen </strong>: Mit der Funktion <strong>Picklisten profile</strong> kannst du deinen gesamten Auftragseingang effektiv sortieren. So kannst du Aufträge nach maximaler Auftrags- oder Artikelmengeoder nach verschiedenen Vertriebskanälen gliedern. Außerdem kannst du Einstellungen für die Priorisierung und die automatische Erstellung von Picklisten vornehmen.
+-<strong>Optimierung von Laufwegen </strong>: Durch die Vergabe von <strong>Sortiernummern an Lagerplätzen</strong> kannst du Laufwege optimieren. So kannst du beispielsweise B2B-Aufträge mit Palettenware gezielt in einer bestimmten Ecke des Lagers bearbeiten, während die Ware für B2C-Aufträge über das gesamte Lager in Regalen verteilt ist. Schnelldreher, ideal für Aufträge mit einer einzigen Artikelposition platzierst du nahe am Packtisch, und für retournierte Ware reservierst du ebenso einen vorderen Bereich in der Nähe des Packtisches.
+-<strong>Kommissionierwagen</strong>: Beim Multi-Order-Picking verwendest du einen mobilen Kommissionierwagen, der verschiedene Behälter oder Kisten enthält, in die die Artikel für unterschiedliche Kundenaufträge einsortiert werden. Der Wagen dient als mobile Station, die es ermöglicht, geordnet und systematisch zu arbeiten.
+-<strong>Papierloses Arbeiten</strong>: Die Multi-Order-Picking-App funktioniert vollständig papierlos und ist ideal für den Einsatz mit MDE-Geräten, die ähnlich wie Smartphones funktionieren und über einen leistungsfähigen Barcode-Scanner verfügen. Diese App ist eine Erweiterung der bestehenden Webapplikation von Xentral. Das bedeutet, dass du mit einem passenden mobilen Gerät sofort startbereit bist.</p>
+<h2 id="standard-workflow-beim-multi-order-picking">Standard-Workflow beim Multi-Order-Picking<a class="headerlink" href="#standard-workflow-beim-multi-order-picking" title="Permanent link">&para;</a></h2>
+<p><img alt="MOP_Workflow_standard_001.png" src="https://help.xentral.com/hc/article_attachments/19368067403164" /></p>
+<h2 id="deine-moglichkeiten-beim-multi-order-picking">Deine Möglichkeiten beim Multi-Order-Picking<a class="headerlink" href="#deine-moglichkeiten-beim-multi-order-picking" title="Permanent link">&para;</a></h2>
+<p>Bevor du das Multi-Order-Picking produktiv nutzt, schau dir folgende Abbildung genauer an. Sie enthält eine Übersicht darüber, in welche Schritte dieses Art der Kommissionierung standardmäßig unterteilt ist (siehe die blauen Boxen). Du kannst außerdem sehen, welche weiteren, optionalen Prozessschritte möglich sind, wie beispielsweise die Erfassung von Mindesthaltbarkeitsdaten und Chargen, der Umgang mit Stücklisten sowie zusätzliche Qualitäts-Scans.</p>
+<p><img alt="MOP_Workflow_001.png" src="https://help.xentral.com/hc/article_attachments/15548908797084" /></p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Beachte vor dem produktiven Einsatz des Multi-Order-Picking mit mobilen Geräten mit Xentral die notwendigen Einstellungen. Weitere Informationen dazu findest du im KapitelEinstellungen für das Multi-Order-Picking vornehmen.</p>
+</blockquote>
+<h3 id="schritt-1-ubergabe-von-auftragen-an-das-xentral-versandzentrum">Schritt 1: Übergabe von Aufträgen an das Xentral Versandzentrum<a class="headerlink" href="#schritt-1-ubergabe-von-auftragen-an-das-xentral-versandzentrum" title="Permanent link">&para;</a></h3>
+<p>Die Versandübergabe ist der Schritt, bei dem du sicherstellst, dass alle geprüften Aufträge per<a href="https://help.xentral.com/hc/de/articles/6113578120092#UUID-99504608-d895-41ad-5059-de028e933077">Auto-Versand</a>an die Logistik übergeben werden und per Auftragsampel grünes Licht erhalten haben.</p>
+<p>Du kannst diese Aufträge einzeln oder in Stapeln, manuell oder durch festgelegte Prozesse übergeben. Erfahre<a href="https://help.xentral.com/hc/de/articles/6113578120092#UUID-99504608-d895-41ad-5059-de028e933077">in diesem Artikel</a>mehr zu den einzelnen Möglichkeiten bei der Versandübergabe von Aufträgen.</p>
+<p>Bei hohem Auftragsvolumen hast du zudem die Möglichkeit, Picklisten uhrzeitgesteuert zu erstellen und die Aufträge automatisiert an die Logistik weiterzuleiten. Nutze dazu die<a href="https://help.xentral.com/hc/de/articles/360016722600#UUID-639a7179-6df9-467b-1821-cda20df3f8be">Picklisten-Profile in Xentral</a>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beim <strong>Multi-Order-Picking </strong> werden die Aufträge in einen oder mehrere <strong>Kommissionierläufe </strong> unterteilt. Du findest sie anschließend im Modul <strong>Multi-Order-Picking </strong> und kannst per Klick auf <strong>Übersicht offene Pick-Läufe</strong> die Aufträge abarbeiten.</p>
+</blockquote>
+<h3 id="schritt-2-kommissionierprozess-durchfuhren">Schritt 2: Kommissionierprozess durchführen<a class="headerlink" href="#schritt-2-kommissionierprozess-durchfuhren" title="Permanent link">&para;</a></h3>
+<p>Im Folgenden wird beschrieben, wie du den Kommissionierprozess mithilfe der Multi-Order-Picking App von Xentral startest und durchführst.</p>
+<p><img alt="mop_komlauf_start_001-3.png" src="https://help.xentral.com/hc/article_attachments/15561301321372" /></p>
+<ol>
+<li>Logge dich auf deinem Mobilen Gerät (MDE-Ansicht) in Xentral ein und navigiere über die Startseite in die <strong>Multi-Order-Picking</strong> App.</li>
+<li>Sobald du die App öffnest, siehst du drei Schaltflächen:<strong>Kommissionierlauf nach FIFO <strong>,</strong> Übersicht </strong> und <strong>Zum Versandzentrum</strong>.
+  -<strong>Kommissionierlauf nach FIFO</strong> ist die Benutzeroberfläche, die dein Pack-Team nutzen wird. Sie zeigt oben den ältesten, noch nicht bearbeiteten Kommissionierlauf an. Falls kein älterer Lauf vorhanden ist, wird der zuletzt erstellte Lauf angezeigt. Auf diese Weise werden immer die Aufträge zuerst zu bearbeitet, die am längsten warten oder zuerst priorisiert an die Logistik übergeben wurden.
+  - Die <strong>Übersicht</strong> zeigt alle aktuellen Kommissionierläufe an. Bei Bedarf kannst du einen Lauf aus der Liste auswählen. Falls du beispielsweise dringende Aufträge hast, die sofort bearbeitet werden müssen, kannst du diese priorisieren und den entsprechenden Lauf zuerst auswählen.
+  - Tippe auf <strong>Zum Versandzentrum</strong> um das Xentral Versandzentrum mit allen Einzelaufträgen und weiteren Aktionen aufzurufen. Nutze diese Funktion, wenn du etwas nachsehen möchtest ohne dich in einen Rechner am Packplatz einzuloggen, einen Auftrag schnell am mobilen Gerät zu Ende packen willst oder Klärfälle einsehen möchtest.</li>
+<li>Klicke auf <strong>Kommissionierlauf nach FIFO</strong>. Nun werden der älteste, noch nicht begonnene Kommissionierlauf sowie die dazugehörigen Informationen angezeigt.
+  -<strong>Kommissionierlauf </strong>: Zeigt die Nummer des Kommissionierlaufes an, im Beispiel ist das Nummer <strong>54</strong>.
+  -<strong>Anzahl Artikel: </strong> Zeigt die Anzahl der Artikel in diesem Kommissionierlauf an. Im Beispiel sind <strong> 6</strong> Artikel im Lauf enthalten.
+  -<strong>Anzahl Kisten</strong>: Zeigt die Anzahl der Kundenbestellungen an. Du kannst ebenfalls sehen, wie viele Versandkartons an der Versandstation gepackt werden und das Lager verlassen.</li>
+<li>Klicke auf <strong>Weiter </strong>, um den Kommissionierlauf zu starten.<strong>Zuordnung von Kisten zu Lieferscheinnummern vornehmen:</strong></li>
+</ol>
+<p><img alt="mop_komlauf_kisten_koppeln_001-3.png" src="https://help.xentral.com/hc/article_attachments/15562667784988" /></p>
+<ol>
+<li>Du erhältst die erste Lieferscheinnummer, um diese mit einer Kommissionierkiste zu koppeln, also zuzuordnen.</li>
+<li>Scanne den Barcode der Kiste, die du für diesen Lieferschein verwenden möchtest. Die Lieferscheinnummer wird somit automatisch mit der Kiste verknüpft.</li>
+<li>Scanne weitere freie Kisten auf dem Kommissionierwagen, bis du aufgefordert wirst, den ersten Artikel für diesen Kommissionierlauf zu picken.</li>
+</ol>
+<p><strong>Ersten Artikel des Kommissionerlaufs picken</strong></p>
+<p><img alt="mop_komlauf_artikelpick_standard_001-3.png" src="https://help.xentral.com/hc/article_attachments/15563025275804" /></p>
+<ol>
+<li>Für das Picken des Artikels werden nun folgende Informationen angezeigt.
+  -<strong>Kommissionierlauf </strong>: Zeigt die Nummer des Kommissionierlaufes an. Im Beispiel ist das Nummer <strong>54</strong>.
+  -<strong>Restmenge</strong>: Zeigt die aktuell zu kommissionierende Gesamtartikelmenge für diesen Lauf an.
+  -<strong>Lagerplatz</strong>: Lagerplatz, auf dem sich dieser Artikel befindet.
+  -<strong>Artikel</strong>: Artikelnummer des zu pickenden Artikels.
+  -<strong>Menge, benötigte Menge </strong>: Das Feld <strong>Menge </strong> enthält die Artikelmenge, die für die aktuelle Kommissionierkiste benötigt wird. Das Feld <strong>Benötigte Menge</strong> enthält die Gesamtmenge der Artikel, die im aktuellen Kommissionierlauf benötigt werden.</li>
+<li>Scanne den Artikel, um zum nächsten Schritt zu gelangen. Alternativ kannst du die Artikelnummer auch manuell eingeben.</li>
+<li>Scanne die Kiste ab und lege den Artikel in die Kiste.</li>
+<li>Wiederhole die Schritte für jeden geforderten Artikel, bis du beim letzten Artikel des Kommissionierlaufs angelangt bist.</li>
+<li>Sobald du den letzen Artikel des Laufs eingesammelt und in die Kiste gelegt hast, wirst du in die Übersicht zurückgeleitet und kannst entweder die Ware aus dem Kommissionierwagen zu einem Packtisch bringen oder den nächsten Kommissionierlauf mit einem neuen Kommissionierwagen starten.</li>
+</ol>
+<p><strong>Artikel mit Chargeninformationen kommissionieren</strong></p>
+<p><img alt="mop_komlauf_charge_001-3.png" src="https://help.xentral.com/hc/article_attachments/15563950991900" /></p>
+<ol>
+<li>Beim Picken eines Artikels mit Chargeninformationen wird die Charge pro Lagerplatz abgefragt.</li>
+<li>Scanne die Charge oder gib sie manuell ein.</li>
+<li>Bestätige deine Eingabe.</li>
+</ol>
+<p><strong>Artikel mit Mindesthaltbarkeitsdatum kommissionieren</strong></p>
+<p><img alt="mop_komlauf_mhd_001-3.png" src="https://help.xentral.com/hc/article_attachments/15563708469276" /></p>
+<ol>
+<li>Beim Picken eines Artikels mit Mindesthaltbarkeitsdatum wird das MHD pro Lagerplatz abgefragt.</li>
+<li>Scanne das MHD oder gib es manuell ein.</li>
+<li>Bestätige deine Eingabe.</li>
+</ol>
+<h3 id="schritt-3-packprozess">Schritt 3: Packprozess<a class="headerlink" href="#schritt-3-packprozess" title="Permanent link">&para;</a></h3>
+<p>Der Packprozess umfasst typischerweise mehrere spezifische Schritte wie die Zusammenstellung der Produkte am Packtisch, die Verpackung der Produkte in Kartons, das Hinzufügen von Füllmaterial, das Verschließen der Verpackung und schließlich das Anbringen der Versandlabels.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Beim Multi-Order-Picking erfolgt der Packprozess getrennt von dervorherigen Kommissionierung, also dem Pickprozess.</p>
+</blockquote>
+<ol>
+<li>Bringe deinen fertig bestückten Kommissionierwagen in eine so genannte Kommissionierwagen-Zone oder zur direkten Weiterverarbeitung an einen Packplatz.</li>
+<li>Über das Versandzentrum in Xentral kann das Personal am Packtisch die einzelnen Kisten mit einem Scanner erfassen. So wird der zu packende Auftrag direkt geöffnet.</li>
+<li>Abschließend findet je nach dem Kommissionierverfahren, dass du in den Projekteinstellungen ausgewählt hast, ein weiterer Qualitäts-Scan der Artikel oder eine Erfassung der Seriennummern statt. Je nach Projekteinstellungen sind ebenfalls der Ausdruck oder E-Mail Versand von Belegen wie Lieferscheinen und Rechnungen möglich.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Detaillierte Informationen zu den vielfältigen Möglichkeiten für die Konfiguration des Packprozesses im Versandzentrum findest du in den folgenden Artikeln:</p>
+<ul>
+<li>Versandzentrum (Packtisch-Modul): Kommissionieren, Verpacken und Versenden</li>
+<li>Picklisten-Profile</li>
+</ul>
+</blockquote>
+<h2 id="einstellungen-fur-das-multi-order-picking-vornehmen">Einstellungen für das Multi-Order-Picking vornehmen<a class="headerlink" href="#einstellungen-fur-das-multi-order-picking-vornehmen" title="Permanent link">&para;</a></h2>
+<p>Bevor du das Multi-Order-Picking nutzt, musst du einige Einstellungen in Xentral vornehmen, um den Prozess einzurichten und ihn um deine individuell gewünschten Einstellungen zu erweitern. Die notwendigen Schritte dazu werden im Folgenden beschrieben.</p>
+<h3 id="einstellungen-im-projekt">Einstellungen im Projekt<a class="headerlink" href="#einstellungen-im-projekt" title="Permanent link">&para;</a></h3>
+<p>Gehe wie unten beschrieben vor, um die notwendigen Einstellungen für die Nutzung des Multi-Order-Pickings in dem Projekt vorzunehmen, dessen Aufträge du auf diese Weise abarbeiten möchtest.</p>
+<ol>
+<li>Öffne über die Smart Search das Modul <strong>Projekte</strong>.</li>
+<li>Öffne das Projekt, dessen Aufträge mithilfe des Multi-Order-Pickings abgearbeitet werden sollen.</li>
+<li>Öffne das Tab <strong>Einstellungen</strong>.</li>
+<li>Klicke auf <strong>Logistik/Versand</strong>.</li>
+<li>Nimm im Bereich <strong>Versandprozess und Kommissionierung</strong> folgende Einstellungen vor:
+  -<strong>Kommissionierverfahren </strong>: Wähle die Option <strong>Lieferschein mit Lagerplatz, Automatische Lagerausbuchung und Scannen im Versandzentrum </strong>, wenn du vor dem endgültigen Verpacken der Artikel einen zusätzlichen Qualitäts-Scan oder einen Scan von Seriennummern durchführen möchtest. Benötigst du diesen Schritt nicht, wähle stattdessen die Option <strong>Lieferschein mit Lagerplatz und Automatische Lagerausbuchung</strong> aus.
+  -<strong>Kommissionierlauf mit Multi-Order-Picking</strong>: Aktiviere diese Option.</li>
+<li>Nimm im Bereich <strong>Stufe 2 (Pack) an Versandstation</strong> folgende Einstellungen vor:
+  -<strong>Lieferschein</strong>: Aktiviere die Option Drucker, wenn du am Packtisch ein zusätzliches Exemplar des Lieferscheins auszdrucken möchtest, um dem Paket an deine Kunden einen Lieferschein beizulegen.</li>
+<li>Klicke abschließend auf <strong>Speichern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Für <strong>Stufe 1 (Pick/ Kommissionierung)</strong> werden beim Multi-Order-Picking keine Projekteinstellungen benötigt. Die Pick-Logik ist bereits durch die Aktivierung der Option <strong> Kommissionierlauf mit Multi-Order-Picking</strong> voreingestellt und erfolgt bis auf den Druck von Etiketten und Lieferscheinen ausschließlich digital.</p>
+</blockquote>
+<h3 id="detaillierte-prozess-einstellungen">Detaillierte Prozess-Einstellungen<a class="headerlink" href="#detaillierte-prozess-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Nachdem du im ersten Schritt die Verwendung des Multi-Order-Picking<a href="#UUID-956d8415-1374-323b-6023-f9a789a6e245_section-idm234488611108388">in den Projekteinstellungen erlaubt hast</a>, nimmst du genauere Einstellungen zur eigentlichen Abwicklung des Multi-Order-Picking vor. So kannst du beispielsweise bestimmen, dass Xentral automatisch im Hintergrund eine Optimierung der Laufwege im Lager vornimmt und entscheiden, was passieren soll, wenn nicht alle benötigten Artikel gepickt werden können.</p>
+<p>Gehe wie folgt vor, um detaillierte Prozess-Einstellungen vorzunehmen.</p>
+<ol>
+<li>Öffne das Menü <strong>Einstellungen &gt; Lager &amp; Logistik &gt; Logistik &gt; Pick-Läufe (Rollende/Boxen/MOP)</strong>.</li>
+<li>Nimm die gewünschten Einstellungen vor. Die folgende Tabelle enthält genauere Informationen zu den verfügbaren Optionen.</li>
+<li>Klicke anschließend auf <strong>Speichern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Möchtest du die Laufwege im Lager während der Kommissionierung optimieren, sodass sie so kurz wie möglich ausfallen? Dann aktiviere die beiden Optionen <strong>Nach jedem Artikel Lieferschein scannen </strong> und <strong>Sortierung nach Lagerplatzreihen</strong>. Auf diese Weise ermittelt die Mobile Picking App immer den kürzenden Laufweg für die zu pickenden Artikel, sodass dein Lagerpersonal effizienter arbeiten kann.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Teilauftrag erstellen</strong></td>
+<td>Aktiviere diese Option, um automatisch einen Teilauftrag in Xentral zu erstellen, falls die für einen Auftrag benötigten Artikel nicht vollständig gepickt werden können, beispielsweise weil zu wenig Bestand am Lagerplatz vorhanden ist.</td>
+</tr>
+<tr>
+<td><strong>Kistennummer verwenden <strong></td>
+<td>Aktiviere diese Option, um lediglich die Kistennummern zu scannen und somit für die Auftragszuordnung zu nutzen. Somit scannst du nicht den Barcode auf dem Lieferschein, sondern das Etikett auf der Kommissionerkiste. Stelle dazu sicher, dass die verwendeten Kisten mit Etiketten versehen sind, die Barcodes mit fortlaufenden Nummerierungen enthalten. Das geforderte Format hierbei ist</strong> WAWISION_X </strong>, wobei der Bestandteil <strong>X </strong> die fortlaufende Zahl darstellt und mit <strong>1</strong> beginnt.</td>
+</tr>
+<tr>
+<td><strong>Kisten scannen</strong></td>
+<td>Mithilfe dieser Option legst du fest, dass Kisten bei jedem Kommissionierprozess mit dem Multi-Order-Picking den entsprechenden Lieferscheinen zugeordnet werden müssen.</td>
+</tr>
+<tr>
+<td><strong>Kistenbestätigung überspringen</strong></td>
+<td>Wenn du diese Option aktivierst, wird dein Lagerpersonal auf dem mobilen Gerät nicht mehr aufgefordert, die aktuell bearbeitete Kiste separat zu bestätigen.</td>
+</tr>
+<tr>
+<td><strong>Stücklistenelemente wie Lagerartikel behandeln</strong></td>
+<td>Aktiviere diese Option, um Artikel, die Bestandteile von Stücklisten sind, genau wie reguläre Lagerartikel zu picken.</td>
+</tr>
+<tr>
+<td><strong>Kistennummer an Lieferscheinetikett drucken <strong></td>
+<td>Wenn du diese Option aktivierst, wird die Kistennummer in die Barcodes auf den Artikeletiketten übernommen, sobald du auf</strong> Alle drucken</strong> klickst.</td>
+</tr>
+<tr>
+<td><strong>Sortierung nach Lagerplatzreihen</strong></td>
+<td>Diese Option muss aktiviert werden, wenn du eine Laufwegoptimierung vornehmen möchtest. Sie sorgt dafür, dass die benötigten Artikel nach den Lagerplatzreihen, in denen sie sich befinden, sortiert und in der App angezeigt werden. So verkürzen sich die Laufwege während des Pick-Prozesses.</td>
+</tr>
+<tr>
+<td><strong>Nach jedem Artikel Lieferschein scannen <strong></td>
+<td>Hier kannst du optional bestimmen, ob der Lieferschein jedes Mal erneut gescannt werden muss, wenn ein Artikel von seinem Lagerplatz entnommen wurden. Dies kann das Fehlerpotential beim Pick-Prozess reduzieren. ⚠️</strong> Wichtig:</strong> Diese Option muss aktiviert werden, wenn du eine Laufwegoptimierung vornehmen möchtest.</td>
+</tr>
+<tr>
+<td><strong>Klärfälle von anderen Kommissionierungen ignorieren</strong></td>
+<td>Wenn du diese Option aktivierst, werden auch Lagerplätze vorgeschlagen, die von anderen Personen im Lager bereits bei vorherigen Kommissionierläufen als leer gemeldet wurden.</td>
+</tr>
+<tr>
+<td><strong>Pickprozess nach Problemfällen fortsetzen</strong></td>
+<td>Diese Option erlaubt die Fortsetzung des Kommissionerlaufs, auch wenn ein Problem aufgetreten ist. So kann der aktuelle Pick-Prozess fortgesetzt werden und etwaige Problemfälle im Nachgang geklärt werden, um weitere Verzögerungen zu vermeiden.</td>
+</tr>
+<tr>
+<td><strong>Etikettendruck ausblenden</strong></td>
+<td>Aktiviere diese Option, um den Etikettendruck für offene Aufträge während der Kommissionierung zu verbieten.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="etiketten-fur-multi-order-picking-erstellen">Etiketten für Multi-Order-Picking erstellen<a class="headerlink" href="#etiketten-fur-multi-order-picking-erstellen" title="Permanent link">&para;</a></h2>
+<p>Für das Multi-Order-Picking kannst du verschiedene Etiketten erstellen und anschließend verwenden:</p>
+<ul>
+<li>Etikett mit Kistennummer</li>
+<li>Artikeletikett</li>
+<li>Lieferscheinetikett</li>
+<li>Trenner</li>
+</ul>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zu den verschiedenen Etiketten und zur Einrichtung der erforderlichen Etikettenlayouts in Xentral findest duin diesem Artikel.</p>
+</blockquote>
+<h2 id="offene-pick-laufe-und-klarfalle-anzeigen">Offene Pick-Läufe und Klärfälle anzeigen<a class="headerlink" href="#offene-pick-laufe-und-klarfalle-anzeigen" title="Permanent link">&para;</a></h2>
+<p>Wenn du per Smart Search das Modul <strong>Multi-Order-Picking </strong> öffnest, gelangst du per Klick auf <strong>Übersicht offene Pick-Läufe </strong> zu einer Liste aller noch nicht abgearbeiteten Aufträge. Der Übersicht kannst du in der Spalte <strong>Lauf</strong> die jeweils benötigte Kistennummer für den Pick-Lauf entnehmen.</p>
+<p><img alt="MOP_overview-de.png" src="https://help.xentral.com/hc/article_attachments/19368067404188" /></p>
+<p>Klicke außerdem auf das <strong>Pfeil-Symbol</strong> links, um die Detailansicht eines bestimmten Laufs zu öffnen. Hier kannst du weitere Informationen einsehen, beispielsweise die Lieferscheinnummer sowie den Namen des Mitarbeiters, der gerade mit der Kommissionierung beschäftigt ist</p>
+<p><img alt="MOP_detail-de.png" src="https://help.xentral.com/hc/article_attachments/19368067404956" /></p>
+<p>Sollte nur eine Teilmenge des Artikels gepickt worden sein, kann die Differenz entweder auf die Klärliste überführt werden oder in Form eines Teilauftrags weiterbearbeitet werden. Dies hängt von den<a href="#UUID-956d8415-1374-323b-6023-f9a789a6e245_section-idm234764492294138">detaillierten Prozess-Einstellungen</a>ab, die du vorab definiert hast. Im Tab <strong>Klärfälle</strong> kannst du bei entsprechender Einstellung alle bestehenden Klärfälle sehen und bearbeiten.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

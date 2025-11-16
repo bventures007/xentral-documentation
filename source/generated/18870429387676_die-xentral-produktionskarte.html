@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18870429387676 Die Xentral Produktionskarte - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>18870429387676 Die Xentral Produktionskarte</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>18870429387676 Die Xentral Produktionskarte</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>In diesem Artikel zeigen wir dir den grundsätzlichen Aufbau der Produktionskarte. Außerdem findest du detaillierte Erklärungen der Menüs und Funktionen, die dir dort zur Verfügung stehen.</p>
+<p>Um das Produktionsmodul zu erreichen, folge dem PfadLager &gt; Produktionoder suche über die Smart Search nach “Produktion”.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Das Produktionsmodul wird in Xentral NextGen standardmäßig nicht in der Navigationsleiste auf der linken Seite angezeigt. Du kannst das Modul der Navigationsleiste für deinen Benutzer hinzufügen, indem du den Anweisungen im folgenden Artikel folgst:Individuelle Navigationsleiste einrichten.</p>
+</blockquote>
+<p>Wenn du eine bestimmte Produktion öffnest, befindest du dich in der sog.Produktionskarteund kannst viele Details dieser Produktion bearbeiten. Je nach Status sind manche Reiter relevant oder nicht.</p>
+<h2 id="reiter-details">Reiter Details<a class="headerlink" href="#reiter-details" title="Permanent link">&para;</a></h2>
+<h3 id="tab-produktion">Tab Produktion<a class="headerlink" href="#tab-produktion" title="Permanent link">&para;</a></h3>
+<p>Hier findest du die sog. Kopfdaten einer jeden Produktion. Daten, die du hier festlegst, gelten für den ganzen Produktionsvorgang.</p>
+<p><img alt="Produktionskarte_Produktion_Header.png" src="https://help.xentral.com/hc/article_attachments/19368069028124" /></p>
+<h4 id="monitor">Monitor<a class="headerlink" href="#monitor" title="Permanent link">&para;</a></h4>
+<p>Der Monitor in der Mitte zeigt dir den Status aller produktionsbezogenen Schritte an. Details zu den unterschiedlichen Status findest du im Artikel<a href="https://help.xentral.com/hc/de/articles/18870429370140#UUID-20bfb91b-663a-e5ee-9dd1-e875d5b2cccb">Produktionsübersicht</a>.</p>
+<p><img alt="Produktionskarte_Produktion_Header_Monitor.png" src="https://help.xentral.com/hc/article_attachments/19368105816220" /></p>
+<h4 id="aktionsmenu">Aktionsmenü<a class="headerlink" href="#aktionsmenu" title="Permanent link">&para;</a></h4>
+<p>Das Aktionsmenü befindet sich sowohl im Tab Produktion als auch im Tab Positionen oben rechts auf der Karte:</p>
+<p><img alt="Produktionskarte_Produktion_Aktionsmenu.png" src="https://help.xentral.com/hc/article_attachments/19368105816604" /></p>
+<p>Mit dem Aktionsmenü kannst folgende Maßnahmen durchführen:</p>
+<p><img alt="Produktionskarte_Produktion_Aktionsmenu_Optionen.png" src="https://help.xentral.com/hc/article_attachments/19368105816988" /></p>
+<ul>
+<li>Produktion starten: Hiermit änderst du den Status der Produktion von FREIGEGEBEN auf GESTARTET. Voraussetzung ist, dass das notwendige Material in ausreichender Menge verfügbar ist.</li>
+<li>Produktion stornieren: Über diese Aktion kannst du die Produktion löschen (im Entwurfsstadium) oder stornieren (in allen anderen Stadien). Beachte den folgenden Hinweis!</li>
+<li>Produktion kopieren: Diese Aktion legt eine neue Produktion an und übernimmt allgemeine Daten, Einstellungen Produktion und Positionen. Das Angelegt-am-Datum, sowie Produktionsstart und -ende werden nicht übernommen.</li>
+<li>Produktion abschicken: Hierüber gelangst du zum Abschicken-Dialog, mit dem du ein PDF des Produktionsvorgangs versenden kannst.</li>
+<li>Produktion auslagern: Wenn du auf diese Aktion klickst, gelangst du zum “Artikel für Produktion”-Dialog. Dort kannst du Material für die Produktion auslagern.</li>
+<li>Produktion einlagern: Mit dieser Aktion lagerst du das hergestellte Erzeugnis einer Produktion ein.</li>
+<li>Produktion abschließen: Hiermit schließt du eine Produktion ab. Voraussetzung ist, dass das hergestellte Erzeugnis vorher eingelagert wurde.</li>
+<li>Teilproduktion erstellen: Diese Aktion ermöglicht es dir, Produktionen mit Produktionsmenge &gt; 1 in Teilproduktionen aufzuspalten. Dies ist z. B. hilfreich, wenn dein Material zwar nicht für die gesamte Produktionsmenge reicht, aber für Teilmengen, die du schon produzieren möchtest, bevor das gesamte Material an Lager ist. Voraussetzung für die Aufspaltung einer Produktion ist, dass noch kein Material ausgelagert wurde.</li>
+<li>Export als CSV: Hiermit kannst du die Daten der Produktion in eine CSV-Datei exportieren. Als Trennzeichen wird das Semikolon verwendet.</li>
+<li>PDF öffnen: Hier kannst du die Produktion als PDF-Datei öffnen. Die Datei enthält die allgemeinen Daten, die Fertigungsstückliste und die Arbeitsanweisung.</li>
+<li>Alle Positionen löschen: Mit dieser Funktion kannst du die Positionen mit einem Klick löschen. Die Kopfdaten der Produktion bleiben unverändert.</li>
+</ul>
+<h4 id="allgemein">Allgemein<a class="headerlink" href="#allgemein" title="Permanent link">&para;</a></h4>
+<p><img alt="Produktionskarte_Produktion_Header_Allgemein.png" src="https://help.xentral.com/hc/article_attachments/19368105818268" /></p>
+<p>In diesem Abschnitt stellst du einige allgemeine Daten für die Produktion ein. Folgende Felder kannst du nutzen:</p>
+<ul>
+<li>Kunde: Trage eine Kundennummer ein und bestätige die Auswahl mit übernehmen. Dieses Feld ist ein Pflichtfeld.</li>
+<li>Projekt: Wähle ein Projekt, dem die Produktion zugeordnet werden soll.</li>
+<li>Status: Dieses Feld zeigt den Status der Produktion an.</li>
+<li>Auftrag: Hier kannst du die Nummer eines Verkaufsauftrages eintragen, um eine Produktion und einen Verkaufsauftrag miteinander zu verknüpfen.</li>
+<li>Interne Bezeichnung: Dieses Feld kannst du nutzen, um die Produktion intern zu identifizieren oder um eigene kurze Notizen einzutragen. Die interne Bezeichnung wird in der Produktionsübersicht unterhalb der Produkt-Bezeichnung und im Produktions-PDF angezeigt.</li>
+<li>Angelegt am: Dieses Datum wird automatisch ausgefüllt. Bei Bedarf kannst du es überschreiben.</li>
+<li>Bevorzugtes Lager: Wenn du einschränken möchtest, dass Material nur von Lagerplätzen eines bestimmten Lagerortes verwendet werden soll, kannst du hier den entsprechenden Lagerort eintragen.</li>
+<li>Schreibschutz: Setze diesen Haken, sobald du keine Änderungen an den Daten mehr vornehmen möchtest.</li>
+</ul>
+<h4 id="aktionen">Aktionen<a class="headerlink" href="#aktionen" title="Permanent link">&para;</a></h4>
+<p><img alt="Produktionskarte_Produktion_Header_Aktionen.png" src="https://help.xentral.com/hc/article_attachments/19368105819164" /></p>
+<p>Folgende Aktionen stehen hier für dich bereit:</p>
+<ul>
+<li>Produktionsanweisungen als PDF: Hier kannst du die Produktion mit Stückliste und Arbeitsschritten als PDF ausgeben.</li>
+<li>Datenblätter als ZIP: Hier kannst du alle angehängten Dateien in einem zip-Archiv herunterladen.</li>
+<li>Etikettensets für alle Produkte: Diese Schaltfläche erzeugt Etikettensets für alle in der Produktion enthaltenen Erzeugnisse und sendet sie an den Spooler. Voraussetzung ist, dass Etiketten im gleichnamigen Reiter hinzugefügt wurden.</li>
+<li>Seriennummern-Etiketten für alle Produkte: Hiermit generierst du Seriennummern-Etiketten für alle seriennummerngeführten Erzeugnisse und sendest sie an den Spooler. Voraussetzungen sind, dass Seriennummern zugewiesen und dass Etiketten im gleichnamigen Reiter hinzugefügt wurden.</li>
+<li>Stückliste als Etiketten drucken</li>
+</ul>
+<p>Die folgenden Schaltflächen stehen nur bei Produktionen mit StatusGESTARTETzur Verfügung:</p>
+<ul>
+<li>Zum Produktionszentrum: Mit dieser Schaltfläche wechselst du zum Produktionszentrum. Weitere Details zum Produktionszentrum findest du auf dieser <a href="https://help.xentral.com/hc/de/articles/18870420757404#UUID-68222470-282c-fb58-d100-d91148e6f837">Seite</a>.</li>
+<li>Seriennummer generieren: Hier kannst du ein Menü öffnen, mit dem du eine Seriennummer für das Erzeugnis generieren kannst:</li>
+<li>Charge erzeugen: Hierüber gelangst du in das Menü zur Erzeugung von Chargennummern:</li>
+</ul>
+<h4 id="einstellung-produktion">Einstellung Produktion<a class="headerlink" href="#einstellung-produktion" title="Permanent link">&para;</a></h4>
+<p><img alt="Produktionskarte_Produktion_Header_EinstellungProduktion.png" src="https://help.xentral.com/hc/article_attachments/19368069043356" /></p>
+<p>Folgende Einstellungen kannst du für eine Produktion vornehmen:</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die vier Datumsfelder “Auslieferung Datum”, “Bereitstellung Start”, “Produktion Start” und “Produktion Ende” sind rein informativ und können nach deinen eigenen betrieblichen Bedürfnissen genutzt werden. Die Felder werden in anderen Modulen nicht zur Berechnung herangezogen.</p>
+</blockquote>
+<ul>
+<li>Reservierung Material: Hier legst du den Zeitpunkt fest, zu dem das Material für die Produktion reserviert werden soll:</li>
+<li>Entnahme im Lager: Du kannst entscheiden, wie die Materialentnahme gebucht werden soll:</li>
+<li>Unterstücklisten auflösen:</li>
+<li>Wenn du möchtest, dass für jede enthaltene Unterstückliste ein eigener Produktionsvorgang angelegt und mit dieser Produktion verknüpft wird, setze keinen Haken. Anschließend kannst du die Schaltfläche “Unterstücklisten als eigene Produktion anlegen” nutzen, um die Unterproduktionen anzulegen. Dabei werden bereits vorproduzierte Unterstücklisten ausgenommen, indem du den Haken “Lagerbestand und Min. Bestellmenge betrachten” setzt.</li>
+<li>Ist der Haken gesetzt, werden alle Bauteile in der vorliegenden Produktion “in einer Ebene” eingefügt, unabhängig davon, ob sie unmittelbar aus der Stückliste des Erzeugnisses oder einer Unterstückliste stammen. In diesem Fall werden keine gesonderten Unterproduktionen angelegt.</li>
+<li>Funktionstest: Mit diesem Haken kannst du steuern, ob bei dieser Produktion ein Funktionstest durchgeführt und aufgezeichnet werden soll (Haken gesetzt) oder nicht (Haken nicht gesetzt). Setzt du den Haken nicht, wird dir dies in einem Banner angezeigt. In diesem Fall kann der Werker den Funktionstest im Produktionszentrum nicht starten und aufzeichnen.</li>
+<li>Beschreibungen von Arbeitsschritten anzeigen: Du kannst wählen, ob im Produktionsdokument die ausführliche Arbeitsanweisung einschließlich der Beschreibung (Haken gesetzt) oder nur die Titel der Arbeitsschritte (Haken nicht gesetzt) angedruckt werden soll.</li>
+<li>Seriennummer anlegen: Mit diesem Haken kannst du steuern, ob bei dieser Produktion Seriennummern für das Erzeugnis automatisch erzeugt werden (Haken gesetzt) oder manuell vergeben werden sollen (Haken nicht gesetzt). Setzt du den Haken nicht, wird dir dies in einem Banner angezeigt. In diesem Fall musst du im weiteren Verlauf Seriennummern manuell vergeben.</li>
+<li>Unterseriennummer erfassen: Mit diesem Haken kannst du steuern, ob bei dieser Produktion Seriennummern von verbauten Materialien erfasst werden sollen (Haken gesetzt) oder nicht (Haken nicht gesetzt). Setzt du den Haken nicht, wird dir dies in einem Banner angezeigt. In diesem Fall können keine verbauten Seriennummern zugeordnet werden.</li>
+<li>Auslieferung Lager: Unter diesem Datum wird der Warenausgangstermin verstanden, an dem die fertige Ware an den Kunden geliefert werden soll.</li>
+<li>Bereitstellung Start: An diesem Datum soll das Material vom Lager an die Produktion bereitgestellt werden.</li>
+<li>Produktion Start: Hier soll die Produktion beginnen…</li>
+<li>Produktion Ende: … und hier abgeschlossen sein.</li>
+</ul>
+<h4 id="freitext-und-interne-bemerkung">Freitext und Interne Bemerkung<a class="headerlink" href="#freitext-und-interne-bemerkung" title="Permanent link">&para;</a></h4>
+<p><img alt="Produktionskarte_Produktion_Header_FreitextBemerkung.png" src="https://help.xentral.com/hc/article_attachments/19368105824412" /></p>
+<p>In diesen beiden Feldern kannst du beliebige Informationen hinterlegen und nach Wunsch formatieren.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Das Vorhandensein eines Freitextes ist in der Produktionsübersicht mit einem schwarzen, das einer Internen Bemerkung mit einem roten Sternchen gekennzeichnet.</p>
+</blockquote>
+<ul>
+<li>Freitext: Dieser Text wird auf dem Produktionsbeleg angedruckt.</li>
+<li>Interne Bemerkung: Dieser Text ist ausschließlich in diesem Feld sichtbar und dient für interne / vertrauliche Zwecke.</li>
+</ul>
+<h3 id="tab-positionen">Tab Positionen<a class="headerlink" href="#tab-positionen" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab kannst du das zu produzierende Erzeugnis eintragen und verwalten.</p>
+<p><img alt="Produktionskarte_Positionen.png" src="https://help.xentral.com/hc/article_attachments/19368105825820" /></p>
+<h4 id="monitor-und-aktionsmenu">Monitor und Aktionsmenü<a class="headerlink" href="#monitor-und-aktionsmenu" title="Permanent link">&para;</a></h4>
+<p>Diese beiden Funktionen oben links und oben rechts hast du bereits im<a href="#UUID-e0c9e80f-6be5-7a76-ac8d-996f628409e1_section-idm234819921159949">Tab Produktion</a>kennengelernt.</p>
+<p><img alt="Produktionskarte_Positionen_MonitorAktionsmenu.png" src="https://help.xentral.com/hc/article_attachments/19368105829020" /></p>
+<h4 id="produktionszeilen">Produktionszeilen<a class="headerlink" href="#produktionszeilen" title="Permanent link">&para;</a></h4>
+<p>Hier findest du die Produktionszeilen. Tippe die Artikelnummer des zu produzierenden Erzeugnisses in die Spalte “Artikel”. Wenn du mehr als ein Stück in dieser Produktion herstellen möchtest, passe die Menge an, ansonsten belasse sie auf 1. Bestätige mit einem Klick aufeinfügen.</p>
+<p><img alt="Produktionskarte_Positionen_ProduktEinfugen.png" src="https://help.xentral.com/hc/article_attachments/19368105830300" /></p>
+<p>Sobald du ein Erzeugnis eingefügt hast, wird die Stückliste aus den Stammdaten in die vorliegende Produktion kopiert. Es entfaltet sich die sog. Produktionsstückliste:</p>
+<p><img alt="Produktionskarte_Positionen_Produktionsstuckliste.png" src="https://help.xentral.com/hc/article_attachments/19368069061148" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn Erzeugnis mehrere Unterebenen hat, wird nur die erste Ebene oder alle Unterebenen aufgeklappt - je nachdem, ob du im Reiter Produktion den Haken “Unterstücklisten auflösen” gesetzt hast oder nicht.</p>
+</blockquote>
+<p>Die Produktionsstückliste ist eine Kopie der Stammdaten und kann individuell für einen Vorgang angepasst werden. Eine Änderung greift nur in diesem einen Vorgang. Die ursprüngliche Stückliste im Artikel und andere Produktionen sind von einer Anpassung nicht betroffen.</p>
+<p>Du hast somit die Möglichkeit, zusätzliche Bauteile einzufügen und andere aus der Produktionsstückliste zu entfernen:</p>
+<p><img alt="Produktionskarte_Positionen_Produktionsstuckliste_Individualisieren.png" src="https://help.xentral.com/hc/article_attachments/19368105834140" /></p>
+<p>(1) Füge weitere Bauteile in die Produktionsstückliste ein, indem du einen Artikel eintippst und mit einfügen bestätigst.</p>
+<p>(2) Öffne eine Zeile für weitere Detailbeschreibungen, kopiere oder lösche sie oder ändere die Reihenfolge von Zeilen über die Aktionen am rechten Rand jeder Zeile.</p>
+<p>(3) Nutze die Sammelbearbeitung um ausgewählte / alle Zeilen zu löschen.</p>
+<p>Über die Schaltfläche Artikel manuell suchen / neu anlegen öffnest du eine Suchmaske, über die du nach Artikeln suchen oder neue Artikel anlegen kannst:</p>
+<p><img alt="Produktionskarte_Positionen_ArtikelSuchen.png" src="https://help.xentral.com/hc/article_attachments/19368069062940" /></p>
+<h3 id="tab-vorschau">Tab Vorschau<a class="headerlink" href="#tab-vorschau" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab kannst du die Produktion als Druckvorschau betrachten. Generell findest du auf der ersten Seite des Ausdrucks die Kopfdaten und die Produktionsstückliste und auf der/n Folgeseite/n die Arbeitsanweisung.</p>
+<p><img alt="Produktionskarte_Vorschau.png" src="https://help.xentral.com/hc/article_attachments/19368105837212" /></p>
+<h3 id="tab-protokoll">Tab Protokoll<a class="headerlink" href="#tab-protokoll" title="Permanent link">&para;</a></h3>
+<p>Nutze das Protokoll, wenn du dir einen genaueren Überblick über eine Produktion verschaffen willst, insbesondere, wenn es um die erfolgten Aktivitäten, Stückliste und Arbeitsanweisungen sowie die erfassten Zeiten geht. Außerdem kannst du von dort auf dasAktionsmenüund dieAktionenzugreifen.</p>
+<p><img alt="Produktionskarte_Protokoll.png" src="https://help.xentral.com/hc/article_attachments/19368069064732" /></p>
+<h2 id="reiter-dateien">Reiter Dateien<a class="headerlink" href="#reiter-dateien" title="Permanent link">&para;</a></h2>
+<p>Um neue Dateien an die Produktion anzuhängen, klicke aufNeue Datei anlegen(1). Bei aktivierter Schaltfläche (2), kannst du die Sortierung von Dokumenten über die Pfeiltasten ändern.</p>
+<p><img alt="Produktionskarte_Dateien.png" src="https://help.xentral.com/hc/article_attachments/19368105840540" /></p>
+<p>Alle gesammelten Dokumente können als zip-Archiv heruntergeladen werden (unter der Stapelverarbeitung oder im ReiterDetailsunterAktionen &gt; Datenblätter als ZIP).</p>
+<h2 id="reiter-arbeitsanweisung">Reiter Arbeitsanweisung<a class="headerlink" href="#reiter-arbeitsanweisung" title="Permanent link">&para;</a></h2>
+<p>Sofern du im Artikel des Erzeugnisses eine Arbeitsanweisung angelegt hast, wird sie hieran geladen. Du erhälst so einen Überblick über alle geplanten Arbeitsschritte dieser Produktion und deren Status. Mit (1) kannst du die Reihenfolge der Schritte ändern, unter (2) kannst du weitere Details bearbeiten mit (3) und (4) kannst du Schritte löschen bzw. neue hinzufügen.</p>
+<p><img alt="Produktionskarte_Arbeitsanweisung_Ubersicht.png" src="https://help.xentral.com/hc/article_attachments/19368069067164" /></p>
+<p>In der Detail-Ansicht (2) kannst du die einzelnen Schritte präzisieren: Du kannst z. B. einen Mitarbeiter für die Tätigkeit wählen und den Status eintragen, sobald du eine entsprechende Rückmeldung erhälst:</p>
+<p><img alt="Produktionskarte_Arbeitsanweisung_Details.png" src="https://help.xentral.com/hc/article_attachments/19368069067676" /></p>
+<h2 id="reiter-funktionsprotokoll">Reiter Funktionsprotokoll<a class="headerlink" href="#reiter-funktionsprotokoll" title="Permanent link">&para;</a></h2>
+<p>Sofern du im Artikel des Erzeugnisses ein Funktionsprotokoll angelegt hast, wird es hieran geladen. Du erhälst so einen Überblick über alle geplanten Prüfschritte dieser Produktion und deren Status. Mit (1) kannst du die Reihenfolge der Schritte ändern, unter (2) kannst du weitere Details bearbeiten mit (3) und (4) kannst du Schritte löschen bzw. neue hinzufügen.</p>
+<p><img alt="Produktionskarte_Funktionsprotokoll_Ubersicht.png" src="https://help.xentral.com/hc/article_attachments/19368069069596" /></p>
+<p>In der Detail-Ansicht (2) kannst du die einzelnen Schritte präzisieren: Du kannst z. B. den Test-Typ bestimmen, eigene Textfelder definieren oder Güteklassen eintragen, sobald du eine entsprechende Rückmeldung erhälst:</p>
+<p><img alt="Produktionskarte_Funktionsprotokoll_Details.png" src="https://help.xentral.com/hc/article_attachments/19368105847836" /></p>
+<h2 id="reiter-etiketten">Reiter Etiketten<a class="headerlink" href="#reiter-etiketten" title="Permanent link">&para;</a></h2>
+<p>Sofern du im Artikel des Erzeugnisses Etiketten ausgewählt hast, werden sie hier angezeigt. Du kannst auch neue Etiketten hinzufügen:</p>
+<p><img alt="Produktionskarte_Etiketten.png" src="https://help.xentral.com/hc/article_attachments/19368105849372" /></p>
+<h2 id="reiter-seriennummern">Reiter Seriennummern<a class="headerlink" href="#reiter-seriennummern" title="Permanent link">&para;</a></h2>
+<p>Hier bekommst du einen Überblick über die zu der Produktion gehörigen Seriennummern - sowohl der Erzeugnisse (1), als auch der Komponenten (2). Über den Stift (3) gelangst du zum ReiterEinzelproduktionen erfassen.</p>
+<p><img alt="Produktionssteuerung_ReiterSeriennummern.png" src="https://help.xentral.com/hc/article_attachments/19368069073820" /></p>
+<h2 id="reiter-chargen">Reiter Chargen<a class="headerlink" href="#reiter-chargen" title="Permanent link">&para;</a></h2>
+<p>Hier erhälst du einen Überblick über die in der Produktion eingesetzten und produzierten Chargen bzw. Mindesthaltbarkeitsdaten.</p>
+<p>Unter dem TabEingesetzte Chargensind alle chargengeführten Bauteile oder Bauteile mit Mindesthaltbarkeitsdatum aufgelistet mit der Angabe, in welcher Produktion sie verwendet wurden. Über das X am rechten Rand kannst du eine Zuweisung entfernen.</p>
+<p><img alt="Produktionsubersicht_Chargen.png" src="https://help.xentral.com/hc/article_attachments/19368069074972" /></p>
+<p>Unter dem TabProduzierte Chargenfindest du alle erzeugten Chargen bzw. Mindesthaltbarkeitsdaten der von dir produzierten Artikel. Über die Produktionsnummer kannst du zu einer betreffenden Produktion wechseln.</p>
+<h2 id="reiter-abschluss">Reiter Abschluss<a class="headerlink" href="#reiter-abschluss" title="Permanent link">&para;</a></h2>
+<p>Eine ausführliche Beschreibung dieses Reiters und zu dem generellen Vorgehen beim Produktionsabschluss findest du<a href="https://help.xentral.com/hc/de/articles/18870451160988#UUID-29284617-b0fc-fc6e-2df7-284c68337605">hier</a>.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

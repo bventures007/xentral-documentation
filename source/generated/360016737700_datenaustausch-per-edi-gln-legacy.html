@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016737700 Datenaustausch Per Edi Gln Legacy - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016737700 Datenaustausch Per Edi Gln Legacy</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016737700 Datenaustausch Per Edi Gln Legacy</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>In diesem Artikel findest du Informationen zum Übertragungsmodul EDI und zu GLN.</p>
+<h2 id="informationen-fur-edi">Informationen für EDI<a class="headerlink" href="#informationen-fur-edi" title="Permanent link">&para;</a></h2>
+<p>Die Adresse direkt in der Rechnungsstruktur ist immer der Empfänger. In der Rechnung entsprechend der Rechnungsempfänger, im Lieferschein der Sendungsempfänger. Das Feld &ldquo;Soll&rdquo; der Rechnung hat den Bruttobetrag.</p>
+<ul>
+<li>Umsatz_Netto = Nettobetrag über alle Umsätze</li>
+<li>steuersatz_normal = Normaler Steuersatz</li>
+<li>steuersatz_ ermaessigt = ermäßigte Umsatzsteuer</li>
+<li>gln_empfaenger= Die GLN-Nummer des Empfängers</li>
+<li>ust = Gesamtsumme der Steuern</li>
+<li>ust_ermaessigt = Gesamtsumme der ermäßigten Steuern</li>
+<li>ust_normal = Gesamtsumme der normalen Umsatzsteuern</li>
+</ul>
+<p>Die Adresse und GLN vom Absender findet man im Bereich &ldquo;sender&rdquo;.</p>
+<p>xentral stellt diese XML Dateien per FTP oder E-Mail einem EDI Gateways zur Verfügung.</p>
+<ul>
+<li>Pro Beleg muss ein Übertrager in xentral aktiviert werden</li>
+<li>Es muss immer das XML für den Sender hinzugefügt werden</li>
+<li>Einmalig muss ein Freifeld als GLN Nummer definiert werden (für Empfänger bzw. Hauptadressen)</li>
+<li>Bei abweichenden Lieferadressen kann die GLN bei dieser gepflegt werden</li>
+</ul>
+<h2 id="orders-bestellung">ORDERS (Bestellung)<a class="headerlink" href="#orders-bestellung" title="Permanent link">&para;</a></h2>
+<p>Bestellungen werden in xentral in eingehend (von Kunden) und ausgehend (von dir aus) unterschieden.</p>
+<h3 id="richtung-eingehend">Richtung: Eingehend<a class="headerlink" href="#richtung-eingehend" title="Permanent link">&para;</a></h3>
+<p>Wenn bei Bestellungen die Rechnungen die Richtung &ldquo;eingehend&rdquo; haben, stellen sie Bestellungen von Kunden dar. Diese heißen in xentral Auftrag:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;response&gt; 
+  &lt;status&gt;
+  &lt;action&gt;AuftragGet&lt;/action&gt;
+  &lt;message&gt;OK&lt;/message&gt;
+  &lt;messageCode&gt;1&lt;/messageCode&gt;
+  &lt;/status&gt;
+  &lt;xml&gt;
+  &lt;id&gt;2&lt;/id&gt; 
+  &lt;datum&gt;2017-05-15&lt;/datum&gt;
+  &lt;art /&gt;
+  &lt;projekt&gt;1&lt;/projekt&gt;
+  &lt;belegnr&gt;200005&lt;/belegnr&gt;
+  &lt;internet /&gt;
+  &lt;bearbeiter&gt;Administrator&lt;/bearbeiter&gt;
+  &lt;angebot&gt;100003&lt;/angebot&gt; 
+  &lt;freitext /&gt; 
+  &lt;internebemerkung /&gt;
+  &lt;status&gt;freigegeben&lt;/status&gt; 
+  &lt;adresse&gt;4&lt;/adresse&gt; 
+  &lt;name&gt;Müller IT Services GmbH&lt;/name&gt;
+  &lt;abteilung /&gt; 
+  &lt;unterabteilung /&gt; 
+  &lt;strasse&gt;Am Tal 5&lt;/strasse&gt; 
+  &lt;adresszusatz /&gt; 
+  &lt;ansprechpartner&gt;Sophie Müller&lt;/ansprechpartner&gt; 
+  &lt;plz&gt;46236&lt;/plz&gt; 
+  &lt;ort&gt;Bottrop&lt;/ort&gt; 
+  &lt;land&gt;DE&lt;/land&gt; 
+  &lt;ustid /&gt; 
+  &lt;ust_befreit&gt;0&lt;/ust_befreit&gt; 
+  &lt;ust_inner&gt;0&lt;/ust_inner&gt;
+  &lt;email /&gt; 
+  &lt;telefon /&gt;
+  &lt;telefax /&gt; 
+  &lt;betreff /&gt;
+  &lt;kundennummer&gt;10005&lt;/kundennummer&gt;
+  &lt;versandart&gt;versandunternehmen&lt;/versandart&gt;
+  &lt;vertrieb&gt;Administrator&lt;/vertrieb&gt; 
+  &lt;zahlungsweise&gt;rechnung&lt;/zahlungsweise&gt;
+  &lt;zahlungszieltage&gt;14&lt;/zahlungszieltage&gt; 
+  &lt;zahlungszieltageskonto&gt;10&lt;/zahlungszieltageskonto&gt; 
+  &lt;zahlungszielskonto&gt;2.00&lt;/zahlungszielskonto&gt; 
+  &lt;bank_inhaber /&gt; 
+  &lt;bank_institut /&gt; 
+  &lt;bank_blz /&gt; 
+  &lt;bank_konto /&gt; 
+  &lt;kreditkarte_typ /&gt; 
+  &lt;kreditkarte_inhaber /&gt; 
+  &lt;kreditkarte_nummer /&gt;
+  &lt;kreditkarte_pruefnummer /&gt; 
+  &lt;kreditkarte_monat /&gt; 
+  &lt;kreditkarte_jahr /&gt; 
+  &lt;firma&gt;1&lt;/firma&gt; 
+  &lt;versendet&gt;0&lt;/versendet&gt; 
+  &lt;versendet_am&gt;0000-00-00 00:00:00&lt;/versendet_am&gt; 
+  &lt;versendet_per /&gt;
+  &lt;versendet_durch /&gt; 
+  &lt;autoversand&gt;0&lt;/autoversand&gt; 
+  &lt;keinporto&gt;0&lt;/keinporto&gt; 
+  &lt;keinestornomail&gt;0&lt;/keinestornomail&gt; 
+  &lt;abweichendelieferadresse&gt;1&lt;/abweichendelieferadresse&gt; 
+  &lt;liefername&gt;Sophie Müller&lt;/liefername&gt; 
+  &lt;lieferabteilung /&gt;
+  &lt;lieferunterabteilung /&gt; 
+  &lt;lieferland&gt;DE&lt;/lieferland&gt; 
+  &lt;lieferstrasse&gt;Mainzer Straße 78&lt;/lieferstrasse&gt; 
+  &lt;lieferort&gt;Bottrop&lt;/lieferort&gt; 
+  &lt;lieferplz&gt;46242&lt;/lieferplz&gt; 
+  &lt;lieferadresszusatz /&gt; 
+  &lt;lieferansprechpartner /&gt; 
+  &lt;packstation_inhaber /&gt; 
+  &lt;packstation_station /&gt; 
+  &lt;packstation_ident /&gt; 
+  &lt;packstation_plz /&gt; 
+  &lt;packstation_ort /&gt;
+  &lt;autofreigabe&gt;0&lt;/autofreigabe&gt; 
+  &lt;freigabe&gt;0&lt;/freigabe&gt; 
+  &lt;nachbesserung&gt;0&lt;/nachbesserung&gt; 
+  &lt;gesamtsumme&gt;67.69&lt;/gesamtsumme&gt; 
+  &lt;inbearbeitung&gt;0&lt;/inbearbeitung&gt; 
+  &lt;abgeschlossen&gt;0&lt;/abgeschlossen&gt; 
+  &lt;nachlieferung&gt;0&lt;/nachlieferung&gt; 
+  &lt;lager_ok&gt;1&lt;/lager_ok&gt; 
+  &lt;porto_ok&gt;1&lt;/porto_ok&gt; 
+  &lt;ust_ok&gt;1&lt;/ust_ok&gt; 
+  &lt;check_ok&gt;1&lt;/check_ok&gt; 
+  &lt;vorkasse_ok&gt;1&lt;/vorkasse_ok&gt; 
+  &lt;nachnahme_ok&gt;1&lt;/nachnahme_ok&gt; 
+  &lt;reserviert_ok&gt;0&lt;/reserviert_ok&gt;
+  &lt;partnerid&gt;0&lt;/partnerid&gt; 
+  &lt;folgebestaetigung&gt;0000-00-00&lt;/folgebestaetigung&gt; 
+  &lt;zahlungsmail&gt;0000-00-00&lt;/zahlungsmail&gt; 
+  &lt;stornogrund /&gt; 
+  &lt;stornosonstiges /&gt;
+  &lt;stornorueckzahlung /&gt; 
+  &lt;stornobetrag&gt;0.00&lt;/stornobetrag&gt;
+  &lt;stornobankinhaber /&gt; 
+  &lt;stornobankkonto /&gt; 
+  &lt;stornobankblz /&gt;
+  &lt;stornobankbank /&gt; 
+  &lt;stornogutschrift&gt;0&lt;/stornogutschrift&gt; 
+  &lt;stornogutschriftbeleg /&gt; 
+  &lt;stornowareerhalten&gt;0&lt;/stornowareerhalten&gt; 
+  &lt;stornomanuellebearbeitung /&gt; 
+  &lt;stornokommentar /&gt; 
+  &lt;stornobezahlt /&gt; 
+  &lt;stornobezahltam&gt;0000-00-00&lt;/stornobezahltam&gt; 
+  &lt;stornobezahltvon /&gt; 
+  &lt;stornoabgeschlossen&gt;0&lt;/stornoabgeschlossen&gt; 
+  &lt;stornorueckzahlungper /&gt; 
+  &lt;stornowareerhaltenretour&gt;0&lt;/stornowareerhaltenretour&gt;
+  &lt;partnerausgezahlt&gt;0&lt;/partnerausgezahlt&gt; 
+  &lt;partnerausgezahltam&gt;0000-00-00&lt;/partnerausgezahltam&gt;
+  &lt;kennen /&gt;
+  &lt;logdatei&gt;2017-05-15 16:39:18&lt;/logdatei&gt; 
+  &lt;keinetrackingmail /&gt; 
+  &lt;zahlungsmailcounter /&gt; 
+  &lt;rma&gt;0&lt;/rma&gt;
+  &lt;transaktionsnummer /&gt; 
+  &lt;vorabbezahltmarkieren&gt;0&lt;/vorabbezahltmarkieren&gt; 
+  &lt;deckungsbeitragcalc&gt;1&lt;/deckungsbeitragcalc&gt; 
+  &lt;deckungsbeitrag&gt;100.00&lt;/deckungsbeitrag&gt; 
+  &lt;erloes_netto&gt;56.88&lt;/erloes_netto&gt; 
+  &lt;umsatz_netto&gt;56.88&lt;/umsatz_netto&gt; 
+  &lt;lieferdatum&gt;0000-00-00&lt;/lieferdatum&gt;
+  &lt;tatsaechlicheslieferdatum /&gt;
+  &lt;liefertermin_ok&gt;1&lt;/liefertermin_ok&gt; 
+  &lt;teillieferung_moeglich&gt;0&lt;/teillieferung_moeglich&gt;
+  &lt;kreditlimit_ok&gt;1&lt;/kreditlimit_ok&gt;
+  &lt;kreditlimit_freigabe&gt;0&lt;/kreditlimit_freigabe&gt; 
+  &lt;liefersperre_ok&gt;1&lt;/liefersperre_ok&gt;
+  &lt;teillieferungvon&gt;0&lt;/teillieferungvon&gt;
+  &lt;teillieferungnummer&gt;0&lt;/teillieferungnummer&gt; 
+  &lt;vertriebid&gt;1&lt;/vertriebid&gt; 
+  &lt;aktion /&gt; 
+  &lt;provision&gt;0.00&lt;/provision&gt;
+  &lt;provision_summe&gt;0.00&lt;/provision_summe&gt; 
+  &lt;anfrageid&gt;0&lt;/anfrageid&gt; 
+  &lt;gruppe&gt;0&lt;/gruppe&gt; 
+  &lt;shopextid /&gt;
+  &lt;shopextstatus /&gt; 
+  &lt;ihrebestellnummer /&gt;
+  &lt;anschreiben /&gt;
+  &lt;usereditid&gt;1&lt;/usereditid&gt;
+  &lt;useredittimestamp&gt;2017-05-15 16:39:18&lt;/useredittimestamp&gt;
+  &lt;realrabatt&gt;0.00&lt;/realrabatt&gt;
+  &lt;rabatt&gt;0.00&lt;/rabatt&gt; 
+  &lt;einzugsdatum /&gt; 
+  &lt;rabatt1&gt;0.00&lt;/rabatt1&gt;
+  &lt;rabatt2&gt;0.00&lt;/rabatt2&gt;
+  &lt;rabatt3&gt;0.00&lt;/rabatt3&gt;
+  &lt;rabatt4&gt;0.00&lt;/rabatt4&gt;
+  &lt;rabatt5&gt;0.00&lt;/rabatt5&gt;
+  &lt;shop&gt;0&lt;/shop&gt;
+  &lt;steuersatz_normal&gt;19.00&lt;/steuersatz_normal&gt; 
+  &lt;steuersatz_zwischen&gt;7.00&lt;/steuersatz_zwischen&gt;
+  &lt;steuersatz_ermaessigt&gt;7.00&lt;/steuersatz_ermaessigt&gt;
+  &lt;steuersatz_starkermaessigt&gt;7.00&lt;/steuersatz_starkermaessigt&gt;
+  &lt;steuersatz_dienstleistung&gt;7.00&lt;/steuersatz_dienstleistung&gt; 
+  &lt;waehrung&gt;EUR&lt;/waehrung&gt;
+  &lt;keinsteuersatz&gt;0&lt;/keinsteuersatz&gt; 
+  &lt;angebotid&gt;5&lt;/angebotid&gt;
+  &lt;schreibschutz&gt;0&lt;/schreibschutz&gt; 
+  &lt;pdfarchiviert&gt;0&lt;/pdfarchiviert&gt;
+  &lt;pdfarchiviertversion&gt;0&lt;/pdfarchiviertversion&gt; 
+  &lt;typ&gt;firma&lt;/typ&gt; 
+  &lt;ohne_briefpapier /&gt; 
+  &lt;auftragseingangper /&gt; 
+  &lt;lieferid&gt;0&lt;/lieferid&gt; 
+  &lt;ansprechpartnerid&gt;0&lt;/ansprechpartnerid&gt; 
+  &lt;systemfreitext /&gt; 
+  &lt;projektfiliale&gt;0&lt;/projektfiliale&gt;
+  &lt;lieferungtrotzsperre&gt;0&lt;/lieferungtrotzsperre&gt;
+  &lt;zuarchivieren&gt;0&lt;/zuarchivieren&gt;
+  &lt;internebezeichnung /&gt;
+  &lt;angelegtam /&gt;
+  &lt;saldo&gt;-67.69&lt;/saldo&gt;
+  &lt;saldogeprueft&gt;2017-05-15 10:19:35&lt;/saldogeprueft&gt;
+  &lt;lieferantenauftrag&gt;0&lt;/lieferantenauftrag&gt;
+  &lt;lieferant&gt;0&lt;/lieferant&gt;
+  &lt;lieferdatumkw&gt;0&lt;/lieferdatumkw&gt; 
+  &lt;abweichendebezeichnung&gt;0&lt;/abweichendebezeichnung&gt; 
+  &lt;rabatteportofestschreiben&gt;0&lt;/rabatteportofestschreiben&gt; 
+  &lt;sprache /&gt; &lt;bundesland /&gt; 
+  &lt;gln&gt;5578124659227&lt;/gln&gt;
+  &lt;liefergln&gt;6654811237869&lt;/liefergln&gt; 
+  &lt;bearbeiterid&gt;0&lt;/bearbeiterid&gt; 
+  &lt;cronjobkommissionierung&gt;0&lt;/cronjobkommissionierung&gt;
+  &lt;bodyzusatz /&gt;
+  &lt;lieferbedingung /&gt; 
+  &lt;titel /&gt;
+  &lt;liefertitel /&gt;
+  &lt;standardlager&gt;0&lt;/standardlager&gt;
+  &lt;rechnungid&gt;0&lt;/rechnungid&gt;
+  &lt;artikelliste&gt;
+  &lt;position&gt;
+  &lt;id&gt;2&lt;/id&gt; 
+  &lt;auftrag&gt;2&lt;/auftrag&gt; 
+  &lt;artikel&gt;3&lt;/artikel&gt;
+  &lt;projekt&gt;1&lt;/projekt&gt;
+  &lt;bezeichnung&gt;HDMI Kabel&lt;/bezeichnung&gt;
+  &lt;beschreibung /&gt;
+  &lt;internerkommentar /&gt;
+  &lt;nummer&gt;1000003&lt;/nummer&gt; 
+  &lt;menge&gt;8.0000&lt;/menge&gt; 
+  &lt;preis&gt;3.36000000&lt;/preis&gt; 
+  &lt;waehrung&gt;EUR&lt;/waehrung&gt; 
+  &lt;lieferdatum&gt;0000-00-00&lt;/lieferdatum&gt;
+  &lt;vpe&gt;1&lt;/vpe&gt;
+  &lt;sort&gt;1&lt;/sort&gt; 
+  &lt;status&gt;angelegt&lt;/status&gt;
+  &lt;umsatzsteuer /&gt; 
+  &lt;bemerkung /&gt;
+  &lt;geliefert&gt;0&lt;/geliefert&gt;
+  &lt;geliefert_menge&gt;0.0000&lt;/geliefert_menge&gt;
+  &lt;explodiert&gt;0&lt;/explodiert&gt;
+  &lt;explodiert_parent&gt;0&lt;/explodiert_parent&gt;
+  &lt;logdatei&gt;2017-05-15 10:19:34&lt;/logdatei&gt;
+  &lt;punkte&gt;0.00&lt;/punkte&gt; 
+  &lt;bonuspunkte&gt;0.00&lt;/bonuspunkte&gt;
+  &lt;mlmdirektpraemie&gt;0.00&lt;/mlmdirektpraemie&gt;
+  &lt;keinrabatterlaubt&gt;0&lt;/keinrabatterlaubt&gt;
+  &lt;grundrabatt&gt;0.00&lt;/grundrabatt&gt;
+  &lt;rabattsync&gt;1&lt;/rabattsync&gt;
+  &lt;rabatt1&gt;0.00&lt;/rabatt1&gt;
+  &lt;rabatt2&gt;0.00&lt;/rabatt2&gt;
+  &lt;rabatt3&gt;0.00&lt;/rabatt3&gt;
+  &lt;rabatt4&gt;0.00&lt;/rabatt4&gt;
+  &lt;rabatt5&gt;0.00&lt;/rabatt5&gt;
+  &lt;einheit /&gt;
+  &lt;webid /&gt;
+  &lt;rabatt&gt;0.00&lt;/rabatt&gt;
+  &lt;nachbestelltexternereinkauf /&gt;
+  &lt;zolltarifnummer /&gt;
+  &lt;herkunftsland&gt;DE&lt;/herkunftsland&gt;
+  &lt;artikelnummerkunde /&gt;
+  &lt;freifeld1 /&gt; 
+  &lt;freifeld2 /&gt; 
+  &lt;freifeld3 /&gt; 
+  &lt;freifeld4 /&gt;
+  &lt;freifeld5 /&gt; 
+  &lt;freifeld6 /&gt;
+  &lt;freifeld7 /&gt;
+  &lt;freifeld8 /&gt;
+  &lt;freifeld9 /&gt; 
+  &lt;freifeld10 /&gt;
+  &lt;lieferdatumkw&gt;0&lt;/lieferdatumkw&gt;
+  &lt;teilprojekt&gt;0&lt;/teilprojekt&gt;
+  &lt;steuersatz /&gt; 
+  &lt;steuertext /&gt; 
+  &lt;erloese /&gt;
+  &lt;einkaufspreiswaehrung /&gt;
+  &lt;einkaufspreis&gt;0.00000000&lt;/einkaufspreis&gt;
+  &lt;einkaufspreisurspruenglich&gt;3.36000000&lt;/einkaufspreisurspruenglich&gt;
+  &lt;einkaufspreisid&gt;0&lt;/einkaufspreisid&gt; 
+  &lt;ekwaehrung&gt;EUR&lt;/ekwaehrung&gt;
+  &lt;deckungsbeitrag&gt;1.00000000&lt;/deckungsbeitrag&gt;
+  &lt;freifeld11 /&gt; 
+  &lt;freifeld12 /&gt; 
+  &lt;freifeld13 /&gt; 
+  &lt;freifeld14 /&gt; 
+  &lt;freifeld15 /&gt; 
+  &lt;freifeld16 /&gt; 
+  &lt;freifeld17 /&gt; 
+  &lt;freifeld18 /&gt;
+  &lt;freifeld19 /&gt; 
+  &lt;freifeld20 /&gt; 
+  &lt;formelmenge /&gt; 
+  &lt;formelpreis /&gt; 
+  &lt;ean&gt;9548114374576&lt;/ean&gt;
+  &lt;/position&gt;
+  &lt;position&gt;
+  &lt;id&gt;3&lt;/id&gt; 
+  &lt;auftrag&gt;2&lt;/auftrag&gt; 
+  &lt;artikel&gt;4&lt;/artikel&gt;
+  &lt;projekt&gt;1&lt;/projekt&gt;
+  &lt;bezeichnung&gt;USB Maus&lt;/bezeichnung&gt;
+  &lt;beschreibung /&gt;
+  &lt;internerkommentar /&gt; 
+  &lt;nummer&gt;1000004&lt;/nummer&gt;
+  &lt;menge&gt;3.0000&lt;/menge&gt;
+  &lt;preis&gt;10.00000000&lt;/preis&gt; 
+  &lt;waehrung&gt;EUR&lt;/waehrung&gt; 
+  &lt;lieferdatum&gt;0000-00-00&lt;/lieferdatum&gt;
+  &lt;vpe&gt;1&lt;/vpe&gt;
+  &lt;sort&gt;2&lt;/sort&gt;
+  &lt;status&gt;angelegt&lt;/status&gt;
+  &lt;umsatzsteuer /&gt; 
+  &lt;bemerkung /&gt;
+  &lt;geliefert&gt;0&lt;/geliefert&gt;
+  &lt;geliefert_menge&gt;0.0000&lt;/geliefert_menge&gt;
+  &lt;explodiert&gt;0&lt;/explodiert&gt;
+  &lt;explodiert_parent&gt;0&lt;/explodiert_parent&gt;
+  &lt;logdatei&gt;2017-05-15 09:49:19&lt;/logdatei&gt;
+  &lt;punkte&gt;0.00&lt;/punkte&gt;
+  &lt;bonuspunkte&gt;0.00&lt;/bonuspunkte&gt; 
+  &lt;mlmdirektpraemie&gt;0.00&lt;/mlmdirektpraemie&gt;
+  &lt;keinrabatterlaubt&gt;0&lt;/keinrabatterlaubt&gt; 
+  &lt;grundrabatt&gt;0.00&lt;/grundrabatt&gt;
+  &lt;rabattsync&gt;1&lt;/rabattsync&gt; 
+  &lt;rabatt1&gt;0.00&lt;/rabatt1&gt; 
+  &lt;rabatt2&gt;0.00&lt;/rabatt2&gt; 
+  &lt;rabatt3&gt;0.00&lt;/rabatt3&gt;
+  &lt;rabatt4&gt;0.00&lt;/rabatt4&gt; 
+  &lt;rabatt5&gt;0.00&lt;/rabatt5&gt; 
+  &lt;einheit /&gt; 
+  &lt;webid /&gt;
+  &lt;rabatt&gt;0.00&lt;/rabatt&gt; 
+  &lt;nachbestelltexternereinkauf /&gt; 
+  &lt;zolltarifnummer /&gt; 
+  &lt;herkunftsland&gt;DE&lt;/herkunftsland&gt; 
+  &lt;artikelnummerkunde /&gt;
+  &lt;freifeld1 /&gt;
+  &lt;freifeld2 /&gt;
+  &lt;freifeld3 /&gt;
+  &lt;freifeld4 /&gt;
+  &lt;freifeld5 /&gt;
+  &lt;freifeld6 /&gt; 
+  &lt;freifeld7 /&gt; 
+  &lt;freifeld8 /&gt; 
+  &lt;freifeld9 /&gt;
+  &lt;freifeld10 /&gt;
+  &lt;lieferdatumkw&gt;0&lt;/lieferdatumkw&gt; 
+  &lt;teilprojekt&gt;0&lt;/teilprojekt&gt;
+  &lt;steuersatz /&gt;
+  &lt;steuertext /&gt;
+  &lt;erloese /&gt;
+  &lt;einkaufspreiswaehrung /&gt; 
+  &lt;einkaufspreis&gt;0.00000000&lt;/einkaufspreis&gt; 
+  &lt;einkaufspreisurspruenglich&gt;10.00000000&lt;/einkaufspreisurspruenglich&gt;
+  &lt;einkaufspreisid&gt;0&lt;/einkaufspreisid&gt;
+  &lt;ekwaehrung&gt;EUR&lt;/ekwaehrung&gt; 
+  &lt;deckungsbeitrag&gt;1.00000000&lt;/deckungsbeitrag&gt; 
+  &lt;freifeld11 /&gt; 
+  &lt;freifeld12 /&gt; 
+  &lt;freifeld13 /&gt;
+  &lt;freifeld14 /&gt; 
+  &lt;freifeld15 /&gt;
+  &lt;freifeld16 /&gt; 
+  &lt;freifeld17 /&gt; 
+  &lt;freifeld18 /&gt;
+  &lt;freifeld19 /&gt;
+  &lt;freifeld20 /&gt; 
+  &lt;formelmenge /&gt; 
+  &lt;formelpreis /&gt; 
+  &lt;ean&gt;7458424177423&lt;/ean&gt;
+  &lt;/position&gt; 
+  &lt;/artikelliste&gt;
+  &lt;/xml&gt; 
+&lt;/response&gt;
+</code></pre>
+<h2 id="invoic-rechnung">INVOIC (Rechnung)<a class="headerlink" href="#invoic-rechnung" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden wird die ausgehende Rechnung an die Kunden dargestellt.</p>
+<h3 id="richtung-ausgehend">Richtung: Ausgehend<a class="headerlink" href="#richtung-ausgehend" title="Permanent link">&para;</a></h3>
+<p>xentral stellt die Rechnung für den Kunden zur Verfügung.</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;response&gt; 
+  &lt;xml&gt; 
+  &lt;rechnung_list&gt; 
+  &lt;rechnung&gt;
+  &lt;id&gt;142&lt;/id&gt; 
+  &lt;datum&gt;2016-10-06&lt;/datum&gt; 
+  &lt;aborechnung&gt;0&lt;/aborechnung&gt;
+  &lt;projekt&gt;19&lt;/projekt&gt; 
+  &lt;anlegeart /&gt; 
+  &lt;belegnr&gt;400112&lt;/belegnr&gt; 
+  &lt;auftrag&gt;200167&lt;/auftrag&gt;
+  &lt;auftragid&gt;224&lt;/auftragid&gt; 
+  &lt;bearbeiter&gt;Cashier&lt;/bearbeiter&gt;
+  &lt;freitext&gt;Datum / Uhrzeit des Verkaufs: 06.10.2016 15:49:00&lt;/freitext&gt; 
+  &lt;internebemerkung /&gt;
+  &lt;status&gt;versendet&lt;/status&gt;
+  &lt;adresse&gt;15&lt;/adresse&gt;
+  &lt;name&gt;Laufkundschaft&lt;/name&gt; 
+  &lt;abteilung /&gt; 
+  &lt;unterabteilung /&gt;
+  &lt;strasse /&gt;
+  &lt;adresszusatz /&gt;
+  &lt;ansprechpartner /&gt;
+  &lt;plz /&gt;
+  &lt;ort /&gt; 
+  &lt;land /&gt;
+  &lt;ustid /&gt; 
+  &lt;ust_befreit&gt;0&lt;/ust_befreit&gt;
+  &lt;ustbrief&gt;0&lt;/ustbrief&gt; 
+  &lt;ustbrief_eingang&gt;0&lt;/ustbrief_eingang&gt; 
+  &lt;ustbrief_eingang_am&gt;0000-00-00&lt;/ustbrief_eingang_am&gt;
+  &lt;email /&gt; 
+  &lt;telefon /&gt; 
+  &lt;telefax /&gt; 
+  &lt;betreff /&gt;
+  &lt;kundennummer&gt;10006&lt;/kundennummer&gt; 
+  &lt;lieferschein&gt;0&lt;/lieferschein&gt;
+  &lt;versandart&gt;selbstabholer&lt;/versandart&gt;
+  &lt;lieferdatum&gt;0000-00-00&lt;/lieferdatum&gt; 
+  &lt;buchhaltung&gt;Max&lt;/buchhaltung&gt; 
+  &lt;zahlungsweise&gt;bar&lt;/zahlungsweise&gt; 
+  &lt;zahlungsstatus&gt;offen&lt;/zahlungsstatus&gt;
+  &lt;ist&gt;0.00&lt;/ist&gt; 
+  &lt;soll&gt;421.20&lt;/soll&gt; 
+  &lt;skonto_gegeben&gt;0.00&lt;/skonto_gegeben&gt; 
+  &lt;zahlungszieltage&gt;0&lt;/zahlungszieltage&gt; 
+  &lt;zahlungszieltageskonto&gt;0&lt;/zahlungszieltageskonto&gt; 
+  &lt;zahlungszielskonto&gt;0.00&lt;/zahlungszielskonto&gt;
+  &lt;firma&gt;1&lt;/firma&gt;
+  &lt;versendet&gt;0&lt;/versendet&gt;
+  &lt;versendet_am&gt;0000-00-00 00:00:00&lt;/versendet_am&gt;
+  &lt;versendet_per /&gt; 
+  &lt;versendet_durch /&gt;
+  &lt;versendet_mahnwesen&gt;0&lt;/versendet_mahnwesen&gt; 
+  &lt;mahnwesen /&gt; 
+  &lt;mahnwesen_datum&gt;0000-00-00&lt;/mahnwesen_datum&gt; 
+  &lt;mahnwesen_gesperrt&gt;0&lt;/mahnwesen_gesperrt&gt;
+  &lt;mahnwesen_internebemerkung /&gt;
+  &lt;inbearbeitung&gt;0&lt;/inbearbeitung&gt;
+  &lt;datev_abgeschlossen&gt;0&lt;/datev_abgeschlossen&gt; 
+  &lt;logdatei&gt;2016-10-07 08:41:38&lt;/logdatei&gt; 
+  &lt;doppel /&gt; 
+  &lt;autodruck_rz&gt;0&lt;/autodruck_rz&gt; 
+  &lt;autodruck_periode&gt;1&lt;/autodruck_periode&gt;
+  &lt;autodruck_done&gt;0&lt;/autodruck_done&gt; 
+  &lt;autodruck_anzahlverband&gt;0&lt;/autodruck_anzahlverband&gt; 
+  &lt;autodruck_anzahlkunde&gt;0&lt;/autodruck_anzahlkunde&gt; 
+  &lt;autodruck_mailverband&gt;0&lt;/autodruck_mailverband&gt;
+  &lt;autodruck_mailkunde&gt;0&lt;/autodruck_mailkunde&gt; 
+  &lt;dta_datei_verband&gt;0&lt;/dta_datei_verband&gt; 
+  &lt;dta_datei&gt;0&lt;/dta_datei&gt; 
+  &lt;deckungsbeitragcalc&gt;1&lt;/deckungsbeitragcalc&gt; 
+  &lt;deckungsbeitrag&gt;-1.37&lt;/deckungsbeitrag&gt;
+  &lt;umsatz_netto&gt;353.95&lt;/umsatz_netto&gt; 
+  &lt;erloes_netto&gt;-4.85&lt;/erloes_netto&gt; 
+  &lt;mahnwesenfestsetzen&gt;0&lt;/mahnwesenfestsetzen&gt; 
+  &lt;vertriebid&gt;11&lt;/vertriebid&gt; 
+  &lt;aktion /&gt; 
+  &lt;vertrieb&gt;Cashier&lt;/vertrieb&gt;
+  &lt;provision&gt;0.00&lt;/provision&gt; 
+  &lt;provision_summe&gt;0.00&lt;/provision_summe&gt;
+  &lt;gruppe&gt;0&lt;/gruppe&gt;
+  &lt;punkte /&gt; 
+  &lt;bonuspunkte /&gt;
+  &lt;provdatum /&gt;
+  &lt;ihrebestellnummer /&gt; 
+  &lt;anschreiben /&gt; 
+  &lt;usereditid /&gt;
+  &lt;useredittimestamp&gt;0000-00-00 00:00:00&lt;/useredittimestamp&gt;
+  &lt;realrabatt /&gt; 
+  &lt;rabatt&gt;0&lt;/rabatt&gt; 
+  &lt;einzugsdatum&gt;0000-00-00&lt;/einzugsdatum&gt;
+  &lt;rabatt1&gt;0.00&lt;/rabatt1&gt;
+  &lt;rabatt2&gt;0.00&lt;/rabatt2&gt;
+  &lt;rabatt3&gt;0.00&lt;/rabatt3&gt; 
+  &lt;rabatt4&gt;0.00&lt;/rabatt4&gt;
+  &lt;rabatt5&gt;0.00&lt;/rabatt5&gt; 
+  &lt;forderungsverlust_datum /&gt;
+  &lt;forderungsverlust_betrag /&gt;
+  &lt;steuersatz_normal&gt;19.00&lt;/steuersatz_normal&gt;
+  &lt;steuersatz_zwischen&gt;7.00&lt;/steuersatz_zwischen&gt; 
+  &lt;steuersatz_ermaessigt&gt;7.00&lt;/steuersatz_ermaessigt&gt;
+  &lt;steuersatz_starkermaessigt&gt;7.00&lt;/steuersatz_starkermaessigt&gt;
+  &lt;steuersatz_dienstleistung&gt;7.00&lt;/steuersatz_dienstleistung&gt;
+  &lt;waehrung&gt;EUR&lt;/waehrung&gt; 
+  &lt;keinsteuersatz&gt;0&lt;/keinsteuersatz&gt;
+  &lt;schreibschutz&gt;1&lt;/schreibschutz&gt; 
+  &lt;pdfarchiviert&gt;0&lt;/pdfarchiviert&gt;
+  &lt;pdfarchiviertversion&gt;0&lt;/pdfarchiviertversion&gt; 
+  &lt;typ&gt;firma&lt;/typ&gt;
+  &lt;ohne_briefpapier /&gt; 
+  &lt;lieferid&gt;0&lt;/lieferid&gt;
+  &lt;ansprechpartnerid&gt;0&lt;/ansprechpartnerid&gt;
+  &lt;systemfreitext /&gt;
+  &lt;projektfiliale&gt;0&lt;/projektfiliale&gt;
+  &lt;zuarchivieren&gt;0&lt;/zuarchivieren&gt;
+  &lt;internebezeichnung /&gt;
+  &lt;angelegtam&gt;2016-10-06 15:49:00&lt;/angelegtam&gt; 
+  &lt;abweichendebezeichnung&gt;1&lt;/abweichendebezeichnung&gt; 
+  &lt;bezahlt_am /&gt;
+  &lt;sprache /&gt;
+  &lt;bodyzusatz /&gt;
+  &lt;id_ext /&gt;
+  &lt;gln_empfaenger&gt;12345699&lt;/gln_empfaenger&gt; 
+  &lt;liefername&gt;Laufkundschaft&lt;/liefername&gt;
+  &lt;lieferstrasse /&gt;
+  &lt;lieferadresszusatz /&gt; 
+  &lt;lieferansprechpartner /&gt;
+  &lt;lieferabteilung /&gt; 
+  &lt;lieferunterabteilung /&gt;
+  &lt;lieferplz /&gt; 
+  &lt;lieferort /&gt; 
+  &lt;lieferland /&gt;
+  &lt;gebuehr&gt;0&lt;/gebuehr&gt;
+  &lt;ust&gt;67.25&lt;/ust&gt;
+  &lt;ust_ermaessigt&gt;0&lt;/ust_ermaessigt&gt; 
+  &lt;ust_normal&gt;67.25&lt;/ust_normal&gt; 
+  &lt;rechnung_position_list&gt; 
+  &lt;rechnung_position&gt; 
+  &lt;id&gt;208&lt;/id&gt;
+  &lt;rechnung&gt;142&lt;/rechnung&gt; 
+  &lt;artikel&gt;123&lt;/artikel&gt; 
+  &lt;projekt&gt;19&lt;/projekt&gt;
+  &lt;bezeichnung&gt;Test-Artikel Serial&lt;/bezeichnung&gt;
+  &lt;beschreibung /&gt; 
+  &lt;internerkommentar /&gt;
+  &lt;nummer&gt;100040&lt;/nummer&gt; 
+  &lt;menge&gt;120&lt;/menge&gt; 
+  &lt;preis&gt;2.94957983&lt;/preis&gt; 
+  &lt;waehrung&gt;EUR&lt;/waehrung&gt;
+  &lt;lieferdatum&gt;0000-00-00&lt;/lieferdatum&gt;
+  &lt;vpe /&gt;
+  &lt;sort&gt;1&lt;/sort&gt; 
+  &lt;status&gt;angelegt&lt;/status&gt;
+  &lt;umsatzsteuer&gt;normal&lt;/umsatzsteuer&gt; 
+  &lt;bemerkung /&gt; 
+  &lt;logdatei&gt;2016-10-06 15:49:00&lt;/logdatei&gt;
+  &lt;explodiert_parent_artikel&gt;0&lt;/explodiert_parent_artikel&gt;
+  &lt;punkte&gt;0.00&lt;/punkte&gt; 
+  &lt;bonuspunkte&gt;0.00&lt;/bonuspunkte&gt; 
+  &lt;mlmdirektpraemie&gt;0.00&lt;/mlmdirektpraemie&gt;
+  &lt;mlm_abgerechnet /&gt;
+  &lt;keinrabatterlaubt&gt;0&lt;/keinrabatterlaubt&gt; 
+  &lt;grundrabatt&gt;0.00&lt;/grundrabatt&gt; 
+  &lt;rabattsync&gt;1&lt;/rabattsync&gt; 
+  &lt;rabatt1&gt;0.00&lt;/rabatt1&gt; 
+  &lt;rabatt2&gt;0.00&lt;/rabatt2&gt; 
+  &lt;rabatt3&gt;0.00&lt;/rabatt3&gt;
+  &lt;rabatt4&gt;0.00&lt;/rabatt4&gt; 
+  &lt;rabatt5&gt;0.00&lt;/rabatt5&gt; 
+  &lt;einheit /&gt; 
+  &lt;rabatt&gt;0.00&lt;/rabatt&gt; 
+  &lt;zolltarifnummer&gt;0&lt;/zolltarifnummer&gt; 
+  &lt;herkunftsland&gt;0&lt;/herkunftsland&gt;
+  &lt;artikelnummerkunde /&gt;
+  &lt;freifeld1 /&gt; 
+  &lt;freifeld2 /&gt;
+  &lt;freifeld3 /&gt;
+  &lt;freifeld4 /&gt;
+  &lt;freifeld5 /&gt;
+  &lt;freifeld6 /&gt;
+  &lt;freifeld7 /&gt;
+  &lt;freifeld8 /&gt;
+  &lt;freifeld9 /&gt; 
+  &lt;freifeld10 /&gt;
+  &lt;lieferdatumkw&gt;0&lt;/lieferdatumkw&gt; 
+  &lt;auftrag_position_id&gt;406&lt;/auftrag_position_id&gt;
+  &lt;teilprojekt&gt;0&lt;/teilprojekt&gt; 
+  &lt;id_ext /&gt; 
+  &lt;ean /&gt; 
+  &lt;gewicht /&gt; 
+  &lt;herstellernummer /&gt; 
+  &lt;/rechnung_position&gt; 
+  &lt;/rechnung_position_list&gt;
+  &lt;/rechnung&gt;
+  &lt;/rechnung_list&gt; 
+  &lt;sender&gt; 
+  &lt;gln&gt;12345&lt;/gln&gt; 
+  &lt;name&gt;Musterfirma&lt;/name&gt; 
+  &lt;strasse&gt;Musterfirma&lt;/strasse&gt; 
+  &lt;adresszusatz /&gt; 
+  &lt;ansprechpartner /&gt; 
+  &lt;abteilung /&gt; 
+  &lt;unterabteilung /&gt;
+  &lt;plz&gt;12344&lt;/plz&gt; 
+  &lt;ort&gt;Musterdorf&lt;/ort&gt;
+  &lt;land&gt;DE&lt;/land&gt; 
+  &lt;/sender&gt; 
+  &lt;/xml&gt; 
+  &lt;status&gt; 
+  &lt;action&gt;belege&lt;/action&gt;
+  &lt;message&gt;OK&lt;/message&gt; 
+  &lt;messageCode&gt;1&lt;/messageCode&gt; 
+  &lt;/status&gt;
+&lt;/response&gt;
+
+</code></pre>
+<p>In den Übertragungen Einstellungen können im Feld XML-Zusatz feste XML-Elemente hinzugefügt werden: Zum Beispiel EDI-Senderinformationen. GLN-Felder für Adressen werden in Freifeldern gespeichert und in der Übertragung-Einstellung zugeordnet.</p>
+<p>Beispiel für Sender Adresse (diese muss fest so hier angegeben werden):</p>
+<pre><code>&lt;sender&gt;
+&lt;gln&gt;12345&lt;/gln&gt;
+&lt;name&gt;Musterfirma&lt;/name&gt;
+&lt;strasse&gt;Musterfirma&lt;/strasse&gt;
+&lt;adresszusatz/&gt;
+&lt;ansprechpartner/&gt;
+&lt;abteilung/&gt;
+&lt;unterabteilung/&gt;
+&lt;plz&gt;12344&lt;/plz&gt;
+&lt;ort&gt;Musterdorf&lt;/ort&gt;
+&lt;land&gt;DE&lt;/land&gt;
+&lt;/sender&gt;
+</code></pre>
+<h2 id="desadv-lieferschein">DESADV (Lieferschein)<a class="headerlink" href="#desadv-lieferschein" title="Permanent link">&para;</a></h2>
+<h3 id="richtung-ausgehend_1">Richtung: Ausgehend<a class="headerlink" href="#richtung-ausgehend_1" title="Permanent link">&para;</a></h3>
+<p>xentral stellt den Lieferschein für den Kunden zur Verfügung.</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;response&gt; 
+  &lt;xml&gt; 
+  &lt;lieferschein_list&gt; 
+  &lt;lieferschein&gt;
+  &lt;id&gt;86&lt;/id&gt;
+  &lt;datum&gt;2016-10-07&lt;/datum&gt; 
+  &lt;projekt&gt;20&lt;/projekt&gt;
+  &lt;lieferscheinart /&gt; 
+  &lt;belegnr&gt;30002&lt;/belegnr&gt;
+  &lt;bearbeiter&gt;Max&lt;/bearbeiter&gt; 
+  &lt;auftrag&gt;20002&lt;/auftrag&gt;
+  &lt;auftragid&gt;225&lt;/auftragid&gt; 
+  &lt;freitext /&gt; 
+  &lt;status&gt;versendet&lt;/status&gt;
+  &lt;adresse&gt;3&lt;/adresse&gt; 
+  &lt;name&gt;Max Muster&lt;/name&gt;
+  &lt;abteilung /&gt; 
+  &lt;unterabteilung /&gt; 
+  &lt;strasse&gt;Musterstrasse 6&lt;/strasse&gt; 
+  &lt;adresszusatz /&gt;
+  &lt;ansprechpartner /&gt;
+  &lt;plz&gt;12345&lt;/plz&gt;
+  &lt;ort&gt;Musterdorf&lt;/ort&gt;
+  &lt;land&gt;DE&lt;/land&gt;
+  &lt;ustid /&gt;
+  &lt;email&gt;info@maxmuellermuster.de&lt;/email&gt;
+  &lt;telefon&gt;0821123456789&lt;/telefon&gt; 
+  &lt;telefax&gt;0821123456790&lt;/telefax&gt;
+  &lt;betreff /&gt;
+  &lt;kundennummer&gt;10000&lt;/kundennummer&gt; 
+  &lt;versandart&gt;versandunternehmen&lt;/versandart&gt;
+  &lt;versand&gt;Max&lt;/versand&gt;
+  &lt;firma&gt;1&lt;/firma&gt; 
+  &lt;versendet&gt;1&lt;/versendet&gt; 
+  &lt;versendet_am&gt;0000-00-00 00:00:00&lt;/versendet_am&gt; 
+  &lt;versendet_per /&gt;
+  &lt;versendet_durch /&gt; 
+  &lt;inbearbeitung_user&gt;0&lt;/inbearbeitung_user&gt; 
+  &lt;logdatei&gt;2016-10-07 10:06:43&lt;/logdatei&gt; 
+  &lt;vertriebid&gt;0&lt;/vertriebid&gt; &lt;vertrieb&gt;Max&lt;/vertrieb&gt;
+  &lt;ust_befreit&gt;0&lt;/ust_befreit&gt;
+  &lt;ihrebestellnummer /&gt;
+  &lt;anschreiben&gt;Sehr geehrter Herr Muster&lt;/anschreiben&gt;
+  &lt;usereditid /&gt;
+  &lt;useredittimestamp&gt;0000-00-00 00:00:00&lt;/useredittimestamp&gt; 
+  &lt;lieferantenretoure&gt;0&lt;/lieferantenretoure&gt; 
+  &lt;lieferantenretoureinfo /&gt; &lt;lieferant&gt;0&lt;/lieferant&gt; 
+  &lt;schreibschutz&gt;1&lt;/schreibschutz&gt; &lt;pdfarchiviert&gt;0&lt;/pdfarchiviert&gt; 
+  &lt;pdfarchiviertversion&gt;0&lt;/pdfarchiviertversion&gt; 
+  &lt;typ&gt;firma&lt;/typ&gt;
+  &lt;internebemerkung /&gt; 
+  &lt;ohne_briefpapier /&gt;
+  &lt;lieferid&gt;0&lt;/lieferid&gt;
+  &lt;ansprechpartnerid&gt;0&lt;/ansprechpartnerid&gt;
+  &lt;projektfiliale&gt;0&lt;/projektfiliale&gt;
+  &lt;projektfiliale_eingelagert&gt;0&lt;/projektfiliale_eingelagert&gt; 
+  &lt;zuarchivieren&gt;0&lt;/zuarchivieren&gt;
+  &lt;internebezeichnung /&gt;
+  &lt;angelegtam /&gt; 
+  &lt;kommissionierung&gt;0&lt;/kommissionierung&gt;
+  &lt;sprache /&gt; 
+  &lt;bodyzusatz /&gt;
+  &lt;id_ext /&gt;
+  &lt;gln_empfaenger /&gt;
+  &lt;rechnung_name&gt;Max Muster&lt;/rechnung_name&gt;
+  &lt;rechnung_anrede /&gt;
+  &lt;rechnung_strasse&gt;Musterstrasse 6&lt;/rechnung_strasse&gt; 
+  &lt;rechnung_adresszusatz /&gt; 
+  &lt;rechnung_ansprechpartner /&gt; 
+  &lt;rechnung_abteilung /&gt; 
+  &lt;rechnung_unterabteilung /&gt; 
+  &lt;rechnung_plz&gt;12345&lt;/rechnung_plz&gt; 
+  &lt;rechnung_ort&gt;Musterdorf&lt;/rechnung_ort&gt;
+  &lt;rechnung_land&gt;DE&lt;/rechnung_land&gt;
+  &lt;lieferschein_position_list&gt; 
+  &lt;lieferschein_position&gt;
+  &lt;id&gt;121&lt;/id&gt; 
+  &lt;lieferschein&gt;86&lt;/lieferschein&gt;
+  &lt;artikel&gt;124&lt;/artikel&gt;
+  &lt;projekt&gt;20&lt;/projekt&gt;
+  &lt;bezeichnung&gt;TestNummernkreis&lt;/bezeichnung&gt; 
+  &lt;beschreibung /&gt; 
+  &lt;internerkommentar /&gt; 
+  &lt;nummer&gt;100041&lt;/nummer&gt;
+  &lt;seriennummer /&gt;
+  &lt;menge&gt;1&lt;/menge&gt; 
+  &lt;lieferdatum&gt;0000-00-00&lt;/lieferdatum&gt;
+  &lt;vpe&gt;1&lt;/vpe&gt;
+  &lt;sort&gt;1&lt;/sort&gt;
+  &lt;status&gt;angelegt&lt;/status&gt;
+  &lt;bemerkung /&gt;
+  &lt;geliefert&gt;0&lt;/geliefert&gt;
+  &lt;abgerechnet&gt;0&lt;/abgerechnet&gt;
+  &lt;logdatei&gt;2016-10-07 10:05:53&lt;/logdatei&gt; 
+  &lt;explodiert_parent_artikel&gt;0&lt;/explodiert_parent_artikel&gt; 
+  &lt;einheit /&gt;
+  &lt;zolltarifnummer /&gt;
+  &lt;herkunftsland&gt;DE&lt;/herkunftsland&gt;
+  &lt;artikelnummerkunde /&gt; 
+  &lt;freifeld1 /&gt; 
+  &lt;freifeld2 /&gt;
+  &lt;freifeld3 /&gt;
+  &lt;freifeld4 /&gt; 
+  &lt;freifeld5 /&gt; 
+  &lt;freifeld6 /&gt;
+  &lt;freifeld7 /&gt; 
+  &lt;freifeld8 /&gt;
+  &lt;freifeld9 /&gt;
+  &lt;freifeld10 /&gt;
+  &lt;lieferdatumkw&gt;0&lt;/lieferdatumkw&gt;
+  &lt;auftrag_position_id&gt;407&lt;/auftrag_position_id&gt;
+  &lt;kostenlos&gt;0&lt;/kostenlos&gt; 
+  &lt;lagertext /&gt;
+  &lt;teilprojekt&gt;0&lt;/teilprojekt&gt; 
+  &lt;explodiert_parent&gt;0&lt;/explodiert_parent&gt; 
+  &lt;id_ext /&gt; 
+  &lt;ean /&gt;
+  &lt;gewicht /&gt;
+  &lt;herstellernummer /&gt; 
+  &lt;/lieferschein_position&gt; 
+  &lt;/lieferschein_position_list&gt;
+  &lt;/lieferschein&gt;
+  &lt;/lieferschein_list&gt; 
+  &lt;/xml&gt; 
+  &lt;status&gt; 
+  &lt;action&gt;belege&lt;/action&gt; 
+  &lt;message&gt;OK&lt;/message&gt; 
+  &lt;messageCode&gt;1&lt;/messageCode&gt; 
+  &lt;/status&gt;
+&lt;/response&gt;
+</code></pre>
+<h2 id="pricat-artikelkatalog">PRICAT (Artikelkatalog)<a class="headerlink" href="#pricat-artikelkatalog" title="Permanent link">&para;</a></h2>
+<h3 id="richtung-ausgehend_2">Richtung: Ausgehend<a class="headerlink" href="#richtung-ausgehend_2" title="Permanent link">&para;</a></h3>
+<p>xentral stellt den Artikelkatalog für den Kunden zur Verfügung:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;response&gt; 
+  &lt;xml&gt; 
+  &lt;artikel_list&gt; 
+  &lt;artikel&gt;
+  &lt;id&gt;36327&lt;/id&gt;
+  &lt;typ&gt;1170_kat&lt;/typ&gt;
+  &lt;nummer&gt;200000&lt;/nummer&gt; 
+  &lt;checksum/&gt; 
+  &lt;projekt&gt;0&lt;/projekt&gt;
+  &lt;inaktiv/&gt;
+  &lt;ausverkauft&gt;0&lt;/ausverkauft&gt;
+  &lt;warengruppe/&gt; 
+  &lt;name_de&gt;Testartikel&lt;/name_de&gt;
+  &lt;name_en/&gt;
+  &lt;kurztext_de/&gt;
+  &lt;kurztext_en/&gt;
+  &lt;beschreibung_de/&gt;
+  &lt;beschreibung_en/&gt;
+  &lt;uebersicht_de/&gt; 
+  &lt;uebersicht_en/&gt; 
+  &lt;links_de/&gt; 
+  &lt;links_en/&gt; 
+  &lt;startseite_de/&gt; 
+  &lt;startseite_en/&gt;
+  &lt;standardbild/&gt; 
+  &lt;herstellerlink/&gt; 
+  &lt;hersteller&gt;Mustermann GmbH&lt;/hersteller&gt; 
+  &lt;teilbar/&gt; 
+  &lt;nteile/&gt; 
+  &lt;seriennummern&gt;keine&lt;/seriennummern&gt; 
+  &lt;lager_platz/&gt;
+  &lt;lieferzeit/&gt;
+  &lt;lieferzeitmanuell/&gt;
+  &lt;sonstiges/&gt;
+  &lt;gewicht&gt;1&lt;/gewicht&gt; 
+  &lt;endmontage/&gt;
+  &lt;funktionstest/&gt;
+  &lt;artikelcheckliste/&gt;
+  &lt;stueckliste&gt;0&lt;/stueckliste&gt; 
+  &lt;juststueckliste&gt;0&lt;/juststueckliste&gt; 
+  &lt;barcode/&gt;
+  &lt;hinzugefuegt/&gt;
+  &lt;pcbdecal/&gt; 
+  &lt;lagerartikel&gt;1&lt;/lagerartikel&gt; 
+  &lt;porto&gt;0&lt;/porto&gt; 
+  &lt;chargenverwaltung&gt;0&lt;/chargenverwaltung&gt; 
+  &lt;provisionsartikel&gt;0&lt;/provisionsartikel&gt; 
+  &lt;gesperrt&gt;0&lt;/gesperrt&gt; 
+  &lt;sperrgrund/&gt;
+  &lt;geloescht&gt;0&lt;/geloescht&gt;
+  &lt;gueltigbis&gt;0000-00-00&lt;/gueltigbis&gt; 
+  &lt;umsatzsteuer/&gt;
+  &lt;klasse/&gt;
+  &lt;adresse&gt;0&lt;/adresse&gt;
+  &lt;shopartikel&gt;0&lt;/shopartikel&gt;
+  &lt;unishopartikel&gt;0&lt;/unishopartikel&gt;
+  &lt;journalshopartikel&gt;0&lt;/journalshopartikel&gt;
+  &lt;shop&gt;0&lt;/shop&gt;
+  &lt;katalog&gt;0&lt;/katalog&gt; 
+  &lt;katalogtext_de/&gt; 
+  &lt;katalogtext_en/&gt; 
+  &lt;katalogbezeichnung_de/&gt;
+  &lt;katalogbezeichnung_en/&gt; 
+  &lt;neu&gt;0&lt;/neu&gt; 
+  &lt;topseller&gt;0&lt;/topseller&gt;
+  &lt;startseite&gt;0&lt;/startseite&gt; 
+  &lt;wichtig&gt;0&lt;/wichtig&gt;
+  &lt;mindestlager&gt;0&lt;/mindestlager&gt;
+  &lt;mindestbestellung&gt;0&lt;/mindestbestellung&gt; 
+  &lt;partnerprogramm_sperre&gt;0&lt;/partnerprogramm_sperre&gt; 
+  &lt;internerkommentar/&gt;
+  &lt;intern_gesperrt&gt;0&lt;/intern_gesperrt&gt;
+  &lt;intern_gesperrtuser&gt;0&lt;/intern_gesperrtuser&gt;
+  &lt;intern_gesperrtgrund/&gt; 
+  &lt;inbearbeitung&gt;0&lt;/inbearbeitung&gt;
+  &lt;inbearbeitunguser&gt;0&lt;/inbearbeitunguser&gt; 
+  &lt;cache_lagerplatzinhaltmenge&gt;0&lt;/cache_lagerplatzinhaltmenge&gt; 
+  &lt;internkommentar/&gt;
+  &lt;firma&gt;1&lt;/firma&gt;
+  &lt;logdatei&gt;2016-08-31 14:41:54&lt;/logdatei&gt;
+  &lt;anabregs_text&gt;Artikelbeschreibung&lt;br /&gt;&lt;/anabregs_text&gt;
+  &lt;autobestellung&gt;0&lt;/autobestellung&gt;
+  &lt;produktion&gt;0&lt;/produktion&gt; 
+  &lt;herstellernummer/&gt; 
+  &lt;restmenge&gt;0&lt;/restmenge&gt; 
+  &lt;mlmdirektpraemie&gt;0.00&lt;/mlmdirektpraemie&gt;
+  &lt;keineeinzelartikelanzeigen&gt;0&lt;/keineeinzelartikelanzeigen&gt; 
+  &lt;mindesthaltbarkeitsdatum&gt;0&lt;/mindesthaltbarkeitsdatum&gt; 
+  &lt;letzteseriennummer/&gt; 
+  &lt;individualartikel&gt;0&lt;/individualartikel&gt; 
+  &lt;keinrabatterlaubt&gt;0&lt;/keinrabatterlaubt&gt;
+  &lt;rabatt&gt;0&lt;/rabatt&gt;
+  &lt;rabatt_prozent&gt;0.00&lt;/rabatt_prozent&gt;
+  &lt;geraet&gt;0&lt;/geraet&gt; 
+  &lt;serviceartikel&gt;0&lt;/serviceartikel&gt;
+  &lt;autoabgleicherlaubt&gt;0&lt;/autoabgleicherlaubt&gt; 
+  &lt;pseudopreis&gt;0.00&lt;/pseudopreis&gt; 
+  &lt;freigabenotwendig&gt;0&lt;/freigabenotwendig&gt; 
+  &lt;freigaberegel/&gt;
+  &lt;nachbestellt&gt;0&lt;/nachbestellt&gt; 
+  &lt;ean/&gt;
+  &lt;mlmpunkte&gt;0.00&lt;/mlmpunkte&gt;
+  &lt;mlmbonuspunkte&gt;0.00&lt;/mlmbonuspunkte&gt; 
+  &lt;mlmkeinepunkteeigenkauf&gt;0&lt;/mlmkeinepunkteeigenkauf&gt; 
+  &lt;shop2&gt;0&lt;/shop2&gt; 
+  &lt;shop3&gt;0&lt;/shop3&gt;
+  &lt;usereditid&gt;1&lt;/usereditid&gt;
+  &lt;useredittimestamp&gt;2016-08-31 14:41:54&lt;/useredittimestamp&gt; 
+  &lt;freifeld1/&gt; 
+  &lt;freifeld2/&gt;
+  &lt;freifeld3/&gt; 
+  &lt;freifeld4/&gt; 
+  &lt;freifeld5/&gt;
+  &lt;freifeld6/&gt; 
+  &lt;einheit/&gt; 
+  &lt;webid/&gt;
+  &lt;lieferzeitmanuell_en/&gt; 
+  &lt;variante&gt;0&lt;/variante&gt; 
+  &lt;variante_von&gt;0&lt;/variante_von&gt; 
+  &lt;produktioninfo/&gt; 
+  &lt;sonderaktion/&gt; 
+  &lt;sonderaktion_en/&gt;
+  &lt;autolagerlampe&gt;0&lt;/autolagerlampe&gt; 
+  &lt;leerfeld/&gt; 
+  &lt;zolltarifnummer/&gt;
+  &lt;herkunftsland&gt;DE&lt;/herkunftsland&gt;
+  &lt;laenge&gt;20.00&lt;/laenge&gt;
+  &lt;breite&gt;20.00&lt;/breite&gt;
+  &lt;hoehe&gt;10.00&lt;/hoehe&gt;
+  &lt;gebuehr&gt;0&lt;/gebuehr&gt;
+  &lt;pseudolager/&gt; 
+  &lt;anabregs_text_en/&gt;
+  &lt;matrixprodukt&gt;0&lt;/matrixprodukt&gt;
+  &lt;downloadartikel&gt;0&lt;/downloadartikel&gt; 
+  &lt;steuer_erloese_inland_normal/&gt; 
+  &lt;steuer_aufwendung_inland_normal/&gt;
+  &lt;steuer_erloese_inland_ermaessigt/&gt;
+  &lt;steuer_aufwendung_inland_ermaessigt/&gt;
+  &lt;steuer_erloese_inland_steuerfrei/&gt;
+  &lt;steuer_aufwendung_inland_steuerfrei/&gt; 
+  &lt;steuer_erloese_inland_innergemeinschaftlich/&gt; 
+  &lt;steuer_aufwendung_inland_innergemeinschaftlich/&gt; 
+  &lt;steuer_erloese_inland_eunormal/&gt;
+  &lt;steuer_erloese_inland_nichtsteuerbar/&gt; 
+  &lt;steuer_erloese_inland_euermaessigt/&gt; 
+  &lt;steuer_aufwendung_inland_nichtsteuerbar/&gt; 
+  &lt;steuer_aufwendung_inland_eunormal/&gt;
+  &lt;steuer_aufwendung_inland_euermaessigt/&gt;
+  &lt;steuer_erloese_inland_export/&gt;
+  &lt;steuer_aufwendung_inland_import/&gt;
+  &lt;steuer_art_produkt&gt;1&lt;/steuer_art_produkt&gt; 
+  &lt;steuer_art_produkt_download&gt;1&lt;/steuer_art_produkt_download&gt; 
+  &lt;metadescription_de/&gt;
+  &lt;metadescription_en/&gt;
+  &lt;metakeywords_de/&gt; 
+  &lt;metakeywords_en/&gt;
+  &lt;generierenummerbeioption&gt;0&lt;/generierenummerbeioption&gt; 
+  &lt;allelieferanten&gt;0&lt;/allelieferanten&gt; 
+  &lt;variante_kopie&gt;0&lt;/variante_kopie&gt;
+  &lt;bildvorschau/&gt; 
+  &lt;inventursperre&gt;0&lt;/inventursperre&gt; 
+  &lt;unikat&gt;0&lt;/unikat&gt; 
+  &lt;tagespreise&gt;0&lt;/tagespreise&gt; 
+  &lt;rohstoffe&gt;0&lt;/rohstoffe&gt;
+  &lt;externeproduktion&gt;0&lt;/externeproduktion&gt;
+  &lt;vkmeldungunterdruecken&gt;0&lt;/vkmeldungunterdruecken&gt;
+  &lt;id_ext/&gt;
+  &lt;/artikel&gt;
+  &lt;/artikel_list&gt; 
+  &lt;/xml&gt;
+  &lt;status&gt;
+  &lt;action&gt;artikel_list&lt;/action&gt;
+  &lt;message&gt;OK&lt;/message&gt; 
+  &lt;messageCode&gt;1&lt;/messageCode&gt;
+  &lt;/status&gt; 
+&lt;/response&gt;
+</code></pre>
+<h2 id="sonstige-informationen-fur-gln">Sonstige Informationen für GLN<a class="headerlink" href="#sonstige-informationen-fur-gln" title="Permanent link">&para;</a></h2>
+<h3 id="variablen">Variablen<a class="headerlink" href="#variablen" title="Permanent link">&para;</a></h3>
+<p>Die GLN kann als Variable in Dokumente übernommen werden:</p>
+<ul>
+<li>{GLN} → GLN aus der Stammdatenadresse (diese wird im Dokument im Feld &ldquo;GLN&rdquo; bei der Stammdatenadresse abgespeichert)</li>
+<li>{LIEFERGLN} → GLN aus der Lieferadresse (diese wird im Dokument in der blauen Box bei der Lieferadresse abgespeichert)</li>
+</ul>
+<h4 id="gln">GLN<a class="headerlink" href="#gln" title="Permanent link">&para;</a></h4>
+<p><img alt="TransferEdi_2.png" src="https://help.xentral.com/hc/article_attachments/16611906550172" /></p>
+<h4 id="liefer-gln">Liefer-GLN<a class="headerlink" href="#liefer-gln" title="Permanent link">&para;</a></h4>
+<p><img alt="TransferEdi_3.png" src="https://help.xentral.com/hc/article_attachments/16611943870748" /></p>
+<h4 id="einstellungen-in-den-textvorlagen">Einstellungen in den Textvorlagen<a class="headerlink" href="#einstellungen-in-den-textvorlagen" title="Permanent link">&para;</a></h4>
+<p><img alt="TransferEdi_4.png" src="https://help.xentral.com/hc/article_attachments/16611906561436" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

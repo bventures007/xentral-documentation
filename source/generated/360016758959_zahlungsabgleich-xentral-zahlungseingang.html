@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016758959 Zahlungsabgleich Xentral Zahlungseingang - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016758959 Zahlungsabgleich Xentral Zahlungseingang</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016758959 Zahlungsabgleich Xentral Zahlungseingang</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Im Unternehmensalltag werden Zahlungen über verschiedene Wege abgewickelt – z. B. per Überweisung, Lastschrift oder über Bezahldienste wie PayPal oder Stripe. Diese Zahlungsvorgänge müssen in der Buchhaltung nachvollziehbar dokumentiert und den passenden Belegen zugeordnet werden. Xentral bietet dafür ein eigenes Modul, mit dem du Kontoauszüge importieren und Buchungen verarbeiten kannst – unabhängig vom verwendeten Zahlungskanal. So stellst du sicher, dass Zahlungsein- und -ausgänge korrekt erfasst und für den weiteren Buchhaltungsprozess bereitstehen.</p>
+<p>Die Verwaltung von Zahlungseingängen ist ein zentraler Bestandteil der Buchhaltung. In Xentral kannst du Kontoauszüge aus verschiedenen Quellen wie<a href="https://help.xentral.com/hc/de/articles/6380930667548#UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16">Bankkonten</a>,<a href="https://help.xentral.com/hc/de/articles/360016721920#UUID-5b7950ea-43de-e5a2-45a6-d9e4455abe51">PayPal</a>oder Stripe importieren – entweder manuell als CSV-Datei oder automatisiert über die PSD2-Schnittstelle. Die Buchungen lassen sich dabei direkt mit den passenden Belegen wie Rechnungen, Aufträgen oder Gutschriften verknüpfen. So behältst du den Überblick über offene Posten, vermeidest doppelte Zahlungen und bereitest deine Daten sauber für den Buchhaltungsexport vor. In diesem Artikel erfährst du Schritt für Schritt, wie der Import funktioniert, wie du Zahlungen zuordnest und welche Möglichkeiten dir bei Sonderfällen wie Rücklastschriften oder Teilzahlungen zur Verfügung stehen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Neben dem Standardprozess für den Import und die Verknüpfung von Zahlungen bietet Xentral weitere Funktionen, die dich bei der Nachbearbeitung, Auswertung und Organisation deiner Buchungsdaten unterstützen.</p>
+<p>-<strong>Importmöglichkeiten von Kontoauszügen</strong>: Kontoauszüge können in Xentral entweder manuell per CSV-Datei oder automatisiert über die PSD2-Schnittstelle (Live-Import) eingebunden werden. Die meisten Banken und Zahlungsdienstleister wie PayPal oder Stripe werden unterstützt.
+-<strong>Voraussetzung für den Import</strong>: Für jedes genutzte Konto muss in Xentral ein Geschäftskonto angelegt sein. Erst dann ist ein Import möglich.
+-<strong>Verknüpfung mit Belegen</strong>: Eingehende Zahlungen können mit Rechnungen, Gutschriften, Aufträgen oder Verbindlichkeiten verknüpft werden. Automatisch erkannte Buchungen werden grün markiert; manuelle Zuordnungen sind ebenfalls möglich.
+-<strong>Kennzeichnung der Buchungen</strong>: Farbmarkierungen in der Übersicht zeigen den Verbuchungsvorschlag einer Buchung an (z. B. grün = korrekt gefunden, grau = noch offen, rot = Ausgabe). Eine Übersicht aller Farben findest du im Artikel.
+-<strong>Zahlungen splitten oder aufteilen</strong>: Eine Buchung kann auf mehrere Belege verteilt oder als Teilzahlung erfasst werden. Auch Rücklastschriften lassen sich erneut auf eine Rechnung buchen.
+-<strong>Verbindlichkeiten</strong>: Zahlungen können auch auf offene Verbindlichkeiten gebucht werden. Dabei wird der Status automatisch auf &ldquo;bezahlt&rdquo; gesetzt – ein Rücksetzen ist manuell nicht vorgesehen.
+-<strong>Klärfälle</strong>: Nicht zuordenbare Buchungen können als Klärfall markiert und separat ausgewertet werden.
+-<strong>Manuelle Anpassung</strong>: Buchungen lassen sich im Detail bearbeiten und bei Bedarf aufteilen oder neu zuordnen.
+-<strong>Verknüpfungen auflösen</strong>: Bestehende Buchungszuordnungen können zurückgesetzt und neu verarbeitet werden.
+-<strong>Zusätzliche Optionen</strong>: Übersicht über Soll, Haben und Salden je Konto und Zeitraum Volltextsuche in Kontoauszügen Manuelle Erfassung von Zahlungseingängen (für Offline-Konten, Beta) Buchung regelmäßiger Gebühren über automatische Verbindlichkeiten Kontenblatt zur Durchsuchung von Kontobeziehungen und Gegenkonten.</p>
+</blockquote>
+<h2 id="import-und-erkennung-von-kontoauszugen">Import und Erkennung von Kontoauszügen<a class="headerlink" href="#import-und-erkennung-von-kontoauszugen" title="Permanent link">&para;</a></h2>
+<p>Wenn du mit der Finanzbuchhaltung in Xentral arbeitest, ist die Konten-Übersicht deine zentrale Anlaufstelle für die Verwaltung aller Bankkonten, Kassen und sonstiger Finanzkonten. In dieser Ansicht kannst du bestehende Konten prüfen, neue Konten hinzufügen und auf einen Blick erkennen, auf welchen Konten noch offene Buchungen vorhanden sind.</p>
+<h3 id="zahlungseingang-kontenubersicht">Zahlungseingang Kontenübersicht<a class="headerlink" href="#zahlungseingang-kontenubersicht" title="Permanent link">&para;</a></h3>
+<p>Die Übersicht deiner aktiv geschalteten Geschäftskonten findest du unter <strong>Buchhaltung &gt; Zahlungseingang.</strong></p>
+<p>Standardspalten in der Tabelle:</p>
+<p>-<strong>Bezeichnung</strong>: Der Name des Kontos, meist mit Kontonummer (z. B. 1700_Postbank).
+-<strong>Konto-Art</strong>: Gibt an, ob es sich um ein Bankkonto, ein Kassenkonto, PayPal oder eine andere Kontoart handelt (z. B. konto, kasse, paypal, finapi).
+-<strong>IBAN / BIC</strong>: Bankverbindung, sofern vorhanden.
+-<strong>Saldo</strong>: Zeigt den aktuellen Kontostand an, wenn dieser z. B. durch finAPI oder einen CSV-Import bereitgestellt wurde.
+-<strong>Projekt</strong>: Wenn das Konto einem bestimmten Projekt zugeordnet ist
+-<strong>Menü</strong>: Kontextmenü für Aktionen (z. B. Konto bearbeiten, Kontoauszüge einsehen)</p>
+<p><img alt="zahlungseingang_bankkonten_uebersicht_001.png" src="https://help.xentral.com/hc/article_attachments/20764230607900" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Offene Buchungen erkennen</strong>:</p>
+<p>In der Kontenübersicht kannst du sehen, auf welchen Konten offene Buchungen vorhanden sind. Konten mit offenen Buchungen sind durch eine Markierung oder einen Hinweis im Menü-Feld oder direkt im zugehörigen Kontenblatt gekennzeichnet.</p>
+<p>Diese Informationen helfen dir, schnell zu identifizieren, wo noch Zuordnungen oder Bearbeitungen notwendig sind.</p>
+<p><strong>Filterfunktionen in der Kontenliste:</strong></p>
+<p>Um die Ansicht zu filtern oder gezielt nach Konten zu suchen, stehen dir folgende Funktionen zur Verfügung:</p>
+<p>-<strong>auch inaktive</strong>: Aktiviert die Anzeige inaktiver Konten
+-<strong>Suche</strong>: Volltextsuche über alle Konten
+-<strong>Spaltensuche</strong>: Separate Eingabefelder pro Spalte (Bezeichnung, Konto-Art, IBAN, BIC, Saldo, Projekt)</p>
+</blockquote>
+<h3 id="konto-import">Konto Import<a class="headerlink" href="#konto-import" title="Permanent link">&para;</a></h3>
+<p>In Xentral stehen dir zwei Möglichkeiten zur Verfügung, um Kontoauszugsdaten in ein Bankkonto zu importieren:</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p><strong>Verwende nur eine Importvariante pro Bankkonto!</strong></p>
+<p>Bitte entscheide dich je Bankkonto <strong>entweder für den Live-Import oder den CSV-Import </strong>. Die gleichzeitige Nutzung beider Varianten kann zu <strong>doppelten oder abweichenden Buchungen führen</strong>, da:</p>
+<ul>
+<li>der Live-Import teilweise andere Felder liefert als dein individuelles CSV-Format.</li>
+<li>Buchungen doppelt eingelesen werden können, wenn sie aus beiden Quellen stammen.</li>
+</ul>
+<p><strong>Ausnahme: Konten mit kombinierter Importfunktion</strong></p>
+<p>Einige Konten wie z. B. PayPal sind in Xentral standardmäßig für beide Methoden freigegeben. Hier kannst du zusätzlich zum Live-Import auch CSV-Dateien einspielen – z. B. dann, wenn du bei Auftragsspitzen mehr Daten benötigst, als der automatische Abruf rechtzeitig liefern kann.</p>
+</blockquote>
+<h4 id="live-bankanbindung-z-b-via-finapi-paypal">Live-Bankanbindung (z. B. via finAPI, PayPal)<a class="headerlink" href="#live-bankanbindung-z-b-via-finapi-paypal" title="Permanent link">&para;</a></h4>
+<p>Wenn du ein Bankkonto über eine Live-Schnittstelle angebunden hast, kannst du Kontoauszüge entweder:</p>
+<p>-<strong>manuell per Button</strong> abrufen, oder
+-<strong>automatisch im Hintergrund </strong> im festgelegten <strong>Zeitintervall</strong> abrufen lassen (Einstellung im Konto).</p>
+<p>Diese Methode ist für alle gängigen Bankkonten vorgesehen, die über finAPI unterstützt werden und Zahlungsanbieter wie PayPal. Die Buchungen werden dabei standardisiert importiert und enthalten strukturierte Zusatzinformationen (z. B. Gegenkonto, Buchungstext, Verwendungszweck aufgeschlüsselt in Felder).</p>
+<h4 id="manueller-csv-import">Manueller CSV-Import<a class="headerlink" href="#manueller-csv-import" title="Permanent link">&para;</a></h4>
+<p>Alternativ kannst du Kontoauszüge manuell per CSV-Datei in ein Konto importieren. Die Upload-Funktion findest du direkt im jeweiligen Bankkonto unter dem Menüpunkt CSV Import. Diese Methode eignet sich z. B. für:</p>
+<ul>
+<li>Banken, die nicht via finAPI angebunden werden können</li>
+<li>Spezialformate oder angepasste Kontodaten</li>
+<li>Fälle, in denen du gezielt Daten korrigieren oder nachtragen möchtest</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Wenn du <strong>CSV-Import</strong> nutzt, definiere ein klares internes Format und passe es ggf. an das Xentral-Importschema an.</li>
+<li>Wenn du <strong>Live-Import</strong> nutzt, stelle sicher, dass das Konto korrekt angebunden ist und der Abruf funktioniert (Statusanzeige im Konto prüfen).</li>
+<li>Prüfe regelmäßig, ob doppelte Buchungen vorhanden sind – insbesondere nach einem Importwechsel.</li>
+</ul>
+</blockquote>
+<h3 id="konto-buchungserkennung-und-zuordnung">Konto Buchungserkennung und - zuordnung<a class="headerlink" href="#konto-buchungserkennung-und-zuordnung" title="Permanent link">&para;</a></h3>
+<p>Beim Import von Kontoauszügen – egal ob über eine Live-Bankverbindung oder per CSV – erkennt Xentral automatisch, ob es sich um Einnahmen oder Ausgaben handelt und versucht, Zahlungen mit vorhandenen Belegen (z. B. Rechnungen, Aufträgen, Gutschriften oder Verbindlichkeiten) zu verknüpfen.</p>
+<p><img alt="zahlungseingang_buchungen_bankkonto_ausgaben_kundenzahlungen.png" src="https://help.xentral.com/hc/article_attachments/20764246638236" /></p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Klicke in das betreffende Bankkonto im Zahlungseingang.</li>
+<li>Wähle in der Infobox für den <strong>automatischen Abgleich </strong> den Button <strong>Starten</strong>.</li>
+<li>Der <strong>Automatische Abgleich </strong> startet und <strong>ermittelt die Buchungsvorschläge </strong>. Bei kleineren Buchungsmengen erhältst du das Ergebnis innerhalb einer Minute. Bei größeren Datenmengen wird dir der <strong>Fortschritt in der Infomeldung angezeigt</strong> und aktualisiert.</li>
+<li>Die Eingangs- und Ausgangszahlungen kannst du über <strong>Buchungen fertigstellen </strong> oder <strong>Alle automatisch abgeglichenen Transaktionen abschliessen</strong> verbuchen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Berechnungsmenge kannst du über den Zeitraum in den Einstellungen steuern s.u:Einstellungen Abgleichszeitraum.</p>
+</blockquote>
+<h4 id="farbkennzeichnung-von-buchungen">Farbkennzeichnung von Buchungen<a class="headerlink" href="#farbkennzeichnung-von-buchungen" title="Permanent link">&para;</a></h4>
+<p>Xentral nutzt eine Farbmarkierung, um dir auf einen Blick den Status und Typ jeder Buchung anzuzeigen:</p>
+<table>
+<thead>
+<tr>
+<th>Farbe</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grün</td>
+<td>Einnahme wurde automatisch erkannt und erfolgreich mit einem passenden Auftrag oder einer Rechnung verknüpft (Buchungsvorschlag)</td>
+</tr>
+<tr>
+<td>Grau</td>
+<td>Einnahme, die noch nicht automatisch zugeordnet wurde</td>
+</tr>
+<tr>
+<td>Rot</td>
+<td>Ausgabe, die nicht automatisch zugeordnet wurde</td>
+</tr>
+<tr>
+<td>Lila</td>
+<td>Ausgabe, die erfolgreich mit einer Verbindlichkeit verknüpft wurde</td>
+</tr>
+<tr>
+<td>Orange</td>
+<td>Zahlung wurde einem stornierten Beleg, einem bereits bezahlten Beleg oder einer unsicheren Übereinstimmung zugeordnet (z. B. korrekte Rechnungsnummer, aber nicht eindeutig)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="zahlungseingang-ubersichtsfunktionen-und-manuelle-buchungen">Zahlungseingang Übersichtsfunktionen und manuelle Buchungen<a class="headerlink" href="#zahlungseingang-ubersichtsfunktionen-und-manuelle-buchungen" title="Permanent link">&para;</a></h2>
+<p>In diesem Abschnitt erhältst du einen kompakten Überblick über die wichtigsten Tabs im Bereich der Finanzübersicht. Jeder Reiter erfüllt eine spezifische Funktion – von der Anzeige einzelner Kontoauszüge bis hin zur Auswertung von Salden oder der Konfiguration individueller Kontenansichten.</p>
+<p>Im Folgenden werden die Tabs <strong>Übersicht </strong>,<strong>Alle Kontoauszüge <strong>,</strong> Kontenblatt <strong>,</strong> Summen und Salden </strong> sowie <strong>Einstellungen</strong> im Detail erklärt.</p>
+<h3 id="ubersicht">Übersicht<a class="headerlink" href="#ubersicht" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>In der Übersicht werden dir die Konten inkl. der offenen Buchungen angezeigt s.o.:Zahlungseingang Kontenübersicht</p>
+</blockquote>
+<h3 id="alle-kontoauszuge">Alle Kontoauszüge<a class="headerlink" href="#alle-kontoauszuge" title="Permanent link">&para;</a></h3>
+<p>Im Tab <strong>Alle Kontoauszüge </strong> findest du eine tabellarische Übersicht aller importierten Bankbewegungen. Die Tabelle bildet den zentralen Arbeitsbereich für die Prüfung, Nachbearbeitung und Klärung von Zahlungsein- und -ausgängen. Jede Zeile entspricht einem einzelnen Buchungsvorgang.<strong>Filterfunktionen (oberhalb der Tabelle):</strong></p>
+<p>Zur gezielten Eingrenzung der angezeigten Daten stehen dir mehrere Filter zur Verfügung:</p>
+<p>-<strong>Klärfälle</strong>– zeigt nur Buchungen mit ungeklärtem Status
+-<strong>Importfehler</strong>– listet fehlerhafte oder unvollständige Importzeilen
+-<strong>Ohne Importfehler</strong>– zeigt nur technisch einwandfreie Buchungen
+-<strong>Status prüfen</strong>– zeigt Buchungen, die manuell überprüft werden müssen
+-<strong>Buchungstext statt Kontoauszugstext</strong></p>
+<ul>
+<li>zeigt Buchungen, die einen Buchungstext eingegeben und aktiviert haben
+-<strong>Soll / HABEN</strong>– schränkt die Anzeige auf Ein- oder Auszahlungen ein
+-<strong>Von / Bis (Datum)</strong>– grenzt den Zeitraum der Buchungen ein <strong>Tabellenspalten und Suchfelder:</strong></li>
+</ul>
+<p>Jede Spalte der Tabelle verfügt über ein eigenes Suchfeld, mit dem du gezielt nach Inhalten filtern kannst. Die verfügbaren Spalten sind:</p>
+<p>-<strong>Vom</strong>(Buchungsdatum)
+-<strong>Konto</strong>(zugeordnetes Bankkonto)
+-<strong>Nr</strong>(laufende Nummer der Buchung)
+-<strong>Vorgang/Buchungstext</strong>(Name, Vorgangsnummer, Buchungstext)
+-<strong>Gegenkonto</strong>(automatisch oder manuell zugeordnetes Konto)
+-<strong>Kostenstelle </strong></p>
+<p>-<strong>Soll</strong> (Ausgangsbetrag)
+-<strong>HABEN</strong>(Eingangsbetrag)
+-<strong>Gebühr</strong>(Bankkosten, falls vorhanden)
+-<strong>Status</strong>(z. B. offen, gebucht, prüfen)
+-<strong>Menü</strong>(Aktionen wie Zuweisung, Bearbeiten, Löschen)</p>
+<p><img alt="zahlungseingang_alle_kontoauszuege.png" src="https://help.xentral.com/hc/article_attachments/20764246644636" /></p>
+<h3 id="kontenblatt-manuelle-buchungen">Kontenblatt &amp; manuelle Buchungen<a class="headerlink" href="#kontenblatt-manuelle-buchungen" title="Permanent link">&para;</a></h3>
+<p>Das Kontenblatt zeigt alle Buchungen eines bestimmten Kontos in chronologischer Reihenfolge. Diese Ansicht dient der gezielten Nachverfolgung und Analyse von Buchungen innerhalb eines Kontos, z. B. für Abstimmungen, Prüfungen oder zur Vorbereitung des Jahresabschlusses.</p>
+<p>Im Bereich Kontenblatt kannst du Kontoauszüge gezielt nach bestimmten Konten filtern und durchsuchen. Grundlage dafür sind die im System hinterlegten Konten aus dem Kontenrahmen.</p>
+<p>Im Kontenblatt werden folgende Daten ausgewertet:</p>
+<ol>
+<li>Sachkonten aus dem Modul <a href="https://help.xentral.com/hc/de/articles/360016775339#UUID-92298972-2029-3a2c-00ce-a5bdd614203c">Kontenrahmen</a>.</li>
+<li>Gegenkonten aus den Kontoauszügen – geprüft wird dabei, ob das Gegenkonto einer Kunden- oder Lieferantennummer zugeordnet werden kann.</li>
+<li><a href="#UUID-52941a15-b42a-09c5-ac22-b8f72d671c79">Geschäftskonten</a>, die als DATEV-relevant gekennzeichnet sind (Feld DATEV im Geschäftskonto ist ungleich „0“).</li>
+</ol>
+<p><strong>Filter oberhalb der Tabelle:</strong></p>
+<p>Mit den Filterfeldern kannst du die Anzeige auf bestimmte Buchungen eingrenzen:</p>
+<p>-<strong>Gegenkonto</strong>– Filtert nach zugeordnetem Gegenkonto
+-<strong>Von / Bis (Datum)</strong>– Eingrenzung des Buchungszeitraums <strong>Statusinfoanzeige (über der Tabelle):</strong></p>
+<p>Diese Anzeige gibt dir eine schnelle Übersicht über den aktuellen Zustand des gewählten Kontos:</p>
+<p>-<strong>Haben</strong>: Gesamtbetrag aller Haben-Buchungen
+-<strong>Soll</strong>: Gesamtbetrag aller Soll-Buchungen
+-<strong>Saldo</strong>: Differenz aus Haben und Soll
+-<strong>Anzahl Buchungen </strong>: Gesamtanzahl der Buchungszeilen <strong>Spaltensuche unterhalb der Tabellenüberschriften:</strong></p>
+<p>Jede Spalte besitzt ein eigenes Suchfeld, über das du gezielt nach Werten filtern kannst. Die verfügbaren Spalten sind:</p>
+<p>-<strong>Datum </strong></p>
+<p>-<strong>Konto</strong></p>
+<p>-<strong>Gegenkonto</strong></p>
+<p>-<strong>Kostenstelle</strong></p>
+<p>-<strong>Buchungstext</strong></p>
+<p>-<strong>Belegefeld1</strong></p>
+<p>-<strong>Soll</strong></p>
+<p>-<strong>Haben</strong></p>
+<p>-<strong>Währung <strong><img alt="zahlungseingang_kontenblatt.png" src="https://help.xentral.com/hc/article_attachments/20764246645788" /></strong> Manuelle Buchung:</strong></p>
+<p>Xentral bietet dir die Möglichkeit, Zahlungseingänge auch manuell zu erfassen – insbesondere dann, wenn es sich um Geschäftskonten ohne Online-Banking-Anbindung handelt oder kein Kontoimport vorgesehen ist.</p>
+<p>Für die Erfassung wählst du zunächst das entsprechende Bankkonto aus. Dieses ist Teil des Sachkontenrahmens und wird als Bilanzkonto geführt. Weitere Voreinstellungen sind für eine manuelle Buchung nicht erforderlich.</p>
+<p>Bei der Buchung kannst du festlegen, ob sie einem <strong>Debitor </strong>,<strong>Kreditor </strong>, einem <strong>Sachkonto</strong> oder einer Kategorie aus Bilanz bzw. GuV zugeordnet werden soll. So bleibt die Buchführung auch bei manuellen Vorgängen strukturiert und nachvollziehbar.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das Feld <strong>Gegenkonto </strong> ist optional. Wenn du die Buchung ohne Gegenkonto speicherst, kannst du die Zuordnung später im Modul Zahlungseingang vornehmen.<strong>Erfassbare Felder:</strong></p>
+</blockquote>
+<p>-<strong>Währung</strong> (z. B. EUR)
+-<strong>Soll (S)</strong></p>
+<p>-<strong>Haben (H)</strong></p>
+<ul>
+<li>Gegenkonto (optional)</li>
+<li>Kostenstelle (optional)</li>
+<li>Belegfeld 1 (optional)
+-<strong>Datum </strong></li>
+</ul>
+<p>-<strong>Konto</strong></p>
+<p>-<strong>Buchungstext</strong></p>
+<p><img alt="zahlungseingang_kontoblatt_manuelle_buchung.png" src="https://help.xentral.com/hc/article_attachments/20764230617500" /></p>
+<h3 id="summen-und-salden">Summen und Salden<a class="headerlink" href="#summen-und-salden" title="Permanent link">&para;</a></h3>
+<p>Im Tab Summen und Salden erhältst du eine Übersicht der Soll-, Haben- und Saldenwerte pro Konto für einen wählbaren Zeitraum. Den Zeitraum legst du über die Filterfelder <strong>Datum von </strong> und <strong>Datum bis</strong> fest.</p>
+<p>-<strong>Haben</strong>: Summe aller positiven Beträge (Einnahmen) aus den Kontoauszügen
+-<strong>Soll</strong>: Summe aller negativen Beträge (Ausgaben)
+-<strong>Saldo</strong>: Differenz zwischen Haben und Soll
+-<strong>Startsaldo</strong>: Kontostand zu Beginn des gewählten Zeitraums</p>
+<p>Zusätzlich werden die Kontonummer, die Bezeichnung und die Anzahl der Buchungen je Konto angezeigt. In der letzten Zeile findest du die Gesamtsummen über alle Konten hinweg für den ausgewählten Zeitraum.</p>
+<p><img alt="zahlungseingang_summen_und_salden.png" src="https://help.xentral.com/hc/article_attachments/20764230618908" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>In diesem Bereich werden nur Konten mit Buchungen angezeigt.</p>
+</blockquote>
+<h2 id="einstellungen-toleranz">Einstellungen Toleranz<a class="headerlink" href="#einstellungen-toleranz" title="Permanent link">&para;</a></h2>
+<p>Legt fest, in welchem Umfang der Zahlungseingang vom erwarteten Betrag abweichen darf.</p>
+<p><strong>Bedeutung</strong>: Bei aktivierter Toleranz werden geringe Differenzen – z. B. Rundungsabweichungen von 1 Cent – bei der automatischen Zuordnung zu Aufträgen oder Rechnungen akzeptiert. Die Zahlung wird trotz der Abweichung korrekt mit dem zugehörigen Beleg verknüpft.</p>
+<h2 id="einstellungen-abgleichszeitraum">Einstellungen Abgleichszeitraum<a class="headerlink" href="#einstellungen-abgleichszeitraum" title="Permanent link">&para;</a></h2>
+<p>In den Systemeinstellungen kannst du festlegen, welcher Zeitraum beim Zahlungsabgleich berücksichtigt wird. Dabei wird bestimmt, welche offenen Buchungen in die automatische Zuordnung einbezogen werden sollen – zum Beispiel die letzten 3 Monate, 6 Monate, das letzte Jahr, die letzten 2 Jahre oder ohne zeitliche Begrenzung.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Bei einer großen Anzahl an Transaktionen empfiehlt es sich, den Abgleichszeitraum auf die letzten 3 Monate zu begrenzen. So wird die Berechnung nur auf einen aktuellen und relevanten Teil der offenen Buchungen angewendet, was die Performance deutlich verbessert – insbesondere dann, wenn du ältere offene Buchungen erst zum Jahresabschluss bearbeitest oder nicht alle Zahlungen vollständig verbuchst.</p>
+</blockquote>
+<p><img alt="zahlungseingang_settings_beschleunigungsoptionen_001.png" src="https://help.xentral.com/hc/article_attachments/20764246649372" /></p>
+<h2 id="zahlungseingang-import-von-kontoauszugen">Zahlungseingang - Import von Kontoauszügen<a class="headerlink" href="#zahlungseingang-import-von-kontoauszugen" title="Permanent link">&para;</a></h2>
+<p>Heute bieten Banken ihren Kunden die Möglichkeit, alle Kontobewegungen jederzeit über ein Webportal als CSV-Datei zu exportieren. Diese CSV Dateien können in Xentral importiert werden, um Zahlungsein- und abgänge im System zu registrieren, und mit den entsprechenden Vorgängen zu verknüpfen. Die meisten Banken bieten zudem die Möglichkeiten eines automatisierten oder automatischen Live Imports via der PSD2-API.</p>
+<p>Weitere Informationen dazu, wie du Kontoauszüge importierst, findest du<a href="https://help.xentral.com/hc/de/articles/6380930667548#UUID-aa9fdcf6-d617-bcfe-7bdf-0c6af1ce7a16">hier</a>.</p>
+<p>Um die Kontobewegungen importieren zu können, muss in Xentralfür jedes der Konten ein<a href="https://help.xentral.com/hc/de/articles/360016722680#UUID-7723b7cc-cc0e-d54d-24cb-3815c4ae2a94">Geschäftskonto</a>definiert werden.</p>
+<p>InXentralkönnen die Buchungen deiner Geschäftskonten importiert werden. Dazu zählen nicht nur Bankkonten, sondern auch PayPal, Stripe und viele weitere.</p>
+<p>Unter <strong>Buchhaltung</strong>&gt; Zahlungseingang kannst Du für jedes Deiner angebunden Geschäftskonten einen Zahlungsimport durchführen, um alle Buchungen dieses Kontos in Xentral hinterlegt zu haben. Das ermöglicht die Verknüpfung aller Buchungen auf ihre zugehörigen Belege, also Rechnungen, Gutschriften und Verbindlichkeiten. Diese Verknüpfung kann mit einem Klick für alle Buchungen durchgeführt werden, die einem Beleg anhand von Betrag und Verwendungszweck eindeutig zuzuordnen sind. Erkennbar ist das an den grün hinterlegten Zeilen. Übrige Buchungen können mit wenigen weiteren Klicks manuell verknüpft werden. Die Markierung der Belege als &ldquo;bezahlt&rdquo; erfolgt dadurch automatisch. Für jede Buchung wird in Xentral ein Kontoauszug erstellt. Über diesen ist bei Korrekturbedarf auch eine Auflösung einer Verknüpfung möglich.</p>
+<p>Im Bereich Kontenblatt können Sie Kontoauszüge nach den Konten aus dem Kontenrahmen gefiltert durchsuchen. Dort werden die Konten aus dem Modul Kontorahmen durchsucht, die Gegenkonten aus den Kontoauszügen herausgesucht und dort geprüft, ob das Gegenkonto einer Kunden- oder Lieferantennummer entspricht. Ebenso werden die die Geschäftskonten durchsucht, die DATEV-Konten sind. Das ist der Fall, wenn im Geschäftskonto das Feld &ldquo;DATEV&rdquo; anders gefüllt ist als mit &ldquo;0&rdquo;.</p>
+<h2 id="ubersicht-zahlungseingang">Übersicht Zahlungseingang<a class="headerlink" href="#ubersicht-zahlungseingang" title="Permanent link">&para;</a></h2>
+<h3 id="import-der-kontoauszugs-dateien">Import der Kontoauszugs-Dateien<a class="headerlink" href="#import-der-kontoauszugs-dateien" title="Permanent link">&para;</a></h3>
+<p>Die aktuellen Kontoauszüge der Geschäftskonten kannst du importieren, um Zahlungseingänge mit offenen Aufträgen zu verknüpfen und damit für den Buchhaltungsexport vor zu kontieren.</p>
+<p>Wähle dazu das Stift-Icon in der Menü-Spalte in der Übersicht (Buchhaltung → Zahlungseingang) an.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du denLive-Importim jeweiligen Geschäftskonto aktiviert hast, geht das über den Button Live-Import. CSV-Dateien kannst du über <em>Durchsuchen</em> und <em>Importieren</em> einspielen.</p>
+</blockquote>
+<p>Wenn du das Stift-Icon ausgewählt hast, gelangst du in diese Maske:</p>
+<p><img alt="ReceiptOfPayment1.png" src="https://help.xentral.com/hc/article_attachments/5033340473628" /></p>
+<ul>
+<li>Einnahmen sind grau markiert</li>
+<li>Ausgaben sind rot markiert</li>
+<li>Gefundene Aufträge/ Rechnungen sind grün markiert</li>
+</ul>
+<p>Xentral erkennt beim Kontoimport automatisch, ob eine Buchung zu einem früheren Zeitpunkt bereits importiert wurde. In diesem Fall wird die Buchung nicht erneut importiert.</p>
+<p>Mit dem Button &ldquo;Alle automatisch erkannten Buchungen fertigstellen&rdquo; werden alle erkannten Buchungen sofort auf einmal verbucht, unabhängig davon, ob diese sich auf anderen Seiten befinden.</p>
+<h3 id="verknupfen-der-zahlungen-auftrag-rechnung-gutschrift-verbindlichkeit">Verknüpfen der Zahlungen (Auftrag, Rechnung, Gutschrift, Verbindlichkeit)<a class="headerlink" href="#verknupfen-der-zahlungen-auftrag-rechnung-gutschrift-verbindlichkeit" title="Permanent link">&para;</a></h3>
+<p>Wenn der Betreff einer Überweisung Hinweise auf eine(n) Rechnung/Auftrag enthält und der Überweisungsbetrag mit dem Auftragswert übereinstimmt, schlägtXentral die passende Verknüpfung automatisch vor (grüne hinterlegte Zeilen im Screenshot). Dabei werden Zahlungen bei Vorkasse-Bezahlarten (z.B. PayPal, Kreditkarte, Vorkasse) mit Aufträgen und bei anderen Bezahlarten mit Rechnungen verknüpft (z.B. Zahlung auf Rechnung, Barzahlung, Nachnahme).</p>
+<p>Nicht automatisch erkannte Zahlungseingänge bleiben grau hinterlegt, und können manuell mit den passenden Aufträgen/ Rechnungen/ Gutschriften verknüpft werden. Zahlungsabgänge werden in der Import-Ansicht rot hinterlegt.</p>
+<p>In der Übersicht der Zahlungseingänge gibt es eine direkte PDF-Vorschau für die Belege, die verknüpft werden können (Verbindlichkeiten, Rechnungen, Gutschriften und Aufträge).</p>
+<p>Um welche Art der Buchung es sich handelt, ist an der Farbe der Zeile erkenntlich:</p>
+<ul>
+<li>Grün = Zahlungseingang, der erfolgreich auf eine Rechnung oder einen Auftrag verknüpft werden konnte</li>
+<li>Grau = Nicht erkannte Einnahme bzw. positive Buchung</li>
+<li>Rot = Ausgabe bzw. negative Buchung, die nicht zugeordnet werden konnte</li>
+<li>Lila = Negative Buchung, die einer Verbindlichkeit zugeordnet werden konnte</li>
+<li>Orange = Erkannte Buchung</li>
+<li>auf stornierten Auftrag/ Rechnung</li>
+<li>auf Auftrag/ Rechnung mit bereits verknüpfter Zahlung</li>
+<li>auf eine Rechnung/ POS-Rechnung, die durchs System automatisch als bezahlt markiert wurde (aber ohne direkt darauf gebuchten Zahlungseingang)</li>
+<li>mit passender Nummer, bei der sich Xentral jedoch nicht komplett sicher ist, ob sie stimmt</li>
+</ul>
+<h3 id="klarfall">Klärfall<a class="headerlink" href="#klarfall" title="Permanent link">&para;</a></h3>
+<p>Ein schnelles Erstellen von Klärfällen ist direkt in der Übersicht Zahlungseingang möglich. Über das!-Icon erscheint das Dialogfenster, um die Buchung als Klärfall zu markieren und einen Grund zu hinterlegen.</p>
+<p>Nach Klärfällen kann im Reiter Kontoauszüge gefiltert werden. Diese Markierung kann zum Beispiel der Kommunikation zwischen dem Mitarbeiter, der den Zahlungseingang bearbeitet und der Buchhaltung dienen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Der Grund des Klärfalls wird im Buchhaltungsexport für das DATEV-Format nicht mit exportiert. Allerdings kann die Liste aller Klärfälle über einen Datumsbereich im Tab &ldquo;Alle Kontoauszüge&rdquo; gezogen werden.</p>
+</blockquote>
+<h3 id="automatische-zuordnung-von-zahlungen-zu-verbindlichkeiten-in-xentral">Automatische Zuordnung von Zahlungen zu Verbindlichkeiten in Xentral<a class="headerlink" href="#automatische-zuordnung-von-zahlungen-zu-verbindlichkeiten-in-xentral" title="Permanent link">&para;</a></h3>
+<p>Wenn eine Zahlung deines Unternehmens dein Bankkonto verlässt, erkennt Xentral diese automatisch und ordnet sie der richtigen Verbindlichkeit zu – sofern eine wichtige Bedingung erfüllt ist:</p>
+<p>-<strong>Bedingung <strong>: Die Buchung auf dem Kontoauszug muss die <strong>Xentral-Verbindlichkeitsnummer </strong> enthalten. Diese Nummer stammt aus dem <strong>fortlaufenden Nummernkreis für Verbindlichkeiten </strong> in Xentral.</strong> Warum ist das wichtig?</strong></p>
+<ul>
+<li>Die Xentral-Verbindlichkeitsnummer ist <strong>eindeutig</strong>.</li>
+<li>Im Gegensatz dazu kann die <strong>Lieferantenrechnungsnummer </strong> mehrfach bei verschiedenen Lieferanten vorkommen – sie ist <strong>nicht eindeutig</strong>.</li>
+</ul>
+<p>So funktioniert&rsquo;s bei Nutzung des Xentral-Zahlungsverkehrs:</p>
+<ul>
+<li>Wenn du den Zahlungsverkehr <strong>über Xentral abwickelst</strong>(z. B. via SEPA-XML), wird die Verbindlichkeitsnummer automatisch in der Zahlungsdatei mitgegeben.</li>
+<li>Dadurch wird beim späteren Zahlungsausgang auf dem Bankkonto ein <strong>zuverlässiges Matching</strong> zur zugehörigen Verbindlichkeit ermöglicht.</li>
+</ul>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Achte darauf, dass deine Bankbuchung (z. B. im Verwendungszweck) die Xentral-Verbindlichkeitsnummer enthält – insbesondere, wenn du außerhalb von Xentral überweist.</p>
+</blockquote>
+<p>Es ist möglich, auch Verbindlichkeiten im Zahlungseingang zu verknüpfen. Dabei wird der Status der Verbindlichkeit auf &ldquo;bezahlt&rdquo; gesetzt. Sollte der Zahlungsimport rückgängig gemacht werden, wird der Status der Verbindlichkeit nicht zurückgesetzt. Dieser bleibt auf &ldquo;bezahlt&rdquo;. Damit sollen mehrfache Auszahlungen verhindert werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Autocomplete Feld werden alle Verbindlichkeiten angezeigt, die nicht direkt über den Zahlungseingang auf bezahlt gesetzt wurden. Manuell auf bezahlt gesetzte Verbindlichkeiten werden immer noch angezeigt.</p>
+</blockquote>
+<h4 id="skonto-auf-verbindlichkeiten">Skonto auf Verbindlichkeiten<a class="headerlink" href="#skonto-auf-verbindlichkeiten" title="Permanent link">&para;</a></h4>
+<p>Wird ein Skonto auf der Verbindlichkeit automatisch im Zahlungseingang erkannt, analog zum Zahlungseingang auf eine Kundenrechnung mit Skonto.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn die Rechnungssumme abzüglich Skonto beglichen wurde, kannst du die Rechnung als bezahlt markieren, indem du in der Rechnung unter Details → Rechnung in der Oberfläche &ldquo;Mahnwesen&rdquo; einen Betrag als Skonto im Feld &ldquo;Skonto gegeben&rdquo; eintragen. Weitere Informationen dazu findest duhier.</p>
+</blockquote>
+<h3 id="eine-zahlung-auf-mehrere-belegeverbindlichkeiten-buchen">Eine Zahlung auf mehrere Belege/Verbindlichkeiten buchen<a class="headerlink" href="#eine-zahlung-auf-mehrere-belegeverbindlichkeiten-buchen" title="Permanent link">&para;</a></h3>
+<p>Zahlungen können auch auf mehrere Belege (egal ob Auftrag, Rechnung oder Gutschrift) gebucht werden:</p>
+<ul>
+<li>Aktion: &ldquo;Auftragsguthaben&rdquo; auswählen (analog für Rechnung oder Gutschrift)</li>
+<li>Feld: &ldquo;Auftrag&rdquo; → Hier werden die Auftragsnummern mit Komma getrennt eingegeben (keine Leerzeichen verwenden!)</li>
+</ul>
+<p>Für Verbindlichkeiten ist die Vorgehensweise wie folgt:</p>
+<ol>
+<li>Klicke bei der jeweiligen Buchung auf das <strong>Stift</strong></li>
+</ol>
+<p>-Symbol
+1. Klicke im Popup-Fenster auf den Reiter <strong>Verbindlichkeiten </strong></p>
+<ol>
+<li>Wähle eine Verbindlichkeit mit dem <strong>Pfeil </strong></li>
+</ol>
+<p>-Symbol aus und klicke auf <strong>Speichern</strong></p>
+<ol>
+<li>Der Betrag wird aufgeteilt und der Restbetrag kann erneut mit einer Verbindlichkeit verknüpft werden (siehe Schritt 1)</li>
+</ol>
+<p>Ist die Summe des Zahlungsbetrags kleiner als der Wert beider Belege/ Verbindlichkeiten, wird auf die zuletzt gebuchte Belegnummer der vorhandene &ldquo;Restbetrag&rdquo; gebucht. Dieser Beleg wird nicht als bezahlt markiert, da zu wenig Geld verknüpft ist.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Skonto wird beim Verknüpfen mehrerer Aufträge, Rechnungen oder Gutschriften nicht verarbeitet.</p>
+</blockquote>
+<h3 id="rucklastschriften-auf-eine-rechnung-verbuchen">Rücklastschriften auf eine Rechnung verbuchen<a class="headerlink" href="#rucklastschriften-auf-eine-rechnung-verbuchen" title="Permanent link">&para;</a></h3>
+<p>Rücklastschriften können erneut auf eine Rechnung verbucht werden. Die Rechnung wird dann wieder auf &ldquo;offen&rdquo; umgestellt und der Lastschriftbetrag wird inkl. der Gebühr angezeigt.</p>
+<p>Die Rechnung wird ganz normal im Mahnwesen angezeigt. Sobald der Kunde überwiesen hat, kann die neue Zahlung wieder auf die Rechnung gebucht werden. Die Restsumme (Gebühr) kann entweder als Skonto gegeben werden oder der Kunde überweist diese nach.</p>
+<p>Wenn eine Rücklastschrift mehreren Rechnungen zugeordnet werden soll, nutze den folgenden Workflow:</p>
+<p>1.<strong>Rechnungen auf offen setzen: </strong> Damit die Rechnungen in der Übersicht auftauchen, musst du den Zahlungsstatus auf offen setzen (<strong> Buchhaltung &gt; Rechnung &gt; Details &gt; Rechnung</strong>).
+1.<strong>Rechnungen zuordnen: </strong> Navigiere zu <strong> Buchhaltung &gt; Zahlungseingang &gt; Import</strong> und klicke auf das Pfeil-Symbol bei der Rücklastschrift, die du bearbeiten möchtest. Es erscheint eine Übersicht, in welcher du die einzelnen Rechnungen über das Pfeil-Symbol auswählen kannst. Wähle die erste Rechnung über das Pfeil-Symbol aus und trage den Wert bei SOLL ein. Nun entsteht eine Splitbuchung über den restlichen Betrag. Das Ganze muss für die anderen Rechnungen wiederholt werden.
+1. Das Ergebnis findest du in der Übersicht unter <strong>Buchhaltung &gt; Zahlungseingang &gt; Import </strong>.<strong>Beispiel mit zwei Rechnungen:</strong> Wenn es zwei Rechnungen gibt, die per Rücklastschrift eingebucht werden müssen, kann die Zuordnung folgendermaßen vorgenommen werden: Damit die Position aufgesplittet wird, ist über den Stift zu gehen und dort den &ldquo;SOLL&rdquo; Betrag auf einen Rechnungswert inkl. der Rücklastgebühr zu reduzieren.</p>
+<p>Im Beispiel unten geht die Rechnung über 19,04 Euro und die Rücklast beträgt 33 Euro.</p>
+<p><img alt="ReceiptOfPayment3.png" src="https://help.xentral.com/hc/article_attachments/13026572238620" /></p>
+<p>Nach den Eintragungen wird gespeichert, dadurch wird die Buchung aufgesplittet und die Positionen können jeweils auf die Rechnung gebucht werden.</p>
+<h3 id="zahlungsein-und-ausgange-splitten">Zahlungsein- und ausgänge splitten<a class="headerlink" href="#zahlungsein-und-ausgange-splitten" title="Permanent link">&para;</a></h3>
+<p>Kontoauszugsbuchungen können auch gesplittet werden, wenn z.B. zwei Rechnungen in einer Summe bezahlt wurden oder eine Überzahlung stattgefunden hat.</p>
+<p>Beispiel:</p>
+<ul>
+<li>Rechnungsbetrag: 8,12</li>
+<li>Gutschrift: 3,70</li>
+<li>Kunde bezahlt: 4,42 (RE-GS)</li>
+</ul>
+<p>Im Zahlungseingang ist bei einer solchen Buchung auf das Editier-Icon zu klicken.</p>
+<p>Danach kann nach der Belegnummer (RE) gesucht und über den Pfeil die Angaben des Belegs übernommen werden.</p>
+<p><img alt="ReceiptOfPayment4.png" src="https://help.xentral.com/hc/article_attachments/5033343994140" /></p>
+<p>Mit einem Klick auf die Schaltfläche Speichern, wird die Buchung abgeschlossen und erscheint als neue Zeile. Die ursprüngliche Zeile wird türkis markiert und besteht aus dem restlichen Betrag. Diese Zeile kann jetzt mit der Gutschrift verknüpft und auf &ldquo;Buchungen fertigstellen&rdquo; geklickt werden:</p>
+<p>Analog können auch für Zahlungsausgänge bzw. Verbindlichkeiten gesplittet werden.</p>
+<p>Das Stiftsymbol rechts neben einer Buchung ist auszuwählen und im Dialogfenster die fehlenden Daten einzutragen.</p>
+<h4 id="teilzahlungen-verknupfen">Teilzahlungen verknüpfen<a class="headerlink" href="#teilzahlungen-verknupfen" title="Permanent link">&para;</a></h4>
+<p>Sollten Sie Teilbezahlungen auf eine Rechnung bekommen, können Sie wie oben beschrieben vorgehen und ebenfalls auf das Edit-Icon in der Zahlungszeile klicken. Nach dem Übernehmen der Rechnungsdaten, müssen Sie aber nochmal den Betrag händisch an die Teilsumme anpassen:</p>
+<p>Beispiel: Gesamtbetrag: 185,05 Euro Teilzahlung: 100 Euro + 85,05 Euro</p>
+<p>Die Restzahlung wird dann genauso verbucht, nur dass Xentral hier bereits die Differenz beim Zuweisen erkennt und diese so verbucht werden kann:</p>
+<h3 id="verknupfen-der-kosten">Verknüpfen der Kosten<a class="headerlink" href="#verknupfen-der-kosten" title="Permanent link">&para;</a></h3>
+<p>Ausgaben und Einnahmen, die nicht Kundenkonten (Aufträge, Rechnungen, Gutschriften) betreffen, können direkt auf Konten des hinterlegten Kontenrahmens gebucht werden.</p>
+<h3 id="erstellen-von-verbindlichkeiten">Erstellen von Verbindlichkeiten<a class="headerlink" href="#erstellen-von-verbindlichkeiten" title="Permanent link">&para;</a></h3>
+<p>Zudem ist es möglich, Verbindlichkeiten direkt aus Zahlungseingängen heraus zu erstellen und zu verknüpfen.</p>
+<p>Im Dialogfenster kann die Verbindlichkeit angelegt werden. Stimmen der Betrag der Verbindlichkeit und der des Zahlungseingangs überein, wird der Status automatisch umgestellt.</p>
+<h3 id="ubersicht-uber-alle-kontoauszuge">Übersicht über alle Kontoauszüge<a class="headerlink" href="#ubersicht-uber-alle-kontoauszuge" title="Permanent link">&para;</a></h3>
+<p>Es erscheint ein neues Tab um alle Kontoauszüge über alle Geschäftskonten hinweg zu sehen. Natürlich werden hier immer noch die Projektzuordnungen des Mitarbeiters beachtet, damit man nicht zu viel sieht.</p>
+<p>In dieser Oberfläche bestehen die gleichen Filter-Möglichkeiten, wie in den Buchungsübersichten der einzelnen Konten.</p>
+<h3 id="auflosen-von-verknupfungen">Auflösen von Verknüpfungen<a class="headerlink" href="#auflosen-von-verknupfungen" title="Permanent link">&para;</a></h3>
+<p>Verknüpfungen von Dokument und Kontoauszugsbuchung können wieder aufgelöst werden. Zu beachten ist, dass hierbei keine neue Buchung (für die Buchhaltung) erzeugt wird. Die ursprüngliche Buchung wird gelöscht und die neue Buchung erzeugt. Datum der Buchung ist weiterhin das Datum der Bankbuchung.</p>
+<p>Buchhaltung → Zahlungseingang →<img alt="RoPgreenFence1.png" src="https://help.xentral.com/hc/article_attachments/13026566029724" /></p>
+<p><img alt="RoPgreenFence1.png" src="https://help.xentral.com/hc/article_attachments/13026566029724" /></p>
+<ul>
+<li>Verknüpfte Kontobuchungen erhalten den Status &ldquo;abgeschlossen&rdquo;</li>
+<li>Noch nicht verknüpfte Kontobuchungen den Status &ldquo;prüfen&rdquo;</li>
+<li>Als &ldquo;Importfehler&rdquo; verbuchte Kontobuchungen werden durchgestrichen dargestellt</li>
+</ul>
+<p>Abgeschlossene Verknüpfungen können mit der Aktion<img alt="RoPredcross.png" src="https://help.xentral.com/hc/article_attachments/5033282608028" /></p>
+<p>wieder aufgelöst werden.</p>
+<p><img alt="RoPredcross.png" src="https://help.xentral.com/hc/article_attachments/5033282608028" /></p>
+<p>Diese Buchung wird geöffnet und ist bei den Kontoauszügen nun wieder erneut zu verbuchen.</p>
+<h3 id="markieren-als-importfehler-oder-abgeschlossen">Markieren als Importfehler oder Abgeschlossen<a class="headerlink" href="#markieren-als-importfehler-oder-abgeschlossen" title="Permanent link">&para;</a></h3>
+<p>Es ist möglich, mit einem Klick auf das Edit Icon noch zusätzliche Eigenschaften festzulegen.</p>
+<ul>
+<li>Importfehler → Markiert diese Buchung als Importfehler und verhindert somit, dass diese Buchung im FiBu Export erscheint.</li>
+<li>Abgeschlossen → Markiert diese Buchung als abgeschlossen und verhindert, dass diese Buchung wieder im Zahlungseingang aufgeführt wird.</li>
+</ul>
+<h4 id="digitale-suche-in-buchungen">Digitale Suche in Buchungen<a class="headerlink" href="#digitale-suche-in-buchungen" title="Permanent link">&para;</a></h4>
+<p>Das Suchfeld ermöglicht eine Suche nach Inhalten in Kontoauszugsbuchungen. Z.B. die Umsatzsteuerabbuchungen des Finanzamtes im letzten Jahr für das Steuerbüro. Hier kann blitzschnell nach Namen, Behörden oder anderen Texten gesucht werden. Das Suchergebnis kann als Liste per Knopfdruck exportiert werden.</p>
+<h3 id="manuelle-bearbeitung-der-verknupfungen-expertenmodus">Manuelle Bearbeitung der Verknüpfungen (Expertenmodus)<a class="headerlink" href="#manuelle-bearbeitung-der-verknupfungen-expertenmodus" title="Permanent link">&para;</a></h3>
+<p>Buchhaltung → Zahlungseingang →<img alt="RoPgreenFence1.png" src="https://help.xentral.com/hc/article_attachments/13026566029724" /></p>
+<p>. Die Verknüpfung eines Zahlungsbetrags mit einer Bestellung oder einer Rechnung kann auch manuell bearbeitet oder geändert werden (z. B. Änderung der Aufteilung eines Betrags auf mehrere Rechnungen). Die Verknüpfung eines Kontoauszugs mit einer oder mehreren Rechnungen ist direkt in den Kontoauszügen ersichtlich. Öffnen Sie dazu die Zahlung vorne mit dem blauen Pfeil.</p>
+<p><img alt="RoPgreenFence1.png" src="https://help.xentral.com/hc/article_attachments/13026566029724" /></p>
+<p>Um diese Buchungen zu ändern ist auf die Auftragsnummer zu klicken. Dann gelangst du in den Auftrag, im Reiter Positionen findest du die Zahlungen und öffnest diese mit einem Klick auf <strong>zur Buchung</strong>.</p>
+<p><img alt="ReceiptOfPayment5.png" src="https://help.xentral.com/hc/article_attachments/13026566204700" /></p>
+<p>Nun erscheint die Ansicht einer einzelnen Bankbuchung. Im unteren Bereich ist die Verknüpfung zu einer oder mehreren Rechnungen zu sehen, die bearbeitet werden können.</p>
+<p>Es kann auf die einzelne Buchung geklickt und der Betrag bearbeitet werden, indem ein neuer Betrag eingegeben (z.B 10 EUR werden mit Trennzeichen &ldquo;Punkt&rdquo; eingegeben: 10.00) und auf &ldquo;ok&rdquo; geklickt wird.</p>
+<p>In diesem Expertenmodus ist zu berücksichtigen, dass die geänderten Beträge zusammenaddiert die Summe der Kontobuchung ergeben.</p>
+<p>Die Buchung für eine einzelne Rechnung ist im Protokoll des Dokumentes zu sehen.</p>
+<h2 id="summen-und-salden_1">Summen und Salden<a class="headerlink" href="#summen-und-salden_1" title="Permanent link">&para;</a></h2>
+<p>Das Tab Summen und Salden zeigt eine Übersicht über die Haben, Soll und Saldo der einzelnen Konten innerhalb eines bestimmten Zeitraums. Der Zeitraum kann über den Filter mit &ldquo;Datum von:&rdquo; und &ldquo;Datum bis:&rdquo; definiert werden.</p>
+<p>Die Haben-Beträge errechnen sich aus allen positiven Werten der Kontoauszüge und die Soll Beträge aus den Ausgaben. Das Saldo ist jeweils die Differenz von Haben und Soll. Das Startsaldo bezieht sich immer auf das Saldo am Tag zum Start des ausgewählten Zeitraums. Zusätzlich werden jeweils die Kontonummer &amp; Bezeichnung sowie die Anzahl an Buchungen angezeigt. In der untersten Zeile finden sich die Gesamtsummen aller Konto für den ausgewählten Zeitraum.</p>
+<h2 id="loschen-eines-kontoimports">Löschen eines Kontoimports<a class="headerlink" href="#loschen-eines-kontoimports" title="Permanent link">&para;</a></h2>
+<p>Ein Datenimport einer Kontoauszugsdatei kann auch wieder rückgängig gemacht werden. Es kann immer nur der letzte Import rückgängig gemacht werden. Dabei werden Verknüpfungen wieder gelöst - mit Ausnahme von Verbindlichkeiten.</p>
+<h2 id="kontenblatt">Kontenblatt<a class="headerlink" href="#kontenblatt" title="Permanent link">&para;</a></h2>
+<p>Im Bereich &ldquo;Kontenblatt&rdquo; können Kontoauszüge nach den Konten aus dem Kontenrahmen gefiltert durchsucht werden.</p>
+<p>Im Kontenblatt werden:</p>
+<p>1.) die Konten aus dem Modul Kontenrahmen (Administration → Einstellungen → Buchhaltung → Kontenrahmen) durchsucht</p>
+<p>2.) die Gegenkonten aus den Kontoauszügen herausgesucht und dort geprüft, ob das Gegenkonto einer Kunden- oder Lieferantennummer entspricht</p>
+<p>3.) die Geschäftskonten durchsucht, die DATEV-Konten sind (also wenn im Geschäftskonto das Feld &ldquo;DATEV&rdquo; anders gefüllt ist als mit 0)</p>
+<h2 id="einfache-manuelle-erfassung-des-zahlungseingangs-beta">Einfache manuelle Erfassung des Zahlungseingangs (Beta)<a class="headerlink" href="#einfache-manuelle-erfassung-des-zahlungseingangs-beta" title="Permanent link">&para;</a></h2>
+<p>Zusätzlich bietet dir Xentral die Möglichkeit, Zahlungseingänge manuell zu erfassen. Diese Option kannst du nutzen, wenn dir Konten vorliegen, die keinen Online-Zugriff haben und auch keinen erhalten werden.</p>
+<p>Um die richtige Erfassung sicherzustellen, gib bei &ldquo;Konto&rdquo; das gewünschte Bankkonto an. Dieses ist zwar nur ein Bilanzkonto, das ist hier aber irrelevant. Das Konto ist Teil des Sachkontenrahmens und beide Konten sind im Kontenrahmen enthalten.</p>
+<p>Du entscheidest dann, ob</p>
+<ul>
+<li>auf Debitor/ Kreditor/ Sachkonto oder</li>
+<li>Bilanz oder GuV gebucht wird.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>&ldquo;Gegenkonto&rdquo; ist kein Pflichtfeld! Wenn du ohne Gegenkonto buchst, erfolgt das Mapping im Zahlungseingang.</p>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Option befindet sich noch in der Beta-Phase.</p>
+</blockquote>
+<h2 id="verbuchung-von-gebuhren-uber-regelmaige-verbindlichkeiten">Verbuchung von Gebühren über regelmäßige Verbindlichkeiten<a class="headerlink" href="#verbuchung-von-gebuhren-uber-regelmaige-verbindlichkeiten" title="Permanent link">&para;</a></h2>
+<p>Für Gebühren o.ä. gibt es auch einen Workaround, um diese fest dem korrekten Konto zuzuordnen und eine automatische Buchung zu initiieren.</p>
+<p>Dazu legst du eine<a href="#">regelmäßige Verbindlichkeit</a>an (Administration → Einstellungen → Buchhaltung → Verbindlichkeiten → Regelmäßige Verbindlichkeiten → <em>+ Neuen Eintrag anlegen</em>).</p>
+<p>Wichtig ist es, dass du als Art &ldquo;Kontenrahmen&rdquo; auswählst. Bei konstanten Beträgen für Haben und Soll kannst du hier auch einen Wert eingeben.</p>
+<h2 id="warum-werden-manche-verbindlichkeiten-beim-kontoabgleich-nicht-automatisch-erkannt-obwohl-alles-korrekt-scheint">Warum werden manche Verbindlichkeiten beim Kontoabgleich nicht automatisch erkannt, obwohl alles korrekt scheint?<a class="headerlink" href="#warum-werden-manche-verbindlichkeiten-beim-kontoabgleich-nicht-automatisch-erkannt-obwohl-alles-korrekt-scheint" title="Permanent link">&para;</a></h2>
+<p>Xentral ordnet Zahlungen beim Einlesen des Kontoauszugs nicht über die Rechnungsnummer, sondern über die <strong>eindeutige Verbindlichkeitsnummer</strong> zu. Diese Nummer wird beim Anlegen der Verbindlichkeit in Xentral vergeben (z. B. 100123) und ist notwendig für eine automatische Zuordnung. Wird eine Zahlung manuell oder außerhalb von Xentral durchgeführt und enthält der Verwendungszweck diese Verbindlichkeitsnummer nicht, kann Xentral die Zahlung nicht eindeutig einer Verbindlichkeit zuordnen – auch dann nicht, wenn Betrag, Rechnungsnummer und Status korrekt sind.</p>
+<p>Wenn der Zahlungsverkehr direkt über Xentral ausgeführt wird, wird die Verbindlichkeitsnummer automatisch in der Zahlungsdatei (z. B. SEPA-XML) mitgegeben, sodass die Zuordnung beim Bankabgleich zuverlässig funktioniert. Bei manuellen Überweisungen sollte die Verbindlichkeitsnummer immer im Verwendungszweck angegeben werden.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016757839 Mitarbeiterzeiterfassung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016757839 Mitarbeiterzeiterfassung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016757839 Mitarbeiterzeiterfassung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Das Modul “Stechuhr” ermöglicht deinen Mitarbeitern die Erfassung ihrer Arbeitszeit. Die Oberfläche der Stechuhr steht direkt in der Xentral-Instanz zur Verfügung und stellt zum Beispiel für Büroangestellte und Remote-Worker eine gute Möglichkeit dar, ihre Arbeitszeit zu registrieren.Manche unserer Kunden möchten ihren Mitarbeitern darüberhinaus auch ermöglichen ihr Kommen und Gehen mittels eines RFID-Chips in der Stechuhr zu registrieren, ohne sich in die Xentral-Instanz selbst einloggen zu müssen. Dafür stellt unser Partner Projektraum Reger eine Xentral-spezifische RFID-Stechuhr zur Verfügung.</p>
+<p><a href="https://www.projektraum-reger.de/xentral-stechuhr/">Mehr Informationen zur RFID-Stechuhr von Projektraum Reger.</a></p>
+<p>Nachfolgend ist die Nutzung des Stechuhr-Moduls direkt in der Xentral-Instanz beschrieben.</p>
+<h2 id="buchen-am-terminal">Buchen am Terminal<a class="headerlink" href="#buchen-am-terminal" title="Permanent link">&para;</a></h2>
+<p>In der Xentral Stechuhr können Mitarbeiter Anwesenheits- und Pausenzeiten buchen.</p>
+<p>Bitte beachte, dass du mit der Zeiterfassung immer zum Ersten des Monats beginnst, damit es zu keinen Minusstunden kommt bzw. kein manueller Nachtrag vorgenommen werden muss.</p>
+<p>Gebucht werden können diese Ereignisse:</p>
+<ul>
+<li>Kommen</li>
+<li>Gehen</li>
+<li>Pause Start</li>
+<li>Pause Stop</li>
+</ul>
+<p>Aus den addierten Arbeitszeiten errechnet sich die geleistete Arbeitszeit jedes Mitarbeiters.</p>
+<p><img alt="etr2.png" src="https://help.xentral.com/hc/article_attachments/14124106553372" /></p>
+<p>Die Stechuhr-Oberfläche beinhaltet folgende Elemente:</p>
+<ul>
+<li>Name des Mitarbeiters (erste Zeile)</li>
+<li>Aktueller Status des Mitarbeiters (zweite Zeile)</li>
+<li>Tasten für die Buchung eines Ereignisses (dritte, vierte und fünfte Zeile)</li>
+<li>&ldquo;Logout&rdquo; Taste für die Abmeldung, ohne die Buchung eines Ereignisses (unten)</li>
+</ul>
+<h2 id="manuelles-buchen-in-der-mitarbeiterzeiterfassung">Manuelles Buchen in der Mitarbeiterzeiterfassung<a class="headerlink" href="#manuelles-buchen-in-der-mitarbeiterzeiterfassung" title="Permanent link">&para;</a></h2>
+<p>Sie können auch manuell Zeiten buchen unterAdministration &gt; Einstellungen &gt; Mitarbeiter Verwaltung &gt; Mitarbeiterzeiterfassung &gt; Gebuchte Zeiten &gt; Neuer Eintrag.</p>
+<p>Im Kalender kann durch einen Klick auf den entsprechenden Tag ebenfalls eine Zeit gebucht werden (z.B. Urlaub, Krank).</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Bitte klicken Sie beim Anlegen immer in den richtigen Tag. Eine manuelle Änderung wird unter Umständen nicht durch das Speichern übernommen. Kontrollieren Sie den Eintrag gegebenenfalls später im Kalender.</p>
+</blockquote>
+<h3 id="auswertung-von-gebuchten-zeiten">Auswertung von gebuchten Zeiten<a class="headerlink" href="#auswertung-von-gebuchten-zeiten" title="Permanent link">&para;</a></h3>
+<p>Die Auswertung der gebuchten Zeiten Ihrer Mitarbeiter erfolgt unterAdministration &gt; Einstellungen &gt; Mitarbeiter Verwaltung &gt; Mitarbeiterzeiterfassung. Dort sind die Buchungsinformationen des in der Auswahlliste links ausgewählten Mitarbeiters in folgenden Reitern dargestellt:</p>
+<ul>
+<li>Urlaub/Krankheit</li>
+<li>Anwesenheitsstatistik</li>
+<li>Stundenübersicht</li>
+<li>Gebuchte Zeiten</li>
+<li>Gebuchte Projektzeiten</li>
+<li>Gebuchte Kundenzeiten</li>
+</ul>
+<p>Über den ReiterAnwesenheitsstatistikkönnen Sie sich die Zeiten der Anwesenheit Ihres Mitarbeiter für einen frei wählbaren Zeitraum anzeigen lassen und die Anwesenheitsstatistik sowie die gebuchten Zeiten können jederzeit als PDF- oder CSV-Datei exportiert werden.</p>
+<p>Zudem wird in dem Dashboard die bisherig erbrachte Arbeitszeit, die gesamte Soll-Arbeitszeit und die Differenz der Beiden angezeigt. So können Minus- bzw. Plus-Stunden zum Ausdruck gebracht und geleistete Überstunden errechnet und angezeigt werden.</p>
+<p>Unter dem ReiterZeiterfassung druckenkann für den ausgewählten Mitarbeiter für einen frei wählbaren Zeitraum ein Nachweis der Arbeitszeit erzeugt und gedruckt werden. Sollten Arbeitsbeginn und -ende mehr als 16 Stunden auseinander liegen, wird davon ausgegangen, dass der Mitarbeiter vergessen hat zu stempeln. Damit dies auffällt, werden Fragezeichen auf dem Zeitnachweis angezeigt.</p>
+<p>Im ReiterEinstellungenkönnen, mitarbeiterspezifisch, verschiedene Parameter der Zeiterfassung festgelegt werden.</p>
+<p>Sie haben hier die Möglichkeit verschiedene Pausenlängen zu definieren, die nach einer gewissen Arbeitszeit automatisch abgezogen werden soll. Ebenso können Sie hier die Anzahl der für den Mitarbeiter hinterlegten Urlaubstage eintragen.</p>
+<p>Bei der Erfassung über das Dashboard für die Mitarbeiterzeiterfassung musst du die konkreten Tage angeben, für die Urlaub genommen wird. Das heißt, du gibst, wenn du eine Woche frei nimmst, nicht die ganze Woche einschließlich Samstag und Sonntag an, sondern nur Montag bis Freitag.</p>
+<ul>
+<li>Vorlage Wochenstunden: Mo: Di: Mi: Do: Fr: Sa: So: von bis</li>
+<li>Hilfe Wochenstunden: Mo: Di: Mi: Do: Fr: Sa: So: von Monat: bis Stunden im Monat: Nach berechnen auf übernehmen klicken um Daten Sollstunden zu speichern.</li>
+<li>Standard Arbeitsbeginn: Diese Zeit wird verwendet falls an diesem Tag keine Zeiten per Stechuhr gebucht wurden, aber per Hand eine Ist-Zeit eingetragen wurde. Es muss die Form Stunde:Minute z.B. 08:00 verwendet werden</li>
+<li>Hochsetzen auf Arbeitsbeginn: Ist eine Standardzeit gesetzt und dieser Haken wird die Kommenzeit hochgesetzt falls der Mitarbeiter früher bucht.</li>
+<li>Runden &ldquo;Kommen&rdquo; Stechuhr: Rundet die Zeit auf oder ab für die nächsten 5,10,15&hellip; Minuten beim Starten der Arbeitszeit</li>
+<li>Runden &ldquo;Gehen&rdquo; Stechuhr: Rundet die Zeit auf oder ab für die nächsten 5,10,15&hellip; Minuten beim beenden der Arbeitszeit</li>
+<li>Runden Pausen in Minuten: Hier kann eine runde Pause festgelegt werden, z.B. 60 Minuten</li>
+<li>Pause automatisch abziehen: fest von Arbeitszeit abziehen PauseArbeitszeit</li>
+<li>Pause automatisch abziehen: Stunden:Minuten ab Arbeitsstunden. Hier können für drei unterschiedliche Arbeitszeiten automatische Pausen eingetragen werden. So können z.B. nach 4 Stunden automatisch 15 Minuten abgezogen werden, ab 6 Studen aber automatisch 30 Minuten.</li>
+<li>Pause Dauer: wird ignoriert falls Staffelung aktiviert</li>
+<li>Pause aus Stechuhr immer addieren zu automatischer Pause: Ist der Haken aktiviert, werden manuell gebuchte Pausen auf die Pausenzeit der automatisch abgezogenen Pause addiert. Bsp.: 6 Std Arbeitszeit mit 30 Min automatisch abgezogener Pause + 10 Min manueller Pause → 40 Min Pause und 5:20 IST-Zeit</li>
+<li>Urlaub: 2016 2017 2018 2019 2020 2021</li>
+<li>Urlaubstage im Jahr: Angabe der Urlaubstage im angegebenen Jahr</li>
+<li>Resturlaub im Vorjahr: Manuelle Angabe des Resturlaubs aus dem Vorjahr</li>
+<li>Stunden pro Urlaubstag: Gibt an, wieviele Stunden pro Urlaubstag abgerechnet werden. So können z.B. für eine Teilzeitkraft mit 20 Stunden pro Woche 4 Stunden abgerechnet werden.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Hast du eine Staffelung der Pausen gewählt, musst du diese aufsteigend nach Arbeitsstunden eintragen, sonst funktioniert die Staffelung nicht.</p>
+</blockquote>
+<h3 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h3>
+<p>Sei finden einen globalen ReiterEinstellungenin der Mitarbeiterzeiterfassung.</p>
+<ul>
+<li>Automatischer Logout nach Sekunden: Der Mitarbeiter wird automatisch aus der Stechuhr-Maske ausgeloggt, wenn er nach x Sekunden keinen Klick getätigt hat.</li>
+<li>Farbe im Kalender: Die Farbe, in der die gebuchten Zeiten deines Mitarbeiters in im Kalender angezeigt werden.</li>
+</ul>
+<h3 id="urlaubsubersicht-der-mitarbeiter">Urlaubsübersicht der Mitarbeiter<a class="headerlink" href="#urlaubsubersicht-der-mitarbeiter" title="Permanent link">&para;</a></h3>
+<p>Unter dem ReiterUrlaubsplan (alle Mitarbeiter)können Sie übersichtlich sehen, welcher Mitarbeiter wann Urlaub genommen hat. Mit einem Hover über die Urlaubsmarkierungen sehen Sie die Namen der Mitarbeiter.</p>
+<p>Zusätzlich gibt es noch eine weitere Übersicht im ReiterUrlaubsübersicht. Hier wird für jeden Mitarbeiter für ein bestimmtes Jahr angezeigt:</p>
+<ul>
+<li>Gesamtanzahl an Urlaubstagen</li>
+<li>Genommene Urlaubstage - auch bereits in Zukunft eingetragene Tage</li>
+<li>Resturlaub - also wie viele Urlaubstage können noch verplant werden</li>
+<li>Vorjahresurlaubstage, die für dieses Jahr übernommen wurden</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Falls ein Mitarbeiter keine Urlaubstage hinterlegt hat, wird dieser mit <strong>fehlt</strong></p>
+</blockquote>
+<p>-Einträgen gelistet.</p>
+<p>Anzeige von Urlaub / Abwesend im Haupt-Kalender</p>
+<p>Sie können in der Mitarbeiterzeiterfassung eingetragenen Urlaubs oder Fehltage im Kalender anzeigen lassen. Somit haben Sie für alle Mitarbeiter einen Urlaubskalender, den Sie zwar einsehen können, aber nur der Administrator in der Mitarbeiterzeiterfassung ändern kann.</p>
+<p><img alt="etr3.png" src="https://help.xentral.com/hc/article_attachments/14124130796188" /></p>
+<p>Dazu werden die imUrlaub / Krankheit-Reiter eingetragenen Werte genommen:</p>
+<p><img alt="etr4.png" src="https://help.xentral.com/hc/article_attachments/14124146200348" /></p>
+<h2 id="ein-und-ausblenden-ehemaliger-mitarbeiter">Ein- und Ausblenden ehemaliger Mitarbeiter<a class="headerlink" href="#ein-und-ausblenden-ehemaliger-mitarbeiter" title="Permanent link">&para;</a></h2>
+<p>Sollte ein Mitarbeiter aus dem Unternehmen ausscheiden, kann man den Gültigkeitszeitraum der Rolle wie folgt ändern. Navigiere zur gewünschtenAdresseund klicke im TabRollenauf dasStift-Icon der entsprechenden Rolle. Anschließend kannst du eingeben, bis zu welchem Datum die Rolle aktiv sein soll.</p>
+<p>In der Mitarbeiterzeiterfassung kann man nun über den Filter auch ehemalige Mitarbeiter anzeigenselbiges tun.</p>
+<h2 id="arbeitsfreie-tage">Arbeitsfreie Tage<a class="headerlink" href="#arbeitsfreie-tage" title="Permanent link">&para;</a></h2>
+<p>Feiertage können über das ModulArbeitsfreie Tage / Feiertage eingetragen werden. Administration &gt; Einstellungen &gt; Mitarbeiter Verwaltung &gt; Arbeitsfreie Tage &gt; +NEU</p>
+<ul>
+<li>Bezeichnung: Beschreibung eingeben</li>
+<li>Datum: Datum des Feiertages eingeben</li>
+<li>Typ: Typ festlegen (Feiertag, Brückentag oder Betriebsferien)</li>
+<li>Projekt: Wähle ein Projekt aus</li>
+<li>Land: Wähle ein Land aus dem Drop-Down Menü aus</li>
+</ul>
+<p>Klicke abschließend aufSpeichern.</p>
+<h3 id="arbeitsfreie-tage-laden">Arbeitsfreie Tage laden<a class="headerlink" href="#arbeitsfreie-tage-laden" title="Permanent link">&para;</a></h3>
+<p>Es gibt auch noch die Möglichkeit, die arbeitsfreien Tage eines bestimmten Bundeslandes automatisch in die Liste zu laden:</p>
+<p><img alt="etr5.png" src="https://help.xentral.com/hc/article_attachments/14124122122012" /></p>
+<h3 id="arbeitsfreie-tage-in-der-mitarbeiterzeiterfassung">Arbeitsfreie Tage in der Mitarbeiterzeiterfassung<a class="headerlink" href="#arbeitsfreie-tage-in-der-mitarbeiterzeiterfassung" title="Permanent link">&para;</a></h3>
+<p>Arbeitsfreie Tage, die Sie definiert haben, werden als vollständig abgeleistete Arbeitszeit behandelt, d.h. es werden automatisch die für den betrachteten Tag voreingestellten Stunden alsgearbeiteteingetragen und durch eine farbliche Markierung als Feiertag gekennzeichnet:</p>
+<p><img alt="etr6.png" src="https://help.xentral.com/hc/article_attachments/14124115191964" /></p>
+<ul>
+<li>Das rote Feld zeigt die Krankheitsstunden</li>
+<li>Das orangene Feld zeigt die unbezahlten Stunden (Urlaub)</li>
+<li>Das blaue zeigt die vertraglichen Urlaubsstunden</li>
+</ul>
+<p>Die Mitarbeiterzeiterfassung/Stechuhr arbeitet minutengenau; Sekunden werden in Berechnungen abgeschnitten. Rundungsdifferenzen sind nicht als Fehler zu betrachten.</p>
+<h2 id="abwesenheiten-beantragen">Abwesenheiten beantragen<a class="headerlink" href="#abwesenheiten-beantragen" title="Permanent link">&para;</a></h2>
+<p>Mitarbeiter können in der Mitarbeiterzeiterfassung Urlaubstage und Krankheitstage beantragen. Dafür gibt es im Modul die ReiterAnträge einreichenundAnträge bearbeiten. Ersteren sehen alle Benutzer, die Abwesenheiten anfragen dürfen, letzteren sehen nur Benutzer, die Abwesenheiten Ihrer Kollegen freigeben dürfen, also z.B. Abteilungsleiter oder Personaler. Voraussetzung hierfür ist, dass alle Mitarbeiter auch in xentral als Adressen mit der RolleMitarbeiterangelegt sind und ihre Soll-Arbeitszeiten in der Mitarbeiterzeiterfassung hinterlegt sind.</p>
+<p>Wer Abwesenheiten beantragen und wer sie freigeben darf, wird über<a href="#">Gruppen</a>und die Benutzerrechteverwaltung gesteuert. Jede Abteilung kann als Gruppe angelegt werden und die Adressen Eurer Mitarbeiter werden zu dieser Gruppe hinzugefügt. In jeder Gruppe muss es mindestens einen Verantwortlichen geben, der die angefragten Abwesenheiten genehmigen darf.</p>
+<p>Dieser Verantwortliche (also z.B. Abteilungsleiter/Personaler) braucht das Rechttimemanagementhandle aus der Benutzerrechteverwaltung. Dieser Verantwortliche erhält eine E-Mail, sobald ein Mitarbeiter aus seiner Gruppe eine Abwesenheit anfragt.</p>
+<p>Es ist für Benutzer, die zu keiner Gruppe gehören, nicht möglich, Abwesenheiten anzufragen – dann erscheint eine Fehlermeldung. Gehört ein Benutzer zu einer Gruppe, zu der nicht auch mindestens ein weiterer Benutzer mit dem Rechttimemanagementhandle (also ein Verantwortlicher) gehört, erscheint ebenfalls eine Fehlermeldung.</p>
+<h3 id="antrage-einreichen">Anträge einreichen<a class="headerlink" href="#antrage-einreichen" title="Permanent link">&para;</a></h3>
+<p>In der Übersicht sieht man in der Grundeinstellung die eigene Urlaubsplanung im aktuellen Jahr. Bei den Jahren kann man jeweils eines vor und eines zurück navigieren. Bei den Gruppen sind die Gruppen aufgeführt, in denen man selbst Mitglied ist. Wenn man eine Gruppe auswählt werden zusätzlich zu den eigenen Abwesenheiten anonymisiert diejenigen der anderen Gruppenmitglieder in der Zukunft angezeigt. Abwesenheiten vor dem heutigen Datum werden nicht dargestellt. Anonymisiert heißt, die Abwesenheiten der anderen Mitglieder werden prinzipiell alsAbwesendangezeigt, egal ob es sich um einen Urlaub oder eine Krankheit handelt. Als letztes gibt es noch die CheckboxAufgeteilt nach Mitarbeiternder, wenn aktiv, zeilenweise die Abwesenheiten der einzelnen Gruppenmitglieder anzeigt</p>
+<p>Wenn man auf einen Tag klickt, öffnet sich ein Fenster in dem man das Startdatum, das Enddatum, den Typ der Abwesenheit, einen zusätzlichen Kommentar ausfüllt. Außerdem kann man auswählen ob es sich bei der Abwesenheit um einen halben Tag handelt.</p>
+<p>Wenn man sowohl ein Startdatum wie auch ein Enddatum ausgewählt hat, wird automatisch aus dem ausgewählten Zeitraum ermittelt wie viele Urlaubstage benötigt werden. Feiertage werden prinzipiell herausgerechnet. Samstage und Sonntage werden abhängig davon ob im ReiterMitarbeiter &gt; Einstellungenin den Feldern Vorlage Wochenstunden Stunden eingegeben wurden, herausgerechnet oder nicht.</p>
+<p>Mögliche Aktionen in dieser Übersicht:</p>
+<ul>
+<li>Urlaub beantragen (muss freigegeben werden)</li>
+<li>Krankheit beantragen (muss freigegeben werden)</li>
+<li>Urlaub entfernen (muss freigegeben werden)</li>
+<li>Krankheit entfernen (muss freigegeben werden)</li>
+<li>Urlaubsantrag löschen (geht nicht bei Urlaub in der Vergangenheit)</li>
+<li>Krankheitsantrag löschen (geht nicht bei Urlaub in der Vergangenheit)</li>
+</ul>
+<h3 id="antrage-bearbeiten">Anträge bearbeiten<a class="headerlink" href="#antrage-bearbeiten" title="Permanent link">&para;</a></h3>
+<p>In diesem Reiter dürfen Verantwortliche alle Anträge bearbeiten, die von Mitgliedern Ihrer Gruppe(n) stammen, d.h. die angefragten Abwesenheiten freigeben oder ablehnen. Benutzer mit dem Rechttimemangementsuperprivilegedarf ein Benutzer sogar alle Urlaubsanträge aller Mitarbeiter bearbeiten. Dieses Recht sollte daher für Personalleiter oder abteilungsübergreifende Führungspersonen reserviert sein. Administratoren haben jedes Recht, inklusive dertimemangementsuperprivilege.</p>
+<p>Wenn Urlaubs- oder Krankheitsanträge abgelehnt werden, werden diese in der ÜbersichtAnträge einreichenfür einige Zeit farblich markiert und können dann vom Mitarbeiter wieder bearbeitet werden. Wenn der Löschung einer Abwesenheit zugestimmt wird, wird der Status von diesem Tag entfernt. Wenn eine Löschung abgelehnt wird, bleibt der Tag als Urlaub oder Krankheit markiert.</p>
+<p>In diesem Reiter gibt es außerdem noch das UntermenüAbgeschlossene Anträgein dem man alle bearbeiteten Anträge sehen kann.</p>
+<p>Es wird grundsätzlich eine E-Mail verschickt, wenn ein Vorgesetzter einem Antrag zustimmt oder ablehnt. Der Text dieser E-Mails kann im Modul<a href="#">Geschäftsbriefvorlagen</a>konfiguriert werden.</p>
+<p>In der Dokumentenvorlage stehen sowohl im Textkörper wie im Betreff folgende Variablen zur Verfügung:</p>
+<ul>
+<li>{DAYTYPE}: Vorheriger Status des Tages</li>
+<li>{FROMDATE}: Startdatum</li>
+<li>{TILLDATE}: Enddatum</li>
+<li>{EMPLOYEECOMMENT}: Kommentar des Antragstellers</li>
+<li>{SUPERVISORCOMMENT}: Kommentar des Vorgesetzten</li>
+<li>{EMPLOYEENAME}: Name des Antragstellers</li>
+<li>{EMPLOYEENUMBER}: Nummer des Antragstellers</li>
+<li>{AMOUNTDAYS}: Anzahl der benötigten Urlaubs-Tage</li>
+<li>{REJECT}: wurde der Antrag angenommen oder abgelehnt</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

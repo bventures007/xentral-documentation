@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18870446011164 Produktion Einrichtung Stammdaten - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>18870446011164 Produktion Einrichtung Stammdaten</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>18870446011164 Produktion Einrichtung Stammdaten</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>In diesem Artikel geben wir dir einen Überblick, welche generelle Systemeinstellungen für die Produktion vorgenommen werden sollten und wie die Stammdaten für die Produktion aufgebaut werden können.</p>
+<h2 id="einrichtung">Einrichtung<a class="headerlink" href="#einrichtung" title="Permanent link">&para;</a></h2>
+<h3 id="produktion">Produktion<a class="headerlink" href="#produktion" title="Permanent link">&para;</a></h3>
+<p>Klicke in deinem Xentral auf das Zahnrädchen oben rechts, um zu den Systemeinstellungen zu gelangen, und dort auf Administration &gt; System:</p>
+<p><img alt="Produktion_Einrichtung_Pfad.png" src="https://help.xentral.com/hc/article_attachments/19368076634652" /></p>
+<p>Navigiere zum Abschnitt <strong>Produktion</strong>. Dort kannst du die unten stehenden Optionen einstellen.</p>
+<p><img alt="Produktion_Einrichtung_Produktion.png" src="https://help.xentral.com/hc/article_attachments/19368076637212" /></p>
+<p>(1) Verhalten Weiterführen Auftrag zu Produktion:</p>
+<p><img alt="Produktion_Einrichtung_Produktion_WeiterfuhrungAuftrag.png" src="https://help.xentral.com/hc/article_attachments/19368045402012" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Auswahl greift nur dann, wenn du Verkaufsaufträge in Produktionen weiterführen möchtest und du mit Unterstücklisten arbeitest, d. h. dass ein übergeordnetes Hauptprodukt ein oder mehrere Untererzeugnisse mit eigenen Stücklisten enthält. Möchtest du diese Funktionalitäten nicht nutzen, brauchst du keine Änderung vorzunehmen.</p>
+</blockquote>
+<p>Folgende Optionen stehen zur Wahl:</p>
+<ul>
+<li>Unterstücklisten auflösen: Alle Komponenten, die in der Stückliste und deren Unterstücklisten enthalten sind, werden in die aus dem Verkaufsauftrag angelegte Produktion übernommen. Es befinden sich dann alle Komponenten in einer Produktionsstückliste derselben Ebene, die Struktur der Stückliste entfällt bei der Weiterführung.</li>
+<li>Unterstücklisten nicht auflösen: Aus dem Auftrag wird ausschließlich das Produkt, das auf der obersten Stücklistenebene steht, in die Produktion weitergeführt. Enthält dieses Produkt ein oder mehrere Unterstücklisten, so werden diese nicht in die Produktion übernommen und müssen bei Bedarf manuell geplant werden.</li>
+<li>Unterproduktionen anlegen: Bei der Weiterführung eines Verkaufsauftrags in die Produktion werden sowohl das Produkt der obersten Stücklistenebene, als auch enthaltene Untererzeugnisse als eigene Produktionen angelegt.</li>
+</ul>
+<p>(2) Produktion nicht automatisch starten beim Weiterführen:</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Auch diese Auswahl ist nur relevant, wenn du Verkaufsaufträge in Produktionen weiterführen möchtest.</p>
+</blockquote>
+<ul>
+<li>Setzt du den Haken, stehen Produktionen nach der Weiterführung aus dem Auftrag im Status ANGELEGT. Die jeweilige Produktion findest du dann in der Produktionsübersicht im Reiter “In Bearbeitung” und muss noch manuell gestartet und freigegeben werden.</li>
+<li>Setzt du den Haken nicht, erhalten solche Produktionen sofort den Status FREIGEGEBEN und befinden sich im Reiter “Produktionssuche”.</li>
+</ul>
+<p>(3) Unterproduktionen mit Hauptproduktion abschließen:</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Wahl ist zu treffen, wenn du übergeordnete Hauptprodukte mit ein oder mehreren Untererzeugnissen hast und du für die Untererzeugnisse eigene Produktionen anlegst.</p>
+</blockquote>
+<ul>
+<li>Setzt du den Haken, werden die Produktionen der Untererzeugnisse automatisch abgeschlossen, sobald die Hauptproduktion abgeschlossen wird.</li>
+<li>Setzt du den Haken nicht, musst du die Unterproduktionen manuell abschließen.</li>
+</ul>
+<p>(4) Mit der Produktionskorrektur kannst du beim Abschließen der Produktion individuelle Einstellungen vornehmen, z. B. wenn mehr oder weniger Komponenten als planmäßig gedacht verwendet wurden. Setze den Haken nur, wenn du diese Möglichkeit nicht aktivieren möchtest.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wir empfehlen, den Haken bei Nutzung der externen Produktion nicht zu setzen.</p>
+</blockquote>
+<p>(5) Für externe Produktionsartikel keine Produktionen anlegen: Wenn du den Haken setzt, werden für Produktionsschritte, die durch einen externen Dienstleister durchgeführt werden sollen, keine Produktionen aus dem Verkaufsauftrag oder als Unterstücklisten-Vorgang angelegt. Dies ist z. B. dann sinnvoll, wenn du die externe Produktion auftragsunabhängig steuern möchtest. Zum Thema externe Produktion findest du<a href="https://help.xentral.com/hc/de/articles/18870429541788#UUID-46a11200-782c-e248-c999-2ec59fc42c17">hier</a>weitere Informationen.</p>
+<h3 id="zusatzfelder-produktion">Zusatzfelder Produktion<a class="headerlink" href="#zusatzfelder-produktion" title="Permanent link">&para;</a></h3>
+<p>Im Abschnitt <strong>Zusatzfelder Produktion</strong> weiter unten auf der Einstellungen-Seite hast die Möglichkeit, bis zu fünf zusätzliche Spalten in der Produktionsübersicht anzeigen zu lassen. Du kannst bestimmte Felder als Spaltenbelegung auswählen:</p>
+<p><img alt="Produktion_Einrichtung_Systemeinstellungen_ZusatzfelderProduktion.png" src="https://help.xentral.com/hc/article_attachments/19368076641052" /></p>
+<h2 id="stammdaten">Stammdaten<a class="headerlink" href="#stammdaten" title="Permanent link">&para;</a></h2>
+<h3 id="artikel">Artikel<a class="headerlink" href="#artikel" title="Permanent link">&para;</a></h3>
+<p>Zur Nutzung der Produktionsfunktionalität benötigst du bei den Artikeln folgende Ausprägungen:</p>
+<ul>
+<li>Komponenten (Bauteile)</li>
+<li>Stücklisten (Produkte)</li>
+</ul>
+<p>Zur Veranschaulichung betrachten wir im Folgenden ein sehr einfaches Beispiel, das uns durch die Produktion begleiten wird: Das Produkt “Fidgetspinner”, das aus zwei verschiedenen Bauteilen bestehen soll, wobei je Fidgetspinner ein Gehäuse und drei Kugellager benötigt werden:</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Fertigerzeugnis_Bild.png" src="https://help.xentral.com/hc/article_attachments/19368045403932" /></p>
+<h4 id="allgemein">Allgemein<a class="headerlink" href="#allgemein" title="Permanent link">&para;</a></h4>
+<p>Sowohl die Komponenten als auch das Produkt mit Stückliste werden im gleichen Formular als Artikel angelegt. Wie du Artikel generell anlegst und verwaltest, ist in diesem Artikel beschrieben. Hier gehen wir nur auf die produktionsspezifischen Besonderheiten ein.</p>
+<p>Klicke in der Artikelübersicht auf <strong>Artikel hinzufügen </strong> oder in der Formularansicht <strong>+NEU <strong>, um einen neuen Artikel anzulegen. Das Formular </strong> Artikel</strong>öffnet sich.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Lege zuerst die Komponenten an, damit du sie anschließend gleich in deine Stückliste einfügen kannst.</p>
+</blockquote>
+<h4 id="komponenten-artikel-anlegen">Komponenten-Artikel anlegen<a class="headerlink" href="#komponenten-artikel-anlegen" title="Permanent link">&para;</a></h4>
+<p>Gib einen Namen und weitere allgemeine Angaben für deinen Bauteil-Artikel oben im Reiter ein:</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Komponente.png" src="https://help.xentral.com/hc/article_attachments/19368045404572" /></p>
+<p>Aktiviere weiter unten im Abschnitt <strong>Artikel Optionen</strong> die Lagerführung für den Artikel:</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Komponente_Artikeloptionen.png" src="https://help.xentral.com/hc/article_attachments/19368076643228" /></p>
+<p>Optional kannst du im Abschnitt <strong>Sonstige Einstellungen</strong> die</p>
+<ul>
+<li>Chargenführung aktivieren, falls du verfolgen möchtest, welche Komponenten mit welcher Charge in deiner Produktion verbaut/verbraucht werden:</li>
+<li>oder die Seriennummernführung aktivieren, falls du verfolgen möchtest, welche Komponenten-Seriennummern in deiner Produktion verbaut werden. Wähle dafür <strong>Originale einlagern und nutzen</strong>:</li>
+<li>Außerdem kannst du den Haken bei Mindesthaltbarkeitsdatum setzen, wenn du dieses Datum mit dem Einlagern des Artikels mitführen möchtest:</li>
+</ul>
+<p>Alle anderen Artikel-Einstellungen handhabst du einfach je nach deinem individuellen Bedarf wie im entsprechenden<a href="https://help.xentral.com/hc/de/articles/360016809699#UUID-aa696cfe-b602-15d0-fffe-44fa01f44cda">Handbuchabschnitt</a>beschrieben.</p>
+<h4 id="stucklisten-artikel-anlegen">Stücklisten-Artikel anlegen<a class="headerlink" href="#stucklisten-artikel-anlegen" title="Permanent link">&para;</a></h4>
+<p>Nachdem du alle Komponenten angelegt hast, kannst du mit dem Erzeugnis fortfahren. Zunächst nimmst du wieder einige generelle Einstellungen vor:</p>
+<p>Gib einen Namen und weitere allgemeine Angaben für deinen Artikel oben im Reiter ein:</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Fertigerzeugnis.png" src="https://help.xentral.com/hc/article_attachments/19368045411356" /></p>
+<p>Aktiviere im Abschnitt <strong>Artikel Optionen</strong> die Lagerführung für den Artikel:</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Fertigerzeugnis_Artikeloptionen.png" src="https://help.xentral.com/hc/article_attachments/19368076651420" /></p>
+<p>Setze den Haken neben “Stückliste” im Abschnitt <strong>Sonstige Einstellungen</strong>:</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Fertigerzeugnis_SonstigeEinstellungen.png" src="https://help.xentral.com/hc/article_attachments/19368076652700" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Sobald du auf Speichern klickst, wird der Reiter Stückliste hinzugefügt, in welchem du mit der Stückliste fortfahren kannst.</p>
+</blockquote>
+<p><em>Optional</em> kannst du im gleichen Abschnitt die</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Komponente_SonstigeEinstellungen_CN.png" src="https://help.xentral.com/hc/article_attachments/19368045405852" /></p>
+<ul>
+<li>Chargenführung aktivieren, falls du für dein Produkt eine Chargennummer anlegen möchtest:</li>
+<li>oder die Seriennummernführung aktivieren, falls du für dein erzeugtes Produkt in der Produktion eine Seriennummer anlegen möchtest. Wähle dafür Originale einlagern und nutzen:</li>
+<li>Außerdem kannst du den Haken bei Mindesthaltbarkeitsdatum setzen, wenn du dieses Datum mit dem Einlagern des Artikels mitführen möchtest:</li>
+</ul>
+<p>Darüber hinaus kannst du den Haken neben “Produktionsartikel” setzen, falls du ermöglichen möchtest, das Produkt aus einem Verkaufsauftrag direkt in eine Produktion weiterzuführen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Felder “Just-In-Time Stückliste”, “Einzelpos. ausblenden” und “Vorproduzierte Stückliste” gehören nicht zur Produktion und bleiben in unserem Fall leer. Besuche die entsprechenden Links, um Details zu den Feldern “Externe Produktion” und “Rohstoffliste” zu erfahren.</p>
+</blockquote>
+<p>Alle anderen Artikel-Einstellungen handhabst du einfach je nach deinem individuellen Bedarf wie im entsprechenden<a href="https://help.xentral.com/document/preview/6012#UUID-f85ed282-d224-2419-081e-c39a5a14a443">Handbuchabschnitt</a>beschrieben.</p>
+<h4 id="stuckliste-manuell-anlegen-oder-importieren">Stückliste manuell anlegen oder importieren<a class="headerlink" href="#stuckliste-manuell-anlegen-oder-importieren" title="Permanent link">&para;</a></h4>
+<p>Nachdem du den Haken neben “Stückliste” gesetzt und den Artikel gespeichert hast, steht dir im Artikel des Fertigerzeugnisses der <strong>Reiter Stückliste</strong> zur Verfügung. Du kannst nun deine Komponenten in deine Stückliste einfügen und so die Verknüpfung der Komponenten zum Produkt herstellen. Zum Anlegen der Stückliste stehen dir zwei Methoden zur Verfügung:</p>
+<ul>
+<li>Komponenten manuell anlegen</li>
+<li>Stückliste importieren</li>
+</ul>
+<h5 id="komponenten-manuell-anlegen">Komponenten manuell anlegen<a class="headerlink" href="#komponenten-manuell-anlegen" title="Permanent link">&para;</a></h5>
+<p>Klicke im Reiter Stückliste auf <strong>+ Neue Position</strong> um eine neue Position hinzuzufügen:</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Fertigerzeugnis_Stuckliste_NeuePosition.png" src="https://help.xentral.com/hc/article_attachments/19368076654364" /></p>
+<p>Wähle im Fenster die Artikelnummer der Komponente aus, trage die benötigte Menge für ein Produkt ein und speichere:</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Fertigerzeugnis_Stuckliste_Teilemenge.png" src="https://help.xentral.com/hc/article_attachments/19368076656028" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die anderen Einstellungen in diesem Fenster sind Sonderfunktionen, die hier näher beschrieben werden.</p>
+</blockquote>
+<p>Wiederhole das Vorgehen mit allen weiteren Komponenten.</p>
+<h5 id="stuckliste-importieren">Stückliste importieren<a class="headerlink" href="#stuckliste-importieren" title="Permanent link">&para;</a></h5>
+<p>Möglicherweise hast du im Unternehmen eine Datenquelle, z. B. ein CAD-, SPICE- oder Produktdaten-Management-Programm, aus dem du Stücklistendaten entnehmen kannst. Dann ist ein Import natürlich - insbesondere bei langen Stücklisten - noch komfortabler als das manuelle Anlegen.</p>
+<p><img alt="Produktion_Stammdaten_Excelstuckliste.png" src="https://help.xentral.com/hc/article_attachments/19368045416348" /></p>
+<ol>
+<li>Datenvorbereitung: Die Daten werden in Listenform benötigt, wobei die Komponenten-Artikelnummer in einer Spalte und die Menge in einer zweiten Spalte aufgeführt ist. Speichere sie in.CSV-Format ab. Eventuell kann das Quellprogramm die Daten direkt in dem gefordertem Format bereitstellen.</li>
+<li>Gehe im Reiter Stückliste auf <strong>Stückliste importieren</strong>:</li>
+<li>Wenn in der.CSV-Datei eine Überschrift enthalten war, kannst du durch Wahl des Optionskästchens festlegen, dass die übernommenen Daten erst einer späteren Zeile beginnen (hier: Zeile 2). Du kannst außerdem die Spalteninhalte zuweisen. Eine Spalte mit anderen Daten als Artikelnummer oder Menge ordnest du einfach keinem Feld zu (hier: Spalte “Zeichnung”). Sobald die Datenstruktur stimmt, klicke auf <strong>Jetzt importieren</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Anzeige dient nur der Kontrolle der Datenstruktur und ist auf zehn Zeilen begrenzt. Sollte deine.CSV-Datei mehr als zehn Positionen beinhalten, werden alle Positionen beim Klick auf “Jetzt importieren” übernommen.</p>
+</blockquote>
+<h4 id="stuckliste-verwalten">Stückliste verwalten<a class="headerlink" href="#stuckliste-verwalten" title="Permanent link">&para;</a></h4>
+<p>Nachdem du die Stückliste angelegt oder importiert hast, kannst du dir jederzeit im Reiter Stückliste einen schnellen Überblick über die benötigten Teile, deren Lagerbestand (über alle Lagerorte) und deren Struktur verschaffen:</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Fertigerzeugnis_Stuckliste.png" src="https://help.xentral.com/hc/article_attachments/19368076663836" /></p>
+<p>Im Artikelformular einer Komponente kannst du wiederum im Reiter “In Stückliste” die <code>Teileverwendung</code> sehen, also in welchen Produkten ein Bauteil in welcher Menge benötigt wird:</p>
+<p><img alt="Produktion_Stammdaten_BspArtikel_Komponente_Teileverwendung.png" src="https://help.xentral.com/hc/article_attachments/19368045432348" /></p>
+<h3 id="optional-lagerplatze">Optional: Lagerplätze<a class="headerlink" href="#optional-lagerplatze" title="Permanent link">&para;</a></h3>
+<p>Du kannst einschränken, dass Produktionsvorgänge nur auf sog.<strong>Bevorzugte Lager</strong> zugreifen können. Wenn du diese Option einrichten möchtest, gehe zur Lagerverwaltung und setze bei allen Lagerplätzen, die für die Produktion zur Verfügung stehen sollen, den folgenden Haken:</p>
+<p><img alt="Produktion_Stammdaten_Lager_Produktionslager.png" src="https://help.xentral.com/hc/article_attachments/19368076666908" /></p>
+<p>Es werden dann nur noch Lagerplätze in der Produktion als Bevorzugtes Lager angezeigt, die diesen Haken aktiviert haben. Alle Lager ohne diese Einstellung werden nicht mehr vorgeschlagen.</p>
+<p><img alt="Produktion_BevorzugtesLager.png" src="https://help.xentral.com/hc/article_attachments/19368045434908" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Ist der Haken bei keinem Lagerplatz gesetzt, stehen hier alle Lager zur Auswahl.</p>
+</blockquote>
+<h3 id="optional-projekte">Optional: Projekte<a class="headerlink" href="#optional-projekte" title="Permanent link">&para;</a></h3>
+<p>Bestimmte Einstellungen für die Produktion kannst du projektspezifisch vornehmen. Gehe hierzu in die<a href="https://help.xentral.com/hc/de/articles/360016723620#UUID-a5ebd026-5507-1c92-7a7f-41bcefd1d0af">Projektverwaltung</a>, öffne ein Projekt zur Bearbeitung und navigiere zum Reiter Einstellungen → Logistik / Versand.</p>
+<p>Im Bereich <strong>Optionen </strong> hast du die Möglichkeit, ein <strong>Bevorzugtes Lager</strong> einzutragen. Dieses wird dann in allen Produktionen automatisch eingetragen, die diesem Projekt zugeordnet werden.</p>
+<p><img alt="Produktion_Stammdaten_Projekte_Optionen.png" src="https://help.xentral.com/hc/article_attachments/19368076673692" /></p>
+<h3 id="optional-arbeitsplatzgruppen">Optional: Arbeitsplatzgruppen<a class="headerlink" href="#optional-arbeitsplatzgruppen" title="Permanent link">&para;</a></h3>
+<p>Arbeitsplatzgruppen kannst in Arbeitsanweisungen verwenden und dadurch bestimmte zusätzliche Informationen hinzufügen:</p>
+<ul>
+<li>Kosten pro Stunde</li>
+<li>Teile pro Stunde</li>
+<li>Anzahl Mitarbeiter pro Arbeitsplatzgruppe</li>
+</ul>
+<p>Um zu den Arbeitsplatzgruppen zu gelangen, gib den Begriff in der Smart Search ein. Du gelangst dann zu folgender Übersicht:</p>
+<p><img alt="Produktion_Stammdaten_Arbeitsplatzgruppen_Ubersicht.png" src="https://help.xentral.com/hc/article_attachments/19368076675356" /></p>
+<p>Eine neue Arbeitsplatzgruppe legst du einfach ein, indem du die entsprechenden Daten in diese Zeile eingibst und mit Anlegen bestätigst:</p>
+<p><img alt="Produktion_Stammdaten_Arbeitsplatzgruppen_Anlegen.png" src="https://help.xentral.com/hc/article_attachments/19368045444252" /></p>
+<p>Unter (1) kannst du eine Arbeitsplatzgruppe ändern, mit (2) löschst du sie:</p>
+<p><img alt="Produktion_Stammdaten_Arbeitsplatzgruppen_Menu.png" src="https://help.xentral.com/hc/article_attachments/19368076679196" /></p>
+<h3 id="optional-artikel-arbeitsanweisung-vorlagen">Optional: Artikel Arbeitsanweisung Vorlagen<a class="headerlink" href="#optional-artikel-arbeitsanweisung-vorlagen" title="Permanent link">&para;</a></h3>
+<p>Wenn du mit Arbeitsanweisungen arbeiten möchtest, kannst optional Vorlagen dafür anlegen, die später in den (Stücklisten-)Artikel geladen werden können. So brauchst du Arbeitsschritt-Abfolgen, die bei mehreren Artikeln durchlaufen werden, nicht jedes Mal einzeln in die Artikel eingeben.</p>
+<p>Suche in der Smart Search nachArtikel Arbeitsanweisung Vorlagen.</p>
+<p>Um eine neue Vorlage anzulegen, gib eine Bezeichnung (1) in diese Zeile ein und klicke aufSpeichern. Damit die Vorlage in Artikel geladen werden kann, vergiss nicht den Haken bei aktiv zu setzen. Klicke auf den Pfeil (2), um die Vorlage zum Bearbeiten zu öffnen.</p>
+<p><img alt="Produktion_Stammdaten_ArbeitsanweisungVorlagen.png" src="https://help.xentral.com/hc/article_attachments/19368045446556" /></p>
+<ol>
+<li>Klicke auf Neuen Schritt hinzufügen.</li>
+<li>Gib Details zu jedem Arbeitsschritt ein und speichere. Du kannst z. B. eine Beschreibung der Arbeitsschritte einfügen, die später die Mitarbeiter der Produktion als Vorgabe bekommen, eine Zeitvorgabe (pro Stück) und die Arbeitsplatzgruppe. Außerdem ist es möglich, ein Bild zu hinterlegen.</li>
+<li>Wiederhole diesen Vorgang für alle zu durchlaufenden Arbeitsschritte.</li>
+<li>Gehe in den Artikel, in den du eine Arbeitsanweisung einfügen möchtest und dort auf den Reiter Arbeitsanweisung. Wähle die Vorlage und klicke auf Laden. Wiederhole diese Schritte bei allen Artikeln, für die die Arbeitsanweisung gilt. Alternativ kannst du Schritte manuell, also ohne Vorlage hinzufügen.</li>
+</ol>
+<h3 id="optional-artikel-funktionsprotokoll-vorlagen">Optional: Artikel Funktionsprotokoll Vorlagen<a class="headerlink" href="#optional-artikel-funktionsprotokoll-vorlagen" title="Permanent link">&para;</a></h3>
+<p>Wenn du mit Funktionsprotokollen arbeiten möchtest, kannst optional Vorlagen dafür anlegen, die später in den (Stücklisten-)Artikel geladen werden können. So brauchst du Prüfschritt-Abfolgen, die bei mehreren Artikeln durchlaufen werden, nicht jedes Mal einzeln in die Artikel eingeben.</p>
+<p>Suche in der Smart Search nachArtikel Funktionsprotokoll Vorlagen.</p>
+<p>Um eine neue Vorlage anzulegen, gib eine Bezeichnung (1) in diese Zeile ein und klicke aufSpeichern. Damit die Vorlage in Artikel geladen werden kann, vergiss nicht den Haken bei aktiv zu setzen. Klicke auf den Pfeil (2), um die Vorlage zum Bearbeiten zu öffnen.</p>
+<p><img alt="Produktion_Stammdaten_FunktionsprotokollVorlagen.png" src="https://help.xentral.com/hc/article_attachments/19368076689180" /></p>
+<ol>
+<li>Klicke auf Neuen Schritt hinzufügen.</li>
+<li>Gib Details zu jedem Prüfschritt ein und speichere. Du kannst z. B. eine Beschreibung der Prüfschritte einfügen, die später die Mitarbeiter der Produktion als Vorgabe bekommen, sowie ein Bild und die Angabe, ob der Prozess bei einem Fehler fortgesetzt werden soll.</li>
+<li>Wiederhole diesen Vorgang für alle zu durchlaufenden Prüfschritte.</li>
+<li>Gehe in den Artikel, in den du ein Funktionsprotokoll einfügen möchtest und dort auf den Reiter Funktionsprotokoll. Wähle die Vorlage und klicke auf Laden. Wiederhole diese Schritte bei allen Artikeln, für die das Funktionsprotokoll gilt. Alternativ kannst du Schritte manuell, also ohne Vorlage hinzufügen.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

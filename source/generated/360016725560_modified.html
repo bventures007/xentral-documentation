@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016725560 Modified - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016725560 Modified</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016725560 Modified</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<h2 id="modified-schnittstelle-installation-einrichtung">Modified Schnittstelle - Installation &amp; Einrichtung<a class="headerlink" href="#modified-schnittstelle-installation-einrichtung" title="Permanent link">&para;</a></h2>
+<p>Um Modified in xentral integrieren zu können benötigt man drei Schritte. xentral bindet externe Shops, auch wenn diese extra APIs anbieten, immer über einen xentral Shop-Importer an. Das ist die genormte Schnittstelle für xentral. In dieser Schnittstelle wird dann auf die echte API vom Shop zugegriffen. Aber die Kommunikation mit xentral geschieht immer über den Importer.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es handelt sich um ein Legacy-Modul, das nicht mehr von xentral unterstützt oder weiterentwickelt wird. Um unseren Kunden die Arbeit mit der vorhandenen Funktionsweise weiterhin zu ermöglichen, ist es noch immer im xentral App Store verfügbar.</p>
+</blockquote>
+<h3 id="features-der-schnittstelle">Features der Schnittstelle<a class="headerlink" href="#features-der-schnittstelle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Aufträge abholen</li>
+<li>Auftragsstatus bei Versand umstellen inkl. Meldung Trackingnummer</li>
+<li>Artikel einzeln von xentral nach Modified oder von Modified nach xentral übertragen</li>
+<li>Meldung aktueller Lagerzahlen</li>
+</ul>
+<p>Die Rechnung und oder Lieferschein kann durch xentral mit eigenen Nummernkreisen erstellt werden. Die Belege werden im Versandprozess automatisch erstellt und versendet bzw. am Versanddrucker ausgedruckt.</p>
+<h3 id="allgemeiner-ablauf-der-installation-fur-techniker">Allgemeiner Ablauf der Installation (für Techniker)<a class="headerlink" href="#allgemeiner-ablauf-der-installation-fur-techniker" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Installation des Shop-Importers im Webspace von Modified</li>
+<li>Anlegen eines Shops in xentral + Übertragungsschlüssel für die Kommunikation</li>
+<li>Abspeichern des Übertragungsschlüssels Shop-Importer</li>
+<li>Abspeichern des Datenbankzugangs im Shop-Importer</li>
+<li>Eingeben der Datenbankzugangsdaten im Shop-Importer</li>
+<li>Angeben in xentral zu der neuen URL zum Shop-Importer</li>
+<li>Test der Übertragung</li>
+<li>Individuelle Konfiguration (z.B. wie Versand importiert wird, ob die Preise aus xentral oder vom Shop übernommen werden, usw.)</li>
+</ol>
+<h3 id="schritt-1-anlegen-eines-neuen-shops-in-xentral">Schritt 1: Anlegen eines neuen Shops in xentral<a class="headerlink" href="#schritt-1-anlegen-eines-neuen-shops-in-xentral" title="Permanent link">&para;</a></h3>
+<p>Administration → Shop Schnittstelle → Übersicht → Neu</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bis Version 21.1 unter Administration → Einstellungen → Online-Shops → Neu.</p>
+</blockquote>
+<p><img alt="Modified-1.png" src="https://help.xentral.com/hc/article_attachments/5102272437020" /></p>
+<ul>
+<li>Auswahl Shopart</li>
+<li>Erstellen eines ImportKey und ImportToken</li>
+</ul>
+<h3 id="schritt-2-auf-modified-server-shop-importer-installieren">Schritt 2: Auf Modified-Server Shop-Importer installieren<a class="headerlink" href="#schritt-2-auf-modified-server-shop-importer-installieren" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Verschieben des Ordners der Shop-Schnittstelle in einen Bereich im Shop, der von außen aufgerufen werden kann</li>
+<li>Erstellen der Konfigurationsdatei (Umbenennen von user.inc.php.tpl nach user.inc.php)</li>
+<li>ImportKey: Erstellen eines 32 Zeichen langen Schlüssels (mit Hilfe eines Passwortgenerators) und diesen in der Datei user.inc.php hinterlegen</li>
+<li>ImportToken: Erstellen eines 6 Zeichen langen Schlüssels (mit Hilfe eines Passwortgenerators) und in der Datei user.inc.php hinterlegen</li>
+<li>Konfiguration der Datenbankverbindung in der Datei user.inc.php (zu Modified)</li>
+</ul>
+<p><img alt="Modified-2.png" src="https://help.xentral.com/hc/article_attachments/5102272487708" /></p>
+<h3 id="schritt-3-verbindung-von-xentral-zum-shop-importer">Schritt 3: Verbindung von xentral zum Shop-Importer<a class="headerlink" href="#schritt-3-verbindung-von-xentral-zum-shop-importer" title="Permanent link">&para;</a></h3>
+<p><img alt="Modified-3.png" src="https://help.xentral.com/hc/article_attachments/5102242024988" /></p>
+<ul>
+<li>Einstellen der URL zum Shop-Importer (URL + Key + Token)</li>
+<li>Test der Verbindung (bei Export)</li>
+</ul>
+<p>Klicken Sie auf &ldquo;Verbindung prüfen&rdquo;.</p>
+<p><img alt="Modified-4.png" src="https://help.xentral.com/hc/article_attachments/5102249415836" /></p>
+<p>Es sollte Folgendes erscheinen:</p>
+<p><img alt="Modified-5.png" src="https://help.xentral.com/hc/article_attachments/5102256091164" /></p>
+<h3 id="auftrage-zu-xentral-ubertragen">Aufträge zu xentral übertragen<a class="headerlink" href="#auftrage-zu-xentral-ubertragen" title="Permanent link">&para;</a></h3>
+<p><a href="https://xentral.com/helpdesk/kurzanleitung-import-von-bestellungen-aus-online-shops">Das Importieren von Bestellungen aus Online Shops ist hier beschrieben.</a></p>
+<h3 id="status-der-auftrage">Status der Aufträge<a class="headerlink" href="#status-der-auftrage" title="Permanent link">&para;</a></h3>
+<p>Über die API werden alle Aufträge abgeholt mit Order Status &ldquo;1&rdquo; (Im Standard ist das &ldquo;offen&rdquo; / Stand 12/2016)</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

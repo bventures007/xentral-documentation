@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360021442099 Steuern Und Währung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360021442099 Steuern Und Währung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360021442099 Steuern Und Währung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Im Menü <strong>Einstellungen &gt; Buchhaltung &gt; Steuer und Währung &gt; Steuer/Währung</strong> nimmst du Einstellungen zu standortbezogenen Steuersätzen und Währungen vor. Außerdem legst du in diesem Menü die Kontenrahmen für Finanzbuchhaltungsexporte fest.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Wir empfehlen dir, bei Themen zu Besteuerung und Finanzbuchhaltung auf die Beratung eines geeigneten Experten zurückzugreifen, um fehlerhafte Einstellungen in Xentral zu vermeiden.</p>
+</blockquote>
+<h2 id="steuersatze-festlegen">Steuersätze festlegen<a class="headerlink" href="#steuersatze-festlegen" title="Permanent link">&para;</a></h2>
+<p>Gehe wie folgt vor, um Steuersätze in Xentral festzulegen. Diese Steuersätze werden als Standard für deine Buchhaltung und alle Aufträge verwendet.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Möchtest du Steuersätze auf Projektbasis hinterlegen, beispielsweise weil du abweichende Steuersätze für B2B-Geschäfte oder ausländische Besteuerungen hinzufügen möchtest, dann nimmst du diese Einstellungen im Menü <strong>Einstellungen &gt; Buchhaltung &gt; Buchhaltungseinstellungen pro Projekt </strong> vor.<strong>Schritte:</strong></p>
+</blockquote>
+<ol>
+<li>Öffne das Menü <strong>Einstellungen &gt; Buchhaltung &gt; Steuer und Währung &gt; Steuer/Währung</strong>.</li>
+<li>Nimm die gewünschten Einstellungen im Bereich <strong>Steuersätze</strong> vor. Weitere Informationen zu dein einzelnen Einstellungen findest du in der folgenden Tabelle.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Steuersatz (normal)</strong></td>
+<td>Trage in diesem Feld den normalerweise gültigen Steuersatz des Landes ein, in dem sich dein Unternehmen befindet.</td>
+</tr>
+<tr>
+<td><strong>Steuersatz (ermäßigt)</strong></td>
+<td>Falls ein ermäßigter Steuersatz für das Land existiert, in dem sich dein Unternehmen befindet, trage ihn in dieses Feld ein.</td>
+</tr>
+<tr>
+<td><strong>Weiterführen von Belegen <strong></td>
+<td>Bestimme, welche Steuersätze in Belegen verwendet werden sollen, wenn bereits Belege für einen Auftrag in Xentral erstellt wurden. Die folgenden Optionen stehen zur Verfügung: -</strong> Steuern aus Beleg zuvor (Empfehlung)<strong>: Belege nutzen immer den Steuersatz, der in den zuvor erstellten Belegen zum selben Auftrag genutzt wurde.<br>-</strong> Steuern immer aus Einstellung</strong>: Bei der Erstellung von Belegen werden die Steuersätze aus den Artikelstammdaten oder den Projekteinstellungen übernommen, auch wenn diese Einstellungen zwischenzeitlich geändert wurden. Warnung Wenn du diese Option nutzt, kann es zu unterschiedlichen Besteuerungen innerhalb desselben Auftrags kommen.</td>
+</tr>
+<tr>
+<td><strong>Kleinunternehmer</strong></td>
+<td>Aktiviere diese Option, wenn auf dich die Kleinunternehmerregelung nach § 19 des Umsatzsteuergesetzes zutrifft.</td>
+</tr>
+<tr>
+<td><strong>Steuerfrei Inland <strong></td>
+<td>Aktiviere diese Option, wenn der sonst übliche Steuersatz aus dem Feld</strong> Steuersatz (normal)</strong> auf der Rechnung zu 0% geändert und somit erlassen werden soll. ⚠️<strong>Wichtig:</strong> Diese Einstellung darf nur verwendet werden, wenn dein Unternehmen ausdrücklich für den so genannten Null-Steuersatz qualifiziert ist. Aktuell ist dies in Deutschland nur in Ausnahmefällen und beim Handel mit bestimmten Produkten im Bereich Photovoltaik und Solartechnologie erlaubt. Weitere Informationen zu diesem Thema findest du hier beim Bundesfinanzministerium.</td>
+</tr>
+<tr>
+<td><strong>Steuerspalte ausblenden <strong></td>
+<td>Aktiviere diese Option, um die Spalte</strong> Steuer </strong> und damit die Information zum Steuersatz in den Belegen Rechnung, Angebot, Auftragsbestätigung und Gutschrift auszublenden. 💬<strong>Anmerkung:</strong> Diese Einstellung greift nur, wenn alle Belegpositionen über denselben Steuersatz verfügen.</td>
+</tr>
+<tr>
+<td><strong>Immer Netto-Rechnungen <strong></td>
+<td>Aktivere diese Option, um in den Belegen Rechnung, Angebot, Auftragsbestätigung und Gutschrift stets Netto-Preise anzuzeigen. Wenn du diese und die folgende Option namens</strong> Immer Brutto-Rechnungen </strong> deaktiviert lässt, werden Belege in Xentral nach folgender Standardlogik erzeugt: - Handelt es sich um eine Kundenadresse vom Typ <strong>Firma </strong>, werden automatisch Netto-Preise in den genannten Belegen angezeigt.<br>- Handelt es sich um eine Kundenadresse vom Typ <strong>Frau </strong> oder <strong>Herr</strong>, werden automatisch Brutto-Preise in den genannten Belegen angezeigt.</td>
+</tr>
+<tr>
+<td><strong>Immer Brutto-Rechnungen</strong></td>
+<td>Aktiviere diese Option, um in den Belegen Rechnung, Angebot, Auftragsbestätigung und Gutschrift stets Brutto-Preise anzuzeigen.</td>
+</tr>
+<tr>
+<td><strong>Belege mit 4 Nachkommastellen</strong></td>
+<td>Aktiviere diese Option, um auf Belegen 4 anstatt 2 Nachkommastellen anzuzeigen.</td>
+</tr>
+<tr>
+<td><strong>Standard-Zahlungsweise Kunde <strong></td>
+<td>Wähle aus dem Dropdown-Menü die Zahlungsweise aus, die deine Kunden standardweise verwenden. Beachte, dass Standard-Zahlungsweisen auch individuell pro Adresse im Menü</strong> Verkaufen &gt; Adressen &gt; Adresse öffnen &gt; Tab: Zahlungskonditionen/Besteuerung &gt; Zahlungsweise</strong> festgelegt werden können. In diesem Fall wird die hier getroffene Einstellung unwirksam.</td>
+</tr>
+<tr>
+<td><strong>Standard-Zahlungsweise Lieferant <strong></td>
+<td>Wähle aus dem Dropdown-Menü die Zahlungsweise aus, die du standardweise verwendest, um deine Verbindlichkeiten bei Lieferanten zu begleichen. Beachte, dass diese Standard-Zahlungsweise auch pro Lieferant im Menü</strong> Verkaufen &gt; Adressen &gt; Adresse öffnen &gt; Tab: Zahlungskonditionen/Besteuerung &gt; Zahlungsweise</strong> festgelegt werden kann. In diesem Fall wird die hier getroffene Einstellung unwirksam.</td>
+</tr>
+<tr>
+<td><strong>Standard-Versandart</strong></td>
+<td>Wähle aus dem Dropdown-Menü die Versandart aus, mit der du normalerweise deine Lieferungen versendest.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wahrungseinstellungen-vornehmen">Währungseinstellungen vornehmen<a class="headerlink" href="#wahrungseinstellungen-vornehmen" title="Permanent link">&para;</a></h2>
+<p>Gehe wie folgt vor, um die systemweiten Einstellungen zur verwendeten Standard-Währung und zur gewünschten Marge in Xentral vorzunehmen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beachte, dass du die Wechselkurse deiner verwendeten Währungen im Menü <strong>Einstellungen &gt; Buchhaltung &gt; Steuer und Währung &gt; Währungen</strong> verwaltest.</p>
+<p>Außerdem werden die hier beschriebenen Einstellungen nicht mehr angewendet, sobald du spezifische Einstellungen für ein Projekt im Menü <strong>Einstellungen &gt; Buchhaltung &gt; Buchhaltungseinstellungen pro Projekt </strong> vornimmst.<strong>Schritte:</strong></p>
+</blockquote>
+<ol>
+<li>Öffne das Menü <strong>Einstellungen &gt; Buchhaltung &gt; Steuer und Währung &gt; Steuer/Währung</strong>.</li>
+<li>Nimm die gewünschten Einstellungen im Bereich <strong>Währung</strong> vor. Weitere Informationen zu den einzelnen Einstellungen findest du in der folgenden Tabelle.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Standard Währung</strong></td>
+<td>Wähle die Standardwährung aus, die von Xentral genutzt wird. Diese Standardwährung ist auch die Basis für alle anderen Währungen, in denen du ggf. deine Produkte verkaufst.</td>
+</tr>
+<tr>
+<td><strong>Währungskurs laden <strong></td>
+<td>Aktiviere diese Option, um bei der Weiterführung von Belegen stets automatisch den aktuellen Wechselkurs aus dem Menü</strong> Einstellungen &gt; Buchhaltung &gt; Steuer und Währung &gt; Währungen</strong> zu verwenden. Somit stellst du sicher, dass die Beträge über die ganze Auftragsabwicklung hinweg immer anhand der aktuellsten Wechselkurse berechnet werden und entsprechend in den Belegen aufgeführt wereden.</td>
+</tr>
+<tr>
+<td><strong>Wechselkurs aus Rechnung für Gutschrift/Stornorechnung</strong></td>
+<td>Aktiviere diese Option, um den bei der Rechnungserstellung angewandten Wechselkurs beizubehalten, wenn du Gutschriften oder Stornorechnungen erstellst. Somit vermeidest du Abweichungen aufgrund schwankender Wechselkurse.</td>
+</tr>
+<tr>
+<td><strong>Standard-Marge in %</strong></td>
+<td>Gib die gewünschte Standard-Marge in % ein. Dabei findet in Xentral folgende Berechnung statt: Einkaufspreis + Marge = empfohlener Verkaufspreis.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kontenrahmen-fur-finanzbuchhaltungsexporte-festlegen">Kontenrahmen für Finanzbuchhaltungsexporte festlegen<a class="headerlink" href="#kontenrahmen-fur-finanzbuchhaltungsexporte-festlegen" title="Permanent link">&para;</a></h2>
+<p>Im Bereich <strong>Finanzbuchhaltung Export Kontenrahmen </strong> legst du systemweit die Erlös- und Aufwandskonten fest. Dabei trägst du die Erlöskonten in den Feldern <strong>Erlöse </strong> ein und die Aufwandskonten unter <strong>Aufwände</strong>.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Kontenrahmen kannst du an verschiedenen Stellen in Xentral festlegen:</p>
+<ul>
+<li>In den Stammdaten einzelner Artikel (<strong>Details &gt; Finanzbuchhaltung</strong>)</li>
+<li>In den Einstellungen einzelner Artikelkategorien (Modul <strong>Artikel Kategorien</strong>)</li>
+<li>Im hier beschriebenen Menü <strong>Einstellungen &gt; Buchhaltung &gt; Steuer und Währung &gt; Steuer/Währung</strong></li>
+</ul>
+<p>Die Einstellungen werden dabei in der oben genannten Reihenfolge von Xentral berücksichtigt. Das bedeutet, dass Konten, die direkt im Artikel hinterlegt sind, priorisiert berücksichtigt werden. Sind dort keine Konten hinterlegt, werden Konten aus der Artikelkategorie berücksichtigt. Sind weder am Artikel noch in der Artikelkategorie abweichende Konten hinterlegt, greift Xentral letztendlich auf die im Menü <strong>Einstellungen &gt; Buchhaltung &gt; Steuer und Währung &gt; Steuer/Währung</strong> festgelegten Konten zurück.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

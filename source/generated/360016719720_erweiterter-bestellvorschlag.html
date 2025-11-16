@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016719720 Erweiterter Bestellvorschlag - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016719720 Erweiterter Bestellvorschlag</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016719720 Erweiterter Bestellvorschlag</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mithilfe des ModulsErweiterter Bestellvorschlagkannst du den tatsächlichen Nachschubbedarf deiner Artikel ermitteln. Dieses Modul verfügt also über einen größeren Funktionsumfang als der<a href="https://help.xentral.com/hc/de/articles/360016757859#UUID-b36d5a57-67bd-5185-edda-fd68cadb28a5">reguläre Bestellvorschlag</a>. InXentral kannst du grundsätzlich zwei Beschaffungswege planen:</p>
+<ul>
+<li>Welche Teile über <strong>Bestellungen</strong> eingekauft werden müssen: Das erfährst du in diesem Artikel!</li>
+<li>Welche Teile selbst <strong>produziert</strong> werden müssen: Dies wird im <a href="https://help.xentral.com/hc/de/articles/18870446128284#UUID-4cda6245-518a-cd3d-3575-15139b36f57a">Artikel zum Thema Poduktionsplanung</a> detailliert erläutert.</li>
+</ul>
+<h2 id="bestellbedarf-ermitteln">Bestellbedarf ermitteln<a class="headerlink" href="#bestellbedarf-ermitteln" title="Permanent link">&para;</a></h2>
+<p>Um deinen Bestellbedarf zu ermitteln, kannst du zwischen verschiedenen Berechnungsgrundlagen wählen - dies sind Bedarfe aus Mindestmengen, Aufträgen oder Produktionen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Video-Tutorial: Dein schneller Einstieg in den erweiterten Bestellvorschlag</strong></p>
+<p>Möchtest du dir innerhalb weniger Minuten einen Überblick über die Funktionen und die Nutzung des erweiterten Bestellvorschlags in Xentral verschaffen? Dann ist unser Video-Tutorial genau das Richtige für dich. Schau es dir gleich an!</p>
+<p><strong><a href="https://www.youtube.com/embed/yueMRRLnOkU">YouTube Video</a></strong></p>
+</blockquote>
+<h2 id="artikel-fur-den-erweiterten-bestellvorschlag-auswahlen">Artikel für den erweiterten Bestellvorschlag auswählen<a class="headerlink" href="#artikel-fur-den-erweiterten-bestellvorschlag-auswahlen" title="Permanent link">&para;</a></h2>
+<p>Öffne das Menü <strong>Einkauf &gt; Erweiterter Bestellvorschlag</strong>, um die Bedarfe für deine Artikel zu berechnen. Im ersten Schritt kannst du auswählen, für welche Artikel du den Bedarf ermitteln möchtest.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Damit dein Bestellvorschlag berechnet werden kann, müssen in den Artikelstammdaten Einkaufspreise für den jeweiligen Lieferanten hinterlegt sein. Weitere Informationen dazu findest du im ArtikelArtikelstammdaten pflegen.</p>
+</blockquote>
+<p>Im oberen Bereich des Menüs <strong>Einkauf &gt; Erweiterter Bestellvorschlag</strong> hast du die Möglichkeit, Kriterien für die Erstellung des Bestellvorschlags pro Artikel auszuwählen.</p>
+<p><img alt="erweiterter-bestellvorschlag-optionen-de.png" src="https://help.xentral.com/hc/article_attachments/23598326720668" /></p>
+<ul>
+<li>Aktiviere die Option <strong>alle Artikel aus Stammdaten</strong>, um einen Gesamtüberblick über sämtliche in Xentral gepflegten Artikel zu erhalten.</li>
+<li>Aktiviere alternativ die Option <strong>nur durch Bestellvorschlag hinzugefügte Artikel anzeigen</strong> um nur die Artikel anzuzeigen, für die aktuell ein Bedarf vorliegt - so schaffst du dir eine gezielte Übersicht über die Artikel, die nachbestellt werden müssen.</li>
+</ul>
+<p>Zusätzlich kannst du weitere Filter setzen, zum Beispiel, wenn du nur Produktionen planen oder nur Bestellungen anlegen möchtest. Diese Filteroptionen werden in der folgenden Tabelle erläutert.</p>
+<table>
+<thead>
+<tr>
+<th>Filteroption</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nur Produktionsartikel <strong></td>
+<td>Zeigt nur Artikel, die nicht zugekauft, sondern durch eine Produktion erzeugt werden. Sie sind durch das Kennzeichen</strong> Produktionsartikel</strong> markiert. Du benötigst diese Option für die <a href="https://help.xentral.com/hc/de/articles/18870446128284#UUID-4cda6245-518a-cd3d-3575-15139b36f57a">Produktionsplanung</a>.</td>
+</tr>
+<tr>
+<td><strong>Nur Material / ohne Produktionsartikel <strong></td>
+<td>Hier kannst du auf Einzelkomponenten filtern, also Artikel, bei denen das Kennzeichen</strong> Produktionsartikel</strong> nicht aktiviert ist, weil sie zugekauft werden. Aktiviere diese Option, wenn du nur Bestellungen anlegen möchtest.</td>
+</tr>
+<tr>
+<td><strong>Ohne Aufträge mit Bestellung</strong></td>
+<td>Es gibt Kundenaufträge, die direkt mit einer zugehörigen Bestellung verknüpft sind. Aktiviere diese Option, wenn sie hier nicht angezeigt werden sollen.</td>
+</tr>
+</tbody>
+</table>
+<p>Die mithilfe der oben beschriebenen ausgewählten Artikel werden dann wie folgt in der Übersicht des Menüs <strong>Einkauf &gt; Erweiterter Bestellvorschlag</strong> aufgelistet.</p>
+<p><img alt="erweiterter_bestellvorschlag-2-de.png" src="https://help.xentral.com/hc/article_attachments/23598372208156" /></p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die angezeigten Artikel sind zunächst nur eine leere Vorlage und dienen als Ausgangspunkt. Die eigentliche Bedarfsberechnung wird erst im nächsten Schritt durchgeführt!</p>
+</blockquote>
+<h2 id="bedarfe-berechnen">Bedarfe berechnen<a class="headerlink" href="#bedarfe-berechnen" title="Permanent link">&para;</a></h2>
+<p>Es gibt verschiedene Berechnungsgrundlagen ( auch als <strong>Berechnungsläufe </strong> bezeichnet), die du einzeln oder nacheinander ausführen kannst. Du findest sie im Feld <strong>Basis </strong> des Menüs <strong>Einkauf &gt; Erweiterter Bestellvorschlag</strong>. Wie genau die einzelnen Berechnungslogiken funktionieren, erklären wir im Kapitel<a href="#UUID-56dcdac9-2d89-d96a-863c-0dc39eb2804a_section-id235260578263084">Bedarfe berechnen</a>. Zunächst möchten wir dir aber in der folgenden Tabelle noch weitere Filtermöglichkeiten für die Bedarfsberechnung zeigen.</p>
+<table>
+<thead>
+<tr>
+<th>Filteroption</th>
+<th>Erklärung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lieferant <strong></td>
+<td>Wenn du den Bedarf für einen bestimmten Lieferanten ermitteln möchtest, kannst du den Filter im Feld</strong> Lieferant</strong> setzen. Es werden dir alle Produkte angezeigt, für die bei diesem Lieferanten ein Einkaufspreis gepflegt ist.</td>
+</tr>
+<tr>
+<td><strong>Tage einbeziehen von bis <strong></td>
+<td>Wenn du als Basis Aufträge oder Produktionen verwendest, dann kannst du hier den Zeitraum über das Belegdatum eingrenzen. Für die Basis</strong> Mindestmengen </strong> brauchst du diesen Belegfilter nicht. Dieser Zeitfilter wirkt sich nur auf die Berechnung der vorgeschlagenen Bestellmenge aus. Er hat keine Auswirkung auf die Anzeige in den Spalten <strong>Bedarf letzte X Tage </strong> und <strong>Bedarf nächste X Tage</strong>.</td>
+</tr>
+<tr>
+<td>Suchfeld neben dem Feld <strong>Basis <strong></td>
+<td>Wenn du als Basis Aufträge oder Produktionen verwendest, dann kannst du hier einzelne Belege auswählen. Es wird dann nur der Bedarf berechnet, der aus diesem Beleg resultiert. Für die Basis</strong> Mindestmengen</strong> brauchst du diesen Filter nicht und er wird dementsprechend auch nicht angezeigt.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Wenn du mehrere Berechnungsläufe durchführst, ist die Einhaltung der Reihenfolge entscheidend für die Ausgabe eines korrekten Ergebnisses!</p>
+</blockquote>
+<p>Grundsätzlich empfehlen wir dir, als erstes den Bedarf aus Produktionen zu ermitteln. Du verwendest keine Produktionen? Dann beginn damit,<a href="#UUID-56dcdac9-2d89-d96a-863c-0dc39eb2804a_section-id235260801922037">Mindestmengen aufzufüllen</a>.</p>
+<h3 id="berechnungsbasis-nur-offene-produktionen-verwenden">Berechnungsbasis: Nur offene Produktionen verwenden<a class="headerlink" href="#berechnungsbasis-nur-offene-produktionen-verwenden" title="Permanent link">&para;</a></h3>
+<p>Mit Auswahl der Option <strong>Nur offene Produktionen verwenden </strong> aus dem Dropdown-Menü <strong>Basis</strong> ermittelt der Bestellvorschlag die Bedarfe, die sich aus offenen Produktionsaufträge ergeben. Es handelt sich also um Komponenten, die bestellt werden müssen, damit deine Produktionen durchgeführt werden können.</p>
+<p>Über die Filter <strong>Tage einbeziehen von </strong> und <strong>Bis</strong> im oberen Abschnitt kannst du eingrenzen, welche Produktionen in der Bedarfsermittlung berücksichtigt werden sollen.</p>
+<p>Dabei werden dir folgende Informationen angezeigt:</p>
+<ul>
+<li>Falls es selbst ein Produktionsartikel ist: Menge, die aktuell in Fertigung ist</li>
+<li>Falls der Artikel in Produktionen benötigt wird: in Klammern <strong>()</strong> die Menge, die für aktuell geplante Produktionen benötigt wird <strong> Anwendungsbeispiel</strong>:</li>
+</ul>
+<p>Du handelst mit Nüssen und planst den Bedarf für deinen Produktionsartikel “Nuss-Mix”. Der Nuss-Mix wird gerade 2x produziert, so dass nach Abschluss der Fertigung ein Bestand von 2 Stück Nuss-Mix eingelagert werden kann. Es sind also 2 Stück im Zulauf. Diese Menge wird dir in der Spalte <strong>in Produktion</strong> angezeigt.</p>
+<p>Weiterhin ist der Nuss-Mix Teil deines Geschenksets, das du ebenfalls anbietest. Es ist eine Produktion angelegt, die ein Geschenkset produzieren soll. Es gibt also 1 Stück, das für eine weitere Produktion benötigt wird. Der Bedarf aus offenen Produktionen ist also 1 und wird dir in der Spalte <strong>in Produktion</strong> in Klammern angezeigt.</p>
+<p><img alt="erweiterter-bestellvorschlag-produktion-de.png" src="https://help.xentral.com/hc/article_attachments/23598357551516" /></p>
+<h3 id="berechnungsbasis-mindestmengen">Berechnungsbasis: Mindestmengen<a class="headerlink" href="#berechnungsbasis-mindestmengen" title="Permanent link">&para;</a></h3>
+<p>Wähle im Dropdown-Menü <strong>Basis </strong> die Option <strong>Mindestmengen </strong> aus und klicke auf <strong>Starten</strong>.</p>
+<p>Xentral prüft, nun welche Menge beschafft werden muss, um den am Artikel hinterlegten Mindestbestand zu erreichen. Dabei wird folgende Berechnung durchgeführt:</p>
+<ul>
+<li>Mindestlagermenge = Gewünschter Lagerpuffer (z.B. 100 Stück)</li>
+<li>Lagerbestand = Aktuell vorhandene Menge im Lager (z.B. 0 Stück)</li>
+<li>Offene Bestellungen = Bereits bestellte, aber noch nicht gelieferte Menge (z.B. 5 Stück)</li>
+<li>Bedarf = Menge, die noch bestellt werden muss</li>
+</ul>
+<p><code>Bedarf = Mindestlagermenge - (Lagerbestand + offene Bestellungen)</code></p>
+<p><code>Bedarf = 100 - (0 + 5) = 95</code></p>
+<p>Um nachzuvollziehen, wie das konkret in Xentral aussieht, schauen wir uns das Beispiel konkreter an.</p>
+<p>Im Tab <strong>Details </strong> der Artikelstammdaten findest du im Bereich <strong>Lager/Abmessungen </strong> das Feld <strong>Min. Lagermenge</strong>. Hier trägst du die Lagermindestmenge ein.</p>
+<p><img alt="erweiterter-bestellvorschlag-lagermindestmenge-de.png" src="https://help.xentral.com/hc/article_attachments/23598334329756" /></p>
+<p>Im Tab <strong>Lager</strong> sehen wir die aktuelle Bestandssituation. Es befinden sich keine Artikel mehr auf Lager, aber 5 Stück wurden schon nachbestellt und warten auf Lieferung.</p>
+<p><img alt="bestellvorschlag-zahlenbeispiel-de.png" src="https://help.xentral.com/hc/article_attachments/23598357699100" /></p>
+<p>Führen wir nun die Berechnung auf Basis der Mindestmengen durch, erhalten wir im Bestellvorschlag die Vorschlagsmenge von 95 aus der Beispielrechnung.</p>
+<p><img alt="erweiterter-bestellvorschlag-mindestmenge-de.png" src="https://help.xentral.com/hc/article_attachments/23598319232540" /></p>
+<p>In unserem Beispiel fügen wir im nächsten Schritt noch die Bedarfe auf offenen Aufträgen hinzu.<a href="#UUID-56dcdac9-2d89-d96a-863c-0dc39eb2804a_section-id235260843241303">Im folgenden Kapitel</a>erfährst du, wie das funktioniert.</p>
+<h3 id="berechnungsbasis-nur-offene-auftrage-verwenden">Berechnungsbasis: Nur offene Aufträge verwenden<a class="headerlink" href="#berechnungsbasis-nur-offene-auftrage-verwenden" title="Permanent link">&para;</a></h3>
+<p>Wir fügen nun noch die Bedarfe, die sich aus offenen Kundenaufträgen ergeben, hinzu. Wähle dafür im Dropdown-Menü <strong>Basis </strong> die Option <strong>Nur offene Aufträge verwenden </strong> aus. Als Nächstes definierst du einen einen Zeithorizont über die Felder <strong>Tage einbeziehen von </strong> und <strong>Bis</strong>.</p>
+<p><img alt="erweiterter-bestellvorschlag-nur-offene-auftraege-de.png" src="https://help.xentral.com/hc/article_attachments/23598334498716" /></p>
+<p>Es werden in der Berechnung also nur die Aufträge berücksichtigt, deren <strong>Auftragsdatum</strong> im gefilterten Zeitraum liegt und die noch nicht abgeschlossen sind.</p>
+<p>Für unseren Beispielartikel liegt ein Auftrag über 2 Stück vor, der noch offen ist. Dieser offene Bedarf wird im Tab <strong>Lager </strong> in den Artikelstammdaten dargestellt. Im Artikel selbst haben wir im Tab <strong>Details</strong> eine Mindestbestellmenge von 10 Stück festgelegt.</p>
+<p>Unserem Bestellvorschlag wird nun - zusätzlich zur vorherigen Berechnung - noch eine Bedarfsmenge von 10 Stück hinzugefügt, die sich aus den offenen Aufträgen (2 Stück) und der Mindestbestellmenge (10 Stück) ergeben. Zusätzlich zu den vorher berechneten 95 Stück ergibt sich nun eine kumulierte Vorschlagsmenge von 105 Stück.</p>
+<p><img alt="erweiterter-bestellvortag-alle-offenen-auftraege-de.png" src="https://help.xentral.com/hc/article_attachments/23598327146012" /></p>
+<p>Scrolle nach unten und klicke auf <strong>Bestellung(en) erzeugen</strong>, um die Bestellung direkt anzulegen.</p>
+<h3 id="berechnungsbasis-nur-offene-auftrage-verwenden-wunschlieferdatum-liefertermin-verwenden">Berechnungsbasis: Nur offene Aufträge verwenden (Wunschlieferdatum, Liefertermin verwenden)<a class="headerlink" href="#berechnungsbasis-nur-offene-auftrage-verwenden-wunschlieferdatum-liefertermin-verwenden" title="Permanent link">&para;</a></h3>
+<p>Du hast Aufträge mit längeren Lieferzeiten oder mit unterschiedlichen Lieferzeiten der einzelnen Positionen? Dann wähle im Dropdown-Menü <strong>Basis </strong> die Option <strong>Nur offene Aufträge verwenden (Wunschlieferdatum, Liefertermin verwenden)</strong> aus. Die Berechnungslogik ist dieselbe wie bei der Option <strong> Nur offene Aufträge verwenden</strong>: Es werden die Bedarfe aus offenen Aufträgen berücksichtigt. Der Unterschied liegt darin, dass der Zeitraum nicht nach dem Auftrags-, sondern nach dem jeweiligen Lieferdatum gefiltert wird.</p>
+<p>Bei dieser Berechnungsbasis wird immer das bestmögliche Datum berücksichtigt – je nachdem, welche Informationen im Auftrag hinterlegt sind. Die Reihenfolge dabei ist:</p>
+<p>1.<strong>Lieferdatum </strong> aus der Auftragsposition: Diese Information findest du im Auftrag unter <strong>Details &gt; Positionen &gt; Spalte: Lieferdatum</strong>.
+1.<strong>Wunsch Liefertermin </strong> des gesamten Auftrags: Diese Information findest du im Auftrag unter <strong>Details &gt; Allgemein</strong>.
+1.<strong>Auftragsdatum </strong>(falls kein Lieferdatum gepflegt ist): Diese Information findest du im Auftrag unter <strong> Details &gt; Allgemein</strong>.</p>
+<h3 id="berechnungsbasis-alte-auftrage">Berechnungsbasis: Alte Aufträge<a class="headerlink" href="#berechnungsbasis-alte-auftrage" title="Permanent link">&para;</a></h3>
+<p>Es werden alle Artikel vorgeschlagen, die sich in bereits abgeschlossenen Aufträgen befinden.</p>
+<p>Das ist praktisch, um Artikel nachzubestellen, die sich bewährt haben oder regelmäßig verkauft wurden, auch wenn gerade keine offenen Aufträge vorliegen. Oder wenn du ein saisonales Geschäft hast und das diesjährige Weihnachtsgeschäft auf Basis des Vorjahres planen möchtest.</p>
+<h2 id="ergebnistabelle-den-bestellvorschlag-verstehen">Ergebnistabelle: Den Bestellvorschlag verstehen<a class="headerlink" href="#ergebnistabelle-den-bestellvorschlag-verstehen" title="Permanent link">&para;</a></h2>
+<p>Am Ende der Berechnung wird dir der Bestellvorschlag in einer Tabelle angezeigt. Hier siehst du alle wichtigen Informationen, die das System auf Basis deiner Einstellungen ermittelt hat. In den folgenden Abschnitten erklären wir dir, was die einzelnen Spalten bedeuten und wie das Ergebnis zustande kommt.</p>
+<table>
+<thead>
+<tr>
+<th>Spaltenname</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Artikel-Nr.</strong></td>
+<td>Die Artikelnummer des Produkts in Xentral.</td>
+</tr>
+<tr>
+<td><strong>Artikel</strong></td>
+<td>Die Artikelbezeichnung des Produkts in Xentral.</td>
+</tr>
+<tr>
+<td><strong>Lager</strong></td>
+<td>Anzahl der Artikel, die aktuell auf Lager sind (inklusive Bestand auf Sperrlagerplätzen)</td>
+</tr>
+<tr>
+<td><strong>Min. Lager</strong></td>
+<td>Falls du in den Artikelstammdaten eine Mindestlagermenge festgelegt hast, wird diese Information hier angezeigt.</td>
+</tr>
+<tr>
+<td><strong>Min. Bestellung</strong></td>
+<td>Falls du in den Artikelstammdaten eine Mindestbestellmenge festgelegt hast, wird diese Information hier angezeigt.</td>
+</tr>
+<tr>
+<td><strong>Im Auftrag</strong></td>
+<td>Anzahl der Artikeleinheiten, die aktuell in offenen Aufträgen enthalten sind.</td>
+</tr>
+<tr>
+<td><strong>In Produktion <strong></td>
+<td>Anzahl der Artikel, die sich aktuell in Produktion befinden. Wird der Artikel als Komponente in einer anderen Produktion benötigt, so wird dieser Bedarf in Klammern</strong>()</strong> angezeigt.</td>
+</tr>
+<tr>
+<td><strong>In Bestellung (nicht vers.)</strong></td>
+<td>Anzahl der Artikel, die bereits in laufenden Nachbestellungen enthalten sind. Wenn es Bestellungen gibt, die zwar angelegt, aber noch nicht versendet wurden, dann erscheint ein entsprechender Hinweis und die Menge wird in Klammern <strong>()</strong> angezeigt.</td>
+</tr>
+<tr>
+<td><strong>Bedarf <strong></td>
+<td>Der Bedarf ergibt sich aus dem aktuellen Lagerbestand (Spalte</strong> Lager </strong>) minus der Mindestmenge (Spalte <strong>Min. Lager </strong>) und abzüglich der Mengen, die bereits bestellt wurden. In der Spalte <strong>Bedarf</strong> siehst du also auf einen Blick, wie viele Einheiten Xentral noch zur Bestellung vorschlägt. Der hier angezeigte Wert wird also aufgrund folgender Formel berechnet: Bedarf = Lager – Min. Lager + In Bestellung (nicht vers.)</td>
+</tr>
+<tr>
+<td><strong>Bedarf letzte X Tage <strong></td>
+<td>Menge der Artikel, die bereits in Aufträgen erfasst sind und deren Liefertermin in dem betrachteten Zeitraum (X Tage) lag. Wenn kein Lieferdatum für die Position hinterlegt ist, wird das Lieferdatum des Auftrags verwendet – und falls auch das fehlt, das Auftragsdatum. Für den Zeitraum zählt allein, was in der Spaltenüberschrift steht, Bedarf 30 Tage zeigt dir also alle Bedarfe aus den letzten 30 Tagen. Die Filter</strong> Tage einbeziehen von </strong> und <strong>Bis</strong> haben hier keine Auswirkung.</td>
+</tr>
+<tr>
+<td><strong>Bedarf nächste X Tage <strong></td>
+<td>Menge der Artikel, die bereits in Aufträgen erfasst sind und deren Liefertermin in der Zukunft (X Tage) liegt. Wenn kein Lieferdatum für die Position hinterlegt ist, wird das Lieferdatum des Auftrags verwendet – und falls auch das fehlt, das Auftragsdatum. Für den Zeitraum zählt allein, was in der Spaltenüberschrift steht, Bedarf 30 Tage zeigt dir also alle Bedarfe aus den nächsten 30 Tagen. Die Filter</strong> Tage einbeziehen von </strong> und <strong>Bis</strong> haben hier keine Auswirkung.</td>
+</tr>
+<tr>
+<td><strong>Staffel</strong></td>
+<td>Hier wird die Preisstaffel angezeigt, sofern du eine Preisstaffel in den Stammdaten des entsprechenden Lieferanten festgelegt hast. Im editierbaren Feld siehst du die Menge, die Xentral dir als Bestellmenge vorschlägt. Du kannst sie bei Bedarf manuell überschreiben.</td>
+</tr>
+<tr>
+<td><strong>VK</strong></td>
+<td>Der Verkaufspreis des Artikels aus den Artikelstammdaten. Staffelpreise werden hier ebenfalls angezeigt.</td>
+</tr>
+<tr>
+<td><strong>Menü <strong></td>
+<td>Im Tab</strong> Einstellungen </strong> des Menüs <strong>Einkauf &gt; Erweiterter Bestellvorschlag</strong> kannst du festlegen, dass hier hier ein Link angezeigt werden soll, der dich beispielsweise direkt zu den Artikelstammdaten führt. Wenn du einen Link definiert hast, wird er dir hier mit einem Pfeil angezeigt.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Beachte bei der Verwendung der oben beschriebenen Staffeln zwingend folgende Einschränkung</strong>:</p>
+<p>Die in den Artikelstammdaten gespeicherte Lieferzeit wird hier zwar angezeigt, jedoch nicht für die Bedarfsplanung berücksichtigt. Das bedeutet, dass die Lieferzeit des Artikels keinen Einfluss auf die angezeigten Informationen hat. Achte daher besonders auf Artikel, die lange Lieferzeiten bei deinem Lieferanten haben, um Engpässe zu vermeiden und die Bestellung frühzeitig auszulösen.</p>
+</blockquote>
+<h2 id="berechnung-zurucksetzen">Berechnung zurücksetzen<a class="headerlink" href="#berechnung-zurucksetzen" title="Permanent link">&para;</a></h2>
+<p>Du willst deine Berechnung nochmal komplett neu starten oder einzelne Berechnungsschritte rückgängig machen?</p>
+<p>Per Klick auf Bestellvorschlag zurücksetzen oben rechts kannst du bei Bedarf alle zuvor in den Bestellvorschlag geladenen Artikel wieder aus der Liste löschen. Damit wird die Auswahl jeglicher Produkte zurückgesetzt, also die Checkboxen links in der Produkttabelle deaktiviert.</p>
+<p>Du willst nur eine Berechnung löschen, zum Beispiel den Bedarf aus offenen Aufträgen?</p>
+<p>Im oberen Bereich wird angezeigt, welche Berechnungsläufe durchgeführt wurden - in diesem Fall die Mindestmengen und die offenen Aufträge. Über Mengen entfernen kannst du den jeweiligen Berechnungslauf jederzeit wieder rückgängig machen.</p>
+<p><img alt="erweiterter-bestellvorschlag-zurzecksetzen-de.png" src="https://help.xentral.com/hc/article_attachments/23598372798492" /></p>
+<h2 id="bestellung-anlegen">Bestellung anlegen<a class="headerlink" href="#bestellung-anlegen" title="Permanent link">&para;</a></h2>
+<p>Unterhalb der Filter und Hinweise befindet sich eine Übersicht über die Anzahl der unterschiedlichen Artikel und Lieferanten sowie der kumulierte Betrag für alle markierten Artikel. Dieser Betrag berechnet sich aus den Mengen in der Spalte <strong>Bedarf</strong> multipliziert mit dem Einkaufspreis des Artikels.</p>
+<p>Passt alles? Dann klicke auf <strong>Bestellung anlegen</strong>, um eine Bestellung anzulegen. Dir wird im nächsten Schritt noch eine Zusammenfassung gezeigt, welche Positionen in die Bestellung übernommen werde, bevor sie final angelegt wird. Pro Lieferant wird daraufhin eine Bestellung erzeugt.</p>
+<p><img alt="bestellvorschlag-bestellung-erzeugen-de.png" src="https://help.xentral.com/hc/article_attachments/23598319650972" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Der angezeigte kumulierte Betrag deines Bestellvorschlags kann von dem finalen Betrag der auf Basis des Bestellvorschlags erstellten Bestellungen abweichen. Grund dafür ist, dass sich dein Bedarf nicht mit der erforderlichen Mindestbestellmenge des Lieferanten deckt. Ist die Mindestbestellmenge deines Lieferanten höher als dein Bedarf, wird die Bestellung mit der Mindestbestellmenge angelegt.</p>
+</blockquote>
+<h2 id="weitere-einstellungen-fur-erweiterte-bestellvorschlage">Weitere Einstellungen für erweiterte Bestellvorschläge<a class="headerlink" href="#weitere-einstellungen-fur-erweiterte-bestellvorschlage" title="Permanent link">&para;</a></h2>
+<p>Öffne im Menü <strong>Einkauf &gt; Erweiterter Bestellvorschlag </strong> das Tab <strong>Einstellungen</strong>, um bei Bedarf weitere Einstellungen für das Modul vorzunehmen.</p>
+<p>So kannst zu beispielsweise Zeitstaffeln definieren, für die der künftige Artikelbedarf auf Basis der freigegebenen Aufträge in Xentral angezeigt werden kann.</p>
+<p><img alt="erweiterter_bestellvorschlag_3-de.png" src="https://help.xentral.com/hc/article_attachments/18937452349340" /></p>
+<p>Die von dir erstellten Staffeln werden dann wie folgt als zusätzliche Spalten im Tab <strong>Übersicht</strong> angezeigt:</p>
+<p><img alt="erweiterter_bestellvorschlag_4-de.png" src="https://help.xentral.com/hc/article_attachments/18937414580252" /></p>
+<p>Die SpalteBedarf letzte x Tageerrechnet sich dabei aus den Artikeleinheiten, die in offenen Aufträgen enthalten sind und deren Lieferdatum in diesem Zeitraum liegt. Wurde für die einzelne Position eines Auftrags kein eigenes Lieferdatum definiert, so wird das Lieferdatum des Auftrags herangezogen. Ist diese Information ebenfalls nicht gepflegt, wird das Auftragsdatum verwendet.</p>
+<p>Die SpalteBedarf nächste x Tageerrechnet sich aus der Menge an Artikeleinheiten, die sich in bereits angelegten Aufträgen befinden und deren Lieferdatum in diesem zukünftigem Zeitraum liegt. Auch hier wird, falls kein Lieferdatum für den einzelnen Artikel definiert ist, das Lieferdatum des Auftrags herangezogen. Wenn diese Information ebenfalls nicht gepflegt ist, wird das Auftragsdatum verwendet.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Beachte bei der Verwendung der oben beschriebenen Staffeln zwingend folgende Einschränkung</strong>:</p>
+<p>Die in den Artikelstammdaten gespeicherte Lieferzeit wird hier zwar angezeigt, jedoch nicht für die Bedarfsplanung berücksichtigt. Das bedeutet, dass die Lieferzeit des Artikels keinen Einfluss auf die angezeigten Informationen hat. Achte daher besonders auf Artikel, die lange Lieferzeiten bei deinem Lieferanten haben, um Engpässe zu vermeiden und die Bestellung frühzeitig auszulösen.</p>
+</blockquote>
+<p>Bei Bedarf kannst du dir auch das Hauptartikelbild des jeweiligen Artikels innerhalb des Bestellvorschlags anzeigen lassen. Aktiviere dazu im Tab <strong>Einstellungen </strong> die Option <strong>Artikelbilder anzeigen</strong>.</p>
+<h3 id="dynamische-berechnung-von-lagermindestmengen">Dynamische Berechnung von Lagermindestmengen<a class="headerlink" href="#dynamische-berechnung-von-lagermindestmengen" title="Permanent link">&para;</a></h3>
+<p>Die im System gepflegten Angaben zu den Lagermindestmengen der Artikel sind wesentliche Informationen, die in Xentral bei der Erstellung von Bestellvorschlägen berücksichtigt werden. Umso wichtiger ist es, dass die Lagermindestmengen deiner Artikel nicht nur ordnungsgemäß in den Artikelstammdaten gepflegt sind, sondern Änderungen an den Lagermindestmengen direkt für die Berechnung des Bestellvorschlags zur Verfügung stehen.</p>
+<p>Damit du stets Zugriff auf aktuelle und korrekte Bestellvorschläge hast, kannst du eine separate Einstellung vornehmen. Diese Einstellung sorgt einmal täglich (über Nacht) für eine dynamische Berechnung der Lagermindestmengen deiner Artikel, sodass du dich bei der Verwaltung deiner Bestände stets auf den Bestellvorschlag verlassen kannst.</p>
+<p>Gehe wie folgt vor, um die dynamische Berechnung von Lagermindestmengen zu aktivieren.</p>
+<ol>
+<li>Öffne das Menü <strong>Einkauf &gt; Erweiterter Bestellvorschlag</strong>.</li>
+<li>Klicke auf das Tab <strong>Einstellungen</strong>.</li>
+<li>Aktiviere die Option <strong>Dynamische Lagermindestmengenberechnung aktivieren</strong>.</li>
+<li>Wähle aus dem Dropdown-Menü <strong>Dynamische Berechnung speichern in Freifeld</strong> das Freifeld in den Artikelstammdaten aus, in dem Xentral das Ergebnis der Lagermindestmengenberechnung automatisch speichern soll.</li>
+<li>Klicke auf <strong>Speichern </strong>. Anschließend wird die Berechnung 1x täglich durch den Prozessstarter <strong>Bestellvorschlag </strong> ausgeführt. Bei Bedarf kannst du den Zeitpunkt der Ausführung im Menü <strong>Einstellungen &gt; Administration &gt; Prozessstarter</strong> anpassen. Wir empfehlen dir jedoch, die Standardeinstellung bei 01:30 Uhr zu belassen.</li>
+</ol>
+<h2 id="dynamische-lagermindestmengen">Dynamische Lagermindestmengen<a class="headerlink" href="#dynamische-lagermindestmengen" title="Permanent link">&para;</a></h2>
+<p>Xentral bietet die Möglichkeit, Lagermindestmengen dynamisch zu berechnen – basierend auf den vergangenen Bedarfen eines Artikels. So kann das System automatisch ermitteln, welche Mindestmenge sinnvoll ist, um rechtzeitig Nachbestellungen auszulösen. In den folgenden Kapiteln zeigen wir dir, wie du die dynamische Berechnung von Lagermindestmengen aktivierst.</p>
+<h3 id="dynamische-berechnung-der-lagermindestmengen-einrichten">Dynamische Berechnung der Lagermindestmengen einrichten<a class="headerlink" href="#dynamische-berechnung-der-lagermindestmengen-einrichten" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um die dynamische Berechnung von Lagermindestmengen zu aktivieren.</p>
+<ol>
+<li>Nutze die Smart Search, um das Modul <strong>Freifelder</strong> zu öffnen.</li>
+<li>Definiere ein Feld.</li>
+<li>Aktiviere die Option <strong>Freifelder im Artikel einblenden</strong>.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+<li>Öffne das Menü <strong>Einkauf &gt; Erweiterter Bestellvorschlag</strong>.</li>
+<li>Klicke auf das Tab <strong>Einstellungen</strong>.</li>
+<li>Aktiviere die Option <strong>Dynamische Lagermindestmengenberechnung aktivieren</strong>.</li>
+<li>Wähle aus dem Dropdown-Menü <strong>Dynamische Berechnung speichern in Freifeld</strong> das Freifeld in den Artikelstammdaten aus, das du zuvor in Schritt 2 definiert hast. Hier wird das Ergebnis der Berechnung dann angezeigt.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Sobald du die Option aktivierst, findet einmal täglich (über Nacht) folgende Berechnung statt:</p>
+<p><code>Mindestlagermenge = (Bedarfsstaffel letzte X Tage / Anzahl Tage) x (Lieferzeit Standard)</code></p>
+<p>Gehen wir die Berechnung einmal am Beispiel durch:</p>
+<p>Die <strong>Bedarfsstaffel letzte X Tage </strong> bestimmst du ebenfalls selbst in den Einstellungen des Moduls <strong>Erweiterter Bestellvorschlag</strong>. Hast du mehrere Bedarfsstaffeln definiert, so wird immer der erste Eintrag für die dynamische Berechnung verwendet. In unserem Beispiel sind es 10 Tage.</p>
+<p>In unserem Beispiel wurden in den letzten 10 Tagen 90 Stück (50+20+20) verkauft, wie wir im Tab <strong>Belege</strong> der Artikelstammdaten nachvollziehen können.</p>
+<p>Die Lieferzeit legst du selbst im gleichnamigen Feld am hinterlegten Einkaufspreis des Artikels unter <strong>Artikel &gt; Einkauf </strong> fest. Wenn es im Feld <strong>Lieferzeit</strong> aktuell einen Eintrag gibt, dann rechnet das System mit dieser Zeit, ansonsten mit der Standardzeit.</p>
+<p>In unserem Beispiel ist eine <strong>Lieferzeit aktuell </strong> von 2 Wochen, eine <strong>Lieferzeit Standard</strong> von 3 Wochen hinterlegt. Es wird also mit 14 Tagen kalkuliert.</p>
+<p><img alt="erweiterter-bestellvorschlag-artikel-lieferzeiten-de.png" src="https://help.xentral.com/hc/article_attachments/23598358221852" /></p>
+<p>Es ergibt sich also folgende Berechnung:</p>
+<p><code>Mindestlagermenge = (Bedarfsstaffel letzte 10 Tage / 10) x (Lieferzeit aktuell 14 Tage)</code></p>
+<p><code>126 = (90 Stück Bedarf / 10 Tage) * 14 Tage Lieferzeit aktuell</code></p>
+<p>Dieses Ergebnis wird nach Durchlaufen des Prozessstarters <strong>Bestellvorschlag <strong>im Freifeld am Artikel angezeigt (</strong> Artikel &gt; Tab: Details &gt; Bereich: Weitere Felder</strong>).</p>
+<p><img alt="erweiterter-bestellvorschlag-dynmenge-freifeld-de.png" src="https://help.xentral.com/hc/article_attachments/23598319736604" /></p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Damit die dynamische Berechnung funktioniert, muss in den Artikelstammdaten ein Lieferant mit einem Einkaufspreis hinterlegt sein und die Option <strong>Standardlieferant</strong> aktiviert sein.</p>
+</blockquote>
+<p>Wenn im Tab <strong>Einstellungen </strong> des Moduls <strong>Erweiterter Bestellvorschlag </strong> die Option <strong>Dynamische Lagermindestmengenberechnung aktivieren </strong> aktiviert ist, dann wird in der Berechnung des Bestellvorschlags der dynamische ermittelte Wert in der Spalte <strong>Min. Lager</strong> angezeigt. Dieser wird auch beim editierbaren Vorschlagswert berücksichtigt.</p>
+<p><img alt="erweiterter-bestellvorschlag-min-lager-uebersicht-de.png" src="https://help.xentral.com/hc/article_attachments/23598327598364" /></p>
+<p>Ist die Option <strong>Dynamische Lagermindestmengenberechnung aktivieren </strong> nicht aktviert, dann wird der Wert angezeigt und für die Berechnung weiterverwendet, der im Feld <strong>Min. Lagermenge</strong> in den Artikelstammdaten hinterlegt ist.</p>
+<p>In diesem Beispiel sind am Artikel 90 Stück als Mindestlagermenge definiert.</p>
+<p><img alt="erweiterter-bestellvorschlag-min-lagermenge-artikel-de.png" src="https://help.xentral.com/hc/article_attachments/23598373076508" /></p>
+<p>Dieser Wert wird dann auch im erweiterten Bestellvorschlag in der Spalte <strong>Min. Lager</strong> angezeigt und fließt in den berechneten Vorschlag ein, der dann übernommen oder nochmal manuell überschrieben werden kann.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Bestellvorschlag wird in der Ergebnisspalte immer die Standardlieferzeit angezeigt, auch, wenn eine aktuelle Lieferzeit eingetragen ist. Aufgrund eines Darstellungsfehlers wird die Lieferzeit aktuell in “Wochen” angezeigt, die Berechnung ist aber korrekt.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

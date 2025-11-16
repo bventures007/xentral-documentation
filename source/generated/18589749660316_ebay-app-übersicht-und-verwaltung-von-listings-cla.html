@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18589749660316 Ebay App Übersicht Und Verwaltung Von Listings Cla - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>18589749660316 Ebay App Übersicht Und Verwaltung Von Listings Cla</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>18589749660316 Ebay App Übersicht Und Verwaltung Von Listings Cla</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Die eBay App bietet viele verschiedene Features - von einer Übersicht aller Auktionen über diverse Einstellungen zu Rahmenbedingungen und Ähnlichem bis hin zu Lagerbestandsinformationen. Die eBay App findest du im App Center zusammen mit dem eBay Importer. Unter Umständen ist die App für die Verwendung des Importers erforderlich, in jeden Fall bietet sie aber nützliche Features für dessen Verwendung.</p>
+<p>App Center &gt; Shop Schnittstelle &gt; Ebay App</p>
+<h2 id="der-reiter-listings">Der Reiter Listings<a class="headerlink" href="#der-reiter-listings" title="Permanent link">&para;</a></h2>
+<p>Um alle aktiven Artikel zu sehen, öffne den ReiterListings. Hier findest du alle laufenden Listings auf einen Blick. Du kannst Artikel manuell zuweisen, indem du auf<img alt="PenIcon.png" src="https://help.xentral.com/hc/article_attachments/18590766452252" /></p>
+<p>klickst.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die Lagersynchronisierung erfolgt nur für zugewiesene Artikel! Fehlt eine Zuweisung, erfolgt für diesen Artikel keine Lagersynchronisierung.</p>
+</blockquote>
+<p><img alt="eBay-App-2.png" src="https://help.xentral.com/hc/article_attachments/18590747180572" /></p>
+<h2 id="der-reiter-ubersicht">Der Reiter Übersicht<a class="headerlink" href="#der-reiter-ubersicht" title="Permanent link">&para;</a></h2>
+<p>Im ReiterÜbersichtfindest du eine Übersicht aller Auktionsartikel, die Auflistung der Gebühren für die Artikel im Shop und Reservierungen.</p>
+<h3 id="auktionsubersicht">Auktionsübersicht<a class="headerlink" href="#auktionsubersicht" title="Permanent link">&para;</a></h3>
+<p>Hier wird die Auktionsübersicht angezeigt, das heißt eine Übersicht aller Artikel, die im Shop zur Auktion oder zum Verkauf stehen. Dabei werden auch bereits verkaufte und ausgelaufene Artikel mit Bestand angezeigt.</p>
+<p>Du kannst die Filter verwenden, z.B.Nur abgelaufene Auktionen anzeigen, um die Anzeige der Auktionen einzugrenzen.</p>
+<p>Mit einem Klick aufAnzeige aktualisierenlädst du den aktuellen Stand der Übersicht. Klicke auf der Seite unten aufAuktionen aktualisieren/ neu einstellen, um bereits ausgelaufene Artikel neu einzustellen.</p>
+<p><img alt="eBay-App-4.png" src="https://help.xentral.com/hc/article_attachments/18590747181724" /></p>
+<h3 id="gebuhren">Gebühren<a class="headerlink" href="#gebuhren" title="Permanent link">&para;</a></h3>
+<p>Im untergeordneten ReiterGebührenwerden dir die Gebühren für die jeweils eingestellten Artikel angezeigt. Die wichtigsten Gebühren sind die Angebotsgebühr, die Verkaufsprovision, die Anzeigengebühr und die Gebühren für Zusatzoptionen.</p>
+<p><img alt="eBay-App-5.png" src="https://help.xentral.com/hc/article_attachments/18590766458652" /></p>
+<h3 id="reservierungen">Reservierungen<a class="headerlink" href="#reservierungen" title="Permanent link">&para;</a></h3>
+<p>Käufer können bei eBay eine Bestellung abschließen, ohne dabei jedoch direkt zu bezahlen oder die Lieferadresse einzugeben. Der Kauf ist trotzdem getätigt und die Artikel sind für den Käufer reserviert. Solche Bestellungen werden im ReiterReservierungenin der eBay App angezeigt. Dabei wird die gekaufte Menge reserviert, damit es nicht zu Überverkäufen eines Artikels kommt.</p>
+<h2 id="der-reiter-einstellungen">Der Reiter Einstellungen<a class="headerlink" href="#der-reiter-einstellungen" title="Permanent link">&para;</a></h2>
+<p>Im ReiterEinstellungenkannst du Templates (d.h. Vorlagen) anlegen, Rahmenbedingungen sowie Zuordnungen definieren, Versanddienstleister zuweisen und Kategorien im eBay-Shop aktualisieren.</p>
+<p>Verkaufst du über mehrere eBay-Shops, kannst du in allen untergeordneten Reitern des ReitersEinstellungen(mit Ausnahme des ReitersTemplates) über das Dropdown-MenüImporterschnittstelleden gewünschten Shop auswählen.</p>
+<h3 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">&para;</a></h3>
+<p>Du kannst neue Vorlagen erstellen, indem du auf+Neues Template anlegenklickst. Das Anlageformular für Vorlagen wird angezeigt.</p>
+<p><img alt="eBay-App-7.png" src="https://help.xentral.com/hc/article_attachments/18590747187996" /></p>
+<p>Gib den HTML-Code der Vorlage in das Textfeld ein. Unten im Formular werden dir mögliche Wildcard-Felder angezeigt. Diese werden bei der Übertragung mit den entsprechenden Werten aus den Artikeldaten ersetzt. XX am Ende eines Wildcard-Feldes kann für die Initialisierung verwendet werden, z.B. kannst du das Länderkürzel (z.B. FR) statt XX einsetzen. Dadurch wird das entsprechende Wildcard-Feld auf Französisch übersetzt (Voraussetzung ist, dass der französische Wert hinterlegt ist). Alternativ kannst du das XX beibehalten, dann wird automatisch die Sprache genutzt, die im eBay-Listing eingestellt ist.</p>
+<p>Du kannst folgende <strong>Wildcards</strong> verwenden:</p>
+<p>{EAN}, {NUMMER}, {HERSTELLER}, {HERSTELLERNUMMER}, {HERKUNFTSLAND}, {ZOLLTARIFNUMMER}, {LISTINGID}, {PREIS}, {WAEHRUNG}, {LAENGE}, {BREITE}, {HOEHE}, {GEWICHT}, {EINHEIT}, {PSEUDOPREIS}, {ZUSTAND}, {FIRMA}, {EBAYUSERID}, {EIGENSCHAFT_Eigenschaftname_XX}, {ARTIKELNAME_XX}, {KURZTEXT_XX}, {ARTIKELBESCHREIBUNG_XX}, {ARTIKELSHOPTEXT_XX}, {METATITEL_XX}, {METADESCRIPTION_XX}, {METAKEYWORDS_XX}, {FREIFELD1_XX}&hellip; {FREIFELD40_XX}, {BILDURL1}&hellip; {BILDURL12};</p>
+<h4 id="vorlagen-mit-bedingungen">Vorlagen mit Bedingungen<a class="headerlink" href="#vorlagen-mit-bedingungen" title="Permanent link">&para;</a></h4>
+<p>Vorlagen können {IF}-Verzweigungen enthalten, d.h. ein Inhalt wird nur dann dargestellt, wenn eine bestimmte Bedingung erfüllt ist.</p>
+<p>In folgendem Beispiel soll der Hersteller eines Artikels angegeben werden. Ist im Artikel kein Hersteller gepflegt, sollen die Informationen aus dem Kurztext angezeigt werden. Ist auch hier nichts gepflegt, soll der Satz <em>Leider gibt es zu diesem Artikel keine weiteren Informationen</em> angezeigt werden.</p>
+<p>Die Vorlage wird um eine entsprechende IF-Verzweigung ergänzt:</p>
+<p><img alt="eBay-App-9.png" src="https://help.xentral.com/hc/article_attachments/18590747196444" /></p>
+<p>Ist in einem Artikel kein Kurztext gepflegt, treffen die ersten beiden {IF}-Bedingungen nicht zu, d.h. die Vorlage wird den {ELSE}-Fall wählen und einen definierten Text anzeigen.</p>
+<p><img alt="eBay-App-10.png" src="https://help.xentral.com/hc/article_attachments/18590766464284" /></p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Seit März 2018 werden Artikelbeschreibungen ohne HTTPS-Inhalte von eBay automatisch hinter einer Schaltfläche versteckt, welcher zur kompletten Artikelbeschreibung führt. Sollte dieses Verhalten auftreten, muss die Vorlage entsprechend angepasst werden.</p>
+</blockquote>
+<h4 id="vorschau-der-ebay-vorlagen-im-artikel">Vorschau der eBay-Vorlagen im Artikel<a class="headerlink" href="#vorschau-der-ebay-vorlagen-im-artikel" title="Permanent link">&para;</a></h4>
+<p>Um die oben gezeigte Vorlage auf Korrektheit hin zu überprüfen, navigiere zu einem Artikel, den du mit eBay verknüpft hast (Stammdaten &gt; Artikel). Öffne den ReiterOnline-Shop Optionenund prüfe, ob du bereits eBay als Shop hinterlegt hast. Weitere Informationen findest du<a href="https://help.xentral.com/hc/de/articles/5355868406428#UUID-1d1e8a13-6479-2b8d-d64e-2d5a4a044eb1">hier</a>.</p>
+<p>Ist bereits ein eBay-Eintrag vorhanden, klicke auf<img alt="Gear_onlineshopoptions.png" src="https://help.xentral.com/hc/article_attachments/18590766465308" /></p>
+<p>für den Eintrag.</p>
+<p>Es wird eine Übersicht angezeigt. Wähle im BereichTemplatesdeine zuvor angelegte Vorlage aus demVorlagen-Dropdown-Menü aus. Klicke aufZeige Vorschau, um deine Vorlage zu prüfen.</p>
+<p><img alt="eBay-App-12.png" src="https://help.xentral.com/hc/article_attachments/18590747201692" /></p>
+<p>In dem sich dann öffnenden Reiter im Browser kannst du alle Eingaben einsehen. Klicke aufSpeichern.</p>
+<h3 id="rahmenbedingungen">Rahmenbedingungen<a class="headerlink" href="#rahmenbedingungen" title="Permanent link">&para;</a></h3>
+<p>eBay empfiehlt die Nutzung von Rahmenbedingungen für Listings. Die Rahmenbedingungen sowie die Verwendung dieser definierst du in den Kontoeinstellungen von eBay. Rahmenbedingungen dienen dazu, Versand-, Zahlungs- und Rückgabedaten zu vereinheitlichen und vereinfachen. So müssen diese nicht mehr separat für jeden Artikel eingestellt werden, sondern können im Artikel aus einer Gruppe von Optionen ausgewählt werden.</p>
+<p>Damit Rahmenbedingungen verwendet werden können, setze für eBay im ModulOnline-Shopsein Häkchen beiRahmenbedingungen verwenden.</p>
+<p><img alt="eBay-App-13.png" src="https://help.xentral.com/hc/article_attachments/18590766470044" /></p>
+<p>Du kannst die Rahmenbedingungen im untergeordneten ReiterRahmenbedingungenherunterladen. Wähle den gewünschten eBay-Shop imImporterschnittstelle-Dropdown-Menü. Sobald die Rahmenbedingungen heruntergeladen wurden, kannst du ihre Bezeichnungen ändern, um in den Artikeleinstellungen passende Bezeichnungen zur Verfügung zu haben. Eine Änderung des tatsächlichen Inhalts der Rahmenbedingung erfolgt derzeit noch direkt in eBay.</p>
+<p><img alt="eBay-App-14.png" src="https://help.xentral.com/hc/article_attachments/18590766471836" /></p>
+<p>Wenn es bei eBay Änderungen beim Versand, Zahlungen oder Rückgaben gibt, kannst du die Rahmenbedingungen mit einem Klick aufRahmenbedingungen aktualisierenaktualisieren.</p>
+<p><img alt="eBay-App-15.png" src="https://help.xentral.com/hc/article_attachments/18590747209500" /></p>
+<h3 id="zuordnungen">Zuordnungen<a class="headerlink" href="#zuordnungen" title="Permanent link">&para;</a></h3>
+<p>Hast du eBay bereits vor der Nutzung des eBay-Importers verwendet, kannst du bereits bestehende Listings anzeigen lassen und so bestehende Produktbewertungen weiter verwenden. Voraussetzung für die Zuweisung der Artikel ist, dass die eindeutigen Identifikationsnummern bei den Artikeln als<a href="https://help.xentral.com/hc/de/articles/18589763213980#UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093">Fremdnummern</a>hinterlegt sind. Klicke im BereichAktionenaufArtikelliste aktualisieren, um den aktuellen Stand der Listings anzuzeigen.</p>
+<p>Werden Artikel mit SKU übertragen, versucht Xentral eine automatische Zuordnung über die EAN. Alle gefunden, korrekten Zuordnungen werden angezeigt. Du kannst Zuweisungen ändern, indem du auf<img alt="PenIcon.png" src="https://help.xentral.com/hc/article_attachments/18590766452252" /></p>
+<p>in der SpalteMenüklickst.</p>
+<p>Sind alle Zuweisungen erfolgt, klicke im BereichAktionenaufArtikel automatisch zuordnen. Die Zuweisung wird in den Fremdnummern hinterlegt. Erst nach diesem Schritt ist die Zuordnung funktional.</p>
+<h3 id="versand">Versand<a class="headerlink" href="#versand" title="Permanent link">&para;</a></h3>
+<p>Im untergeordneten ReiterVersandkannst du Versanddienstleister den einzelnen Versandarten zuweisen.</p>
+<p>Um die verfügbaren Versanddienstleister herunterzuladen, klicke im BereichAktionenaufShipping Carrier herunterladen.  Du kannst nun Zuweisungen herstellen, indem du auf<img alt="PenIcon.png" src="https://help.xentral.com/hc/article_attachments/18590766452252" /></p>
+<p>klickst.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Stelle sicher, dass alle erforderlichen Zuweisungen erfolgt sind, da sonst keine Trackingdaten übermittelt werden können.</p>
+</blockquote>
+<p>Wichtig für die Rückmeldung von Trackingdaten: Für die Rückmeldung versucht Xentral zunächst, über die eingestellte Versandart an eBay zu melden. Sollte die Versandart keinem bekannten Dienstleister entsprechen, schlägt der Versand fehl. Die Versandart muss dann entsprechend angepasst werden. Es kann außerdem sein, dass der von eBay übermittelte Dienstleister nicht der angegebenen Beschreibung entspricht, wenn z.B. DHL als Dienstleister angegeben aber DPD in der Beschreibung erwähnt ist. In diesem Fall musst du den Dienstleister überschreiben, damit die Rückmeldung korrekt erfolgt.</p>
+<h3 id="storekategorien">Storekategorien<a class="headerlink" href="#storekategorien" title="Permanent link">&para;</a></h3>
+<p>Im untergeordneten ReiterStorekategorienkannst du eBay-Shopkategorien anzeigen und aktualisieren. Klicke dazu im BereichAktionenaufStorekategorien herunterladen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Änderungen in der Shopnavigation in eBay müssen auf in der eBay-App in Xentral aktualisiert werden.</p>
+</blockquote>
+<h2 id="der-reiter-stapelverarbeitung">Der Reiter Stapelverarbeitung<a class="headerlink" href="#der-reiter-stapelverarbeitung" title="Permanent link">&para;</a></h2>
+<h3 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">&para;</a></h3>
+<p>Änderungen im Lagerbestand werden in regelmäßigen Abständen an eBay übertragen. Dies  kannst du im untergeordneten ReiterJobsnachverfolgen. Jobs sind Synchronisationen des Lagerbestands.</p>
+<p>Der Prozessstarter fasst etwa alle 30 Minuten Änderungen/Requests als Job zusammen und überträgt diese an Ebay.</p>
+<p>Für eine komplette Lagersynchronisierung brauchen wir jedoch zwei Zyklen des Jobs:</p>
+<ol>
+<li>Im ersten Zyklus fordert Xentral eine Task-ID von eBay an. Diese ist für die Lagersynchronisierung erforderlich. eBay wird dann eine Task-ID zurückmelden.</li>
+<li>Im zweiten Zyklus fügtXentral die Daten zur Task-ID hinzu und überträgt diese an eBay.</li>
+</ol>
+<p>Die Lagersynchronisierung ist bereits erfolgt, wenn die Rückmeldung von eBay eingeht.</p>
+<p><img alt="eBay-App-22.png" src="https://help.xentral.com/hc/article_attachments/18590766477084" /></p>
+<h3 id="requests">Requests<a class="headerlink" href="#requests" title="Permanent link">&para;</a></h3>
+<p>Im untergeordneten ReiterRequestswerden die einzelnen Lagerbestandsänderungen angezeigt.</p>
+<p><img alt="eBay-App-23.png" src="https://help.xentral.com/hc/article_attachments/18590747212572" /></p>
+<h3 id="protokoll">Protokoll<a class="headerlink" href="#protokoll" title="Permanent link">&para;</a></h3>
+<p>Jedwede Kommunikation zwischen Xentral und eBay wird protokolliert. Die Protokolle findest du im untergeordneten ReiterProtokoll. Hier sind alle übertragenen Produkte mit ihren Job-IDs gelistet.</p>
+<p>Du kannst den FilterNur Übertragungsfehlerverwenden, um fehlerhafte Übertragungen anzuzeigen.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

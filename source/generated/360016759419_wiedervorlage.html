@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016759419 Wiedervorlage - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016759419 Wiedervorlage</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016759419 Wiedervorlage</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit Wiedervorlagen können Aufgaben geplant und Erinnerungen an diese nach bestimmten Fristen eingestellt werden. Diese Funktion kann insbesondere im Bereich Marketing und Vertrieb sehr hilfreich sein, ist jedoch auf viele verschiedene Bereiche übertragbar. Wiedervorlagen können einem Kunden, einem verantwortlichen Mitarbeiter oder auch einem Projekt zugeordnet werden, um so einen besseren Überblick zu haben.</p>
+<h2 id="wiedervorlagen-anlegenbearbeiten">Wiedervorlagen anlegen/bearbeiten<a class="headerlink" href="#wiedervorlagen-anlegenbearbeiten" title="Permanent link">&para;</a></h2>
+<p>Mit einem Klick auf die &ldquo;+NEU&rdquo;-Schaltfläche kann eine Wiedervorlage angelegt werden. Im geöffneten Pop-Up Fenster kann im oberen Bereich die aktuelle Stage ausgewählt bzw. eingesehen werden, auf der linken Hälfte können die grundlegenden Informationen einer Wiedervorlage gepflegt und auf der rechten Hälfte die Zusatzinformationen eingetragen werden.</p>
+<p><img alt="FollowUp1.png" src="https://help.xentral.com/hc/article_attachments/18183888577948" /></p>
+<h3 id="stages">Stages<a class="headerlink" href="#stages" title="Permanent link">&para;</a></h3>
+<p>Am oberen Rand des Pop-Up Fensters stehen alle zuvor angelegten Stages des ausgewählten Boards zur Auswahl (hier: ToDo, InProgress, Done). So kann beim Erstellen oder Bearbeiten die Wiedervorlage von Stage zu Stage geschickt werden, in dem auf die nächste oder vorherige Stage geklickt wird. Es können auch mehrere Stages auf einmal gewählt werden.</p>
+<h3 id="grundlegende-informationen">Grundlegende Informationen<a class="headerlink" href="#grundlegende-informationen" title="Permanent link">&para;</a></h3>
+<p>Auf der linken Hälfte des Pop-Up Fensters können grundlegende Informationen zu der Wiedervorlage in folgende Felder eingetragen werden:</p>
+<ul>
+<li>Bezeichnung → die Bezeichnung der Wiedervorlage</li>
+<li>für Kunde → Auswahl des zugehörigen Kunden</li>
+<li>Ansprechpartner → Ansprechpartner beim Kunden</li>
+<li>Projekt → Auswahl des Projekts</li>
+<li>Beschreibung → Beschreibung der Wiedervorlage wie z.B. was getan werden muss oder bereits passiert ist</li>
+<li>Farbe → frei wählbare Farbe, die in der Pipeline Ansicht (Reiter &ldquo;Übersicht&rdquo; Tab &ldquo;Pipelines&rdquo;) oder in der Kalender Ansicht (Reiter &ldquo;Übersicht&rdquo; Tab &ldquo;Kalender&rdquo;) für die Anzeige verwendet wird</li>
+<li>Abschlussdatum → Datum bis wann die Wiedervorlage abgeschlossen sein sollte</li>
+<li>Volumen in EUR → Wert der Wiedervorlage in Euro</li>
+<li>Chance → Prozentzahl wie hoch der Erfolg dieser Wiedervorlage ist</li>
+<li>Stage → Auswahl der Stage in der die Wiedervorlage startet oder sich aktuell befindet</li>
+<li>Erinnerung-Datum → Datum an dem die Wiedervorlage fällig ist</li>
+<li>per E-Mail → bei gesetztem Haken erhält der Bearbeiter am Tag des Erinnerung-Datum eine E-Mail zu dieser Wiedervorlage</li>
+<li>Uhrzeit → Uhrzeit an der die Wiedervorlage fällig ist</li>
+<li>Verantwortlicher → der Verantwortliche der Wiedervorlage, es stehen alle Adressen aus xentral zur Auswahl</li>
+<li>Bearbeiter → der Bearbeiter der Wiedervorlage, es stehen alle Adressen aus xentral zur Auswahl</li>
+<li>Prio → markiert die Wiedervorlage als Prio, diese werden dann in der Liste bzw. der Pipeline rot markiert</li>
+<li>abgeschlossen → markiert die Wiedervorlage als abgeschlossen</li>
+</ul>
+<p>Sollen nicht alle Adressen aus xentral beim Verantwortlichen und dem Bearbeiter zur Auswahl stehen, kann unter &ldquo;Administration → Einstellungen → System → Grundeinstellungen → System&rdquo; der Haken &ldquo;Wiedervorlage - nur Mitarbeiter wählbar&rdquo; aktiviert werden. Somit werden nur Adressen mit der Rolle Mitarbeiter in der Auswahl angezeigt.</p>
+<p><img alt="FollowUp2.png" src="https://help.xentral.com/hc/article_attachments/18183912346652" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>In dem Drop-Down-Menü im Feld &ldquo;Mitarbeiter&rdquo; werden alle Adressen ausgegeben, die in mind. einer Wiedervorlage als Verantwortlicher oder als Bearbeiter hinterlegt sind.</p>
+</blockquote>
+<h3 id="zusatzinformationen">Zusatzinformationen<a class="headerlink" href="#zusatzinformationen" title="Permanent link">&para;</a></h3>
+<h4 id="verlauf">Verlauf<a class="headerlink" href="#verlauf" title="Permanent link">&para;</a></h4>
+<p>Im Verlauf wird der zeitliche Ablauf, wann welche Aktion bei einer Wiedervorlage passiert ist, ersichtlich. Hier stehen sowohl Systeminformationen (z.B. Neuanlage oder das Verschieben in eine andere Stage), als auch händisch eingetragene Notizen mit Anzeige des Mitarbeiters, der die Notiz verfasst, bearbeitet oder gelöscht hat (z.B. Vertrag wurde an Kunden gesendet).</p>
+<p>Verweilt die Maus für ein paar Sekunden über einer Wiedervorlage in der Pipeline Übersicht, wird der Verlauf in einem Pop-Up Fenster angezeigt. So muss nicht jedes Mal in die Wiedervorlage geklickt werden, um den letzten Stand des Verlaufs zu sehen.</p>
+<h4 id="aufgaben">Aufgaben<a class="headerlink" href="#aufgaben" title="Permanent link">&para;</a></h4>
+<p>Neben der Wiedervorlage selbst, werden eventuell zusätzliche Aufgaben, die für diese Wiedervorlage erledigt werden müssen, gebraucht. In diesem Fall können mehrere Aufgaben angelegt und an verschiedene Mitarbeiter verteilt werden. Die erstellten Aufgaben werden ebenfalls im Aufgaben Modul von xentral angezeigt. In der Tabelle sind alle Aufgaben die zu dieser Wiedervorlage gehören ersichtlich und können direkt dort mit dem Haken auf offen/abgeschlossen gesetzt, mit dem Stift bearbeitet und mit dem Kreuz gelöscht werden.</p>
+<p>Über die Schaltfläche &ldquo;Neue Aufgabe&rdquo; kann eine neue Aufgabe, die zu dieser Wiedervorlage gehört, angelegt werden. Folgende Felder stehen zur Verfügung:</p>
+<ul>
+<li>Bezeichnung → die allgemeine Bezeichnung der Aufgabe</li>
+<li>Bearbeiter → der zuständige Mitarbeiter für diese Aufgabe</li>
+<li>für Kunde → der Kunde, für den die Aufgabe ist</li>
+<li>Abgabe bis → das Datum und die Uhrzeit, bis wann die Aufgabe erledigt sein muss</li>
+<li>Projekt → das zugehörige Projekt</li>
+<li>Teilprojekt → das zugehörige Teilprojekt</li>
+<li>Muss abgeschlossen sein ab Stage → Auswahl der Stage, ab welcher die Aufgabe abgeschlossen sein muss (Wiedervorlage kann sonst nicht in die nächste Stage)</li>
+<li>Status → aktueller Status der Aufgabe</li>
+<li>Priorität → aktuelle Priorität der Aufgabe</li>
+<li>Beschreibung → Ausführliche Beschreibung der Aufgabe</li>
+</ul>
+<h4 id="freifelder">Freifelder<a class="headerlink" href="#freifelder" title="Permanent link">&para;</a></h4>
+<p>Zuvor angelegte Freifelder (Reiter &ldquo;Einstellungen&rdquo; Tab &ldquo;Freifelder&rdquo;) können mit zusätzlichen Informationen befüllt werden, die sonst keinen Platz in den Feldern der Wiedervorlage finden würden. Der Inhalt aus diesen Feldern wird bei aktiver Einstellung in der Pipeline sowie in den weiteren Tabellen der Wiedervorlagen als Zusatzspalte angezeigt.</p>
+<p>Zusatzfelder Adresstabelle</p>
+<p>Zuvor festgelegte Zusatzfelder aus der Adresstabelle (Reiter &ldquo;Einstellungen&rdquo; Tab &ldquo;Allgemein&rdquo;) können in dieser Ansicht bearbeitet werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Zu beachten ist, dass die Änderungen ebenfalls in der Adresse selbst im ausgewählten Feld überschrieben werden. Zum Beispiel steht in der Wiedervorlage im Zusatzfeld Telefon die Telefonnummer 1234567 aus der Adresse. Wird diese auf 1234560 geändert, wird in der Adresse selbst die Telefonnummer geändert. Der Inhalt aus diesen Feldern wird bei aktiver Einstellung in der Pipeline sowie in den weiteren Tabellen der Wiedervorlagen als Zusatzspalte angezeigt.</p>
+</blockquote>
+<h2 id="ubersicht">Übersicht<a class="headerlink" href="#ubersicht" title="Permanent link">&para;</a></h2>
+<p>Im Reiter &ldquo;Übersicht&rdquo; stehen verschiedene Tabs zur Verfügung mit denen auf unterschiedliche Weise die Wiedervorlagen verwaltet und verwendet werden können. Am rechten Ende der Tableiste kann ein Board (Reiter &ldquo;Einstellungen&rdquo; Tab &ldquo;Boards&rdquo;) ausgewählt werden. Dadurch erscheinen nur die Wiedervorlagen, die diesem Board zugewiesen sind. Außerdem kann ein Mitarbeiter (Bearbeiter in der Wiedervorlage) ausgewählt werden, um nur dessen Wiedervorlagen zu sehen.</p>
+<p><img alt="FollowUp3.png" src="https://help.xentral.com/hc/article_attachments/18183888586780" /></p>
+<h3 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab wird der Umsatz aus Aufträgen, die Umsätze nach Mitarbeiter, die Gesamtübersicht, eine Übersicht der Abschlüsse, Aufträge im aktuellen Monat und Angebote im aktuellen Monat auf einen Blick ersichtlich.</p>
+<p><img alt="FollowUp4.png" src="https://help.xentral.com/hc/article_attachments/18183888588444" /></p>
+<h3 id="tab-pipelines">Tab Pipelines<a class="headerlink" href="#tab-pipelines" title="Permanent link">&para;</a></h3>
+<p>In der Pipelines Ansicht wird auf einen Blick ersichtlich, in welcher Stage sich die offenen Wiedervorlagen befinden. Du kannst hier außerdem einzelne Wiedervorlagen per Drag&amp;Drop zwischen den Stages verschieben. Dabei wird steht auch ein Verlaufseintrag erstellt.</p>
+<p><img alt="FollowUp5.png" src="https://help.xentral.com/hc/article_attachments/18183912356508" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dabei wird immer ein Eintrag im Verlauf erstellt.</p>
+</blockquote>
+<p>Anhand eingeblendeter Symbole kann der Status abgelesen werden:</p>
+<ul>
+<li>rotes Ausrufezeichen → die Wiedervorlage ist überfällig (Erinnerung-Datum liegt in der Vergangenheit)</li>
+<li>grünes Ausrufezeichen → die Wiedervorlage ist heute fällig (Erinnerung-Datum ist heute)</li>
+<li>graues Ausrufezeichen → die Wiedervorlage ist in der Zukunft fällig (Erinnerung-Datum liegt in der Zukunft)</li>
+<li>Warndreieck mit Ausrufezeichen → die Wiedervorlage hat eine Prio (Haken Prio ist gesetzt)</li>
+<li>durchgestrichener Text → die Wiedervorlage ist abgeschlossen (Haken abgeschlossen ist gesetzt)</li>
+</ul>
+<p>Über die Filter kann die Ansicht eingeschränkt werden:</p>
+<ul>
+<li>Prio → zeigt nur die Wiedervorlagen mit gesetztem Prio Haken an</li>
+<li>fällige → zeigt alle Wiedervorlagen, deren Erinnerung-Datum in der Vergangenheit oder auf heute liegt</li>
+<li>meine → Wiedervorlagen, die dem eingeloggten Mitarbeiter zugeordnet sind</li>
+<li>nur meine vergebenen → Wiedervorlagen, die der eingeloggte Mitarbeiter an einen anderen Mitarbeiter vergeben hat</li>
+<li>mit abgeschlossene → blendet die abgeschlossenen Wiedervorlagen ein</li>
+</ul>
+<p>Die in der Wiedervorlage vergebene Farbe wird am linken Rand jeder Wiedervorlage angezeigt. Außerdem können in der Pipelines Ansicht Zusatzfelder aus der Kundenadresse (Reiter &ldquo;Einstellungen&rdquo; im Tab &ldquo;Allgemein&rdquo;) und Freifelder (Reiter &ldquo;Einstellungen&rdquo; im Tab &ldquo;Freifelder&rdquo;) angezeigt werden, sofern diese Einstellungen aktiviert wurden. Stages können in dieser Ansicht auch ausgeblendet werden (Reiter &ldquo;Einstellungen&rdquo; im Tab &ldquo;Stages&rdquo;). Bleibt man mit der Maus über einer Wiedervorlage für ein paar Sekunden, erscheint ein Pop-Up in der Details der Wiedervorlage zu sehen sind, wie z.B. das Fälligkeitsdatum und den gesamten Notizverlauf. Mit einem Klick auf eine Wiedervorlage kann diese bearbeitet werden. Wird auf eine Wiedervorlage geklickt und dabei die Maustaste gedrückt gehalten, kann diese Wiedervorlage in eine andere Stage verschoben werden. Während des Vorgangs besteht die Möglichkeit am unteren Bildschirmrand die Wiedervorlage in den Papierkorb (Löschen der Wiedervorlage), zu den Gewinnern oder den Verlierern zu ziehen. Wird eine Wiedervorlage zu den Gewinnern oder Verlierern verschoben, öffnet sich ein Dialogfenster in das eine Notiz eingetragen werden kann und dem Verlauf hinzugefügt wird. Danach wird die Wiedervorlage als abgeschlossen markiert.</p>
+<h3 id="tab-liste">Tab Liste<a class="headerlink" href="#tab-liste" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab sind alle Wiedervorlagen aufgelistet.</p>
+<p>In der Listenansicht können durch die unterschiedlich farbigen Zeilen die aktuellen Status der offenen Wiedervorlagen unterschieden werden:</p>
+<ul>
+<li>rote Zeile → die Wiedervorlage ist überfällig (Erinnerung-Datum liegt in der Vergangenheit)</li>
+<li>grüne Zeile → die Wiedervorlage ist heute fällig (Erinnerung-Datum ist heute)</li>
+<li>weiße Zeile → die Wiedervorlage ist in der Zukunft fällig (Erinnerung-Datum liegt in der Zukunft)</li>
+<li>roter Text → die Wiedervorlage hat eine Prio (Haken Prio ist gesetzt)</li>
+<li>durchgestrichener Text → die Wiedervorlage ist abgeschlossen (Haken abgeschlossen ist gesetzt)</li>
+</ul>
+<p>Außerdem wird in der Tabelle ersichtlich:</p>
+<ul>
+<li>wann die Wiedervorlage fällig ist</li>
+<li>der Titel der Wiedervorlage</li>
+<li>der zugeordneten Kunden</li>
+<li>das zugewiesene Projekt</li>
+<li>an welchen Mitarbeiter sich zu wenden ist</li>
+<li>das Volumen der Wiedervorlage</li>
+<li>die Chance mit der die Wiedervorlage abgeschlossen wird</li>
+<li>in welcher Stage sich die Wiedervorlage aktuell befindet</li>
+<li>das Abschlussdatum</li>
+<li>die Abteilung, welche verantwortlich für die Wiedervorlage ist</li>
+<li>die Mitarbeiternummer des bearbeitenden Mitarbeiters</li>
+<li>die Menüspalte, mit der die Wiedervorlage bearbeitet, gelöscht bzw. abgeschlossen werden sowie in die verknüpfte Kundenadresse gegangen oder ein Tag hinzufügt werden kann.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Drop-Down-Menü im Feld &ldquo;Melden bei&rdquo; werden alle Adressen ausgegeben, die in mind. einer Wiedervorlage als Verantwortlicher oder als Bearbeiter hinterlegt sind.</p>
+</blockquote>
+<p>Über die Filter kann die Ansicht eingeschränkt werden:</p>
+<ul>
+<li>Prio → zeigt nur die Wiedervorlagen mit gesetztem Prio Haken an</li>
+<li>fällige → zeigt alle Wiedervorlagen, deren Erinnerung-Datum in der Vergangenheit oder auf heute liegt</li>
+<li>meine → Wiedervorlagen die dem eingeloggten Mitarbeiter zugeordnet sind</li>
+<li>nur meine vergebenen → Wiedervorlagen, die der eingeloggte Mitarbeiter an einen anderen Mitarbeiter vergeben hat</li>
+<li>mit abgeschlossene → blendet die abgeschlossenen Wiedervorlagen ein</li>
+</ul>
+<h3 id="tab-eingangsdatum">Tab Eingangsdatum<a class="headerlink" href="#tab-eingangsdatum" title="Permanent link">&para;</a></h3>
+<p>In dieser Übersicht sind die Wiedervorlagen nach Erstellungsdatum je Kalenderwoche gruppiert.</p>
+<p>Wiedervorlagen mit gesetztem Prio Haken werden mit fetter, roter Schrift angezeigt. Ist die Wiedervorlage bereits abgeschlossen, wird diese durchgestrichen dargestellt. In den Suchfeldern kann die Tabelle durchsucht werden, um das Ergebnis einzuschränken.</p>
+<p>In der Tabelle wird ersichtlich:</p>
+<ul>
+<li>die Kalenderwoche</li>
+<li>das Eingangsdatum (Erstellungsdatum der Wiedervorlage)</li>
+<li>Timeline-Einträge (Anzahl der Notizen im Verlauf, Systemnotizen werden nicht mitgezählt)</li>
+<li>das Abschlussdatum</li>
+<li>wann die Wiedervorlage fällig ist (Erinnerung-Datum)</li>
+<li>der Titel</li>
+<li>den zugeordneten Kunden</li>
+<li>das Projekt</li>
+<li>den Verantwortlichen der Wiedervorlage</li>
+<li>das Volumen</li>
+<li>die Chance</li>
+<li>die aktuelle Stage</li>
+<li>die Abteilung, welche verantwortlich für die Wiedervorlage ist</li>
+<li>die Mitarbeiternummer des bearbeitenden Mitarbeiters</li>
+<li>die Menüspalte, mit der die Wiedervorlage bearbeitet, gelöscht bzw. abgeschlossen werden sowie in die verknüpfte Kundenadresse gegangen oder ein Tag hinzufügt werden kann.</li>
+</ul>
+<h3 id="tab-abschlussdatum">Tab Abschlussdatum<a class="headerlink" href="#tab-abschlussdatum" title="Permanent link">&para;</a></h3>
+<p>In dieser Übersicht sind die Wiedervorlagen nach Abschlussdatum je Kalenderwoche gruppiert.</p>
+<p>Wiedervorlagen mit gesetztem Prio Haken werden mit fetter, roter Schrift angezeigt. Ist die Wiedervorlage bereits abgeschlossen, wird diese durchgestrichen dargestellt. In den Suchfeldern kann die Tabelle durchsucht werden, um das Ergebnis einzuschränken.</p>
+<p>In der Tabelle wird ersichtlich:</p>
+<ul>
+<li>der Abschlussmonat</li>
+<li>das Abschlussdatum</li>
+<li>wann die Wiedervorlage fällig ist (Erinnerung-Datum)</li>
+<li>der Titel</li>
+<li>den zugeordneten Kunden</li>
+<li>das Projekt</li>
+<li>den Verantwortlichen der Wiedervorlage</li>
+<li>das Volumen</li>
+<li>die Chance</li>
+<li>Gewichtet (berechnet sich aus Volumen * Chance / 100, gibt also an wie viel diese Wiedervorlage wert ist)</li>
+<li>die aktuelle Stage</li>
+<li>die Abteilung, welche verantwortlich für die Wiedervorlage ist</li>
+<li>die Mitarbeiternummer des bearbeitenden Mitarbeiters</li>
+<li>die Menüspalte, mit der die Wiedervorlage bearbeitet, gelöscht bzw. abgeschlossen werden sowie in die verknüpfte Kundenadresse gegangen oder ein Tag hinzufügt werden kann.</li>
+</ul>
+<h3 id="tab-winslosses">Tab Wins/Losses<a class="headerlink" href="#tab-winslosses" title="Permanent link">&para;</a></h3>
+<p>In dieser Übersicht sind alle gewonnenen und verlorenen Wiedervorlagen nach Kalenderwoche gruppiert.</p>
+<p>Gewonnene Wiedervorlagen haben eine grün hinterlegte Zeile, wohingegen verlorene Wiedervorlagen rot hinterlegt sind. Wiedervorlagen mit gesetztem Prio Haken werden mit fetter, roter Schrift angezeigt. In den Suchfeldern kann die Tabelle durchsucht werden, um das Ergebnis einzuschränken.</p>
+<p>In der Tabelle wird ersichtlich:</p>
+<ul>
+<li>der Status (Gewonnen oder Verloren)</li>
+<li>die Kalenderwoche in der die Wiedervorlage gewonnen oder verloren wurde</li>
+<li>das Datum wann die Wiedervorlage gewonnen oder verloren wurde</li>
+<li>das Eingangsdatum (das Erstellungsdatum der Wiedervorlage)</li>
+<li>die Tagesanzahl (wie viele Tage vom Eingangsdatum bis zum Abschlussdatum vergangen sind)</li>
+<li>der Titel</li>
+<li>den zugeordneten Kunden</li>
+<li>das Projekt</li>
+<li>den Verantwortlichen der Wiedervorlage</li>
+<li>das Volumen</li>
+<li>die Chance</li>
+<li>die aktuelle Stage</li>
+<li>das Abschlussdatum</li>
+<li>die Abteilung, welche verantwortlich für die Wiedervorlage ist</li>
+<li>die Mitarbeiternummer des bearbeitenden Mitarbeiters</li>
+<li>die Menüspalte, mit der Sie die Wiedervorlagen bearbeiten, löschen, in die verknüpfte Kundenadresse gehen, oder ein Tag hinzufügen können</li>
+</ul>
+<h3 id="tab-kalender">Tab Kalender<a class="headerlink" href="#tab-kalender" title="Permanent link">&para;</a></h3>
+<p>In dieser Übersicht werden alle Wiedervorlagen mit einem gesetzten Abschlussdatum in einem Kalender angezeigt.</p>
+<p>Die Wiedervorlage wird im Kalender am festgelegten Abschlussdatum angezeigt. Mit einem Klick auf eine Wiedervorlage kann diese bearbeitet werden. Wird auf eine Wiedervorlage geklickt und die Maustaste dabei gedrückt, kann diese Wiedervorlage auf einen anderen Tag verschoben werden, wodurch sich auch das Abschlussdatum ändert. Über jeder Wiedervorlage werden graue Punkte und ein farblicher Punkt dargestellt. Jeder Punkt steht für eine Stage und der farblich markierte Punkt für die aktuelle Stage in der sich die Wiedervorlage befindet. Die farbliche Markierung des Punktes hängt von der vergebenen Farbe beim Anlegen der Stage ab, das heißt es können zum Beispiel jeder Stage eine andere Farbe gegeben werden, um auf einen Blick zu sehen, um welche Stage es sich handelt. Am linken Rand jeder Wiedervorlage wird die in der Wiedervorlage vergebene Farbe angezeigt. Der angezeigte Mitarbeiter ist dabei der Bearbeiter der Wiedervorlage. Wiedervorlagen mit der Markierung eines Warndreiecks mit Ausrufezeichen sind Wiedervorlagen, bei denen der Haken Prio gesetzt wurde.</p>
+<h2 id="reiter-einstellungen">Reiter Einstellungen<a class="headerlink" href="#reiter-einstellungen" title="Permanent link">&para;</a></h2>
+<h3 id="tab-allgemein">Tab Allgemein<a class="headerlink" href="#tab-allgemein" title="Permanent link">&para;</a></h3>
+<p>In diesem Reiter können Zusatzfelder der Adresstabelle sowie Details zum Dashboard eingestellt werden.</p>
+<p>Bereich Zusatzfelder Adresstabelle</p>
+<p>Aus der Adresstabelle können bis zu 10 Spalten in die Anzeige der Wiedervorlagen übernommen werden. Diese Spalten werden im Reiter Übersicht in folgenden Tabs angezeigt:</p>
+<ul>
+<li>Liste</li>
+<li>Eingangsdatum</li>
+<li>Abschlussdatum</li>
+<li>Wins/Losses</li>
+<li>Pipelines (sofern der Haken &ldquo;sichtbar in Pipelines&rdquo; neben der Spalte aktiviert wurde, wird das Zusatzfeld in der Wiedervorlage angezeigt)</li>
+</ul>
+<p>Folgende Werte können aus der Adresse ausgewählt werden:</p>
+<ul>
+<li>Telefon</li>
+<li>Fax</li>
+<li>Mobil</li>
+<li>Ansprechpartner</li>
+<li>Abteilung</li>
+<li>Unterabteilung</li>
+<li>Ust.-ID</li>
+<li>Steuernummer</li>
+<li>GLN</li>
+<li>Mitarbeiternummer</li>
+<li>Freifeld 1-20</li>
+</ul>
+<p>Bereich Dashboard</p>
+<p>Hier kann definiert werden, welcher Stage eingegangene Wiedervorlagen zugeordnet werden sollen. Dabei erscheint für jedes erstellte Dashboard eine eigene Zeile, für die diese Einstellung individuell getätigt werden kann. Einstellungen für das Dashboard können hier getätigt werden.</p>
+<h3 id="tab-boards">Tab Boards<a class="headerlink" href="#tab-boards" title="Permanent link">&para;</a></h3>
+<p>Mit einem Board können verschiedene Bereiche wie z.B. Abteilungen voneinander getrennt betrachtet werden. Zum Beispiel kann es ein Board für die Abteilung Marketing und ein weiteres Board für die Abteilung Vertrieb geben. So kann jede Abteilung unabhängig voneinander nur die Wiedervorlagen ihres Boards sehen. Im Reiter &ldquo;Übersicht&rdquo; erfolgt die Auswahl des jeweiligen Boards.</p>
+<p>In der Tabelle sind alle erstellten Boards, die sich über die Suche filtern und über die Menüspalte jederzeit bearbeiten und löschen lassen. Über die Schaltfläche &ldquo;+ Neuer Eintrag&rdquo; wird ein neues Board angelegt. Folgende Felder stehen zur Auswahl:</p>
+<ul>
+<li>Name → Name des Boards</li>
+<li>Kennung → eine eindeutige Kennung für das Board</li>
+<li>Projekt (optional) → Auswahl des Projekts für das Board</li>
+<li>Aktiv → Ist das Board aktiv oder nicht</li>
+</ul>
+<h3 id="tab-stages">Tab Stages<a class="headerlink" href="#tab-stages" title="Permanent link">&para;</a></h3>
+<p>Anhand von Stages wird ersichtlich, in welcher Phase oder welchem Fortschritt sich eine Wiedervorlage befindet.</p>
+<p>Über die Suche kann das Ergebnis der Tabelle gefiltert und mit der Menüspalte die Stages bearbeitet und gelöscht werden. In der Tabelle wird ersichtlich:</p>
+<ul>
+<li>das Board, in der sich die Stage befindet</li>
+<li>die Kurzbezeichnung der Stage</li>
+<li>den Namen der Stage</li>
+<li>ob die Stage aktiv ist</li>
+<li>die Reihenfolge der Stage, also an welcher Stelle sie im Prozess steht</li>
+<li>ob diese in der Pipeline (Tab Pipelines) angezeigt wird</li>
+<li>die Chance der Stage</li>
+</ul>
+<p>Über die Schaltfläche &ldquo;+ Neuer Eintrag&rdquo; kann eine neue Stage angelegt werden.</p>
+<p>Folgende Felder stehen zur Auswahl:</p>
+<ul>
+<li>Name → der Name der Stage</li>
+<li>Kurzbezeichnung (optional) → die Kurzbezeichnung der Stage</li>
+<li>Farbe → Auswahl der Farbe, wird in der Kalenderansicht verwendet um Stages farblich darzustellen (grün ist vorausgewählt)</li>
+<li>Reihenfolge → Stelle an der die Stage im Prozess steht</li>
+<li>Board → zu welchem Board die Stage gehört (bleibt das Feld leer, wird die Stage zum Board Standard hinzugefügt)</li>
+<li>Nicht sichtbar → setzt die Stage auf inaktiv</li>
+<li>Als Pipe verwenden → wird bei gesetztem Haken in der Pipeline angezeigt</li>
+<li>Chance → Wahrscheinlichkeit zum Erfolg der Wiedervorlage in dieser Stage, oder auch z.B. der Fortschritt der Wiedervorlage in dieser Stage</li>
+</ul>
+<p>Über die Schaltfläche &ldquo;Standard laden&rdquo; können die von xentral vorgefertigten Stages geladen werden. Diese gehören zum Board Standard und werden in der Pipeline angezeigt. Folgende Stages sind im Standard enthalten:</p>
+<ul>
+<li>Erste Anfrage → Reihenfolge 1, Kurzbezeichnung Anfrage</li>
+<li>Kontakt hergestellt → Reihenfolge 2, Kurzbezeichnung Kontakt</li>
+<li>Beratung durchgeführt → Reihenfolge 3, Kurzbezeichnung Beratung</li>
+<li>Angebot versendet → Reihenfolge 4, Kurzbezeichnung Angebot</li>
+</ul>
+<h3 id="tab-freifelder">Tab Freifelder<a class="headerlink" href="#tab-freifelder" title="Permanent link">&para;</a></h3>
+<p>Falls die vorhandenen Felder in der Wiedervorlage nicht ausreichen, können Freifelder definiert werden, um zusätzliche Informationen zu speichern.</p>
+<p><img alt="FollowUp6.png" src="https://help.xentral.com/hc/article_attachments/18183888593692" /></p>
+<p>Diese Zusatzfelder können als Pflichtfelder in Stages markiert werden oder auch erst ab einer bestimmten Stage verfügbar sein. Ist ein Freifeld als Pflichtfeld markiert, kann die Wiedervorlage solange nicht in die nächste Stage verschoben werden, bis das Freifeld gefüllt ist. Über die Suche kann das Ergebnis der Tabelle gefiltert werden und mit der Menüspalte die Freifelder bearbeitet und gelöscht werden.</p>
+<p>In der Tabelle wird ersichtlich:</p>
+<ul>
+<li>die Bezeichnung</li>
+<li>ab welcher Stage das Freifeld verfügbar ist</li>
+<li>ab welcher Stage das Freifeld Pflicht ist</li>
+<li>ob das Freifeld in der Pipeline angezeigt wird</li>
+<li>ob das Freifeld in den Tabellen (verschiedene Tabs im Reiter &ldquo;Übersicht) angezeigt wird</li>
+<li>die Menüspalte, mit der sich die Freifelder bearbeiten und löschen lassen</li>
+</ul>
+<p>Über die Schaltfläche &ldquo;+ Neuer Eintrag&rdquo; kann ein neues Freifeld angelegt werden.</p>
+<p>Folgende Felder stehen zur Auswahl:</p>
+<ul>
+<li>Bezeichnung → Name des Freifeldes</li>
+<li>Verfügbar ab Stage → ab welcher Stage das Freifeld zur Verfügung steht, zur Auswahl stehen die Stages mit dazugehörigem Board, oder der Wert immer, wodurch das Freifeld in allen Stages zur Verfügung steht</li>
+<li>Pflichtfeld ab Stage → ab welcher Stage das Freifeld ein Pflichtfeld ist, zur Auswahl stehen die Stages mit dazugehörigem Board, oder der Wert nie, wodurch das Freifeld in keiner Stage ein Pflichtfeld ist</li>
+<li>in Pipeline anzeigen → Freifeld wird im Reiter &ldquo;Übersicht&rdquo; im Tab &ldquo;Pipeline&rdquo; bei der Wiedervorlage angezeigt</li>
+<li>in Tabellen anzeigen → Freifeld wird im Reiter &ldquo;Übersicht&rdquo; in den verschiedenen Tabs der Wiedervorlagen als Zusatzspalte in den Tabellen angezeigt</li>
+</ul>
+<h3 id="tab-aufgaben-vorlagen">Tab Aufgaben Vorlagen<a class="headerlink" href="#tab-aufgaben-vorlagen" title="Permanent link">&para;</a></h3>
+<p>Unter diesem Reiter können Vorlagen für Aufgaben angelegt werden. Dies ist vor allem bei wiederkehrenden Aufgaben sinnvoll.</p>
+<p>In der Tabelle wird ersichtlich:</p>
+<ul>
+<li>Bezeichnung → Bezeichnung der Aufgabenvorlage</li>
+<li>Bearbeiter → Mitarbeiter, der der Aufgabe automatisch zugewiesen werden soll</li>
+<li>Intervall → Intervall, in dem die Aufgabe durchzuführen ist</li>
+<li>Pflichtfeld ab → Stage, ab der die Aufgabe zum Pflichtfeld wird</li>
+<li>Hinzufügen ab → Stage, ab der die Aufgabe Hinzugefügt wird</li>
+<li>Status → Anzeige, ob die Aufgabenvorlage offen oder abgeschlossen ist</li>
+<li>Menü → Die Menüspalte, mit der sich die Freifelder bearbeiten und löschen lassen</li>
+</ul>
+<p>Über die Schaltfläche &ldquo;+ Neuer Eintrag&rdquo; kann eine neue Aufgaben Vorlage angelegt werden.</p>
+<h4 id="aufgabe">Aufgabe<a class="headerlink" href="#aufgabe" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Bezeichnung → Bezeichnung der Aufgaben Vorlage</li>
+<li>Bearbeiter → Mitarbeiter, der diese Aufgabe standardmäßig zugeordnet werden soll</li>
+<li>WVL-Datum zzgl. → Wiedervorlagedatum zuzüglich Anzahl der Tage und der Uhrzeit</li>
+<li>Projekt → Zuordnung der Aufgabe zu einem Projekt</li>
+<li>Teilprojekt → Zuordnung der Aufgabe zu einem Teilprojekt</li>
+</ul>
+<h4 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Muss abgeschlossen sein ab Stage → Festlegung, ab welcher Stage die Aufgabe abgeschlossen sein muss</li>
+<li>Hinzufügen in Stage → Festlegung, ab welcher Stage die Aufgabe hinzugefügt wird</li>
+<li>Status → Auswahl, ob die Aufgaben Vorlage Offen, In Bearbeitung oder Abgeschlossen ist</li>
+<li>Priorität → Priorität der Aufgabe festlegen</li>
+</ul>
+<h4 id="beschreibung">Beschreibung<a class="headerlink" href="#beschreibung" title="Permanent link">&para;</a></h4>
+<p>Beschreibung der Aufgaben Vorlage</p>
+<h2 id="weitere-moglichkeiten">Weitere Möglichkeiten<a class="headerlink" href="#weitere-moglichkeiten" title="Permanent link">&para;</a></h2>
+<h3 id="wiedervorlagen-in-adressen">Wiedervorlagen in Adressen<a class="headerlink" href="#wiedervorlagen-in-adressen" title="Permanent link">&para;</a></h3>
+<p>Wiedervorlagen können auch direkt in den Adressen verwaltet werden. Dazu muss eine Adresse unter „Stammdaten → Adressen“ editiert, und der Reiter „CRM“ (Customer-Relationship-Management) geöffnet werden. Wenn unter „Kategorien“ der Haken bei „Wiedervorlage“ gesetzt wird, werden hier alle Wiedervorlagen gelistet, die mit dieser Kunden-Adresse verknüpft sind. In dieser Übersicht, können die Wiedervorlagen mit den wichtigsten Informationen bearbeitet oder die Wiedervorlagen gelöscht werden.</p>
+<h3 id="wiedervorlagen-in-projekten">Wiedervorlagen in Projekten<a class="headerlink" href="#wiedervorlagen-in-projekten" title="Permanent link">&para;</a></h3>
+<p>Unter &ldquo;Stammdaten → Projekte&rdquo; kann in einem Projekt im Reiter &ldquo;Dashboard&rdquo; das Feld &ldquo;Wiedervorlagen&rdquo; aufgeklappt werden, um so alle Wiedervorlagen die diesem Projekt zugeordnet sind zu sehen.</p>
+<h3 id="wiedervorlagen-in-angeboten">Wiedervorlagen in Angeboten<a class="headerlink" href="#wiedervorlagen-in-angeboten" title="Permanent link">&para;</a></h3>
+<p>Bei der Bearbeitung eines Angebots, steht der Reiter &ldquo;Wiedervorlage&rdquo; zur Verfügung. In diesem Reiter stehen die wichtigsten Informationen einer Wiedervorlage zum Anlegen zur Verfügung.</p>
+<p><img alt="FollowUp7.png" src="https://help.xentral.com/hc/article_attachments/18183912361372" /></p>
+<p>Soll bei Freigabe eines Angebotes automatisch eine Wiedervorlage angelegt werden, kann über &ldquo;Administration → Einstellungen → System → Grundeinstellungen → System&rdquo; mit der Option &ldquo;Angebot Tage Wiedervorlage&rdquo; die Anzahl an Tagen eintragen die das Fälligkeitsdatum der Wiedervorlage bestimmt werden. Das bedeutet, das Datum an dem das Angebot freigegeben wurde + die Anzahl Tage ist das Fälligkeitsdatum. Die Zahl muss größer 0 sein, da sonst kein Angebot automatisch erstellt wird.</p>
+<p>Wird aus einem Angebot heraus automatisch eine Wiedervorlage erstellt, kann über &ldquo;Administration → Einstellungen → Grundeinstellungen → System&rdquo; mit der Option &ldquo;Angebot Stage Wiedervorlage&rdquo; die Stage ausgewählt werden, mit der die Wiedervorlage angelegt werden soll.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

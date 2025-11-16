@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5421959508380 Preparation - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>5421959508380 Preparation</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>5421959508380 Preparation</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p><strong>FEEDBACK vom Team:</strong></p>
+<p>gerne in rot und info an mich wenn eingetragen</p>
+<h1 id="themen">Themen<a class="headerlink" href="#themen" title="Permanent link">&para;</a></h1>
+<h2 id="fremdnummern">Fremdnummern<a class="headerlink" href="#fremdnummern" title="Permanent link">&para;</a></h2>
+<h2 id="gutscheine-vs-rabatte">Gutscheine vs. Rabatte<a class="headerlink" href="#gutscheine-vs-rabatte" title="Permanent link">&para;</a></h2>
+<h2 id="gutschein-in-x">Gutschein in X<a class="headerlink" href="#gutschein-in-x" title="Permanent link">&para;</a></h2>
+<h2 id="shopify-gutschein">Shopify Gutschein<a class="headerlink" href="#shopify-gutschein" title="Permanent link">&para;</a></h2>
+<h2 id="rabatte">Rabatte<a class="headerlink" href="#rabatte" title="Permanent link">&para;</a></h2>
+<h2 id="fremdnummern_1">Fremdnummern<a class="headerlink" href="#fremdnummern_1" title="Permanent link">&para;</a></h2>
+<p>relevant für die Artikelpflege über Xentral hinaus mit Shop oder anderen Fremdsystemen</p>
+<p>Lagerzahlensync, Artikeleigenschaften</p>
+<p>typische Kundenprobleme bei Fremdnummern: TBC</p>
+<ul>
+<li>Es findet keine oder eine falsche Aktualisierung/-synchronisierung von Artikeldaten zwischen Xentral und dem Shop statt (z.B. Lagerzahlen / Preise usw.)</li>
+<li>Scannen der Fremdnummer im Versandzentrum funktioniert nicht (Scannen erlauben in den Stammdaten-&gt;Projekt-&gt; Projekteinstellungen) UND bei Anlage der Fremdnummer im Reiter Artikel-Fremdnummer)</li>
+<li>Der automatische Artikelexport/Artikelaktualisierung funktioniert nicht (PS)</li>
+</ul>
+<p>typische Fehlermeldungen in Xentral: TBC</p>
+<ul>
+<li>Es gab einen Fehler beim Aktualisieren des Artikels im Shop! (error: Variantenexport ist nur über den Hauptartikel möglich.)</li>
+</ul>
+<p>FAQ und HD</p>
+<p>HD Einträge gnerelle:
+<a href="https://help.xentral.com/hc/de/articles/360016756799#UUID-bae81dfb-4876-4799-38c1-6eff39a5b89e_id_360016756799_id_h_01FM21DT00FWTS6AP63WMEGNNY">Online Shops Artikel importieren</a>
+<a href="https://help.xentral.com/hc/de/articles/360016758199-Artikel-Fremdnummern">Artikel-Fremdnummern</a></p>
+<p>FAQ
+<a href="https://help.xentral.com/hc/de/articles/360021343799-Der-Lagerbestand-der-Artikel-wird-nicht-in-den-Shop-synchronisiert-Woran-kann-das-liegen-">Der Lagerbestand der Artikel wird nicht in den Shop synchronisiert. Woran kann das liegen?</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/4407881852946-Kann-ich-einen-Lagerartikel-mit-mehreren-Artikeln-im-Online-Shop-verkn%C3%BCpfen-">Kann ich einen Lagerartikel mit mehreren Artikeln im Online-Shop verknüpfen?</a>
+(Nein, es nicht möglich mit einem xentral Artikel mehrere Artikel mit Lagerbestand zu befüllen. Xentral benötigt bei den Artikeln immer eine 1:1 Beziehung zum Shop, deswegen kann man nur je Online-Shop eine Fremdnummer hinterlegen. Mithilfe einer Just-In-Time Stückliste kann man das jedoch umgehen.)
+Module</p>
+<p>relevante Prozessstarter:
+PS artikelimport
+PSExport von Artikeln zu einem Online-Shop gibt es den ProzessstarterArtikel Übertragen.</p>
+<p>generelles Prüfschema
+Wichtig, nicht alles geht bei jedem Shop/Marktplatz gleichermaßen</p>
+<ol>
+<li>Welcher Shop?</li>
+<li>Was für ein Artikel (Standard, Matrix, Variante) -&gt; Gibt es hier besonderheiten hinsichtlich des Shops?</li>
+<li>Gibt es hinsichtlich der Artikelart Besonderheiten auf Shopebene? Nicht alles geht bei jedem Shop</li>
+</ol>
+<p>Wenn der Shop Artikeleigenschaften übertragen kann, dann prüfe:</p>
+<ul>
+<li>in der Schnittstelle ob unter Onlineshop-&gt; Einstellungen die Haken bei Artikel Übertragen gesetzt sind:</li>
+<li>Im Artikel Reiter Fremdnummern ob die Fremdnummern gepflegt sind Wichtig! Fehlende Hauptartikel verursachen ebenfalls keine Übertragung</li>
+<li>Das Modul Fremdnummern hinsichtlich Einträgen. Es gibt eine Übersicht und spiegelt die Einträge aus Artikel-&gt; Fremdnummern wieder (ggf. sind aber weitere Mappings in der Shopschnittstelle erforderlich)</li>
+<li>Das Modul Datenbank Ansicht, kann ergänzend zu Fremdnummern hinzugezogen werden, wenn Artikel nicht auffindbar sind. (Datenbanken arbeiten mit IDs, daher können hier umbenennungen von Artikeln schnell gefunden werden)</li>
+</ul>
+<p>Shopbesonderheiten</p>
+<p>SKU= Fremdnummer=Artikelnummer in den Shops
+Bezeichnung= grundsätzlich frei wählbar, aber es gibt shopspezifische Besonderheiten</p>
+<table>
+<thead>
+<tr>
+<th>Shop /Marktplatz</th>
+<th>Fremdnummer Pflicht</th>
+<th>Fremdnummer f. Matrix-Artikel anders</th>
+<th>Besonderheit</th>
+<th>relevante Ticket</th>
+<th>Rabatte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shopware 5</td>
+<td>nein, wenn identisch zu SW HD <a href="https://help.xentral.com/hc/de/articles/360016725600-Shopware-5#UUID-2ba31fe4-5157-a0e7-c02e-7f4be8e2aa28_id_360016725600_id_h_01FAZD0F0TR7TB7GYQ8YSRTV4P">Shopware 5 Workflows</a></td>
+<td>nein</td>
+<td>keine Fremdnummern nötig wenn identisch zu SW</td>
+<td>Besonderheit Matrixartikel/Varianten: Bitte entferne den Haken in der Schnittstelle: &ldquo;Einfache Varianten nutzen abstrakten Elternartikel:&rdquo; Dieser ist nur für die Artikel von xentral zu shopware 5 relevant.<strong>UND (dies ist die wichtigste Information): </strong> nur erforderlich, wenn dein Vater/Parentartikel ein Pseudo-Artikel ist. Ein Pseudoartikel hat keinen Lagerbestand und auch keine Kennzeichnung als Lagerartikel durch den Haken &ldquo;Lagerartikel&rdquo; in den Artikeldetails. In eurem Fall, ist der Vaterartikel ja, wie auch gewünscht, gleichzeitig die erste Variante mit Bestand und mit Haken &ldquo;Lagerartikel&rdquo;. Das erkennst du an deinem gesendeten Screenshot (Spalte Lagerbestand 0).</td>
+<td><strong>Einstellung in X, Rabattartikel, als Rabattartikel % mit 0 % UND in der Schnittstelle verknüpfenEinstellung Schnittstelle</strong></td>
+</tr>
+</tbody>
+</table>
+<p>-<strong>Rabatt <strong>&gt; Hier gibts du die Artikelnummer von dem Artikel aus xentral ein, der Rabatte im Shopauftrag als eigene Position im Auftrag mit negativem Verkaufspreis abbildet<br>-</strong> Steuersatz für Rabatt-Artikel <strong>&gt; MwSt.-Satz des verwendeten Rabatt-Artikels (normal oder ermäßigt). Für einen B2B-Shop mit Netto-Rechnung musst du hier den Wert 0 eintragen. Du kannst dieses Feld leerlassen, wenn du den Steuersatz aus dem Artikel verwenden möchtest. Eisntellung Pos. Auftrag -</strong> Rabatte Porto festschreiben</strong>&gt; Rabatte und Porto werden aus dem Shop übernommen und festgeschrieben |
+| Shopware 6 | nein, wenn identisch zu SW <a href="https://academy.xentral.com/products/xentral-erp-onboarding-training-21-1/categories/2148525095/posts/2151233425">Academy Video</a> | nein | keine Fremdnummern nötig wenn identisch zu SW |  |  |  |  |  |  |
+| &mdash; | &mdash; | &mdash; | &mdash; | &mdash; | &mdash; |
+| Shopify | ja, Bezeichnung=shopifyproductid Fremdnummer=SKU (aus URL in Shopify) <a href="https://academy.xentral.com/products/xentral-erp-onboarding-training-21-1/categories/2148525094/posts/2151200871">Academy Video</a> (ab Min. 8:00) HD: <a href="https://help.xentral.com/hc/de/articles/360016719680-Shopify#UUID-ee2593ea-0d6a-50ad-d6d4-d1fc0f409757_id_360016719680_id_h_01FPAN1PN6SBHB1SM1RXV3WWY0">Shopify Artikel mappen</a> | ja, Bezeichnung= shopifyvariantid und Fremdnummer=SKU (aus URL in Shopify) | im Artikelstamm von xentral muss die ProduktID, die VariantID und SKU als Fremdnummer angelegt werden Diese findest du in der URL in Shopify. | Agnes: wird die shopifyvariantid immer als default in FN bei erstübertragung mit eingetragen? warum? | aus X nach Shopify nein |
+| WooCommerce | nein <a href="https://academy.xentral.com/products/xentral-erp-onboarding-training-21-1/categories/2148525096/posts/2151271133">Academy Video</a> | nein | | | Geschenkgutscheine bei WooCommerce sind in xentral derzeit nicht umgesetzt. Für Rabattartikel musst du eine der anderen drei Rabattarten wählen. - Fester Warenkorb-Rabatt<br>- Fester Rabatt für Produkt<br>- Prozentualer Nachlass/Rabatt |
+| <a href="https://help.xentral.com/hc/de/articles/360016759039-eBay">Ebay</a> | ja Bezeichnung=EbayListing Fremdnummer= SKU/Artikelnr aus Ebay <a href="https://help.xentral.com/hc/de/articles/360016738940-eBay-App-%C3%9Cbersicht-und-Verwaltung-von-Listings#UUID-c126d15b-0ebb-8a5b-cd0e-aa0d6d3c6fdf_id_360016738940_id_h_01FAFG6FHZTY3KANN01BV79DQP">eBay App - Übersicht und Verwaltung von Listings - Zuordnungen</a> | ja <a href="https://help.xentral.com/hc/de/articles/360016759039-eBay#UUID-3844967d-dff7-bcc8-f69a-f3d2a5bf4093_id_360016759039_id_h_01FGXEPAJXRA7272FMMGVN2DWN">Sonderfall Varianten</a> jede Variante erhält eine SKU/Bestandseinheit=Nr. der Bestandseinheit in Ebay (keine ListingID) der zugehörige  Hauptartikel/Parent die ebayListingID=Artikelnummer in Ebay im Artikel-&gt;Reiter Fremdnummer zu hinterlegen | Auf keinen Fall dürfen Ebay Artikel auf Empfehlung von uns gelöscht werden und neu angelegt. Das führt zum Vernichten der Bewertungshistorie Es gibt einen Call Limit der von Ebay erhöht werden muss/kann <a href="https://help.xentral.com/hc/de/articles/360016759039-eBay">Call Limit der API von eBay</a> | Tkt Beispiel für Varianten Listings und Mapping mit Screenshots und step by step <a href="https://help.xentral.com/agent/tickets/156111">https://xentral.zendesk.com/agent/tickets/156111</a> | |
+| <a href="https://help.xentral.com/hc/de/articles/360020410519-eBay-Alternative-Schnittstelle">eBay - Alternative Schnittstelle</a> | analog | analog | | | Rabatt:Falls es auf Bestellungen nur eine Art von Rabatt gibt (z.B. Mengenrabatt, Sonderaktion, Promotion Code, etc) wird dieser Rabatt mit der Standardmechanik des Importers übergeben. Das heißt es ist kein dedizierter Rabattartikel im Importer nötig damit die Position korrekt im Auftrag landet. Falls es mehrere Rabattarten gibt werden die Rabatte nach Art zusammengefasst und als einzelne Positionen übergeben. Damit diese Mechanik funktioniert ist es zwingend erforderlich einen Rabattartikel im Importer anzugeben. Es bietet sich eigentlich in jedem Fall an einen Rabattartikel zu hinterlegen, auch im Hinblick auf die gesonderte Besteuerung im Vereinigten Königreich. |
+| | | | | | |
+| <a href="https://help.xentral.com/hc/de/articles/360016809939-Amazon">Amazon</a> | ja, Es wird zwischen Anlage und Verknüpfung, sowie FBA und FBM unterschieden. Die Anlage erfolgt für FBA durch die Amazon Seller App, für FBM über Artikel-&gt;Fremdnummern Die Verknüpfung dann final in der Amazon Shopimporter Schnittstelle -&gt; Reiter Fremdnummern Erst wenn hier die verknüpfung durchgeführt wurde funktioniert die Übermittlung <a href="https://academy.xentral.com/products/xentral-erp-onboarding-training-21-1/categories/2148525090/posts/2151198619">Academy Video</a> HD:<a href="https://help.xentral.com/hc/de/articles/360016809939-Amazon#UUID-c3dae2f2-8585-e44a-d7ae-9c5dec401a21_id_360016809939_id_h_01FAJFRADNXHJ6KXHF5PCZ7NCA">Amazon Fremdnummern</a> <a href="https://help.xentral.com/hc/de/articles/360016809939-Amazon#UUID-c3dae2f2-8585-e44a-d7ae-9c5dec401a21_id_360016809939_id_h_01FAJFX77JJB3BS19AE8QNY5XX">SKU Nummer / Fremdnummer pflegen</a> | ja, Bezeichnung=SKU_FBA/SKU_FBM Fremdnummer= SKU in Amazon, nicht die ASIN | Die ASIN bei AMazon ist für X nicht relevant - egal ob FBA oder FBM - relevant ist die zugehörige Seller SKU=Artikelnummer, welche bei Fremdnummern im Artikel hinterlegt sein müssen. | | |
+| <a href="https://help.xentral.com/hc/de/articles/360016722820-Amazon-Seller-App#UUID-497f0dec-06e5-d744-0936-1a1082c18c0e_id_360016722820_id_h_01FAFCREWWBCYRYWKB5WTHGGB9">Amazon Seller App - Artikel verknüpfen</a> | Relevant für die Fremdnummern für FBA Artikel: Tabelle im Reiter Fremdnummern des Amazon Shopexporter in X wird aus der Tabelle Lagerbestände in der Amazon Seller App befüllt. | | aktuell wird diese komplett überarbeitet | | |
+| Amazon Vendor DF | nein | nein | | Das Programm erfordert dies auch nicht | |
+| | | | | | |
+| <a href="https://help.xentral.com/hc/de/articles/360016760699-Magento-2">Magento 2</a> | ja SKU=Artikelnummer Magento | SKU=Artikelnummer Magento | Für das Mappen von Eigenschaften wird hier zusätzlich das <a href="https://help.xentral.com/hc/de/articles/360016760699-Magento-2">Attributmapping</a> verwendet Freifeld in X= Attribut Code Bei Erstanlage: <a href="https://help.xentral.com/hc/de/articles/360016760699-Magento-2">Freifelder</a> in X frei benennbar &gt; Umwandlung in einen gültigen <a href="https://help.xentral.com/hc/de/articles/360016760699-Magento-2">Attribut Code</a> (z.B. aus Farbe Außen wird farbe_aussen) des Shopimporters | | |
+| <a href="https://help.xentral.com/hc/de/articles/360016764059-ePages">ePages</a> | ja | Fremdnummernmapping Artikelexport für Variantenartikel nur über die Datenbank möglich | | Epages: (<a href="https://help.xentral.com/agent/tickets/163209">https://xentral.zendesk.com/agent/tickets/163209</a>) Nur Lagersync | |
+| <a href="https://help.xentral.com/hc/de/articles/360016761539-Gambio">Gambio</a> | ja | nein, - Artikel einzeln von Xentral nach Gambio oder von Gambio nach Xentral übertragen (aktuell nicht für Varianten möglich 06/21)<br>- Artikelkategorien sowie Artikeleigenschaften von Xentral nach Gambio übertragen (aktuell nicht für Varianten möglich 06/21)<br>- Lagerzahlen sowie Pseudolagerzahlen zu Gambio übertragen (aktuell nicht für Varianten möglich 06/21) | | | |
+| <a href="https://help.xentral.com/hc/de/articles/360016721780-Kaufland-de">Kaufland.de</a> | SKU=Artikelnummer in Kaufland Mapping über Reiter Artikelmapping + Reiter Fremdnummern HD: <a href="https://help.xentral.com/hc/de/articles/360016721780-Kaufland-de#UUID-d6f615a0-852c-e3e0-0d41-ecf86e546fb1_id_360016721780_id_h_01FF7VZ0TY24Q4J5TZF840986Z">Kaufland - Besonderheit</a> | SKU=Artikelnummer in Kaufland Um eine Verbindung zwischen den beiden Artikeln zu gewährleisten, sind zwei Dinge notwendig: Hinzufügen der SKU im Tab des Artikels „Fremdnummer“ Aufbauen des Mapping über den Kaufland-Shopimporter im Tab „Artikelmapping“. Hierzu musst du erst die Artikel abholen und anschließend zuordnen. Die Zuordnung erfolgt aufgrund der zuvor hinterlegten SKU im Artikel. | | Mapping über Reiter Artikelmapping + Reiter Fremdnummern | |</p>
+<h4 id="screenshots-fur-shopmatrix-fremdnummernscreenshot-im-projekt-fur-fremdnummern-scannen">Screenshots für Shopmatrix FremdnummernScreenshot im Projekt für Fremdnummern scannen<a class="headerlink" href="#screenshots-fur-shopmatrix-fremdnummernscreenshot-im-projekt-fur-fremdnummern-scannen" title="Permanent link">&para;</a></h4>
+<p>Screenshot Shopschnittstelle-&gt; Details-&gt; Schnittstelle
+<img alt="mceclip10.png" src="https://help.xentral.com/hc/article_attachments/6296275989020" /></p>
+<p>Screenshot Artikel Standard Lager mit Shopverknüpfung</p>
+<p>Artikel-&gt; Details-&gt; Online-Shop-Optionen
+<img alt="mceclip3.png" src="https://help.xentral.com/hc/article_attachments/6296101366556" /></p>
+<p>Artikel-&gt; Reiter Fremdnummern
+<img alt="mceclip2.png" src="https://help.xentral.com/hc/article_attachments/6296100720284" /></p>
+<p>Screenshot Matrix Artikel Lager mit Shopverknüpfung</p>
+<p>Vater/Kopf/Mutter - Artikel-&gt; Details-&gt; Online-Shop-Optionen
+<img alt="mceclip5.png" src="https://help.xentral.com/hc/article_attachments/6296116715548" /></p>
+<p>zugehöriger Child/Matrix Unterartikel - Artikel-&gt; Details-&gt; Online-Shop-Optionen</p>
+<p><img alt="mceclip9.png" src="https://help.xentral.com/hc/article_attachments/6296220464668" /></p>
+<p>Vater/Kopf/Mutter - Artikel-&gt; Reiter Fremdnummern
+<img alt="mceclip4.png" src="https://help.xentral.com/hc/article_attachments/6296116207260" /></p>
+<p>zugehöriger Child/Matrix Unterartikel -&gt; Fremdnummern
+<img alt="mceclip8.png" src="https://help.xentral.com/hc/article_attachments/6296240194204" /></p>
+<p>Beispiel SW 5 / 6 und Shopify Matrix Produkt</p>
+<p>Einstellung Shopverknüpfungen</p>
+<p><img alt="mceclip0.png" src="https://help.xentral.com/hc/article_attachments/6281276329372" /></p>
+<p><img alt="mceclip1.png" src="https://help.xentral.com/hc/article_attachments/6281278135708" /></p>
+<p>Ebay artikelnummer(Ebay Listing ID/Hauptartikel)  und Bestandseinheit/SKU (VAriante)
+<img alt="mceclip3.png" src="https://help.xentral.com/hc/article_attachments/6281455559708" /></p>
+<p>Kaufland Screenshot nach Artikelmapping+ausführen in Artikel-&gt;Fremdnummer
+apiunited erscheint in Spalte Bezeichnung, wenn keine vorherige Zuordnung im Reiter Fremdnummer erfolgt ist
+<img alt="mceclip1.png" src="https://help.xentral.com/hc/article_attachments/6310879272220" /></p>
+<p>Richtig wäre:</p>
+<ol>
+<li>
+<p>Hinterlegen der Fremdnummer in Artikel-&gt;Fremdnummer</p>
+</li>
+<li>
+<p>Artikelliste abholen</p>
+</li>
+<li>
+<p>Artikel zuordnen</p>
+</li>
+</ol>
+<p>Dann wäre im Reiter Artikelmapping und im Artikel-&gt; Fremdnummern:
+<img alt="mceclip2.png" src="https://help.xentral.com/hc/article_attachments/6310930571420" /></p>
+<p><img alt="mceclip3.png" src="https://help.xentral.com/hc/article_attachments/6310933200668" /></p>
+<p>Shopify Varianten nur über Hauptartikel exportieren möglich:
+<img alt="mceclip7.png" src="https://help.xentral.com/hc/article_attachments/6296175084316" /></p>
+<h3 id="rabatte-vs-gutscheine">Rabatte vs. Gutscheine<a class="headerlink" href="#rabatte-vs-gutscheine" title="Permanent link">&para;</a></h3>
+<h4 id="rabatte_1">Rabatte<a class="headerlink" href="#rabatte_1" title="Permanent link">&para;</a></h4>
+<p>Ein Rabatt wird auf einen Warenkorb NICHT auf einen Artikel gewährt und reduziert den Gesamtbetrag des Auftrags. Er wird als eigener Artikel in Xentral angelegt und dann entsprechend eingefügt. ein Rabatt ist keine Zahlungsweise oder Zahlungsmittel.</p>
+<p>Stammdaten-&gt; Artikel-&gt; Neu
+<em>Setze ein Häkchen bei</em><em>Artikel ist Rabatt, wenn es sich um einen Rabattartikel handelt. Ein Rabattartikel wird genutzt, um Rabatte auf den gesamten Auftrags- oder Rechnungswert zu gewähren und diesen im Beleg als eigene Position darzustellen, z.B. &ldquo;Aktionsrabatt 10%&rdquo;. Im Beleg ist die Rabattartikel-Position dann mit einem entsprechenden negativen Betrag versehen, der den Gesamtbetrag mindert.</em></p>
+<p>Für Aufträge die aus dem Shop importiert werden und einen Rabatt beinhalten wird ein Rabattartikel ohne Wert in Xentral angelegt und in der Schnittstelle des Shops hinterlegt.</p>
+<h4 id="einstellungen-zu-den-rabatten-im-shop">Einstellungen zu den Rabatten im Shop<a class="headerlink" href="#einstellungen-zu-den-rabatten-im-shop" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Rabatt</strong>&gt; Hier gibts du die Artikelnummer von dem Artikel aus xentral ein, der Rabatte im Shopauftrag als eigene Position im Auftrag mit negativem Verkaufspreis abbildet
+-<strong>Steuersatz für Rabatt-Artikel</strong>&gt; MwSt.-Satz des verwendeten Rabatt-Artikels (normal oder ermäßigt). Für einen B2B-Shop mit Netto-Rechnung musst du hier den Wert 0 eintragen. Du kannst dieses Feld leerlassen, wenn du den Steuersatz aus dem Artikel verwenden möchtest.</li>
+</ul>
+<p><img alt="mceclip0.png" src="https://help.xentral.com/hc/article_attachments/6306866816028" /></p>
+<p>WooCommerce:</p>
+<p>Geschenkgutscheine bei<a href="https://help.xentral.com/hc/de/articles/360016761119-WooCommerce#UUID-da239f49-10df-54b8-f52c-96be9ec0c393_section-idm4575354140598433093790795155">WooCommerce</a>sind in xentral derzeit nicht umgesetzt. Für Rabattartikel musst du eine der anderen drei Rabattarten wählen.</p>
+<p>Screenshot WooCommerce Rabattartikel
+<img alt="mceclip11.png" src="https://help.xentral.com/hc/article_attachments/6297435600668" /></p>
+<h4 id="gutscheine">Gutscheine<a class="headerlink" href="#gutscheine" title="Permanent link">&para;</a></h4>
+<p>Es gibt zahlen mit Gutscheinen und Kaufen von Gutscheinen, bspw. Geschenkgutscheine/Gift Cards.
+In beiden Fällen bezahlt der Kunde den Wert des Gutscheins und rechnet ihn zu einem späteren Zeitpunkt dann ab.</p>
+<p>In Xentral kann man Gutscheine die man später im Auftrag oder in der POS als Zahlungsmittel einsetzen will bzw. abrechnen möchte im<a href="https://help.xentral.com/hc/de/articles/360016721420-Gutscheine">Modul Gutscheine</a>erstellen.</p>
+<p>Erst bei Rechnungserstellung erscheint der Code auf dem Beleg.</p>
+<p>Sobald ein Gutschein als Artikel existiert kann dieser auch in Shops synchronisiert werden.????</p>
+<ul>
+<li>Wenn von Shop und Importer unterstützt können Gutscheine über den Prozessstarter shopexport_voucher zwischen xentral und dem Shop synchronisiert werden</li>
+<li>Wenn von Shop und Importer unterstützt werden Gutscheincodes beim Auftragsimport übernommen</li>
+<li>Wenn ein Verteter für einen Gutschein eingestellt ist werden Bestellungen aus Onlineshops die in Aufträgen resultieren mit dem eingestellten Vertreter als Vertriebe erstellt</li>
+</ul>
+<p>Für folgende Shops gibt es dazu Einträge:</p>
+<p>Shopify<a href="Rabatte%20/%20Gutscheine%20%20Es%20gibt%20zahlen%20mit%20Gutscheinen%20im%20Shop%20und%20Kaufen%20von%20Gutscheinen%20als%20Artikel%20Anlage%20eines%20Rabattartikels%20f%C3%BCr%20den%20Shop%20%20Shopify">Gutscheinartikel von Shopify</a>/Gift Card/Geschenkkarte</p>
+<p>Verkauf von Geschenkkarten in Shopify ohne direkten Einsatz. Beim nächsten Einkauf bspw. kann dann mit dieser Karte gezahlt werden.</p>
+<p>Verkauf von Gutscheinen über den OnlineShop kann aktuell wie folgt abgebildet werden:</p>
+<p>1) Gutschein wird verschickt und der Auftrag wird auf abgeschlossen gesetzt, somit erkennt Xentral den Auftrag nicht mehr und kann ihn nicht abholen und keine Rechnung erstellen. (Nicht gut für die Buchhaltung)</p>
+<p>2) Gutschein wird automatisch fullfilled, Auftrag wird auf teilweise fulfilled gesetzt und kann als Teilauftrag abgeholt werden (dann stimmt der Betrag aus shopify für den Auftrag nicht mit dem aus Xentral überein)
+In der Shopschnittstelle muss die Option Teilaufträge abholen gecheckt werden.</p>
+<p>3) Manuelle Variante: Gutschein wird nicht aus Shopify verschickt, Auftrag ist noch offen und kann von Xentral abgeholt werden. Wir können den Auftrag abschließen, müssen uns aber in Shopify einloggen und den Gutschein per Hand versenden. (Nicht gut für den User, der im Zweifel ein Wochenende auf seinen digitalen Gutschein wartet und manueller Aufwand für uns)</p>
+<p><em>&ldquo;In einer perfekten Welt, würde der Gutschein nach dem Kauf automatisch durch Shopify erstellt und versendet werden und der ganze Auftrag würde in Xentral importiert werden und dort auf abgeschlossen gesetzt werden und die Rechnung durch Xentral versendet werden.&rdquo;</em></p>
+<p>Dies ist aktuell nicht möglich.
+https://xentral.community/ideas/shopify-gift-card-wird-nicht-zu-xentral-importiert-631</p>
+<p>Beispiel Ticket:<a href="https://help.xentral.com/agent/tickets/161965">https://xentral.zendesk.com/agent/tickets/161965</a>
+<a href="https://help.xentral.com/agent/tickets/145085">https://xentral.zendesk.com/agent/tickets/145085</a>
+<a href="https://help.xentral.com/agent/tickets/162183">https://xentral.zendesk.com/agent/tickets/162183</a>
+<a href="https://help.xentral.com/agent/tickets/153312">https://xentral.zendesk.com/agent/tickets/153312</a>
+<a href="https://help.xentral.com/agent/tickets/154137">https://xentral.zendesk.com/agent/tickets/154137</a>
+<a href="https://help.xentral.com/agent/tickets/154691">https://xentral.zendesk.com/agent/tickets/154691</a></p>
+<p>Bezahlen mit Geschenkkarten in Shopify (über Code/link beim Checkout/Warenkorb)</p>
+<p>Ein durchaus typisches Szenario:Ein Anbieter verkauft in seinem Shopify-Onlineshop Gutscheine, die die Kunden wiederum als Zahlungsmittel bei Ihren Einkäufen einsetzen können.</p>
+<p>Der Kaufgutschein funktioniert dann ähnlich als Zahlungsmittel, wie bekannte Zahlarten.Hier kann auch eine “gemischte” Zahlart entstehen, nämlich, wenn ein Teil des Warenkorbes mit einem Gutschein, der Rest mit einer abweichenden Zahlungsart beglichen wird.</p>
+<p>Bei der Übergabe in Xentral ERP Software kommt es typischer Weise zu Problemen, da Xentral den Gutschein als Zahlungsart nicht verarbeiten kann.</p>
+<p>nxtgen Digital hat<a href="https://nxtgen-digital.de/shopify-gutscheine-verarbeiten/">eine Lösung gebaut</a>, mit der Kaufgutscheine innerhalb von Xentral erkannt und auch korrekt abgerechnet werden.</p>
+<p>HC-improvements hinsichtlich neuem Feature in Zahlungsweisen-&gt; Rechnung i. A.</p>
+<ul>
+<li>Rechnung/ QR-Code → Handbuch fehlt Im Wesentlichen geht es darum, dass nun auch durch Scannen des QR Codes die Rechnungsbegleichung angestoßen werden kann.</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

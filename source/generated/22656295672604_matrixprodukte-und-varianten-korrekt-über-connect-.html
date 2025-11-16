@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22656295672604 Matrixprodukte Und Varianten Korrekt Über Connect  - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>22656295672604 Matrixprodukte Und Varianten Korrekt Über Connect </h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>22656295672604 Matrixprodukte Und Varianten Korrekt Über Connect </strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="uberblick">Überblick<a class="headerlink" href="#uberblick" title="Permanent link">&para;</a></h2>
+<p>In diesem Artikel erfährst du, wie du Matrixprodukte und Varianten fehlerfrei von Xentral zu Shopify über die Connect-Schnittstelle überträgst. Dazu zeigen wir dir Schritt für Schritt:</p>
+<ul>
+<li>wie du Matrixprodukte und Varianten in Xentral anlegst,</li>
+<li>wie du die Synchronisation in der richtigen Reihenfolge durchführst und</li>
+<li>und was du tun kannst, wenn du Produkte oder Varianten später aus deinem Shopify-Angebot entfernen möchtest.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dieser Artikel setzt grundlegende Kenntnisse über die Xentral Connect Funktionen und eine vollständig eingerichtete Shopify-Schnittstelle voraus. Wenn du die Einrichtung noch nicht abgeschlossen hast, findest du dazu alle Informationen unterShopify Connector.</p>
+</blockquote>
+<h2 id="matrixprodukt-und-seine-varianten-anlegen">Matrixprodukt und seine Varianten anlegen<a class="headerlink" href="#matrixprodukt-und-seine-varianten-anlegen" title="Permanent link">&para;</a></h2>
+<p>Bevor du Artikel mit Shopify synchronisierst, müssen das Matrixprodukt und alle Varianten vollständig in Xentral angelegt sein. Wenn du hierzu nochmal mehr in die Tiefe gehen möchtest, besuche folgende Artikel:</p>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/5355868375324-Artikel-manuell-anlegen">Artikel manuell anlegen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016725120-Matrixprodukt-Artikelvarianten-erstellen">Matrixprodukt - Artikelvarianten erstellen</a></li>
+</ul>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wir empfehlen bei Matrixprodukten und Varianten zuerst die Grundtabelle, sozusagen das Matrixgerüst, anzulegen.</p>
+</blockquote>
+<h3 id="grundtabelle-matrixgerust-definieren">Grundtabelle (Matrixgerüst) definieren<a class="headerlink" href="#grundtabelle-matrixgerust-definieren" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Um die Grundtabelle zu definieren, suche in der Smart Search nach Matrixprodukt.</li>
+<li>Klicke auf + Neu Anlegen, um eine neue Variantengruppe anzulegen.</li>
+<li>Vergib eine Bezeichnung für die Gruppe, z. B. Farbe und speichere.</li>
+<li>Öffne die Variantengruppe mit Klick auf Optionen bearbeiten.</li>
+<li>Klicke auf + Neuer Eintrag, um eine neue Option anzulegen.</li>
+<li>Vergib einen Namen, z. B. grün. Optional kannst du bestimmen, dass Artikelnummern einen passenden Anhang erhalten, z. B. -gr. Wiederhole das Vorgehen für weitere Einträge.</li>
+<li>Nun hast du das Matrixgerüst definiert und kannst mit der Artikelanlage fortfahren.</li>
+</ol>
+<h3 id="matrixprodukt-anlegen">Matrixprodukt anlegen<a class="headerlink" href="#matrixprodukt-anlegen" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bevor du ein neues Matrixprodukt anlegst, stelle sicher, dass du ein passendes Matrixgerüst definiert hast.</p>
+</blockquote>
+<ol>
+<li>Navigiere zum Artikelstamm (Verkaufen &gt; Artikel) und klicke auf + Neu Anlegen, um einen neuen Artikel zu generieren.</li>
+<li>Trage die Kopfdaten gemäß deinen Bedürfnissen ein.</li>
+<li>Scrolle weiter nach unten, gibt einen Hersteller (für Shopify erforderlich) ein und hake Matrixprodukt an. Bestätige die Artikelanlage mit Speichern.</li>
+<li>Öffne den Reiter Verkaufspreis und klicke auf +Neuer Verkaufspreis, um einen Verkaufspreis anzulegen.</li>
+<li>Trage einen Standardpreis ein und speichere.</li>
+</ol>
+<h3 id="varianten-anlegen">Varianten anlegen<a class="headerlink" href="#varianten-anlegen" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Öffne in deinem soeben angelegten Matrixprodukt den Reiter Matrixprodukt.</li>
+<li>Klicke auf Neue Gruppe.</li>
+<li>Wähle die zuvor angelegte Grundtabelle aus und hake die Optionen an, die für dieses Matrixprodukt zutreffen.</li>
+<li>Um die Varianten zu erzeugen, aktiviere alle Artikel auswählen und klicke auf Fehlende Artikel erzeugen.</li>
+<li>Stelle die für deine Bedürfnisse passenden Optionen ein und klicke auf Speichern. Im Beispiel nutzen wir den Artikelnummern-Anhang.</li>
+<li>Nun sind alle Varianten anlegt:</li>
+</ol>
+<h4 id="shopzuordnung-und-weitere-einstellungen-vornehmen">Shopzuordnung und weitere Einstellungen vornehmen<a class="headerlink" href="#shopzuordnung-und-weitere-einstellungen-vornehmen" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Navigiere zum Reiter Details &gt; Onlineshop Optionen.</li>
+<li>Klicke auf Neuer Eintrag.</li>
+<li>Wähle die Schnittstelle für die du eine Synchronisation einrichten möchtest und speichere.</li>
+<li>Kehre zurück zum Reiter Matrixprodukt, um die Filterung für alle Varianten zu übernehmen.</li>
+<li>Wähle alle Artikel aus und öffne die Massenbearbeitung.</li>
+<li>Aktiviere Lagerartikel und Shopverknüpfungen und klicke auf Weiter.</li>
+<li>Setze die Haken in allen Zeilen (am besten, indem du die Schnellfunktion in der Stapelverarbeitung ausführst), sowohl bei Lagerartikel als auch bei der Shop-Schnittstelle, die du in Punkt 3 für das Matrixprodukt gewählt hast und bestätige mit 2x Weiter.</li>
+</ol>
+<p>Mit diesen Schritten hast du die Mindestanforderungen für die fehlerfreie Synchronisation von Matrixprodukten und Varianten an Shopify geschaffen. Natürlich kannst du weitere Artikeleinstellungen nach deinen Bedürfnissen ergänzen, z. B. Artikeltexte, Bilder oder den Artikelbaum.</p>
+<h2 id="erst-ubertragung-zu-shopify-schrittweise-vornehmen">Erst-Übertragung zu Shopify schrittweise vornehmen<a class="headerlink" href="#erst-ubertragung-zu-shopify-schrittweise-vornehmen" title="Permanent link">&para;</a></h2>
+<p>Bei der Erst-Übertragung der Artikel ist es wichtig, schrittweise und in der richtigen Reihenfolge vorzugehen, um eine korrekte Registrierung der Artikelstruktur in Shopify zu gewährleisten. Folge den nächsten Abschnitten Schritt für Schritt für ein reibungsloses Ergebnis.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Beachte unbedingt, dass du bei der Erst-Übertragung schrittweise wie im Folgenden beschrieben vorgehst.</p>
+</blockquote>
+<h3 id="matrixprodukt-und-erste-variante-in-artikelzuordnung-aufnehmen">Matrixprodukt und erste Variante in Artikelzuordnung aufnehmen<a class="headerlink" href="#matrixprodukt-und-erste-variante-in-artikelzuordnung-aufnehmen" title="Permanent link">&para;</a></h3>
+<p>Mit der Artikelzuordnung legst du fest, welche Artikel zwischen Xentral und Shopify synchronisiert werden sollen.</p>
+<ol>
+<li>Navigiere zu Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; Shopify.</li>
+<li>Öffne die Artikelzuordnung derjenigen Shopify-Anbindung, für die du die Synchronisation einrichtest.</li>
+<li>Wähle Filter für ausgewählte Artikel anwenden.</li>
+<li>Trage die Artikelnummer des Matrixproduktes und einer Variante ein und klicke auf Weiter.</li>
+<li>Bestätige mit Artikelliste aufbauen.</li>
+</ol>
+<h3 id="synchronisation-fur-matrixprodukt-und-erste-variante-anstoen">Synchronisation für Matrixprodukt und erste Variante anstoßen<a class="headerlink" href="#synchronisation-fur-matrixprodukt-und-erste-variante-anstoen" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bevor du mit der Synchronisation startest, stelle sicher, dass</p>
+<ul>
+<li>das Matrixprodukt und alle Varianten in Xentral wie oben konfiguriert sind,</li>
+<li>das Matrixprodukt undeineVariante in der Artikelzuordnung aufgenommen sind und dass</li>
+<li>derIntegrationsmodusfür Artikelaktivist (Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; Shopify &gt; Workflows &gt; Artikel)</li>
+</ul>
+</blockquote>
+<p>Damit die Artikel in Shopify korrekt angelegt und miteinander verknüpft werden, ist es wichtig, zuerst das Matrixprodukt und anschließend die Variante zu übertragen.</p>
+<ol>
+<li>Öffne das Journal derjenigen Shopify-Anbindung, für die du die Synchronisation einrichtest.</li>
+<li>Suche im Reiter Artikel nach deinem Matrixprodukt.</li>
+<li>Klicke in der Zeile des Matrixprodukts auf Artikel synchronisieren und warte bis die Artikel-Synchronisierung gestartet ist.</li>
+<li>Klicke nun in der Zeile der Variante auf Artikel synchronisieren und warte bis die Artikel-Synchronisierung gestartet ist.</li>
+</ol>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wenn du hier schrittweise und behutsam vorgehst, sorgst du dafür, dass das Matrixprodukt und die erste Variante geordnet an den Shop übergeben werden. Sobald beide Zeilen einen grünen Status anzeigen, kannst du mit den weiteren Varianten fortfahren.</p>
+</blockquote>
+<h3 id="artikelzuordnung-auf-alle-varianten-erweitern">Artikelzuordnung auf alle Varianten erweitern<a class="headerlink" href="#artikelzuordnung-auf-alle-varianten-erweitern" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Öffne die Artikelzuordnung.</li>
+<li>Erweitere deine Artikelliste. Dies tust du, indem du entweder erneut Filter für ausgewählte Artikel anwenden wählst und nun die Artikelnummern der weiteren Varianten einträgst oder indem du Filter für alle Artikel anwenden nutzt.</li>
+</ol>
+<h3 id="synchronisation-fur-weitere-varianten-anstoen">Synchronisation für weitere Varianten anstoßen<a class="headerlink" href="#synchronisation-fur-weitere-varianten-anstoen" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Kehre zurück zum Journal und suche nach dem Artikel.</li>
+<li>Hake die restlichen Varianten an und klicke auf die Sammelaktion Artikel synchronisieren.</li>
+</ol>
+<h2 id="produkt-aus-angebot-entfernen">Produkt aus Angebot entfernen<a class="headerlink" href="#produkt-aus-angebot-entfernen" title="Permanent link">&para;</a></h2>
+<p>Wenn du ein Produkt nicht mehr über den Shop/Marktplatz verkaufen möchtest, hast du grundsätzlich folgende Möglichkeiten:</p>
+<ul>
+<li>Artikel inaktiv setzen</li>
+<li>Lagerbestand auf Null setzen</li>
+<li>Artikel löschen</li>
+</ul>
+<h3 id="artikel-inaktiv-setzen">Artikel inaktiv setzen<a class="headerlink" href="#artikel-inaktiv-setzen" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Methode eignet sich dann, wenn du die gesamte Gruppe, bestehend aus Matrixprodukt und allen Varianten, aus dem Angebot nehmen möchtest.</p>
+<p><strong>Tipp</strong></p>
+<p>Mit dieser Methode wird der Artikel im Shop/Marktplatz für Kunden nicht mehr angezeigt.</p>
+</blockquote>
+<p>Um einen Artikel inaktiv zu setzen, gehe wie folgt vor:</p>
+<ol>
+<li>Navigiere zu Verkaufen &gt; Artikel und öffne ihn zum Bearbeiten.</li>
+<li>Gehe zum Reiter Details &gt; Online-Shop Optionen.</li>
+<li>Setze den Haken bei Artikel inaktiv.</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Je nachdem, ob der Produktivmodus der Schnittstelle aktiviert ist oder nicht, wird die Änderung automatisch synchronisiert oder muss manuell übertragen werden:</p>
+<ul>
+<li>Produktivmodus aktiv: Änderung wird automatisch an den Shop/Marktplatz übertragen.</li>
+<li>Produktivmodus nicht aktiv: Stoße die Übertragung manuell über das Journal an: Systemeinstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; [Shop-/Marktplatzname] &gt; Journal &gt; ReiterArtikel. Klicke in der Zeile des betreffenden Artikels aufArtikel synchronisieren.</li>
+</ul>
+<p>Um zu prüfen, ob der Produktivmodus aktiv ist, navigiere zuSystemeinstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; [Shop-/Marktplatzname] &gt; Zahnrad (Einstellungen).</p>
+</blockquote>
+<h3 id="lagerbestand-auf-null-setzen">Lagerbestand auf Null setzen<a class="headerlink" href="#lagerbestand-auf-null-setzen" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Methode eignet sich insbesondere, wenn du einzelne Varianten nicht mehr anbieten möchtest.</p>
+<p><strong>Tipp</strong></p>
+<p>Diese Methode führt dazu, dass der Artikel im Shop/Marktplatz zwar angezeigt wird, aber nicht mehr bestellbar ist.</p>
+</blockquote>
+<p>Folge diesen Schritten, um den Lagerbestand im Shop/Marktplatz auf Null zu setzen:</p>
+<ol>
+<li>Navigiere zu Verkaufen &gt; Artikel und öffne ihn zum Bearbeiten.</li>
+<li>Gehe zum Reiter Details &gt; Online-Shop Optionen.</li>
+<li>Hake Restmenge (Abverkauf) an.</li>
+<li>Trage in Pseudo Lagerzahl eine Null (0) ein.</li>
+<li>Klicke auf Speichern.</li>
+<li>Navigiere zu Systemeinstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; [Shop-/Marktplatzname] &gt; Workflows &gt; Reiter Bestand.</li>
+<li>Stelle sicher, dass Pseudo Lagerzahl statt echten Lagerzahlen verwenden im Abschnitt Lagerbestand berechnen aktiviert ist.</li>
+<li>Navigiere zu Systemeinstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; [Shop-/Marktplatzname] &gt; Journal &gt; Reiter Artikel.</li>
+<li>Klicke in der Zeile des betreffenden Artikels auf Bestand synchronisieren.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Alternativ zur Nutzung der Pseudo Lagerzahl kannst du den echten Bestand natürlich komplett auslagern oder an ein Lager umbuchen, das nicht mit dem Shop/Marktplatz verknüpft ist. Stelle in diesen Fällen sicher, dassRestmenge (Abverkauf)in denOnline-Shop Optionendes Artikels angehakt ist.</p>
+</blockquote>
+<h3 id="artikel-loschen">Artikel löschen<a class="headerlink" href="#artikel-loschen" title="Permanent link">&para;</a></h3>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Das Löschen eines Artikels ist nur möglich, wenn er in keinen Belegen enthalten ist.</p>
+<p>Wir empfehlen grundsätzlich, Artikel nicht zu löschen, da dadurch wichtige Informationen wie Artikel-Historie und Verknüpfungen verloren gehen. Diese Methode eignet sich daher nur, wenn du einen Artikel aus Versehen oder testweise angelegt hast und diesen wieder entfernen möchtest.</p>
+<ol>
+<li>Um einen Artikel zu löschen, navigiere zu Verkaufen &gt; Artikel.</li>
+<li>Klicke in der Artikel-Übersicht auf X in der Zeile des zu löschenden Artikels.</li>
+<li>Bestätige den Löschvorgang mit OK.</li>
+</ol>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p><strong>Bei Nutzung von Fremdnummern:</strong></p>
+<p>Falls du mit Fremdnummern arbeitest, beachte, dass Einträge aus der Fremdnummern-Tabelle entfernt werden, wenn ein Artikel in Xentral gelöscht wird. Deshalb werden Artikel im Shop/Marktplatz bei aktiver Fremdnummern-Verknüpfung nicht automatisch gelöscht, wenn sie in Xentral gelöscht werden. In diesem Fall musst du die Löschung im Shop manuell vornehmen.</p>
+<p>Weitere Informationen zu Fremdnummern findest du in diesem Artikel:Fremdnummern in Xentral</p>
+<p><strong>Warnung</strong></p>
+<p>Beachte bei dieser Methode unbedingt, dass du in Xentral sowohl Matrixprodukt als auch alle Varianten löschen musst, um die gesamte Gruppe aus Matrixprodukt und Varianten aus dem Shopangebot zu entfernen. Löschst du nur das Matrixprodukt, vergisst aber die Varianten, führt dies zu fehlerhaften Artikelübertragungen, da die verbleibenden Varianten shopseitig als neue Artikel interpretiert werden!</p>
+<p>Es ist jedoch problemlos möglich, einzelne Varianten zu löschen, solange das Matrixprodukt bestehen bleibt.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

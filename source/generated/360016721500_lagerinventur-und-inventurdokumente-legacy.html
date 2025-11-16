@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016721500 Lagerinventur Und Inventurdokumente Legacy - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016721500 Lagerinventur Und Inventurdokumente Legacy</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016721500 Lagerinventur Und Inventurdokumente Legacy</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die in diesem Artikel beschriebene Funktionalität zur Inventur wurde durch die <strong>Mobile Inventory App</strong> ersetzt. Du kannst die neue App kostenlos auf dein MDE-Gerät oder Smartphone herunterladen und für die mobile Inventur in deinem Lager nutzen. Außerdem stehen dir für die Arbeit mit der Mobile Inventory App verschiedene Inventurberichte zur Verfügung, sodass du die Ergebnisse jederzeit transparent dokumentieren und auswerten kannst.</p>
+<p>Alle Informationen zur Mobile Inventory App findest du im ArtikelÜberblick: Inventur mit der Mobile Inventory App.</p>
+<p>Für die im Folgenden beschriebene Funktionalität veröffentlichen wir keine Fehlerbehebungen, Verbesserungen oder neue Features mehr. Möchtest du mehr zum Legacy-Status wissen? Dann schau dir den ArtikelWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?.</p>
+</blockquote>
+<p>In diesem Artikel wird erklärt, wie die Abbildung und Durchführung der Inventur in Xentralmöglich ist und welche SpezialfunktionenXentral hierfür bietet.</p>
+<h2 id="ubersicht">Übersicht<a class="headerlink" href="#ubersicht" title="Permanent link">&para;</a></h2>
+<p>Eine Übersicht über alle dokumentierten Lager kannst du im Menü <strong>Lager &gt; Lagerverwaltung &gt; Tab: Inventur </strong> einsehen. Mit einem Klick auf den <strong>Pfeil</strong></p>
+<p>-Button in der Menü-Spalte erscheint nachfolgend im Untertab <strong>Inventur</strong> eine Übersicht über alle Artikel, die sich im ausgewählten Lager auf der ersten Lagerebene befinden. Dabei werden nur Stückzahlen größer als 0 dargestellt.</p>
+<p>In dieser Inventurliste kannst du nun die tatsächlich vorhandenen Stückzahlen in das entsprechende Feld in der Spalte <strong>Inventur</strong> eingeben. Die eingegebenen Werte werden automatisch gespeichert, führen jedoch noch nicht zu einer Bestandsänderung. Es werden lediglich die Zwischenergebnisse in dieser Liste abgespeichert. Zwischenzeitliche Bestandsänderungen aufgrund von Anlieferung oder Versand werden hierbei in der Zwischenspeicherung nicht berücksichtigt. Daher ist es notwendig, den Betrieb für dieses Lager bis zum Abschluss der Inventur kurzzeitig auszusetzen. Änderungen können bei laufendem Betrieb eingetragen und wieder gespeichert werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Eine Inventur kann nicht rückwirkend durchgeführt werden, sondern nur zum aktuellen Tagesdatum!</p>
+</blockquote>
+<h2 id="spezialfunktionen">Spezialfunktionen<a class="headerlink" href="#spezialfunktionen" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Inventur </strong> kannst du im Untertab <strong>Spezialfunktionen</strong> verschiedene Spezialfunktionen nutzen.</p>
+<p>Mit einem Klick auf den zuerst erscheinenden Button <strong>Inventur für Lager jetzt aus Lagerbestand laden </strong> und anschließend einem Klick auf <strong>Ok</strong> im erscheinenden Feld werden weitere Spezialfunktionen sichtbar. Die folgenden Spezialfunktionen sind verfügbar:</p>
+<ul>
+<li>Inventur aus Lagerbestand laden</li>
+<li>Inventur komplett zurücksetzen</li>
+</ul>
+<h3 id="inventur-aus-lagerbestand-laden">Inventur aus Lagerbestand laden<a class="headerlink" href="#inventur-aus-lagerbestand-laden" title="Permanent link">&para;</a></h3>
+<p>Diese Spezialfunktion errechnet sich den aktuellen Soll-Lagerbestand für dieses Lager und kann verwendet werden, wenn nur wenige Änderungen zu erwarten sind bzw. vorgenommen werden müssen.</p>
+<p>Diese Spezialfunktion bietet folgende Vorteile:</p>
+<ul>
+<li>kurze Inventurabstände</li>
+<li>sehr sauber gepflegte Lagerbestände</li>
+</ul>
+<p>Klicke im Untertab <strong>Spezialfunktionen </strong> auf den Button <strong>Inventur jetzt aus Lagerbestand laden </strong> und im dann erscheinenden Feld auf <strong>Ok</strong>.</p>
+<p>Dadurch fülltXentral automatisch die Inventur-Spalte im Untertab <strong>Inventur</strong> mit dem aktuellen Lagerbestand.</p>
+<p><img alt="WarehouseInventoryLoadInventoryFromStock.png" src="https://help.xentral.com/hc/article_attachments/13105146981276" /></p>
+<h3 id="inventur-komplett-zurucksetzen">Inventur komplett zurücksetzen<a class="headerlink" href="#inventur-komplett-zurucksetzen" title="Permanent link">&para;</a></h3>
+<p>Diese Spezialfunktion setzt alle gespeicherten Werte wieder zurück. Somit werden alle eingegebenen Werte gelöscht. Dies kann in folgenden Fällen nützlich sein:</p>
+<ul>
+<li>Die Inventur soll komplett neu begonnen werden</li>
+<li>Der Zeitraum zwischen Beginn der Inventur und geplantem Abschluss ist zu groß geworden. Deshalb haben sich zu viele nachzutragende Bestandsänderungen ergeben</li>
+</ul>
+<p>Um diese Funktion zu nutzen, klicke im Untertab <strong>Spezialfunktionen </strong> auf <strong>Inventur (komplett) zurücksetzen </strong> und anschließend auf <strong>Ok</strong> im dann erscheinenden Feld.</p>
+<p>Danach wird die gesamte Inventurspalte im Untertab <strong>Inventur</strong> bereinigt.</p>
+<h2 id="inventur-durchfuhren-schritt-fur-schritt">Inventur durchführen (Schritt für Schritt)<a class="headerlink" href="#inventur-durchfuhren-schritt-fur-schritt" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden erklären wir Schritt für Schritt, wie die Inventur in Xentral abläuft.</p>
+<h3 id="bestandsanderungen-eingeben-und-speichern">Bestandsänderungen eingeben und speichern<a class="headerlink" href="#bestandsanderungen-eingeben-und-speichern" title="Permanent link">&para;</a></h3>
+<p>Gib zunächst die Bestandsänderungen ein, die sich im Lager ergeben haben, einzugeben. Speichere anschließend deine Eingaben.</p>
+<p>Gehe dazu wie folgt vor:</p>
+<ul>
+<li>Zähle die tatsächlichen Lagerbestände pro Regal und trage sie in die Spalte <strong>Inventur </strong> im Untertab <strong>Inventur</strong> ein.</li>
+<li>Die farblichen Markierungen der einzelnen Artikel haben dabei unterschiedliche Bedeutungen:
+  -<strong>rot</strong>: Dieser Artikel wurde noch nicht gezählt. Hier würde beim Abschluss der Inventur der aktuelle Bestand erhalten bleiben
+  -<strong>schwarz</strong>: Der Artikel wurde gezählt. Der Ist-Bestand stimmt mit dem Soll-Bestand überein
+  -<strong>blau</strong>: Der Artikel wurde gezählt, aber der Ist-Bestand weicht vom Soll-Bestand ab</li>
+</ul>
+<p><img alt="WarehouseInventoryColoredMarkings.png" src="https://help.xentral.com/hc/article_attachments/13105085503644" /></p>
+<h3 id="inventur-abschlieen-und-lagerbestande-buchen-bestandsanderung">Inventur abschließen und Lagerbestände buchen (Bestandsänderung)<a class="headerlink" href="#inventur-abschlieen-und-lagerbestande-buchen-bestandsanderung" title="Permanent link">&para;</a></h3>
+<p>Nach der Eingabe der Bestandsänderung schließt du die Inventur ab und die aktuellen Lagerbestände zu buchen.</p>
+<p>Dazu ist wie folgt vorzugehen:</p>
+<ol>
+<li>Öffne das Untertab <strong>Abschluss</strong>.</li>
+<li>Klicke auf <strong>Hauptlager jetzt anpassen</strong>.</li>
+<li>Am oberen Rand wird eine Meldung angezeigt. Klicke auf <strong>Ok</strong>, um die Bestände mit dem Vermerk über Inventur und Datum anzupassen.</li>
+</ol>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Mit dem oben beschriebenen Schritt nimmst du Änderungen am Lagerbestand vor, die du später nicht mehr zurücksetzen kannst!</p>
+</blockquote>
+<h3 id="inventurdokument-erstellen">Inventurdokument erstellen<a class="headerlink" href="#inventurdokument-erstellen" title="Permanent link">&para;</a></h3>
+<p>Nachdem du die Inventur wie oben beschrieben abgeschlossen hast, kannst du Dokumente zur Inventur erstellen. Nach dem Abschluss der Inventur wechselt Xentral automatisch in die Dokumentenerzeugung. Alternativ kann auch wie folgt vorgegangen werden:</p>
+<p>Die Inventurdokumente werden für jedes einzelne Lager bei der Inventur automatisch erzeugt. Diese Dokumente findest du im Menü <strong>Lager &gt; Lagerverwaltung &gt; Inventur &gt; Details &gt; Inventur</strong> aufgelistet.</p>
+<p>Ein neu erzeugtes Dokument ist im Status <strong>Bearbeitung</strong> und noch nicht freigegeben. Das Dokument kann bei Bedarf gelöscht werden. Die vorgenommene Bestandsänderung der Artikelbestände wird damit allerdings nicht rückgängig gemacht.</p>
+<ul>
+<li>Falls du noch zusätzliche Informationen eingeben möchtest, kannst du diese einzutragen und das Dokument anschließend über den Button <strong>Freigabe</strong> freizugeben</li>
+<li>Die Aktion <strong>Inventur abschließen</strong> speichert das Dokument dauerhaft und friert es ein</li>
+</ul>
+<h3 id="beispiel-inventureintrag">Beispiel-Inventureintrag<a class="headerlink" href="#beispiel-inventureintrag" title="Permanent link">&para;</a></h3>
+<p>Hier wird ein Inventureintrag beispielhaft demonstriert.</p>
+<p>Öffne zuerst das Menü <strong>Stammdaten &gt; Artikel &gt; Stift-Icon bei jeweiligem Artikel &gt; Lager</strong>.</p>
+<p>In der Tabelle <strong>Lagerplatz Bewegungen </strong> kannst du die Buchungen, die durch die Inventur entstanden sind, einsehen. Dieser Eintrag wird automatisch beim Klick auf <strong>Lagerbestände anpassen </strong> im Tab <strong>Abschluss</strong> erzeugt. Weitere Informationen dazu kannst du in den vorherigen Kapiteln nachlesen.</p>
+<p><img alt="WarehouseInventoryInventoryEntryExample.png" src="https://help.xentral.com/hc/article_attachments/13105101130908" /></p>
+<h3 id="inventur-ohne-preise">Inventur ohne Preise<a class="headerlink" href="#inventur-ohne-preise" title="Permanent link">&para;</a></h3>
+<p>Wenn die Inventur ohne Preise im Beleg angezeigt werden soll, dann gibt es ab Version 19.3 eine zusätzliche Option dafür. Diese ist im Menü <strong>Lager &gt; Lagerverwaltung &gt; Inventur </strong> zu finden. Aktiviere die Option <strong>Preise ausblenden</strong>.</p>
+<p>Nachdem du die Option aktiviet und auf <strong>Speichern </strong> geklickt hast, gestaltet sich das Inventurdokument, das im Untertab <strong>Vorschau</strong> eingesehen werden kann, folgendermaßen:</p>
+<p><img alt="WarehouseInventoryExampleDocument.png" src="https://help.xentral.com/hc/article_attachments/13105101161116" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

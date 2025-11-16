@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016760599 Automatisierung Per Prozessstarter - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016760599 Automatisierung Per Prozessstarter</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016760599 Automatisierung Per Prozessstarter</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Prozessautomatisierungen spielen eine entscheidende Rolle dabei, deinen Unternehmensalltag effizienter zu gestalten und Zeit zu sparen. InXentral kannst du automatische Prozesse aktivieren und beispielsweise Berechnungen durchführen lassen. Du kannst sie so einstellen, dass sie entweder zu einer bestimmten Uhrzeit am Tag oder periodisch in einem von dir festgelegten Intervall aktiv werden.</p>
+<p>Die Prozessautomatisierung im Modul <strong>Prozessstarter</strong> ermöglicht es dir, verschiedenste Aktionen zu steuern. Dabei handelt es sich beispielsweise um den Import von Aufträgen aus Shops in Xentral, die Abwicklung versandfertiger Aufträge innerhalb der Logistikprozesse, die E-Mail-Kommunikation mit deinen Kunden und mehr.</p>
+<h2 id="prozessstarter-aktivieren-und-konfigurieren">Prozessstarter aktivieren und konfigurieren<a class="headerlink" href="#prozessstarter-aktivieren-und-konfigurieren" title="Permanent link">&para;</a></h2>
+<p>Die Prozessautomatisierung findest du im Menü <strong>Einstellungen &gt; Administration &gt; Prozessstarter </strong>. Gib alternativ den Begriff <strong>Prozessstarter</strong> in die Smart Search ein, um das Menü zu öffnen.</p>
+<p><img alt="prozesstarter_001.png" src="https://help.xentral.com/hc/article_attachments/15512650601628" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Öffne das Tab <strong>Laufzeiten</strong>, um die Ausführungen der Prozessstarter zu überprüfen. Die Ausführungen werden nach Laufzeit grafisch dargestellt.</p>
+<p>Falls die Laufzeit eines bestimmten Prozesses zu viel Zeit in Anspruch nimmt, überprüfe vor allem bei periodischen Prozessstartern deinen Eingaben im Feld <strong>Periode</strong> und passe den Wert an.</p>
+</blockquote>
+<h3 id="prozessstarter-periodisch-oder-zur-festen-zeit-ausfuhren">Prozessstarter periodisch oder zur festen Zeit ausführen<a class="headerlink" href="#prozessstarter-periodisch-oder-zur-festen-zeit-ausfuhren" title="Permanent link">&para;</a></h3>
+<p>Prozessstarter können entweder in spezifischen Zeitabständen (periodisch) oder täglich zu einer festgelegten Uhrzeit ausgeführt werden. Beachte, dass der Prozessstarter zu deinen sonstigen Einstellungen in Xentral passt und die Intervalle aufeinander abgestimmt sind. Verwendest du beispielsweise Prozessstarter für den Import von Aufträgen von Verkaufsplattformen in Xentral, dann sollte genug Zeit eingeplant werden, damit dieser Prozessstarter alle Aufträge aus den Plattformen abholen kann. Andernfalls werden weitere Prozesse oder ein weiterer Abholversuch für diesen Prozessstarter gestoppt. Solange ein Prozess läuft, werden alle weiteren Prozesse je nach Priorisierung erst im Anschluss abgearbeitet.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>(1) Beispieleinstellung für einen <strong>periodischen Prozessstarter</strong>:</p>
+<p>-<strong>Art</strong>: periodisch
+-<strong>Wochentag</strong>: jeden Tag
+-<strong>Periode</strong>: Angabe in Minuten z.B. 1, 5 oder 10 (bei Shops mit Versand bis Mittag genügt auch 2x pro Tag)</p>
+<p>(2) Beispieleinstellung für einen <strong>Prozessstarter zu festgelegter Uhrzeit</strong>:</p>
+<p>-<strong>Art</strong>: Uhrzeit
+-<strong>Wochentag</strong>: jeden Tag oder ein bestimmter Wochentag
+-<strong>Startzeit</strong>: Uhrzeit, z.B. aktuelles Datum und Ausführung um 15:00:00</p>
+</blockquote>
+<p><img alt="prozesstarter_002.png" src="https://help.xentral.com/hc/article_attachments/15512606278172" /></p>
+<p><img alt="prozesstarter_003.png" src="https://help.xentral.com/hc/article_attachments/15512634777244" /></p>
+<h3 id="prozessstarter-limitieren">Prozessstarter limitieren<a class="headerlink" href="#prozessstarter-limitieren" title="Permanent link">&para;</a></h3>
+<p>Du kannst die Anzahl parallel laufender Prozesse limitieren, um eine zu hohe Systemauslastung zu vermeiden. Öffne dazu das Menü <strong>Einstellungen &gt; Administration &gt; Systemeinstellungen </strong> und nutze die Einstellung <strong>Prozessstarter limitieren </strong> unten im Bereich <strong>Beschleunigungen/Limitierungen</strong>.</p>
+<h2 id="ubersicht-der-prozessstarter">Übersicht der Prozessstarter<a class="headerlink" href="#ubersicht-der-prozessstarter" title="Permanent link">&para;</a></h2>
+<p>Hier findest du einen Überblick über die typischen Prozessstarter inklusive der passenden Erläuterung.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Stelle bei der Einrichtung von Prozessstartern sicher, dass du stets den korrekten Parameter angibst. Die Parameter sowie sonstige wichtige Hinweise und Einschränkungen findest du in den Tabellen der folgenden Kapitel.</p>
+</blockquote>
+<ul>
+<li><a href="#prozessautomatisierung-fuer-die-logistik">Prozessautomatisierung für die Logistik</a></li>
+<li><a href="#UUID-90d7b13f-2e36-1fc7-8eb6-1c4615dc892a_N1724153369767">Prozessautomatisierung für Shopsysteme und Marktplätze</a></li>
+<li><a href="#UUID-90d7b13f-2e36-1fc7-8eb6-1c4615dc892a_N1724241270851">Prozessautomatisierung für Belege</a></li>
+<li><a href="#UUID-90d7b13f-2e36-1fc7-8eb6-1c4615dc892a_N1724243494656">Prozessautomatisierung für Artikel, Lagerwert, Produktion und Dropshipping</a></li>
+<li><a href="#UUID-90d7b13f-2e36-1fc7-8eb6-1c4615dc892a_N1724241371818">Prozessautomatisierung für Buchhaltung, Steuern, Währung und Berichtswesen</a></li>
+<li><a href="#UUID-90d7b13f-2e36-1fc7-8eb6-1c4615dc892a_N1724242338452">Prozessautomatisierung für den E-Mail-Versand</a></li>
+<li><a href="#UUID-90d7b13f-2e36-1fc7-8eb6-1c4615dc892a_N1724242398119">System, Systeminformation Prozessautomatisierung</a></li>
+<li><a href="#UUID-90d7b13f-2e36-1fc7-8eb6-1c4615dc892a_N1724242416002">Prozessautomatisierung für externe Tools</a></li>
+<li><a href="#UUID-90d7b13f-2e36-1fc7-8eb6-1c4615dc892a_N1724242430940">Sonstige Prozessautomatisierung</a></li>
+</ul>
+<h3 id="prozessautomatisierung-fur-die-logistik">Prozessautomatisierung für die Logistik<a class="headerlink" href="#prozessautomatisierung-fur-die-logistik" title="Permanent link">&para;</a></h3>
+<p>These process starters control the logistics process by first checking the availability of inventory and updating order indicators accordingly. Then, ready-to-ship orders are (automatically) forwarded to logistics based on priority or specific criteria. In the warehouse, the orders can then be processed at defined intervals and prepared for shipping.</p>
+<table>
+<thead>
+<tr>
+<th>Prozessstarter</th>
+<th>Parameter</th>
+<th>Prozessautomatisierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Auftrag Lagercheck <strong></td>
+<td>auftraglagercheck</td>
+<td>Ein Prozessstarter mit dem Parameter</strong> auftraglagercheck </strong> prüft und aktualisiert den Lagerstatus von Aufträgen, die als „out of stock“ markiert sind, indem sie speziell die orangefarbene Lagerampel neu berechnet. 🚨<strong>Warnung:</strong> Verwende diesen Prozessstarter nicht in Kombination mit dem Modul Pickllisten-Profile in Xentral, da es ansonsten zu einer erhöhten Systemlast und damit zu längeren Laufzeiten für die einzelnen Prozesse kommt.</td>
+</tr>
+<tr>
+<td><strong>Autoversand berechnen <strong></td>
+<td>autoversand_berechnung</td>
+<td>Ein Prozessstarter mit dem Parameter</strong> autoversand_berechnung</strong> aktualisiert automatisch die Auftragsampeln für den Autoversand, einschließlich Überprüfungen von Lagerverfügbarkeit, Porto und Zahlungseingängen bei Vorkasse. Er prüft alle Ampeln unabhängig von ihrem aktuellen Status und führt zusätzlich Preisberechnungen durch, einschließlich der Aktualisierung von Aufträgen und der Berechnung von Deckungsbeiträgen.</td>
+</tr>
+<tr>
+<td><strong>Autoversand manuell <strong></td>
+<td>autoversand_manuell</td>
+<td>Beim Klick auf die Option</strong> Auto-Versand starten</strong> innerhalb eines Auftrags lädt dieser Prozessstarter geprüfte Aufträge (mit grüner Auftragsampel) in eine Warteschlange und übergibt sie kontinuierlich an den Autoversand. Bei hohem Auftragsaufkommen verhindert dieser Prozessstarter Server-Timeouts. Achtung Die Prozessstarter autoversand_manuell und autoversand_plus können nicht gleichzeitig verwendet werden.</td>
+</tr>
+<tr>
+<td><strong>AutoversandPLUS <strong></td>
+<td>autoversand_plus</td>
+<td>Ein Prozessstarter mit dem Parameter</strong> autoversand_plus </strong> macht die manuelle Ausführung der Option <strong>Auto-Versand starten </strong> überflüssig. Alle freigegebenen Aufträge mit dem Status <strong>Autoversand OK</strong> werden im im Hintergrund kontinuierlich an den Auto-Versand übergeben. Achtung Die Prozessstarter autoversand_manuell und autoversand_plus können nicht gleichzeitig verwendet werden. Ampelberechnungen werden mithilfe des Prozessstarters autoversand_plus automatisch durch einen vorausgehenden Prozess durchgeführt, wodurch die Performance optimiert wird. Stelle für diesen Prozessstarter stets eine bestimmte Uhrzeit zur Ausführung ein. Falls doch eine Periode gewählt wurde, müssen als Intervall mindestens 31 Minuten eingestellt sein. Bei einem niedrigeren Intervall wird der Prozessstarter nicht ausgeführt.</td>
+</tr>
+<tr>
+<td><strong>Batches <strong></td>
+<td>batches</td>
+<td>Ein Prozessstarter mit dem Parameter</strong> batches</strong> steuert das Modul <a href="https://help.xentral.com/hc/de/articles/360016722600#UUID-a3288421-c888-8d23-a2a3-e7de468d630b">Picklisten-Profile</a> für die Erstellung und Weitergabe von Picklisten, die nach in definierten Regelwerken angelegt werden. Er ermöglicht es, versandbereite Aufträge nach Verkaufskanal, Artikelmenge und weiteren Kriterien zu sortieren und an den Auto-Versand zu übergeben. Achtung Bei Verwendung dieses Prozessstarters sollten keine anderen Prozessstarter aktiv sein. Nutze ausschließlich das Modul Picklisten-Profile für die Verwaltung und Erstellung der Picklisten. Für die Abarbeitung verbleibender Einzelaufträge am Tagesende kannst du ein spezielles Picklisten-Profil einrichten, um die Systemleistung zu optimieren und andere Prozesse nicht zu beeinträchtigen.</td>
+</tr>
+<tr>
+<td><strong>Uebertragungen Fulfillment <strong></td>
+<td>api_uebertragungen</td>
+<td>Ein Prozessstarter mit dem Parameter</strong> api_uebertragungen </strong> ist Grundlage für die automatisierte Übertragung von Belegen wie Lieferscheinen und Rechnungen sowie weiterer Daten an einen Fulfillment-Dienstleister. Weitere Informationen über die Verwendung des Moduls <strong>Übertragungen</strong> findest du <a href="https://help.xentral.com/hc/de/articles/360016738020#UUID-72f37f06-2871-0785-7286-1f7a2707c88d">in diesem Artikel</a>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prozessautomatisierung-fur-shopsysteme-und-marktplatze">Prozessautomatisierung für Shopsysteme und Marktplätze<a class="headerlink" href="#prozessautomatisierung-fur-shopsysteme-und-marktplatze" title="Permanent link">&para;</a></h3>
+<p>Der nahtlose Import von Aufträgen, die dich über Shopsysteme und Marktpätze erreichen, ist entscheidend für eine reibungslose Abwicklung dieser Aufträge in Xentral. Die folgenden Prozessstarter unterstützen dich nicht nur bei der Automatisierung des Auftragsimports, sondern bieten beispielsweise für Amazon auch die Möglichkeit, die Rückmeldung des Versands oder von Lagerzahlen sowie die Übermittlung von Zahlungsberichten zu automatisieren. Nicht zuletzt ist auch der Prozessstarter <strong>Artikel übertragen</strong> sehr wichtig für dich, wenn du deine Produkte auf Marktplätzen oder über andere Shopsysteme verkaufst.</p>
+<table>
+<thead>
+<tr>
+<th>Prozessstarter</th>
+<th>Parameter</th>
+<th>Prozessautomatisierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Adressen zum Shop exportieren <strong></td>
+<td>shopexport_adressexport</td>
+<td>Exportiert Adressen in die angebundenen Shops. Der Export von Adressen zu Shops ist nicht für alle Shopschnittstellen möglich. Damit der Export erfolgt, müssen in der Shopschnittstelle unter</strong> Adressenübertragung</strong> die Adressen hinzugefügt werden, die übertragen werden sollen. Der manuelle Adressexport muss in der Shopschnittstelle aktiviert sein. Beachte, dass die Adresse im Adressstamm eine E-Mail-Adresse benötigt.</td>
+</tr>
+<tr>
+<td><strong>Amazon <strong></td>
+<td>amazon</td>
+<td>Dieser Prozessstarter übernimmt folgende Aufgaben: - Berichte von Amazon abholen und verarbeiten (z.B. Zahlungsberichte und Lagerzahlenberichte)<br>- Versandrückmeldung<br>- Lagerzahlenrückmeldung<br>- Anfragen von Xentral an Amazon bei der Artikelanlage 🚨</strong> Warnung:</strong> Dieser Prozessstarter sollte nicht häufiger als einmal in 10 Minuten ausgeführt werden, da Amazon die Anfragen unter Umständen nicht schneller verarbeiten kann.</td>
+</tr>
+<tr>
+<td><strong>Artikel übertragen <strong></td>
+<td>artikeluebertragen</td>
+<td>Exportiert alle Artikel in den Shop, die im Menü</strong> Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; Shops &amp; Marktplätze Übersicht &gt; Shop auswählen &gt; Tab: Artikel Übertragung</strong> in die Liste geladen wurden. Dieser Prozessstarter prüft, ob sich Artikel in der Liste befinden und überträgt diese.</td>
+</tr>
+<tr>
+<td><strong>Artikelimport <strong></td>
+<td>getarticles</td>
+<td>Importiert nach und nach alle Artikel aus einem Online-Shop bzw. aktualisiert diese, nachdem der Import dort per Klick auf die Schaltfläche</strong> Artikelliste abholen</strong> angestoßen wurde (nicht für alle Shopschnittstellen verfügbar).</td>
+</tr>
+<tr>
+<td><strong>Auftragsimport aus dem Shop/Shopimporter</strong></td>
+<td>shopimport</td>
+<td>Dieser Prozessstarter ermöglicht das automatisches Abholen von Aufträgen z.B: aus Online-Shops oder anderen angebundene Systemen. Achtung Dieser Prozessstarter blockiert den manuellen Import von Aufträgen. Wir empfehlen, das Intervall für die Ausführung des Prozessstarters so zu wählen, dass er nicht durchgehend läuft, sofern du die Möglichkeit haben möchtest, Aufträge auch zeitweise manuell zu importieren. Der Prozessstarter wird automatisch aktiviert, sobald mindestens ein Shop auf automatisch abholen umgestellt wird.</td>
+</tr>
+<tr>
+<td><strong>Bereitstellung Artikelfeed Manomano</strong></td>
+<td>artikelfeed_manomano</td>
+<td>Dieser Prozessstarter baut aus dem Artikelstamm von Xentral heraus eine CSV-Datei auf, in der später alle Artikel enthalten sind, die eine Manomano-Verknüpfung unter Artikel → Online Shop Optionen haben, den Lagerzahlensync erlauben und nicht gelöscht oder gesperrt sind. Die CSV-Datei legt der Prozessstarter dann im in der Shopschnittstelle eingestellten Pfad ab. Von dort kann Manomano die CSV-Datei abholen.</td>
+</tr>
+<tr>
+<td><strong>eBay Stapelverarbeitung</strong></td>
+<td>ebay_bulkjobs</td>
+<td>Fasst die angefallenen Änderungen/Requests als Job zusammen und schickt diese an eBay. Du kannst per Logging <a href="https://help.xentral.com/hc/de/articles/18589749660316#UUID-e409be78-b9ce-0186-b03a-a98c9ec90f3c">in der eBay App</a> prüfen, für welchen Artikel welcher Lagerbestand gemeldet wurde und ob die Meldung erfolgreich war.</td>
+</tr>
+<tr>
+<td><strong>Shopware6 Stapelverarbeitung</strong></td>
+<td>shopware6_bulkjob</td>
+<td>Synchronisiert Lagerzahlen und Preise asynchron, wenn die Artikelübertragung in der Shopimporter-Schnittstelle deaktiviert ist.Weitere Informationen findest du <a href="https://help.xentral.com/hc/de/articles/360016719820#UUID-4a0d0976-28d7-3aa2-53a5-6a84179395cc">in diesem Artikel</a>.</td>
+</tr>
+<tr>
+<td><strong>Lagerzahlen Shop Synchronisation</strong></td>
+<td>lagerzahlen</td>
+<td>Einstellungen für die automatische Synchronisierung der Lagerzahlen für Online-Shops. Dieser Prozessstarter meldet Lagerzahlen in einem festen Rhythmus an den Shop zurück. Der Online-Shop verringert meist seine Lagerzahl bei eingehenden Bestellungen von Kunden selbständig. Xentral vergleicht die zuletzt gemeldete Lagerzahl mit der des Shops. Bei Differenzen wird die neue Lagerzahl angepasst. Dabei wird die verkaufbare Menge des Artikels aus dem Artikelstamm übertragen und somit alle Reservierungen berücksichtigt. Wenn die Lagermenge aller Artikel auf einmal neu übertragen werden soll, dann kannst du im Modul<a href="https://help.xentral.com/hc/de/articles/360016738020#UUID-72f37f06-2871-0785-7286-1f7a2707c88d">Übertragungen</a> den Lagerzahlencache wieder leeren.</td>
+</tr>
+<tr>
+<td><strong>Online Shop Hintergrundtasks <strong></td>
+<td>onlineshops_tasks</td>
+<td>Dieser Prozessstarter ist nach der Anbindung von Online-Shops relevant und übernimmt folgende Aufgaben: - Artikelliste importieren<br>- Kategoriebaum importieren Wird in einem Importer der Artikelbaum übertragen oder die Artikelliste abgeholt, dann werden diese Aufgaben in die Warteschlange der Datenbanktabelle namens</strong> onlineshops_tasks</strong> übertragen. Der Prozessstarter arbeitet die Tabelle ab und führt unerledigte Tasks aus.</td>
+</tr>
+<tr>
+<td><strong>Shop Rückmeldungen</strong></td>
+<td>shop_rueckmeldungen</td>
+<td>Meldet den Auftragsstatus und ggf. die Tracking-Nummer des Versanddienstleisters von versendeten Aufträgen zurück an den Online-Shop, aus dem sie importiert wurden.</td>
+</tr>
+<tr>
+<td><strong>Shopimport alte Aufträge <strong></td>
+<td>shopimport_auftragarchiv</td>
+<td>Holt nach und nach alte Aufträge aus einem angebundenen Online-Shop) ab, wenn die Abholung dort über die Schaltfläche</strong> Alte Aufträge importieren</strong> angestoßen wurde. Bitte beachte, dass die Abholung alter Aufträge nicht in allen von Xentral angebotenen Shop-Schnittstellen möglich ist.</td>
+</tr>
+<tr>
+<td><strong>Shopimport Unbezahlte Aufträge prüfen</strong></td>
+<td>shopimport_checkorder</td>
+<td>Dieser Prozessstarter prüft, ob die Verkaufsabwicklung bei eBay nachträglich abgeschlossen wurde.</td>
+</tr>
+<tr>
+<td><strong>Spryker Stapelverarbeitung</strong></td>
+<td>spryker_task</td>
+<td>Meldet aktualisierte Auftragsstatus, die Tracking-Nummern versandter Lieferungen sowie Lagerzahlen der Artikel an den Shop zurück.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prozessautomatisierung-fur-belege">Prozessautomatisierung für Belege<a class="headerlink" href="#prozessautomatisierung-fur-belege" title="Permanent link">&para;</a></h3>
+<p>Xentral bietet dir verschiedene Möglichkeiten, um den Import, die Erzeugung, die Stapelverarbeitung und die Archivierung von Belegen zu automatisieren. Alle verfügbaren Prozessstarter für die Erledigung dieser Aufgaben findest du in der Tabelle.</p>
+<table>
+<thead>
+<tr>
+<th>Prozessstarter</th>
+<th>Parameter</th>
+<th>Prozessautomatisierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Belege Import</strong></td>
+<td>belegeimport</td>
+<td>Importiert alte Belege (Aufträge, Lieferscheine, Rechnungen usw.) per CSV in Xentral.</td>
+</tr>
+<tr>
+<td><strong>Bestellungen automatisch abschließen <strong></td>
+<td>bestellungabschliessen</td>
+<td>Wenn die Option</strong> Bestellungen automatisch abschließen </strong> im Menü <strong>Einstellungen &gt; Administration &gt; Systemeinstellungen </strong> aktiviert ist, prüft der Prozessstarter die offenen Bestellungen. Falls Bestellungen gefunden werden, deren Artikel bereits vollständig geliefert wurden, erhalten diese den Status <strong>abgeschlossen</strong>.</td>
+</tr>
+<tr>
+<td><strong>Dokumente Stapelverarbeitung</strong></td>
+<td>documentbatches</td>
+<td>Führt die Stapelverarbeitung von Aufträgen zu Rechnungen aus.</td>
+</tr>
+<tr>
+<td><strong>PDF Archivierung</strong></td>
+<td>pdfarchiv_app</td>
+<td>Archivierung der Dokumente, wie z.B. aller Rechnungen oder aller Gutschriften. Die Funktion erstellt einen Ordner mit allen Belegen aus Xentral in diesem Zeitraum, der im Anschluss zum Download angeboten wird.</td>
+</tr>
+<tr>
+<td><strong>Zahlungseingang (Liveimport)</strong></td>
+<td>zahlungseingang</td>
+<td>Ermöglicht nach erfolgreicher Geschäftskontenanbindung den Liveimport der Kontoaktivitäten automatisiert auszulösen (außer bei CSV-Importen). Die Einstellung kann pro Geschäftskonto erfolgen. Weitere Informationen zu Geschäftskonten findest du <a href="https://help.xentral.com/hc/de/articles/360016722680#UUID-96599490-8dbc-54ef-b3f3-ea8e27cc732e">in diesem Artikel</a>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prozessautomatisierung-fur-artikel-lagerwert-produktion-und-dropshipping">Prozessautomatisierung für Artikel, Lagerwert, Produktion und Dropshipping<a class="headerlink" href="#prozessautomatisierung-fur-artikel-lagerwert-produktion-und-dropshipping" title="Permanent link">&para;</a></h3>
+<p>Lagerbestände und andere wichtige Werte für die Logistik ändern sich oft sogar minütlich. Um den Überblick zu behalten und stets mit aktuellen Zahlen und Prozessen zu arbeiten, kannst du ebenfalls verschiedene Prozessstarter nutzen. Sie übernehmen die Aktualisierung von Bestandsdaten, die Berechnung von Lagerwerten und Produktionen und weitere Aufgaben für dich.</p>
+<table>
+<thead>
+<tr>
+<th>Prozessstarter</th>
+<th>Parameter</th>
+<th>Prozessautomatisierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Artikel Cache <strong></td>
+<td>artikelcache</td>
+<td>Aktualisiert an mehreren Stellen die Bestandsdaten in Xentral, wie z.B. die Anzeige der optional einstellbaren Spalte</strong> Lager verfügbar</strong> in der Artikelübersicht. Darüber hinaus werden auch Bestandsanzeigen in der Auftragsübersicht aktualisiert.</td>
+</tr>
+<tr>
+<td><strong>Dropshipping Lager</strong></td>
+<td>dropshippinglager</td>
+<td>Überprüft im Hintergrund automatisch die offenen Aufträge auf Artikel, die sich in einem <a href="https://help.xentral.com/hc/de/articles/360016758979#UUID-2dbb103d-9ae5-275c-6b9f-e296851589d1">Dropshipping-Lager</a> befinden. Werden Aufträge gefunden, so wird automatisch ein Teilauftrag daraus erstellt.</td>
+</tr>
+<tr>
+<td><strong>Importvorlage <strong></td>
+<td>importvorlage</td>
+<td>Führt das Modul</strong> Importvorlage</strong> mit den darin enthaltenen vordefinierten Importvorlagen aus.</td>
+</tr>
+<tr>
+<td><strong>Lagerwert Berechnung <strong></td>
+<td>lagerwert</td>
+<td>Schreibt den Lagerbestand für alle Lagerartikel pro Tag fest, sodass diese im Bereich</strong> Lagerbestandsberechnung</strong> eingesehen werden können.</td>
+</tr>
+<tr>
+<td><strong>Produktion neu berechnen</strong></td>
+<td>produktion_berechnen</td>
+<td>Berechnet anhand von aktuellen Zahlen die Produktion neu.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prozessautomatisierung-fur-buchhaltung-steuern-wahrung-und-berichtswesen">Prozessautomatisierung für Buchhaltung, Steuern, Währung und Berichtswesen<a class="headerlink" href="#prozessautomatisierung-fur-buchhaltung-steuern-wahrung-und-berichtswesen" title="Permanent link">&para;</a></h3>
+<p>Egal, ob du in Xentral mit Aboläufen arbeitest, Währungskurse zuverlässig auf dem neuesten Stand halten möchtest oder Zahlungseingänge auf deinen Geschäftskonten unkompliziert importieren möchtest - auch hier hast du mithilfe verschiedener Prozessstarter die Möglichkeit, deine Abläufe so weit wie möglich zu automatisieren.</p>
+<table>
+<thead>
+<tr>
+<th>Prozessstarter</th>
+<th>Parameter</th>
+<th>Prozessautomatisierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Abolauf Hintergrundtask</strong></td>
+<td>rechnungslauf</td>
+<td>Startet den Abolauf als Hintergrundtask.</td>
+</tr>
+<tr>
+<td><strong>Abolauf Manuell <strong></td>
+<td>rechnungslauf_manual</td>
+<td>Arbeitet die ausgelösten Rechnungsläufe schrittweise ab (ähnlich wie der Prozessstarter</strong> Autoversand manuell</strong>). Im Standardprozess landen die Aboläufe zunächst in der Warteschlange und werden nach und nach von diesem Prozessstarter abgewickelt. Ist die Anzahl der Aboläufe gering, kann dieser Prozessstarter auch deaktiviert werden, um den Prozess zu beschleunigen.</td>
+</tr>
+<tr>
+<td><strong>Berichte FTP Übertragung (neues Modul)<strong></td>
+<td>report_transfer_ftp</td>
+<td>Versendet regelmäßig Berichte per FTP, die für die FTP Übertragung markiert sind. 💬</strong> Anmerkung:</strong> Dieser Prozessstarter kann nur in Verbindung mit dem neuen Berichte-Modul verwendet werden. Weitere Informationen dazu findest du in diesem Artikel.</td>
+</tr>
+<tr>
+<td><strong>Mahnwesen-Check</strong></td>
+<td>mahnwesencheck</td>
+<td>Dieser Prozessstarter führt regelmäßige Vorab-Berechnungen durch, um einen Timeout-Fehler beim Starten des Mahnwesens zu vermeiden. Wir empfehlen die Nutzung dieses Prozessstarters, wenn du besonders viele Rechnungen in kurzer Zeit ausstellst oder für den klassischen E-Commerce mit vielen, kleinen und schnelldrehenden Produkten.</td>
+</tr>
+<tr>
+<td><strong>Überzahlte Rechnungen</strong></td>
+<td>ueberzahlterechnungen</td>
+<td>Auflistung und Berechnung aller Rechnungen, die überzahlt worden sind.</td>
+</tr>
+<tr>
+<td><strong>Umsatzstatistik <strong></td>
+<td>umsatzstatistik</td>
+<td>Erstellung und Berechnung umfangreicher Umsatzstatistiken im Menü</strong> Berichtswesen &gt; Umsatzstatistiken</strong>.</td>
+</tr>
+<tr>
+<td><strong>Waehrung ECB Kurse <strong></td>
+<td>abholenwaehrung</td>
+<td>Dieser Prozessstarter ruft die von der EZB herausgegebenen aktuellen Währungskurse für Währungen ab, die du im Modul</strong> Währung Umrechnung</strong> angelegt hast.</td>
+</tr>
+<tr>
+<td><strong>Zahlungseingang</strong></td>
+<td>zahlungseingang</td>
+<td>Dieser Prozessstarter löst nach erfolgreicher Geschäftskontenanbindung den Liveimport der Kontoaktivitäten automatisiert aus (außer bei CSV-Importen). Die Einstellung kann pro Geschäftskonto erfolgen. Weitere Informationen zu Geschäftskonten findest du <a href="https://help.xentral.com/hc/de/articles/360016722680#UUID-96599490-8dbc-54ef-b3f3-ea8e27cc732e">in diesem Artikel</a>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prozessautomatisierung-fur-den-e-mail-versand">Prozessautomatisierung für den E-Mail-Versand<a class="headerlink" href="#prozessautomatisierung-fur-den-e-mail-versand" title="Permanent link">&para;</a></h3>
+<p>Die folgenden Prozessstarter erlauben dir, genau zu steuern, welche E-Mails zu welchem Zeitpunkt an deine Kunden versendet werden. So kannst du beispielsweise den Versand von Zahlungserinnerungen an deine Kunden vollständig automatisieren. Auch in deinem Tagesgeschäft kannst du diese Prozessstarter sinnvoll nutzen, indem du Bestellvorschläge automatisiert per E-Mail versendest, deine Mitarbeiter an bestehende Aufgaben oder Wiedervorlagen erinnerst oder E-Mails deiner Kunden automatisch in das XentralTicketsystem importieren lässt.</p>
+<table>
+<thead>
+<tr>
+<th>Prozessstarter</th>
+<th>Parameter</th>
+<th>Prozessautomatisierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Aufgaben Erinnerung <strong></td>
+<td>aufgabenmails</td>
+<td>Einstellungen für die automatische E-Mail Erinnerungsfunktion für Aufgaben im Menü</strong> Team &gt; Aufgaben</strong>.</td>
+</tr>
+<tr>
+<td><strong>Bestellvorschlag Mail</strong></td>
+<td>bestellvorschlagemail</td>
+<td>Überprüft, für welche Produktionslinie nachbestellt werden muss und versendet diese als Vorschlag per E-Mail.</td>
+</tr>
+<tr>
+<td><strong>Emails abholen <strong></td>
+<td>emailbackup</td>
+<td>Einstellungen für das automatische Abholen von E-Mails und Senden von automatischen Antworten im Menü</strong> Einstellungen &gt; Grundeinstellungen &gt; E-Mail &gt; E-Mail Konten</strong>.</td>
+</tr>
+<tr>
+<td><strong>Folgebestätigung <strong></td>
+<td>folgebestaetigung</td>
+<td>Dieser Prozessstarter wird zu einer fest eingestellten Uhrzeit durchgeführt und versendet eine automatische E-Mail an Kunden, wenn die Ware noch nicht versendet wurde. Die Folgebestätigung ist ein eigener Typ in den Geschäftsbriefvorlagen und wird im Modul</strong> Geschäftsbrief Vorlagen </strong> definiert. Weiterhin muss im Modul <strong>E-Mail-Accounts </strong> eine E-Mail-Adresse hinterlegt sein, die E-Mails versenden kann. Bei dieser Adresse muss SMTP aktiviert sein und die entsprechenden Einstellungen ausgefüllt werden. Diese Adresse muss mit der Standard E-Mail-Adresse in den Grundeinstellungen identisch sein. Der auf der Geschäftsbriefvorlage ausgegebene Liefertermin bezieht sich auf den im Auftrag gesetzten Wunsch <strong>Liefertermin </strong>. Potentielle Liefertermine aus Bestellungen werden hierbei nicht berücksichtigt. Die Folgebestätigung kann pro Projekt aktiviert werden. Öffne dazu das Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; Projekte &gt; Projekt öffnen &gt; Tab: Logistik/Versand &gt; Bereich: Optionen </strong> und aktiviere die Option <strong>Folgebestätigung </strong>. 🚨<strong>Warnung:</strong> Dieser Prozessstarter funktioniert nur, wenn du in den Einstellungen die Art Uhrzeit auswählst. Eine periodische Ausführung ist nicht möglich.</td>
+</tr>
+<tr>
+<td><strong>Tickets <strong></td>
+<td>tickets</td>
+<td>Dieser Prozessstarter importiert E-Mails automatisch in das Ticketsystem im Menü</strong> Team &gt; Tickets </strong>. Die E-Mail-Accounts für das Ticketsystem legst du im Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; E-Mail &gt; E-Mail Konten</strong> an.</td>
+</tr>
+<tr>
+<td><strong>Tickets (GoogleMail)</strong></td>
+<td>tickets_google</td>
+<td>Dieser Prozessstarter importiert GoogleMail-Tickets automatisch in das Ticketsystem im Menü <strong>Team &gt; Tickets </strong>. Die E-Mail-Accounts für das Ticketsystem legst du im Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; E-Mail &gt; E-Mail Konten</strong> an.</td>
+</tr>
+<tr>
+<td><strong>Versandmails und Rückmeldung</strong></td>
+<td>versandmailsundrueckmeldung</td>
+<td>Schließt Lieferscheine ab und versendet die dazugehörigen E-Mails an die Kunden.</td>
+</tr>
+<tr>
+<td><strong>Wiedervorlage Erinnerung</strong></td>
+<td>wiedervorlage</td>
+<td>Erinnert deine Mitarbeiter intern an Wiedervorlagen.</td>
+</tr>
+<tr>
+<td><strong>Zahlungsavis Mailversand</strong></td>
+<td>zahlungsavis_mailausgang</td>
+<td>Verschickt zu versendende Zahlungsavis aus der Übersicht, die als Alternative zum Druck zu einer internen Liste hinzugefügt werden.</td>
+</tr>
+<tr>
+<td><strong>Zahlungsmail <strong></td>
+<td>zahlungsmail</td>
+<td>Versendet nach der eingestellten Anzahl an Tagen automatisch Zahlungserinnerungen. Dieser Prozessstarter ist standardmäßig so eingestellt, dass nach 6 Tagen die erste E-Mail und nach 11 Tagen die zweite E-Mail an deine Kunden versendet wird, soweit noch kein Zahlungseingang stattgefunden hat. Diese Zeitabstände kannst du je nach deinen Wünschen im Menü</strong> Buchhaltung &gt; Mahnwesen &gt; Tab: Einstellungen </strong> anpassen. Beachte außerdem folgende Voraussetzungen, damit dieser Prozessstarter einwandfrei funktioniert und die E-Mails zuverlässig verschickt werden: - Die betroffenen Aufträge müssen über die Zahlungsart <strong>Vorkasse </strong> verfügen<br>- Im Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; Projekte &gt; Projekt öffnen &gt; Tab: Grundeinstellungen &gt; Bereich: Buchhaltung </strong> muss die Option <strong>Zahlungsmail </strong> aktiviert sein<br>- In den Kundenstammdaten oder am Auftrag muss eine E-Mail-Adresse des Kunden enthalten sein<br>- Im Modul <strong>Geschäftsbriefvorlagen </strong> wurde eine E-Mail-Vorlage vom Typ <strong>ZahlungMIss</strong> definiert und gespeichert</td>
+</tr>
+</tbody>
+</table>
+<h3 id="system-systeminformation-prozessautomatisierung">System, Systeminformation Prozessautomatisierung<a class="headerlink" href="#system-systeminformation-prozessautomatisierung" title="Permanent link">&para;</a></h3>
+<p>InXentral tragen spezifische Prozessautomatisierungen zur Optimierung der Systemüberwachung und Datenintegrität bei. Der Prozessstarter <strong>SystemHealth </strong> spielt eine zentrale Rolle, indem er den Zustand deines Systems kontinuierlich überwacht und Fehler in Übertragungen oder beim Ausdruck von Picklisten identifiziert. Der Prozessstarter <strong>Doppelte Nummern prüfen</strong> wiederum stellt sicher, dass keine doppelten Kunden-, Artikel- oder Rechnungsnummern vorliegen. Dabei werden gefundene Duplikate meldet, um deren Korrektur zu erleichtern.</p>
+<table>
+<thead>
+<tr>
+<th>Prozessstarter</th>
+<th>Parameter</th>
+<th>Prozessautomatisierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Backup</strong></td>
+<td>backup</td>
+<td>Lässt regelmäßig ein Backup von Xentral im Hintergrund durchführen.</td>
+</tr>
+<tr>
+<td><strong>Bereiniger</strong></td>
+<td>cleaner</td>
+<td>Bereinigt nicht mehr benötigte Systemdateien aus Xentral.</td>
+</tr>
+<tr>
+<td><strong>Doppelte Nummern prüfen <strong></td>
+<td>doppeltenummerncheck</td>
+<td>Prüft regelmäßig, ob es in Xentral doppelte Kunden-, Artikel-, oder Rechnungs-/Gutschriftennummern gibt. Wurden doppelte Nummern gefunden, so wird oben in Xentral eine rote Warnmeldung mit einem Link ins Modul</strong> Doppelte Nummern</strong> angezeigt, damit du die Doppelung manuell korrigieren kannst.</td>
+</tr>
+<tr>
+<td><strong>FTP-Backup</strong></td>
+<td>ftpbackup</td>
+<td>Automatisches Starten des FTP-Backups.</td>
+</tr>
+<tr>
+<td><strong>Log Cleaner</strong></td>
+<td>log_cleaner</td>
+<td>Bereinigt die Log-Tabellen.</td>
+</tr>
+<tr>
+<td><strong>Supersearch Index-Diff</strong></td>
+<td>supersearch_index_diff</td>
+<td>Befüllt den Index der Suche.</td>
+</tr>
+<tr>
+<td><strong>Supersearch Index-Full</strong></td>
+<td>supersearch_index_full</td>
+<td>Befüllt den Index der Suche.</td>
+</tr>
+<tr>
+<td><strong>SystemHealth <strong></td>
+<td>systemhealth</td>
+<td>Überprüft den Gesundheitszustand des Systems anhand der im Modul</strong> System Status</strong> aufgeführten Faktoren.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prozessautomatisierung-fur-externe-tools">Prozessautomatisierung für externe Tools<a class="headerlink" href="#prozessautomatisierung-fur-externe-tools" title="Permanent link">&para;</a></h3>
+<p>Prozessautomatisierungen in Xentral vereinfachen die Interaktion mit spezialisierten externen Diensten, um deine Geschäftsabläufe effektiver zu gestalten. Um nur einige Beispiele zu nennen: Mit dem Prozessstarter <strong>HubSpot Data Sync </strong> kannst du deine Kundeninformationen im CRM automatisch aktualisieren, während der Prozessstarter <strong>Taxdoo sync</strong> die Übertragung von Auftragsdaten für steuerliche Zwecke automatisiert. Diese Integrationen helfen dir, deine Systeme synchron zu halten und die Arbeitslast durch Automatisierung zu reduzieren.</p>
+<table>
+<thead>
+<tr>
+<th>Prozessstarter</th>
+<th>Parameter</th>
+<th>Prozessautomatisierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AmaInvoice</strong></td>
+<td>amainvoice</td>
+<td>Startet den Abolauf als Hintergrundtask.</td>
+</tr>
+<tr>
+<td><strong>Bereitstellung Artikelfeed Manomano</strong></td>
+<td>artikelfeed_manomano</td>
+<td>Dieser Prozessstarter baut aus dem Artikelstamm von Xentral heraus eine CSV-Datei auf, in der später alle Artikel enthalten sind, die mit Manomano verknüpft sind. Die CSV-Datei legt der Prozessstarter dann im in der Shopschnittstelle eingestellten Pfad ab. Von dort kann Manomano die CSV-Datei abholen.</td>
+</tr>
+<tr>
+<td><strong>Dataprotect</strong></td>
+<td>dataprotect_delete</td>
+<td>Asynchrones Hochladen der Dateien. In der Regel heißen diese DATANORM.001, DATANORM.002,&hellip; und DATPREIS.001, DATPREIS.002 usw.</td>
+</tr>
+<tr>
+<td><strong>HubSpot Data Sync</strong></td>
+<td>hubspot_pull_contacts</td>
+<td>Dieser Prozessstarter ermöglicht die Synchronisation und den Datenaustausch zwischen <a href="https://help.xentral.com/document/preview/14035#UUID-42ab0725-e13a-7adb-2ce9-05d3e8e016d8">HubSpot</a> und Xentral. Er unterstützt den Import neuer oder aktualisierter Kontakte und Adressen von HubSpot in Xentral sowie den Export von Daten von Xentral zu HubSpot. Wenn der Deal-Sync aktiviert ist, werden deine freigegebenen Aufträge als gewonnene Deals an HubSpot übertragen. Die Synchronisation erfolgt standardmäßig einmal täglich, kann aber je nach Bedarf auf 1-3 Mal täglich angepasst werden. Für sofortige Aktualisierungen kannst du jederzeit im HubSpot-Modul die Schaltfläche für den manuellen Import nutzen.</td>
+</tr>
+<tr>
+<td><strong>Internetmarke Produktliste aktualisieren</strong></td>
+<td>internetmarke</td>
+<td>Aktualisiert in der eingestellten Periode die Produktliste und Portopreise der Deutschen Post für die Schnittstelle zur Internetmarke.</td>
+</tr>
+<tr>
+<td><strong>Openstreetmap <strong></td>
+<td>openstreetmap</td>
+<td>Füllt die Felder in den Geodaten im Menü</strong> Verkaufen &gt; Adresse &gt; Adresse öffnen &gt; Tab: Sonstige Daten</strong>.</td>
+</tr>
+<tr>
+<td><strong>Paketmarken Tracking Download</strong></td>
+<td>wgettracking</td>
+<td>Versucht, Tracking-Informationen direkt bei DHL anzufragen und in Xentral zu übernehmen.</td>
+</tr>
+<tr>
+<td><strong>Paqato sync <strong></td>
+<td>paqato</td>
+<td>Führt zu Paqato gehörende Prozesse aus und sorgt für den fehlerfreien Betrieb des Moduls. Bei Fragen rund um das Modul</strong> Paqato</strong> wende dich bitte <a href="https://www.paqato.com/kontakt/">direkt an Paqato</a>.</td>
+</tr>
+<tr>
+<td><strong>Pipedrive Process Queues <strong></td>
+<td>pipedrive_process</td>
+<td>Arbeitet Queue für das Modul</strong> Pipedrive</strong> ab.</td>
+</tr>
+<tr>
+<td><strong>SevenSenders Tracking Aktualisierung</strong></td>
+<td>sevensenders</td>
+<td>Aktualisiert das Tracking bei Sendungen von SevenSenders.</td>
+</tr>
+<tr>
+<td><strong>Taxdoo sync</strong></td>
+<td>taxdoo</td>
+<td>Überträgt Aufträge in der eingestellten Periode an Taxdoo, wenn die Übertragung in der Taxdoo-Schnittstelle angestoßen wurde.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sonstige-prozessautomatisierung">Sonstige Prozessautomatisierung<a class="headerlink" href="#sonstige-prozessautomatisierung" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prozessstarter</th>
+<th>Parameter</th>
+<th>Prozessautomatisierung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chat Benachrichtigung</td>
+<td>chat</td>
+<td>Sendet E-Mail-Benachrichtigungen bei nicht gelesenen Chatnachrichten.</td>
+</tr>
+<tr>
+<td>Einzelversandübergabe</td>
+<td>singleshipment</td>
+<td>Scannt alle Aufträge, die noch nicht manuell verschickt wurden, wenn diese einen korrespondierenden Eintrag in der singleshipment_order Tabelle haben.</td>
+</tr>
+<tr>
+<td>Google Kalender Import</td>
+<td>google_calendar_import</td>
+<td>Führt regelmäßig einen großen Import durch, bei dem alle Termine der letzten Woche und der nächsten 3 Wochen importiert werden.</td>
+</tr>
+<tr>
+<td>Kalender Erinnerung</td>
+<td>kalender</td>
+<td>Verschickt bei Durchlauf eine Erinnerung an alle Benutzer, die in einem gleich anstehenden Kalendereintrag hinterlegt sind. Im Kalendereintrag kannst du die Option <strong>Erinnerung</strong> aktivieren, damit für diesen Eintrag Erinnerungen versendet werden.</td>
+</tr>
+</tbody>
+</table>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

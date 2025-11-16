@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5355868375324 Artikel Manuell Anlegen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>5355868375324 Artikel Manuell Anlegen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>5355868375324 Artikel Manuell Anlegen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Dieser Artikel gibt dir einen Überblick über die Datenfelder und Eingabemöglichkeiten bei der manuellen Anlage von Artikeln in Xentral.</p>
+<p>Neue Artikel legst du in Xentral im Menü <strong>Verkaufen &gt; Artikel</strong> an, indem du oben rechts auf <strong>+ NEU</strong> klickst.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Alle in dieser Anleitung beschriebenen Felder sind optional, soweit sie nicht spezifisch als verpflichtend gekennzeichnet sind. Wir empfehlen jedoch, dass du alle für dich relevanten Felder bestmöglich ausfüllst, da viele Felder auch in anderen Funktionalitäten Anwendung finden und du dir damit die Arbeit im Nachgang erleichterst.</p>
+</blockquote>
+<h2 id="tab-artikel">Tab Artikel<a class="headerlink" href="#tab-artikel" title="Permanent link">&para;</a></h2>
+<p>Bereich <strong>Name und Nummer des Artikels</strong></p>
+<ol>
+<li>Gib deine Artikelbezeichnung im FeldArtikel (DE)ein (verpflichtend).</li>
+<li>Das FeldArtikel Nr.wird beim Speichern automatisch mit der nächsten Nummer des Nummernkreises gefüllt. Möchtest du eine andere Artikelnummer verwenden, gib diese hier manuell ein.</li>
+<li>Wähle im Feld <strong>Projekt</strong> ein Projekt aus. Wenn du kein Projekt auswählst, wird automatisch das Standard-Projekt zugewiesen.</li>
+<li>Wähle aus dem Dropdown-MenüArtikelkategorie die gewünschte Artikelkategorie aus.</li>
+<li>Wähle deinenStandardlieferant aus, falls vorhanden.</li>
+<li>Gib deine deutsche Artikelbeschreibung im FeldArtikelbeschreibung (DE)ein. Diese Artikelbeschreibung kannst du auf deinen Belegen oder in deinem Online-Shop verwenden.</li>
+<li>Gib eine Kurzbeschreibung im FeldKurztext (DE)ein.</li>
+<li>Gib bei Bedarf interne Kommentare im FeldInterner Kommentarein.</li>
+</ol>
+<p>Bereich <strong>Hersteller</strong></p>
+<ol>
+<li>Gib im FeldHerstellerden Hersteller des Artikels ein, falls dieser vom Lieferanten abweicht.</li>
+<li>Gib im FeldHerstellerlinkden Link zur Kontaktadresse oder Webseite des Herstellers dieses Artikels ein.</li>
+<li>Gib im FeldHersteller Nr.die Artikelnummer des Artikels bei seinem ursprünglichen Hersteller ein.</li>
+<li>Gib im FeldEAN Nr. / Barcodedie EAN des Artikels ein. Diese Nummer kannst du auch<a href="https://help.xentral.com/hc/de/articles/360017573119#UUID-fe2f31f1-3109-8b78-4b73-57cb4e78138d">auf Etiketten drucken</a>.</li>
+<li>Gib im FeldZolltarifnummerdie Zolltarifnummer ein. Diese ist nur relevant, wenn du den Artikel in Länder außerhalb der EU verkaufst. Die Zolltarifnummer wird beim Artikel auf die Rechnung gedruckt, sofern diese als Exportrechnung behandelt wird und die entsprechende Option in den Systemeinstellungen ausgewählt wurde.</li>
+<li>Wähle im Dropdown-MenüHerkunftsland das Land aus, aus dem der Artikel stammt.</li>
+<li>Wähle im Dropdown-Menü Ursprungsregiondie Region, aus der der Artikel stammt.</li>
+</ol>
+<p>Bereich <strong>Lager/Abmessungen</strong></p>
+<p>Im BereichLager/Abmessungenkannst du spezifische Angaben für den Artikel in Bezug auf Lagerkriterien und Abmessungen definieren.</p>
+<ol>
+<li>Gib im FeldMin. Lagermengedie Mindestlagermenge für diesen Artikel ein. Wird diese Menge unterschritten, werden die Artikel farblich markiert im Bestellvorschlag angezeigt.</li>
+<li>Gib im FeldMin. Bestellmengedie Mindestbestellmenge ein. Die Mindestbestellmenge findet im Bestellvorschlag Anwendung. Die nachzubestellende Menge wird dann immer mindestens in Höhe der Mindestbestellmenge vorgeschlagen.</li>
+<li>Gib im FeldStandardlagereinen festen Lagerplatz für diesen Artikel ein. Artikel können auch an mehreren Lagerplätzen eingelagert werden. Besitzt der Artikel ein Standardlager, wird dieser vorgeschlagen. Bei einigen automatischen Prozessen wird z.B. auch auf das Standardlager gebucht.</li>
+<li>Gib im FeldEinheitdie Maßeinheit dieses Artikels ein (z.B. Stück, Stunden, Kilogramm. Liter etc.). Ausgangsmenge ist hierbei immer die ganze Einheit, also z.B. 1 Stunde, 1 Stück, etc. Einheiten können separat überAdministration &gt; Stammdaten &gt; Artikel Einheitengepflegt werden. Wie du Artikel einheiten anlegst, erfährst du im Artikel<a href="https://help.xentral.com/document/preview/5906#UUID-a8b328ce-aef1-c216-846e-b14eec01e11a">Einheiten für Artikel erstellen</a>.</li>
+<li>Gib im FeldXVPdenXentralVolume Point an. Über diesen Wert kann der Platzbedarf im Lager (z.B. bzgl. der Lagerkapazitäten) und beim Versand (z.B. bzgl. der Größe der Versandverpackungen) definiert werden.</li>
+<li>Gib im FeldGewicht (in kg)das Gewicht des Artikels in Kilogramm ein. Dieses Gewicht kann beim Druck von Versandlabels anhand der Artikel pro Auftrag als Vorschlag berechnet werden.</li>
+<li>Gib im FeldNettogewicht (in kg)das Gewicht des Artikels ohne Verpackung in Kilogramm ein.</li>
+<li>Fülle die FelderLänge (in cm),Breite (in cm)undHöhe (in cm)mit den Abmessungen des Artikel.</li>
+<li>Wähle im FeldKategorieeine Klassifizierung für einen bestimmten Lagerplatz aus. Zur Auswahl stehen folgende Kategorien:
+  - Keine: Keine Klassifizierung
+  - A: Artikel mit hoher Umschlagszahl
+  - B: Artikel mit mittlerer Umschlagszahl
+  - C: Artikel mit niedriger Umschlagszahl</li>
+</ol>
+<p>Bereich <strong>Artikel Optionen </strong>&gt;<strong>Wichtig</strong></p>
+<blockquote>
+<p>Die Auswahl einer Artikeloption in diesem Bereich ist verpflichtend.</p>
+</blockquote>
+<p>Aktiviere die OptionLagerartikel, wenn es sich um einen Lagerartikel handelt. Dies ist bei den meisten Artikeln der Fall. Lagerartikel sind alle Artikel, für die ein Lagerbestand geführt wird, also alle Artikel die in ein Lager oder Lagerareal gelegt und entnommen werden können.</p>
+<p>Aktiviere die OptionArtikel ist Porto, wenn der Artikel ein Portoartikel ist. Ein Portoartikel (oder Versandkostenartikel) dient dazu, Portokosten oder Versandgebühren als eigene Position in den Belegen darzustellen. So können Versandkosten dem Kunden in Rechnung gestellt und Versandkosten aus Online Shop-Aufträgen in Xentral mit einen solchen Portoartikel dargestellt werden.</p>
+<p>Aktiviere die OptionArtikel ist Rabatt, wenn es sich um einen Rabattartikel handelt.Ein Rabattartikel wird genutzt, um Rabatte auf den gesamten Auftrags- oder Rechnungswert zu gewähren und diesen im Beleg als eigene Position darzustellen, z.B. &ldquo;Aktionsrabatt 10%&rdquo;. Im Beleg ist die Rabattartikel-Position dann mit einem entsprechenden negativen Betrag versehen, der den Gesamtbetrag mindert.</p>
+<p>Bereich <strong>Varianten</strong></p>
+<ul>
+<li>Aktiviere die OptionVariante, wenn dieser Artikel eine Variante eines anderen Artikels ist. Wähle im Feldvon Artikelaus, von welchem Artikel der Artikel eine Variante ist.</li>
+<li>Aktiviere die OptionMatrixprodukt, wenn der Artikel ein Matrixartikel ist. Weitere Informationen zu Matrixartikeln findest du <a href="https://help.xentral.com/hc/de/articles/360016725120#UUID-f80260c3-d35f-b5e9-4195-c84c1694ee29">in diesem Artikel</a>.</li>
+</ul>
+<p>Eine Kombination der Varianten ist möglich.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die beiden OptionenVarianteundMatrixproduktbieten eine ähnliche Funktionalität in der Hinsicht, dass du verschiedene Varianten eines Artikels erstellen kannst. Wir empfehlen jedoch die Nutzung des Matrixprodukts, da du damit flexibler agieren kannst und Online-Shops in der Regel mit Matrixprodukten besser zurechtkommen.</p>
+</blockquote>
+<p>Bereich <strong>Sonstige Einstellungen</strong>(linke Seite)</p>
+<ol>
+<li>Wähle im FeldUmsatzsteuerden Umsatzsteuersatz des Artikel (normal, ermäßigt oder befreit).</li>
+<li>Aktiviere die OptionIndividuellen Steuersatz verwenden, wenn der Artikel einen individuelle Steuersatz besitzt, der von den Standardsteuersätzen abweicht. Eigene Steuersätze kannst du in der<a href="https://help.xentral.com/hc/de/articles/360017612640#UUID-afa4e1ef-0556-25f9-28bd-4501dd3700cb">Steuersätze App</a> anlegen.</li>
+<li>Aktiviere die OptionKein Rabatt erlaubt, wenn für diesen Artikel keine automatischen Rabatte erlaubt sein sollen.</li>
+<li>Wähle im FeldChargenverwaltungaus, ob dieser Artikel als Chargen eingelagert wird. Chargen werden beim Ein-, Aus- und Umlagern abgefragt und in der Chargen-Historie dokumentiert.</li>
+<li>Wähle im FeldSeriennummern, ob dieser Artikel eine Seriennummer hat. Es können Seriennummern an selbst produzierte Artikel vergeben (eigene erzeugen) oder Seriennummern von eingekauften Artikeln eingebucht werden (originale nutzenoderoriginale einlagern + nutzen).</li>
+<li>Aktiviere die OptionMindesthaltbarkeitsdatum, wenn dieser Artikel mit einem Mindesthaltbarkeitsdatum pro Einheit eingelagert wird.</li>
+<li>Aktiviere die Option Einkauf bei allen Lieferanten, damit dieser Artikel in jede Bestellung eingefügt werden kann (nicht nur bei Lieferanten, für die bereits ein Einkaufspreis gepflegt ist).</li>
+<li>Aktiviere die OptionInventursperre, damit der Artikel nicht bei der Inventur berücksichtigt wird.</li>
+<li>Aktiviere die Option Inventurwertund gebe einen alternativen Wert ein, wenn der Artikel anstelle des Einkaufspreises in der Inventur mit einem anderen Wert bewertet werden soll.</li>
+<li>Aktiviere die OptionKalkulierter EK-Preisund gib den gewünschten kalkulierten Einkaufspreis mitsamt Währung in die dafür vorgesehen Felder ein, wenn für Kalkulationen, Lagerbestände etc. ein alternativer Einkaufspreis verwendet werden soll (wenn möglich). In den Belegpositionen wird der kalkulierte Einkaufspreis auch als Berechnungsgrundlage für den Deckungsbeitrag herangezogen.</li>
+<li>Aktiviere die OptionKeine Verkaufspreis Meldung, damit keine Warnmeldung angezeigt wird, wenn dieser Artikel ohne vorhandenen Verkaufspreis in einen Beleg eingefügt wird (z.B. bei kostenlosen Artikeln).</li>
+<li>Aktiviere die OptionKein Skonto erlauben, wenn beim Verkauf dieses Artikels kein Skonto gewährt werden darf.</li>
+<li>Wähle dieAltersfreigabeaus, wenn eine Altersfreigabe des Artikels erfolgen soll. Dies ist jedoch nur für den Versand per DHL relevant.</li>
+</ol>
+<p>Bereich <strong>Sonstige Einstellungen</strong>(rechte Seite)</p>
+<ol>
+<li>Aktiviere die OptionStückliste, wenn der Artikel eine Stückliste darstellt. Eine Stückliste besteht aus anderen Artikeln und ist selbst ein Lagerartikel.</li>
+<li>Aktiviere die Option Just-in-Time Stückliste, wenn es sich bei diesem Artikel um eine Just-in-Time-Stückliste (Setartikel) handelt, der beim Kommissionieren zusammengetragen wird und daher selbst kein Lagerartikel sein kann.</li>
+<li>Aktiviere die OptionProduktionsartikel, damit dieser Artikel in den Produktionsbeleg übernommen wird, wenn ein Auftrag mit diesem Artikel zur Produktion weitergeführt wird.</li>
+<li>Aktiviere die OptionExterne Produktion, damit dieser Artikel in der Produktion als Beistellartikel aus einer Fremdfertigung verwendet werden kann.</li>
+<li>Aktiviere die OptionRohstoffliste, wenn du für diesen Artikel eine Rohstoffliste aufführen möchtest, z.B. wenn du eine Zutatenliste mit angeben möchtest. Nach Aktivierung dieses Kästchens und Speichern der Artikelstammdaten wird der TabRohstoffeangezeigt. Dort kannst du deine Rohstoffe eingeben.</li>
+<li>Aktiviere die OptionGeräte, damit der Artikel in der Kundenadresse zur Unterscheidung als Gerät markiert wird.</li>
+<li>Aktiviere die OptionServiceartikel, damit der Artikel in der Kundenadresse zur Unterscheidung als Serviceartikel markiert wird.</li>
+<li>Aktiviere die OptionGebühr, damit der Artikel in der Kundenadresse zur Unterscheidung als Gebühr markiert wird, z.B. bei Mahngebühren, Aufschlägen etc.</li>
+<li>Aktiviere die OptionDienstleistung, damit der Artikel in der Kundenadresse zur Unterscheidung als Dienstleistung markiert wird.</li>
+<li>Aktiviere die OptionIndividualartikelfür Artikel, die ein Einzelstück darstellen oder die kundenspezifisch angepasst oder hergestellt wurden, z.B. ein maßgefertigtes Kleid, ein maßgeschreinerter Tisch, eine spezielle kundenspezifische Dienstleistung o.ä. Ein Individualartikel kann nicht bestellt werden und wird nicht im Bestellvorschlag aufgeführt. Beim Einfügen in einen Beleg öffnet sich automatisch die Maske zum Bearbeiten der Position.</li>
+<li>Aktiviere die OptionOhne Preis im PDF, damit der Preis deines Artikels in PDF-Belegen nicht angezeigt wird. Beispiel: Es handelt sich um einen Gratisartikel oder der Preis darf aus rechtlichen Gründen nicht angezeigt werden.</li>
+<li>Gib im FeldBelege Formel Mengedie gewünschte Formel zur Berechnung der Menge ein. Mehr zum Thema Formeln und wie du mit Formeln arbeitest erfährst du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016756619#UUID-b2089f4c-a013-3fad-c56c-9e9ed5cbf5c7">Formeln</a>.</li>
+<li>Gib im FeldBelege Formel Preisdie gewünschte Formel zur Berechnung des Preises ein. Mehr zum Thema Formeln und wie du mit Formeln arbeitest erfährst du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016756619#UUID-b2089f4c-a013-3fad-c56c-9e9ed5cbf5c7">Formeln</a>.</li>
+</ol>
+<p>Bereich <strong>Sperre</strong></p>
+<p>Dieser Bereich ist im Allgemeinen nicht bei Anlage eines Artikels relevant. Bestehende Artikel können über diesen Bereich deaktiviert werden, d.h. sie sind in der Artikelübersicht nicht mehr sichtbar und können in Belegen nicht mehr verwendet werden.</p>
+<p>Um einen Artikel zu deaktivieren:</p>
+<ol>
+<li>Gib im FeldMeldungden Grund für die Sperre des Artikels ein. Dieser wird dir dann angezeigt, sobald du auf einen gesperrten Artikel klickst.</li>
+<li>Aktiviere die OptionSperre aktiv, um diesen Artikel zu sperren. Dies gilt z.B. für Angebote, Aufträge, etc. Der Artikel wird durchgestrichen in der Artikelübersicht angezeigt. (Screenshot)</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Artikelnummern dürfen nie doppelt vergeben werden. Möchtest du die Artikelnummer an einen neuen Artikel vergeben, trage in der Artikelbeschriftung des zu sperrenden Artikels z.B. -1 hinter der Artikelnummer ein, bevor du ihn sperrst. Speichere die Änderung und deaktiviere danach den Artikel. Nun kannst du die Artikelnummer wieder verwenden.</p>
+</blockquote>
+<p>Bereich <strong>Texte</strong></p>
+<ul>
+<li>Hinterlege im FeldHinweis-Textbei Bedarf artikelspezifische Hinweise, wie z.B. dass der Artikel nicht einzeln verkauft werden darf.</li>
+</ul>
+<p>Bereich <strong>Kundenfreigabe</strong></p>
+<ol>
+<li>Aktiviere die OptionPrüfung notwendig, damit bei Bedarf vor Freigabe eines Auftrags eine Prüfung durchgeführt wird (z.B.: Artikel darf nur an Fachleute/B2B verkauft werden)</li>
+<li>Definiere im FeldFreigabe Regeldie Regel, auf Basis deren die Prüfung erfolgt und freigegeben werden kann.</li>
+</ol>
+<h2 id="tab-texte-und-beschreibungen">Tab Texte und Beschreibungen<a class="headerlink" href="#tab-texte-und-beschreibungen" title="Permanent link">&para;</a></h2>
+<p>Bereich <strong>Beschreibung</strong></p>
+<p>Im BereichBeschreibungkannst du bei Bedarf einen Artikelnamen, einen Kurztext und eine Artikelbeschreibung in englischer Sprache hinzufügen. Möchtest du Beschreibungen in anderen Sprachen erstellen, geht das über den TabTexte, der nach dem Speichern der Artikelstammdaten angezeigt wird. Wie du den TabTexteverwendest, erfährst du im Artikel<a href="https://help.xentral.com/hc/de/articles/5355868406428#UUID-35fc0d39-4557-b521-a4f2-903bc9300155">Artikelstammdaten pflegen</a>pflegen. Der linke Teil mit den deutschen Spracheinträgen wurde im ersten TabArtikelbereits definiert und kann hier nicht verändert werden.</p>
+<ol>
+<li>Gib im FeldArtikel (EN)die englische Bezeichnung des Artikels ein. Die Bezeichnung darf nicht länger als 255 Zeichen sein.</li>
+<li>Gib im FeldKurztext (EN)eine kurze Beschreibung für die Volltext-Suche oder den Online-Shop Gruppentext in Englisch ein.</li>
+<li>Gib im FeldArtikelbeschreibung (EN)eine Beschreibung des Artikels in Englisch ein.</li>
+</ol>
+<p>Bereich <strong>Online-Shop Texte</strong></p>
+<p>Online-Shop Texte sind Artikelbeschreibungen, die speziell für den Export des Artikels zum Online-Shop gedacht sind. Wird ein Artikel von Xentral zum Shop exportiert, wird dieser Text als Artikelbeschreibung im Online-Shop verwendet.</p>
+<ol>
+<li>Gib im FeldArtikelbeschreibung (DE)die deutsche Beschreibung deines Artikels und im FeldArtikelbeschreibung (EN)die englische Beschreibung ein.</li>
+<li>Gib in die FelderMeta-Description (DE)undMeta-Keywords (DE)entsprechende Meta-Definitionen ein, die im Shop zur besseren Auffindbarkeit des Artikels verwendet werden.</li>
+<li>Gib in die FelderMeta-Keywords (DE)undMeta-Keywords (EN)entsprechende Meta-Definitionen ein, die im Shop zur besseren Auffindbarkeit des Artikels verwendet werden.</li>
+</ol>
+<p>Bereich <strong>Katalog</strong></p>
+<p>In diesem Bereich kannst du deinen Artikel als Katalogartikel mit separater Beschreibung definieren. Die hier definierten Felder können per API abgeholt und damit einfache PDFs erzeugt werden, in denen die Katalogartikeltexte untereinander dargestellt werden. Die PDF kann ein Grafiker dann in einen vollwertigen Online-Katalog überführen.</p>
+<ol>
+<li>Aktiviere die OptionKatalogartikel, um den Artikel als Katalogartikel zu definieren.</li>
+<li>Gib die deutsche Bezeichnung des Katalogartikels im FeldBezeichnung (DE)und die englische Bezeichnung im FeldBezeichnung (EN)ein, wenn erforderlich.</li>
+<li>Gib den deutschen Katalogtext im FeldKatalogtext (DE)und den englischen Katalogtext im FeldKatalogtext (EN)ein, wenn erforderlich.</li>
+</ol>
+<h2 id="tab-parameter-und-freifelder">Tab Parameter und Freifelder<a class="headerlink" href="#tab-parameter-und-freifelder" title="Permanent link">&para;</a></h2>
+<p>Im TabParameter und Freifelderfindest du 40 Freifelder, die du für den Artikel verwenden kannst. Die Attribute, für die die Freifelder verwendet werden sollen, werden in den<a href="https://help.xentral.com/hc/de/articles/360017612120#UUID-f5e6761f-c5ea-14bd-a6df-670042e64518">Grundeinstellungen</a>festgelegt. Im Artikel werden die Werte dieses Artikels pro Attribut eingetragen.</p>
+<p>Im TabFreifelderkannst du die Übersetzungen jedes Werts in andere Sprachen ergänzen.</p>
+<h2 id="tab-online-shop-optionen">Tab Online-Shop Optionen<a class="headerlink" href="#tab-online-shop-optionen" title="Permanent link">&para;</a></h2>
+<p>Du kannst einen Artikel mit beliebig vielen Online-Shops verknüpfen. Durch die Verknüpfung können genaue Einstellungen des Artikels pro Shop erfolgen.</p>
+<ol>
+<li>Aktiviere die OptionLagerzahlen Sync., um die automatische Übertragung der Lagerzahl des Artikels zum Shop zu erlauben.</li>
+<li>Aktiviere die OptionRestmenge (Abverkauf), damit der Artikel nach dem Abverkauf des Restbestands auf &ldquo;nicht mehr verfügbar&rdquo; umgestellt wird.</li>
+<li>Gib im FeldPseudo Lagerzahleine Pseudo-Lagerzahl des Artikels ein, die im Shop angezeigt werden soll, wenn nicht die reale Lagerzahl verwendet werden soll.</li>
+<li>Gib im FeldLieferzeittext manuelldie Lieferzeit des Artikels ein.</li>
+<li>Wähle einen Alternativartikel im FeldBestand Alternativartikelaus. Wenn hier ein Artikel eingetragen ist, wird immer der Bestand des alternativen Artikel gemeldet, der Bestand des eigentlichen Artikels wird nicht mehr beachtet.</li>
+<li>Gib bei Bedarf einen Lagerkorrekturwert im FeldLagerkorrekturwertein. Der Bestand im Shop wird entsprechend nach oben oder unten angepasst. Beispiel: Wird &ldquo;-5&rdquo; eingetragen, wird der tatsächliche Bestand um 5 vermindert im Shop angezeigt, &ldquo;5&rdquo; heisst, dass auf den Lagerbestand 5 Stück aufaddiert werden.</li>
+<li>Aktiviere die OptionArtikel ausverkauft, um den Artikel im Shop als nicht mehr verfügbar zu markieren.</li>
+<li>Aktiviere die OptionArtikel inaktiv, damit der Artikel im Shop nicht mehr sichtbar ist.</li>
+<li>Gib einen unverbindlichen Verkaufspreis (brutto) im FeldPseudo Preis / UVPein.</li>
+<li>Aktiviere die OptionGeneriere Artikelnummer bei Optionsartikel, damit der Shop eigene Artikelnummern für z.B. Individualartikel generiert.</li>
+<li>Aktiviere die Optionbei Kopie, damit ein neuer Individualartikel beim Kopieren (Shopimporter) automatisch zu einer Variante dieses Artikels wird. Dies ist z.B. dann sinnvoll, wenn du einen Artikel in deinem Online-Shop verkaufst, der kundenspezifisch angepasst wird (mit Gravur, Schriftzug o.ä.).Xentral legt dann eine Variante für deinen Hauptartikel an, welche nur für diesen konkreten Kunden ist.</li>
+<li>Aktiviere die OptionKundenspezifischer Artikelerstellen, um den Artikel als Individualartikel zu markieren.</li>
+<li>Aktiviere die OptionAuto-Abgleich, damit bei Auftragsimport der Preis und Artikelname aus deinem Online-Shop verwendet wird und nicht der aus Xentral z.B. bei Gutschein, Porto etc.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das vorstehend genannte Set von Feldern ist für den Legacy-Shopimporter zutreffend. Wenn du deinen Onlineshop bereits über die Connect-Schnittstelle angebunden hast, sind nur noch folgende Felder für die Anbindung relevant:</p>
+<ul>
+<li>Restmenge (Abverkauf)</li>
+<li>Pseudo Lagerzahl</li>
+<li>Lieferzeittext manuell</li>
+<li>Lagerkorrekturwert</li>
+<li>Artikel inaktiv</li>
+<li>Pseudo Preis / UVP</li>
+</ul>
+<p>Falls du den Legacy-Shopimporter über den Migrations-Wizard in die neue Xentral Connect-Schnittstelle migriert hast und dabeiArtikelzuordnung aus der bestehenden Integration übernehmengewählt hast, sind außerdem die eingetragenen Shop-Verknüpfungen gültig. Diese Konfiguration ist dann als Filterkriterium in der Connect Artikelzuordnung sichtbar (Filterkriterium Online-Shop UUID der alten Schnittstelle).</p>
+</blockquote>
+<h2 id="tab-finanzbuchhaltung">Tab Finanzbuchhaltung<a class="headerlink" href="#tab-finanzbuchhaltung" title="Permanent link">&para;</a></h2>
+<p>Im TabFinanzbuchhaltungkannst du den Export-Kontenrahmen festlegen und Steuersätze für Erlöse und Aufwendungen hinterlegen.</p>
+<ol>
+<li>Gib das Konto für den Standardsteuersatz (Inland) für Erlöse im FeldInland (normal)auf der linken Seite und den für Aufwendungen im FeldInland (normal)auf der rechten Seite ein.</li>
+<li>Gib das Konto für den ermäßigten Steuersatz (Inland) für Erlöse im FeldInland (ermäßigt)auf der linken Seite und den für Aufwendungen im FeldInland (ermäßigt)auf der rechten Seite ein.</li>
+<li>Gib das Konto für den Steuerfrei-Satz (Inland) für Erlöse im FeldInland (steuerfrei)auf der linken Seite und den für Aufwendungen im FeldInland (steuerfrei)auf der rechten Seite ein.</li>
+<li>Gib das Konto für den EU-Steuersatz für Erlöse im FeldInnergemeinschaftlich (EU)auf der linken Seite und den für Aufwendungen im FeldInnergemeinschaftlich (EU)auf der rechten Seite ein. (0% für EU)</li>
+<li>Gib das Konto für den EU-Standardsteuersatz für Erlöse im FeldEU (normal)auf der linken Seite und den für Aufwendungen im FeldEU (normal)auf der rechten Seite ein.</li>
+<li>Gib das Konto für den ermäßigten EU-Steuersatz für Erlöse im FeldEU (ermäßigt)auf der linken Seite und den für Aufwendungen im FeldEU (ermäßigt)auf der rechten Seite ein.</li>
+<li>Gib das Konto für den Export-Steuersatz (nicht-EU) für Erlöse im FeldExportauf der linken Seite und den für Aufwendungen im FeldExportauf der rechten Seite ein.</li>
+<li>Wähle im FeldSteuergruppedie Steuergruppe des Artikels aus.</li>
+<li>Wähle im FeldKostenstelledie Kostenstelle des Artikels in Buchhaltung &amp; Controlling aus.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

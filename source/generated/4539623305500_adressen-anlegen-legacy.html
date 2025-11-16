@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4539623305500 Adressen Anlegen Legacy - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>4539623305500 Adressen Anlegen Legacy</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>4539623305500 Adressen Anlegen Legacy</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>InXentral legst du im Menü <strong>Verkaufen &gt; Adressen</strong> neue Adressen für deine Kunden, Mitarbeiter und Lieferanten an. Außerdem findest du hier eine Übersicht über alle in Xentral vorhandenen Adressdatensätze und kannst zahlreiche Such- und Filtermöglichkeiten nutzen. Mehr über die Adressübersicht erfährst du<a href="https://help.xentral.com/hc/de/articles/4499491326876#UUID-ff765085-c94a-540b-bf44-4e2127b0f93e">in diesem Artikel</a>.</p>
+<p>Zum Anlegen einer neuen Kunden-, Lieferanten- oder Mitarbeiteradresse klickst du oben rechts im Menü <strong>Verkaufen &gt; Adressen</strong> auf+NEU. Anschließend wird die AnsichtAdresse anlegengeöffnet. Die anschließende Eingabe der Adressdaten läuft immer gleich ab, egal ob es sich um einen Kunden, Lieferanten oder Mitarbeiter handelt.</p>
+<p>Nach dem ersten Klick aufSpeichernkannst du Adressen eine Rolle und damit eine entsprechende Kunden-, Lieferanten- oder Mitarbeiternummer zuweisen. Einer Adresse können später noch weitere Rollen zugewiesen werden. Wie du weitere Rollen hinzufügst, erfährst du im Artikel<a href="https://help.xentral.com/hc/de/articles/4544271298716#UUID-cdc4cbcc-2c78-f143-6e7f-88d87e4192a6">Adressstammdaten pflegen (Legacy)</a>.</p>
+<p>Dieser Artikel listet die Felder und Einstellungsmöglichkeiten auf, die dir beim Anlegen einer neuen Adresse zur Verfügung stehen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Alle in der folgenden Anleitung beschriebenen Felder sind optional, soweit sie nicht ausdrücklich als verpflichtend gekennzeichnet sind. Wir empfehlen jedoch, alle für dich relevanten Felder bestmöglich auszufüllen, da viele Felder auch in anderen Funktionalitäten Anwendung finden und du dir damit die Arbeit im Nachgang erleichterst.</p>
+</blockquote>
+<p>Falls du Informationen zu einem bestimmten Tab suchst, kannst du auf die folgenden Links klicken, um direkt in den entsprechenden Abschnitt zu gelangen.</p>
+<p>Tab <strong>Adressdaten</strong></p>
+<ul>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937536879">Bereich Stammdaten</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937558420">Bereich Kontaktdaten</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937572459">Bereich Zuordnung</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937585448">Bereich Einstellungen</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937601859">Bereich Sonstiges</a></li>
+</ul>
+<p>Tab <strong>Zahlungskonditionen/Besteuerung</strong></p>
+<ul>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937697755">Bereich Zahlungskonditionen des Kunden für Rechnungen</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937707533">Bereich Zahlungskonditionen beim Lieferant bei Bestellungen</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937724245">Bereich Steuer/ Währung/ Zoll</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937742767">Bereich Kunde/Lieferant</a></li>
+</ul>
+<p>Tab <strong>Bankverbindung</strong></p>
+<ul>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_id_4539623305500_id_h_01G21MB5M0P12X4BG89Y5AQPE3">Tab Bankverbindung</a></li>
+</ul>
+<p>Tab <strong>Dokumente Versandoptionen</strong></p>
+<ul>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937877753">Bereich Allgemeine Versandoptionen</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937907722">Bereiche E-Mail Empfänger und E-Mail Kopie Empfänger</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937926053">Bereich Fax Kopie Empfänger</a></li>
+</ul>
+<p>Tab <strong>Sonstige Daten</strong></p>
+<ul>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937967065">Bereich Vertrieb/Innendienst</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937979571">Bereich Porto/Versandart</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738937989249">Bereich Porto bei Lieferant</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738938007248">Bereich Sonstiges</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738938022489">Bereich Finanzbuchhaltung</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738938039152">Bereich Personalwesen Einstellungen</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738938063798">Bereich Freifelder</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738938073368">Bereich Geodaten</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738938082457">Bereich Kennung</a></li>
+<li><a href="#UUID-5eb13622-c11e-65ae-3f78-826dda45c848_N1738938100474">Bereich Logbuch</a></li>
+</ul>
+<h2 id="tab-adressdaten">Tab Adressdaten<a class="headerlink" href="#tab-adressdaten" title="Permanent link">&para;</a></h2>
+<h3 id="bereich-stammdaten">Bereich Stammdaten<a class="headerlink" href="#bereich-stammdaten" title="Permanent link">&para;</a></h3>
+<p>1.<strong>Verpflichtend</strong>: Wähle den Typ (z.B. Herr, Frau, Firma) und gib den Namen des Kunden, Lieferanten oder Mitarbeiters in das Feld Name ein.
+1. Gib nun weitere relevante Informationen in die Spalten Titel (z.B. Prof., Dr. etc.), Ansprechpartner, Abteilung, Unterabteilung, Adresszusatz, Straße, PLZ/Ort, Bundesstaat und Land ein.
+1. Wähle im Feld Lieferbedingung die individuellen Lieferbedingungen für einen Kunden oder Lieferanten aus.
+  Die Lieferbedingungen musst du vorab im Modul Lieferbedingungen anlegen. Weitere Informationen dazu findest du im Artikel <a href="https://help.xentral.com/document/preview/25811#UUID-b7a9ab64-b2da-d616-38e7-d4d8e1d05c9f">Lieferbedingungen</a>.</p>
+<ol>
+<li>Gib in das Feld GLN (Global Location Number) die 13-stellige GLN-Nummer ein.
+  Die GLN-Nummer dient zur eindeutigen Identifizierung von Handelspartnern. Diese Nummer wird nur nur bei der Nutzung einer EDI-Schnittstelle mithilfe des Xentral Moduls <strong>Übertragungen</strong> benötigt.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Soll bei Erstellung einer Rechnung abweichend eine andere Adresse verwendet werden, aktiviere die OptionAbw. Rechnungsadresse. Dadurch öffnet sich darunter ein neues Adressformular, in dem du die abweichende Rechnungsadresse eingeben kannst.</p>
+</blockquote>
+<h3 id="bereich-kontaktdaten">Bereich Kontaktdaten<a class="headerlink" href="#bereich-kontaktdaten" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Gib im Bereich <strong>Kontaktdaten</strong> die entsprechenden Informationen in die Felder Telefon, Telefax, Mobile, E-Mail und Internetseite ein.</li>
+</ul>
+<p>Die Anrede im Anschreiben wird automatisch auf Basis des ausgewählten Adresstyps und des eingegebenen Namens bzw. des Ansprechpartners zusammengesetzt. Möchtest du eine andere Anrede verwenden, gib diese im FeldAnredeein.</p>
+<h3 id="bereich-zuordnung">Bereich Zuordnung<a class="headerlink" href="#bereich-zuordnung" title="Permanent link">&para;</a></h3>
+<p>In diesem Bereich kannst du den Adressdaten beispielsweise einen zuständigen Vertriebsmitarbeiter deiner eigenen Firma oder für interne Zwecke ein Projekt zuordnen.</p>
+<ol>
+<li>Wähle im Feld Vertrieb den zuständigen Vertriebsmitarbeiter aus. Wenn du das Modul <strong>Provisionen</strong> in Xentral nutzt, erhält der hier eingestellte Mitarbeiter im Standard die Provisionen für Verkäufe an diesen Kunden.</li>
+<li>Wähle im Feld Innendienst den zuständigen Innendienst-Mitarbeiter aus. Dieser Mitarbeiter wird in Belegen für diese Adresse standardmäßig als Bearbeiter erfasst.</li>
+<li>Wähle im Feld Hauptprojekt das Hauptprojekt aus, das auf den Kunden, Lieferanten oder Mitarbeiter angewendet werden soll.</li>
+</ol>
+<p>Bei Anlage der Adresse über den Shop wird im FeldHerkunftskanalder entsprechende Shop erfasst.</p>
+<h3 id="bereich-einstellungen">Bereich Einstellungen<a class="headerlink" href="#bereich-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Im BereichEinstellungenkannst du verschiedene Sperren setzen, die Sprache der Belege definieren und Stammdaten als Lead markieren.</p>
+<ol>
+<li>Gib in die Felder Liefersperre, Datum und Liefersperre Grund eine mögliche Liefersperre mit Startdatum der Liefersperre und Grund der Liefersperre ein.</li>
+<li>Wähle im Feld Sprache für Belege die Sprache aus, in die deine Belege erstellt werden sollen.</li>
+<li>Wähle den Wert Ja im Feld Kundenfreigabe, wenn du für einen Kunden eine manuelle Freigabe als Zwischenschritt in der Auftragsabwicklung einführen möchtest. Das Symbol zur Kundenfreigabe in der Auftragsampel wird in diesem Fall erst dann grün, wenn die Freigabe manuell bestätigt wurde.</li>
+<li>Aktiviere die Option Folgebestätigungssperre wenn keine Folgebestätigung an diesen Kunden gesendet werden soll. Folgebestätigungen werden ansonsten automatisch über einen Prozessstarter an den Kunden versendet, wenn offene Aufträge vorhanden sind und die Ware noch nicht versendet wurde.</li>
+<li>Aktiviere die Trackingmailsperre, um die entsprechende Geschäftsbriefvorlage nicht an diesen Kunden zu senden, selbst wenn die Tracking-Nummer bestätigt ist und in den Projekteinstellungen die Einstellung Versandbestätigung/Tracking aktiviert ist.</li>
+<li>Aktiviere die Option Marketingsperre, wenn der Kunde keine Serienbriefe bekommen soll. Dies ist beispielsweise der Fall, wenn Kunden der Nutzung ihrer Daten zu diesem Zweck widersprochen haben.</li>
+<li>Aktiviere die Option Lead, um potentielle Neukunden zu kennzeichnen. Leads sind keine tatsächlichen Kunden. Bei Aktivierung dieser Option wird daher keine Kundennummer zugewiesen und es können keine Aufträge erfasst oder versendet werden.</li>
+</ol>
+<h3 id="bereich-sonstiges">Bereich Sonstiges<a class="headerlink" href="#bereich-sonstiges" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Gib im Feld Info für Auftragserfassung Informationen ein, die bei Anlage eines Angebots oder Auftrags angezeigt werden sollen wie beispielsweise gewünschte Lieferzeiten.</li>
+<li>Gib in das Feld Sonstiges alle weiteren Informationen ein, die du für relevant hältst.</li>
+</ol>
+<p><strong>Speichere</strong> spätestens jetzt deine Eingaben, bevor du weitere Eingaben in den verbleibenden Tabs vornimmst.</p>
+<h2 id="tab-zahlungskonditionenbesteuerung">Tab Zahlungskonditionen/Besteuerung<a class="headerlink" href="#tab-zahlungskonditionenbesteuerung" title="Permanent link">&para;</a></h2>
+<p>In diesem Tab kannst du Standard-Zahlungsweisen mit Skonto und Zahlungsziel sowie die Umsatzsteuer-ID hinterlegen. Zudem kannst du an dieser Stelle definieren, welche Belege im Rahmen des Auto-Versands erstellt werden sollen.</p>
+<h3 id="bereich-zahlungskonditionen-des-kunden-fur-rechnungen">Bereich Zahlungskonditionen des Kunden für Rechnungen<a class="headerlink" href="#bereich-zahlungskonditionen-des-kunden-fur-rechnungen" title="Permanent link">&para;</a></h3>
+<p>In diesem Bereich kannst du Informationen zu Zahlungskonditionen für Kunden hinterlegen. Zahlungskonditionen für Lieferanten werden im BereichZahlungskonditionen beim Lieferant bei Bestellungenim Bereich daneben definiert.</p>
+<ol>
+<li>Aktiviere die Option Zahlungskonditionen festschreiben, wenn die hier definierten Zahlungskonditionen immer angewendet werden sollen. Diese Konditionen haben immer Vorrang über Konditionen von Gruppen oder Preisgruppen, denen dieser Kunde angehört.</li>
+<li>Wähle die gewünschte Zahlungsweise für diesen Kunden im Feld Zahlungsweise aus. Die Zahlungsweisen legst du vorab im Modul Zahlungsweisen an. Wie du Zahlungsweisen anlegst, erfährst du im Artikel <a href="#">Zahlungsweisen - Workflow</a>.</li>
+<li>Hast du als Zahlungsweise Rechnung ausgewählt, kannst du weitere Zahlungsinformationen in die Felder Zahlungsziel (bei Rechnungen), Zahlungsziel Skonto (bei Rechnungen) und Skonto (bei Rechnungen) eingeben.</li>
+<li>Gib in das Feld Lieferantennummer bei Kunde die eigene Lieferantennummer (Kreditorennummer) beim Kunden ein, wenn diese dir bekannt ist.</li>
+<li>Sollte der Kunde über ein Abonnement verfügen, wählst du im Feld Zahlungsweise Abo die Standard-Zahlungsweise für dieses Abonnement aus.</li>
+<li>Im Feld Belege im Auto-Versand erstellen wählst du aus, ob im Auto-Versand nur der Lieferschein, nur die Rechnung oder beides erstellt werden soll. Diese Dokumente kannst du später je nach Wunsch ausdrucken oder versenden.</li>
+<li>Im Feld Kommissions-/Konsignationslager wählst du ein Kommissions- oder Konsignationslager für den Warenversand an diesen Kunden. Diese Läger müssen bereits in Xentral angelegt sein. Wie du ein Lager anlegst, erfährst du im Artikel <a href="https://help.xentral.com/hc/de/articles/360016722900#UUID-527055ed-8627-f35b-455b-32892ca8d5ce">Lagerstruktur definieren</a>.</li>
+</ol>
+<h3 id="bereich-zahlungskonditionen-beim-lieferant-bei-bestellungen">Bereich Zahlungskonditionen beim Lieferant bei Bestellungen<a class="headerlink" href="#bereich-zahlungskonditionen-beim-lieferant-bei-bestellungen" title="Permanent link">&para;</a></h3>
+<p>In diesem Bereich kannst du die Zahlungskonditionen beim Lieferanten für deine Bestellung hinterlegen.</p>
+<ol>
+<li>Wähle die gewünschte Zahlungsweise für diesen Lieferanten im Feld Zahlungsweise aus.</li>
+<li>Gebe danach die relevanten Zahlungsinformationen in die Felder Zahlungsziel (in Tagen), Zahlungsziel Skonto (in Tagen) und Skonto ein.</li>
+<li>Gib in das Feld Lieferart Informationen zur Lieferart des Lieferanten ein. Diese Informationen dient internen Zwecken.</li>
+<li>Gib in das Feld Kundennummer bei Lieferant die eigene Kundennummer (Debitorennummer) beim Lieferanten ein, wenn dir diese bekannt ist.</li>
+<li>Wähle im Feld Besteuerung Verbindlichkeiten aus, ob die Besteuerung der Verbindlichkeiten für das Inland, eine EU-Lieferung, oder einen Import erfolgt.</li>
+<li>Gib in das Feld Lieferant Hinweis-Text einen Text ein, der immer dann auf einem Kundenbeleg angezeigt wird, wenn ein Artikel mit diesem Lieferanten als Standard-Lieferant hinzugefügt wird.</li>
+</ol>
+<h3 id="bereich-steuer-wahrung-zoll">Bereich Steuer/ Währung/ Zoll<a class="headerlink" href="#bereich-steuer-wahrung-zoll" title="Permanent link">&para;</a></h3>
+<p>In diesem Bereich kannst du steuerrelevante Informationen sowie die Standardwährung und Zollinformationen hinterlegen.</p>
+<p>Gib in das FeldUSt-IDdie vollständige Umsatzsteuer-ID des Kunden inklusive des Länderkürzels ein.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Angabe ist für Lieferungen innerhalb der Europäischen Union erforderlich, um festzustellen, ob der Kunde von der Umsatzsteuer befreit ist.</p>
+</blockquote>
+<ol>
+<li>Gib in das Feld Steuernummer die Steuernummer des Kunden oder Lieferanten ein.</li>
+<li>Wähle im Feld Besteuerung aus, ob die Besteuerung für Inland, EU-Lieferung/ Lieferschwelle, Export oder Steuerfrei Inland erfolgt.</li>
+<li>Gib in das Feld Standard Währung die Standardwährung deines Kunden/Lieferanten ein.</li>
+<li>Aktiviere die Option Lieferschwelle nicht anwenden wenn die im Modul <strong>Lieferschwelle</strong> angelegten Regeln zur Lieferschwelle nicht angewendet werden sollen.</li>
+<li>Wähle im Feld Anzeige Steuer auf Belege ob die Steuer auf Belegen in Brutto, Netto oder Automatisch angegeben wird. Bei Auswahl von Automatisch wird die entsprechende Information aus den Projekt- oder Grundeinstellungen gezogen.</li>
+<li>Gib in das Textfeld Zollinformationen Informationen bezüglich des Zolls ein. Dieses Feld wird auf deinen Belegen angezeigt.</li>
+</ol>
+<h3 id="bereich-kundelieferant">Bereich Kunde/Lieferant<a class="headerlink" href="#bereich-kundelieferant" title="Permanent link">&para;</a></h3>
+<p>In diesem Bereich werden Kunden-, Lieferanten- und Mitarbeiternummern sowie abweichende Debitoren- und Kreditorennummern hinterlegt.</p>
+<p>Kunden Nr.: Kundenstammdaten erhalten vom System automatisch eine Kundennummer (Kreditorennummer) auf Basis des definierten Nummernkreises zugewiesen. Diese können manuell geändert werden.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Ändere die Kundennummer nur in Ausnahmefällen, da ein Eingreifen in den Nummernkreis weitere Probleme nach sich ziehen kann.</p>
+</blockquote>
+<p>Lieferanten Nr.: Lieferantenstammdaten erhalten vom System automatisch eine Lieferantennummer (Debitorennummer) auf Basis des Nummernkreises zugewiesen. Diese können manuell geändert werden.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Ändere die Lieferantennummer nur in Ausnahmefällen, da ein Eingreifen in den Nummernkreis weitere Probleme nach sich ziehen kann.</p>
+</blockquote>
+<p>Mitarbeiter Nr.: Mitarbeiterstammdaten erhalten vom System automatisch eine Mitarbeiternummer zugewiesen.</p>
+<p>Gibt es unterschiedliche Debitoren- und Kreditorennummern zwischen Finanzbuchhaltung und Xentral, gib die abweichenden Nummern in die FelderAbw. Debitoren-oderKreditoren Nummerein. Die abweichende Debitorennummer wird im Finanzbuchhaltungsexport genutzt.</p>
+<h2 id="tab-bankverbindung">Tab Bankverbindung<a class="headerlink" href="#tab-bankverbindung" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Gib im Tab <strong>Bankverbindung</strong> die folgenden Informationen ein: Inhaber, Bank, BIC, IBAN, Mandatsreferenz und Mandatsreferenzdatum.</li>
+</ul>
+<p>Wenn du keinen Inhaber eingibst, wird automatisch der Name aus den Adressdaten als Inhaber übernommen.</p>
+<p>Die Mandatsreferenz des SEPA-Mandats wird bei Anlage eines SEPA-Mandats zu einem Bankkonto vergeben.</p>
+<ol>
+<li>Hast du als Zahlungsweise Lastschrift ausgewählt, kannst du im Feld Lastschrift Art auswählen, ob es sich um eine einmalige oder wiederholende Lastschrift handelt und ob es sich um eine Erst- oder eine Folgelastschrift handelt.</li>
+<li>Aktiviere die Option Mandatsreferenz Änderung, wenn sich die Mandatsreferenz seit der letzten Lastschrift geändert hat. Als Folge wird im SEPA-Format eine andere XML-Datei erstellt.</li>
+<li>Aktiviere die Option Firmen-SEPA, um ein SEPA-Mandat speziell für Firmen zu erzeugen.</li>
+<li>Trage in das Feld Bemerkungen weitere Angaben ein, die du für erforderlich erachtest.</li>
+</ol>
+<h3 id="bereich-paypal-bei-zahlungen">Bereich Paypal (bei Zahlungen)<a class="headerlink" href="#bereich-paypal-bei-zahlungen" title="Permanent link">&para;</a></h3>
+<p>In diesem Bereich kannst du Paypal-Daten zu dieser Adresse hinterlegen.</p>
+<p>Fülle dazu die FelderInhaber,WährungundPaypal-Account(dies ist der Benutzername des Paypal-Accounts, im Allgemeinen die E-Mail-Adresse) mit den entsprechenden Informationen.</p>
+<h2 id="tab-dokumente-versandoptionen">Tab Dokumente Versandoptionen<a class="headerlink" href="#tab-dokumente-versandoptionen" title="Permanent link">&para;</a></h2>
+<p>In diesem Tab kannst du Versand- und Druckoptionen zu den verschiedenen Belegarten festlegen.</p>
+<h3 id="bereich-allgemeine-versandoptionen">Bereich Allgemeine Versandoptionen<a class="headerlink" href="#bereich-allgemeine-versandoptionen" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Aktiviere die Option Immer Papier Rechnung, wenn beim Auto-Versand neben der Rechnung per E-Mail auch eine Rechnung auf Papier erforderlich ist. Dadurch wird automatisch eine zusätzliche Papierrechnung ausgedruckt.</li>
+<li>Gib in das Feld Anzahl Ausdrucke Rechnung die Anzahl der Ausdrucke beim Versand ein. Diese Eingabe wird im Versandzentrum ausgewertet. Diese Option ist für den B2B-Bereich oder bei Exportrechnungen nutzbar, ist jedoch selten gebräuchlich.</li>
+</ol>
+<h3 id="bereiche-e-mail-empfanger-und-e-mail-kopie-empfanger">Bereiche E-Mail Empfänger und E-Mail Kopie Empfänger<a class="headerlink" href="#bereiche-e-mail-empfanger-und-e-mail-kopie-empfanger" title="Permanent link">&para;</a></h3>
+<p>Du kannst für jede Belegart einen eigenen E-Mail-Empfänger im BereichE-Mail Empfängerdefinieren sowie, falls gewünscht, weitere Empfänger für eine Kopie des entsprechenden Belegs im BereichE-Mail Kopie Empfänger.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Pro Feld ist kann nur eine E-Mail-Adresse eingetragen werden.</p>
+</blockquote>
+<h3 id="bereich-fax-kopie-empfanger">Bereich Fax Kopie Empfänger<a class="headerlink" href="#bereich-fax-kopie-empfanger" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Aktiviere die Option AB per Fax bevorzugt, wenn bei Aufträgen die Versandoption Fax automatisch vorausgewählt werden soll.</li>
+</ul>
+<h2 id="tab-sonstige-daten">Tab Sonstige Daten<a class="headerlink" href="#tab-sonstige-daten" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Sonstige Daten</strong> kannst du weitere potentiell relevante Einstellungen wie z.B. Porto, Provision und Geodaten hinterlegen.</p>
+<h3 id="bereich-vertriebinnendienst">Bereich Vertrieb/Innendienst<a class="headerlink" href="#bereich-vertriebinnendienst" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Wird in deinem Unternehmen mit Provisionen gearbeitet, trage in das Feld Provision die Provision in Prozent ein, die gezahlt wird, wenn Rechnungen für diesen Kunden erstellt und bezahlt wurden.</li>
+</ul>
+<h3 id="bereich-portoversandart">Bereich Porto/Versandart<a class="headerlink" href="#bereich-portoversandart" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Gib in das Feld Porto frei aktiv einen Nettoumsatz ein, ab dem die Lieferung an den Kunden kostenfrei ist.</li>
+<li>Wähle im Feld Versandart die gewünschte Versandart für diesen Kunden aus.</li>
+<li>Aktiviere die Option Keine Altersprüfung notwendig, wenn keine Altersprüfung für diesen Kunden notwendig ist.</li>
+</ol>
+<h3 id="bereich-porto-bei-lieferant">Bereich Porto bei Lieferant<a class="headerlink" href="#bereich-porto-bei-lieferant" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Gib in das Feld Porto frei aktiv den Nettoumsatz an, ab dem der Versand vom Lieferanten kostenfrei ist.</li>
+</ul>
+<h3 id="bereich-sonstiges_1">Bereich Sonstiges<a class="headerlink" href="#bereich-sonstiges_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Gib in das Feld Geburtstag den Geburtstag des Kunden oder Ansprechpartners ein, falls dieser bekannt ist.</li>
+<li>Aktiviere die Option Im Kalender anzeigen, wenn der Geburtstag auch in deinem Kalender angezeigt werden soll.</li>
+<li>Aktiviere die Option Geburtstagskarte, wenn eine Geburtstagskarte über das Modul <strong>Serienbrief</strong> versendet werden soll.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das Geburtsdatum gehört zu den sensiblen, persönlichen Daten. Achte daher immer bei Eingabe und Nutzung dieses Datums auf die Einhaltung der DSGVO.</p>
+</blockquote>
+<h3 id="bereich-finanzbuchhaltung">Bereich Finanzbuchhaltung<a class="headerlink" href="#bereich-finanzbuchhaltung" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Gib in das Feld Reisekosten das Verrechnungskonto für etwaige Reisekosten ein.</li>
+<li>Gib in das Feld Kredit Limit die Höhe des Kreditlimits dieses Kunden in € ein. Das Kreditlimit wird innerhalb der Auftragsampel verwendet. Wenn der Gesamtbetrag der Aufträge des Kunden das hier erfasste Kreditlimit überschreitet, schalten die entsprechenden Ampeln auf rot und es ist keine Übergabe des Auftrags in den Auto-Versand mehr möglich.</li>
+</ol>
+<h3 id="bereich-personalwesen-einstellungen">Bereich Personalwesen Einstellungen<a class="headerlink" href="#bereich-personalwesen-einstellungen" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dieser Bereich ist nur für die Adressdaten von Mitarbeitern relevant.</p>
+</blockquote>
+<p>Trage in das FeldArbeitszeit pro Wochedie wöchentliche Arbeitszeit in Stunden ein.</p>
+<h3 id="bereich-freifelder">Bereich Freifelder<a class="headerlink" href="#bereich-freifelder" title="Permanent link">&para;</a></h3>
+<p>In diesem Bereich kannst du Freifelder für die Adressstammdaten füllen. Die Freifeld-Attribute können in den<a href="#">Firmendaten</a>definiert werden. Für jede Adresse können Werte gepflegt werden.</p>
+<h3 id="bereich-geodaten">Bereich Geodaten<a class="headerlink" href="#bereich-geodaten" title="Permanent link">&para;</a></h3>
+<p>Diese Information wird durch das System befüllt.Breiten-undLängengradder Kontaktadresse können automatisch über den ProzessstarterOpenstreetmapin Verbindung mit OpenStreetMap ermittelt werden.</p>
+<h3 id="bereich-kennung">Bereich Kennung<a class="headerlink" href="#bereich-kennung" title="Permanent link">&para;</a></h3>
+<p>In diesem Bereich kannst du eine eindeutige Kennung für vereinfachte Imports der Zeiterfassung, Artikelimporte und mehr vergeben.</p>
+<ul>
+<li>Gib in das Feld Eindeutige Kennung eine frei wählbare Kennung aus Großbuchstaben ein. Diese kann statt Kundennummer oder Name verwendet werden, um auf die Adresse zu buchen (z.B. in der Zeiterfassung).</li>
+</ul>
+<h3 id="bereich-logbuch">Bereich Logbuch<a class="headerlink" href="#bereich-logbuch" title="Permanent link">&para;</a></h3>
+<p>Im Logbuch kannst du frei zu pflegende Texte hinterlegen, die von externen Programmen ausgewertet werden können, wenn die Adresse über die XentralAPI angesprochen wird.</p>
+<p>Das FeldEinträgewird nur von extern angebundenen Tools genutzt. Du kannst hier keinen Text eingeben. Wenn das Feld von einem externen Tool über die API angesprochen wird, wird nur einText lesendangezeigt.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016775339 Kontenrahmen Kontenplan Xentral Kontorahmen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016775339 Kontenrahmen Kontenplan Xentral Kontorahmen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016775339 Kontenrahmen Kontenplan Xentral Kontorahmen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Ein Kontenrahmen ist ein Verzeichnis aller Konten für die Buchführung. In diesem Modul kannst du einen Kontenrahmen entweder händisch anlegen oder von einer anderen Software (z.B. Datev) importieren. Zudem kannst du im Modul Kontorahmen den Kontenrahmen anpassen. Dieser ist hauptsächlich für die Buchhaltung relevant und wird vor allem bei den Verbindlichkeiten benutzt.</p>
+<p>Die Standard-Konten für den Finanzbuchhaltungsexport von Belegen befinden sich in den Grundeinstellungen im BereichSteuer / Währungsowie in den Einstellungen pro Projekt. Wurden Einstellungen auf Projektbasis getätigt, werden diese gegenüber denen aus den globalen Grundeinstellungen vorgezogen.</p>
+<p>Das Modul kannst du über <strong>Einstellungen &gt; Buchhaltung &gt; Kontenrahmen <strong>oder über die Smart-Suche über</strong> Kontorahmen</strong> aufrufen.</p>
+<h2 id="was-ist-ein-kontenrahmen-und-was-ist-skr03-und-skr04">Was ist ein Kontenrahmen und was ist SKR03 und SKR04?<a class="headerlink" href="#was-ist-ein-kontenrahmen-und-was-ist-skr03-und-skr04" title="Permanent link">&para;</a></h2>
+<p>Ein Kontenrahmen ist eine systematische Struktur, die zur einheitlichen Darstellung und Organisation der Konten eines Unternehmens dient. Er enthält eine Liste von Konten, die in verschiedene Kontengruppen gegliedert sind, wie z. B. Vermögen, Schulden, Erträge und Aufwendungen. Der Kontenrahmen bildet die Basis für den Kontenplan des Unternehmens, in dem die tatsächlich genutzten Konten enthalten sind, und sorgt dafür, dass die Buchführung übersichtlich und strukturiert erfolgt.In Deutschland gibt es mehrere standardisierte Kontenrahmen, die oft branchenspezifisch sind.</p>
+<p>Die bekanntesten und weitverbreiteten Kontenrahmen sind SKR04 und SKR03:</p>
+<p>-<strong>SKR04</strong>(Standardkontenrahmen 04): Dieser Kontenrahmen ist prozessorientiert aufgebaut und wird häufig in Unternehmen genutzt, die nach dem Abschlussgliederungsprinzip (wie in der Bilanz) buchen. Konten für Vermögen, Schulden, Eigenkapital, Erträge und Aufwendungen sind in einer Weise strukturiert, die eng an der Bilanzgliederung orientiert ist. Dies eignet sich gut für eine Abschlussdarstellung nach dem Handelsgesetzbuch (HGB).
+-<strong>SKR03</strong>(Standardkontenrahmen 03): Der SKR03 ist betriebsorientiert aufgebaut und wird nach dem Abschlussgliederungsprinzip des Gesamtkostenverfahrens strukturiert. Die Konten sind nach funktionalen Gesichtspunkten sortiert, was für Unternehmen von Vorteil ist, die eine eher funktionsorientierte Kostenrechnung verwenden, z. B. nach Kostenstellen.</p>
+<p>Beide Kontenrahmen sind Standards, die DATEV entwickelt hat und die in Deutschland weit verbreitet sind. Die Wahl des Kontenrahmens hängt oft davon ab, welche Struktur der Buchhaltung das Unternehmen bevorzugt und welche Anforderungen der Jahresabschluss erfüllen soll.</p>
+<h2 id="beispiele-fur-konten-im-skr04">Beispiele für Konten im SKR04<a class="headerlink" href="#beispiele-fur-konten-im-skr04" title="Permanent link">&para;</a></h2>
+<p>Nachfolgend werden als Beispiel Konten aus dem SKR04 Kontenrahmen verwendet. InXentral kannst du aber auch problemlos andere Kontenrahmen verwenden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Beispiele sind exemplarisch. Stimme dich für deine Buchführung mit deinem Steuerberater über die Verwendung des Kontenrahmens und der Konten ab.</p>
+</blockquote>
+<p>-<strong>Nebenkosten des Geldverkehrs </strong>: Konto <strong>6855</strong>. Dieses Konto erfasst Gebühren und Kosten im Zusammenhang mit dem Zahlungsverkehr, wie z. B. Bankgebühren.
+-<strong>Geldtransit </strong>: Konto <strong>1460</strong>. Auf dieses Konto werden Beträge gebucht, die sich im Transfer zwischen verschiedenen Zahlungsmitteln oder Konten befinden, etwa bei Einzahlungen oder Überweisungen, die noch nicht abgeschlossen sind.
+-<strong>Durchlaufende Posten </strong>: Konto <strong>1370</strong>. Dieses Konto wird für Beträge verwendet, die im Namen und für Rechnung eines Dritten vereinnahmt oder verausgabt werden und das eigene Vermögen nicht beeinflussen.
+-<strong>Umsatzsteuer-Vorauszahlungen </strong>: Konto <strong>3820</strong>. Dieses Konto erfasst die Umsatzsteuer-Vorauszahlungen, die für das laufende Jahr an das Finanzamt geleistet werden.
+-<strong>Umsatzerlöse Inland </strong>: Konto <strong>4400</strong>. Hier werden die Erlöse aus inländischen Verkäufen von Waren und Dienstleistungen ohne separaten Steuerschlüssel für 19 % Umsatzsteuer erfasst, da es sich um ein Automatikkonto handelt.
+-<strong>Wareneinkauf </strong>: Konto <strong>5400</strong>. Dieses Konto dient zur Erfassung der Aufwendungen für den Einkauf von Handelswaren. Als Automatikkonto benötigt es ebenfalls keinen separaten Steuerschlüssel für 19 % Umsatzsteuer.</p>
+<h2 id="ubersicht-des-kontorahmens">Übersicht des Kontorahmens<a class="headerlink" href="#ubersicht-des-kontorahmens" title="Permanent link">&para;</a></h2>
+<p>Die Übersicht zeigt eine Auflistung aller vorhandenen Konten.</p>
+<p>In der Tabelle kannst du in der Spalte <strong>Menü</strong> einzelne Konten über das Stift-Icon bearbeiten oder über das x-Icon löschen. Zudem kannst du die Tabelle in die Zwischenablage kopieren, oder als CSV, Excel oder PDF Datei ausgeben lassen bzw. die Tabelle drucken.</p>
+<p>Ist ein Konto durchgestrichen bedeutet dies, dass das Konto deaktiviert ist und nicht mehr verwendet wird.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Automatikkonten in DATEV (z. B. 5400) werden in Xentral genauso behandelt wie alle anderen Konten. Erst bei der Übergabe der Daten an DATEV wird das Automatikkonto automatisch von DATEV erkannt und entsprechend ausgewertet.</p>
+<p>Z.B. verbuchst du Wareneingang 19% auf das Konto &lsquo;5400&rsquo; ohne Steuerschlüssel. Ein anderes Konto z.B. Bürobedarf benötigt einen Steuerschlüssel und wird mit &lsquo;906815&rsquo; angegeben.</p>
+<p><strong>Tipp</strong></p>
+<p>Wenn du einen Kontenrahmen verwendest, hast du die Möglichkeit, entweder die von dir genutzten Konten einzeln einzutragen oder einen bestehenden Kontenrahmen zu importieren. In der Praxis nutzen Unternehmen oft nur einen kleinen Teil der Konten eines Standardkontenrahmens.</p>
+<p>Um den Überblick zu behalten und es deinem Team zu erleichtern, empfehlen wir, die 40 bis 150 wichtigsten Konten in Xentral zu hinterlegen, die du zuvor mit deinem Steuerbüro oder Wirtschaftsprüfer abgestimmt hast.</p>
+</blockquote>
+<h2 id="kontenrahmen-anlegen">Kontenrahmen anlegen<a class="headerlink" href="#kontenrahmen-anlegen" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden kannst du genauer nachlesen, wie du einen Kontenrahmen anlegen kannst.</p>
+<h3 id="kontorahmen-handisch-anlegen-schritte">Kontorahmen händisch anlegen <strong>Schritte: </strong><a class="headerlink" href="#kontorahmen-handisch-anlegen-schritte" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Klicke auf <strong>+NEU</strong> um ein Konto hinzuzufügen.</li>
+<li>Gib das <strong>Konto</strong> des Kontenrahmens ein z.B. &lsquo;5400&rsquo;.</li>
+<li>Vergib eine <strong>Beschriftung</strong> für das Konto z.B. &lsquo;Wareneingang 19 % Vorsteuer&rsquo;.</li>
+<li>Optional: Wähle die <strong>Art</strong> der Kosten aus z.B. &lsquo;Aufwendungen&rsquo;. Diese wird nur innerhalb von Xentral verwendet.</li>
+<li>Füge eine zusätzliche <strong>Bemerkung</strong> zur Kontoverwendung hinzu z.B. &lsquo;Einkauf von Handelswaren&rsquo;. Diese HInweise kannst du in der Übersicht einsehen oder auch als Export bereitstellen.</li>
+<li>Optional: Wähle ein <strong>Projekt</strong> aus um das Konto nur in einem bestimmten Projekt anzuzeigen oder zuzuordnen.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p><img alt="kontenrahmen_neue_kontierung_anlegen_markierung.png" src="https://help.xentral.com/hc/article_attachments/16891549573532" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Deaktivierung bestehender Konten: </strong> Durch Anhaken von &lsquo;<strong> nicht sichtbar</strong>&rsquo; deaktivierst du ein nicht mehr benötigtes Konto. Deaktivierte Konten erscheinen in der Übersicht als durchgestrichen. Sie werden für Kontierungen z.B. im Bankkonto nicht mehr angezeigt.</p>
+<p><strong>Anmerkung</strong></p>
+<p>Konten kannst du in Xentral frei vergeben, bedenke jedoch, dass diese später beim Export (z.B. nach Datev) mit den dortigen Konten übereinstimmen müssen. Andernfalls kann es dort zu Problemen kommen.</p>
+</blockquote>
+<h3 id="kontenrahmen-importieren">Kontenrahmen importieren<a class="headerlink" href="#kontenrahmen-importieren" title="Permanent link">&para;</a></h3>
+<p>Über den Reiter:<strong>CSV</strong> kannst du eine Kontendatei importieren.</p>
+<ol>
+<li>Klicke auf <strong>Datei auswählen</strong> um eine Datei von deinem Rechner auszuwählen und hochzuladen.</li>
+<li>Klicke auf <strong>Importieren</strong> um die Datei einzuspielen.</li>
+<li>Nach dem Import erhältst du folgende Daten in der Übersicht:</li>
+</ol>
+<p><img alt="kontorahmen_3437.png" src="https://help.xentral.com/hc/article_attachments/5077617258524" /></p>
+<p>Solltest du nicht alle Konten aus deiner Originaldatei importieren wollen, kannst du entweder deine Datei bearbeiten oder die Konten manuell in Xentral anlegen.</p>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Achte auf:</p>
+<ul>
+<li>UTF-8 Kodierung</li>
+<li>Das richtige Format. Verwende folgende Felder:<strong>Konto <strong>,</strong> Beschriftung <strong>,</strong> Bemerkung <strong>,</strong> Art <strong>,</strong> Aktiv</strong>, Projekt.</li>
+<li>Eine Datei mit Endung <strong>.csv </strong> mit Trennzeichen <strong>Semikolon </strong> und Maskierung <strong>Gänsefüsschen <strong>. </strong> Beispiel</strong>: <em>&ldquo;5400&rdquo;;&rdquo;Wareneingang 19%&rdquo;;&rdquo;alle Wareneinkäufe Inland 19%&rdquo;;&rdquo;Aufwendungen&rdquo;;&rdquo;Standard&rdquo;</em></li>
+</ul>
+<p><strong>Folgende Felder kannst du über den CSV Import einspielen:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>konto</td>
+<td>Buchhaltungskonto z.B. &lsquo;5400&rsquo; oder &lsquo;906815&rsquo;</td>
+</tr>
+<tr>
+<td>beschriftung</td>
+<td>Kontobeschriftung (Bezeichnung des Kontos) z.B. &lsquo;Wareneingang 19%&rsquo; oder &lsquo;Bürobedarf 19%&rsquo;</td>
+</tr>
+<tr>
+<td>bemerkung</td>
+<td>Interne Bemerkung / Notizen zur Kontoverwendung</td>
+</tr>
+<tr>
+<td>art</td>
+<td>Kontotyp (mögliche Werte: leer, Aufwendungen, Erlöse, Geldtransit, Saldo)</td>
+</tr>
+<tr>
+<td>aktiv</td>
+<td>Kontostatus („1“ → deaktiviert, „0“ → aktiv)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel für einen Kontenplan Import:</strong></p>
+<table>
+<thead>
+<tr>
+<th>konto</th>
+<th>beschriftung</th>
+<th>bemerkung</th>
+<th>art</th>
+<th>aktiv</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1370</td>
+<td>Durchlaufende Posten</td>
+<td>Durchlaufende Posten intern</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>1371</td>
+<td>Durchlaufende Posten Steuerbuero</td>
+<td>Check für Steuerbüro Monatsabschluss</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>1460</td>
+<td>Geldtransit</td>
+<td>Alle Konten</td>
+<td>Geldtransit</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3820</td>
+<td>UST Vorauszahlungen (laufendes Jahr)</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>5300</td>
+<td>Wareneingang 7% AM</td>
+<td>Lieferanten Inland</td>
+<td>Aufwendungen</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5400</td>
+<td>Wareneingang 19% AM</td>
+<td>Lieferanten Inland</td>
+<td>Aufwendungen</td>
+<td>0</td>
+</tr>
+<tr>
+<td>905900</td>
+<td>Fremdleistungen 19%</td>
+<td>Freelancer, Freiberufler (ausgeniommen KSK und Kleinunternehmer)</td>
+<td>Aufwendungen</td>
+<td>0</td>
+</tr>
+<tr>
+<td>906318</td>
+<td>Nebenkosten Miete</td>
+<td>Betriebskostenabrechnungen</td>
+<td></td>
+<td>0</td>
+</tr>
+<tr>
+<td>906805</td>
+<td>Telefon, Fax, Internet 19% Vorsteuer</td>
+<td></td>
+<td></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="verwendung-des-kontenrahmens">Verwendung des Kontenrahmens<a class="headerlink" href="#verwendung-des-kontenrahmens" title="Permanent link">&para;</a></h2>
+<p>Der Kontenrahmen findet vor allem im Zahlungseingang und beim Kassenbuch seine Verwendung, da du hier auf die Konten des Kontenrahmens buchst und diese von dort aus direkt (z.B. nach Datev) exportierst. Weitere Informationen zum Export für die Buchhaltung findest du hier und zur Zuordnung von Zahlungen zu Kontenrahmen hier.</p>
+<p>Achte bei der Verwendung des Kontenrahmens mit Datev darauf, dass die Kontenlänge 4 (6805 → Telefon, Fax, Internet) bzw. 6 (906805 → Telefon, Fax, Internet 19% Vorsteuer) bei der Angabe von Steuerschlüsseln beträgt.</p>
+<p>InXentral gibt es mehrere Optionen, wo Kontorahmen hinterlegt sein können:</p>
+<ol>
+<li>In den Grundeinstellungen unter Administration &gt; Einstellungen &gt; System &gt; Grundeinstellungen &gt; Steuer / Währung</li>
+<li>In den Projekteinstellungen unter Stammdaten &gt; Projekte &gt; ProjektX &gt; Einstellungen &gt; Steuer / Währung</li>
+<li>Direkt im einzelnen Artikel unter Stammdaten &gt; Artikel &gt; ArtikelX &gt; Finanzbuchhaltung</li>
+<li>In den Einstellungen der Artikelkategorien unter Administration &gt; Einstellungen &gt; Stammdaten &gt; Artikel Kategorien &gt; KategorieX</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

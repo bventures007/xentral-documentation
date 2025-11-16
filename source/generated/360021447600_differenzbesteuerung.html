@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360021447600 Differenzbesteuerung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360021447600 Differenzbesteuerung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360021447600 Differenzbesteuerung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Die korrekte Handhabung von Seriennummern ist essentiell für eine präzise Bestandsführung und Buchhaltung. Dieser Prozess umfasst den Einkauf, die Lagerung, den Verkauf und die buchhalterische Erfassung von Artikeln unter Berücksichtigung ihrer Seriennummern und des Einkaufspreises. Die folgenden Schritte gewährleisten, dass jede Transaktion korrekt erfasst und abgerechnet wird.</p>
+<p><strong>Einkauf:</strong> Erfasse und verwalte Einkaufspreis und Seriennummer über das Bestellsystem, um Genauigkeit bei der Lagerbuchung zu gewährleisten.<strong> Verkauf:</strong> Artikel werden nach Artikelnummer und Seriennummer verkauft; der Einkaufspreis wird intern verrechnet, um korrekte Umsatzsteuerberechnungen sicherzustellen.<strong> Buchhaltungsübersicht:</strong> Erstelle Listen mit Seriennummern und Transaktionsdaten für eine klare Nachverfolgung von Warenein- und -ausgängen.<strong> Automatisierter Prozess:</strong> Automatisiere die Weitergabe von Preis- und Seriennummer-Informationen durch das System, um manuelle Eingaben zu minimieren und Genauigkeit zu erhöhen.</p>
+<h2 id="was-ist-differenzbesteuerung">Was ist Differenzbesteuerung?<a class="headerlink" href="#was-ist-differenzbesteuerung" title="Permanent link">&para;</a></h2>
+<p>Die Differenzbesteuerung ist eine spezielle Besteuerungsform, die im deutschen Umsatzsteuergesetz unter § 25a UStG geregelt ist. Sie findet vor allem beim Handel mit Gebrauchtwaren Anwendung, sowohl im stationären als auch im Online-Handel. Typische Artikel, die unter diese Regelung fallen, sind gebrauchte Elektronikgeräte, Kunstwerke, Sammlungsstücke wie limitierte Sneaker, Antiquitäten und einzigartige Möbelstücke.</p>
+<p>Bei der Differenzbesteuerung wird die Umsatzsteuer nicht auf den gesamten Verkaufspreis berechnet, sondern nur auf die Differenz zwischen Einkaufs- und Verkaufspreis des Händlers. Dies ist besonders vorteilhaft, da bei vielen gebrauchten Waren kein Vorsteuerabzug möglich ist – diese werden oft von Privatpersonen gekauft, die keine Umsatzsteuer ausweisen. Die Differenzbesteuerung ermöglicht es Händlern, die Steuerlast auf die erzielte Gewinnmarge zu beschränken, was die Steuerbelastung reduziert und den administrativen Aufwand minimiert.</p>
+<p>Diese Besteuerungsform unterstützt somit den Handel mit gebrauchten Gütern und trägt zur Ressourcenschonung bei, indem sie Anreize für den Wiederverkauf von Produkten schafft. Die Differenzbesteuerung ist daher ein wichtiges Instrument, das insbesondere Kleinunternehmern und Gebrauchtwarenhändlern zugutekommt.</p>
+<h2 id="beispiele-fur-differenzbesteuerung">Beispiele für Differenzbesteuerung<a class="headerlink" href="#beispiele-fur-differenzbesteuerung" title="Permanent link">&para;</a></h2>
+<p>Hier einige konkrete Beispiele zur Anwendung der Differenzbesteuerung in diesen Bereichen:</p>
+<p>1.<strong>Gebrauchte Elektronikgeräte</strong>: Ein Online-Händler kauft gebrauchte Smartphones von Privatpersonen und bereitet diese für den Weiterverkauf auf. Beim Ankauf eines Geräts für 100 Euro und dem Weiterverkauf für 150 Euro, wird die Umsatzsteuer lediglich auf die Differenz von 50 Euro erhoben, nicht auf den vollen Verkaufspreis.
+1.<strong>Limitierte Sneaker</strong>: Ein Kleinunternehmer spezialisiert sich auf den Ankauf und Verkauf von limitierten Sneaker-Editionen. Diese Schuhe kaufen sie oft von Sammlern, die keine Umsatzsteuer ausweisen. Wird ein Paar Sneaker für 300 Euro gekauft und für 400 Euro verkauft, so fällt die Umsatzsteuer nur auf die Gewinnmarge von 100 Euro an.
+1.<strong>Einzigartige Möbelstücke</strong>: Ein Händler für Vintage-Möbel erwirbt einzigartige Stücke von privaten Verkäufern und restauriert diese. Ein erworbenes Möbelstück kostet 500 Euro, wird nach der Restauration jedoch für 800 Euro verkauft. Auch hier wird die Steuer nur auf die Differenz von 300 Euro berechnet.</p>
+<p>Diese Beispiele zeigen, wie die Differenzbesteuerung den Online-Handel mit gebrauchten oder sehr gefragten Artikeln unterstützt. Sie hilft Händlern, die keine Vorsteuer geltend machen können, die Steuerlast zu minimieren und macht den Handel mit diesen Produkten wirtschaftlich attraktiver. Durch die Differenzbesteuerung wird nur die Wertsteigerung durch den Händler besteuert, nicht der gesamte Warenwert, was insbesondere bei hochpreisigen oder seltenen Artikeln signifikante steuerliche Erleichterungen bieten kann.</p>
+<h2 id="differenzbesteuerung-aktivieren-und-einrichten">Differenzbesteuerung aktivieren und einrichten<a class="headerlink" href="#differenzbesteuerung-aktivieren-und-einrichten" title="Permanent link">&para;</a></h2>
+<p>Das Modul kannst du über <strong>Mein Bereich &gt; Appstore &gt; Differenzbesteuerung </strong> oder über die Smart-Search über <strong>Differenzbesteuerung</strong> aufrufen.</p>
+<p>Im Modul &lsquo;<strong>Differenzbesteuerung</strong>&rsquo; von Xentral kannst du die Umsatzsteuer für den Handel mit gebrauchten Artikeln effizient verwalten und die Buchhaltung transparent gestalten. Die Software bietet eine detaillierte Aufteilung der Verkaufspositionen auf zwei Erlöskonten und automatisiert die Eintragung und steuerrechtliche Kennzeichnung der Artikel im Lager, was den administrativen Aufwand für dich erheblich reduziert.</p>
+<p>Du kannst die Verkaufspositionen in zwei separate Erlöskonten aufteilen. Dabei wird für die interne Verwaltung jeweils ein spezieller Artikel für die Differenzbesteuerung erstellt, während für deinen Kunden nur der normale Artikel sichtbar bleibt. Stelle sicher, dass du beim Wareneingang gebrauchte Artikel entsprechend in das Lager einbuchst; sie werden automatisch in der Übersicht des Moduls erfasst. Wichtig ist auch, dass du das vorgesehene Checkbox-Freifeld in deiner Bestellung aktivierst, damit der Artikel nach dem Wareneingang im Modul &lsquo;<strong>Differenzbesteuerung</strong>&rsquo; erscheint. Alternativ kannst du auch ein festes Lager als Referenzierung verwenden. Die Schritte findest du in den folgenden Abschnitten.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Bevor du mit der Abrechnung im Modul &lsquo;<strong>Differenzbesteuerung</strong>&rsquo; beginnst, stelle sicher, welche Steuerrechtlichen Vorgaben für dein Geschäft gelten, indem du dich an dein lokales Steuerbüro oder das Finanzamt/Steuerbehörde wendest.</p>
+</blockquote>
+<h3 id="voraussetzungen-fur-die-verwendung-des-moduls">Voraussetzungen für die Verwendung des Moduls<a class="headerlink" href="#voraussetzungen-fur-die-verwendung-des-moduls" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<ul>
+<li>Die Verfolgung von Seriennummern muss aktiviert sein: In der Artikelverwaltung ist es erforderlich, dass die Option zur Verwaltung und Nutzung von Original-Seriennummern beim Einlagern aktiviert ist.</li>
+<li>Der Prozess von Bestellung bis Wareneingang muss genau befolgt werden. Beachte dabei, dass die schnelle Warenannahme ungeeignet ist, da hierbei die Zuordnung der Seriennummer zum Lager nicht gewährleistet bleibt. Diese Zuordnung ist entscheidend für eine korrekte und lückenlose Buchhaltung.</li>
+<li>Für die Zuordnung der Differenzbesteuerung hast du die Wahl: Nutze entweder ein Freifeld und markiere einen Artikel im Bestellprozess - oder nutze ein spezielles Lager. Wähle eine Methode, die du präzise festlegst und konsequent anwendest.</li>
+<li>Erst im zweiten Schritt, im Versandzentrum bei der Eingabe der Seriennummer, erkennt Xentral, ob der Artikel differenzbesteuert wird. Die Erstellung der Rechnung sollte daher erst nach dieser Eingabe erfolgen. Nutze hierzu einen zweistufigen Kommissionierungsprozess.</li>
+</ul>
+</blockquote>
+<h3 id="ubersicht-einstellungen-fur-differenzbesteuerung">Übersicht Einstellungen für Differenzbesteuerung<a class="headerlink" href="#ubersicht-einstellungen-fur-differenzbesteuerung" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20240626-095123.png" src="https://help.xentral.com/hc/article_attachments/14652811556508" /></p>
+<table>
+<thead>
+<tr>
+<th>Erlöskonto 1</th>
+<th>Kontierung für Teil 1 der Verkaufsposition.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artikel für Differenz</td>
+<td>Der angelegte Artikel für die Differenzbesteuerung von Erlös 1.</td>
+</tr>
+<tr>
+<td>Erlöskonto 2</td>
+<td>Kontierung für Teil 2 der Verkaufsposition.</td>
+</tr>
+<tr>
+<td>Artikel für Differenz</td>
+<td>Der angelegte Artikel für die Differenzbesteuerung von Erlös 2.</td>
+</tr>
+<tr>
+<td>Artikelfreifeld für Wareneingang</td>
+<td><strong>Option 1 </strong>: Auswahl eines <strong>Freifeldes <strong>( zu verwenden: Typ</strong> Checkbox <strong>). Wenn ein Artikel in einer Bestellung dieses Freifeld aktiviert hat, d.h. in der Position ein Häkchen gesetzt ist, erscheint der Artikel nach dem Wareneingang in der App Differenzbesteuerung. 💬</strong> Anmerkung:</strong> Verwende nur eine der Optionen 1+2 und lasse das andere Feld leer.</td>
+</tr>
+<tr>
+<td>Vorlage für rechtlichen Steuerhinweis</td>
+<td>Textfeld für einen steuerrechtlichen Hinweis der für dein Geschäft vorgeschrieben ist. Steuerrechtliche Vorgabe ist eine Kennzeichnung der Differenzbesteuerung auf der Rechnung. 🚨<strong>Warnung:</strong> Stelle sicher, welche Steuerrechtlichen Vorgaben für dein Geschäft gelten, indem du dich an dein lokales Steuerbüro oder das Finanzamt/Steuerbehörde wendest.</td>
+</tr>
+<tr>
+<td>Beim Einlagern in das Lager Artikel eintragen</td>
+<td><strong>Option 2 <strong>: Gebrauchte Artikel werden im Wareneingang für die Differenzbesteuerung auf dieses Lager gebucht. Immer wenn ein Artikel auf dieses Lager eingelagert wird, gibt es einen neuen Eintrag im Reiter Übersicht. 💬</strong> Anmerkung:</strong> Verwende nur eine der Optionen 1+2 und lasse das andere Feld leer.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="besteuerungs-positionen-fur-die-buchhaltung-im-artikelstamm-definieren-schritte">Besteuerungs-Positionen für die Buchhaltung im Artikelstamm definieren <strong>Schritte</strong>:<a class="headerlink" href="#besteuerungs-positionen-fur-die-buchhaltung-im-artikelstamm-definieren-schritte" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Lege im <strong>Artikelstamm </strong> jeweils einen Artikel für die Differenzbesteuerung von Erlös 1 und einen weiteren für Erlös 2 an. Dabei sind <strong>Artikelname </strong> und <strong>Nummer</strong> ausreichend z.B. Artikelbezeichnung ‘Differenz 1’ und ‘Differenz 2’.</li>
+<li>Trage den jeweiligen Artikel in das Feld ‘<strong>Artikel für Differenz <strong>’ ein und vergib zu jedem Artikel eine Kontierung für deine interne Buchhaltung in die Felder ‘</strong> Erlöskonto 1+2</strong>’.</li>
+<li>Trage die erforderliche Kennzeichnung der Differenzbesteuerung für den Andruck auf deiner Rechnung ein. Hierzu findest du ein Textfeld ‘<strong>Vorlage für rechtlichen Steuerhinweis’</strong>, das du entsprechend anpassen kannst. Dadurch stellst du sicher, dass alle steuerrechtlichen Anforderungen erfüllt sind und deine Rechnungsstellung korrekt abläuft.</li>
+<li>Klicke auf ‘<strong>Speichern</strong>’.</li>
+</ol>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Stelle sicher, welche Steuerrechtlichen Vorgaben für dein Geschäft gelten, indem du dich an dein lokales Steuerbüro oder das Finanzamt/Steuerbehörde wendest.</p>
+<p>Beispiel für einen Andruck auf einer Rechnung: ‘<strong>Differenzbesteuerung nach § 25a UStG</strong>’ (Stand 06/2024)</p>
+</blockquote>
+<p><img alt="differenzbest_002.png" src="https://help.xentral.com/hc/article_attachments/14652796491036" /></p>
+<h3 id="auswahl-der-ruckverfolgbarkeit-artikelfreifeld-oder-lagerort">Auswahl der Rückverfolgbarkeit: Artikelfreifeld oder Lagerort<a class="headerlink" href="#auswahl-der-ruckverfolgbarkeit-artikelfreifeld-oder-lagerort" title="Permanent link">&para;</a></h3>
+<p>Wähle <strong>eine Option</strong> für die Verknüpfung und Rückverfolgung der Artikel ausgehend von Bestellung über Einlagerung bis zur Auslieferung und Rechnungstellung:</p>
+<ul>
+<li>‘<strong>Artikelfreifeld für Wareneingang</strong>’: Das Freifeld greift innerhalb der Bestellung; in der Bestellposition kann die neue Option als Häkchen gesetzt werden. Ab diesem Zeitpunkt wird für den Artikel die Differenzbesteuerung verwendet.</li>
+<li>‘<strong>Beim Einlagern in das Lager Artikel eintragen</strong>’: Das Lager wird ausgehend von der Bestellung über den Wareneingang angebucht. Der Artikel muss wenn er vom Wareneingang kommt einfach in diesem Lager liegen. Ab diesem Zeitpunkt wird die Differenzbesteuerung verwendet.</li>
+</ul>
+<p>Eine Zuordnung erfolgt jeweils über die Seriennummer, die im Prozess verwendet wird.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wähle eine Option und lasse die andere Einstellung leer.</p>
+</blockquote>
+<h4 id="schritte-fur-artikelfreifeld-fur-wareneingang">Schritte für ‘Artikelfreifeld für Wareneingang’<a class="headerlink" href="#schritte-fur-artikelfreifeld-fur-wareneingang" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Bestimme ein <a href="https://help.xentral.com/hc/de/articles/360017612120-Freifelder"><strong>Freifeld</strong></a> in den Artikel Einstellungen, das die Artikeloption im Modul Bestellung aktiviert. Definiere ein Freifeld, das du aktuell noch nicht in Verwendung hast und nenne es z.B. ‘Differenzbesteuert’.</li>
+<li>Stelle das Freifeld als ‘<strong>Checkbox</strong>’ ein.
+1.<strong>Aktiviere </strong> das Freifeld für die Belegart ‘<strong>Bestellung</strong>’ indem du dort ein Häkchen setzt.</li>
+<li>Klicke auf ‘<strong>Speichern</strong>’.</li>
+<li>Gehe zurück in die Einstellungen für ‘<strong>Differenzbesteuerung</strong>’ und wähle bei ‘Artikelfreifeld für Wareneingang’ im Dropdown dieses Freifeld aus.</li>
+<li>Klicke auf ‘<strong>Speichern</strong>’.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>In der Bestellung wird dir in den Positionen eine Auswahl (= Checkbox) für die Differenzbesteuerung angezeigt.</p>
+</blockquote>
+<h4 id="schritte-fur-bei-einlagern-in-das-lager-artikel-eintragen">Schritte für ‘Bei Einlagern in das Lager Artikel eintragen’<a class="headerlink" href="#schritte-fur-bei-einlagern-in-das-lager-artikel-eintragen" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Lege einen neuen Lagerort in der Lagerverwaltung an und nenne diesen z.B. ‘Lager Differenzbesteuerung’.</li>
+<li>Lege in diesem Lagerort einen Lagerplatz (= Regal) an und nenne diesen z.B. ‘Lager Differenzbesteuerung_001’.</li>
+<li>Gehe zurück in die Einstellungen für ‘<strong>Differenzbesteuerung</strong>’ und wähle bei ‘Beim Einlagern in das Lager Artikel eintragen’ im Dropdown dieses Lager aus.</li>
+<li>Klicke auf ‘<strong>Speichern</strong>’.</li>
+</ol>
+<p><img alt="differenzbest_003.png" src="https://help.xentral.com/hc/article_attachments/14652796999964" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Artikel, die über diesen Lagerort verbucht werden, werden Differenzbesteuert.</p>
+</blockquote>
+<h2 id="workflow-differenzbesteuerung">Workflow Differenzbesteuerung<a class="headerlink" href="#workflow-differenzbesteuerung" title="Permanent link">&para;</a></h2>
+<h3 id="anlegen-eines-artikels-der-mit-differenzbesteuerung-abgerechnet-wird">Anlegen eines Artikels, der mit Differenzbesteuerung abgerechnet wird<a class="headerlink" href="#anlegen-eines-artikels-der-mit-differenzbesteuerung-abgerechnet-wird" title="Permanent link">&para;</a></h3>
+<p>Lege im <strong>Artikelstamm </strong> einen Artikel an, der differenzbesteuert abgerechnet werden soll. Wähle alternativ einen bestehenden Artikel aus.<strong>Schritte:</strong></p>
+<ol>
+<li>Lege einen neuen <strong>Artikel</strong> an z.B. ‘Handy Differenzartikel Verkauf’.</li>
+<li>Stelle den Artikel als ‘<strong>Lagerartikel</strong>’ ein.</li>
+<li>Aktiviere für diesen Artikel die Seriennummernverwaltung im Lager ‘<strong>originale einlagern + nutzen</strong>’.</li>
+<li>Optional: Setze im Artikel zusätzlich ‘<strong>Einkauf bei allen Lieferanten’</strong>, wenn du mehrere ‘Lieferanten’ für denselben Artikel anlegst, weil du z.B. aufgrund der Höhe des Einkaufspreises die Verkäufer namentlich erfassen musst.</li>
+<li>Klicke auf ‘<strong>Speichern</strong>’.</li>
+</ol>
+<h3 id="einkauf-und-warenannahme">Einkauf und Warenannahme<a class="headerlink" href="#einkauf-und-warenannahme" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Beim Einkauf eines Artikels muss der Einkaufspreis sowie die Seriennummer des Produkts sorgfältig dokumentiert werden. Dies geschieht über das Bestellsystem, um die Genauigkeit der Daten sicherzustellen.</p>
+<p>Der Artikel wird dann mit der entsprechenden Seriennummer im Lager eingebucht. Diese Praxis ermöglicht es, bei späteren Verkäufen oder Audits auf genaue Daten zurückgreifen zu können.</p>
+</blockquote>
+<h4 id="schritte-anlegen-eines-lieferanten-und-einer-bestellung">Schritte: Anlegen eines Lieferanten und einer Bestellung<a class="headerlink" href="#schritte-anlegen-eines-lieferanten-und-einer-bestellung" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Lege einen neuen <strong>Lieferanten</strong> an. Wähle alternativ einen bestehenden Lieferanten aus.</li>
+<li>Lege einen Einkaufspreis für deinen <strong>Artikel</strong>‘Handy Differenzartikel Verkauf’ auf diesen Lieferanten an.</li>
+<li>Lege auf diesen <strong>Lieferanten </strong> eine neue <strong>Bestellung</strong> an.</li>
+<li>Füge in den Positionen deinen <strong>Artikel</strong>‘Handy Differenzartikel Verkauf’ ein.</li>
+<li>
+<p>Für die Option ‘<strong>Artikelfreifeld für Wareneingang</strong>’: Klicke auf ‘Position bearbeiten’ und setze den Haken ‘Differenzbesteuert’.
+  Für die Option ‘<strong>Beim Einlagern in das Lager Artikel eintragen</strong>’ ist nichts zu tun.</p>
+</li>
+<li>
+<p>Gib die Bestellung frei und schicke sie ab.</p>
+</li>
+</ol>
+<h4 id="schritte-warenannahme-einbuchung-des-artikels-mit-der-seriennummer">Schritte: Warenannahme - Einbuchung des Artikels mit der Seriennummer<a class="headerlink" href="#schritte-warenannahme-einbuchung-des-artikels-mit-der-seriennummer" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Gehe auf ‘<strong>Wareneingang Paketannahme</strong>’ und filtere nach Lieferanten, zu denen eine Lieferung noch fehlt. Dort findest du den Lieferanten von oben.</li>
+<li>Klicke in den Lieferanten. Gehe auf den Reiter ‘<strong>Paketannahme</strong>’. Achtung: Wähle nicht die ‘Schnelle Paketannahme’, sie erfasst keine Seriennummern.</li>
+<li>Wähle in der Artikelliste den Artikel ‘Handy Differenzartikel Verkauf’ aus.</li>
+<li>Trage die Menge ‘1&rsquo; ein und klicke auf &lsquo;<strong>zuordnen</strong>’.</li>
+<li>Trage die Seriennummer des Artikels ein z.B. ‘DIFF-10001’. Eine eindeutige Seriennummer ist z.B. die Gerätenummer. Wenn der Artikel keine Seriennummer besitzt, kannst du auch eine eigene vergeben.</li>
+<li>
+<p>Wähle einen beliebigen Lagerplatz aus, wenn du die Option ‘<strong>Artikelfreifeld für Wareneingang</strong>’ über das Freifeld nutzt.
+  Für die Option über das Lager ‘<strong>Beim Einlagern in das Lager Artikel eintragen</strong>’ muss an dieser Stelle das Lager für die Differenzbesteuerung ausgewählt werden.</p>
+</li>
+<li>
+<p>Klicke auf ‘<strong>Artikel einlagern’</strong>.</p>
+</li>
+<li>Der Artikel wird dir automatisch in der Übersicht der Funktion ‘<strong>Differenzbesteuerung</strong>’ im Einkauf als Wareneingang angezeigt.</li>
+</ol>
+<h3 id="verkauf-logistik-lager">Verkauf- Logistik &amp; Lager<a class="headerlink" href="#verkauf-logistik-lager" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Beim Verkauf wird der Artikel anhand der Artikelnummer und der zugehörigen Seriennummer verkauft. Der Einkaufspreis des Artikels wird im Hintergrund verrechnet, ist aber für den Endkunden nicht sichtbar.</p>
+<p>In der Buchhaltung werden die korrekten Kontierungen automatisch vorgenommen, um sicherzustellen, dass nur die Umsatzsteuer für die Preisdifferez zwischen Einkauf und Verkauf berechnet wird.</p>
+</blockquote>
+<h4 id="schritte-verkauf-und-auftragsabwicklung">Schritte: Verkauf und Auftragsabwicklung<a class="headerlink" href="#schritte-verkauf-und-auftragsabwicklung" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Lege einen Auftrag mit dem Artikel ‘Handy Differenzartikel Verkauf’ an und gib den Auftrag frei.</li>
+<li>Wickle den Auftrag über einen zweistufigen Kommissionierungsprozess ab.</li>
+</ol>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Erst in ‘Stufe 2’ im ‘<strong>Versandzentrum</strong>’ bei der Eingabe der Seriennummer wird der Artikel als differenzbesteuert im darauffolgenden Schritt in eine neue Rechnung übernommen.</p>
+<p>Eine vorherige Rechnungserstellung ohne Seriennummer ist nicht möglich. In diesem Fall wird der Artikel nicht differenzbesteuert.</p>
+</blockquote>
+<h3 id="ubersicht-fur-buchhaltung">Übersicht für Buchhaltung<a class="headerlink" href="#ubersicht-fur-buchhaltung" title="Permanent link">&para;</a></h3>
+<p>Im Modul ‘<strong>Differenzbesteuerung</strong>’ von Xentral kannst du effizient die Umsatzsteuer für den Handel mit gebrauchten Artikeln verwalten. Sobald du das Modul öffnest, erhältst du eine Übersicht aller Artikel, die einer Differenzbesteuerung unterliegen, einschließlich der relevanten Ein- und Ausgangsdaten. Dies erleichtert dir die Buchhaltung und sorgt für Transparenz im Umgang mit Gebrauchtwaren.</p>
+<h3 id="bericht-report-fur-das-modul-differenzbesteuerung">Bericht (= Report) für das Modul Differenzbesteuerung<a class="headerlink" href="#bericht-report-fur-das-modul-differenzbesteuerung" title="Permanent link">&para;</a></h3>
+<ul>
+<li>in Bearbeitung -</li>
+</ul>
+<h2 id="beispiel-fur-differenzbesteuerung">Beispiel für Differenzbesteuerung<a class="headerlink" href="#beispiel-fur-differenzbesteuerung" title="Permanent link">&para;</a></h2>
+<p>Bei den markierten Einträgen handelt es sich um einen Artikel, der verkauft und retourniert wurde.</p>
+<p><img alt="blobid2.png" src="https://help.xentral.com/hc/article_attachments/14652779843356" /></p>
+<p>Unter der angegebenen Rechnungsnummer findest du im Modul Rechnung im Reiter Positionen die zur Differenzbesteuerung erstellten Artikelpositionen.</p>
+<p><img alt="blobid3.png" src="https://help.xentral.com/hc/article_attachments/14652812650908" /></p>
+<p>Der erste und zweite Eintrag heben sich gegenseitig auf, diese werden nur zur Erstellung des PDFs benötigt. Der dritte und vierte Eintrag sind die &ldquo;Artikel für Differenz&rdquo;, wie sie in den Einstellungen beschrieben werden. Im Reiter Vorschau findest du die Rechnungsansicht des Kunden. Die Positionen 2, 3 und 4 werden hier ausgeblendet.</p>
+<p><img alt="blobid4.png" src="https://help.xentral.com/hc/article_attachments/14652763650716" /></p>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

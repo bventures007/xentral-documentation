@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360018524479 Serverumzug Von Xentral - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360018524479 Serverumzug Von Xentral</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360018524479 Serverumzug Von Xentral</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>End-of-Life für On-Premise-Instanzen</strong></p>
+<p>Ende März 2023 beenden wir die Unterstützung von Xentral-Instanzen, die „On-Premise“ von unseren Kunden selbst gehostet werden. Wir empfehlen dir daher, deine Xentral-Instanz in unsere Cloud zu migrieren. Kontaktiere uns gerne jederzeit unteraccount@xentral.com, um diesbezügliche Fragen zu klären oder einen Termin für deine Migration zu buchen. Alternativ kannst du weitere Informationen aufunserer Websiteoder inunserer Communityfinden.</p>
+<p>Beachte bitte, dass wir Ende März 2023 jegliche Supportleistungen für On-Premise-Instanzen beenden. Wir stellen dann keine weiteren Bug-Fixes oder Updates mehr zur Verfügung. Außerdem wird es keine weitere Open-Source-Version mehr geben.</p>
+</blockquote>
+<h2 id="ablauf">Ablauf<a class="headerlink" href="#ablauf" title="Permanent link">&para;</a></h2>
+<p>Der Ablauf eines Xentral-Server-Umzuges (Verschieben eines Xentral-Systems auf einen anderen Server oder Provider) besteht aus 10 Schritten. Hier zunächst ein Überblick über den Ablauf - im Folgenden ist jeder Schritt noch einmal detaillierter erklärt.</p>
+<ol>
+<li>Prozessstarter des Altsystems global deaktivieren</li>
+<li>Daten des Altsystems sichern</li>
+<li>Neues System installieren</li>
+<li>CRON-Job einrichten</li>
+<li>Datenbank in das neue System einspielen</li>
+<li>Dateidaten in das neue System einspielen (userdata) und ggf. Korrekturen vornehmen</li>
+<li>Neues System updaten</li>
+<li>Hardware an das neue System anbinden</li>
+<li>Abschließende Prüfungen</li>
+<li>Prozessstarter des neuen Systems aktivieren</li>
+</ol>
+<h3 id="ablauf-im-detail">Ablauf im Detail<a class="headerlink" href="#ablauf-im-detail" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Prozessstarter des Altsystems deaktivieren: Die Prozessstarter des Altsystems werden global deaktiviert. Diese Option finden Sie unter <strong>Administration &gt; Einstellungen &gt; System &gt; Prozessstarter </strong> rechts im Aktionsmenü <strong>Prozessstarter global deaktivieren</strong>.</li>
+<li>
+<p>Daten des Altsystems sichern: Die Daten werden mit einem Systembackup gesichert. Alternativ können die Daten auch per DB-Dump und Kopie des userdata-Ordners gesichert werden. Es empfiehlt sich, sowohl den userdata-Ordner als auch die Datenbank in einem Archivformat zu packen (z.B. tar.gz oder zip).
+  Details hierzu finden sich im Artikel Datenumzug.</p>
+</li>
+<li>
+<p>Neues System installieren: Auf dem neuen Server wird das neue System installiert. Bitte dazu die OperSource-Version (OS-Version) im Downloadbereich der Webseite (herunterladen) und nach Anleitung installieren. Durch das spätere Einspielen des Lizenzschlüssels wird die korrekte Version und Lizenz später wieder hergestellt.</p>
+</li>
+<li>CRON-Job einrichten: Auf dem neuen Server sollte nun sichergestellt werden, dass der sog. Heartbeat-Cronjobs läuft, dahinter verbirgt sich der Trigger für den Prozessstarter-Mechanismus in Xentral. Alle Informationen dazu finden sich im Artikel: Einrichten des Heartbeat-Cronjobs.</li>
+<li>Datenbank in das neue System einspielen: Die Datenbank aus dem Altsystem wird nun in das neue System eingespielt. Dabei sollte folgendes nach dem Import die Anzahl der Tabellen überprüft werden um sicherzustellen, dass alle Tabellen kortrekt exportiert und importiert wurden. Aussder sollte stichprobentartig die Anzahl der Zeilen wichtiger Tabellen geprüft werden (z.B. adresse, artikel, auftrag).
+  Die Lizenzdaten wurden mit der Datenbank auch in das neue System übertragen.</li>
+</ol>
+<p>Weitere Hinweise zu diesem Punkt siehe auch Artikel Datenumzug.</p>
+<ol>
+<li>Dateidaten in das neue System einspielen: Die Daten des Ordners userdata werden in das neue System eingespielt. Wenn möglich, ist es sinnvoll für die Übertragung dieser Daten eine Server-zu-Server Verbindung (z.B. mit scp) zu verwenden anstatt die Daten erst lokal (auf dem eigenen Rechner) zu speichern und dann auf den neuen Rechner hochzuladen.
+  Nach der Übertragung sollte an Hand der Gesamtgröße des Ordners (du -hs) und der Anzahl der Dateien überprüft werden ob die Übertragung vollständig ist.</li>
+</ol>
+<p>Durch die Übertragung des Ordners sind oftmals die Besitz-/ Schreibrechte der Ordnerstruktur nicht korrekt. Diese können dann rasch angepasst werden. Detailliertere Informationen dazu liefert auch der Artikel <strong>Datenumzug </strong>.<strong>Einfluss des Datenbank-Namens</strong> Im userdata-Ordner befinden sich Unterordner in denen wiederum Unterordner liegen, deren Namen von der alten Datenbank abhängen. Diese Ordner müssen in den neuen Datenbanknamen umbenannt werden.</p>
+<p>Meistens sind folgende Ordner betroffen:</p>
+<p>Falls weitere Ordner vorhanden sind, müssen diese ebenfalls überprüft werden. Auch vorhandene Dateien, die den Datenbanknamen im Dateinamen führen müssen umbenannt werden wie z.B. das Briefpapier. sinf ggf. anzupassen oder neu zu konfigurieren.</p>
+<p>Eigens angelegte Schriftarten werden durch den Umzug aus dem Ordner www/lib/pdf/font/unifont nicht mitkopiert. Die Schriften sollten daher nun manuell im System nachgetragen werden. Hinweis zum Vorgehen finden sich in Artikel Briefpapier.</p>
+<p>Detailliertere Informationen dazu liefert auch der Artikel <strong>Datenumzug</strong>.</p>
+<ul>
+<li>Im Ordner dms</li>
+<li>Im Ordner emailbackup (Falls vorhanden)</li>
+<li>Im Ordner pdfarchiv</li>
+<li>Im Ordner pdfmirror
+1. Neues System updaten Nun kann das neue System zum ersten Mal upgedated werden, dabei wird auf Basis der Lizenzdaten auch die korrekte Lizenz aktiviert und ggf. fehlende Module nachgeladen.
+  Siehe Artikel Zugang zum Updateserver <strong>Bitte beachten Sie:</strong> Das Altsystem hat nun keine gültige Lizenz mehr.</li>
+</ul>
+<ol>
+<li>Hardware an das neue System anbinden Nach der Umstellung einer Serverinstallation müssen bei einem Wechsel der Adresse (Suddomain oder DOmain) ggf. auch die lokalen Anbindungen der Hardware umgestellt werden. Dazu gehören z.B. Scanner / Kameras oder Etikettedrucker an Adapterboxen oder Druckerspooler.
+  Im Grunde sind dazu dieselben Schritte nötig wie bei einer Installation der Geräte, nur dass die ersten Schritte übersprungen werden können. Siehe dazu auch Artikel Drucker Schnelleinstieg.</li>
+</ol>
+<p>Grundsätzlich müssen aber nur die URLs und ggf. key angepasst werden, die beim Spooler in den Einstellungen hinterlegt sind, und bei der Adapterbox über die Konfig-Datei vorgegeben ist.</p>
+<ol>
+<li>Abschließende Prüfungen Es ist sinnvoll einige abschließende Prüfungen vorzunehmen, bevor das System wieder in den produktiven Betrieb geht:
+  - Prüfen Sie ob ggf. Benutzer in den persönlichen Einstellungen noch auf das Altsystem referenzieren (Startseite)
+  - Prüfen Sie ob der Webserver Zugriff auf das Dateisystem (userdata) hat: Dazu über die Oberfläche eine Datei (z.B. einer Adresse). Wenn diese im Anschluß heruntergeladen wird und eine Dateigröße von 0 Byte hat stimmen vermutlich die Zugriffsrechte nicht. Kann man die Datei allerdings öffnen, hat alles geklappt. Ansonsten siehe Artikel Datenumzug z.B. unter Finale Anpassungen.</li>
+<li>Prozessstarter des neuen Systems aktivieren Die Prozessstarter des neuen Systems werden global aktiviert. Diese Option finden Sie unter Administration → Einstellungen → System → Prozessstarter rechts im Aktionsmenü Prozessstarter global aktivieren.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

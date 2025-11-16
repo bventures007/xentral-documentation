@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017383560 Trigger Scripts - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017383560 Trigger Scripts</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017383560 Trigger Scripts</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Als Trigger Scripts werden Skripte bezeichnet, die sich an bestimmten Stellen der Software in die Geschehnisse &ldquo;einklinken&rdquo; und nach individuellen Gesichtspunkten Entscheidungen treffen können, die z.B. Eigenschaften eines Auftrags anpassen oder den weiteren Weg durch die Prozesse der Firma verändern.</p>
+<h2 id="arten-von-triggern">Arten von Triggern<a class="headerlink" href="#arten-von-triggern" title="Permanent link">&para;</a></h2>
+<p>Trigger Scripts existieren in zwei Formen:</p>
+<ul>
+<li>Event Trigger (Ereignis-Trigger)</li>
+<li>Timed Trigger (Zeitgesteuerte Trigger oder Prozessstarter)</li>
+</ul>
+<h3 id="event-trigger">Event Trigger<a class="headerlink" href="#event-trigger" title="Permanent link">&para;</a></h3>
+<p>Die Ereignis-Trigger werden an bestimmte Ereignisse gehängt, wie in den folgenden Beispielen ersichtlich wird:</p>
+<ul>
+<li>OnDocumentChange → Wenn z.B. bei einem Auftrag oder einer Rechnung eine Änderung vorgenommen wird</li>
+<li>OnDocumentOfferPositionChange → Wenn in einer Rechnung die Positionen der Artikel verändert werden</li>
+<li>OnDocumentAddressChange → Wenn in einem Beleg die Adresse verändert wird</li>
+<li>OnDeliverynoteStockSwapOut → Wenn ein Lieferschein ausgelagert wird</li>
+<li>AfterAdressCreate → Nach dem Anlegen einer neuen Adresse</li>
+<li>OnProductLabelPrint → Beim Ausdruck eines Artikel-Etiketts</li>
+</ul>
+<h4 id="anwendungsbeispiele-fur-event-trigger">Anwendungsbeispiele für Event Trigger<a class="headerlink" href="#anwendungsbeispiele-fur-event-trigger" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Dynamische Anpassung der Versandart nach Artikelanzahl in einem Auftrag und der PLZ der Lieferadresse → OnDocumentChange triggert ein Scripts, welches die Artikelzahl, die PLZ und den günstigsten Versanddienstleister untersucht</li>
+<li>Gewährung eines Aktionsrabatts bei Erreichen eines Gesamtbestellwerts von € 100,- → OnDocumentOfferPositionChange wird aufgerufen, sobald die Positionen eines Auftrages verändert werden. Bei Erreichen der Schwelle für den Gesamtrabatt kann auf alle Positionen und Artikel zugegriffen werden, die Gesamtsumme berechnet sowie ein Rabattartikel hinzugefügt werden. Unter Beispiel Gesamtrabatt ist ein Beispiel dafür zu finden</li>
+<li>Automatische Vergabe der Rolle &ldquo;Kunde&rdquo; beim Anlegen einer neuen Adresse durch einen Vertriebsinnendienstmitarbeiter und der Rolle &ldquo;Lieferant&rdquo; bei Mitarbeitern aus dem Einkauf → AfterAdressCreate ergänzt zusätzlich zur neuen Adresse eine Rolle, je nach aktivem Benutzer des Systems (Vertrieb oder Einkauf)</li>
+</ul>
+<p>So können beispielsweise Versandeinstellungen nach den Artikeln eines Auftrags oder der Lieferadresse verändert, Artikel eines Auftrages bei Vorreservierung abgespalten oder die Sonderrabatte bei der Auftragserstellung oder dem -import berechnet werden.</p>
+<p>Trigger existieren an allen Stellen von xentral und Trigger Scripts ermöglichen die einfache Anpassung fast aller Prozesse, wie beispielsweise OnDocumentChange.</p>
+<p><strong>Arbeiten mit Belegen (Documents)</strong></p>
+<ul>
+<li>BeforeDocumentChange, AfterDocumentChange</li>
+<li>OnDocumentPositionChange</li>
+<li>OnDocumentAddressChange</li>
+<li>OnDocumentAttributeChange</li>
+<li>
+<p>OnDocumentStateChange / OnDocumentStatusChange <strong>Arbeiten mit Stammdaten</strong></p>
+</li>
+<li>
+<p>BeforeProductCreate, BeforeProductChange, BeforeProductDelete, AfterProductCreate, AfterProductChange, AfterProductDelete</p>
+</li>
+<li>BeforeAdressCreate, BeforeAdressChange, BeforeAdressDelete, AfterAdressCreate, AfterAdressChange, AfterAdressDelete</li>
+<li>
+<p>zukünftig: BeforeUserCreate, BeforeUserChange, BeforeUserDelete, AfterUserCreate, AfterUserChange, AfterUserDelete <strong>Arbeiten mit Produktionen</strong></p>
+</li>
+<li>
+<p>BeforeProductionCreate, BeforeProductionEdit, BeforeProductionDelete, AfterProductionCreate, AfterProductionEdit, AfterProductionDelete</p>
+</li>
+<li>OnProductionStart, OnProductionFinish</li>
+<li>
+<p>OnProductionStockSwapOut, OnProductionStockSwapIn <strong>Prozess-Trigger</strong></p>
+</li>
+<li>
+<p>Versandzentrum: OnShipment, OnAutoShipmentManuelStart, OnAutoShipmentPlusStart</p>
+</li>
+<li>Frankierung: BeforeStampCreate, AfterStampCreate</li>
+<li>Scan der Trackingnummer: BeforeTrackingScan, AfterTrackingScan,</li>
+<li>Lager: OnStockChange, OnStockSwapOut, OnStockSwapIn, OnDeliverynoteStockSwapOut</li>
+<li>Drucken: OnPrint, OnLabelPrint, OnDocumentPrint, OnDocumentDeliveryNotePrint, OnDocumentInvoicePrint, OnDocumentOfferPrint, OnDocumentOrderPrint</li>
+<li>E-Mail-Versand: OnEmailSend, OnDocumentEmailSend, OnDocumentDeliveryNoteEmailSend, OnDocumentInvoiceEmailSend, OnDocumentOfferEmailSend, OnDocumentOrderEmailSend</li>
+<li>Benutzeraktionen: (zukünftig) OnUserAction</li>
+<li>Benutzer-Session: (zukünftig) OnSessionStart, OnSessionEnd / OnSessionClose</li>
+<li>Wareneingang: OnIncomingGoodsDocumentStart, OnIncomingGoodsDocumentEnd, OnIncomingGoodsArticleStart, OnIncomingGoodsArticleEnd</li>
+</ul>
+<h3 id="timed-trigger">Timed Trigger<a class="headerlink" href="#timed-trigger" title="Permanent link">&para;</a></h3>
+<p>Timed Trigger (auch Prozessstarter) ermöglichen es, zeitgesteuerte Aktionen durchzuführen. Diese können periodisch (z.B. alle 15 Minuten, jede Stunde, alle 3 Tage) oder zu bestimmten Zeiten (z.B. sonntags, 8:30 Uhr) ausgeführt werden.</p>
+<h4 id="anwendungsbeispiele-fur-timed-trigger">Anwendungsbeispiele für Timed Trigger<a class="headerlink" href="#anwendungsbeispiele-fur-timed-trigger" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Jede Nacht wird eine Liste von Adressen erstellt, die weder als Kunde noch als Lieferant markiert sind, und eine Aufgabe, z.B. Prüfung und Bearbeitung der Fälle, für die Verwaltung angelegt.</li>
+<li>Einmal pro Woche wird eine Liste erstellt, die alle Aufträge anzeigt, die noch nicht vollständig abgerechnet sind. Diese Liste wird als E-Mail gesendet.</li>
+</ul>
+<h2 id="arbeiten-mit-belegen-event-trigger">Arbeiten mit Belegen (Event Trigger)<a class="headerlink" href="#arbeiten-mit-belegen-event-trigger" title="Permanent link">&para;</a></h2>
+<p>Mithilfe von Trigger Scripts können alle Daten eines Belegs (z.B. eines Auftrags) verändert werden. Dazu gehören z.B. die Veränderung von Positionen, Preisen, Beschreibungen, Rabatten und Versand- oder Zahlungsoptionen.</p>
+<p>Basis in diesem Beispiel ist das Event OnDocumentPositionChange. Hierbei werden die Daten angepasst und anschließend die normale Funktionalität der Funktion ausgeführt, um das Standardverhalten von xentral für die nicht veränderten Abläufe zu nutzen.</p>
+<p>Vorgehensweise vor Version 20.1: Überschreiben der Funktion ANABREGSNeuberechnen()) in der Klasse ERPApi, die hierfür überladen werden kann.</p>
+<h3 id="ausfuhrungszeitpunkt">Ausführungszeitpunkt<a class="headerlink" href="#ausfuhrungszeitpunkt" title="Permanent link">&para;</a></h3>
+<p>Diese Funktion wird aufgerufen, wenn das Dokument nicht schreibgeschützt ist und verändert wird. Das gilt u.a. wenn:</p>
+<ul>
+<li>Ein Beleg angelegt wird, auch beim Import aus einer Shop-Schnittstelle oder über EDI / Übertragen-Modul</li>
+<li>Ein API-Aufruf den Beleg verändert</li>
+<li>Positionen des Belegs verändert werden</li>
+<li>Stammdaten des Belegs geändert werden</li>
+</ul>
+<h3 id="belegarten">Belegarten<a class="headerlink" href="#belegarten" title="Permanent link">&para;</a></h3>
+<p>Die Funktion erhält zwei Parameter:</p>
+<ul>
+<li>$art: Die Art des Belegs → Angebote (angebot), Auftrag (auftrag), Rechnung (rechnung), Gutschrift (gutschrift)</li>
+<li>$id: Die Datenbank-ID des Belegs</li>
+</ul>
+<p>Auf allen Werten des Belegs kann frei gearbeitet werden und alle Daten in dieser Methode manipuliert werden. Dazu sollten vorzugsweise die ERP-eigenen Funktionen verwendet werden (siehe Fragen zur Programmierung). Das direkte Arbeiten auf der Datenbank ist aber ebenfalls möglich.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Methode dient der Anpassung des entsprechenden Belegs und sollte daher auch nur für diesen Zweck verwendet werden, um unerwartetes Verhalten der Software zu vermeiden. So ist es z.B. für einen Benutzer nicht nachvollziehbar, wenn sich durch die Arbeit an einem Auftrag die Stammdaten der Kundenadresse ändern würden. Bei Belegdaten sollte sich auf die DB-Tabellen beschränkt werden, vor allem bzgl. der Schreibzugriffe. Die entsprechenden Tabellen lauten:</p>
+<ul>
+<li>auftrag</li>
+<li>auftrag_positionen</li>
+<li>rechnung</li>
+<li>rechnung_positionen</li>
+<li>lieferschein</li>
+<li>lieferschein_positionen</li>
+<li>gutschrift</li>
+<li>gutschrift_positionen</li>
+</ul>
+</blockquote>
+<p>Eine Übersicht der wichtigsten DB-Tabellen aus diesem Bereich ist unter Datenbank-Diagramm Belege4 und wichtigste Relationen zu finden.</p>
+<h3 id="vorgehensweise-beispiel-classerpapi_customphp">Vorgehensweise &amp; Beispiel &lsquo;&rsquo;class.erpapi_custom.php&rsquo;&lsquo;<a class="headerlink" href="#vorgehensweise-beispiel-classerpapi_customphp" title="Permanent link">&para;</a></h3>
+<p>Um die Funktion zu überladen, muss lediglich eine Datei class.erpapi_custom.php erzeugt und im Verzeichnis www/lib/ neben der Datei class.erpapi.php abgelegt werden.</p>
+<p>Diese Information benötigst du nur bei selbständigem Hosten. Für Cloud Kunden hinterlegt Xentral die Datei auf dem Server.</p>
+<p>Dafür brauchst du die PHP des Skriptes, den Ort, wo es abgelegt werden soll, und die gültige Lizenz der Instanz.</p>
+<h3 id="beispiel-gesamtrabatt">Beispiel: Gesamtrabatt<a class="headerlink" href="#beispiel-gesamtrabatt" title="Permanent link">&para;</a></h3>
+<p>Das folgende Beispiel zeigt eine einfache Anwendung: Ab einer Gesamtsumme von EUR 100,- ($threshold, Wert netto) soll automatisch ein Rabattartikel ($rebateId) eingefügt werden. Dieser kann nur wieder gelöscht werden, wenn die Summe unter EUR 100,- sinkt, andernfalls wird er bei jeder Berechnung neu erzeugt. Der Rabatt soll dabei nicht in die Gesamtsumme eingerechnet werden, diese kann also auch unter EUR 100,- fallen.</p>
+<p>Das Beispiel zeigt die Überladung der Funktion ANABREGSNeuberechnen()</p>
+<ul>
+<li>die Einschränkung auf Belegarten (siehe Sample 1),</li>
+<li>die Verwendung der Artikelpositionen mit Artikel und Preis,</li>
+<li>die Verwendung von Datenbank (siehe Sample 2),</li>
+<li>die Verwendung von ERP-Funktionen (siehe Sample 3 und Sample 4)
+  Zum Debugging können verschiedene Methoden angewendet werden, siehe Debugging bei der Entwicklung in xentral.</li>
+</ul>
+<h4 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h4>
+<pre><code>  &lt;?php
+
+class erpAPICustom extends erpAPI
+{
+  public function __construct(&amp;$app)
+  {
+  $this-&gt;app = $app;
+  parent::__construct($app);
+} // end of constructor
+
+  public function ANABREGSNeuberechnen($id, $art, $bool = false)
+  {
+  /*Choose the documents you want to manipulate - Sample 1*/
+  if($art === 'auftrag') {
+
+  /*Custom definitions here*/
+  $rebateId = 15; /*Set rebate article ID %*/
+  $threshold = 100; /*Activate rebate for orders above EUR 100,-*/
+  $rebateExists = false; /*Assume rebate article not yet added*/
+
+  /*Get some information about positions from database - Sample 2*/
+  $positionenSQL = sprintf('SELECT ap.* FROM %s_position ap WHERE %s = %s', $art, $art, $id);
+  $positionen = $this-&gt;app-&gt;DB-&gt;SelectArr($positionenSQL);
+
+  /*Walk through positions and compute the price*/
+  $sum = 0;
+  foreach ($positionen as $p) {
+  $artikelId = $p['artikel'];
+  $menge = $p['menge'];
+
+  if ((int)$artikelId!== $rebateId) {
+  $sum += $this-&gt;app-&gt;erp-&gt;GetVerkaufspreis($artikelId, $menge) *$menge; /* Sample 3*/
+} else {
+  $rebateExists = true;
+}
+} // end of foreach
+
+  if ($sum &gt;= $threshold &amp;&amp;!$rebateExists) {
+  /*Sample 4*/
+  $this-&gt;app-&gt;erp-&gt;AddAuftragPositionManuell($id, $rebateId, 0, 1, 'Rabatt ab € '.$this-&gt;app-&gt;erp-&gt;formatMoney($threshold, 'EUR'));
+} // end of if - add rebate if not exists
+} // end of if - Document type: Offer / Auftrag
+
+  /*Call the main routine from parent class erpAPI and return*/
+  return parent::ANABREGSNeuberechnen($id, $art);
+} // end of function
+
+} // end of class
+
+
+</code></pre>
+<h4 id="ergebnis">Ergebnis<a class="headerlink" href="#ergebnis" title="Permanent link">&para;</a></h4>
+<p>Im Ergebnis passt sich dann die Positionstabelle folgendermaßen an:</p>
+<p><img alt="TriggerScript-1.png" src="https://help.xentral.com/hc/article_attachments/4996392886556" /></p>
+<p>Und der Beleg hat entsprechend ebenfalls ein anderes Erscheinungsbild:</p>
+<p><img alt="Trigger2.png" src="https://help.xentral.com/hc/article_attachments/4996407862044" /></p>
+<h4 id="beispiel-schweizer-rappen-rundung">Beispiel: Schweizer Rappen-Rundung<a class="headerlink" href="#beispiel-schweizer-rappen-rundung" title="Permanent link">&para;</a></h4>
+<p>In der Schweiz sind 1 und 2 Rappenmünzen nicht mehr im Umlauf. Daher runden Einzelhändler auf 5 oder 10 Rappen auf oder ab, wobei mathematische Rundungsgereln gelten. Dabei bezieht sich die Rundung im Normalfall auf den Gesamtbetrag.</p>
+<p>Mit Hilfe der Funktion ANABREGSNeuberechnen() kann diese Rundung umgesetzt werden. Dazu muss der Gesamtbetrag in zwei Feldern gespeichert werden:</p>
+<ul>
+<li>extsoll</li>
+<li>
+<p>gesamtsumme <strong>Weitere Ideen für Projekte:</strong></p>
+</li>
+<li>
+<p>Besonderer Preis oder Rabatt ab einer definierten Gesamtmenge</p>
+</li>
+<li>Kombination verschiedener Artikel oder ganzer Artikelkategorien in einer Rabattstaffelung</li>
+<li>&ldquo;Zahle x bekomme y&rdquo;</li>
+<li>Gesamt-Rabatt ab x Euro (siehe Beispiel oben)</li>
+<li>Versandkostenfrei ab x Euro</li>
+<li>Verwendung besonderer Erlöskonten nach bestimmten Kriterien</li>
+<li>Anpassung der Versandart oder -kosten nach Zielgebiet, Positionen, Gesamtgewicht o.ä.</li>
+<li>Besondere Rundungen (siehe Beispiel Schweizer Rappen-Rundung)</li>
+</ul>
+<h4 id="beispiel-lieferschein-auslagern">Beispiel: Lieferschein auslagern<a class="headerlink" href="#beispiel-lieferschein-auslagern" title="Permanent link">&para;</a></h4>
+<p>Mit der Methode LieferscheinAuslagern wird der Lagerbestand angepasst. Den Algorithmus kann dafür selbst entwickelt werden. Die ID des Lieferscheins erscheint primär als Parameter. Es können dann die Positionen aus der Datenbank abgefragt werden (ArtikelID und Menge), um im Lager in der Tabelle lager_platz_inhalt die korrekten Mengen zu entnehmen.</p>
+<h5 id="code_1">Code<a class="headerlink" href="#code_1" title="Permanent link">&para;</a></h5>
+<p><code>function LieferscheinAuslagern($lieferschein,$anzeige_lagerplaetze_in_lieferschein=false, $standardlager = 0, $belegtyp = 'lieferschein', $chargenmhdnachprojekt = 0, $forceseriennummerngeliefertsetzen = false,$nurrestmenge = false, $lager_platz_vpe = 0, $lpiid = 0)</code></p>
+<p>Die Funktion bekommt Werte aus dem System übergeben, die bei der Einrichtung vom Einrichter oder dem xentral Onboarding-Team festgelegt wurden. Diese übergebenen Werte können innerhalb der Funktion ausgewertet werden:</p>
+<ul>
+<li>$lieferschein: ID des Lieferscheins</li>
+<li>$anzeige_lagerplaetze_in_lieferschein: Anzeige der Lagerplätze im Lieferschein (System-Einstellung)</li>
+<li>$standardlager: Standardlager (System-Einstellung), Defaultwert ist 0</li>
+<li>$belegtyp - Typ des Beleges, Default ist &lsquo;lieferschein&rsquo;</li>
+<li>$chargenmhdnachprojekt: Nur zur Verwendung durch xentral (System-Einstellung)</li>
+<li>$forceseriennummerngeliefertsetzen: Nur zur Verwendung durch xentral (System-Einstellung)</li>
+<li>$nurrestmenge: Nur zur Verwendung durch xentral (System-Einstellung)</li>
+<li>$lager_platz_vpe: Nur zur Verwendung durch xentral (System-Einstellung)</li>
+<li>$lpiid: Nur zur Verwendung durch xentral (System-Einstellung)</li>
+</ul>
+<p>Nun werden die eigentlichen Entnahmen aus dem Lager vorgenommen, mithilfe der Funktion LagerAuslagernRegal.</p>
+<p>Aufruf:</p>
+<p><code>function LagerAuslagernRegal($artikel,$regal,$menge,$projekt,$grund,$importer="", $doctype = "", $doctypeid = 0, $lager_platz_vpe = 0, $lpiid = 0)</code></p>
+<p>Beschreibung der Parameter:</p>
+<ul>
+<li>$artikel: Artikel ID</li>
+<li>$regal: Lagerplatz ID, aus welchem entnommen wird</li>
+<li>$menge: Menge, welche entnommenen wird</li>
+<li>$projekt: Projekt für Lagerbewegung</li>
+<li>$grund: Bemerkung für Lagerbewegungstabelle</li>
+<li>$importer: Aktuelle Wert aus Prozess wird übergeben - aktuell leer lassen, Default ist Leerstring</li>
+<li>$doctype: Optionale Angabe für welchen Beleg entlagert wird, Defaultwert ist Leerstring</li>
+<li>$doctypeid: Optionale Angabe für welchen Beleg (ID des Beleges) entlagert wird, Defaultwert ist 0</li>
+<li>$lager_platz_vpe: Optional Angabe, welche VPE ausgelagert wird, Defaultwert ist 0. Diese Angabe wird aktuell nur für Amazon verwendet</li>
+<li>$lpiid: Optional: Aktueller Wert aus Prozess wird hier übergeben - aktuell wird 0 übergeben. Defaultwert ist 0</li>
+</ul>
+<h2 id="timed-trigger_1">Timed Trigger<a class="headerlink" href="#timed-trigger_1" title="Permanent link">&para;</a></h2>
+<p>Timed Trigger bezeichnen individuelle Prozessstarter, die integriert werden können, um Datenanalysen, Datenmanipulationen oder andere datenbankbasierte Aktionen auszuführen. Dabei kann sowohl direkt in die Datenbank geschrieben als auch externe Funktionen (wie z.B. API-Calls) aufgerufen werden.</p>
+<h3 id="allgemein">Allgemein<a class="headerlink" href="#allgemein" title="Permanent link">&para;</a></h3>
+<p>Alle Timed Trigger (Prozessstarter) liegen in dem Verzeichnis../xentral/cronjobs.</p>
+<p>Der Hauptprozess (starter2.php) wird jede Minute vom Heartbeat-Cronjob (system cronjob) aufgerufen. Die starter2.php prüft alle Einträge der Datenbanktabelle prozessstarter und führt die Prozesse aus, die laut ihrer Zeitpunkts- bzw. Periodeneinstellung an der Reihe sind (siehe<a href="#">Handbuch Prozessstarter</a>).</p>
+<h3 id="timed-trigger-anlegen">Timed Trigger anlegen<a class="headerlink" href="#timed-trigger-anlegen" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Die PHP Datei für den Prozessstarter Code im Ordner../xentral/cronjobs ist zu erstellen</li>
+<li>Für den Dateinamen sind nur ASCII Zeichen zu verwenden, Leerzeichen sind zu vermeiden</li>
+<li>Folgende Navigation ist in der xentral Oberfläche vorzunehmen: Administration → Einstellungen → Prozessstarter. Ein neuer Eintrag ist zu erzeugen, dabei die Zeitpunkt- / Periodeneinstellung für den Prozess sinnvoll festzulegen</li>
+<li>In das Feld &ldquo;Parameter&rdquo; ist der Name der PHP Datei ohne Dateiendung einzutragen. Anhand dieses Parameters wird die starter2.php die auszuführende PHP Datei im cronjob Ordner suchen und ausführen</li>
+</ol>
+<h3 id="timed-trigger-manuell-ausfuhren">Timed Trigger manuell ausführen<a class="headerlink" href="#timed-trigger-manuell-ausfuhren" title="Permanent link">&para;</a></h3>
+<p>Während der Entwicklung muss der Prozessstarter normalerweise mehrmals zu Testzwecken manuell gestartet werden.</p>
+<p>Folgende Vorgehensweise hat sich dabei bewährt:</p>
+<ul>
+<li>Keine Arbeit im Live-System, andernfalls haben die weiteren Punkte ggf. negative Auswirkungen</li>
+<li>Es ist sicher zu stellen, dass für das Entwicklungssystem kein Heartbeat-Cronjob registriert ist</li>
+<li>Alle Prozessstarter sind auf inaktiv zu schalten, bis auf denjenigen, der bearbeitet wird</li>
+<li>Folgende Einstellungen sind für den zu bearbeitenden Prozessstarter zu setzen:</li>
+<li>Art: periodisch</li>
+<li>Periode: 0</li>
+<li>Die starter2.php im cronjob Ordner sind über eine Kommandozeile zu starten, z.B. über das Kommando php starter2.php</li>
+</ul>
+<h3 id="code-schreiben">Code schreiben<a class="headerlink" href="#code-schreiben" title="Permanent link">&para;</a></h3>
+<h4 id="beispiel-bmecat-export-zum-update-veranderter-artikel">Beispiel: BMEcat-Export zum Update veränderter Artikel<a class="headerlink" href="#beispiel-bmecat-export-zum-update-veranderter-artikel" title="Permanent link">&para;</a></h4>
+<p>Das folgende Beispiel erstellt zeitgesteuert einen Export der Produktdaten im BMEcat-Format, einem standardisierten Austauschformat für Katalogdaten im Katalogmanagement (siehe auch<a href="https://de.wikipedia.org/wiki/BMEcat">BMEcat auf Wikipedia)</a>. Dabei werden gezielt veränderte Artikel im Update-Format exportiert und nur Artikel gewählt, die seit dem letzten Ausführen des CRON-Jobs verändert wurden. In diesem Beispiel werden dafür nur Veränderungen an den Stammdaten der Artikel berücksichtigt, nicht aber z.B. veränderte Verkaufspreise.</p>
+<pre><code>  &lt;?php
+
+use Xentral\Components\Database\Exception\QueryFailureException;
+use Xentral\Components\Filesystem\Filesystem;
+use Xentral\Components\Filesystem\FilesystemFactory;
+use Xentral\Components\Util\StringUtil;
+
+//predefined variables:
+
+/**@var Application $app * access to services and functions(e.g. Database, erpAPI, PHPMail...)*/
+
+/**@var array $task * information about all current executed cronjobs*/
+
+/**@var int $task_index * index of current cronjob in $task array*/
+
+//information about the current running cronjob
+$jobInfo = $task[$task_index];
+
+//get the time of the last execution of this cronjob
+$lastExec = $jobInfo['letzteausfuerhung'];
+
+//it makes sense to keep some settings flexible (e.g. for test environment)
+$outputDir = '';
+
+$exportObject = new BmecatExportCronjob($app, $lastExec, $outputDir);
+$exportObject-&gt;execute();
+
+final class BmecatExportCronjob
+{
+  /**@var erpooSystem $app*/
+  private $app;
+
+  /**@var array $data*/
+  private $data;
+
+  /**@var string $lastExecution*/
+  private $lastExecution;
+
+  /**@var SimpleXMLElement $xml*/
+  private $xml;
+
+  /**@var string $outputDirectory*/
+  private $outputDirectory;
+
+  /**@var bool $debugMode*/
+  private $debugMode = true; //set to false for production usage
+
+  /** *@param erpooSystem $app *@param string $lastExecution*@param string $outputDirectory*/
+  public function __construct($app, $lastExecution, $outputDirectory = '')
+  {
+  $this-&gt;app = $app;
+  $this-&gt;lastExecution = $lastExecution;
+  if ($outputDirectory!== '') {
+  $this-&gt;outputDirectory = $outputDirectory;
+} else {
+  //get the userdata directory of Xentral as default value for output directory
+  $this-&gt;outputDirectory = $app-&gt;Conf-&gt;WFuserdata;
+}
+}
+
+  /** * Collects data for the BMECAT export and writes the result to a file * *@throws Exception * *@return void*/
+  public function execute()
+  {
+  $this-&gt;app-&gt;erp-&gt;LogFile('BMECAT_export started', __FILE__);
+
+  //collect data for the export
+  $this-&gt;data['header'] = $this-&gt;getHeader();
+  $articles = $this-&gt;getArticles();
+
+  //if there are no changed articles we leave a hint in the logfile and exit cleanly
+  if (empty($articles)) {
+  $this-&gt;app-&gt;erp-&gt;LogFile('BMECAT_export: No changed articles since last execution.');
+
+  return;
+}
+
+  $this-&gt;data['t_update_products']['_attr_prev_version'] = '0';
+  $this-&gt;data['t_update_products']['article'] = $articles;
+
+  //render the XML string according to BMECAT specs
+  $this-&gt;xml = $this-&gt;toXml();
+
+  //It is good practice to use filenames with timestamps for output to avoid colliding results
+  $date = new DateTime('now');
+  $filename = sprintf('bmecat_export_%s.xml', $date-&gt;format('Y-m-d_H_i_s'));
+
+  //write the XML content to a file
+  $this-&gt;writeXmlFile($this-&gt;xml, $filename);
+
+  $this-&gt;app-&gt;erp-&gt;LogFile('BMECAT_export completed');
+}
+
+  /** * Write the xml string to a file in the userdata directory * * uses Xentral FileSystem class to write the file. * *@param string $xml *@param string $filename*/
+  private function writeXmlFile($xml, $filename)
+  {
+  $path = sprintf('%s/%s', $this-&gt;outputDirectory, $filename);
+  $this-&gt;debug('BMECAT_export write xml file', $path);
+
+  //we do not want to overwrite old export files
+  if (file_exists($path)) {
+  throw new RuntimeException(sprintf('BMECAT_export Cannot overwrite file %s', $path));
+}
+
+  /**@var FilesystemFactory $factory*/
+  $factory = $this-&gt;app-&gt;Container-&gt;get('FilesystemFactory');
+  /**@var Filesystem $fileSystem*/
+  $fileSystem = $factory-&gt;createLocal('/');
+  $fileSystem-&gt;write($path, $xml);
+}
+
+  /** * transforms the data to xml string * *@return string*/
+  private function toXml()
+  {
+  $xml = new SimpleXMLElement('&lt;BMECAT/&gt;');
+  $xml-&gt;addAttribute('version', '1.2');
+  $this-&gt;appendXmlRecursive($xml, $this-&gt;data);
+
+  return $xml-&gt;asXML();
+}
+
+  /** * walks through the data recursively and buidls the data structure for bmecat * *@param SimpleXMLElement $startnode *@param array $data*@param string $parentName*/
+  private function appendXmlRecursive(SimpleXMLElement $startnode, $data, $parentName = '')
+  {
+  foreach ($data as $name =&gt; $value) {
+  if ($parentName!== '') {
+  $name = $parentName;
+}
+  if (is_array($value)) {
+  if (count(array_filter(array_keys($value), 'is_string')) === 0) {
+  $this-&gt;appendXmlRecursive($startnode, $value, $name);
+} else {
+  $child = $startnode-&gt;addChild(mb_strtoupper($name), '');
+  $this-&gt;appendXmlRecursive($child, $value);
+}
+} else {
+  if (StringUtil::startsWith($name, '_attr_')) {
+  $startnode-&gt;addAttribute(substr($name, 6), $value);
+} else {
+  $startnode-&gt;addChild(mb_strtoupper($name), $value);
+}
+}
+}
+}
+
+  /** * collects necessary data for the bmecat header * *@throws Exception * *@return array*/
+  private function getHeader()
+  {
+  $header = [];
+  $header['generator_info'] = 'Xentral custom cronjob';
+  $date = new DateTime('now');
+  $header['catalog'] = [
+  'language' =&gt; 'deu',
+  'catalog_id' =&gt; 'standard_endkunden_katalog',
+  'catalog_version' =&gt; '001.001',
+  'datetime' =&gt; [
+  '_attr_type' =&gt; 'generation_date',
+  'date' =&gt; $date-&gt;format('Y-m-d'),
+  'time' =&gt; $date-&gt;format('H:i:s'),
+],
+];
+  $header['supplier'] = ['suppliername' =&gt; $this-&gt;app-&gt;erp- &gt;Firmendaten('footer_0_1')];
+
+  return $header;
+}
+
+  /** * collects data about changed articles * *@return array*/
+  private function getArticles()
+  {
+  $data = [];
+  //this query gets all articles that were edited since the cronjob's last execution
+  $sql = sprintf(
+  &quot;SELECT a.id, a.typ, a.nummer, a.ean, a.name_de, a.katalogbezeichnung_de, a.katalogtext_de, 
+  a.hersteller, a.herstellernummer
+  FROM artikel AS a 
+  WHERE a.useredittimestamp &gt; '%s' AND a.katalog = 1&quot;,
+  $this-&gt;lastExecution
+);
+
+  $articles = $this-&gt;app-&gt;DB-&gt;SelectArr($sql);
+
+  $dbError = $this-&gt;app-&gt;DB-&gt;error();
+  if (!empty($dbError)) {
+  //this is a critical error, the cronjob can not continue
+  //so log the error message and quit the cronjob with an error by throwing an exception
+  $this-&gt;app-&gt;erp-&gt;LogFile('BMECAT_export article query failed', $this-&gt;app-&gt;DB-&gt;real_escape_string($sql));
+  $this-&gt;app-&gt;erp-&gt;LogFile('BMECAT_export DB error', $this-&gt;app-&gt;DB-&gt;real_escape_string($dbError));
+
+  throw new QueryFailureException('database query failed');
+}
+
+  if (empty($articles)) {
+  return [];
+}
+
+  $this-&gt;debug(sprintf('BMECAT_export %s changed articles found', count($articles)));
+
+  foreach ($articles as $article) {
+  $item = [];
+  $item['_attr_mode'] = 'update';
+  $item['supplier_aid'] = $article['nummer'];
+  $item['article_details']['description_short'] = $article['katalogbezeichnung_de'];
+  $item['article_details']['description_long'] = $article['katalogtext_de'];
+  if ($article['ean']!== '') {
+  $item['article_details']['ean'] = $article['ean'];
+}
+  if ($article['herstellernummer']!== '') {
+  $item['article_details']['manufacturer_aid'] = $article['herstellernummer'];
+}
+  if ($article['hersteller']!== '') {
+  $item['article_details']['manufacturer_name'] = $article['hersteller'];
+}
+  $prices = $this-&gt;getPrices((int)$article['id']);
+  foreach ($prices as $price) {
+  $item['article_price_details']['article_price'][] = [
+  'price_amount' =&gt; $price['preis'],
+  'price_currency' =&gt; $price['waehrung'],
+];
+}
+  $data[] = $item;
+}
+
+  return $data;
+}
+
+  /** * Gets currently active prices of one article * *@param int $articleId * *@return array*/
+  private function getPrices($articleId)
+  {
+  $this-&gt;debug('get prices for article', $articleId);
+  //this query gets all prices of the specified article that are active on the current date
+  $sql = sprintf(
+  &quot;SELECT p.preis, p.waehrung, p.ab_menge
+  FROM verkaufspreise AS p
+  WHERE p.art = 'kunde' AND p.adresse = 0 AND p.geloescht = 0
+  AND (p.gueltig_bis = '0000-00-00' OR curdate() &lt;= p.gueltig_bis OR isnull(gueltig_bis))
+  AND (p.gueltig_ab = '0000-00-00' OR curdate() &gt;= p.gueltig_ab OR isnull(gueltig_ab))
+  AND p.artikel = %s
+  ORDER BY p.ab_menge&quot;,
+  $articleId
+);
+
+  $prices = $this-&gt;app-&gt;DB-&gt;SelectArr($sql);
+
+  $dbError = $this-&gt;app-&gt;DB-&gt;error();
+  if (!empty($dbError)) {
+  //this is a noncritical error, the cronjob can still continue, just log the error message
+  $this-&gt;app-&gt;erp-&gt;LogFile('BMECAT_export price query failed', $this-&gt;app-&gt;DB-&gt;real_escape_string($sql));
+  $this-&gt;app-&gt;erp-&gt;LogFile('BMECAT_export DB error', $this-&gt;app-&gt;DB-&gt;real_escape_string($dbError));
+}
+
+  if (empty($prices)) {
+  return [];
+}
+
+  return $prices;
+}
+
+  /** * Prints log message to logfile table * (only if debug mode is enabled)* *@param string $message *@param mixed|null $dump*/
+  private function debug($message, $dump = null)
+  {
+  if ($this-&gt;debugMode === true) {
+  $this-&gt;app-&gt;erp-&gt;LogFile($message, $dump);
+}
+}
+}
+
+
+</code></pre>
+<h4 id="beispiel-bmecat-export-zum-update-veranderter-artikel_1">Beispiel: BMEcat-Export zum Update veränderter Artikel<a class="headerlink" href="#beispiel-bmecat-export-zum-update-veranderter-artikel_1" title="Permanent link">&para;</a></h4>
+<p>Das folgende Beispiel zeigt die Erstellung eines Dateianhangs an einen Beleg. Dieses Code-Beispiel registriert sich auf den Trigger bei Änderung eines Beleges und erstellt eine Datei, die dann als Anhang den Beleg erweitern kann. In xentral existieren dazu z.B. zusätzliche Einzahlungsscheine bei Rechnungserstellung oder Gefahrgutdeklarationen, die nach diesem Muster im Systen verankert wurden. Denkbar ist aber jede Art von Dateianhang. Solange die Datei als <strong>Typ Anhang</strong> hinterlegt wird, kann diese durch eine geeignete Konfiguration in den Projekteinstellungen automatisch mit der Rechnung gesendet oder beim Rechnungsdruck zusätzlich ausgedruckt werden.</p>
+<h3 id="integration-in-xentral">Integration in Xentral<a class="headerlink" href="#integration-in-xentral" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Die Datei ist im Ordner www/pages zu speichern</li>
+<li>Der Dateiname muss aus Kleinbuchstaben bestehen</li>
+<li>Der Klassenname muss mit einem Großbuchstaben beginnen, der Rest sind Kleinbuchstaben</li>
+<li>Wenn die Datei am Zielort liegt, muss diese einmal aufgerufen werden, damit der Hook registriert wird - im vorliegenden Fall also: index.php?module=beispiel</li>
+<li>Auf der Seite selbst hat xentral im Beispiel noch eine Checkbox eingebaut, mit der man die hinterlegte Logik an- und ausschalten kann. Beim ersten Aufruf ist einmalig der Haken zu setzen. Dieser wird automatisch gespeichert - daher ist kein Speichern-Button nötig.</li>
+</ol>
+<h3 id="beispiel-code">Beispiel-Code<a class="headerlink" href="#beispiel-code" title="Permanent link">&para;</a></h3>
+<pre><code>  &lt;?php
+
+// TODO Wichtig! Nur der erste Buchstabe gross, kein CamelCase; 
+// Der Name der Datei selbst muss klein geschrieben sein, also hier beispiel.php
+class Beispiel
+{
+
+  /**@var erpooSystem $app*/
+  public $app;
+
+  /** *@param erpooSystem $app *@param bool $intern*/
+  public function __construct($app, $intern = false)
+  {
+  $this-&gt;app = $app;
+  if($intern){
+  return;
+}
+
+  $this-&gt;app-&gt;ActionHandlerInit($this);
+  $this-&gt;app-&gt;ActionHandler('list','Liste');
+  $this-&gt;app-&gt;DefaultActionHandler('list');
+  $this-&gt;app-&gt;ActionHandlerListen($app);
+}
+
+  public function Liste()
+  {
+  $this-&gt;Install();
+  $this-&gt;app-&gt;YUI-&gt;AutoSaveKonfiguration('belegeanhangerzeugen', 'belegeanhangerzeugen');
+
+  $belegeanhangerzeugen = $this-&gt;app-&gt;erp-&gt;GetKonfiguration('belegeanhangerzeugen');
+
+  $checked = '';
+  if(!empty($belegeanhangerzeugen)){
+  $checked = 'checked=&quot;&quot;';
+}
+  $this-&gt;app-&gt;Tpl-&gt;Set('TAB1','Automatisch eine Anhangsdatei für Belege erzeugen:
+ &lt;input type=&quot;checkbox&quot; name=&quot;belegeanhangerzeugen&quot; id=&quot;belegeanhangerzeugen&quot; '.$checked.'&gt;');
+
+  $this-&gt;app-&gt;Tpl-&gt;Parse('PAGE','tabview.tpl');
+}
+
+  public function Install()
+  {
+  $modulName = 'beispiel'; // TODO frei vergebbar, sollte nach dem ersten Mal aber nicht mehr verändert werden; z.b. Klassenname mit Kleinbuchstaben
+  $this-&gt;app-&gt;erp-&gt;RegisterHook('ANABREGSNeuberechnenEnde', $modulName, 'createDocument');
+}
+
+  public function createFile($tmpPath,$documentId, $documentType)
+  {
+  $belegId = (int)$documentId;
+  $beleg = $this-&gt;app-&gt;DB-&gt;SelectRow(
+  &quot;SELECT *
+  FROM {$documentType} AS r
+  WHERE r.id = '{$belegId}'&quot;
+);
+  if (empty($beleg)) {
+  return;
+}
+
+  // TODO
+  /* * Hier wird die eigentliche Datei im z.b. temp-Verzeichnis erzeugt * */
+}
+
+  public function createDocument($documentId, $documentType)
+  {
+  if(
+  $documentType == 'auftrag' ||
+  empty($documentId) ||
+  $this-&gt;app-&gt;erp-&gt;GetKonfiguration('belegeanhangerzeugen')!=='on'
+){
+  return;
+}
+
+  $tmpPath = ''; // TODO z.b. tempnam(sys_get_temp_dir(), 'beleg'). '.csv'
+  $this-&gt;createFile($tmpPath,$documentId, $documentType); // TODO
+  $fileTitle = ''; // TODO
+  $fileDesc = ''; // TODO
+  $fileName = ''; // TODO
+  $fileHash = ''; // TODO z.b. md5(serialize($belegDatenObjekt));
+  $bearbeiter = $this-&gt;app-&gt;User-&gt;GetName();
+
+  // Prüfen ob vorher schon mal eine Datei zu Beleg generiert wurde
+  $dateiCheck = $this-&gt;app-&gt;DB-&gt;SelectArr(sprintf(
+  &quot;SELECT d.id AS datei_id, dv.bemerkung AS datei_hash
+  FROM datei AS d
+  INNER JOIN datei_stichwoerter AS ds ON d.id = ds.datei
+  INNER JOIN datei_version AS dv ON d.id = dv.datei
+  WHERE ds.subjekt = 'anhang' AND ds.objekt = '%s'
+  AND d.titel = '%s' AND ds.parameter = '%s'
+  AND d.geloescht = 0
+  ORDER BY dv.id DESC
+  LIMIT 1&quot;,
+  $documentType, $fileTitle, $documentId
+));
+  $dateiId = (int)$dateiCheck[0]['datei_id'];
+  $dateiHash = $dateiCheck[0]['datei_hash'];
+
+  if($dateiId &gt; 0){
+  // Beleg ist vorhanden &gt; Prüfen ob sich der Inhalt geändert hat
+  if($dateiHash!== $fileHash){
+  // Hash in Bemerkungsfeld hat sich geändert &gt; Neue Datei-Version hinterlegen
+  // Hash stellt sicher dass Inhalte identisch sind.
+  $this-&gt;app-&gt;erp-&gt;AddDateiVersion($dateiId, $bearbeiter, $fileName, $fileHash, $tmpPath);
+}
+}
+  else{
+  // Datei nicht vorhanden &gt; Datei als Anhang zum Beleg anlegen
+  $dateiId = $this-&gt;app-&gt;erp-&gt;CreateDatei($fileName, $fileTitle, $fileDesc, '', $tmpPath, $bearbeiter);
+  $this-&gt;app-&gt;erp-&gt;AddDateiStichwort($dateiId, 'anhang', $documentType, $documentId);
+}
+}
+}
+
+
+</code></pre>
+<h3 id="variablen">Variablen<a class="headerlink" href="#variablen" title="Permanent link">&para;</a></h3>
+<p>Innerhalb des Prozesses sind einige Variablen gesetzt, die nützliche Informationen und Funktionen liefern:</p>
+<ul>
+<li>$app: Zugang zu verschiedenen Services</li>
+<li>$app-&gt;DB Klasse DB: Zugriffe auf die xentral Datenbank</li>
+<li>$app-&gt;Conf Klasse Config: Zugriff auf Datenbankverbindungsdaten und userdata Verzeichnis (z.B. um Ergebnisdateien dort zu speichern)</li>
+<li>$app-&gt;Container Klasse ServiceContainer: Zugriff auf weitere Services, z.B. FileSystem)</li>
+<li>$app-&gt;erp Klasse erpAPI: Zugriff auf alle funktionen der erpAPI. Hier sind vorgefertigte Datenbankabfragen und Hilfsfunktionen zu finden.</li>
+<li>$app-&gt;mail Klasse PHPMailer: Zugriff auf E-Mail Funktionen, um z.B. nach erfolgreicher Ausführung eine Benachrichtigung per E-Mail an den Administrator zu schicken</li>
+</ul>
+<h3 id="best-practice-tipps-tricks">Best Practice, Tipps, Tricks<a class="headerlink" href="#best-practice-tipps-tricks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Eine Klasse für die Programmlogik des Prozessstarters ist zu erstellen und der prozedurale Code so klein wie möglich zu halten</li>
+<li>Mit der Funktion $app-&gt;erp-&gt;LogFile() werden Lognachrichten in der Tabelle Logfile erzeugt.</li>
+<li>Eine Variable ist zu setzen, mit welcher die Ausgabe detaillierter Lognachrichten an- und ausgeschaltet werden kann, um im Live-Betrieb Ressourcen zu schonen</li>
+<li>Wird eine Exception geworfen, die der Prozessstarter nicht selbst behandelt, so wird der Prozessstarter in der Übersicht als fehlerhaft markiert und in der Tabelle logfile ist die Fehlermeldung einzusehen. Beispiel Fehler im Logfile: Prozessstarter Fehler bei Aufruf des Moduls bmecatexportarticles: Cant write XML file</li>
+<li>Diese Mechanik kann ausgenutzt und eigene Exceptions geworfen werden, wenn z.B. wichtige Bedingungen für den Prozess nicht erfüllt sind oder ein kritischer Fehler auftritt.</li>
+</ul>
+<h3 id="weitere-links">Weitere Links:<a class="headerlink" href="#weitere-links" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://help.xentral.com/hc/articles/360017383080#UUID-bb6076c2-8277-a8ea-502e-0c1c3dff9adf">Übersicht Handbuch Anpassungen</a></li>
+</ul>
+<p>Wir freuen uns auch auf Ideen, Anregungen und Code-Beispiele in unserer Community:</p>
+<p><a href="https://xentral.community">https://xentral.community</a></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

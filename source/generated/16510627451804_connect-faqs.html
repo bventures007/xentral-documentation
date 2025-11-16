@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16510627451804 Connect Faqs - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>16510627451804 Connect Faqs</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>16510627451804 Connect Faqs</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wenn du Informationen zu bestimmten Fehlermeldungen suchst, besuche doch mal unsere neue Übersichtsseite:Connect Fehlermeldungen und Abhilfe.</p>
+<p>Übrigens: Du kannst dich aktiv über den Auftragsimport-Status per e-Mail benachrichtigen lassen. Richte einfach über dieSystemstatus-Seite &gt; Alarms verwalten &gt; Alarm erstelleneinAboein. Du kannst deine Schnittstelle(n) und die Häufigkeit der Benachrichtigung wählen und festlegen, ob eine Benachrichtigung bei Warnung und/oder im Fehlerfall erfolgen soll. Mehr Infos zum Systemstatus findest du unterSystemstatus</p>
+</blockquote>
+<h2 id="artikel-warum-werden-nicht-alle-artikel-von-xentral-zu-shopify-ubertragen-moglicherweise-stimmt-die-datenstruktur-der-artikel-in-shop-und-xentral-nicht-uberein-wahrend-ein-artikel-in-xentral-als-matrixprodukt-angelegt-ist-ist-dieselbe-artikelnummer-in-shopify-als-variante-konfiguriert-stelle-sicher-dass-du-in-beiden-systemen-mit-derselben-datenstruktur-arbeitest-mehr-informationen-zu-matrixprodukten-und-artikelvarianten-erhalst-du-auf-dieser-hilfeseitematrixprodukt-artikelvarianten-erstellen-warum-werden-eltern-artikel-bei-der-artikelubertragung-uber-die-connect-schnittstelle-mehrfach-im-shop-ohne-sku-angelegt">Artikel <strong>Warum werden nicht alle Artikel von Xentral zu Shopify übertragen? </strong> Möglicherweise stimmt die Datenstruktur der Artikel in Shop und Xentral nicht überein. Während ein Artikel in Xentral als Matrixprodukt angelegt ist, ist dieselbe Artikelnummer in Shopify als Variante konfiguriert. Stelle sicher, dass du in beiden Systemen mit derselben Datenstruktur arbeitest. Mehr Informationen zu Matrixprodukten und Artikelvarianten erhälst du auf dieser Hilfeseite:<a href="https://help.xentral.com/hc/de/articles/360016725120#UUID-44725c2a-a728-20a2-d526-e12c9e8d88eb">Matrixprodukt - Artikelvarianten erstellen</a><strong> Warum werden Eltern-Artikel bei der Artikelübertragung über die Connect-Schnittstelle mehrfach im Shop ohne SKU angelegt?</strong><a class="headerlink" href="#artikel-warum-werden-nicht-alle-artikel-von-xentral-zu-shopify-ubertragen-moglicherweise-stimmt-die-datenstruktur-der-artikel-in-shop-und-xentral-nicht-uberein-wahrend-ein-artikel-in-xentral-als-matrixprodukt-angelegt-ist-ist-dieselbe-artikelnummer-in-shopify-als-variante-konfiguriert-stelle-sicher-dass-du-in-beiden-systemen-mit-derselben-datenstruktur-arbeitest-mehr-informationen-zu-matrixprodukten-und-artikelvarianten-erhalst-du-auf-dieser-hilfeseitematrixprodukt-artikelvarianten-erstellen-warum-werden-eltern-artikel-bei-der-artikelubertragung-uber-die-connect-schnittstelle-mehrfach-im-shop-ohne-sku-angelegt" title="Permanent link">&para;</a></h2>
+<p>Ursache: Optionsnamen oder Optionswerte in Xentral stimmen nicht exakt mit den in Shopify vorhandenen Optionen/Values überein. Dadurch können fehlerhafte Varianten ohne SKU entstehen.</p>
+<p>Abhilfemaßnahme: Überprüfe die betroffenen Artikel in Xentral: Stimmen die Optionsnamen (z. B. &ldquo;Farbe&rdquo;) und die Optionswerte (z. B. &ldquo;grün&rdquo;) in Xentral und im Zielsystem exakt überein? Achte auch auf führende oder nachfolgende Leerzeichen sowie Groß-/Kleinschreibung. Korrigiere die Benennungen gegebenenfalls.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Falls viele Artikel betroffen sind, kannst du dir die Arbeit erleichtern, indem du die Artikel exportierst, den CSV-Export in einer Tabellenkalkulation öffnest und dort die TRIM-Funktion (=TRIM(Zelle)) verwendest. Importiere anschließend die korrigierte CSV zurück in Xentral.</p>
+</blockquote>
+<p><strong>Warum schlägt die Artikelübertragung mit Fehlermeldungen &ldquo;Failed Shopify Call: Option does not exist&rdquo; oder&rdquo;missing option value &ldquo;xxx&rdquo;&rdquo; fehl?</strong></p>
+<p>Ursache: Optionsnamen oder Optionswerte in Xentral stimmen nicht exakt mit den in Shopify vorhandenen Optionen/Values überein. Dadurch kann der API‑Aufruf fehlschlagen.</p>
+<p>Abhilfemaßnahme: Überprüfe die betroffenen Artikel in Xentral: Stimmen die Optionsnamen (z. B. &ldquo;Farbe&rdquo;) und die Optionswerte (z. B. &ldquo;grün&rdquo;) in Xentral und im Zielsystem exakt überein? Achte auch auf führende oder nachfolgende Leerzeichen sowie Groß-/Kleinschreibung. Korrigiere die Benennungen gegebenenfalls.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Falls viele Artikel betroffen sind, kannst du dir die Arbeit erleichtern, indem du die Artikel exportierst, den CSV-Export in einer Tabellenkalkulation öffnest und dort die TRIM-Funktion (=TRIM(Zelle)) verwendest. Importiere anschließend die korrigierte CSV zurück in Xentral.</p>
+</blockquote>
+<p><strong>Was kann ich tun, wenn ich versehentlich einen Artikel im Shop gelistet habe, der nicht zum Umfang dieses Vertriebskanals gehören soll und der daher auch nicht in der Schnittstelle gemappt ist?</strong></p>
+<p>Das System prüft beim Auftragsimport nur die Artikelnummer. Ist die Nummer in Xentral bekannt, wird der Auftrag importiert, auch wenn der Artikel nicht für die Synchronisation freigeschaltet ist. Du hast folgende Möglichkeiten:</p>
+<ul>
+<li>Betroffenen Artikel im Shop löschen oder deaktivieren, um neue Shop-Bestellungen mit diesem Artikel zu verhindern.</li>
+<li>Artikelnummer/SKU im Shop ändern, z. B. durch Hinzufügen eines Präfixes. In diesem Fall wäre es für Kunden weiterhin möglich, den Artikel zu bestellen, es kommt beim Auftragsimport zu Xentral jedoch zu einer Fehlermeldung, und der Auftrag muss manuell bearbeitet und importiert werden.</li>
+</ul>
+<p><strong>Woran liegt es, dass ein in Shopify archivierter Artikel plötzlich wieder als &ldquo;Entwurf&rdquo; markiert ist?</strong></p>
+<p>Xentral gilt bei der Artikelsynchronisation als führendes System. Setzt du einen Artikel in Xentral auf „inaktiv“ ohne weitere Einstellungen vorzunehmen, wird er automatisch in Shopify auf &ldquo;Entwurf&rdquo; gestellt. Um einen solchen Effekt zu vermeiden, hast du diese Möglichkeiten:</p>
+<ul>
+<li>Artikel aus der Synchronisation entfernen: Navigiere zu Einstellungen &gt; Verkauf &gt; Shops/Markplätze &gt; [Shop-/Marktplatzname]. Öffne dort die Artikelzuordnung. Entferne die betreffenden Artikel und speichere.</li>
+<li>Artikel sperren: Markiere betroffene Artikel als &ldquo;gesperrt&rdquo;. Navigiere zu Einstellungen &gt; Verkauf &gt; Shops/Markplätze &gt; [Shop-/Marktplatzname]. Öffne dort die Artikelzuordnung. Nimm ein Filterkriterium auf, das gesperrte Artikel ausschließt und speichere.</li>
+</ul>
+<h2 id="freifelder-ich-bekomme-einen-fehler-bei-der-ubertragung-der-custom-fields-freifelder-zu-shopify-bzw-shopware-bezuglich-eines-invalid-values-was-ist-das-problem-wenn-in-xentral-ein-freifelder-mapping-angelegt-ist-wird-versucht-bestehende-xentralfreifelder-auf-die-customfields-in-shopify-bzw-shopware-zu-mappen-da-diese-customfields-in-shopify-bzw-shopware-bereits-existieren-und-definiert-sind-erwarten-sie-einen-bestimmten-value-beispielsweise-kann-in-shopware-ein-customfield-als-integer-definiert-werden-schicken-wir-von-xentral-einen-string-an-genau-dieses-customfield-schlagt-der-call-mit-einem-invalid-value-fehler-fehl-bitte-uberprufe-bei-solchen-feldern-also-zunachst-die-customfield-definition-im-shop-sowie-den-customfield-value-des-artikels-bei-dem-die-ubertragung-fehlschlagt-welche-eigenschaften-werden-standardmaig-uber-freifelder-an-shopware-6-ubertragen">Freifelder <strong>Ich bekomme einen Fehler bei der Übertragung der custom fields / Freifelder zu Shopify bzw. Shopware bezüglich eines invalid values. Was ist das Problem? </strong> Wenn in Xentral ein Freifelder-Mapping angelegt ist, wird versucht, bestehende XentralFreifelder auf die customFields in Shopify bzw. Shopware zu mappen. Da diese customFields in Shopify bzw. Shopware bereits existieren und definiert sind, erwarten sie einen bestimmten value. Beispielsweise kann in Shopware ein customField als Integer definiert werden. Schicken wir von Xentral einen String an genau dieses customField, schlägt der Call mit einem invalid value Fehler fehl. Bitte überprüfe bei solchen Feldern also zunächst die CustomField Definition im Shop sowie den customField value des Artikels, bei dem die Übertragung fehlschlägt.<strong> Welche Eigenschaften werden standardmäßig über Freifelder an Shopware 6 übertragen?</strong><a class="headerlink" href="#freifelder-ich-bekomme-einen-fehler-bei-der-ubertragung-der-custom-fields-freifelder-zu-shopify-bzw-shopware-bezuglich-eines-invalid-values-was-ist-das-problem-wenn-in-xentral-ein-freifelder-mapping-angelegt-ist-wird-versucht-bestehende-xentralfreifelder-auf-die-customfields-in-shopify-bzw-shopware-zu-mappen-da-diese-customfields-in-shopify-bzw-shopware-bereits-existieren-und-definiert-sind-erwarten-sie-einen-bestimmten-value-beispielsweise-kann-in-shopware-ein-customfield-als-integer-definiert-werden-schicken-wir-von-xentral-einen-string-an-genau-dieses-customfield-schlagt-der-call-mit-einem-invalid-value-fehler-fehl-bitte-uberprufe-bei-solchen-feldern-also-zunachst-die-customfield-definition-im-shop-sowie-den-customfield-value-des-artikels-bei-dem-die-ubertragung-fehlschlagt-welche-eigenschaften-werden-standardmaig-uber-freifelder-an-shopware-6-ubertragen" title="Permanent link">&para;</a></h2>
+<p>Standardmäßig können folgende XentralFreifelder in Shopware 6 Eigenschaften übertragen werden:</p>
+<p>-<strong>Lieferzeit</strong>: Die Lieferzeit wird übermittelt, wenn in Xentral als Freifeld „Lieferzeit“ gepflegt ist. Das System ermittelt automatisch die entsprechende ID des Lieferzeitwerts aus Shopware, wenn das Freifeld exakt mit „Lieferzeit“ bezeichnet ist.
+-<strong>Wiederauffüllzeit <strong>: Die Wiederauffüllzeit kann ebenfalls als Freifeld konfiguriert und standardmäßig an Shopware 6 übertragen werden, um den Produktbestand und Verfügbarkeitsinformationen im Shop zu aktualisieren.</strong> Was geschieht mit Artikeleigenschaften, für die es keine Standardfelder gibt?</strong></p>
+<p>Für Eigenschaften, die in Shopware 6 keine direkten Standardfelder besitzen, wird ein Customizing benötigt. Durch diese Anpassung können benutzerdefinierte Freifelder oder zusätzliche Produktattribute an Shopware übermittelt werden, die nicht im Standardumfang enthalten sind. Ein Beispiel für solche angepassten Eigenschaften sind spezielle Attribute oder Varianten. Eigenschaften wie „max_purchase“ oder spezielle Maßeinheiten, die Shopware 6 nicht als Standardfeld bietet, müssen über eine manuelle Anpassung durch ein Customizing eingebunden werden. Hierbei wird die Freifeld-ID manuell an die entsprechende ID in Shopware angepasst.Wende dich in einem solchen Fall gerne an deinen Solution Consultant. Er unterstützt sich bei der kundenindividuellen Beratung und Anpassung oder kann dich an einen geeigneten Partner vermitteln.</p>
+<h2 id="artikelzuordnung-ich-habe-einen-alten-artikel-uber-die-artikelzuordnung-rausgefiltert-er-wird-aber-nach-wie-vor-im-shop-marktplatz-aufgefuhrt-wie-erreiche-ich-dass-alte-artikel-aus-dem-shop-verschwinden">Artikelzuordnung <strong>Ich habe einen alten Artikel über die Artikelzuordnung rausgefiltert, er wird aber nach wie vor im Shop / Marktplatz aufgeführt. Wie erreiche ich, dass alte Artikel aus dem Shop verschwinden?</strong><a class="headerlink" href="#artikelzuordnung-ich-habe-einen-alten-artikel-uber-die-artikelzuordnung-rausgefiltert-er-wird-aber-nach-wie-vor-im-shop-marktplatz-aufgefuhrt-wie-erreiche-ich-dass-alte-artikel-aus-dem-shop-verschwinden" title="Permanent link">&para;</a></h2>
+<p>Der Filter in der Artikelzuordnung hat nur Einfluss auf die Aktualisierung der Daten. Entfernst du also einen Artikel aus dem Filter, bleibt dieser Artikel zwar im Shop / Marktplatz aufgeführt, erhält aber keine aktuellen Daten mehr aus Xentral.</p>
+<p>Wenn du einen Artikel aus dem Shop entfernen möchtest, navigiere zum Artikelstamm, öffne den Reiter <strong>Details &gt; Online-Shop Optionen </strong>, setze den Haken bei <strong>Artikel inaktiv </strong> und bestätige auf <strong>Speichern</strong>.</p>
+<p>Weitere Informationen zum korrekten Entfernen eines Artikels aus dem Shop / Marktplatz, findest du in diesem Artikel:<a href="https://help.xentral.com/hc/de/articles/22656299754524#UUID-526e919e-da4b-3882-39a3-c0e7e01b123e">Artikel aus dem Angebot des Shops/Marktplatzes entfernen</a>.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wir empfehlen generell, keine Daten zu löschen, sondern die Sperrfunktion zu nutzen, um keine inkonsistenten Daten in der Datenbank zu erzeugen.</p>
+</blockquote>
+<p><strong>Ich möchte zur Auswahl der Artikel eine Liste von Artikelnummern hinterlegen, aber der Filter funktioniert nicht.</strong> Um eine Liste von Artikelnummern zu hinterlegen, wähle im Artikelfilter das Feld “Artikel Nr.”. Wähle anschließend als Operator “IN”. Um als Wert eine Liste von Nummern hinterlegen zu können, musst du am Ende der Filterzeile den Feldtyp von “Text” auf “Array” umstellen. Hinterlege die einzelnen Nummern außerdem kommagetrennt.<strong> Ich möchte die Variante eines Matrixproduktes nicht mehr im Shop anbieten. Wie gehe ich bei der Entfernung korrekt vor?</strong> Um eine Variante aus deinem Shop-Angebot zu entfernen, gehe bei der Variante in den Artikelstamm und aktiviere die Option <strong> Sperre aktiv</strong>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Behalte die Einstellungen im Artikelstamm im Abschnitt <strong>Varianten</strong> unbedingt bei. Ein Entfernen der Zuordnung zum Matrixprodukt führt zu einer veränderten Artikelstruktur, die zu inkonsistenten Daten führen kann. Wir empfehlen generell, keine Daten zu löschen, sondern die Sperrfunktion zu nutzen.</p>
+</blockquote>
+<h2 id="bestande-warum-wird-der-reservierte-bestand-in-shopify-von-allen-lagern-abgezogen">Bestände <strong>Warum wird der reservierte Bestand in Shopify von allen Lägern abgezogen?</strong><a class="headerlink" href="#bestande-warum-wird-der-reservierte-bestand-in-shopify-von-allen-lagern-abgezogen" title="Permanent link">&para;</a></h2>
+<p>Die Information, wie viel Bestand eines Produktes reserviert ist (durch offene Aufträge oder durch Reservierungen) gibt es in Xentral nur auf Produktebene, nicht auf Lagerebene.</p>
+<p>Ein Beispiel:</p>
+<pre><code>{
+  &quot;stock&quot;: {
+  &quot;physical&quot;: 6,
+  &quot;pseudoStock&quot;: null,
+  &quot;reservedByOrder&quot;: 2,
+  &quot;stockAdjustment&quot;: 0,
+  &quot;reservedByReservation&quot;: 0
+},
+  &quot;productId&quot;: &quot;3605&quot;,
+  &quot;locationStock&quot;: [
+  {
+  &quot;location&quot;: {
+  &quot;id&quot;: &quot;1&quot;
+},
+  &quot;physical&quot;: 1
+},
+  {
+  &quot;location&quot;: {
+  &quot;id&quot;: &quot;2&quot;
+},
+  &quot;physical&quot;: 3
+},
+  {
+  &quot;location&quot;: {
+  &quot;id&quot;: &quot;3&quot;
+},
+  &quot;physical&quot;: 2
+}
+]
+}
+}
+</code></pre>
+<p>Wenn die drei XentralLager mit drei unterschiedlichen Shopify Lagern verknüpft sind, wird der Bestand von allen drei Shopify Lagern abgezogen, um Überkäufe zu vermeiden. Wenn die drei XentralLager mit <strong>einem </strong> Shopify Lager verknüpft sind, wird der reservierte Bestand nur <strong>einmal </strong> von dem verknüpften Shopify Lager abgezogen.<strong>Bei der Bestandsübertragung wird der falsche Bestand übermittelt. Reservierte Artikel werden doppelt abgezogen.</strong> Wenn du in Xentral die Option <strong>Automatische Reservierung</strong> aktiviert hast, werden alle Artikel aus offenen Aufträgen automatisch reserviert. Prüfe in diesem Fall, ob du bei der Bestandsberechnung in der Connect Oberfläche die Schaltflächen für <strong>Reservierungen </strong> und <strong>Offene Bestellungen </strong> gesetzt hast. Ist dies der Fall, werden diese so reservierten Artikel doppelt vom verkaufbaren Bestand abgezogen. Setze den Auswahlschalter entweder bei <strong>Offene Aufträge beachten </strong> oder bei <strong>Reservierungen beachten</strong>.</p>
+<p><img alt="Bildschirmfoto_2024-11-26_um_16_53_16.png" src="https://help.xentral.com/hc/article_attachments/18698937418140" /></p>
+<h2 id="preise-woran-liegt-es-dass-preise-nicht-an-den-shop-ubertragen-werden-antwort-am-beispiel-shopware-6">Preise <strong>Woran liegt es, dass Preise nicht an den Shop übertragen werden? Antwort am Beispiel Shopware 6</strong><a class="headerlink" href="#preise-woran-liegt-es-dass-preise-nicht-an-den-shop-ubertragen-werden-antwort-am-beispiel-shopware-6" title="Permanent link">&para;</a></h2>
+<p>Die häufigste Ursachen dafür ist ein falsches / fehlendes Mapping.</p>
+<p>Grundsätzlich gibt es folgende Möglichkeiten bei den Verkaufspreisen:</p>
+<ol>
+<li>Einzelner Standardpreis (ohne Staffel)</li>
+<li>Standard-Staffelpreise</li>
+<li>Gruppen-Staffelpreise</li>
+</ol>
+<h3 id="einzelner-standardpreis-ohne-staffel">Einzelner Standardpreis (ohne Staffel)<a class="headerlink" href="#einzelner-standardpreis-ohne-staffel" title="Permanent link">&para;</a></h3>
+<p>Der Standardpreis wird (sofern keine Gültigkeit eingetragen ist) automatisch als Standardfeld an den Shop übertragen. Eine Zuordnung (Mapping) in den Workflows ist nicht erforderlich. Im Falle von mehreren Währungen ist jedoch eine Währungszuordnung in den Workflows nötig.</p>
+<h3 id="standard-staffelpreise">Standard-Staffelpreise<a class="headerlink" href="#standard-staffelpreise" title="Permanent link">&para;</a></h3>
+<p>Wenn du in XentralStandard-Staffelpreise anlegst, kannst du Werte bei <strong>Gültig ab </strong> und <strong>Gültig bis</strong> Datum eintragen. Damit die Übertragung an den Shop funktioniert, ist eine<a href="https://help.xentral.com/hc/de/articles/13235060220444#UUID-55e1cf94-dd5f-eb68-4337-cabda5e7ee49_section-idm234373895072967">Zuordnung</a>in den Workflows zwingend.</p>
+<p>Aktiviere dazu in den Workflows &gt; Preise die Schaltfläche &ldquo;Erweiterte Preise importieren&rdquo; und lege Preisregeln und die Kundengruppenzuordnung fest. Im Falle von Standardpreisen trage in der Spalte &ldquo;Xentral&rdquo; die Bezeichnung &ldquo;Standardpreis&rdquo; ein und ordne in der Spalte &ldquo;Shopware 6&rdquo; die passende Preisgruppe aus dem Shop zu.</p>
+<h3 id="gruppen-staffelpreise">Gruppen-Staffelpreise<a class="headerlink" href="#gruppen-staffelpreise" title="Permanent link">&para;</a></h3>
+<p>Wenn du in XentralGruppen-Staffelpreise anlegst, z. B. für den Großhandel, kannst du Werte bei <strong>Gültig ab </strong> und <strong>Gültig bis</strong> Datum eintragen. Damit die Übertragung an den Shop funktioniert, ist eine<a href="https://help.xentral.com/hc/de/articles/13235060220444#UUID-55e1cf94-dd5f-eb68-4337-cabda5e7ee49_section-idm234373895072967">Zuordnung</a>in den Workflows zwingend.</p>
+<p>Aktiviere dazu in den Workflows &gt; Preise die Schaltfläche &ldquo;Erweiterte Preise importieren&rdquo; und lege Preisregeln und die Kundengruppenzuordnung fest. Trage in diesem Fall in der Spalte &ldquo;Xentral&rdquo; die Bezeichnung der Kundengruppe ein, die in der Preisstaffel gewählt wurde, und ordne in der Spalte &ldquo;Shopware 6&rdquo; die passende Preisgruppe aus dem Shop zu.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn in den Workflow-Konfigurationen eine Kundengruppe ausgewählt ist, werden nur die Preise dieser Kundengruppe übertragen. Ein Fallback auf den Standardpreis, sofern es keinen Kundengruppen-Preis für das jeweilige Produkt gibt, gibt es nicht. Dies kann jedoch als Customizing implementiert werden.</p>
+</blockquote>
+<h2 id="auftragsimport-was-passiert-mit-einem-auftrag-der-einen-artikel-enthalt-der-nicht-in-xentral-angelegt-ist-grundsatzlich-solltest-du-sicherstellen-dass-artikel-die-uber-deinen-shop-bestellt-werden-konnen-vorher-in-xentral-angelegt-sind-auftrage-die-mindestens-einen-artikel-enthalten-der-nicht-in-xentral-angelegt-ist-werden-nicht-importiert-und-erzeugen-eine-fehlermeldung-im-journal-sollte-es-in-eurem-fall-nicht-immer-moglich-sein-dass-artikel-angelegt-sind-bevor-sie-uber-den-shop-verkauft-werden-so-uberpruft-regelmaig-das-auftragsjournal-legt-im-fehlerfall-den-artikel-in-xentral-an-und-stot-den-auftragsimport-anschlieend-manuell-uber-das-journal-an-die-fehlermeldung-no-productnumber-for-product-erscheint-auch-nachdem-ein-fehlerhafter-artikel-aus-der-bestellung-in-shopify-entfernt-wurde-wie-kann-ich-die-in-shopify-korrigierte-bestellung-in-xentral-importieren">Auftragsimport <strong>Was passiert mit einem Auftrag, der einen Artikel enthält, der nicht in Xentral angelegt ist? </strong> Grundsätzlich solltest du sicherstellen, dass Artikel, die über deinen Shop bestellt werden können, vorher in Xentral angelegt sind. Aufträge, die mindestens einen Artikel enthalten, der nicht in Xentral angelegt ist, werden nicht importiert und erzeugen eine Fehlermeldung im Journal. Sollte es in Eurem Fall nicht immer möglich sein, dass Artikel angelegt sind, bevor sie über den Shop verkauft werden, so überprüft regelmäßig das Auftragsjournal. Legt im Fehlerfall den Artikel in Xentral an und stoßt den Auftragsimport anschließend manuell über das Journal an.<strong> Die Fehlermeldung &ldquo;No productNumber for product &ldquo;<REDACTED_PRODUCT>&ldquo;&rdquo; erscheint auch nachdem ein fehlerhafter Artikel aus der Bestellung in Shopify entfernt wurde. Wie kann ich die in Shopify korrigierte Bestellung in Xentral importieren?</strong><a class="headerlink" href="#auftragsimport-was-passiert-mit-einem-auftrag-der-einen-artikel-enthalt-der-nicht-in-xentral-angelegt-ist-grundsatzlich-solltest-du-sicherstellen-dass-artikel-die-uber-deinen-shop-bestellt-werden-konnen-vorher-in-xentral-angelegt-sind-auftrage-die-mindestens-einen-artikel-enthalten-der-nicht-in-xentral-angelegt-ist-werden-nicht-importiert-und-erzeugen-eine-fehlermeldung-im-journal-sollte-es-in-eurem-fall-nicht-immer-moglich-sein-dass-artikel-angelegt-sind-bevor-sie-uber-den-shop-verkauft-werden-so-uberpruft-regelmaig-das-auftragsjournal-legt-im-fehlerfall-den-artikel-in-xentral-an-und-stot-den-auftragsimport-anschlieend-manuell-uber-das-journal-an-die-fehlermeldung-no-productnumber-for-product-erscheint-auch-nachdem-ein-fehlerhafter-artikel-aus-der-bestellung-in-shopify-entfernt-wurde-wie-kann-ich-die-in-shopify-korrigierte-bestellung-in-xentral-importieren" title="Permanent link">&para;</a></h2>
+<p>Vorbeugung: Vermeide nachträgliche Positionsänderungen oder -löschungen in bestehenden Shopify-Bestellungen, da das zu Synchronisationsproblemen führen kann.</p>
+<p>Abhilfemaßnahmen:</p>
+<ul>
+<li>Möglichkeit 1: Lege den Auftrag manuell in Xentral an.</li>
+<li>Möglichkeit 2: Dupliziere die Bestellung in Shopify und entferne die fehlerhafte Position. Importiere anschließend die neue Bestellung über das Auftragsjournal manuell.</li>
+<li>Möglichkeit 3: Lege den Artikel in Xentral an und exportiere ihn zu Shopify. Stoße anschließend den Auftragsimport über das Journal manuell an.</li>
+</ul>
+<p><strong>Wie kann ich einen Auftrag manuell importieren?</strong></p>
+<p>Wenn du einen Auftrag manuell importieren möchtest, z. B. weil der automatische Import vorher fehlgeschlagen war, gehe wie folgt vor:</p>
+<ol>
+<li>Navigiere zu Einstellungen &gt; Verkauf &gt; Shops/Markplätze &gt; [Shop-/Marktplatzname].</li>
+<li>Öffne das Journal und wechsele dort in den Reiter Aufträge.</li>
+<li>Suche die betroffene Auftragsnummer und klicke in der Zeile rechts auf den Pfeil (Erneut Ausführen).</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn deine Connect-SchnittstelleProduktivgeschaltet ist, erfolgt der Auftragsimport grundsätzlich automatisch. Den manuellen Import benötigst du nur nach Korrekturen, oder wenn sich deine Schnittstelle noch im Entwicklungsmodus befindet.</p>
+</blockquote>
+<h2 id="belegausgabe-auf-unseren-englischsprachigen-belegen-fehlen-informationen-z-b-die-bezeichnung-von-portoartikel-oder-rabatt">Belegausgabe <strong>Auf unseren englischsprachigen Belegen fehlen Informationen, z. B. die Bezeichnung von Portoartikel oder Rabatt.</strong><a class="headerlink" href="#belegausgabe-auf-unseren-englischsprachigen-belegen-fehlen-informationen-z-b-die-bezeichnung-von-portoartikel-oder-rabatt" title="Permanent link">&para;</a></h2>
+<p>Dies kommt vor, wenn in den Artikelstammdaten keine Übersetzung angelegt ist. Um dieses Problem zu beheben, öffne den entsprechenden Artikel zum Bearbeiten, gehe zum Reiter Details &ndash;&gt; Unterreiter Texte und Beschreibungen. Füge eine geeignete Übersetzung im Feld Artikel (EN) ein:</p>
+<p><img alt="FAQ_Artikeltexte_Ubersetzung.png" src="https://help.xentral.com/hc/article_attachments/18698937419420" /></p>
+<h2 id="retouren-woher-bekomme-ich-die-nummern-fur-den-retourennummernpool-in-der-otto-anbindung">Retouren <strong>Woher bekomme ich die Nummern für den Retourennummernpool in der OTTO Anbindung?</strong><a class="headerlink" href="#retouren-woher-bekomme-ich-die-nummern-fur-den-retourennummernpool-in-der-otto-anbindung" title="Permanent link">&para;</a></h2>
+<p>Erfrage die Nummern einfach direkt bei deinem Versanddienstleister, über den du die Retouren abwickeln möchtest.</p>
+<p>Bei DHL kannst du den Retourennummernpool mit ein etwas Excel-Kenntnissen auch selbst generieren.</p>
+<ol>
+<li>Gehe zum DHL Geschäftskundenportal und navigiere dort zu den Vertragsdaten.</li>
+<li>Entnehme den Nummernbereich, der die für die Retouren-Versandart angezeigt wird. Bsp: 40523383XXXC. Kopiere diesen Code in die erste Zelle (A1) einer neuen Excel-Datei.</li>
+<li>Ersetze die vier letzten Stellen durch jeweils durch &ldquo;0&rdquo;. In der ersten Zelle steht nun 405233830000.</li>
+<li>Füge direkt darunter die nachfolgende Nummernfolge ein. In A2 steht nun also 405233830001.</li>
+<li>Gehe zu Zelle B1 und füge folgende Formel ein: <code>=(TEIL(A1;1;1)*4)+(TEIL(A1;2;1)* 9)+(TEIL(A1;3;1)*4)+(TEIL(A1;4;1)* 9)+(TEIL(A1;5;1)*4)+(TEIL(A1;6;1)* 9)+(TEIL(A1;7;1)*4)+(TEIL(A1;8;1)* 9)+(TEIL(A1;9;1)*4)+(TEIL(A1;10;1)* 9)+(TEIL(A1;11;1)*4)</code> Dies multipliziert die Stellen des Nummernpools nach Vorgabe von DHL abwechselnd mit vier und neun.</li>
+<li>Füge in Zelle C1 folgende Formel ein: <code>=(AUFRUNDEN(B1/10;0)*10)</code> 1. Füge in Zelle D1 folgende Formel ein: <code>=C1-B1</code> Dies entspricht der sog. Prüfziffer.</li>
+<li>In Zelle E1 erhälst du schließlich die erste Versandnummer des Retourennummernpools, indem du diese Formel einsetzt: <code>=A1&amp;D1</code> Dies kombiniert die generische Nummer mit der Prüfziffer.</li>
+<li>Kopiere schließlich alle Formeln in die zweite Zeile und schreibe die Daten in weitere Zeilen nach unten fort. Die ersten Zeilen sehen in diesem Beispiel so aus:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>619744390000</td>
+<td>277</td>
+<td>280</td>
+<td>3</td>
+<td>6197443900003</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>619744390001</td>
+<td>277</td>
+<td>280</td>
+<td>3</td>
+<td>6197443900013</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>619744390002</td>
+<td>277</td>
+<td>280</td>
+<td>3</td>
+<td>6197443900023</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td>619744390010</td>
+<td>281</td>
+<td>290</td>
+<td>9</td>
+<td>6197443900109</td>
+</tr>
+<tr>
+<td><strong>11</strong></td>
+<td>619744390011</td>
+<td>281</td>
+<td>290</td>
+<td>9</td>
+<td>6197443900119</td>
+</tr>
+<tr>
+<td><strong>12</strong></td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="initialer-datenimport-warum-haben-einige-der-importierten-artikel-das-stichwort-container-in-der-artikelnummer-unter-container-werden-die-eltern-artikel-also-das-matrixprodukt-verstanden-dem-varianten-als-kind-artikel-zugeordnet-sind-container-tragen-also-die-information-zu-den-variantenstrukturen-und-die-zuordnung-eltern-kind-ihre-anlage-erfolgt-automatisch-und-ihr-auftauchen-ist-ein-positives-signal-dafur-dass-die-varianten-korrekt-abgeholt-wurden-warum-fehlen-in-xentral-container-artikel">Initialer Datenimport <strong>Warum haben einige der importierten Artikel das Stichwort “Container“ in der Artikelnummer? </strong> Unter “Container” werden die Eltern-Artikel, also das Matrixprodukt verstanden, dem Varianten als Kind-Artikel zugeordnet sind. Container tragen also die Information zu den Variantenstrukturen und die Zuordnung Eltern-Kind. Ihre Anlage erfolgt automatisch und ihr Auftauchen ist ein positives Signal dafür, dass die Varianten korrekt abgeholt wurden.<strong> Warum fehlen in Xentral Container-Artikel?</strong><a class="headerlink" href="#initialer-datenimport-warum-haben-einige-der-importierten-artikel-das-stichwort-container-in-der-artikelnummer-unter-container-werden-die-eltern-artikel-also-das-matrixprodukt-verstanden-dem-varianten-als-kind-artikel-zugeordnet-sind-container-tragen-also-die-information-zu-den-variantenstrukturen-und-die-zuordnung-eltern-kind-ihre-anlage-erfolgt-automatisch-und-ihr-auftauchen-ist-ein-positives-signal-dafur-dass-die-varianten-korrekt-abgeholt-wurden-warum-fehlen-in-xentral-container-artikel" title="Permanent link">&para;</a></h2>
+<p>Während im Shop Produkte als Container-Artikel konfiguriert sind, sind in Xentral keine Matrixprodukte eingerichtet. Stelle sicher, dass du in beiden Systemen mit derselben Datenstruktur arbeitest. Mehr Informationen zu Matrixprodukten und Artikelvarianten erhälst du auf dieser Hilfeseite:<a href="https://help.xentral.com/hc/de/articles/360016725120#UUID-44725c2a-a728-20a2-d526-e12c9e8d88eb">Matrixprodukt - Artikelvarianten erstellen</a>.</p>
+<h2 id="connect-vs-classic-schnittstelle-ich-stoe-im-artikel-uber-details-online-shop-optionen-einen-import-export-an-aber-es-werden-keine-artikeldaten-ubertragen-was-kann-der-grund-sein-die-funktion-im-artikel-unter-details-online-shop-optionen-ist-nur-fur-den-alten-shopimporter-in-verwendung-wenn-dein-shopmarktplatz-uber-die-neue-connect-schnittstelle-an-xentral-angebunden-ist-erfolgt-die-datenubertragung-nach-aktivierung-der-schnittstelle-automatisch-wenn-du-einzelne-daten-manuell-zum-austausch-anstoen-mochtest-nutze-das-journal-in-der-connect-schnittstelle">Connect vs. Classic Schnittstelle <strong>Ich stoße im Artikel über Details &gt; Online-Shop Optionen einen Import / Export an, aber es werden keine Artikeldaten übertragen. Was kann der Grund sein? </strong> Die Funktion im Artikel unter <strong> Details &gt; Online-Shop Optionen</strong> ist nur für den alten Shopimporter in Verwendung. Wenn dein Shop/Marktplatz über die neue Connect-Schnittstelle an Xentral angebunden ist, erfolgt die Datenübertragung nach Aktivierung der Schnittstelle automatisch. Wenn du einzelne Daten manuell zum Austausch anstoßen möchtest, nutze das Journal in der Connect-Schnittstelle.<a class="headerlink" href="#connect-vs-classic-schnittstelle-ich-stoe-im-artikel-uber-details-online-shop-optionen-einen-import-export-an-aber-es-werden-keine-artikeldaten-ubertragen-was-kann-der-grund-sein-die-funktion-im-artikel-unter-details-online-shop-optionen-ist-nur-fur-den-alten-shopimporter-in-verwendung-wenn-dein-shopmarktplatz-uber-die-neue-connect-schnittstelle-an-xentral-angebunden-ist-erfolgt-die-datenubertragung-nach-aktivierung-der-schnittstelle-automatisch-wenn-du-einzelne-daten-manuell-zum-austausch-anstoen-mochtest-nutze-das-journal-in-der-connect-schnittstelle" title="Permanent link">&para;</a></h2>
+<p>Weitere Details zum Journal findest du hier beim jeweiligen Shop/Marktplatz:</p>
+<p><a href="https://help.xentral.com/hc/de/articles/13921857699612#UUID-d8ed9992-afac-447b-5f28-2e5f96fd98ac">Shopify</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/13921840987036#UUID-24f64971-99da-b968-5ba9-ff6a97dfabb5">WooCommerce</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/14528034952476#UUID-0748de4e-37e4-85a3-21a3-6a2c51fcb42b">Shopware6</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/16510622825756#UUID-cc81f147-fc32-992b-080c-a5e78d6107b5">OTTO</a></p>
+<p><strong>Wie muss ich den Prozessstarter für Connect einrichten?</strong> Die Connect-Schnittstelle verwendet den Prozessstarter nicht. Du musst hier keine spezifischen Einstellungen für Connect vornehmen.<strong> Wie kann ich mein Amazon Irland (Amazon.ie) an Xentral anbinden?</strong></p>
+<p>Der Marktplatz Amazon.ie ist ein neues Feature von Amazon und wurde in der Classic Shop-Schnittstelle nicht berücksichtigt. Daher ist eine direkte Anbindung aktuell nicht vorhanden. Unser Entwicklungsteam arbeitet bereits an einer modernen Amazon-Schnittstelle über Xentral Connect, die sich zunächst auf den Auftragsimport konzentriert. Der Funktionsumfang der Schnittstelle wird anschließend schrittweise erweitert und weitere Marktplatz-Anbindungen ermöglichen. Du kannst dich unter diesem Link über den aktuellen Status informieren und dich bei Interesse in die Early Access Liste eintragen:<a href="https://roadmap.xentral.com/c/221-amazon-integration">https://roadmap.xentral.com/c/221-amazon-integration</a></p>
+<p>Falls bereits Bestellungen aus Irland bei euch eingegangen sind, kannst du diese Aufträge manuell in Xentral anlegen. Bitte bedenke, dass du die Versandrückmeldung dann manuell in Amazon Seller Central setzen musst.</p>
+<h2 id="installation-und-freischaltung-von-feature-flags-wie-erhalte-ich-zugang-zu-xentral-connect-und-zum-connect-backend">Installation und Freischaltung von Feature Flags <strong>Wie erhalte ich Zugang zu Xentral Connect und zum Connect Backend?</strong><a class="headerlink" href="#installation-und-freischaltung-von-feature-flags-wie-erhalte-ich-zugang-zu-xentral-connect-und-zum-connect-backend" title="Permanent link">&para;</a></h2>
+<p>Wir unterscheiden zwischen der Connect Anbindung und dem Connect Backend.</p>
+<p>Die Connect Anbindung bietet eine Out-of-the-Box-Lösung, die keine besonderen technischen Kenntnisse erfordert und die allermeisten Anwendungsszenarien bestens abdeckt. Die Connect Anbindung steht allen Kunden innerhalb ihres Xentral zur Verfügung. Folge einfach dem Pfad Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze.</p>
+<p>Das Connect Backend wiederum ermöglicht die individuelle Erstellung und Anpassung von eigenen Workflows. Die Nutzung dieser Funktionalität erfordert erweiterte technische Kenntnisse, so dass der Zugang zur Connect-Instanz nur nach Schulung und Unterweisung zur Verfügung steht. Wenn du Interesse an der Nutzung individueller Workflows hast, wende dich an deinen Solution Consultant.</p>
+<p><strong>Ich erhalte beim Anlegen der Anbindung die Fehlermeldung “falsche Zugangsdaten”.</strong> Bitte stelle sicher, dass du die richtigen Zugangsdaten in der Anbindung eingetragen hast und teste die Verbindung.<strong> Warum kann ich keine Anbindung zu Shopify anlegen? Es geht nicht weiter…</strong></p>
+<p>Am besten nutze die Shopify Public App zur Anbindung. Dies setzt die erforderlichen Berechtigungen automatisch. Falls du dich für die Nutzung einer Custom App entschieden hast, überprüfe die Berechtigungen auf der Shopify-Seite und stelle sicher, dass ausreichende Rechte zugewiesen sind. Welche Berechtigungen benötigt werden, siehst du<a href="https://help.xentral.com/hc/de/articles/13235023151388#UUID-3ba63925-6ffd-3781-71fd-f7c3621b46e8_id_ShopifyConnectorShopeinrichten-BerechtigungensetzenBerechtigungen">hier</a>.</p>
+<h2 id="grundsatzliche-technische-fragen-wo-erhalte-ich-weitere-informationen-zu-einer-bestimmten-fehlermeldung-in-connect-wir-haben-einige-meldungen-und-mogliche-manahmen-auf-dieser-seite-zusammengestelltconnect-fehlermeldungen-und-abhilfe-ich-habe-die-features-in-den-workflows-auf-aktiv-geschaltet-die-schnittstelle-scheint-aber-keine-daten-automatisiert-auszutauschen-was-kann-der-grund-sein-die-produktiv-schaltung-bei-connect-erfolgt-zweistufig-um-sicherzustellen-dass-alle-workflows-getestet-wurden-und-nicht-aus-versehen-produktiv-geschaltet-werden-schritt-1-nachdem-du-die-workflows-konfiguriert-und-getestet-hast-setzt-du-zunachst-den-integrationsmodus-der-gewunschten-features-in-den-workflows-auf-aktiv-schritt-2-anschlieend-startest-du-den-produktivmodus-der-schnittstelle-in-den-einstellungen-meine-internetverbindung-ist-wahrend-der-migration-ausgefallen-was-mache-ich-nun-mach-dir-keine-sorgen-sobald-die-internetverbindung-wieder-da-ist-fahrt-die-migration-an-der-stelle-fort-wo-sie-gestoppt-hat-woher-stammt-die-uuid-fur-die-artikelzuordnung-wenn-du-eine-klassische-shop-schnittstelle-shopimporter-in-die-neue-xentral-connect-schnittstelle-migrierst-und-imubernahmewizard-artikelzuordnung-aus-der-bestehenden-integration-ubernehmen-wahlst-wird-die-vorhandene-filterung-automatisch-in-connect-ubernommen-als-filterkriterium-steht-in-der-connect-artikelzuordnung-in-diesem-fall-die-online-shop-uuid-der-alten-schnittstelle-eine-anpassung-ist-i-d-r-nicht-erforderlich-prufe-einfach-dass-die-gefundene-anzahl-der-artikel-korrekt-ist-falls-sie-nicht-deinen-erwartungen-entspricht-uberprufe-die-online-shop-optionen-in-den-artikeln-oder-lege-deine-artikelzuordnung-neu-an-woran-kann-es-liegen-dass-die-deaktivierung-der-alten-schnittstelle-nicht-gespeichert-wurde">Grundsätzliche technische Fragen <strong>Wo erhalte ich weitere Informationen zu einer bestimmten Fehlermeldung in Connect? </strong> Wir haben einige Meldungen und mögliche Maßnahmen auf dieser Seite zusammengestellt:<a href="https://help.xentral.com/hc/de/articles/22539610509596#UUID-5a6f55f2-48c6-08ac-c7a0-c6239d824287">Connect Fehlermeldungen und Abhilfe</a><strong> Ich habe die Features in den Workflows auf Aktiv geschaltet, die Schnittstelle scheint aber keine Daten automatisiert auszutauschen. Was kann der Grund sein?</strong> Die Produktiv-Schaltung bei Connect erfolgt zweistufig, um sicherzustellen, dass alle Workflows getestet wurden und nicht aus Versehen produktiv geschaltet werden.<strong> Schritt 1 <strong>: Nachdem du die Workflows konfiguriert und getestet hast, setzt du zunächst den Integrationsmodus der gewünschten Features in den Workflows auf</strong> Aktiv <strong>. </strong> Schritt 2 <strong>: Anschließend startest du den Produktivmodus der Schnittstelle in den Einstellungen. </strong> Meine Internetverbindung ist während der Migration ausgefallen. Was mache ich nun?<strong> Mach dir keine Sorgen: Sobald die Internetverbindung wieder da ist, fährt die Migration an der Stelle fort, wo sie gestoppt hat.</strong> Woher stammt die UUID für die Artikelzuordnung?<strong> Wenn du eine klassische Shop-Schnittstelle (Shopimporter) in die neue Xentral Connect-Schnittstelle migrierst und im<a href="https://help.xentral.com/hc/de/articles/15467552891676#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63">Übernahmewizard</a></strong> Artikelzuordnung aus der bestehenden Integration übernehmen <strong>wählst, wird die vorhandene Filterung automatisch in Connect übernommen. Als Filterkriterium steht in der Connect Artikelzuordnung in diesem Fall die Online-Shop UUID der alten Schnittstelle. Eine Anpassung ist i. d. R. nicht erforderlich. Prüfe einfach, dass die gefundene Anzahl der Artikel korrekt ist. Falls sie nicht deinen Erwartungen entspricht, überprüfe die Online-Shop Optionen in den Artikeln oder lege deine Artikelzuordnung neu an.</strong> Woran kann es liegen, dass die Deaktivierung der alten Schnittstelle nicht gespeichert wurde?</strong><a class="headerlink" href="#grundsatzliche-technische-fragen-wo-erhalte-ich-weitere-informationen-zu-einer-bestimmten-fehlermeldung-in-connect-wir-haben-einige-meldungen-und-mogliche-manahmen-auf-dieser-seite-zusammengestelltconnect-fehlermeldungen-und-abhilfe-ich-habe-die-features-in-den-workflows-auf-aktiv-geschaltet-die-schnittstelle-scheint-aber-keine-daten-automatisiert-auszutauschen-was-kann-der-grund-sein-die-produktiv-schaltung-bei-connect-erfolgt-zweistufig-um-sicherzustellen-dass-alle-workflows-getestet-wurden-und-nicht-aus-versehen-produktiv-geschaltet-werden-schritt-1-nachdem-du-die-workflows-konfiguriert-und-getestet-hast-setzt-du-zunachst-den-integrationsmodus-der-gewunschten-features-in-den-workflows-auf-aktiv-schritt-2-anschlieend-startest-du-den-produktivmodus-der-schnittstelle-in-den-einstellungen-meine-internetverbindung-ist-wahrend-der-migration-ausgefallen-was-mache-ich-nun-mach-dir-keine-sorgen-sobald-die-internetverbindung-wieder-da-ist-fahrt-die-migration-an-der-stelle-fort-wo-sie-gestoppt-hat-woher-stammt-die-uuid-fur-die-artikelzuordnung-wenn-du-eine-klassische-shop-schnittstelle-shopimporter-in-die-neue-xentral-connect-schnittstelle-migrierst-und-imubernahmewizard-artikelzuordnung-aus-der-bestehenden-integration-ubernehmen-wahlst-wird-die-vorhandene-filterung-automatisch-in-connect-ubernommen-als-filterkriterium-steht-in-der-connect-artikelzuordnung-in-diesem-fall-die-online-shop-uuid-der-alten-schnittstelle-eine-anpassung-ist-i-d-r-nicht-erforderlich-prufe-einfach-dass-die-gefundene-anzahl-der-artikel-korrekt-ist-falls-sie-nicht-deinen-erwartungen-entspricht-uberprufe-die-online-shop-optionen-in-den-artikeln-oder-lege-deine-artikelzuordnung-neu-an-woran-kann-es-liegen-dass-die-deaktivierung-der-alten-schnittstelle-nicht-gespeichert-wurde" title="Permanent link">&para;</a></h2>
+<p>Das kann verschiedene Ursachen haben. In den meisten Fällen liegt es an einem lokalen Problem wie einem zwischengespeicherten Browser-Fehler, einer Störung durch den Browser-Cache oder aktiven Plug-Ins/Adblockern.</p>
+<p>Probiere folgende Maßnahmen:</p>
+<ul>
+<li>Nutze einen unterstützten Browser, z. B. Google Chrome.</li>
+<li>Stelle sicher, dass du als Admin in Xentral eingeloggt bist. Für die Installation, die Einrichtung und die Administration der Schnittstelle sind Admin-Rechte erforderlich.</li>
+<li>Lade die Seite neu.</li>
+<li>Leere den Browser-Cache.</li>
+<li>Arbeite in einem Inkognito-Fenster.</li>
+<li>Deaktive eventuelle Plug-Ins oder Adblocker vorübergehend.</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

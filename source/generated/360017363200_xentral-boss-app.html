@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017363200 Xentral Boss App - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017363200 Xentral Boss App</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017363200 Xentral Boss App</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit der XentralBoss App kannst du dir schnell ein Überblick über die wichtigsten Kennzahlen und Eintwicklungen deines Unternehmens verschaffen. Die App richtet sich an Geschäftsführer und weitere Entscheidungsträger.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die App ist sowohl für iOS als auch für Android verfügbar.</p>
+<ul>
+<li>Hier geht&rsquo;s zum kostenlosen Download im Google Play Store</li>
+<li>Hier geht&rsquo;s zum kostenlosen Download im App Store</li>
+</ul>
+</blockquote>
+<h2 id="einrichtung">Einrichtung<a class="headerlink" href="#einrichtung" title="Permanent link">&para;</a></h2>
+<p>Im ersten Schritt wählst du aus, ob Daten von XentralHome oder Demo-Daten verwendet werden sollen. Letzteres ist dann sinnvoll, wenn noch kein XentralAccount vorhanden ist und du dir erst einmal ein Überblick verschaffen möchtest, welche Funktionen es in der App gibt.</p>
+<p>Im nächsten Schritt werden Namen und Passwort abgefragt. Außerdem nimmst du Datenschutzeinstellungen vor. Wenn du angibst, dass die Daten aus einer aktiven XentralInstanz verwendet werden sollen, dann müssen diese noch mit der App synchronisiert werden, indem ein QR-Code in Xentral gescannt wird.</p>
+<p>Dem QR-Code kannst du in Xentral anzeigen, indem du die folgenden Schritte durchführst:</p>
+<ol>
+<li>Logge dich in Xentral ein.</li>
+<li>Klicke oben rechts auf dein <strong>Benutzer-Symbol</strong>.</li>
+<li>Klicke auf <strong>Kontoeinstellungen</strong>.</li>
+<li>Öffne den Menüpunkt <strong>Personal settings (old)</strong>.</li>
+<li>Klicke im Bereich <strong>Mobile Apps </strong> auf <strong>Zugang anlegen</strong>.</li>
+</ol>
+<h2 id="allgemein">Allgemein<a class="headerlink" href="#allgemein" title="Permanent link">&para;</a></h2>
+<p>DieXentralBoss App verfügt über vier Tabs.</p>
+<ul>
+<li><a href="#UUID-af321fe8-52bd-4df7-ddb9-a08770473223_id_360017363200_id_toc-2">Home</a></li>
+<li><a href="#UUID-af321fe8-52bd-4df7-ddb9-a08770473223_id_360017363200_id_toc-3">Finanzen</a></li>
+<li><a href="#UUID-af321fe8-52bd-4df7-ddb9-a08770473223_id_360017363200_id_toc-4">Belege</a></li>
+<li><a href="#UUID-af321fe8-52bd-4df7-ddb9-a08770473223_id_360017363200_id_h_01EZQ9GM9BHCPAJCEEXBAAYFKJ">Einstellungen</a></li>
+</ul>
+<h3 id="home-tab">Home-Tab<a class="headerlink" href="#home-tab" title="Permanent link">&para;</a></h3>
+<p>Im Home-Tab erscheinen die wichtigsten Kennzahlen auf einen Blick.</p>
+<p><img alt="boss_home.png" src="https://help.xentral.com/hc/article_attachments/11332547914908" /></p>
+<p>Der Umsatzgraph in der oberen Hälfte des ersten Tabs zeigt den Umsatz der letzten 14 Tage, für die letzten 14 Wochen, für die letzten 12 Monate, oder für die letzten 10 Jahre an. Der Umsatz wird hierbei gebildet aus allen Rechnungen, abzüglich der Gutschriften für die jeweilige Periode, deren Status ungleich “angelegt” ist. Auf dem Graphen sind Kreise, welche den Tag sowie den Umsatz anzeigen, wenn darauf geklickt wird.</p>
+<p>In der unteren Hälfte des Tabs befinden sich vier Kacheln:</p>
+<ul>
+<li>Die Kachel <strong>Aufträge</strong> zeigt die Anzahl aller Aufträge mit dem heutigen Datum.</li>
+<li>Die Kachel <strong>Umsatz heute</strong> zeigt die Summe des Netto-Umsatzes aller Rechnungen für den aktuellen Tag, bei denen der Status ungleich “angelegt” ist.</li>
+<li>Die Kachel <strong>Pakete</strong> zeigt die Anzahl der Einträge in der Versandtabelle am aktuellen Tag.</li>
+<li>Die Kachel <strong>Aufträge heute</strong> zeigt die Summe des Gesamtsumme-Feldes aller Aufträge für den aktuellen Tag, bei denen der Status ungleich “angelegt” ist.</li>
+</ul>
+<h3 id="finanz-tab">Finanz-Tab<a class="headerlink" href="#finanz-tab" title="Permanent link">&para;</a></h3>
+<p>Im zweiten Tab befinden sich die wichtigsten Finanzkennzahlen wie z.B. Umsätze, Verbindlichkeiten, Bankkontostand.</p>
+<p><img alt="boss_finance.png" src="https://help.xentral.com/hc/article_attachments/11332547965980" /></p>
+<p>-<strong>Umsatz aktueller Monat (netto)</strong>: Die Kachel zeigt die Summe des Felds <strong>umsatz_netto </strong> aller Rechnungen für den aktuellen Monat abzüglich des Felds <strong>umsatz_netto</strong> aller Gutschriften des aktuellen Monats an. Es werden nur Rechnungen und Gutschriften berücksichtigt, deren Status ungleich “angelegt” ist.
+-<strong>Umsatz letzter Monat (netto)</strong>: Die Kachel zeigt die Summe des Felds <strong>umsatz_netto </strong> aller Rechnungen für den letzten Monat abzüglich des Felds <strong>umsatz_netto</strong> aller Gutschriften, des letzten Monats an. Es werden nur Rechnungen und Gutschriften berücksichtigt, deren Status ungleich “angelegt” ist.
+-<strong>Umsatz vorletzter Monat (netto)</strong>: Die Kachel zeigt die Summe des Felds <strong>umsatz_netto </strong> aller Rechnungen für den vorletzten Monat abzüglich des Felds <strong>umsatz_netto</strong> aller Gutschriften, des vorletzten Monats an. Es werden nur Rechnungen und Gutschriften berücksichtigt, deren Status ungleich “angelegt” ist.
+-<strong>Offene Verbindlichkeiten (brutto)</strong>: Die Kachel zeigt die Summe des Felds <strong>betrag</strong> aller Verbindlichkeiten, deren Status nicht “bezahlt” oder “storniert” ist.
+-<strong>Offene Aufträge (netto)</strong>: Die Kachel zeigt alle Auftragspositionen, bei welchen die gewünschte Liefermenge noch nicht erreicht wurde oder der Zustand “geliefert” noch nicht erreicht wurde und der zugehörige Auftrag weder den Status “abgeschlossen”, “storniert” oder “angelegt” hat. Dabei wird die Summe aller Auftragspositionen mit mit ihren Preisen multipliziert, unter Berücksichtigung etwaiger Rabatte.
+-<strong>Mahnwesen (brutto)</strong>: Die Kachel zeigt die Summe der Differenzen von Soll- und Ist-Wert aller Rechnungen für Projekte in denen das Mahnwesen aktiviert ist an. Zusätzlich müssen die Rechnungen über die Information <strong>offen </strong> im Feld <strong>Zahlungsstatus </strong> verfügen. Das Feld <strong>Mahnwesen </strong> darf nicht den Wert <strong>forderungsverlust </strong> haben. Die Felder <strong>Belegnummer </strong> und <strong>Mahnwesen </strong> müssen jeweils einen Wert enthalten. Das Feld <strong>Mahnwesen_gesperrt</strong> hat den Wert <strong>0 <strong> und das Feld</strong> Mahnwesenfestsetzen</strong> ist nicht gleich 1. Im Ergebnis werden alle ausstehende Forderungen angezeigt, die noch nicht abgeschrieben wurden.
+-<strong>Zeit gebucht</strong>: Die Kachel zeigt die Summe aller Einträge in der Zeiterfassung für den aktuellen Monat in Stunden an.
+-<strong>Abolauf nächster Monat (brutto)</strong>: Die Kachel zeigt den Betrag des für den nächsten Monat geplanten Abolaufs an (Summe aus den Tabs <strong>Rechnungen </strong> und <strong>Aufträge </strong> im Modul <strong>Abolauf</strong>.
+-<strong>Bankkonten gesamt </strong>: Die Kachel zeigt das gesamte Guthaben auf den Bankkonten an, die du im Modul <strong>Geschäftskonten</strong> hinterlegt hast.
+-<strong>Gesamtumsatz laufendes Jahr (netto)</strong>: Die Kachel zeigt die Summe des Felds <strong>umsatz_netto </strong> aller Rechnungen für das aktuelle Jahr abzüglich des Felds <strong>umsatz_netto</strong> aller Gutschriften des aktuellen Jahres an. Es werden nur Rechnungen und Gutschriften berücksichtigt, deren Status ungleich “angelegt” ist.</p>
+<h3 id="belege-tab">Belege-Tab<a class="headerlink" href="#belege-tab" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab werden die Belegarten Angebote, Aufträge, Rechnungen, Lieferscheine und Gutschriften als Kacheln dargestellt. Wenn du auf eine dieser Kacheln tippst, werden die einzelnen Belege der Belegart mit Datum, Nummer, Name, Status und Betrag angezeigt. Auf diese einzelnen Aufträge kannst du wiederum tippen, um den einzelnen Beleg aufzurufen. Hier werden noch detailliertere Informationen angezeigt, wie beispielsweise die Adresse des Namens, die Versandart, die Zahlungsart, die enthaltenen Artikel, die Auftragsampel und das Auftragsprotokoll.</p>
+<h3 id="einstellungs-tab">Einstellungs-Tab<a class="headerlink" href="#einstellungs-tab" title="Permanent link">&para;</a></h3>
+<p>In den Einstellungen kannst du beispielsweise die Anmelde-PIN sowie deinen Namen ändern. Schau dir die folgende Tabelle an, um genauere Informationen zu den möglichen Aktionen im Tab <strong>Einstellungen</strong> zu erhalten.</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Mögliche Aktionen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Allgemeine Einstellungen <strong></td>
+<td>Tippe auf das</strong> Stift-Symbol</strong>, um die PIN zu ändern, mit der du dich in der Xentral Boss App anmeldest.</td>
+</tr>
+<tr>
+<td><strong>Personalisierung <strong></td>
+<td>Tippe auf das</strong> Stift-Symbol</strong>, um den Namen zu ändern, der in der Xentral Boss App angezeigt wird.</td>
+</tr>
+<tr>
+<td><strong>Registrierung <strong></td>
+<td>Tippe auf die entsprechende Option, um bei Bedarf die</strong> Registrierung neu durchführen </strong>, um die App (erneut) mit deiner oder einer anderen Xentral Instanz zu verbinden. Wenn du auf <strong>Auf Werkseinstellungen zurücksetzen </strong> tippst, wird die Verbindung zur aktuellen Xentral Instanz aufgehoben und deine PIN entfernt. Mithilfe der Option <strong>Registrierung löschen</strong> hebst du lediglich die aktuelle Verbindung zu einer Instanz auf.</td>
+</tr>
+<tr>
+<td><strong>Support</strong></td>
+<td>Hier findest du verschiedene Möglichkeiten, um entweder per E-Mail oder im Xentral Helpcenter Unterstützung für die Einrichtung und Benutzung der App zu erhalten. Außerdem kannst du hier die aktuell verwendete App-Version sowie die Build-Nummer einsehen.</td>
+</tr>
+<tr>
+<td><strong>Rechtliche Hinweise <strong></td>
+<td>In diesem Bereich kannst du bei Bedarf das</strong> Impressum </strong>, die <strong>Allgemeinen Geschäftsbedingungen </strong>, die <strong>Leistungsbeschreibung </strong> und die <strong>Datenschutzerklärung</strong> einsehen.</td>
+</tr>
+<tr>
+<td><strong>Datenschutz <strong></td>
+<td>Hier kannst du über die Option</strong> Firebase Analytics &amp; Performance</strong> die Bereitstellung von statistischen Daten (de)aktivieren.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="servereinstellungen">Servereinstellungen<a class="headerlink" href="#servereinstellungen" title="Permanent link">&para;</a></h3>
+<p>Für die Verbindung zur XentralREST-API muss eine Weiterleitung des Authorization Headers von Apache zu PHP konfiguriert werden. Hierzu müssen folgende Zeilen in der PHP-FPM-Konfigurationsdatei eingefügt werden:</p>
+<pre><code>&lt;IfModule setenvif_module&gt;
+SetEnvIfNoCase ^Authorization$ &quot;(.+)&quot; HTTP_AUTHORIZATION=$1
+&lt;/IfModule&gt;
+</code></pre>
+<p>Ohne diese Einstellung ist die PHP-Variable $_SERVER[&lsquo;HTTP_AUTHORIZATION&rsquo;] nicht gesetzt. Es gibt auf PHP-Seite auch keine andere Möglichkeit, die die Login-Daten zu erreichen. Auf PHP-Seite sieht es also immer so aus, als ob kein Login stattgefunden hat (Fehler 7411).</p>
+<p>Xentral stellt ein Testskript zur Verfügung, welches auf dem eigenen Server die korrekte Weiterleitung des Authorization Headers überprüft. Das Testskript findet sich im GitHub-Downloadbereich von Xentral. Die Datei heißt <strong>authtest.php</strong>.</p>
+<p>Anleitung für den Test mit dem Testskript:</p>
+<ol>
+<li>Lege die Datei an einem Platz innerhalb des Xentral-Verzeichnisses www ab. Der genaue Speicherort ist nicht relevant. Der Dateiname ist ebenfalls nicht relevant, die Datei muss nur über den Browser aufrufbar sein.</li>
+<li>Rufe die Datei im Browser auf. Beim ersten Aufruf wird ein Eingabefeld für die Zugangsdate angezeigt. Gib hier beliebige Zugangsdaten ein. Jegliche Daten werden akzeptiert.</li>
+<li>Bei korrekter Webserver-Konfiguration wird die Erfolgsmeldung &ldquo;Authorisation-Header vorhanden&rdquo; angezeigt. Bei fehlerhafter Konfiguration wird immer wieder das Login-Fenster angezeigt. Anschließend kannst du einfach auf <strong>Abbrechen</strong> tippen.</li>
+<li>Lösche die Datei nach Abschluss deiner Tests vom Server.</li>
+</ol>
+<h3 id="keine-belege-ausgegeben-und-netzwerk-nicht-erreichbar">Keine Belege ausgegeben und Netzwerk nicht erreichbar<a class="headerlink" href="#keine-belege-ausgegeben-und-netzwerk-nicht-erreichbar" title="Permanent link">&para;</a></h3>
+<p>In der XentralBoss App werden keinerlei Belege ausgegeben und durch einen Klick auf das &ldquo;rote Antenne&rdquo;-Icon wird deutlich, dass ein Netzwerkfehler vorliegt. Das kann daran liegen, dass fehlende Rechte in Xentral vorliegen. Dieses Problem wird gelöst, wenn die App über den QR-Code des Admin-Users verbunden ist.</p>
+<p>Falls die App über den QR-Code des Admin-Users verbunden ist und der Admin auch eingeloggt ist, kann das Problem auch in den fehlenden Rechten für die Belege bei den API-Permissions liegen.</p>
+<p><strong>Mögliche Lösung: Rechte-Vergabe für Belege</strong></p>
+<p>Dazu ist in der SuperSearch nach API-Accounts zu suchen und das Modul zu öffnen. Dort sind die API-Accounts für die XentralBoss App aufzurufen. Wenn die API für die App aufgerufen wird, sind folgende Haken zu setzen:</p>
+<p><img alt="Bildschirmfoto_2021-02-23_um_13.57.14.png" src="https://help.xentral.com/hc/article_attachments/5041780330524" /></p>
+<p>Pro Beleg ist es ausreichend, die Rechte get und list zu aktivieren. Falls dies nicht funktioniert, setze alle Rechte für die Belegarten und probiere es erneut.</p>
+<p>Falls andere Belegarten nicht angezeigt werden und der API-Account nur für die Boss App genutzt wird, müssen alle Rechte gesetzt werden. Weitere Belegarten, in denen die Rechte für die Belege gesetzt werden können, sind <strong>delivery note </strong>,<strong>quote </strong> und <strong>supply orders</strong>.</p>
+<h3 id="versanddienstleister-nicht-angegeben">Versanddienstleister nicht angegeben<a class="headerlink" href="#versanddienstleister-nicht-angegeben" title="Permanent link">&para;</a></h3>
+<p>In der XentralBoss App wird der Versanddienstleister in den Belegarten Auftrag und Lieferschein nicht angeben. Zudem erscheint unter Standardversand die falsche Adresse auf jedem Lieferschein bzw. es wird immer die Adresse &ldquo;Fuggerstraße 11, 86150 Augsburg&rdquo; angegeben.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

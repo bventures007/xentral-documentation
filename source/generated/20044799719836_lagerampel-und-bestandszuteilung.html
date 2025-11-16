@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20044799719836 Lagerampel Und Bestandszuteilung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>20044799719836 Lagerampel Und Bestandszuteilung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>20044799719836 Lagerampel Und Bestandszuteilung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit den so genannten Lagerampeln bietet dir Xentral eine ganz neue Möglichkeit, jederzeit auf die aktuellsten Berechnungen der Lagerbestände für deine Aufträge zuzugreifen. Diese Funktionalität richtet sich an fortgeschrittene Systemnutzer und ermöglicht eine genaue Steuerung der Bestandszuteilung sowie Einstellungen zur Anzeige der verfügbaren Lagerbestände in der Auftragsübersicht.</p>
+<p>In diesem Artikel erläutern wir, welche Bedeutung die Symbole der Lagerampel haben, die als Teil der gewohnten<a href="https://help.xentral.com/hc/de/articles/360016759019#UUID-a67e1eee-4a52-2b43-3f73-4782e28d05b7">Auftragsampel</a>zur Verfügung stehen. Außerdem beschreiben wir hier die Einstellungen, die du vornehmen kannst, um ein effizientes <strong>First In - First Out</strong> Prinzip (FIFO) oder eine freie Bestandszuteilung für deine Aufträge in Xentral zu verwalten.</p>
+<h2 id="variante-fur-die-bestandszuteilung-auswahlen">Variante für die Bestandszuteilung auswählen<a class="headerlink" href="#variante-fur-die-bestandszuteilung-auswahlen" title="Permanent link">&para;</a></h2>
+<p>Zunächst solltest du dir überlegen, wie Xentral bei der Zuteilung von Warenbeständen für Aufträge vorgehen soll.</p>
+<p>Grundsätzlich gibt es zwei Möglichkeiten, die im Folgenden näher beschrieben werden.</p>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Beachte folgende Einschränkungen und Hinweise, bevor du die neue Zuteilungslogik aktivierst:</p>
+<p>-<strong>Manuelle Reservierungen</strong>: Bestände, die bereits manuell in Xentral reserviert wurden, werden nicht berücksichtigt. Nähere Informationen zur manuellen Bestandsreservierung findest du im Kapitel <a href="https://help.xentral.com/hc/de/articles/4402048488722#UUID-b7b9b68a-45e7-fb72-d417-718dacbbc32a_id_Reservierungen-ReservierungfreinenAuftrag">Reservierung für einen Auftrag</a>.</p>
+<h3 id="freie-bestandszuteilung">Freie Bestandszuteilung<a class="headerlink" href="#freie-bestandszuteilung" title="Permanent link">&para;</a></h3>
+<p>Die so genannte freie Zuteilung bedeutet, dass die Zuteilung von Warenbeständen für jeden Auftrag individuell stattfindet. Dabei wird die Bestandszuteilung nicht durch ältere, also schon länger in Xentral bestehende und auf Warenbestand wartende Aufträge blockiert oder beeinflusst.</p>
+<p>Im Detail bedeutet das:</p>
+<ul>
+<li>Jeder Auftrag ist bereit zur Weiterverarbeitung, sobald streng für ihn allein genommen ausreichend Warenbestand vorhanden ist.</li>
+<li>Bei der Bestandszuteilung findet <strong>keine Priorisierung</strong> anhand Kriterien wie z.B. dem Erstellungsdatum des Auftrags statt.</li>
+<li>Neuere Aufträge können zuerst bearbeitet werden, wenn ihr Warenbestand vollständig verfügbar ist. Ältere Aufträge, die zusätzlich auf fehlende Artikel warten, bleiben zurück. Es kann also passieren, dass sobald nachbestellte Artikel eintreffen, andere benötigte Waren inzwischen für neuere Aufträge verwendet wurden. Dadurch kann sich die Bestandszuteilung und damit die weitere Bearbeitung für die älteren Aufträge weiter verzögern.</li>
+</ul>
+<p>Nimm die folgenden Systemeinstellungen in Xentral vor, um die freie Bestandszuteilung zu aktivieren.</p>
+<ol>
+<li>Nutze die Smart Search, um das Modul <strong>Grundeinstellungen</strong> zu öffnen.</li>
+<li>Öffne das Tab <strong>System</strong>.</li>
+<li>Aktiviere im Bereich <strong>Beschleunigung/Limitierungen </strong> die Option <strong>Verbesserte Zuteilung von Warenbestand bei Lagerampel-Berechnung</strong>.</li>
+<li>Wähle im Dropdown-Menü <strong>Bestandszuteilung </strong> die Option <strong>Freie Zuteilung</strong> aus.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h3 id="first-in-first-out-fifo-fur-auftrage">First In - First Out (FIFO) für Aufträge<a class="headerlink" href="#first-in-first-out-fifo-fur-auftrage" title="Permanent link">&para;</a></h3>
+<p>Mit First In - First Out (kurz: FIFO) für Aufträge erreichst du in XentralFolgendes: Die ältesten Aufträge im System bekommen als Erstes den benötigten Warenbestand zugeteilt, sodass die entsprechenden Artikel anschließend für den Versand vorbereitet werden können und die Auftragsabwicklung fortgesetzt werden kann.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Prüfkriterien der Bestandszuweisung bei First In - First Out für Aufträge</strong></p>
+<p>Wenn du dich für diese Variante entscheidest, finden zunächst im Hintergrund folgende Prüfungen des Auftrags nacheinander statt. Anhand dieser Prüfungen wird die passende Reihenfolge ermittelt, in der Aufträgen der benötigte Bestand zugeteilt wird.</p>
+<ul>
+<li>Zuerst wird Folgendes geprüft: Befindet sich der <strong>Auftrag in der Fast-Lane</strong>? Aufträge mit Fast-Lane Markierung werden bevorzugt zu Aufträgen ohne diese Markierung einpriorisiert.</li>
+<li>Als Nächstes wird das <strong>Reservierungsdatum</strong> geprüft, das am Auftrag hinterlegt ist. Hier gilt weiter das Prinzip: Aufträge werden höher priorisiert, je länger das Reservierungsdatum zurückliegt.</li>
+<li>Nun wird das <strong>Belegdatum</strong> des Auftrags in Xentral geprüft. Aufträge mit den am weitesten zurück liegenden Belegdaten werden zuerst berücksichtigt.</li>
+<li>Zuletzt wird noch die Reihenfolge geprüft, in dem die Aufträge in Xentral <strong>erstellt</strong> wurden.</li>
+</ul>
+</blockquote>
+<p>Um festzulegen, dass die ältesten Aufträge zuverlässig nach FIFO Bestand zugewiesen bekommen, musst du vorab in Xentral die folgenden Systemeinstellungen vornehmen.</p>
+<p><img alt="settings_fifo_bestand-de.png" src="https://help.xentral.com/hc/article_attachments/20044763267100" /></p>
+<ol>
+<li>Nutze die Smart Search, um das Modul <strong>Grundeinstellungen</strong> zu öffnen.</li>
+<li>Öffne das Tab <strong>System</strong>.</li>
+<li>Aktiviere im Bereich <strong>Beschleunigung/Limitierungen </strong> die Option <strong>Verbesserte Zuteilung von Warenbestand bei Lagerampel-Berechnung</strong>.</li>
+<li>Wähle im Dropdown-Menü <strong>Bestandszuteilung </strong> die Option <strong>FIFO</strong> aus</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h2 id="bedeutung-der-lagerampel-symbole">Bedeutung der Lagerampel-Symbole<a class="headerlink" href="#bedeutung-der-lagerampel-symbole" title="Permanent link">&para;</a></h2>
+<p>Wie du bereits weißt, kannst du den aktuellen Stand der Auftragsbearbeitung immer auf einen Blick in der Auftragsübersicht oder in einem geöffneten Auftrag auf einen Blick erkennen - und zwar mithilfe der<a href="https://help.xentral.com/hc/de/articles/360016759019#UUID-a67e1eee-4a52-2b43-3f73-4782e28d05b7">Auftragsampel</a>.</p>
+<p>Innerhalb der Auftragsampel findest du auch das Symbol für den Lagerbestand, das je nach Situation unterschiedlich dargestellt wird. Je nachdem, ob du dich für<a href="#UUID-ec127141-b3a4-0baf-0c32-7f4e168d6b79_section-idm234797633839577">die freie Zuteilung</a>oder<a href="#UUID-ec127141-b3a4-0baf-0c32-7f4e168d6b79_section-idm234797634490709">FIFO</a>für die Bestandszuteilung in Xentral entschieden hast, werden diese Symbole unterschiedlich dargestellt und geben dir somit einen detaillierten Einblick.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die unten gezeigten Symbole stehen in direktem Zusammenhang mit der neuen Logik für die Bestandszuteilung in Xentral. Das bedeutet, dass du dich für die Testphase anmelden musst, um die neuen Symbole sehen und nutzen zu können. Melde dich bei Interesse bei deinem Onboarding Manager, um deine Instanz freischalten zu lassen.</p>
+</blockquote>
+<p>Im Folgenden findest du einen Überblick aller möglichen Symbole der Lagerampel. So kannst du genauer nachvollziehen, welche Bedeutung die Symbole haben.</p>
+<h3 id="symbole-bei-der-freien-bestandszuteilung">Symbole bei der freien Bestandszuteilung<a class="headerlink" href="#symbole-bei-der-freien-bestandszuteilung" title="Permanent link">&para;</a></h3>
+<p>Wenn du dich für<a href="#UUID-ec127141-b3a4-0baf-0c32-7f4e168d6b79_section-idm234797633839577">die freie Bestandszuteilung</a>entschieden hast, gibt es je nach Status der Bestandszuweisung die folgenden Darstellungsformen für das Lager-Symbol innerhalb der Auftragsampel.</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Der für den Auftrag benötigte Bestand ist teilweise verfügbar, d.h. mindestens eine Auftragsposition ist in der geforderten Menge lieferbar. Der Auftrag ist also teillieferbar.</td>
+</tr>
+<tr>
+<td></td>
+<td>Der für den Auftrag benötigte Bestand ist unter Berücksichtigung der Bestände im Nachschublagerplatz verfügbar. Der Auftrag ist also lieferbar, wenn Artikel aus dem Nachschublagerplatz umgelagert werden.</td>
+</tr>
+<tr>
+<td></td>
+<td>Der für den Auftrag benötigte Bestand ist vollständig verfügbar. Der Auftrag ist also vollständig lieferbar.</td>
+</tr>
+<tr>
+<td></td>
+<td>Der für den Auftrag benötigte Bestand ist nicht verfügbar. Der Auftrag ist also nicht lieferbar.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="symbole-bei-first-in-first-out-fur-auftrage">Symbole bei First In - First Out für Aufträge<a class="headerlink" href="#symbole-bei-first-in-first-out-fur-auftrage" title="Permanent link">&para;</a></h3>
+<p>Wenn du dich für<a href="#UUID-ec127141-b3a4-0baf-0c32-7f4e168d6b79_section-idm234797634490709">FIFO</a>für die Bestandszuteilung entschieden hast, gibt es je nach Status der Bestandszuweisung die folgenden Darstellungsformen für das Lager-Symbol innerhalb der Auftragsampel.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Bei der Bestandszuweisung nach First In - First Out enthält die Auftragsampel nicht nur ein, sondern zwei Symbole für den Lagerbestand.</p>
+<p>Dabei zeigt dir das erste Symbol an, ob der Auftrag gemäß des FIFO-Prinzips für die Bestandszuweisung an der Reihe ist. Am zweiten Symbol erkennst du, ob im Lager genug Bestand vorhanden ist, um den betreffenden Auftrag kurzfristig vorzuziehen, also auf Wunsch schneller an die Logistik zu übergeben und anschließend an deine Kunden auszuliefern.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Die Bestandszuweisung für den Auftrag wird momentan durchgeführt.</td>
+</tr>
+<tr>
+<td></td>
+<td>Der für den Auftrag benötigte Bestand ist teilweise verfügbar, d.h. mindestens eine Auftragsposition ist in der geforderten Menge lieferbar. Der Auftrag ist also teillieferbar und der Auftrag ist an der Reihe, als nächstes verfügbaren Bestand zugewiesen zu bekommen.</td>
+</tr>
+<tr>
+<td></td>
+<td>Der für den Auftrag benötigte Bestand ist unter Berücksichtigung der Bestände im Nachschublagerplatz verfügbar. Der Auftrag ist also lieferbar, wenn Artikel aus dem Nachschublagerplatz umgelagert werden.</td>
+</tr>
+<tr>
+<td></td>
+<td>Der für den Auftrag benötigte Bestand ist vollständig verfügbar. Der Auftrag ist also vollständig lieferbar und der Auftrag ist an der Reihe, als Nächstes den verfügbaren Bestand zugeteilt zu bekommen.</td>
+</tr>
+<tr>
+<td></td>
+<td>Entweder ist der für den Auftrag benötigte Bestand nicht verfügbar. Der Auftrag ist also momentan nicht lieferbar. Zusätzlich wird dieses Symbol auch angezeigt, wenn dem Auftrag im Rahmen der FIFO-Prinzips aktuell noch kein Bestand zugewiesen werden kann, da andere Aufträge vor diesem Auftrag an der Reihe sind, den verfügbaren Bestand zugewiesen zu bekommen.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="filter-in-der-auftragsubersicht">Filter in der Auftragsübersicht<a class="headerlink" href="#filter-in-der-auftragsubersicht" title="Permanent link">&para;</a></h2>
+<p>Sobald du die freie Bestandszuteilung oder First In - First Out (FIFO) für Aufträge aktiviert hast, stehen dir zusätzlich zu den oben beschriebenen Lagerampel-Symbolen auch neue Filtermöglichkeiten in der Auftragsübersicht zur Verfügung. So kannst du schnell und einfach die Aufträge in der Übersicht sortieren und erkennen, welche Aufträge über ausreichend Bestand verfügen und somit weiter bearbeitet werden können.</p>
+<p>Diese Auftragsfilter stehen zur Verfügung:</p>
+<p>-<strong>Lieferung nicht möglich </strong></p>
+<p>-<strong>Lieferung möglich mit Nachschub</strong></p>
+<p>-<strong>Teillieferung mögl.<strong>&gt;</strong> Tipp</strong></p>
+<blockquote>
+<p>Auf Wunsch kannst du mehrere dieser Filter gleichzeitig aktivieren. Dabei werden die Filterkriterien nicht untereinander kombiniert, sondern die Ergebnisse gemeinsam aufgelistet (<strong>ODER</strong></p>
+</blockquote>
+<p>-Verknüpfung, nicht <strong>UND</strong>). Du kannst also beispielsweise Aufträge für die Lieferungen mithilfe der Bestände im Nachschublagerplatz gemeinsam mit den Aufträgen, für die eine Teillieferung möglich ist, in einer Liste darstellen, wenn du die beiden Filter aktivierst.</p>
+<p>Gehe wie folgt vor, um die Filter in der Auftragsübersicht zu verwenden.</p>
+<ol>
+<li>Öffne das Menü <strong>Verkaufen &gt; Auftrag</strong>.</li>
+<li>Klicke oben links über der Tabelle auf das <strong>Filter-Symbol</strong>.</li>
+<li>Wähle einen oder mehrere Filter aus.</li>
+</ol>
+<p><img alt="filter_verbesserte_bestandszuteilung-de.png" src="https://help.xentral.com/hc/article_attachments/20044804739740" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

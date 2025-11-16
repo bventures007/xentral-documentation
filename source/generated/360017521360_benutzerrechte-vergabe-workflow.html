@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017521360 Benutzerrechte Vergabe Workflow - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017521360 Benutzerrechte Vergabe Workflow</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017521360 Benutzerrechte Vergabe Workflow</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="benutzeraccount-einrichten">Benutzeraccount einrichten<a class="headerlink" href="#benutzeraccount-einrichten" title="Permanent link">&para;</a></h2>
+<p>Folgende Schritte sind notwendig, um einen Benutzeraccount vollständig anzulegen:</p>
+<ol>
+<li>Adresse für den Benutzer (Mitarbeiter) anlegen</li>
+<li>Rolle Mitarbeiter vergeben</li>
+<li>Neuen Benutzer anlegen</li>
+<li>Adresse auf diesen Benutzer verknüpfen</li>
+<li>Einstellungen im Benutzeraccount vornehmen (z.B. Rechteeinstellungen)</li>
+</ol>
+<h3 id="adresse-anlegen">Adresse anlegen<a class="headerlink" href="#adresse-anlegen" title="Permanent link">&para;</a></h3>
+<p>Legen Sie direkt eine neue Adresse für den Mitarbeiter an:Stammdaten &gt; Adresse</p>
+<ul>
+<li>Namen eingeben (ggf. auch direkt weitere Daten)</li>
+<li>Speichern</li>
+</ul>
+<p>Weitere Informationen zur Adresse finden Sie auch<a href="https://help.xentral.com/hc/de/articles/360016721600#UUID-4a84b844-4f7d-7c54-898e-0f7fb80bd760">hier</a>.</p>
+<h3 id="rolle-mitarbeiter-vergeben">Rolle &ldquo;Mitarbeiter&rdquo; vergeben<a class="headerlink" href="#rolle-mitarbeiter-vergeben" title="Permanent link">&para;</a></h3>
+<p>Gehen Sie direkt in das TabRolleund vergeben Sie folgende Rolle:</p>
+<ul>
+<li>Rolle: &ldquo;Mitarbeiter&rdquo;</li>
+<li>von: &ldquo;Projekt&rdquo;</li>
+<li>Projektfeld: dieses Feld bitte leer lassen (alternativ: mit demjenigen Projekt füllen, für das der Mitarbeiter die Rechte erhalten soll)</li>
+<li>Abschließend klicken Sie aufals neue Rolle anlegen <strong>Ergebnis <strong>: Die Adresse hat nun eine fortlaufende Mitarbeiternummer aus dem Nummernkreis erhalten und die Berechtigung, die Vorgänge zu einem oder mehreren Projekten zu sehen.Es können beliebig viele Rollen vergeben werden. Die Mitarbeiternummer wird nur erstmalig mitvergeben (analog zu Kundennummer, Lieferantennummer). Unabhängig davon erfolgt die Vergabe der Menüpunkte. Diese werden direkt im Administrationsbereich<a href="https://help.xentral.com/hc/de/articles/360016724780#UUID-f297da39-ce3c-8544-761b-4711490dd65a">Benutzer</a>individuell vergeben. Weitere Informationen zu </strong> Gruppen <strong>finden Sie auch<a href="https://help.xentral.com/hc/de/articles/360016722000#UUID-27c9f5ac-bebe-bc23-79b2-b19285784cfc">hier</a>. </strong> Praxistipp</strong>: Wenn Sie die Rechte nicht Projektspezifisch aufteilen müssen/ möchten, legen Sie im Standard bitte die Rolle Mitarbeiter an und lassen Sie das Projektfeld leer. Dann erhält der Benutzer automatisch auch die Berechtigung für neue Projekte, die später hinzukommen. Das ist inbesondere ratsam, da Daten, die keine Projektzuweisung haben, von Benutzern nicht gesehen werden können, wenn diese nicht die Rollenzuweisung auf ALLE Projekte besitzen. Nur Administratoren können immer alle Daten sehen.</li>
+</ul>
+<h3 id="neuen-benutzer-anlegen">Neuen Benutzer anlegen<a class="headerlink" href="#neuen-benutzer-anlegen" title="Permanent link">&para;</a></h3>
+<p>Administration &gt; Einstellungen &gt; System &gt; Grundeinstellungen &gt; Benutzer</p>
+<ul>
+<li>Legen Sie über den+NEUButton einen neuen Benutzer an</li>
+<li>Weisen Sie dem Benutzer die zuvor angegebene Adresse zu</li>
+<li>Vergeben Sie den Account-Typ:</li>
+<li>Administrator: uneingeschränkter Benutzer mit allen Rechten</li>
+<li>Benutzer: Benutzer mit vielen Rechten aber z.B: Einschränkungen bei den Systemeinstellungen oder auf Abteilungen/Teams/Bereiche</li>
+<li>Zugriff aus Ferne erlauben: nur falls geboten (z.B. bei Außendienst-Mitarbeitern) oder falls xentral auf einem externen Server installiert wurde, z.B. der xentral Cloud</li>
+</ul>
+<p>Weitere Informationen zur Benutzerverwaltung finden Sie auch<a href="https://help.xentral.com/hc/de/articles/360016724780#UUID-f297da39-ce3c-8544-761b-4711490dd65a">hier</a>.</p>
+<h3 id="einstellungen-im-benutzeraccount-vornehmen">Einstellungen im Benutzeraccount vornehmen<a class="headerlink" href="#einstellungen-im-benutzeraccount-vornehmen" title="Permanent link">&para;</a></h3>
+<h4 id="menupunkte-vergeben">Menüpunkte vergeben<a class="headerlink" href="#menupunkte-vergeben" title="Permanent link">&para;</a></h4>
+<p>Nun können die Rechte im Benutzer vergeben werden (TabRechte): Am besten Sie überlegen zunächst, welche Menüpunkte der Mitarbeiter bekommen soll.</p>
+<p>Zugewiesene Rechte werden blau angezeigt, nicht zugewiesene Rechte grau.</p>
+<p>Sie können alle Rechte eines Moduls zuweisen oder entfernen. Um alle Rechte eines Moduls zuzuweisen, klicken Sie auf <strong>Alle setzen </strong> neben der Modulbezeichnung. Um alle Rechte eines Moduls zu entfernen, klicken Sie auf <strong>Alle entfernen</strong> neben der Modulbezeichnung.</p>
+<p>Sie können auch einzelne Rechte zu einem Modul vergeben. Klicke Sie dazu auf das entsprechende Recht eines Moduls. Beispiel:</p>
+<p><img alt="UserRights.png" src="https://help.xentral.com/hc/article_attachments/21346743556892" /></p>
+<h4 id="feinjustierung-der-rechtevergabe">Feinjustierung der Rechtevergabe<a class="headerlink" href="#feinjustierung-der-rechtevergabe" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Wie finde ich das einzelne Recht heraus?</li>
+<li>Klicken Sie aufVerkauf &gt; Auftrag</li>
+<li>Klicken Sie oben in die Browserzeile: hier ist zu sehen: module=auftrag&amp;action=list</li>
+</ul>
+<p><img alt="UserRights1.png" src="https://help.xentral.com/hc/article_attachments/21346743557916" /></p>
+<ul>
+<li>module: zeigt immer den Hauptpunkt an</li>
+<li>action: zeigt immer das einzelne Recht an</li>
+</ul>
+<p>Vergabe eines Menüpunktes: Ist meist das einzelne Recht &ldquo;list&rdquo;. In der Praxis klicken Sie am besten direkt bei sich im Admin Account auf den gewünschten Menüpunkt. Die Browserzeile zeigt Ihnen dann das zu vergebende Recht an.</p>
+<h5 id="systemlog">Systemlog<a class="headerlink" href="#systemlog" title="Permanent link">&para;</a></h5>
+<p>Der Systemlog ist eine Hilfefunktion, um bei der Vielzahl der Einzelrechte das fehlende Recht (Benennung mit Modul und Action) für einen Benutzer zu finden. Den Systemlog finden Sie unterApp Center &gt; Systemlog. Klickt ein Mitarbeiter auf eine Aktion, deren Recht er nicht besitzt erhält er eine dementsprechende Meldung. Möchten Sie direkt dieses Recht neu vergeben, so prüfen Sie im Systemlog, auf welche Schaltfläche der Mitarbeiter geklickt hatte, als diese Meldung erschienen ist.</p>
+<p><img alt="UserRights2.png" src="https://help.xentral.com/hc/article_attachments/21346698922012" /></p>
+<p>Mitarbeiter 1 benötigt z.B. noch das Recht:</p>
+<ul>
+<li>Module: Kalender</li>
+<li>Action: Data</li>
+</ul>
+<h5 id="einzelne-rechte">Einzelne Rechte<a class="headerlink" href="#einzelne-rechte" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die vergebenen Rechte beziehen sich immer auf die Gesamtheit des verwendeten Moduls. Hat ein Nutzer z.B. das Rechteditim RechteblockAdresse, so kann dieser in jedem Bereich der Adresse Änderungen vornehmen. Es ist nicht möglich einzelne Felder für bestimmte Nutzer zu sperren, z.B. nur das FeldVertriebbesonders zu schützen.</p>
+</blockquote>
+<p>Spezielle Rechte ohne Systemlog</p>
+<p>Einige Rechte lösen keinen Eintrag im Systemlog aus, da die Funktion nicht klickbar ist oder der Menüpunkt nicht für den Benutzer ersichtlich ist. Hierzu zählt auch das Recht ajaxwerte (Modul Artikel), das dazu dient, dass auch Artikel in Positionen (z. B. im Auftrag) eingefügt werden können.</p>
+<p><strong>Dokument / Adresse übernehmen</strong></p>
+<p>Eine Adresse / ein Dokument / bestimmte Vorgänge können nur von einer Person bearbeitet werden. Ist die Person zu lange in diesem Vorgang bzw. evtl. aktuell nicht am Platz, aber dennoch eingeloggt, kann eine andere berechtigte Person den Vorgang übernehmen. Alle nicht gespeicherten Informationen des &ldquo;Erstbesitzers&rdquo; gehen hierbei jedoch verloren. Sollte man die Person nicht erreichen, kann man auf diese Weise jedoch trotzdem dringende Aufträge bearbeiten. Button ist für den Benutzer nicht sichtbar:</p>
+<p><img alt="UserRights3.png" src="https://help.xentral.com/hc/article_attachments/21346698923932" /></p>
+<p>Wenn Sie das folgende Recht zuweisen:</p>
+<ul>
+<li>Modul: Welcome</li>
+<li>Recht: unlock</li>
+</ul>
+<p>wird ein Button zur Übernahme des Dokuments angezeigt:</p>
+<p><img alt="UserRights4.png" src="https://help.xentral.com/hc/article_attachments/21346698926236" /></p>
+<p><strong>Buttons und Aktionen</strong></p>
+<p>Buttons und Aktionen sind meist keine einzelnen Rechte sondern greifen auf Module zurück - sie sind sozusagen Querverlinkungen in ein anderes Modul und ziehen sich dort die Rechte. Z.B. wird in einem Dokument beim Einfügen eines Ansprechpartners auf Rechte der Adresse zugegriffen. Der Benutzeraccount muss also diese Rechte freigeschaltet bekommen. Sie befinden sich im Modul Adresse. Button: Lieferadresse, Ansprechpartner</p>
+<p>Modul: Adresse Action: ansprechpartnerpopup Action: lieferadressepopup</p>
+<p><img alt="UserRights5.png" src="https://help.xentral.com/hc/article_attachments/21346743565468" /></p>
+<p><strong>Sichteinschränkung pro Projekt</strong> Bitte bedenken Sie, dass kein Eintrag im Systemlog erzeugt wird, wenn ein Benutzer aufgrund fehlender Projektzuweisung in den Rollen bestimme Daten nicht sehen kann. Dann muss das entsprechende Projekt noch als Rolle Mitarbeiter vergeben werden, oder falls die Daten keine Projektzuweisung besitzen, die Rolle Mitarbeiter auf ALLE Projekte.</p>
+<h2 id="beispiele-zur-rechtevergabe">Beispiele zur Rechtevergabe<a class="headerlink" href="#beispiele-zur-rechtevergabe" title="Permanent link">&para;</a></h2>
+<h3 id="freigabe-und-schreibschutz-in-dokumenten">Freigabe und Schreibschutz in Dokumenten<a class="headerlink" href="#freigabe-und-schreibschutz-in-dokumenten" title="Permanent link">&para;</a></h3>
+<p>In diesem Beispiel sind beiAngebotalle Rechte vergeben worden bis aufSchreibschutzundFreigeben. Modul: Angebot Action: freigabe Action: schreibschutz</p>
+<p><img alt="UserRights6.png" src="https://help.xentral.com/hc/article_attachments/21346743567644" /></p>
+<h3 id="grundlegende-rechte-in-tabellen-und-datensatzen">Grundlegende Rechte in Tabellen und Datensätzen<a class="headerlink" href="#grundlegende-rechte-in-tabellen-und-datensatzen" title="Permanent link">&para;</a></h3>
+<ul>
+<li>list: ist immer die Ansicht der Tabelle z.B. Adresse list ist die Adresstabelle von außen</li>
+<li>edit: reinklicken und bearbeiten</li>
+<li>minidetail: ist in der Übersicht immer das graue kleine Pfeilchen zum aufklappen (das reicht ggf. auch bereits aus bei Artikeln oder Adressen)</li>
+</ul>
+<p><img alt="UserRights7.png" src="https://help.xentral.com/hc/article_attachments/21346698932124" /></p>
+<h2 id="rechte-datei-verwenden">Rechte-Datei verwenden<a class="headerlink" href="#rechte-datei-verwenden" title="Permanent link">&para;</a></h2>
+<p>Man kann auch die Rechte eines Nutzers als Datei herunterladen und diese bei einem anderen Benutzer wieder heraufladen. In der Übersicht gibt es das Download-Icon:</p>
+<p><img alt="UserRights8.png" src="https://help.xentral.com/hc/article_attachments/21346698933916" /></p>
+<p>Um die Datei bei einem anderen Benutzer wieder heraufzuladen, können Sie im Benutzer ganz unten beiRechtedatei heraufladendie Datei hinterlegen:</p>
+<h2 id="spezielle-rechte-im-projektdashboard">Spezielle Rechte im Projektdashboard<a class="headerlink" href="#spezielle-rechte-im-projektdashboard" title="Permanent link">&para;</a></h2>
+<p>Für das Dashboard im Projekt hat man nun zusätzliche Einstellungsmöglichkeiten, um die Sichten der Mitarbeiter anzupassen/einzuschränken.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

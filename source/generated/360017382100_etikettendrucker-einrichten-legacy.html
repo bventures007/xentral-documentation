@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017382100 Etikettendrucker Einrichten Legacy - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017382100 Etikettendrucker Einrichten Legacy</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017382100 Etikettendrucker Einrichten Legacy</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+<p><strong>Anmerkung</strong></p>
+<p>Der Etikettendrucker kann, wie ein Dokumentendrucker, ohne Adapterbox über den Druckerspooler an Xentral angeschlossen werden. Die Anbindung wird in diesem Artikel beschrieben:Deinen Drucker mit Xentral verbinden.</p>
+</blockquote>
+<p>Diese Anleitung zeigt Schritt für Schritt die Einrichtung eines Etikettendruckers, der über eine Adapterbox an xentral angebunden wird. Für die Einrichtung werden folgende Dinge benötigt:</p>
+<ul>
+<li>Etikettendrucker Zebra GK420t, inkl. Netzgerät (Link zum Shop)</li>
+<li>Raspberry PI (im Folgenden Adapterbox genannt) konifiguriert laut Anleitung.</li>
+<li>USB-Kabel zum Anschluss des Druckers an die Adapterbox</li>
+<li>Netzwerkkabel (oder WLAN-USB-Stick bei Drahtloser Netzwerkanbindung) zur Anbindung der Adapterbox an das Netzwerk</li>
+<li>USB-Stick (leer, FAT formatiert)</li>
+<li>Etiketten</li>
+<li>Thermofolie, passend für Zebra GK420t</li>
+</ul>
+<p>Etiketten Drucker sind auch mit dem xentral Spooler anbindbar, dann wird vorzugsweise ein netzwerkfähigen Etikettendrucker verwendet.</p>
+<h2 id="schritt-1-entpacken-und-uberprufen-auf-vollstandigkeit">Schritt 1: Entpacken und Überprüfen auf Vollständigkeit<a class="headerlink" href="#schritt-1-entpacken-und-uberprufen-auf-vollstandigkeit" title="Permanent link">&para;</a></h2>
+<p>Der Etikettendrucker ist zu entpacken und es ist sicherzustellen, dass alle Teile vorhanden und unbeschädigt sind. Für die Durchführung der ersten 5 Schritte dieser Anleitung ist die Adapterbox noch nicht notwendig.</p>
+<h2 id="schritt-2-einlegen-der-thermofolie">Schritt 2: Einlegen der Thermofolie<a class="headerlink" href="#schritt-2-einlegen-der-thermofolie" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Der Deckel des Etikettendruckers ist zu öffnen, indem die seitlich angebrachten grünen Verriegelungen in Richtung der Gerätevorderseite aufgedrückt werden.</li>
+<li>Die Thermofolie ist zu entpacken und die mitgelieferte Papprolle zur Hand abzulösen.</li>
+<li>Der Anfang der Thermofolie ist von der Rolle zu lösen und auf die Papprolle zu wickeln - zwei bis drei Wicklungen genügen. Die Papprolle dient als Träger zum Aufwickeln der verbrauchten Thermofolie während des Druckens (im folgenden auch Leer-Rolle).</li>
+<li>Die beiden Rollen im Deckel des Etikettendruckers sind in die vorgesehenen Halter einzulegen. Zu beachten ist, dass die volle Rolle von unten her eingelegt wird, und die Leer-Rolle von oben her (siehe Fotos). Zum Einlegen sind die Papprollen gegen die gefederten konischen Naben zu drücken und in der gegenüberliegenden Nabe einzurasten.</li>
+<li>Wenn beide Rollen eingelegt sind, ist der korrekte Sitz zu prüfen, indem mit Hilfe des grünen Rades neben der Leer-Rolle ein bis zwei Wicklungen aufgedreht werden.</li>
+</ul>
+<p><img alt="ZEBRA1.png" src="https://help.xentral.com/hc/article_attachments/4996393589916" /></p>
+<p><img alt="ZEBRA-2.png" src="https://help.xentral.com/hc/article_attachments/4996408554908" /></p>
+<p><img alt="ZEBRA-3.png" src="https://help.xentral.com/hc/article_attachments/4996449654812" /></p>
+<p><img alt="ZEBRA-4.png" src="https://help.xentral.com/hc/article_attachments/4996404809116" /></p>
+<h2 id="schritt-3-einlegen-der-etiketten">Schritt 3: Einlegen der Etiketten<a class="headerlink" href="#schritt-3-einlegen-der-etiketten" title="Permanent link">&para;</a></h2>
+<p>Die Etiketten-Rolle ist zur Hand zu nehmen und, wie auf der Abbildung zu sehen, in das Unterteil des Etikettendruckers einzulegen. Die Rolle wird zwischen den beiden grünen Naben durch Federdruck gehalten. Der Rollen Anfang ist, wie abgebildet zum Ausgabe-Schlitz des Geräts, einzuführen. Danach ist der Deckel des Druckers zu schließen.</p>
+<p><img alt="ZEBRA-5.png" src="https://help.xentral.com/hc/article_attachments/4996449691292" /></p>
+<p><img alt="ZEBRA-6.png" src="https://help.xentral.com/hc/article_attachments/4996393777180" /></p>
+<h2 id="schritt-4-automatische-kalibrierung-des-druckbereichs">Schritt 4: Automatische Kalibrierung des Druckbereichs<a class="headerlink" href="#schritt-4-automatische-kalibrierung-des-druckbereichs" title="Permanent link">&para;</a></h2>
+<p>Der Etikettendrucker muss sich auf die Etikettengröße kalibrieren. Die Kalibrierung muss jedes mal nach dem Einlegen einer Etikettenrolle durchgeführt werden! Um die Kalibrierung durchzuführen sind diese Schritte zu befolgen:</p>
+<ul>
+<li>ggf. den Deckel des Druckers schließen</li>
+<li>Die Stromversorgung des Geräts herstellen und den Netzschalter auf der Geräterückseite unten links betätigen</li>
+<li>Die Taste auf der Gehäuseoberseite des Etikettendruckers ist zu drücken und zu halten, bis die LED neben der Taste 2 Mal (4 Mal blinken → Drucker wird auf die Werkseinstellungen zurückgesetzt.) hintereinander blinkt. Dann ist die Taste loszulassen – der Drucker kalibriert sich nun auf die Größe der eingelegten Etiketten.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beim Halten der Taste blinkt die LED zunächst einmal, nach einer kurzen Pause zweimal, dann dreimal und so weiter&hellip;</p>
+</blockquote>
+<p><img alt="ZEBRA-7.png" src="https://help.xentral.com/hc/article_attachments/4996449729564" /></p>
+<h2 id="schritt-5-kalibrierung-der-druckintensitat">Schritt 5: Kalibrierung der Druckintensität<a class="headerlink" href="#schritt-5-kalibrierung-der-druckintensitat" title="Permanent link">&para;</a></h2>
+<p>Die Druckintensität sollte so konfiguriert werden, dass die Etiketten, insbesondere auch für Barcode-Scanner, gut lesbar sind. Die Taste auf der Gehäuseoberseite des Etikettendruckers ist zu drücke und zu halten, bis die LED neben der Taste 6 Mal hintereinander blinkt. Dann ist sofort die Taste loszulassen. Das Gerät beginnt darauf hin mehrere Testausdrucke auszugeben, wobei die Druckintensität schrittweise erhöht wird. Sobald das Druckbild sauber und gut lesbar ist, die Taste auf der Gehäuseoberseite einmal kurz drücken, um die Einstellung zu bestätigen.</p>
+<p><img alt="ZEBRA-8.png" src="https://help.xentral.com/hc/article_attachments/4996404887452" /></p>
+<h2 id="schritt-6-einrichtung-der-adapterbox">Schritt 6: Einrichtung der Adapterbox<a class="headerlink" href="#schritt-6-einrichtung-der-adapterbox" title="Permanent link">&para;</a></h2>
+<p>Um die Verbindung von xentral mit dem externen Gerät (Etikettendrucker, Waage, Bondrucker, Kassendisplays etc.) herzustellen, benötigt es einen kleinen &ldquo;Zwischen-Server&rdquo; (Adapterbox), den man käuflich erwerben kann. Lösungen hierfür findest du bei unserem Partner Ruhr Agency.</p>
+<p>Aus technischen Gründen ist dazu derzeit ein Raspberry Pi bis max. Version 3B notwendig</p>
+<h3 id="adapterbox-konfigurieren">Adapterbox konfigurieren<a class="headerlink" href="#adapterbox-konfigurieren" title="Permanent link">&para;</a></h3>
+<p>Sobald die Adapterbox erworben wurde, kann diese mit folgenden Schritten konfiguriert werden:</p>
+<ol>
+<li>Die Adapterbox ist an einen Monitor sowie an Tastatur und Maus anzuschließen. Außerdem ist sicherzustellen, dass eine Internetverbindung besteht.</li>
+<li>Das Betriebssystem ist zu installieren und den darauffolgenden Hinweis mit OK zu bestätigen.</li>
+<li>Es ist auf LX Terminal (Taskleiste dunkles Icon) zu gehen und folgende Befehle einzugeben. Dann sind diese jeweils mit der ENTER Taste zu bestätigen.</li>
+</ol>
+<pre><code>sudo apt-get --yes install libcurl3 php7.0-curl php7.0-cli php7.0-xml
+sudo usermod -a -G lpadmin pi
+sudo systemctl enable ssh
+wget http://www.wawision.de/adapterbox.deb 
+sudo dpkg -i adapterbox.deb
+echo &quot;Seriennummer eingeben gefolgt von einem [ENTER]:&quot;
+read seriennummer
+echo &quot;&lt;?php \$config['serial'] = '$seriennummer';?&gt;&quot; &gt; /tmp/config.php
+sudo mv /tmp/config.php /root/config.php
+sudo halt
+
+</code></pre>
+<p>Die echo-Befehle dienen mit Ausnahme des letzten Aufrufs nur der Anschaulichkeit.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die Debian-Datei (deb-Datei) für den wget-Befehl können Sie imGitHub-Downloadverzeichnisherunterladen.</p>
+</blockquote>
+<p>Wenn die Ausführung des Skripts nicht funktionieren sollte, muss ggf. noch die PHP-Version mit dazugehörigen Extensions installiert und aktiviert werden.</p>
+<p><strong>Installation php <strong><code>sudo apt -y install php php-common</code></strong> Installation PHP-Extension</strong><code>sudo apt -y install php-cli php-fpm php-json php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath</code></p>
+<p>Es ist zu warten, bis die Aufforderung kommt eine Seriennummer einzugeben. Es ist eine 9-stellige Nummer einzugeben und zu bestätigen mit der ENTER Taste - diese Seriennummer wird dann später in xentral gebraucht. Die Box schaltet sich danach automatisch aus. Danach ist die Adapterbox konfiguriert und es kann mit dem nächsten Schritt fortgefahren werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Sollte dein Drucker nicht drucken, dann stelle den Treiber von cpcl auf zpl (Zebra zb 230) um. Weitere Informationen findest du auf diesen Seiten:</p>
+<ul>
+<li>https://supportcommunity.zebra.com/s/article/CPCL-Manual-for-Zebra-Mobile-Printers?language=de</li>
+<li>https://supportcommunity.zebra.com/s/article/ZPL-Command-Information-and-DetailsV2?language=de</li>
+</ul>
+</blockquote>
+<h2 id="schritt-7-einrichtung-in-xentral">Schritt 7: Einrichtung in xentral<a class="headerlink" href="#schritt-7-einrichtung-in-xentral" title="Permanent link">&para;</a></h2>
+<p>Um die Einrichtung des Etikettendruckers fortzuführen, ist mit der Adapterbox an einen Computerarbeitsplatz zu gehen und sich mit einem Account mit ausreichenden Rechten in xentral anzumelden. In der Ansicht Administration → Einstellungen → System sind die ‚Grundeinstellungen’ zu öffnen</p>
+<p>Der Reiter &lsquo;API’s&rsquo; ist zu öffnen und die markierte Option zu auszuwählen. Dann ist auf „Key generieren“ zu klicken und zu speichern.</p>
+<p>In der Ansicht Administration → Einstellungen → System ist der Punkt ‚Adapterbox’ zu öffnen.</p>
+<p>In der Adapterbox-Ansicht ist,NEU&rsquo; auszuwählen. Danach wird von xentral in 3 Schritten durch die Einrichtung geführt.</p>
+<p>Zunächst können, falls nötig, die Netzwerkeinstellungen manuell festgelegt werden. Sollten hier Änderungen vorgenommen werden, sind diese zu speichern. Um zum nächsten Schritt zu gelangen, ist auf &lsquo;weiter mit Schritt 2&rsquo; zu klicken.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>xentral empfiehlt den Betrieb über ein Netzwerkkabel, da es so am besten und stabilsten läuft. Betrieb über WLAN ist prinzipiell möglich, wird aber von xentral nicht supported, da dies eher fehleranfällig ist und die möglichen Probleme vor allem in den Netzwerkeinstellungen zu finden sind.</p>
+</blockquote>
+<p>Für diesen Schritt stellt xentral eine Liste von durchzuführenden Aktionen bereit. Diese Liste ist in der vorgegebenen Reihenfolge sorgfältig abzuarbeiten. Dann wird der FAT-formatierten USB-Stick benötigt.</p>
+<p>Wenn Sie die Liste abgearbeitet haben. Nehmen Sie die vom Drucker ausgegebene Etikette mit zurück zu Ihrem Computerarbeitsplatz und Klicken Sie in xentral auf &lsquo;weiter mit Schritt 3&rsquo;.</p>
+<p><img alt="ZEBRA-17.png" src="https://help.xentral.com/hc/article_attachments/4996404910492" /></p>
+<p>Vergeben Sie nun einen Namen für den gerade eingerichteten Etikettendrucker und geben Sie die Seriennummer ein, die Ihr Drucker im vorigen Schritt auf die Etikette gedruckt hat (dritte Zeile auf dem Etikett in der Abbildung oben).</p>
+<p>In der Ansicht Administration → Einstellungen → System ist der Punkt &lsquo;Drucker&rsquo; zu öffnen.</p>
+<p>In der Liste erscheint nun der eingerichtete Etikettendrucker. Es ist auf das Bearbeiten-Symbol zu klicken, um Einstellungen für den Drucker vorzunehmen.</p>
+<p>Als Geräteart ist &lsquo;Etikettendrucker&rsquo; einzustellen. Bei Format ist die Größe der Etiketten einzustellen, die in den Drucker eingelegt wurden. Die Anbindungsart muss noch auf &lsquo;Adapterbox&rsquo; eingestellt werden.</p>
+<p>Nun ist sicherzustellen, dass die USB-Verbindung zwischen Drucker und Adapterbox sowie die Netzwerkverbindung der Adapterbox hergestellt ist. Die Geräte sind mit Spannung zu versorgen und der Drucker einzuschalten, um im Folgenden den Drucker zu testen.</p>
+<p><img alt="ZEBRA-21.png" src="https://help.xentral.com/hc/article_attachments/4996408861084" /></p>
+<p>Jetzt ist ein Testdruck durchzuführen, um zu prüfen ob die Einbindung des Druckers korrekt funktioniert hat. Dazu ist in xentral die Ansicht Lager &amp; Logistik → Etikettendrucker zu öffnen. Im obersten Textfeld ist ein beliebiger kurzer Text anzugeben und auf &lsquo;Drucken&rsquo; zu klicken. Wenn der eingegebene Text vom Etikettendrucker gedruckt wird, war die Einrichtung erfolgreich.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bis Version 21.1 unter Verwaltung → Etikettendrucker.</p>
+</blockquote>
+<p>Die Erstellung von Etiketten-Layouts ist hier beschrieben.</p>
+<h2 id="pdf-etikettendrucker-einrichten">PDF-Etikettendrucker einrichten<a class="headerlink" href="#pdf-etikettendrucker-einrichten" title="Permanent link">&para;</a></h2>
+<p>Etiketten können einzeln auch direkt als PDF ausgegeben werden. Der Abruf der Etiketten erfolgt über den Spooler (direkt in den Druckereinstellungen) Oder das PDF kann an eine E-Mail-Adresse gesendet werden Die Art der Anbindung kann direkt ausgewählt werden:</p>
+<h3 id="pdf-in-verzeichnis">PDF in Verzeichnis<a class="headerlink" href="#pdf-in-verzeichnis" title="Permanent link">&para;</a></h3>
+<p>Anbindung über Kommandozeilenbefehl/PDF in Verzeichnis:</p>
+<ul>
+<li>Verzeichnis → das Verzeichnis angeben (z.B. kann bei Linux /tmp/ verwendet werden)</li>
+</ul>
+<h3 id="pdf-als-e-mail">PDF als E-Mail<a class="headerlink" href="#pdf-als-e-mail" title="Permanent link">&para;</a></h3>
+<p>Bei der Anbindung an eine E-Mail Adresse noch folgende Felder ausfüllen:</p>
+<ul>
+<li>E-Mail Drucker Empfänger → E-Mail Adresse, an die das PDF gesendet wird</li>
+<li>E-Mail Drucker Betreff → Betreff, den diese o.g. E-Mail erhält</li>
+<li>E-Mail Drucker Text → Zusatztext, der in der o.g. E-Mail mit übermittelt wird:entwickler:etikettendrucker_email.png</li>
+</ul>
+<h3 id="etikettenerstellung-fur-pdf-etiketten">Etikettenerstellung für PDF-Etiketten<a class="headerlink" href="#etikettenerstellung-fur-pdf-etiketten" title="Permanent link">&para;</a></h3>
+<p>Die Etiketten können ebenso als XML erstellt werden. Einziger Unterschied zum Drucker ist, dass die Etikettengrößen nicht fest vorgegeben sind und beliebig eingestellt werden können. Einstellung der beliebigen Größe direkt im Etikettengenerator::entwickler:etikettendrucker_anbindung_einstellung.png</p>
+<h3 id="versandlabel-etikettendrucker-einrichten">Versandlabel-Etikettendrucker einrichten<a class="headerlink" href="#versandlabel-etikettendrucker-einrichten" title="Permanent link">&para;</a></h3>
+<p>Ein Etikettendrucker kann auch für Versandlabels verwendet werden. Dieser ist im Logistikprozess für die Paketmarkenlabels auszuwählen. Im Drucker selbst sind folgende Einstellungen vorzunehmen (Anbindung per Kommandozeilenbefehl):</p>
+<ul>
+<li>Geräteart → Drucker (Etikettendrucker wird nur in Verbindung mit den xentral Etiketten verwendet)</li>
+<li>Format → DinA5</li>
+<li>Anbindung → Kommandozeilenbefehl</li>
+<li>Befehl oder Verzeichnis → lpr -o fit-to-page -o media=A6 -H 192.168.0.XXX -P ZebraGC420d</li>
+<li>Seriennummer → bitte tragen Sie hier Ihre Seriennummer ein (für den Spooler entsprechend die Seriennummer für die Niederlassung)</li>
+</ul>
+<p>lpr -o fit-to-page -o media=A6 -H 192.168.0.XXX -P ZebraGC420d</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die fettgedruckten Bereiche (s.o.) müssen durch eigene Bezeichnungen ersetzt werden:entwickler:kurzanleitung_etikettendrucker_versandlabels.png</p>
+</blockquote>
+<h3 id="benutzerdefiniertes-etiketten-label-format-einrichten">Benutzerdefiniertes Etiketten Label-Format einrichten<a class="headerlink" href="#benutzerdefiniertes-etiketten-label-format-einrichten" title="Permanent link">&para;</a></h3>
+<p>Um ein benutzerdefiniertes Etiketten Label-Format einzurichten, ist zuerst in die Einstellungen des Labeldruckers unter xentral zu gehen. Dies ist zu finden unter → Administration → Einstellungen → Drucker → “Ihren Labeldrucker auswählen“. Das Format ist auf “leer“ umzustellen.</p>
+<p>Im nächsten Schritt muss der CUPS-Server auf den Linux-Druckerserver aufgerufen werden. Hierzu ist folgende Adresse im Webbrowser einzutragen:127.0.0.1:631</p>
+<h2 id="druckerempfehlung">Druckerempfehlung<a class="headerlink" href="#druckerempfehlung" title="Permanent link">&para;</a></h2>
+<p>Wir unterstützen gängige Etikettendrucker von Zebra. Hierbei bitte darauf achten, dass es sich um einen Netzwerkdrucker via LAN/WLAN handelt, und nicht via USB.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017437459 Erstellung Eines Csv Importers - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017437459 Erstellung Eines Csv Importers</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017437459 Erstellung Eines Csv Importers</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Im Folgenden wird erklärt, wie eine CSV-Datei per Kommandozeile eingelesen werden kann.</p>
+<p>Sowohl das PHP Script als auch die CSV-Datei liegen in diesem Beispiel im Ordner Importer des xentral Ordners.</p>
+<h2 id="kopf-des-scripts">Kopf des Scripts<a class="headerlink" href="#kopf-des-scripts" title="Permanent link">&para;</a></h2>
+<p>Damit das Script auf die eigenen Funktionen von xentral zugreifen kann, müssen ein paar Klassen eingebunden und Objekte erstellt werden. Dies geschieht mit folgendem Code:</p>
+<pre><code>&lt;?php
+// Report simple errors only
+
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+
+include_once(&quot;../conf/main.conf.php&quot;);
+include_once(&quot;../phpwf/plugins/class.mysql.php&quot;);
+include_once(&quot;../phpwf/plugins/class.string.php&quot;);
+include_once(&quot;../phpwf/plugins/class.user.php&quot;);
+include_once(&quot;../www/lib/class.erpapi.php&quot;);
+
+class app_t {
+ var $DB;
+ var $String;
+ var $User;
+}
+
+$app = new app_t();
+$app-&gt;User = new User($app);
+$conf = new Config();
+$app-&gt;DB = new DB($conf-&gt;WFdbhost,$conf-&gt;WFdbname,$conf-&gt;WFdbuser,$conf-&gt;WFdbpass);
+$app-&gt;string = new string();
+$erp = new erpAPI($app);
+$app-&gt;erp = $erp;
+</code></pre>
+<h2 id="parameter-ubergeben">Parameter übergeben<a class="headerlink" href="#parameter-ubergeben" title="Permanent link">&para;</a></h2>
+<p>Wird in der Konsole ein Script aufgerufen mit</p>
+<p><code>php script.php file</code>werden die Parameter in das Array $argv gespeichert. Es ist sinnvoll zu prüfen, ob überhaupt ein Parameter gegeben ist und ob die im Aufruf angegebene Datei existiert:```
+if(!isset($argv[1]))
+{
+  the(&ldquo;No file specified for import&rdquo;);
+}
+if(!file_exists($argv[1]))
+{
+  the(&ldquo;file &ldquo;.$argv[1].&rdquo; does not exist&rdquo;);
+}
+if(!is_file($argv[1]))
+{
+  the($argv[1].&rdquo; is not a file&rdquo;);
+}</p>
+<pre><code>
+## Einlesen der Datei
+
+Hier wird gezeigt, wie die Datei eingelesen werden kann:
+
+</code></pre>
+<p>$csvimport = new CSVImport($app, $argv[1]);</p>
+<p>class CSVImport
+{
+ var $app;
+ var $file;</p>
+<p>function __construct(&amp;$app, $file)
+ {
+  $this-&gt;app = $app;
+  $this-&gt;file = $file;</p>
+<p>}</p>
+<p>function read()
+ {
+  if($this-&gt;file &amp;&amp; file_exists($this-&gt;file) &amp;&amp; is_file($this-&gt;file))
+  {
+  if (($handle = fopen($this-&gt;file, &ldquo;r&rdquo;))!== FALSE) {
+  $row = 0;
+  while (($csv = fgetcsv($handle, 0, &ldquo;;&rdquo;))!== FALSE) {
+  //$line = iconv(&ldquo;ISO-8859-1&rdquo;, &ldquo;UTF-8&rdquo;, $line); //If script is stored in UTF-8 and CSVin ANSI the string will be converted
+  foreach($csv as $k =&gt; $el)$csv[$k] = iconv(&ldquo;ISO-8859-1&rdquo;,&rdquo;UTF-8&rdquo;, $el);
+  $row++;
+  //$csv = str_getcsv($line,&rdquo;\t&rdquo;,&rdquo;"&ldquo;); //When CSVis tab delimited and individual elements are enclosed with &ldquo;.
+  //$csv = str_getcsv($line, &ldquo;;&rdquo;,&rdquo;&ldquo;); //separated with;.
+  if($row &lt; 5) { //If the header of the file has 4 lines this can be used for debugging e.g. </p>
+<p>} else {
+  //From here on the actual data will be processed</p>
+<p>$this-&gt;process($csv);</p>
+<p>}
+}
+}
+} else {
+  return false;
+}
+}
+ function process(&amp;$csv)
+ {
+  //Process the individual data</p>
+<p>&hellip;
+}
+}</p>
+<pre><code>
+## Verarbeiten der Daten mit Wawifunktionen
+
+Die erpAPI-Klasse bietet viele Funktionen zum Import bzw. zum Verarbeiten der Daten. Im vorliegenden Beispiel wird der Import von Artikeln erklärt:
+
+</code></pre>
+<p>function process(&amp;$csv){//Process the individual data
+if($csv[30]){$data[&lsquo;number&rsquo;]=$csv[2];//If article number is 3rd column$data[&lsquo;name_en&rsquo;]=$csv[0];//If article name is in first column$data[&lsquo;short_text_en&rsquo;]=$csv[22];/<em>$data[&lsquo;description_en&rsquo;] =....
+  $data[&lsquo;manufacturer&rsquo;] =&hellip;
+  $data[&lsquo;manufacturer_link&rsquo;] =&hellip;</em>/$data[&lsquo;weight&rsquo;]=$csv[48];if($scv[32]==&rsquo;D1&rsquo;)$data[&lsquo;sales-tax&rsquo;]=&rsquo;ermaessigt&rsquo;;//data will be saved with the erpAPI
+$artikelid=true;$artikelid=$this-&gt;app-&gt;erp-&gt;InsertUpdateArticle($data);//Now the sales prices
+$pricegross=$csv[30];$nettoprice=$pricegross/(1+($scv[32]==&rsquo;D1&rsquo;?7:19)/100);//print_r($data);//echo $netprice;
+$this-&gt;app-&gt;erp-&gt;AddSellPrice($artikelid,1,0,$nettoprice);}if($csv[31]){//downloadarticle$data2[&lsquo;number&rsquo;]=$csv[2].&rsquo;D&rsquo;;//If item number is 3rd column$data2[&lsquo;name_en&rsquo;]=$csv[0].&rsquo; Download&rsquo;;//If article name in first column is$data2[&lsquo;short_text_en&rsquo;]=$csv[22];/<em>$data[&lsquo;description_en&rsquo;] =....
+  $data[&lsquo;manufacturer&rsquo;] =&hellip;
+  $data[&lsquo;manufacturer_link&rsquo;] =&hellip;</em>/if($scv[32]==&rsquo;D1&rsquo;)$data2[&lsquo;sales_tax&rsquo;]=&rsquo;reduced&rsquo;;if(isset($articleid)){$data2[&lsquo;variante&rsquo;]=1;$data2[&lsquo;variant_of&rsquo;]=$artikelid;}$artikelid2=$this-&gt;app-&gt;erp-&gt;InsertUpdateArticle($data2);$pricegross=$csv[31];$nettoprice=$pricegross/(1+($scv[32]==&rsquo;D1&rsquo;?7:19)/100);//print_r($data2);//echo $netprice;
+$this-&gt;app-&gt;erp-&gt;AddSellPrice($artikelid2,1,0,$nettoprice);
+} 
+}</p>
+<pre><code>
+## Gesamte Datei
+
+Die gesamte Datei gestaltet sich wie folgt:
+
+</code></pre>
+<p>&lt;?php
+// Report simple errors only</p>
+<p>error_reporting(E_ERROR | E_WARNING | E_PARSE);</p>
+<p>include_once(&ldquo;../conf/main.conf.php&rdquo;);
+include_once(&ldquo;../phpwf/plugins/class.mysql.php&rdquo;);
+include_once(&ldquo;../phpwf/plugins/class.string.php&rdquo;);
+include_once(&ldquo;../phpwf/plugins/class.user.php&rdquo;);
+include_once(&ldquo;../www/lib/class.erpapi.php&rdquo;);</p>
+<p>class app_t {
+ var $DB;
+ var $String;
+ var $User;
+}</p>
+<p>$app = new app_t();
+$app-&gt;User = new User($app);
+$conf = new Config();
+$app-&gt;DB = new DB($conf-&gt;WFdbhost,$conf-&gt;WFdbname,$conf-&gt;WFdbuser,$conf-&gt;WFdbpass);
+$app-&gt;string = new string();
+$erp = new erpAPI($app);
+$app-&gt;erp = $erp;</p>
+<p>if(!isset($argv[1]))
+{
+  the(&ldquo;No file specified for import&rdquo;);
+}
+if(!file_exists($argv[1]))
+{
+  the(&ldquo;File &ldquo;.$argv[1].&rdquo; does not exist&rdquo;);
+}
+if(!is_file($argv[1]))
+{
+  the($argv[1].&rdquo; is not a file&rdquo;);
+}</p>
+<p>$csvimport = new CSVImport($app, $argv[1]);
+$csvimport-&gt;read();</p>
+<p>class CSVImport
+{
+ var $app;
+ var $file;</p>
+<p>function __construct(&amp;$app, $file)
+ {
+  $this-&gt;app = $app;
+  $this-&gt;file = $file;</p>
+<p>}</p>
+<p>function read()
+ {
+  if($this-&gt;file &amp;&amp; file_exists($this-&gt;file) &amp;&amp; is_file($this-&gt;file))
+  {
+  if (($handle = fopen($this-&gt;file, &ldquo;r&rdquo;))!== FALSE) {
+  $row = 0;
+  while (($csv = fgetcsv($handle, 0, &ldquo;;&rdquo;))!== FALSE) {
+  //$line = iconv(&ldquo;ISO-8859-1&rdquo;, &ldquo;UTF-8&rdquo;, $line); //If script is stored in UTF-8 and CSVin ANSI the string will be converted
+  foreach($csv as $k =&gt; $el)$csv[$k] = iconv(&ldquo;ISO-8859-1&rdquo;,&rdquo;UTF-8&rdquo;, $el);
+  $row++;
+  //$csv = str_getcsv($line,&rdquo;\t&rdquo;,&rdquo;"&ldquo;); //When CSVis tab delimited and individual elements are enclosed with &ldquo;.
+  //$csv = str_getcsv($line, &ldquo;;&rdquo;,&rdquo;&ldquo;); //separated with;.
+  if($row &lt; 5) { //If the header of the file has 4 lines this can be used for debugging e.g. </p>
+<p>} else {
+  //From here on the actual data will be processed</p>
+<p>$this-&gt;process($csv);</p>
+<p>}
+}
+  return true;
+} else the(&ldquo;Could not open file &ldquo;.$this-&gt;file.&rdquo;! \r\n&rdquo;);
+} else {
+  echo $this-&gt;file.&rdquo; not found\r\n&rdquo;;
+  return false;
+}
+}
+ function process(&amp;$csv)
+ {</p>
+<p>//Process the individual data</p>
+<p>if($csv[30])
+  {</p>
+<p>$data[&lsquo;number&rsquo;] = $csv[2]; //If article number is 3rd column
+  $data[&lsquo;name_en&rsquo;] = $csv[0]; //If article name is in first column
+  $data[&lsquo;short_text_en&rsquo;] = $csv[22];
+  /<em>$data[&lsquo;description_en&rsquo;] =....
+  $data[&lsquo;manufacturer&rsquo;] =&hellip;
+  $data[&lsquo;manufacturer_link&rsquo;] =&hellip;</em>/
+  $data[&lsquo;weight&rsquo;] = $csv[48];
+  if($scv[32] == &lsquo;D1&rsquo;)$data[&lsquo;sales-tax&rsquo;] = &lsquo;ermaessigt&rsquo;;</p>
+<p>//data will be saved with the erpAPI</p>
+<p>$artikelid = true;
+  $artikelid = $this-&gt;app-&gt;erp-&gt;InsertUpdateArticle($data);</p>
+<p>//Now the sales prices</p>
+<p>$pricegross = $csv[30];
+  $nettoprice = $pricegross / (1+($scv[32]==&rsquo;D1&rsquo;?7:19)/100);
+  //print_r($data);
+  //echo $netprice;</p>
+<p>$this-&gt;app-&gt;erp-&gt;AddSellPrice($artikelid,1,0,$nettoprice);
+}
+  if($csv[31])
+  {
+  //downloadarticle
+  $data2[&lsquo;number&rsquo;] = $csv[2].&rsquo;D&rsquo;; //If item number is 3rd column
+  $data2[&lsquo;name_en&rsquo;] = $csv[0].&rsquo; Download&rsquo;; //If article name in first column is
+  $data2[&lsquo;short_text_en&rsquo;] = $csv[22];
+  /<em>$data[&lsquo;description_en&rsquo;] =....
+  $data[&lsquo;manufacturer&rsquo;] =&hellip;
+  $data[&lsquo;manufacturer_link&rsquo;] =&hellip;</em>/
+  if($scv[32] == &lsquo;D1&rsquo;)$data2[&lsquo;sales_tax&rsquo;] = &lsquo;reduced&rsquo;;
+  if(isset($articleid))
+  {
+  $data2[&lsquo;variante&rsquo;] = 1;
+  $data2[&lsquo;variant_of&rsquo;] = $artikelid;
+}
+  $artikelid2 = $this-&gt;app-&gt;erp-&gt;InsertUpdateArticle($data2);
+  $pricegross = $csv[31];
+  $netprice = $pricegross / (1+($scv[32]==&rsquo;D1&rsquo;?7:19)/100);
+  //print_r($data2);
+  //echo $netprice;</p>
+<p>$this-&gt;app-&gt;erp-&gt;AddSellPrice($artikelid2,1,0,$nettoprice);
+}</p>
+<p>}
+}
+```</p>
+<h2 id="import-datei-einmalig-ausfuhren">Import Datei einmalig ausführen<a class="headerlink" href="#import-datei-einmalig-ausfuhren" title="Permanent link">&para;</a></h2>
+<p>Die Datei, welche die CSV Datei verarbeitet (.php Datei), muss im xentral Ordner in den Ordner importer gespeichert sein. Hier werden auch die benötigten CSV Dateien zum Verarbeiten abgelegt. In diesem Beispiel ist die PHP Datei beispielimporter.php und die CSV Datei beispieldaten.csv.</p>
+<p>Im Anschluss wird die Konsole aufgerufen und in den importer Ordner gewechselt, z.B. mit</p>
+<p><code>cd /var/www/html/wawision/importer</code></p>
+<p>Der Pfad kann, je nachdem wie die Verzeichnisstruktur aufgebaut ist, abweichen.</p>
+<p>Mit</p>
+<p><code>php exampleimporter.php exampledata.csv</code></p>
+<p>wird die PHP Datei aufgerufen und der Code darin ausgeführt.</p>
+<p>Die Dateinamen müssen durch die jeweiligen Dateinamen ersetzt werden.</p>
+<p>Es kann sein, dass ein Typ angegeben werden muss, hier wird die Konsole jedoch darauf aufmerksam machen und die möglichen Typen nennen. Dann erfolgt der Aufruf mit</p>
+<p><code>php exampleimporter.php exampletype exampledata.csv</code></p>
+<p>Je nach Dateigröße der CSV Datei, kann der Ablauf mehrere Minuten in Anspruch nehmen. Der Code wurde komplett ausgeführt, wenn in der Kommandozeile wieder der Benutzernamen und Pfad in einer neuen Zeile erscheint.</p>
+<h2 id="import-datei-mehrmals-manuell-ausfuhren">Import Datei mehrmals manuell ausführen<a class="headerlink" href="#import-datei-mehrmals-manuell-ausfuhren" title="Permanent link">&para;</a></h2>
+<p>Die Datei, welche die CSV Datei verarbeitet (.php Datei), muss im xentral Ordner in den Ordner importer abgelegt werden. Hier werden auch die benötigten CSV Dateien zum Verarbeiten abgelegt. In diesem Beispiel ist die PHP Datei beispielimporter.php und die CSV Datei beispieldaten.csv.</p>
+<p>Im Anschluss wird die Konsole aufgerufen und in den importer Ordner gewechselt, z.B. mit</p>
+<p><code>cd /var/www/html/wawision/importer</code></p>
+<p>Der Pfad kann je nachdem wie die Verzeichnisstruktur aufgebaut ist abweichen.</p>
+<p>Mit</p>
+<p><code>php exampleimporter.php</code></p>
+<p>wird die PHP Datei aufgerufen und der Code darin ausgeführt. Der Dateinamen muss durch den jeweiligen Dateinamen ersetzt werden. Je nach Dateigröße der CSV Datei, kann der Ablauf mehrere Minuten in Anspruch nehmen. Der Code wurde komplett ausgeführt, wenn in der Kommandozeile wieder der Benutzernamen und Pfad in einer neuen Zeile erscheint.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

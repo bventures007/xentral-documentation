@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6576078712220 Elemente Der Startseite In Xentral - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>6576078712220 Elemente Der Startseite In Xentral</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>6576078712220 Elemente Der Startseite In Xentral</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p><img alt="menue_002.png" src="https://help.xentral.com/hc/article_attachments/14869056757020" /></p>
+<p>Die Startseite von Xentral NextGenbietet dir schnellen Zugriff auf deine Apps und Einstellungen. Die Startseite ist in mehrere Bereiche unterteilt.</p>
+<h3 id="1-smart-search">(1) Smart Search<a class="headerlink" href="#1-smart-search" title="Permanent link">&para;</a></h3>
+<p>Die<a href="https://help.xentral.com/hc/de/articles/6576094191260#UUID-42f7b663-6ed9-ceaa-3114-1552c7383882">Smart Search</a>ermöglicht eine schnelle und präzise Suche sowie die Erstellung neuer Objekte wie Artikel und Rechnungen, verbessert die Benutzerfreundlichkeit durch Tastenkombinationen und bietet Filteroptionen zur Verfeinerung der Suche. Auch alle Module findest du über diese Suche. Die Suchergebnisse sind abhängig von Benutzertyp und der Rechteeinstellung des Benutzeraccounts.</p>
+<h3 id="2-menu">(2) Menü<a class="headerlink" href="#2-menu" title="Permanent link">&para;</a></h3>
+<p>Die seitliche <strong>Menüleiste</strong> enthält die wichtigsten Bereiche. In den Oberpunkten findest du die wichtigsten und meist genutzten Module und Funktionen.</p>
+<p>Wenn du für dein Businessmodell weitere Module täglich im Gebrauch hast und schneller navigieren möchtest als über die &lsquo;Smart Search&rsquo;, kannst du dir entweder &lsquo;Favoriten&rsquo; auf der Startseite erstellen, oder individuell das Menü auf deine Bedürfnisse anpassen und erweitern. Wie du und dein Team diese Funktion nutzen könnt, findest du hier:<a href="https://help.xentral.com/hc/de/articles/13544849203228#UUID-de8013c2-bb90-42cc-739f-0e92cea2423c">Individuelle Navigationsleiste einrichten</a>.</p>
+<p>Weitere Informationen zur seitlichen Menüleiste findest du im Artikel:<a href="urn:resource:component:57728">???</a>.</p>
+<h3 id="3-einstellungen">(3) Einstellungen<a class="headerlink" href="#3-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Die Einstellungen (= zentrale Systemeinstellungen) sind ebenfalls in der Menüleiste zu erreichen. Sie sind für Benutzer des Typs Admin sichtbar. Hier findest du alle Einstellungen, die für das System vorgenommen werden, einschließlich der Konfiguration von Firmendaten, Anpassung der Belege durch Textbausteine, Belegsprache sowie Nummernkreise für Belege.</p>
+<p>Weitere Informationen zu den Systemeinstellungen findest du im Xentral Einrichtungspfad<a href="https://help.xentral.com/hc/de/articles/11739147629340#UUID-87e4c6b2-d11f-904c-14a3-1d0b986620f4">System und Einstellungen (Einrichtung)</a>oder im Artikel<a href="https://help.xentral.com/hc/de/articles/6576078818076#UUID-3a3caf99-b4d1-05e3-6473-195d17ae19f9">Systemeinstellungen im Überblick</a>.</p>
+<h3 id="4-hilfe">(4) Hilfe<a class="headerlink" href="#4-hilfe" title="Permanent link">&para;</a></h3>
+<p>In der &lsquo;Xentral Hilfe&rsquo; findest du die wichtigsten Links zu Helpcenter, Academy, Community. Ebenso die &lsquo;Servicepartner&rsquo; und die Freischaltung des &lsquo;Service Accounts&rsquo;.</p>
+<p>-<strong>Help center <strong>:</strong> Hier befindest du dich gerade!</strong> Du kannst dieses <a href="https://help.xentral.com/hc/de">Helpcenter</a> nutzen, um Antworten auf deine Fragen zu finden, dich tiefer in Module und Funktionen einzuarbeiten, Anleitungen und Ressourcen zu erhalten und bei Fragen direkt mit unserem Support-Team in Kontakt zu treten.
+-<strong>Xentral academy</strong>: Nutze die <a href="https://xentral.com/de/academy">Xentral Academy</a> mit über 160 spezialisierten Videos, um deine Workflows zu optimieren und dein Team effektiv zu schulen. Diese Ressourcen erleichtern die Einführung neuer ERP-Systeme, das Onboarding neuer Mitarbeitender und helfen, dein Business mit bewährten Methoden und detaillierten Anleitungen zu erweitern.
+-<strong>Xentral Community</strong>: Auf der <a href="https://xentral.community/">Xentral Community-Plattform</a> findest du Informationen über aktuelle Themen und kannst an Diskussionen anderer Nutzer teilnehmen, was dir ermöglicht, Netzwerke zu bilden, Unterstützung zu erhalten und deine Geschäftsprozesse zu optimieren.
+-<strong>Find a service partner</strong>: Wenn dein Unternehmen spezielle Anforderungen hat, die über die Standard Workflows und Basisfunktionalitäten hinausgehen, oder wenn du Unterstützung bei der individuellen Anpassung der Software oder zusätzliche Beratung benötigst, kannst du dich mit einem <a href="https://xentral.com/de/partner">Xentral Partner</a> in deiner Nähe vernetzen. Zudem bieten dir Affiliate Partner wie Berater und Steuerexperten wertvolle Beratungen und Empfehlungen, um sicherzustellen, dass die ERP-Lösung optimal auf deine geschäftlichen Bedürfnisse zugeschnitten ist.
+-<strong>Service account</strong>: Der <a href="https://help.xentral.com/hc/de/articles/6105984311708#UUID-57cda01d-6cb4-0fbf-0220-cef9ef8b7382">Service Account</a> ermöglicht es unserem Customer Support Team auf deine Cloud-basierte Instanz zuzugreifen, um dir bei der Fehlerbehebung effektiv zu helfen. Du kannst diesen Account selbst manuell aktivieren und deaktivieren.</p>
+<h3 id="5-benutzerkonto-mein-account">(5) Benutzerkonto (= Mein Account)<a class="headerlink" href="#5-benutzerkonto-mein-account" title="Permanent link">&para;</a></h3>
+<p>In der Navigationsleiste findest du im Bereich deines personalisierten Icons Optionen wie „Meine Lizenz“, „Mein Abonnement“ und „Mein Account“ (inklusive der individuellen Benutzereinstellungen). Dieser Bereich dient als zentraler Zugriffspunkt für alle persönlichen und spezifischen Einstellungen des Nutzers.</p>
+<p>-<strong>Appstore</strong>: Im Xentral Appstore findest du alle Funktionen und Module. Wenn du ein Modul suchst, dass nicht im Hauptmenü gelistet ist kannst du es hier finden. Module, die nicht in deinem aktuellen Plan (= Xentral Paket) enthalten sind kannst du hier auch testen.
+-<strong>Mein Abonnement</strong>: Informationen zu <a href="https://help.xentral.com/hc/de/articles/10597989845660#UUID-d8691953-58e1-6ee3-576e-3a007d645925">deinem aktuell gebuchten Paket</a> (= Plan).
+-<strong>Meine Lizenz</strong>: Deine <a href="https://help.xentral.com/hc/de/articles/360021418240#UUID-0a421593-aebd-15c6-aa84-1c549f65cb9b">Lizenznummer</a> ist eine eindeutige Kennung, die deinem Kundenkonto zugeordnet ist und deinen damit verbundenen Abonnements oder Verträgen.
+-<strong>Systemmeldungen</strong>: Hier kannst du <a href="https://help.xentral.com/hc/de/articles/360016725020#UUID-7c21ff2b-2ee6-8bf0-a7cf-f6faf8638ffe">Systemmeldungen (= System Health)</a> einsehen und Informationen über den aktuellen Status von Funktionen, Modulen und Automatisierungsaktivitäten in deiner Software erhalten. Außerdem hast du die Möglichkeit, die Anzeige von Systemmeldungen zu steuern und anzupassen.
+-<strong>Kontoeinstellungen</strong>: In diesem Bereich kannst du dein persönliches Benutzerkonto einstellen. Jeder Benutzer in Xentral hat die Möglichkeit, hier die <a href="https://help.xentral.com/hc/de/articles/8080124976796#UUID-a9d262fc-0225-c611-9529-9920c012e3dd">Systemsprache</a>, <a href="https://help.xentral.com/hc/de/articles/9903566653340#UUID-658e8991-6a83-1949-0623-49c115cf4649">E-Mail und Passwort</a> und die <a href="https://help.xentral.com/hc/de/articles/13544849203228#UUID-de8013c2-bb90-42cc-739f-0e92cea2423c">Konfiguration der eigenen Navigationsleiste</a> einzustellen.
+-<strong>Ausloggen</strong>: Hier kannst du deine Sitzung als Benutzer in Xentral beenden und dich ausloggen.
+-<strong>Datenschutz</strong>: Allgemeine Datenschutzinformationen zu Xentral.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Klicke auf deinen Benutzernamen, um Zugriff auf die meisten administrativen Einstellungen zu erhalten. Weitere Informationen zum Administrations-Menü findest du im???Artikel.</p>
+</blockquote>
+<h3 id="6-meine-bookmarks-favoriten">(6) Meine Bookmarks (= Favoriten)<a class="headerlink" href="#6-meine-bookmarks-favoriten" title="Permanent link">&para;</a></h3>
+<p>Im Bereich &lsquo;<strong>Meine Bookmarks <strong>&rsquo; auf der Startseite von Xentral kannst du Lesezeichen für interne Seiten und externe Webseiten als Buttonmenü abspeichern, indem du auf das Lesezeichen-Symbol klickst, einen Namen eingibst und auf &lsquo;</strong> Erstellen</strong>&rsquo; klickst.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>DasVideo um Favoriten anzulegen findest du hier.</p>
+</blockquote>
+<h3 id="7-xentral-versionsnummer-und-plan">(7) Xentral Versionsnummer und Plan<a class="headerlink" href="#7-xentral-versionsnummer-und-plan" title="Permanent link">&para;</a></h3>
+<p>In der Navigationsleiste findest du die Information über deine aktuelle Xentral Softwareversion sowie den von dir gebuchten Plan (= Paket).</p>
+<h3 id="startseite-dashboard-mit-business-data-insights-empfehlungen">Startseite: Dashboard mit Business Data Insights, Empfehlungen<a class="headerlink" href="#startseite-dashboard-mit-business-data-insights-empfehlungen" title="Permanent link">&para;</a></h3>
+<p>Business Data Insights- Die Startseite enthält die wichtigsten Geschäftsdaten in der Form von Widgets. Die Informationen werden aus deiner Xentral-Instanz gesammelt und du kannst zwischen dem aktuellen und dem letzten Monat vergleichen. Sind für den aktuellen Monat keine Daten vorhanden, werden die Widgets nicht angezeigt, bis neue Daten erstellt werden. Die Widgets sind nur für Benutzer mit Administratorrechten sichtbar.</p>
+<p>Empfehlungen- Im BereichEmpfehlungenerhältst du Informationen über ausstehende Aufgaben in Xentral.</p>
+<h3 id="startseite-launchpad">Startseite: Launchpad<a class="headerlink" href="#startseite-launchpad" title="Permanent link">&para;</a></h3>
+<p>Du hast im Launchpad Zugriff auf alle Funktionalitäten von Xentral. Die Funktionalitäten sind auf dieselbe Weise aufgeteilt wie im seitlichen Menü.</p>
+<p>Die verfügbaren Apps können sich je nach verwendetem Xentral-Plan unterscheiden.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

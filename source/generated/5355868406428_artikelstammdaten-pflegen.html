@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5355868406428 Artikelstammdaten Pflegen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>5355868406428 Artikelstammdaten Pflegen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>5355868406428 Artikelstammdaten Pflegen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Deine Artikelstammdaten kannst du an folgender Stelle pflegen:</p>
+<p>Stammdaten &gt; Artikel &gt; Öffne die gewünschten Artikelstammdaten</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Alle in dieser Anleitung beschriebenen Felder sind optional, soweit sie nicht spezifisch als obligatorisch gekennzeichnet sind. Wir empfehlen jedoch, dass du alle für dich relevanten Felder bestmöglich ausfüllst, da viele Felder auch in anderen Funktionalitäten Anwendung finden und du dir damit die Arbeit im Nachgang erleichterst.</p>
+</blockquote>
+<p>Die meisten der in diesem Dokument beschriebenen Reiter bieten dir eine Exportoption der jeweiligen Daten über Schaltflächen an, die du unter den Tabellen findest:</p>
+<ul>
+<li>Zwischenablage</li>
+<li>CSV</li>
+<li>Excel</li>
+<li>PDF</li>
+<li>Drucken</li>
+</ul>
+<p>Mehr zum Thema Export von Artikelstammdaten erfährst du im Artikel<a href="https://help.xentral.com/hc/de/articles/5355851775004#UUID-df5aaaed-9b2f-bf83-4b4b-3d1a7a9755c1">Artikelstammdaten exportieren</a>.</p>
+<p>Ebenso bieten dir die meisten Reiter verschiedene Filter- und Suchoptionen.</p>
+<p>Folgende Such- und Filteroptionen stehen zur Verfügung:</p>
+<ul>
+<li>Filteroptionen über der Tabelle, die aktiviert oder deaktiviert werden können:</li>
+<li>Spaltenfilter unter den Überschriften von Tabellen, in denen du einen (Teil-)Suchbegriff eingeben kannst:</li>
+<li>Das FeldSuchenrechts über der Tabelle, in dem du einen (Teil-)Suchbegriff eingeben kannst:</li>
+</ul>
+<p>Die beschriebenen Such- und Filteroptionen kannst du kombinieren.</p>
+<h2 id="details">Details<a class="headerlink" href="#details" title="Permanent link">&para;</a></h2>
+<p>Eine Beschreibung wie du dieses Reiter mitsamt seinen Unterregistern füllst, findet du im Artikel<a href="https://help.xentral.com/hc/de/articles/5355868375324#UUID-c9cdd935-de37-0d83-e09e-9583c906530b">Artikelstammdaten anlegen</a>.</p>
+<h2 id="texte">Texte<a class="headerlink" href="#texte" title="Permanent link">&para;</a></h2>
+<p>Du kannst in Xentral unterschiedliche Texte pro Artikel pro Online-Shop anlegen. Außerdem kannst du für jede Belegsprache eigene Texte definieren.</p>
+<p>Um einen neuen (fremdsprachlichen) Text anzulegen:</p>
+<ol>
+<li>Klicke auf+Neuen Text anlegen, um einen neuen (fremdsprachlichen) Artikeltext anzulegen. DasBearbeiten-Formular öffnet sich.</li>
+<li>Stelle sicher, dass beiAktivein Häkchen gesetzt ist, damit die neuen Texte verwendet werden können.</li>
+<li>Wähle aus der Auswahlliste des FeldesSprachedie Sprache, in denen der Text erstellt werden soll. Diese Inhalte werden dann in Belegen mit dieser Sprache eingefügt.</li>
+<li>Wähle im FeldShopden Online-Shop, in denen du diesen Text verwenden möchtest.</li>
+<li>Gib die (fremdsprachliche) Bezeichnung deines Artikels in das FeldArtikelein.</li>
+<li>Gib in das FeldKurztexteinen passenden Kurztext ein.</li>
+<li>Gib eine Beschreibung des Artikels in das FeldArtikelbeschreibungein.</li>
+<li>Gib unterOnline-Shop Texteeine Beschreibung deines Artikels in das FeldArtikelbeschreibungein.</li>
+<li>Gib in die FelderMeta-Title,Meta-DescriptionundMeta-Keywordsdie entsprechenden Informationen ein.</li>
+<li>Setze unterKatalogein Häkchen beiKatalogartikel, wenn es sich um einen Katalogartikel handelt. Gib danach eineBezeichnungfür deinen Katalogartikel und eine Beschreibung deines Artikel in das FeldKatalogtextein.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Der definierte Text wird in der Übersicht im ReiterTexteangezeigt.</p>
+<p>UnterAdministration &gt; Shop Schnittstelle &gt; Online-Shops &gt; Reiter Shopfunktionenwird dir in der ZeileFremdsprachenangezeigt, ob dein(e) Shop(s) Fremdsprachen unterstützen.</p>
+<h2 id="verknupfungen">Verknüpfungen<a class="headerlink" href="#verknupfungen" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Abschnitt des Artikels beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>Im ReiterVerknüpfungenkannst du Dateien und Links mit deinem Artikel verknüpfen, z.B. Technische Datenblätter oder einen Link zum entsprechenden Artikel auf der Herstellerseite, etc. Alle vorhandenen Verknüpfungen werden dir in der Übersicht angezeigt.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Für Einträge, die mit einem roten Stern gekennzeichnet sind, ist eine interne Bemerkung vorhanden.</p>
+</blockquote>
+<p>Um eine neue Verknüpfung anzulegen:</p>
+<ol>
+<li>Klicke auf+Neuer Eintrag. Das FormularBearbeitenöffnet sich.</li>
+<li>Gib eine Bezeichnung für deine Verknüpfung in das FeldBezeichnungein.</li>
+<li>Gib den Pfad zu der Datei, die du verknüpfen möchtest, in das FeldDateipfadein.</li>
+<li>Gib bei Bedarf ergänzende Kommentare und Bemerkungen in das FeldInterne Bemerkungein.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Die neue Verknüpfung wird in der Tabelle angezeigt.</p>
+<p>Externe Links kannst du direkt mit einem Klick auf den Dateipfad in der SpalteDateipfadöffnen. Bei lokalen Links klickst du auf die SchaltflächePfad kopieren. Ein direktes Öffnen von lokalen Links in Browsern ist aus technischen Gründen nicht möglich.</p>
+<h2 id="dateien">Dateien<a class="headerlink" href="#dateien" title="Permanent link">&para;</a></h2>
+<p>Im ReiterDateienkannst du Dateien, wie z.B. Dokumente, Bilder und Artikelbilder hinterlegen. Die hier erfassten Artikelbilder kannst du dann in deiner Artikelübersicht anzeigen lassen oder in deinen Online-Shop exportieren.</p>
+<p>Wenn du Artikelbilder hochladen willst, empfehlen wir dir, vorab den Artikel<a href="https://help.xentral.com/hc/de/articles/360020498940#UUID-129b4c96-c86b-29be-cdd3-5a9e88e2267b">Artikelbilder verwenden</a>zu lesen.</p>
+<p>Um eine neue Datei hinzuzufügen:</p>
+<ol>
+<li>Klicke aufneue Datei anlegenunter der Reiterübersicht.</li>
+<li>Ziehe die gewünschte Datei in den BereichDateien hier einfügenoder klicke aufDatei auswählenund wähle die gewünschte Datei auf deinem PC aus.</li>
+<li>Gib eine eindeutige Bezeichnung deiner Datei in das Feld <strong>Titel</strong> ein.</li>
+<li>Gib eine Beschreibung deiner Datei in das Feld <strong>Beschreibung</strong> ein.</li>
+<li>Wähle im Feld <strong>Stichwort</strong> ein Stichwort für deine Datei aus. Folgende Optionen stehen zur Auswahl:
+  - Standard Artikelbild (Shopbild)
+  - Standard Gruppenbild
+  - Etikettenbild
+  - Sonstiges Bild
+  - Datenblatt
+  - Druckbild (300dpi)
+  - Zertifikat Anhang (PDF)
+  - Sonstige Datei
+  - Deckblatt
+  - Anhang</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Auswahl des Stichworts definiert, wo im System deine Datei weiterverarbeitet werden kann.</p>
+</blockquote>
+<p>Über die Stapelverarbeitung kannst du eine ZIP-Datei mit mehreren Dateien erstellen oder die Dateien als Sammel-PDF öffnen.</p>
+<p>Um eine ZIP-Datei mit mehreren Dateien zu erstellen oder eine Sammel-PDF mit meinen Dateien zu öffnen:</p>
+<ol>
+<li>Wähle die gewünschten Dateien, indem du ein Häkchen am Anfang der jeweiligen Zeilen setzt. Alternativ klicke aufalle markierenunterStapelverarbeitung.</li>
+<li>Klicke auf die SchaltflächeZIP erstellenoderSammel-PDF öffnen.</li>
+</ol>
+<h2 id="stuckliste">Stückliste<a class="headerlink" href="#stuckliste" title="Permanent link">&para;</a></h2>
+<p>Der ReiterStücklistewird nur angezeigt, wenn der Artikel im ReiterDetailsalsStücklisteoder alsJust-in-Time Stücklistegekennzeichnet wurde.</p>
+<p>In diesem Reiter werden dir alle Artikel angezeigt, die Teil der Stückliste sind und in welcher Menge sie erforderlich sind.</p>
+<p>Wie du Stücklisten und Just-in-Time-Stücklisten anlegst und pflegst, erfährst du im Artikel<a href="https://help.xentral.com/hc/de/articles/360019652739#UUID-18545569-5289-eec8-d211-563ad49820ec">Stückliste</a>.</p>
+<h2 id="rohstoffe">Rohstoffe<a class="headerlink" href="#rohstoffe" title="Permanent link">&para;</a></h2>
+<p>Der ReiterRohstoffewird nur angezeigt, wenn du für diesen Artikel die OptionRohstofflisteim ReiterDetailsaktiviert hast. Im Reiter Rohstoffe kannst du deine Rohstoffe hinzufügen.</p>
+<p>Die Rohstoffliste dient als extra Information, da in der Regel Stücklisten für Rezepte, Produkte etc. angelegt werden und kann z.B. bei fertigen Gütern als extra Inhaltsbeschreibung verwendet werden.</p>
+<p>Um einen neuen Rohstoff zu hinterlegen:</p>
+<ol>
+<li>Klicke aufneue Position anlegenunter der Reiterübersicht.</li>
+<li>Wähle im FeldArtaus, ob es sich bei diesem Rohstoff um Material oder Kosten handelt.</li>
+<li>Wähle den passenden Artikel, gib die Menge ein und füge eine Beschreibung hinzu.</li>
+<li>Setze ein Häkchen beiIn Lagerwert einrechnen, damit der Rohstoffwert in den Lagerwert mit einberechnet wird.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Der neue Rohstoff wird in der Tabelle angezeigt.</p>
+<h2 id="freifelder">Freifelder<a class="headerlink" href="#freifelder" title="Permanent link">&para;</a></h2>
+<p>In diesem Reiter können fehlende Spracheinträge nachgeladen werden.</p>
+<p>Weitere Informationen zum Thema Freifelder findest du im Artikel<a href="https://help.xentral.com/hc/de/articles/360017612120#UUID-f5e6761f-c5ea-14bd-a6df-670042e64518">Freifelder</a>.</p>
+<h2 id="eigenschaften">Eigenschaften<a class="headerlink" href="#eigenschaften" title="Permanent link">&para;</a></h2>
+<p>Im ReiterEigenschaftenfindest du alle dem Artikel zugewiesenen Eigenschaften wie z.B. Gewicht oder Farbe mitsamt genauerer Definition.</p>
+<p>Hier kannst du auch:</p>
+<ul>
+<li>Neue Artikeleigenschaften hinzufügen</li>
+<li>Neue Übersetzungen von Artikeleigenschaften hinzufügen</li>
+<li>Artikeleigenschaft-Vorlagen übernehmen</li>
+</ul>
+<p>Eigenschaften können in diesem Reiter angelegt oder per Standardimport hochgeladen werden. Informationen dazu, wie du deine Artikeleigenschaften importierst, findest du im Abschnitt<a href="https://help.xentral.com/hc/de/articles/360016758939#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574_id_360016758939_id_h_01F6SKKMT64G4M5ZVKYY1RMB53">Eigenschaften</a>des Import/Export-Artikels.</p>
+<p>Die Eigenschaften können an einige Online-Shops übertragen werden. UnterAdministration &gt; Shop Schnittstelle &gt; Online-Shops &gt; Reiter Shopfunktionenwird dir in der ZeileEigenschaftenangezeigt, ob dein(e) Shop(s) Eigenschaften unterstützen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst vorab Vorlagen für Artikeleigenschaften, die Artikeleigenschaften selber und Übersetzungen für Artikeleigenschaften anlegen, um deine Eigenschaften schneller definieren zu können. Wie du das machst, erfährst du im ArtikelArtikeleigenschaften anlegen und pflegen.</p>
+</blockquote>
+<p>Um eine neue Artikeleigenschaft hinzuzufügen:</p>
+<ol>
+<li>Klicke unterAktionenauf+Neue Eigenschaft.</li>
+<li>Gib die gewünschte Eigenschaft und den gewünschten Wert ein oder wähle diese über das Lupen-Symbol. Bei Bedarf kannst zusätzlich noch eine Einheit wählen.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Die ausgewählte Eigenschaft wird im ReiterEigenschaftenangezeigt.</p>
+<p>Um eine Vorlage mit verschiedenen Artikeleigenschaften hinzuzufügen:</p>
+<ol>
+<li>Klicke unterAktionenauf das Lupen-Symbol im FeldVorlage wählenund wähle die gewünschte Vorlage.</li>
+<li>Klicke aufLaden.</li>
+</ol>
+<p>Die in der ausgewählten Vorlage definierten Eigenschaften werden in der Tabelle angezeigt.</p>
+<p>Um Übersetzungen von Artikeleigenschaften hinzuzufügen:</p>
+<ol>
+<li>Klicke auf+Neue Übersetzung. Das Bearbeitungsformular wird angezeigt. Das FeldArtikelwird automatisch gefüllt.</li>
+<li>Wähle im BereichVondie Ausgangssprache und gib die Eigenschaft und den dazugehörigen Wert in die entsprechenden Felder ein.</li>
+<li>Wähle im BereichNachdie Zielprache und gib die Eigenschaft und den dazugehörigen Wert in die entsprechenden Felder ein.</li>
+<li>Wähle im FeldShopden Online-Shop aus, in dem du die Übersetzung verwenden möchtest.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Ergebnis:</p>
+<p>Für jede Eigenschaften kannst du mehr als eine Übersetzung anlegen.</p>
+<ul>
+<li>Hast du eine vorhandene Eigenschaft übersetzt, wird die Übersetzung als separate Zeile unter der bestehenden Eigenschaft hinzugefügt.</li>
+<li>Hast du eine noch nicht vorhandene Eigenschaft übersetzt, werden sowohl die Eigenschaft in der Ausgangs- als auch in der Zielsprache untereinander hinzugefügt.</li>
+</ul>
+<h2 id="einkauf">Einkauf<a class="headerlink" href="#einkauf" title="Permanent link">&para;</a></h2>
+<p>Im ReiterEinkaufkannst du die Einkaufspreise für den Artikel bei deinen unterschiedlichen Lieferanten finden oder definieren. Dabei kannst du auch Staffelpreise definieren, indem du mehrere Einträge für deine(n) Lieferanten mit den unterschiedlichen Preisen anlegst. Dies hilft dir beim Einkaufsvorschlag, da dort die unterschiedlichen Einträge angezeigt werden und du direkt den Überblick darüber hast, ab welcher Menge dein Einkaufspreis sinkt.</p>
+<p>Zusätzlich kannst du auf Basis des Preises einer Verpackungseinheit den Einzelpreis deines Artikel berechnen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst Einkaufspreise auch (nachträglich) importieren. Sind bereits Einkaufspreise für den Artikel vorhanden, kannst du beim Import festlegen, dass die bestehenden Einkaufspreise am Vortag des Imports ihre Gültigkeit verlieren. So kannst du sicherstellen, dass sich die Einkaufspreise nicht überschneiden. Informationen zum Import von Einkaufspreise und der passenden Importvorlage findest du im ArtikelImport von Stammdaten und Unternehmensdaten (Datenimport).</p>
+</blockquote>
+<p>Um einen neuen Einkaufspreis für einen Lieferanten anzulegen:</p>
+<ol>
+<li>Klicke im UnterregisterÜbersichtunterAktionenauf+Neuer Einkaufspreis. Das Bearbeitungsformular öffnet sich.</li>
+<li>Wähle im BereichLieferantden Lieferanten aus (obligatorisch). Möchtest du diesen Lieferanten als Standardlieferanten kennzeichnen, setze ein Häkchen beiStandardlieferant.</li>
+<li>Gib dieBezeichnungund Artikelnummer des Artikels bei deinem Lieferanten ein.</li>
+<li>Gib im BereichEinkaufspreisim FeldAb Mengedie Menge ein, ab der ein bestimmter Einkaufspreis gilt (obligatorisch).</li>
+<li>Gib im FeldPreis pro Stückden Stückpreis des Artikels ein und wähle die gewünschte Währung (obligatorisch). Du kannst den Stückpreis alternativ über die Verpackungseinheit berechnen lassen (siehe Schritt 7). Über die Schaltflächen+19.00und+7.00kannst du den eingegebenen Preis um den jeweiligen Mehrwertsteuersatz erhöhen, über die Schaltflächen-19.00und-7.00wird der Preis um den jeweiligen Mehrwertsteuersatz reduziert. Der Preis wird direkt im FeldPreis pro Stückangepasst.</li>
+<li>Gib im FeldPreisanfrage vomdas Datum deiner Preisanfrage beim Lieferanten ein.</li>
+<li>Gib in das FeldVerpackungseinheit (Menge in VPE)die Verpackungseinheit ein, d.h. die Menge der Artikel in der Verpackung. Hast du keinen Wert in das FeldPreis pro Stückeingegeben, kannst du mit einem Klick aufEinzelstückpreis berechnenden Einzelpreis automatisch berechnen lassen. Du wist aufgefordert, den Gesamtpreis der Verpackungseinheit einzugeben und das System berechnet daraus den Einzelpreis und übernimmt ihn automatisch in das FeldPreis pro Stück.</li>
+<li>Setze ein Häkchen beiPreis nicht berechnet aus Währungstabelle, wenn der Preis nicht über die Währungstabelle umgerechnet werden soll.</li>
+<li>Gib in das FeldGültig bisein, bis zu welchem Datum dieser Einkaufspreis gilt.</li>
+<li>Gib im BereichWeitere InformationenFolgendes ein:
+  - Im FeldLagerbestand Lieferantden vorhandenen Lagerbestand und im Feldamdas Datum, an dem dieser Lagerbestand erfasst wurde
+  - Im FeldLieferzeit Standarddie Standard-Lieferzeit des Artikels in Tage oder Wochen.
+  - Im FeldSicherheitslagerden Bestand des Artikels im Sicherheitslager
+  - Im FeldLieferzeit Aktuelldie aktuelle Lieferzeit des Artikels in Tage oder Wochen.</li>
+<li>Besteht ein Rahmenvertrag, setze ein Häkchen beiRahmenvertragund gib in den FeldernVonundBisdie Laufzeit der Rahmenvereinbarung ein sowie im FeldMengedie im Rahmenvertrag festgelegte Menge. Rahmenverträge werden im ModulRahmenvertrag (Lieferanten)erfasst. Mehr Informationen zum Thema Rahmenverträge mit Lieferanten findest du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016722020#UUID-018da8bb-960a-fe85-d0cf-7c696a8afed9">Abrufmenge und Rahmenvertrag (Lieferant)</a>.</li>
+<li>Gibt es noch andere Dinge, die du zur internen Verarbeitung erfassen willst, gib diese in das FeldInterner Kommentarein.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Dein neuer Einkaufspreis wird in der Tabelle angezeigt.</p>
+<h2 id="artikelbaum">Artikelbaum<a class="headerlink" href="#artikelbaum" title="Permanent link">&para;</a></h2>
+<p>Im ReiterArtikelbaumkannst du sehen, welchen Artikelkategorien bzw. -unterkategorien des<a href="https://help.xentral.com/hc/de/articles/13755178574748#UUID-eb54ff2b-e31a-4c0a-9e21-47b7c87bc184">Artikelbaums</a>der Artikel zugewiesen ist.</p>
+<p>Hier kannst du deinen Artikel einer bestimmten Kategorie zuweisen oder eine Zuweisung zu einer Kategorie entfernen. Klicke dazu aufBearbeitung aktivierenund wähle oder entferne die Zuweisung zu einer der verfügbaren Kategorien. Deine Änderung wird automatisch gespeichert.</p>
+<h2 id="kalkulation">Kalkulation<a class="headerlink" href="#kalkulation" title="Permanent link">&para;</a></h2>
+<p>Im ReiterKalkulationkannst du für einen Artikel einen kalkulierten Einkaufspreis berechnen, der sowohl den Einkaufspreis als auch die Einkaufskosten berücksichtigt. Bei Artikeln, die eine Stückliste darstellen, kannst du hier auch die Einkaufspreise der einzelnen Komponenten einsehen und Kalkulationen erstellen.</p>
+<p>Der Reiter enthält die untergeordneten Reiter:</p>
+<ul>
+<li>Details</li>
+<li>Preisentwicklung</li>
+<li>Diagramm</li>
+<li>Einstellungen <strong>Der untergeordnete Reiter Details</strong></li>
+</ul>
+<p>In diesem Reiter kannst du anfallende Kosten erfassen:</p>
+<ul>
+<li>Einmalige Kosten</li>
+<li>Kosten pro Stück</li>
+<li>Kosten pro Los</li>
+<li>Kosten pro Einkauf</li>
+</ul>
+<p>Um Kosten zu erfassen:</p>
+<ol>
+<li>Klicke unterAktionenauf+Neuen Eintrag anlegen.</li>
+<li>Gib dieBezeichnungdeiner Kosten an und im FeldDatum, wann sie angefallen sind.</li>
+<li>Wähle dieArtder Kosten aus.</li>
+<li>Klicke auf die SchaltflächenEK ladenoderKalk. EK ladenum die Einkaufskosten oder die kalkulierten Einkaufskosten zu laden.</li>
+<li>Gib dieKostenundWährungein sowie dieMenge, für die diese Kosten angefallen sind.</li>
+<li>Gib im FeldInterner Kommentarweitere intern relevante Informationen ein.</li>
+<li>Setze ein Häkchen beiIn EK-Berechnung einschließen, wenn diese Kosten bei der Berechnung des Einkaufspreises berücksichtigt werden soll.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Dein Kosteneintrag wird in der Tabelle angezeigt.</p>
+<p>Über den BereichNeuen Kalkulierten EK-Preis ausrechnenkann der kalkulierte Einkaufspreis für die Deckungsbeitrag-Berechnung in den Artikel übernommen werden.</p>
+<p>Du kannst eine Kalkulation bearbeiten, indem du unterMenüauf dasStift-Symbol klickst.</p>
+<p>Du kannst eine Kalkulation archivieren, indem du unterMenüauf dasrote Verkehrsschild-Symbol klickst. Die archivierte Kalkulation wird nicht mehr in der Übersicht angezeigt. Archivierte Kalkulationen kannst du über den FilterArchivierte Kosten anzeigenwieder sichtbar machen.</p>
+<p>Du kannst eine Kalkulation löschen, indem du unterMenüauf dasKreuzklickst. Eine Wiederherstellung deiner Kalkulation ist dann nicht mehr möglich.</p>
+<p>Bei einem Produktionsartikel können die Einkaufskosten der Rohstoffe über die SchaltflächeEK ladenin der Fertigware als Kosten in die Kalkulation übernommen werden. So kannst du den Deckungsbeitrag für deinen Produktionsartikel errechnen und als kalkulierten Einkaufspreis übernehmen.</p>
+<p><strong>Der untergeordnete Reiter Preisentwicklung</strong></p>
+<p>Im ReiterPreisentwicklungkannst du manuell den kalkulierten Einkaufspreis und das Datum, wann dieser errechnet wurde, eingeben und so eine Preishistorie erhalten.</p>
+<p>Um einen kalkulierten Preis hinzuzufügen:</p>
+<ol>
+<li>Klicke unterAktionenauf+Neuer Eintrag. Das Bearbeitungsformular öffnet sich.</li>
+<li>Gib den kalkulierten Einkaufspreis ein und das Datum, an dem dieser errechnet wurde.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Der Preiseintrag wird in der Tabelle angezeigt.</p>
+<p>Du kannst einen Preiseintrag bearbeiten, indem du unterMenüauf dasStift-Symbol klickst.</p>
+<p>Du kannst einen Preiseintrag löschen, indem du unterMenüauf dasKreuzklickst.</p>
+<p><strong>Der untergeordnete Reiter Diagramm <strong>Der ReiterDiagrammstellt die Preisentwicklung des Artikels bildlich dar. </strong> Der untergeordnete Reiter Einstellungen</strong></p>
+<ol>
+<li>Setze ein Häkchen beiEinkaufspreis beim Abschließen der Bestellung in Kalkulation übernehmen, wenn die Einkaufskosten beim Ändern des Bestellstatus auf den Status Abgeschlossen des Artikels erfasst werden sollen,</li>
+<li>Setze ein Häkchen beiKalkulierter EK Preis automatisch nach FIFO Prinzip der letzten Eingänge den Mittelwert neu berechnen, um auszuwerten, wieviel Lagerbestand des Artikels im Lager verfügbar ist. Nur die letzen Bestellungen werden berücksichtigt, bis die Menge addiert den Lagerbestand ergibt.
+  Beispiel:</li>
+</ol>
+<p>Verfügbarer Bestand ist 150, Bestellung 1 01.08.2018=100 Artikel, Bestellung 2 02.08.2018=200 Artikel, Bestellung 3 03.08.2018=100 Artikel</p>
+<p>Mit dieser Option werden die Preise von Bestellung 3 mit der Gewichtung 2/3 + die Preise von Bestellung 2 mit der Gewichtung 1/3 errechnet.</p>
+<p>Ohne diese Option würde auch Bestellung 1 mit gewertet und die Gewichtungen wäre dann 1/4 zu 1/2 zu 1/4.</p>
+<h2 id="verkauf">Verkauf<a class="headerlink" href="#verkauf" title="Permanent link">&para;</a></h2>
+<p>Im ReiterVerkaufkannst du Verkaufspreise für deinen Artikel festlegen. Dabei kannst du unterschiedliche Preise definieren, z.B. kunden- oder gruppenspezifische Preise oder auch einen empfohlenen Verkaufspreis, der auf Basis verschiedener Einstellungen berechnet wird.</p>
+<p>Um einen neuen Verkaufspreis anzulegen:</p>
+<ol>
+<li>Klicke unterAktionenauf+Neuer Verkaufspreis. Das Bearbeitungsformular öffnet sich.</li>
+<li>Wähle im FeldKonditionaus, ob der Verkaufspreis für einen Kunden oder eine Gruppe gelten soll.</li>
+<li>Je nach Auswahl im FeldKonditionwird dir das FeldKundeoderGruppeangezeigt. Wähle hier den Kunden oder die Gruppe aus, für den du einen Verkaufspreis definieren möchtest. Möchtest du einen allgemeinen Verkaufspreis für alle Kunden festlegen, lasse dieses Feld leer.</li>
+<li>Gib in das FeldArtikelnummer bei Kundedie Artikelnummer beim Kunden ein, wenn bekannt.</li>
+<li>Gib im BereichVerkaufspreisim FeldAb Mengedie Menge ein, ab der ein bestimmter Verkaufspreis gilt (obligatorisch).</li>
+<li>Gib im FeldPreisden <strong>netto Preis</strong> des Artikels ein und wähle die gewünschteWährungim Feld rechts daneben aus (obligatorisch). Über die Schaltflächen+19.00und+7.00kannst du den eingegebenen Preis um den jeweiligen Mehrwertsteuersatz erhöhen, über die Schaltflächen-19.00und-7.00wird der Preis um den jeweiligen Mehrwertsteuersatz reduziert. Der Preis wird direkt im FeldPreisangepasst.</li>
+<li>Gib in die FelderGültig abundGültig bisden Zeitraum ein, in dem dieser Verkaufspreis gültig sein soll..</li>
+<li>Gib in das FeldVerpackungseinheit (Menge in VPE)die Verpackungseinheit ein, d.h. die Menge der Artikel in der Verpackung.</li>
+<li>Setze ein Häkchen beiPreis nicht berechnet aus Währungstabelle, wenn der Preis nicht über die Währungstabelle umgerechnet werden soll.</li>
+<li>Setze ein Häkchen beiIn Staffelpreisen in Belegen ausblenden, wenn der Preis bei Staffelpreisen nicht im Beleg angezeigt werden soll.</li>
+<li>Gibt es noch andere Dinge, die du zur internen Verarbeitung erfassen willst, gib diese in das FeldInterner Kommentarein.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Dein neuer Verkaufspreis wird in der Tabelle angezeigt.</p>
+<p><img alt="artikel_verkaufspreis_001.png" src="https://help.xentral.com/hc/article_attachments/15515046731548" /></p>
+<p>Du kannst einen Verkaufspreis bearbeiten, indem du unterMenüauf dasStift-Symbol klickst.</p>
+<p>Du kannst einen Verkaufspreis deaktivieren, indem du unterMenüauf dasrote Verkehrsschild-Symbol klickst. Der deaktivierte Verkaufspreis wird nicht mehr in der Übersicht angezeigt. Deaktivierte Verkaufspreise kannst du über den Filteralte Verkaufspreise anzeigenwieder sichtbar machen.</p>
+<p>Du kannst einen Verkaufspreis löschen, indem du unterMenüauf dasKreuzklickst. Eine Wiederherstellung deines Verkaufspreises ist dann nicht mehr möglich.</p>
+<p>Du kannst einen Verkaufspreis kopieren, indem du unterMenüauf dasdoppelte Quadrat-Symbol</p>
+<p><img alt="DoubleSquareIcon.png" src="https://help.xentral.com/hc/article_attachments/5355878681500" /></p>
+<p>klickst. Diese Option ist besonders dann hilfreich, wenn du die meisten der Informationen übernehmen möchtest.</p>
+<p>Xentral berechnet auf Basis der von dir in den Grundeinstellungen definierten Marge (Administration &gt; System &gt; Grundeinstellungen &gt; Reiter Steuer/ Währung &gt; Bereich Währung) einen empfohlenen Verkaufspreis und eine Aufschlagsrechnung bezogen auf den Verkaufspreis.</p>
+<table>
+<thead>
+<tr>
+<th>Berechnung empfohlener Verkaufspreis</th>
+<th>Berechnung Aufschlagspreis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Einkaufspreis x (1+definierte Marge/100)</td>
+<td>Einkaufspreis / (100-Marge) x 100</td>
+</tr>
+<tr>
+<td>Bsp: Einkaufspreis = 10€ Standardmarge = 50% Empf. VKP = 10 x (1+50/100) = 15€</td>
+<td>Bsp: Einkaufspreis = 10€ Standardmarge = 50% Aufschlagspreis = 10 / (100 - 50) * 100 = 20€</td>
+</tr>
+</tbody>
+</table>
+<p>Der berechnete empfohlene Verkaufspreis und der berechnete Aufschlagspreis werden unter der Tabelle angezeigt.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es kann Situationen geben, in denen du einen Standardpreis definierst, der unter einem Kunden- oder Gruppenpreis liegt. Möchtest du, dass der teurere Preis trotzdem angewendet wird, stelle sicher, dass beiAuswahl günstigster Verkaufspreis(Administration &gt; Einstellungen &gt; System &gt; Grundeinstellungen &gt; System) kein Häkchen gesetzt ist.</p>
+</blockquote>
+<h2 id="statistik">Statistik<a class="headerlink" href="#statistik" title="Permanent link">&para;</a></h2>
+<p>Im ReiterStatistikfindest du eine Übersicht darüber, in welcher Art von Belegen der Artikel in welchen Mengen und welchem Zeitraum erfasst wurde.</p>
+<h2 id="lager">Lager<a class="headerlink" href="#lager" title="Permanent link">&para;</a></h2>
+<p>Im ReiterLagerkannst du deinen Artikel manuell ein- oder ausgelagern, die Grundeinstellungen der Verpackungseinheit deines Artikels anpassen oder den Artikel an einem anderen Lagerplatz einlagern.</p>
+<p>Zusätzlich werden dir folgende Informationen zum Artikel angezeigt:</p>
+<ul>
+<li>
+<p>Lagerbestand: In diesem Abschnitt siehst du die Menge deines Lagerbestands in unterschiedlichen Lägern
+  In der unteren Zeile findest du weitere Lagerdaten zu diesem Artikel:</p>
+</li>
+<li>
+<p>Lagerbestand: Der Lagerbestand zeigt die Menge an, die du laut Xentral aktuell auf Lager hast. Der Wert errechnet sich, indem die Lagerbestände aller Läger addiert werden.</p>
+</li>
+<li>Reserviert: Diese Information zeigt an, wie viel Stück deines Artikels reserviert sind (z.B. durch Aufträge oder durch gestartete Produktionen). Die detailierte Angabe der Reservierungen findest du im BereichReservierungen dieses Reiters.</li>
+<li>Offene Aufträge: Hier wird die Menge angezeigt, die du für deine offenen Aufträge benötigst, einschließlich Teillieferungen. Aufträge, die abgeschlossen oder storniert wurden, sind nicht enthalten. Die Aufträge sind alle noch nicht im Status &lsquo;abgeschlossen&rsquo;, unabhängig ob sie geliefert wurden oder nicht.</li>
+<li>Verkaufte: Der Unterschied zwischen einem &ldquo;offenen Auftrag/Verkaufte&rdquo; zu reservierten Aufträgen ist der Auftragsversand. Die Auftragsbestätigungen, die bei &ldquo;Offene Aufträge&rdquo; im Reiter Lager auftauchen, sind bereits an den Kunden versendet worden. Die Aufträge unter &ldquo;Reservierungen&rdquo; sind lediglich im System erfasst und freigegeben worden.</li>
+<li>Berechneter Bestand: Der berechnete Bestand zeigt die Menge an, die noch theoretisch im Lager wäre, wenn alle offenen Aufträge bedient werden würden. Die Menge berechnet sich durch &ldquo;Lagerbestand - offene Aufträge = berechneter Bestand&rdquo;.</li>
+<li>Verkaufbare: Dabei handelt es sich um die Menge, die du laut dem berechneten Bestand noch verkaufen kannst.</li>
+<li>Berechneter Bestand mit offenen Bestellungen: Dieser Wert spiegelt den Bestand deines Lager und addiert deine offenen Bestellungen (berechneter Bestand + offene Bestellungen). Mithilfe dieses Werts kannst du feststellen, ob du deinen Lagerbestand weiter auffüllen solltest.</li>
+<li>Reservierungen</li>
+<li>Offene Aufträge</li>
+<li>Offene Produktionen</li>
+<li>Offene Bestellungen</li>
+<li>Lagerplatzbewegungen</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Mehr zum Thema Reservierungen und wann ein Artikel als Reserviert erfasst wird, erfährst du im ArtikelReservierungen.</p>
+</blockquote>
+<p>Um die Grundeinstellungen deiner Verpackungseinheit (VPE) anzupassen:</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Anpassung der VPE ist nur möglich, wenn das zusätzliche ModulAmazon Seller Appgebucht wurde.</p>
+</blockquote>
+<ol>
+<li>Klicke im BereichLagerbestandauf dasStift-Symbol in der SpalteVPE. Das FormularVPEs ändernwird angezeigt.</li>
+<li>Gib hier die Menge des Artikels in der Verpackungseinheit, Gewicht und Abmessungen ein oder lade die gewünschten Informationen über eine Vorlage.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Um deinen Artikel ein- oder auszulagern:</p>
+<ol>
+<li>Klicke im BereichLagerbestandauf dasgrüne Plus-Symbol unterAktionum den Artikel manuell einzulagern oder auf dasrote Minus-Symbol, um ihn auszulagern.</li>
+<li>Wähle aus, welche Menge des Artikels ein- oder ausgelagert werden soll und klicke aufOK.</li>
+<li>Gib einen Grund für die Einlagerung/Auslagerung ein und klicke aufOK.</li>
+</ol>
+<p>Die eingegebene Menge des Artikels wird ein- oder ausgelagert und die Lagerzahlen angepasst.</p>
+<p>Um deinen Artikel an einem anderen Lagerplatz einzulagern:</p>
+<ol>
+<li>Klicke im BereichLagerbestandauf die SchaltflächeArtikel in neuen Lagerplatz einlagern. Das Einlagerungsformular wird angezeigt.</li>
+<li>Die FelderVon,Menge,Artikelnummer,Bezeichnung,BildundRegalvorschlagwerden durch Xentral auf Basis des bestehenden Artikeldatensatzes vorgefüllt. Passe dieMengean auf die Menge, die du umlagern möchtest.</li>
+<li>Wähle das neue Regal im FeldRegal.</li>
+<li>Wähle bei Bedarf einProjektund einenGrund.</li>
+<li>Klicke aufWeiter.</li>
+</ol>
+<p>Das neue Lagerregal wird mit der aktuellen Artikelmenge im BereichLagerbestandangezeigt.</p>
+<h2 id="verfugbarkeit">Verfügbarkeit<a class="headerlink" href="#verfugbarkeit" title="Permanent link">&para;</a></h2>
+<p>Im ReiterVerfügbarkeitkannst du auf Tages-, Wochen- oder Monatsbasis die Verfügbarkeit deines Artikels nachvollziehen. Dabei kannst du deine Anzeige auf Basis der folgenden Belege basieren:</p>
+<ul>
+<li>Offene Angebote</li>
+<li>Offene Aufträge</li>
+<li>Bestellungen von Aufträgen</li>
+</ul>
+<p>Durch Auswahl/Abwahl des entsprechenden Kontrollkästchens eines Belegs kannst du die jeweiligen Belege aus deiner Anzeige ein- oder ausblenden.</p>
+<h2 id="in-stuckliste">In Stückliste<a class="headerlink" href="#in-stuckliste" title="Permanent link">&para;</a></h2>
+<p>Ist dein Artikel Teil einer Stückliste, wird im ReiterIn Stücklisteaufgezeigt, in welchen Stücklisten dein Artikel vorhanden ist und in welcher Menge.</p>
+<h2 id="etikett">Etikett<a class="headerlink" href="#etikett" title="Permanent link">&para;</a></h2>
+<p>Im ReiterEtikettkannst du Etiketten für deinen Artikel erstellen und ausdrucken und Druckeinstellungen definieren.</p>
+<p>Du kannst vorab Etikettenlayouts unterAdministration &gt; System &gt;Etikettenanlegen, die dann in diesem Reiter ausgewählt werden können. Wie du Etikettenlayouts anlegst, erfährst du im Artikel<a href="https://help.xentral.com/hc/de/articles/360017573119#UUID-fe2f31f1-3109-8b78-4b73-57cb4e78138d">Etikettenlayout erstellen</a>.</p>
+<p>Um ein neues Etikett zu erstellen:</p>
+<ol>
+<li>Klicke unterAktionenauf+Neues Etikett. Das Bearbeitungsformular wird geöffnet.</li>
+<li>Wähle das gewünschte Etikett aus der Auswahlliste des FeldesEtikett.</li>
+<li>Wähle dieArtdes Etiketts, d.h. wo und unter welchen Umständen das Etikett gedruckt wird. Folgende Optionen stehen zur Auswahl:
+  - Versandzentrum: Das Etikett wird nach dem Scan im Versandzentrum automatisch auf dem vorausgewählten Drucker gedruckt
+  - Wareneingang: Das Etikett wird bei Wareneingang automatisch gedruckt wird
+  - Produktion: Das Etikett wird automatisch in die Produktion übernommen</li>
+<li>Gib dieMengeder zu druckenden Etiketten ein und wähle denDrucker, auf dem die Etiketten gedruckt werden sollen.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Das neu erstellte Etikett wird in der Tabelle angezeigt.</p>
+<p>Um ein neues Etikett zu drucken:</p>
+<ol>
+<li>Im BereichAuswahl Etikettengib die zu druckendeMengean Etiketten ein, wähle die passende Etikettenvorlage im FeldEtikettund wähle den gewünschtenDrucker.</li>
+<li>Klicke aufDrucken.</li>
+</ol>
+<p>Das gewünschte Etikett wird gedruckt.</p>
+<p>Zusätzlich kannst du folgende Einstellungen im BereichEinstellungvornehmen:</p>
+<ul>
+<li>Etikett-Autodruck: Wird in Verbindung mit dem Modul Schneller Wareneingang genutzt. Die Etiketten werden beim Einlagern direkt am eingestellten Drucker ausgedruckt.</li>
+<li>Etikett für Autodruck: Auswahl des Etiketts für den Autodruck</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst auch Bilder auf dein Etikett drucken. Welche Bedingungen dafür erfüllt sein müssen, erfährst duhier.</p>
+</blockquote>
+<h2 id="bestellungen">Bestellungen<a class="headerlink" href="#bestellungen" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Damit dieser Reiter angezeigt wird, musst du vorab einen Einkaufspreis für deinen Artikel hinterlegen.</p>
+</blockquote>
+<p>Im ReiterBestellungenfindest du eine Übersicht über alle Bestellungen deines Artikels.</p>
+<p>Du kannst Bestellungen auf deinen Computer herunterladen, indem du in derMenü-Spalte auf dasPDF-Symbol klickst.</p>
+<p>Du kannst eine Bestellungen öffnen, indem du in derMenü-Spalte auf dasStift-Symbol klickst.</p>
+<h2 id="belege">Belege<a class="headerlink" href="#belege" title="Permanent link">&para;</a></h2>
+<p>Im ReiterBelegefindest du alle Belege aufgelistet, in denen der Artikel vorkommt.</p>
+<p>Du kannst Belege auf deinen Computer herunterladen, indem du in derMenü-Spalte auf dasPDF-Symbol klickst.</p>
+<p>Du kannst einen Beleg öffnen, indem du in derMenü-Spalte auf dasStift-Symbol klickst.</p>
+<h2 id="zertifikate-legacy">Zertifikate (Legacy)<a class="headerlink" href="#zertifikate-legacy" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Abschnitt des Artikels beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>Im ReiterZertifikatekannst du alle Zertifikate für einen Artikel einsehen und neue Zertifikate hinzufügen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Hilfe zum Ausfüllen des Formulars erhältst du imZertifikatgenerator-Formular in der Legende.</p>
+</blockquote>
+<p>Um ein neues Zertifikat anzulegen:</p>
+<ol>
+<li>Klicke aufNeues Zertifikat. DasZertifikatgenerator-Formular wird angezeigt. Das FeldArtikelist automatisch mit der Artikelnummer deines Artikels gefüllt.</li>
+<li>Ist das Zertifikat für einen Kunden gedacht, wähle im FeldKundeden Kunden aus, für den das Zertifikat erstellt werden soll.</li>
+<li>Gib je nach Bedarf eine deutsche und/oder eine englische Beschreibung für das Zertifikat in die entsprechenden Felder ein.</li>
+<li>Möchtest du eine Bemerkung zur Bestellung des Zertifikats hinzufügen, gib diese in das FeldBestellanmerkung Deutsch/Englischein.</li>
+<li>Füge weitere Anmerkungen zum internen Gebrauch in das FeldInterne Anmerkungein.</li>
+<li>Setze ein Häkchen beimit Unterschrift, wenn das Zertifikat mit einer Unterschrift versehen werden soll.</li>
+<li>Setze ein Häkchen beimit Date of Sale/Stamp, wenn das Zertifikat mit dem Verkaufsdatum oder einem Stempel versehen werden soll.</li>
+<li>Setze ein Häkchen beimit Angehängten Zertifikaten + Stückliste, wenn dem Zertifikat weitere Zertifikate und/oder eine Stückliste angehängt werden sollen.</li>
+<li>Gib den Preis für den Kunden in das FeldPreis Euroein. Definiere die weiteren Kostenfelder je nach Bedarf.</li>
+<li>Gib den Absender des Zertifikats in das FeldAbsenderein.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Das erstellte Zertifikat wird im ReiterZertifikateangezeigt.</p>
+<p>Du kannst ein Zertifikat bearbeiten, indem du unterMenüauf dasStift-Symbol klickst. ImZertifikatgenerator-Bearbeitungsformular kannst du dir das deutsche oder englische Zertifikat auch als PDF-Vorschau anzeigen lassen, indem du aufPDF Vorschau (DE)oderPDF Vorschau (EN)klickst. Alternativ kannst du eine PDF für den Kunden hinterlegen, indem du aufPDF beim Kunden Speichern (DE)oderPDF beim Kunden Speichern (EN)klickst.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst Zertifikate nicht direkt im ReiterZertifikatelöschen. Um ein Zertifikat zu löschen, öffne die Zertifikatsgenerator-App (App Center &gt; System &gt; Zertifikatsgenerator) und klicke in derMenü-Spalte des Zertifikats auf dasKreuz. Einmal gelöscht kann das Zertifikat nicht wiederhergestellt werden.</p>
+</blockquote>
+<h2 id="chargen-mindesthaltbcharge-mindesthalt">Chargen / Mindesthaltb.+Charge / Mindesthalt.<a class="headerlink" href="#chargen-mindesthaltbcharge-mindesthalt" title="Permanent link">&para;</a></h2>
+<p>Wähle im FeldChargenverwaltungim BereichSonstige Einstellungenim ReiterDetailsdie Optionaktivieren, um den ReiterChargenanzuzeigen.</p>
+<p>Setze ein Häkchen beiMindesthaltbarkeitsdatumim BereichSonstige Einstellungenim ReiterDetails, um den ReiterMindesthalt.anzuzeigen.</p>
+<p>Wähle im FeldChargenverwaltungim BereichSonstige Einstellungenim ReiterDetailsdie Optionaktivierenund setze ein Häkchen beiMindesthaltbarkeitsdatum, um den ReiterMindesthaltb.+Chargeanzuzeigen.</p>
+<p>In den genannten Reitern werden die vorhandenen Chargen und/oder erfassten Mindesthaltbarkeitsdaten angezeigt. Fehlende Einträge kannst du über die entsprechenden Felder über der Tabelle nachtragen und mit einem Klick auffehlende Einträge anlegenspeichern.</p>
+<h2 id="fremdnummern">Fremdnummern<a class="headerlink" href="#fremdnummern" title="Permanent link">&para;</a></h2>
+<p>Im ReiterFremdnummernfindest du alle Fremdnummern zu diesem Artikel und du kannst neue Fremdnummern hinzufügen.</p>
+<p>Fremdnummern werden angewendet, wenn Artikel aus Fremdsystemen (z.B. Online-Shops) mit einer abweichenden Artikelnummer an Xentralübertragen werden. Diese Nummer kannst du verwenden, um deinen Artikel in Xentral mit deinem Artikel im Fremdsystem zu verknüpfen.</p>
+<p>Um eine neue Fremdnummer anzulegen:</p>
+<ol>
+<li>Wähle im BereichAnlegeneine passende Bezeichnung im FeldBezeichnungaus.</li>
+<li>Gib die Fremdnummer aus dem Fremdsystem in das FeldFremdnummerein.</li>
+<li>Wähle den entsprechenden Online-Shop im FeldShopaus.</li>
+<li>Setze ein Häkchen beiBarcodescanner, damit Fremdnummern auch über den Barcodescanner erfasst werden können. Auf diese Weise werden Fremdnummern auch in der POS, dem Versandzentrum, beim Einfügen in Belegen und in der App Artikel QuickScan mit einem Scanner erkannt.</li>
+<li>Stelle sicher, dass bei Aktiv ein Häkchen gesetzt ist, damit die Fremdnummer verwendet werden kann.</li>
+<li>Klicke aufSpeichern, um deine Fremdnummer zu speichern. Alternativ kannst du die Fremdnummer auch speichern, indem du eines der Felder mit der Enter-Taste bestätigst.</li>
+</ol>
+<p>Die neue Fremdnummer wird in der Tabelle angezeigt.</p>
+<p>Du kannst eine Fremdnummer bearbeiten, indem du in derMenü-Spalte auf dasStift-Symbol klickst.</p>
+<p>Du kannst eine Fremdnummer löschen, indem du in derMenü-Spalte auf dasKreuzklickst.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Xentral sucht beim Import zunächst nach passenden Fremdnummern, danach nach passenden Artikelnummern, dann nach Herstellernummern und zuletzt nach der EAN.</p>
+<p><strong>Tipp</strong></p>
+<p>Möchtest du gleichzeitig viele Artikel mit Fremdnummern anlegen, machst du das am besten über den Stammdaten-Import. Mehr zum Stammdaten-Import erfährst du im ArtikelImport von Stammdaten und Unternehmensdaten (Datenimport).</p>
+</blockquote>
+<h2 id="crossselling">Crossselling<a class="headerlink" href="#crossselling" title="Permanent link">&para;</a></h2>
+<p>Im ReiterCrosssellingwerden alle Verknüpfungen des Artikels mit einem Crossselling-Artikel angezeigt. Crossselling-Artikel sind Artikel, die in ihrer Art ähnlich zum Originalartikel sind oder Zubehör darstellen. Du kannst in diesem Reiter auch eine Crossselling-Verknüpfung anlegen.</p>
+<p>Um eine neue Crossselling-Verknüpfung anzulegen:</p>
+<ol>
+<li>Klicke auf+Neuen Artikel eintragen. Das FormularArtikeleinstellungenwird geöffnet.</li>
+<li>Wähle im FeldCrossselling Artikelden Artikel aus, den du mit deinem Artikel verknüpfen möchtest.</li>
+<li>Wähle im FeldShopden Online-Shop aus, in den die Crossselling-Verknüpfung exportiert werden soll.</li>
+<li>Wähle im FeldArtaus, ob es sich bei dem Produkt um einen ähnlichen Artikel handelt oder um Zubehör.</li>
+<li>Gib im FeldReihenfolgedie Reihenfolge ein, in der die Artikel angezeigt werden sollen. Dies ist wichtig, wenn es mehrere Crossselling-Artikel zu einem Originalartikel gibt.</li>
+<li>Gib in das FeldBemerkungweitere Informationen ein, die du für wichtig hältst.</li>
+<li>Setze ein Häkchen beiGegenseitig zuweisen, wenn eine Beziehung in beide Richtungen exportiert werden soll, auch wenn es in Xentral nur eine explizite Zuweisung in eine Richtung gibt. Bei Zubehör nicht erforderlich.</li>
+<li>Aktiviere das KontrollkästchenAktiv, um das Crossselling zu aktivieren.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Die Crossselling-Verknüpfung wird in der Tabelle angezeigt.</p>
+<p>Du kannst eine Crossselling-Verknüpfung bearbeiten, indem du unterMenüauf dasStift-Symbol klickst.</p>
+<p>Du kannst eine Crossselling-Verknüpfung löschen, indem du unterMenüauf dasKreuzklickst.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22351508561308 Ups Oauth Anbinden - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>22351508561308 Ups Oauth Anbinden</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>22351508561308 Ups Oauth Anbinden</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit der Versandart <strong>UPS (OAuth)</strong> in Xentral bringst du deine Sendungen zuverlässig und flexibel auf den Weg. In diesem Artikel beschreiben wir die Einrichtung der Versandart <strong> UPS (OAuth)</strong> in Xentral.</p>
+<p>Du erfährst Schritt für Schritt, wie du die Anbindung vornimmst, Service- und Package-Codes korrekt auswählst, Zolldokumente automatisch erzeugst und Tracking-Informationen an deine Shops zurückspielst. So behältst du jederzeit den Überblick über deine Sendungen und stellst sicher, dass deine Kunden ihre Bestellungen pünktlich erhalten.</p>
+<p>Die Versandart <strong>UPS (OAuth)</strong> eignet sich besonders für dich, wenn du internationale Märkte bedienst, zeitkritische Sortimente führst oder hochwertige Produkte vertreibst, die besonders schnell und zuverlässig deine Endkunden erreichen sollen.</p>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<p>DieXentralVersandart <strong>UPS (OAuth)</strong> bietet dir die folgenden Features:</p>
+<ul>
+<li>Nationaler und internationaler Versand</li>
+<li>Rückmeldung der Trackingnummer an deine Online-Shops und Verkaufsplattformen</li>
+<li>Automatischer Ausdruck von Versandlabels direkt aus Xentral</li>
+<li>Angabe des Produkttyps bei internationalen Sendungen (z. B. Standard, Express, Saver)</li>
+<li>Unterstützung von Paket-, Express- und Sperrgut-Sendungen</li>
+<li>Automatische Generierung und Übergabe der Zollinformationen für Sendungen außerhalb der EU</li>
+<li>Nutzung von Zusatzservices wie Nachnahme, Samstagszustellung, Transportversicherung, Signature Services</li>
+</ul>
+<h2 id="ups-oauth-an-xentral-anbinden">UPS (OAuth) an Xentral anbinden<a class="headerlink" href="#ups-oauth-an-xentral-anbinden" title="Permanent link">&para;</a></h2>
+<p>Um <strong>UPS (OAuth)</strong> als Versandart zu nutzen, legst du zunächst eine neue Versandart in Xentral an. Anschließend aktivierst du diese mit deinen vorliegenden Vertragsdaten von UPS. Es braucht nur einige Minuten und wenige Schritte, bis du deine ersten Produkte mit UPS versenden kannst!</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Bevor du mit der Einrichtung der Versandart in Xentral startest, stelle sicher, dass du die OAuth-Authentifizierung in deinem UPS-Account aktiviert hast. Folge dazu denAnweisungen auf der UPS Entwicklerwebseite. Logge dich anschließend auf derUPS Entwicklerwebseiteein und aktiviere OAuth für dein Konto.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um die Versandart <strong>UPS (OAuth)</strong> in Xentral einzurichten.</p>
+<ol>
+<li>Suche mithilfe der Smart Search nach <strong>Versandarten</strong>.</li>
+<li>Klicke oben rechts auf <strong>+ NEU</strong>.</li>
+<li>Klicke auf <strong>UPS (OAuth)</strong>.</li>
+<li>Nimm die Einstellungen wie in der Tabelle unten beschrieben vor.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bezeichnung</strong></td>
+<td>Gib eine Bezeichnung für die Versandart ein, die später bei der Auftragsbearbeitung in Xentral angezeigt wird. Die Bezeichnung ist nur für dich und deine Mitarbeiter sichtbar. Achte darauf, dass jede Bezeichnung nur einmal in Xentral vorkommt, damit die Versandart stets eindeutig identifiziert werden kann.</td>
+</tr>
+<tr>
+<td><strong>Typ <strong></td>
+<td>Dies ist eine interne Feldbezeichnung, die für die Zuordnung bei deinen Online-Shops und anderen Verkaufsplattformen benötigt wird. ⚠️</strong> Wichtig:</strong> Verändere diese Bezeichnung nicht!</td>
+</tr>
+<tr>
+<td><strong>Modul</strong></td>
+<td>Wähle das passende Modul aus dem Dropdown-Menü. Dabei muss der Modulname identisch zum Namen der Versandart sein, die du gerade einrichtest.</td>
+</tr>
+<tr>
+<td><strong>Projekt <strong></td>
+<td></strong> Optional</strong>: Gib eine Projektzuordnung an. Diese wird benötigt, wenn du die Versandart auf einen bestimmten Verkaufskanal oder ein Projekt (beispielsweise eine spezifische Niederlassung) beschränken möchtest.</td>
+</tr>
+<tr>
+<td><strong>Aktiv <strong></td>
+<td>Aktiviere diese Option, sobald du alle benötigten Einstellungen für die Versandart vorgenommen hast. 💬</strong> Anmerkung:</strong> Nicht mehr verwendete Versandarten kannst du später deaktivieren. Beachte jedoch, dass deaktivierte Versandarten nur noch in bereits erstellten Belegen angezeigt werden. In neu erstellten Belegen und in Benutzerflächen wie der Auftragsübersicht oder in den Kundendaten steht eine deaktivierte Versandart nicht mehr zur Auswahl zur Verfügung. Du kannst Versandarten auch löschen. Dadurch wird jedoch auch die Versandhistorie gelöscht. Deshalb solltest du nur fälschlicherweise angelegte Versandarten löschen, die du nicht produktiv genutzt hast.</td>
+</tr>
+<tr>
+<td><strong>Kein Portocheck</strong></td>
+<td>Mit dieser Option kannst du den Porto-Check im Auftrag deaktivieren. Bleibt der Porto-Check aktiv, zeigt die Auftragsampel ein rotes Symbol für den Portocheck an, falls nicht mindestens ein Portoartikel in den Auftragspositionen enthalten ist. So wird verhindert, dass bei manuell angelegten Aufträgen der Portoartikel vergessen wird. Überlege anhand deiner eigenen Workflows und Arbeitsweise mit Xentral, ob du diese Option aktivieren oder deaktivieren willst. Legst du typischerweise viele Aufträge manuell in Xentral an, kann es sinnvoll sein, diese Option nicht zu aktivieren, sodass gerade bei hochpreisigen Artikeln oder internationalen Sendungen das Porto immer zuverlässig am Auftrag hinterlegt wird.</td>
+</tr>
+<tr>
+<td><strong>Drucker Versandlabel</strong></td>
+<td>Wähle aus dem Dropdown-Menü den Drucker aus, der standardmäßig für die Versandlabels genutzt werden soll. Beachte, dass hier nur Drucker auswählbar sind, die du bereits <a href="https://help.xentral.com/hc/de/articles/360016756299#UUID-24ed3a57-a4df-da7a-08f6-141949df3855">in Xentral eingerichtet</a> hast. Je nachdem, wie und wo der Versandprozess in deinem Unternehmen abläuft, kannst du hier genau den Drucker auswählen, den du benötigst - egal ob direkt am Schreibtisch oder am Packtisch im Lager.</td>
+</tr>
+<tr>
+<td><strong>Drucker Export <strong></td>
+<td></strong> Nur bei internationalem Versand relevant</strong>: Wähle aus dem Dropdown-Menü den Drucker aus, der standardmäßig für Zollpapiere (CN23) genutzt werden soll.</td>
+</tr>
+<tr>
+<td><strong>Versand-E-Mail <strong></td>
+<td>Lege hier fest, nach welchen Regeln Versandbenachrichtigungen per E-Mail an deine Kunden verschickt werden sollen, sobald sich die Sendung auf dem Weg befindet. Die folgenden drei Optionen stehen dir zur Verfügung:</strong> Standardverhalten <strong>: Die Logistikeinstellungen aus dem Projekt werden verwendet. Diese Einstellungen nimmst du im Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; Projekte &gt; Projekt öffnen &gt; Tab: Einstellungen &gt; Tab: Logistik / Versand </strong> vor. In den Bereichen <strong>Stufe 1 (Pick/Kommissionierung)</strong> und <strong>Stufe 2 (Pack)</strong> definierst du über die Checkboxen namens <strong>E-Mail </strong>, bei welchen Schritten deine Kunden über den Stand der Auftragsbearbeitung informiert werden.</strong> Keine Versandmail </strong>: Für diese Versandart wird keine Versandinformation per E-Mail versendet <strong>Eigene Textvorlage </strong>: Für diese Versandart wird die ausgewählte Textvorlage per E-Mail versendet. Diese Vorlage musst du vorab im Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; Belege &gt; Textvorlagen </strong> erstellen. Anschließend wählst du die gewünschte Vorlage im Dropdown-Menü <strong>Textvorlage</strong> aus. Durch diese Auswahl werden die Logistikeinstellungen des Projekts für diese Versandart nicht genutzt.</td>
+</tr>
+<tr>
+<td><strong>Lieferungen unterstützt <strong></td>
+<td>Diese Option wird bei der Anlage der Versandart standardmäßig aktiviert. Sobald du alle weiteren benötigten Einstellungen vorgenommen und die Versandart auf</strong> Aktiv</strong> gestellt hast, kannst du die Versandart in Aufträgen, Lieferscheinen und im Versandzentrum auswählen.</td>
+</tr>
+<tr>
+<td><strong>Retouren unterstützt</strong></td>
+<td>Aktiviere diese Option, um zu erlauben, dass Retouren zu Aufträgen angelegt werden können, die ursprünglich mit dieser Versandart erstellt wurden.</td>
+</tr>
+<tr>
+<td><strong>UPS OAuth-Verbindung <strong></td>
+<td>Klicke neben dieser Option auf</strong> Verbinden </strong>. Du wirst zu deinem UPS-Konto weitergeleitet. Logge dich ein und folge den Anweisungen. Anschließend wirst du automatisch zu Xentral zurück geleitet. Neben der Einstellung <strong>UPS OAuth-Verbindung </strong> wird nun statt <strong>Verbinden </strong> das Wort <strong>Info</strong> angezeigt.</td>
+</tr>
+<tr>
+<td><strong>Bevorzugte Rücksendemethode</strong></td>
+<td>Wähle eine bevorzugte Versandart für Retouren aus. Sobald in Xentral manuell eine Retoure zu einem Auftrag mit der vorliegenden Versandart angelegt ist, wird die hier gewählte Versandart automatisch im Retourenauftrag vorausgewählt. Diese Einstellung greift nur in Fällen der manuellen Retourenerstellung.</td>
+</tr>
+<tr>
+<td><strong>Absender Name / Ansprechpartner / Straße / Hausnummer / PLZ / Ort / Bundesstaat / Land / E-Mail / Telefon /Internet / Steuerkennung <strong></td>
+<td>Gib im Feld</strong> Absender Name </strong> deinen Firmennamen ein und trage in den restlichen Feldern die Adressdaten deines Unternehmens ein. Bei der <strong>Steuerkennung </strong> handelt es sich um die Umsatzsteuer-ID deines Unternehmens. Im Feld <strong>Internet </strong> kannst du die E-Mail-Adresse des Kundenservice angeben. Die Angaben, die du hier machst, erscheinen als Absenderadresse auf deinen Versandlabels. 💬<strong>Anmerkung:</strong> Das Land muss als 2-stelliger ISO-Code angegeben werden, also z.B. DE, falls das Absenderland Deutschland ist.</td>
+</tr>
+<tr>
+<td><strong>Standardgewicht <strong></td>
+<td></strong> Optional</strong>: Welches Gewicht haben die Sendungen typischerweise, die du mit dieser Versandart verschickst? Gib hier ein Standardgewicht in kg ein. Dieses Gewicht wird jedes Mal bei der Erstellung eines Versandlabels an den Versanddienstleister übermittelt, soweit es nicht vor dem Druck des Versandlabels manuell in Xentral geändert wird.</td>
+</tr>
+<tr>
+<td><strong>Gewicht anpassen in <strong></td>
+<td>Zur Erstellung des Versandlabels wird eine genaue Berechnung des Gesamtgewichts der Sendung inklusive Verpackungsmaterial benötigt. Xentral berechnet das Sendungsgewicht automatisiert im Hintergrund, indem das Gesamtgewicht der im Auftrag enthaltenen Positionen addiert wird. Mit der vorliegenden Option wird diesem Gewicht ein von dir festgelegtes Gewicht hinzugefügt. So entsteht ein Gesamtwert für die Versandanmeldung, der bei der Erstellung des Versandlabels berücksichtigt und automatisch an den Versanddienstleister gemeldet wird. Entscheide, ob das zusätzliche Gewicht des Verpackungsmaterials in</strong> kg </strong> oder <strong>%</strong> angegeben werden soll. Mithilfe der folgenden Einstellung namens <strong> Gewicht anpassen um</strong> definierst du das zusätzliche Gewicht genauer.</td>
+</tr>
+<tr>
+<td><strong>Gewicht anpassen um <strong></td>
+<td>Mithilfe dieser Einstellung bestimmst du deine Angaben für die Einstellung</strong> Gewicht anpassen in</strong> näher. Gib hier das zusätzliche Sendungsgewicht je nach vorheriger Auswahl in Kilogramm oder Prozent ein. Für welche Berechnungsart und welche konkreten Werte du dich entscheidest, hängt von der Verpackungsart deiner Produkte und deinen verwendeten Verpackungsmaterialien ab.</td>
+</tr>
+<tr>
+<td><strong>Länge / Breite / Höhe</strong></td>
+<td>Gib die Standardmaße deiner Sendungen in cm an. Diese Maße werden dann an den Versanddienstleister übermittelt, falls sie nicht beim Druck des Versandlabels manuell in Xentral geändert werden.</td>
+</tr>
+<tr>
+<td><strong>Standard Service Code</strong></td>
+<td>Gib den Standard Service Code ein, den du im UPS-Kundenportal findest. Ein Standard Service Code entspricht dabei einem UPS-Produkt, das du gebucht hast. Hast du also beispielsweise das Produkt für die Standard- und auch Expresslieferung bei UPS gebucht, legst du für jedes Produkt eine eigene Versandart in Xentral an. Die folgende Liste enthält die am häufigsten verwendeten Standard Service Codes: - Express = 07<br>- Expedited = 08<br>- UPS Standard = 11<br>- Express Plus = 54<br>- UPS Saver = 65<br>- UPS Express 12:00 = 74</td>
+</tr>
+<tr>
+<td><strong>Standard Service Description <strong></td>
+<td>Gib die Standard Service Description aus dem UPS-Kundenportal ein, z.B.</strong> UPS Standard</strong>.</td>
+</tr>
+<tr>
+<td><strong>Standard Package Code <strong></td>
+<td>Gib den Standard Package Code aus dem UPS-Kundenportal an. Der Code</strong> 02</strong> ist in den allermeisten Anwendungsfällen zutreffend, denn er bedeutet, dass du deine Ware in deiner eigenen Verpackung an UPS übergibst. Falls du UPS-eigene Verpackungsoptionen vertraglich gebucht hast, findest du den benötigten Standard Package Code im UPS-Kundenportal.</td>
+</tr>
+<tr>
+<td><strong>Standard Package Description <strong></td>
+<td></strong> Optional <strong>: Die Standard Package Description kannst du frei vergeben, z.B. </strong> Customer Supplied</strong>.</td>
+</tr>
+<tr>
+<td><strong>Referenz 1 auf Label <strong></td>
+<td>Bestimme mithilfe der angezeigten Variablen, ob du zusätzliche Informationen auf dem UPS-Versandlabel abdrucken möchtest. Du kannst auch einen Freitext eingeben. Folgende Variablen stehen dir zur Verfügung: {LIEFERSCHEIN}, {AUFTRAG}, {PROJEKT},{IHREBESTELLNUMMER}, {INTERNET}. ⚠️</strong> Wichtig:</strong> Es darf nur eine der Variablen verwendet werden!</td>
+</tr>
+<tr>
+<td><strong>Referenz 2 auf Label <strong></td>
+<td>Bestimme mithilfe der angezeigten Variablen, ob du zusätzliche Informationen auf dem UPS-Versandlabel abdrucken möchtest. Du kannst auch einen Freitext eingeben. Nutze diese Option, wenn eine einzige Referenz (Einstellung</strong> Referenz 1 auf Label <strong>) für deinen Anwendungsfall nicht ausreicht. Folgende Variablen stehen dir zur Verfügung: {LIEFERSCHEIN}, {AUFTRAG}, {PROJEKT},{IHREBESTELLNUMMER}, {INTERNET}. ⚠️</strong> Wichtig:</strong> Es darf nur eine der Variablen verwendet werden!</td>
+</tr>
+<tr>
+<td><strong>Volumengewicht</strong></td>
+<td>Aktiviere diese Option, damit Xentral das Volumenbericht automatisch aus den Sendungsmaßen ermittelt und im Rahmen der Sendungsanmeldung an den Versanddienstleister überträgt.</td>
+</tr>
+<tr>
+<td><strong>Adressvalidierung deaktivieren</strong></td>
+<td>Aktiviere diese Option, um die Adressprüfung durch UPS zu deaktivieren.</td>
+</tr>
+<tr>
+<td><strong>Export Grund <strong></td>
+<td></strong> Nur bei internationalem Versand relevant</strong>: Trage hier den Exportgrund ein. Mögliche Angaben sind: - SALE<br>- GIFT<br>- SAMPLE<br>- RETURN<br>- REPAIR<br>- RETURN<br>- INTERCOMPANYDATA</td>
+</tr>
+<tr>
+<td><strong>Logging <strong></td>
+<td>Aktiviere diese Option, um den Datenaustausch mit dem Versanddientleister zusätzlich in einer XML-Datei zu protokollieren. Die Datei wird dann lokal im Verzeichnis</strong> userdata/tmp</strong> abgelegt.</td>
+</tr>
+<tr>
+<td><strong>Tracking-Nummer in Auftrag übernehmen</strong></td>
+<td>Aktiviere diese Option, um die Tracking-Nummer nach der Erstellung des Versandlabels direkt im dazugehörigen Auftrag in Xentral zu übernehmen. So bleibt die Tracking-Nummer dauerhaft in deinem System vermerkt und du musst das Versandlabel nach der Erstellung nicht erneut scannen, um diese Daten in Xentral zu erfassen.</td>
+</tr>
+<tr>
+<td><strong>ZPL als Ausgabeformat <strong></td>
+<td>Aktiviere diese Option, um das Versandlabel im ZPL-Format und nicht als PDF anzufragen. Bei ZPL (Zebra Programming Language) handelt es sich um ein spezielles Dateiformat für Zebra-Etikettendrucker. 💬</strong> Anmerkung:</strong> ZPL-Dateien erhalten standardmäßig keine Dateiendung und können nicht manuell geöffnet werden, da sie für die direkte Verarbeitung durch den Etikettendrucker gedacht sind. Möchtest du den Inhalt einer ZPL-Datei prüfen, kannst du dies mit einem so genannten ZPL Viewer (online verfügbar) tun.</td>
+</tr>
+<tr>
+<td><strong>UPS Sandbox (Testmodus):</strong></td>
+<td>Aktiviere diese Option, um den Druck von Versandlabels vor dem produktiven Einsatz mit der UPS Sandbox zu testen. Jedes Versandlabel, das im Sandbox-Modus erstellt wird, ist durch einen speziellen Aufdruck als <strong>SAMPLE</strong> gekennzeichnet und wird somit auch nicht abgerechnet.</td>
+</tr>
+<tr>
+<td><strong>UPS Quantum View Notify</strong></td>
+<td>Aktiviere diese Option, um deinen Kunden die Ankunftsvorhersage von UPS automatisch zusenden zu lassen. So werden Kunden durch UPS selbst über die anstehende Auslieferung ihrer Sendung informiert.</td>
+</tr>
+<tr>
+<td><strong>Paperless Invoice</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>JIT-Komponenten von CN22-Formular ausschließen <strong></td>
+<td></strong> Nur bei internationalem Versand relevant <strong>: Aktiviere diese Option, um die einzelnen Komponenten von Just-in-Time -Stücklisten nicht auf dem CN22-Formular aufzuführen, falls derartige Artikel in der Sendung enthalten sind. Wenn diese Option aktiviert ist, wird nur der Kopf- bzw. Hauptartikel der Stückliste aufgeführt. ⚠️</strong> Wichtig:</strong> Stelle beim Versand von Stücklistenartikeln immer sicher, dass alle benötigten zollrelevanten Daten (Zolltarifnummer, Herkunftsland, Gewicht) korrekt in den Stammdaten der Artikel gepflegt sind, da es ansonsten zu Fehlern bei der Erstellung des Versandlabels kommt. Stelle die Vollständigkeit dieser Informationen sicher, egal ob du die vorliegende Option aktivierst oder deaktivierst. Zolltarifnummer, Herkunftsland und Gewicht pflegst du in den entsprechenden Feldern unter Verkaufen &gt; Artikel &gt; Artikel öffnen &gt; Tab: Details &gt; Bereich: Hersteller. Weitere Informationen zum Thema Just-in-Time-Stücklisten findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/360019652739#UUID-443f8048-37aa-3974-fc46-63cd8ad757d1">Stückliste</a>.</td>
+</tr>
+<tr>
+<td><strong>Auto-Fallback für den HS-Code <strong></td>
+<td></strong> Nur bei internationalem Versand relevant <strong>: Falls für einen in der Sendung erhaltenen Artikel keine Zolltarifnummer in den Artikelstammdaten in Xentral hinterlegt ist, schlägt die Erzeugung des Versandlabels fehl. Du kannst diesen Fehler verhindern, indem du hier eine Zolltarifnummer eingibst, die genutzt wird, falls keine Zolltarifnummer in den Artikelstammdaten gepflegt ist. ⚠️</strong> Wichtig:</strong> Wir empfehlen außerdem, alle Artikelstammdaten sorgfältig zu pflegen, damit es nicht zu Fehlern kommt. Die Zolltarifnummer pflegst du unter Verkaufen &gt; Artikel &gt; Artikel öffnen &gt; Tab: Details &gt; Bereich: Hersteller.</td>
+</tr>
+<tr>
+<td><strong>Rechnungsstellung an Drittanbieter (Zölle und Steuern)</strong></td>
+<td>Aktiviere diese Option, wenn die Versandkosten nicht dir selbst als Absender, sondern einer dritten Person oder Unternehmen in Rechnung gestellt werden sollen. Bei den UPS-Abrechnungsmodellen <strong>Freight Collect </strong> (Empfänger zahlt die Versandkosten) und <strong>Third Party</strong> (Drittanbieter zahlt die Versandkosten) ist es notwendig, diese Option zu aktivieren.</td>
+</tr>
+<tr>
+<td><strong>Drittanbieter-Kundennummer <strong></td>
+<td>Im Fall des UPS-Abrechnungsmodells</strong> Third Party</strong> gibst du hier die UPS-Kundennummer des Drittanbieters ein, der die Versandkosten übernimmt. UPS stellt diesem dann die Versandkosten in Rechnung.</td>
+</tr>
+<tr>
+<td><strong>Drittanbieter-PLZ / Land <strong></td>
+<td>Im Fall des UPS-Abrechnungsmodells</strong> Third Party</strong> gibst du hier die Postleitzahl und das Land des Drittanbieters ein, der die Versandkosten übernimmt.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="versandlabel-drucken">Versandlabel drucken<a class="headerlink" href="#versandlabel-drucken" title="Permanent link">&para;</a></h2>
+<p>Sobald du alle Einstellungen wie oben beschrieben vorgenommen hast, kannst du den Druck von Versandlabels im Versandzentrum oder auch in einem einzelnen Lieferschein testen. Gehe dazu wie folgt vor.</p>
+<ol>
+<li>Öffne per Klick auf das Stift-Symbol rechts einen Lieferschein im Modul <strong>Lieferschein</strong>.</li>
+<li>Öffne das Tab <strong>Details</strong>.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Lieferschein</strong> erreichst.</li>
+<li>Wähle die Versandart <strong>UPS (OAuth </strong>) aus dem Dropdown-Menü <strong>Versandart</strong> aus.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+<li>Öffne das Tab <strong>Versandlabel</strong>.</li>
+<li>Passe, falls nötig, die Adressdaten an.</li>
+<li>Klicke auf <strong>Versandlabel drucken</strong>.</li>
+<li>Lade das Versandlabel herunter. Anschließend kannst du es öffnen und auf etwaige Fehler prüfen.</li>
+</ol>
+<p>Nachdem dein Testdruck abgeschlossen ist, kannst du im Anschluss das Versandlabel im UPS-Geschäftskundenportal stornieren.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beachte, dass UPS-Versandlabels nur stornieren kannst, solange sie noch nicht von UPS bei dir abgeholt wurden. Nicht verwendete Versandlabels kannst du bis zu einer Frist von 90 Tagen stornieren.</p>
+</blockquote>
+<h2 id="haufige-fehlermeldungen-und-losungen">Häufige Fehlermeldungen und Lösungen<a class="headerlink" href="#haufige-fehlermeldungen-und-losungen" title="Permanent link">&para;</a></h2>
+<p>Die folgenden Fehlermeldungen können bei Verwendung der Versandart <strong>UPS (OAuth)</strong> auftreten:</p>
+<table>
+<thead>
+<tr>
+<th>Fehlermeldung</th>
+<th>Erläuterung und Lösung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>The request is not well formed <strong></td>
+<td>Einige deiner Daten in der Versandart enthalten mindestens ein Sonderzeichen (z.B.</strong>&amp;</strong> oder<strong>*</strong>). Bitte überprüfe, ob dein Nutzername, Passwort oder andere Daten Sonderzeichen enthalten und entferne diese.</td>
+</tr>
+<tr>
+<td><strong>Missing or invalid ShipTo PhoneNumber Code: 120209</strong></td>
+<td>Diese Fehlermeldung tritt auf, wenn es Probleme mit der angegebenen Telefonnummer gibt. Dafür gibt es zwei mögliche Gründe: Die Telefonnummer ist in irgendeiner Weise falsch (z.B. zu kurz) oder fehlt. Die Telefonnummer kann aufgrund deiner DSGVO-Einstellungen nicht übertragen werden. Nutze die Smart Search, um das Modul Grundeinstellungen zu öffnen und klicke dort auf das Tab System. Im Bereich DSGVO Einstellungen darf die Option Telefon nicht dem Versandunternehmen übergeben nicht aktiviert sein.</td>
+</tr>
+<tr>
+<td><strong>Failed to refresh oauth token</strong></td>
+<td>Deine Authentifizierung wurde von UPS abgelehnt. Du kannst diesen Fehler beheben, indem du deine Authentifizierung wie folgt erneuerst: Öffne deine Versandart UPS OAuth und klicke neben der Einstellung UPS OAuth-Verbindung auf Info. Klicke auf Autorisierung widerrufen. Öffne erneut deine Versandart und klicke neben dem Feld UPS OAuth-Verbindung auf Verbinden. Du wirst zu UPS weitergeleitet und kannst deine Autorisierung erneuern.</td>
+</tr>
+<tr>
+<td><strong>Missing or invalid ship to attention name (ErrorCode:120201)</strong></td>
+<td>Dieser Fehler tritt auf, wenn das Feld für den Namen des Empfängers in der Lieferadresse entweder leer ist, ungültige Zeichen enthält oder die maximale Zeichenanzahl von 35 überschritten wurde. Prüfe die Eingaben für den Empfängernamen und korrigiere sie, falls nötig.</td>
+</tr>
+<tr>
+<td><strong>Missing or invalid ship to address line 1 (ErrorCode:120202)</strong></td>
+<td>Bei diesem Fehler kann UPS die Adresszeile 1 nicht interpretiere. Das bedeutet, dass das Feld <strong>Straße/Hausnummer </strong> entweder leer ist oder ungültige Zeichen enthält. Prüfe die Eingaben im Feld <strong>Straße/Hausnummer</strong> und korrigiere sie, falls nötig.</td>
+</tr>
+</tbody>
+</table>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

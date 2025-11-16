@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18567521362332 Übersicht Versandarten In Xentral - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>18567521362332 Übersicht Versandarten In Xentral</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>18567521362332 Übersicht Versandarten In Xentral</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit der Anbindung an unterschiedliche Versanddienstleister kannst du direkt in XentralVersandlabels für deine Pakete drucken lassen.</p>
+<p>In diesem Artikel erfährst du, welche Versandarten in Xentral verfügbar sind und wie du diese nach erfolgreicher Einrichtung in deine Auftragsabwicklung integrieren kannst.</p>
+<h2 id="verfugbare-versandarten-in-xentral">Verfügbare Versandarten in Xentral<a class="headerlink" href="#verfugbare-versandarten-in-xentral" title="Permanent link">&para;</a></h2>
+<p>Die folgenden Versanddienstleister kannst du mit deinen entsprechenden Zugangsdaten in Xentral einrichten und anschließend für den Warenversand an deine Kunden nutzen. Klicke auf den passenden Link, um zu den detaillierten Anleitungen zur Einrichtung dieser Versanddienstleister zu gelangen.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>DHL anbinden</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/22351494715420#UUID-36e05436-5eac-4475-6580-e8e29c2fbdee">DHL Express anbinden</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/22351504676252#UUID-af5c6842-6ff5-507c-78d7-4eca0102c3c8">DPD anbinden</a> <a href="https://help.xentral.com/document/preview/40451#UUID-75bd8e49-b037-175e-11f6-ac6eec58adcb">DPD AT anbinden</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/22351516776604#UUID-2f5a869a-9887-d44f-ce44-05d98a4ee203">Internetmarke anbinden</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/22351494875292#UUID-0c29a631-d7f6-56ae-a867-c95dcc62cab4">Post.AT anbinden</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/22351508586268#UUID-d814758f-e0f4-a62e-d774-18abdc6d706d">Post.CH anbinden</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/22351530496540#UUID-a683a6ec-53f9-7d41-f28f-7f81c97057af">GLS anbinden</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/22351508561308#UUID-fe733224-660a-cb8e-e673-7036478792b8">UPS (OAuth) anbinden</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/22351538352924#UUID-75fc5d54-519c-0c80-53bb-6742731ba842">Sendcloud anbinden</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/22351538369564#UUID-14505a80-a862-8655-e601-51658f36406b">Shipcloud anbinden</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/22351516896156#UUID-153736c6-b4d8-20aa-1150-4b36838b904f">Amazon Prime anbinden</a></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bietest du deinen Kunden die Möglichkeit der Selbstabholung an, arbeitest du mit einer Spedition zusammen oder möchtest du eigene Adressaufkleber gestalten und drucken? Neben der Zusammenarbeit mit den oben genannten Versanddienstleistern kannst du natürlich auch diese individuellen Anwendungsfälle in Xentral abbilden.</p>
+<p>Alle wichtigen Informationen dazu findest du in den folgenden Artikeln:</p>
+<ul>
+<li>Selbstabholer</li>
+<li>Spedition</li>
+<li>Adressaufkleber</li>
+</ul>
+</blockquote>
+<h2 id="einrichtung-von-versandarten-in-xentral">Einrichtung von Versandarten in Xentral<a class="headerlink" href="#einrichtung-von-versandarten-in-xentral" title="Permanent link">&para;</a></h2>
+<p>Um die von dir genutzten Versanddienstleister in Xentral zu integrieren, legst du zunächst im Modul <strong>Versandarten</strong> die entsprechenden Versandarten an und nimmst die benötigten Einstellungen vor. Nutze die Links in der obigen Liste, um zu den detaillierten Anleitungen für die Grundeinstellungen zu gelangen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Für die Einrichtung benötigst du die Zugangsdaten, die du von deinem Versanddienstleister erhalten hast. Stelle am Besten sicher, dass diese Daten dir vorliegen, bevor du mit der Einrichtung beginnst. So kannst du so schnell wie möglich mit dem Versand deiner Pakete starten.</p>
+<p><strong>Warnung</strong></p>
+<p>Um deine in Xentral angelegten Versandarten in vollem Umfang nutzen zu können und eine unkomplizierte Kommunikation zwischen deinen Verkaufsplattformen und Xentral zu gewährleisten, musst du in der jeweiligen Shop-Schnittstelle ein Versandarten-Mapping vornehmen. Weitere Informationen dazu findest du im ArtikelOnline-Shops.</p>
+</blockquote>
+<h2 id="auswahl-von-versandarten-in-xentral">Auswahl von Versandarten in Xentral<a class="headerlink" href="#auswahl-von-versandarten-in-xentral" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden findest du Informationen dazu, bei welchen Schritten der Auftragsabwicklung du die gewünschte Versandart auswählen kannst.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Alternativ zu den unten beschriebenen Wegen zur manuellen Änderung der Versandart kannst du das Modul <strong>Versandregeln</strong> nutzen. Hier kannst du genau festlegen, welcher Versanddienstleister in welchen Szenarien automatisch von Xentral verwendet wird. Alle weiteren Informationen zu den Versandregeln findest du im ArtikelVersandregeln.</p>
+</blockquote>
+<h3 id="versandart-im-lieferschein-auswahlen">Versandart im Lieferschein auswählen<a class="headerlink" href="#versandart-im-lieferschein-auswahlen" title="Permanent link">&para;</a></h3>
+<p>Du kannst eine Versandart direkt in einem einzelnen Lieferschein auswählen. Gehe dazu wie folgt vor.</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Lieferschein</strong>.</li>
+<li>Klicke bei dem Lieferschein, dessen Versandart du ändern möchtest, rechts auf das <strong>Stift-Symbol</strong>.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Lieferschein</strong> erreichst.</li>
+<li>Wähle im Dropdown-Menü <strong>Versandart</strong> die gewünschte Versandart aus.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h3 id="versandart-nach-ubergabe-in-das-versandzentrum-andern">Versandart nach Übergabe in das Versandzentrum ändern<a class="headerlink" href="#versandart-nach-ubergabe-in-das-versandzentrum-andern" title="Permanent link">&para;</a></h3>
+<p>Auch nachdem ein Lieferschein an das Versandzentrum übergeben wurde, hast du weiterhin die Möglichkeit, die Versandart auszuwählen oder zu ändern. Gehe dazu wie folgt vor.</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Lieferschein</strong>.</li>
+<li>Klicke bei dem Lieferschein, dessen Versandart du ändern möchtest, rechts auf das <strong>Stift-Symbol</strong>.</li>
+<li>Öffne das Tab <strong>Paketmarke</strong>.</li>
+<li>Klicke unten auf <strong>Andere Versandart auswählen</strong>.</li>
+<li>Wähle die gewünschte Versandart aus.</li>
+<li>Klicke auf <strong>Versandart ändern</strong>.</li>
+</ol>
+<h3 id="versandart-in-der-kundenadresse-auswahlen">Versandart in der Kundenadresse auswählen<a class="headerlink" href="#versandart-in-der-kundenadresse-auswahlen" title="Permanent link">&para;</a></h3>
+<p>Im Menü <strong>Verkaufen &gt; Adressen</strong> hast du die Möglichkeit, pro Kundenadresse eine feste Versandart zu bestimmen. Diese Versandart wird dann für jeden Auftrag dieses Kunden automatisch vorausgewählt. Bei Bedarf kannst du diese vorausgewählte Versandart auch jederzeit im späteren Verlauf der Auftragsbearbeitung manuell<a href="#UUID-1c7f1ac7-1f9a-1592-4caa-a2bb5dc422ad_id_360016722580_id_h_01FA04C8PNF3F5A7D4GNJ4P8K5">im Lieferschein ändern</a>. Gehe wie folgt vor, um einem Kunden eine feste Versandadresse zuzuweisen.</p>
+<ol>
+<li>Öffne das Menü <strong>Verkaufen &gt; Adressen</strong>.</li>
+<li>Klicke bei der Adresse, für die du eine feste Versandart bestimmen möchtest, rechts auf das <strong>Stift-Symbol</strong>.</li>
+<li>Klicke oben im Tab <strong>Details </strong> auf <strong>Sonstige Daten</strong>.</li>
+<li>Scrolle nach unten, bis du den Bereich <strong>Porto/Versandart</strong> erreichst.</li>
+<li>Wähle im Dropdown-Menü <strong>Versandart</strong> die gewünschte Versandart aus.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<h2 id="versandlabels-in-xentral-ausdrucken">Versandlabels in Xentral ausdrucken<a class="headerlink" href="#versandlabels-in-xentral-ausdrucken" title="Permanent link">&para;</a></h2>
+<p>Die Versandlabels für deine Sendungen kannst du in Xentral entweder einzeln oder automatisch gesammelt ausdrucken lassen. Im Folgenden findest du weitere Informationen zu den beiden Vorgehensweisen.</p>
+<h3 id="versandlabels-einzeln-ausdrucken">Versandlabels einzeln ausdrucken<a class="headerlink" href="#versandlabels-einzeln-ausdrucken" title="Permanent link">&para;</a></h3>
+<p>Wenn du Versandlabels im Logistikprozess einzeln ausdrucken möchtest, kannst du sie im Logistikprozess einzeln direkt am Packtisch drucken.</p>
+<p>Öffne zunächst das Modul <strong>Versandzentrum</strong> in Xentral. Sobald alle Artikel für einen Lieferschein kommissioniert wurden, wirst du automatisch in den so genannten Paketmarkendialog weitergeleitet. Dort erstellst du das Versandlabel für die Lieferung und kannst bei Bedarf auch die Versandart anpassen.</p>
+<h3 id="versandlabels-als-stapel-ausdrucken">Versandlabels als Stapel ausdrucken<a class="headerlink" href="#versandlabels-als-stapel-ausdrucken" title="Permanent link">&para;</a></h3>
+<p>Bereits beim Start des Versandprozesses kannst du alle benötigten Versandlabels automatisch ausdrucken lassen. Dies bedeutet, dass die Versandlabels für Aufträge automatisch ausgedruckt werden, sobald du sie an den Auto-Versand in Xentralübergibst. Gehe dazu wie folgt vor.</p>
+<ol>
+<li>Öffne mithilfe der Smart Search das Modul <strong>Projekte</strong>.</li>
+<li>Klicke neben dem Projekt, für den du den automatischen Druck von Versandlabels einstellen möchtest, rechts auf das <strong>Stift-Symbol</strong>.</li>
+<li>Öffne das Tab <strong>Einstellungen</strong>.</li>
+<li>Klicke auf <strong>Logistik/Versand</strong>.</li>
+<li>Aktiviere im Bereich <strong>Stufe 1 (Pick/Kommissionierung)</strong> die Option <strong> Paketmarke drucken</strong>.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Beachte folgende Voraussetzungen für den automatischen Stapeldruck von Versandlabels</p>
+<ul>
+<li>Der Prozessstarter <strong>autoversand_manuell </strong> oder <strong>autoversand_plus</strong> muss aktiviert sein</li>
+<li>In den Projekteinstellungen muss ein <strong>Kommissionierverfahren</strong> ausgewählt sein, bei dem das Versandzentrum genutzt wird.</li>
+<li>In den Projekteinstellungen muss für die Einstellung <strong>Belegdrucker Stufe 1 (Pick/Kommissionierung)</strong> ein physischer Drucker ausgewählt sein (kein PDF- oder Dokumentendrucker).</li>
+</ul>
+</blockquote>
+<h2 id="versandbestatigungen-mit-tracking-informationen-versenden">Versandbestätigungen mit Tracking-Informationen versenden<a class="headerlink" href="#versandbestatigungen-mit-tracking-informationen-versenden" title="Permanent link">&para;</a></h2>
+<p>Ein weiterer wichtiger Schritt der Versandabwicklung ist der Versand von E-Mails mit Tracking-Informationen an deine Kunden. Wenn du die unten beschriebenen Einstellungen vornimmst, wird die Versandbestätigung automatisch versendet, sobald du ein Versandlabel in Xentral generiert hast und somit auch eine Tracking-Nummer für die Lieferung vorliegt.</p>
+<p>Gehe wie folgt vor, um den Versand von E-Mails mit Tracking-Informationen an deine Kunden zu automatisieren.</p>
+<ol>
+<li>Stelle vorab sicher, dass du im Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; E-Mail &gt; E-Mail Konten</strong> ein E-Mail Konto hinterlegt hast. Dies wird als Absender für die Versandbestätigung per E-Mail benötigt.</li>
+<li>Öffne das Menü <strong>Stammdaten &gt; Projekt &gt; Einstellungen &gt; Logistik / Versand </strong> und aktiviere die Option <strong>Versandbestätigung/Tracking </strong> im Bereich <strong>Stufe 2 (Pack) an Versandstation</strong>.</li>
+<li>Wähle im Modul <strong>Versandarten </strong> die gewünschte Versandart aus und wähle dann im Feld <strong>Versandmail </strong> die Option <strong>Standardverhalten</strong>.</li>
+<li>Achte darauf, dass im Modul <strong>Geschäftsbrief Vorlagen </strong> eine Vorlage des Typs <strong>Versand</strong> vorhanden ist. Diese Vorlage kannst du ganz auf deine Bedürfnisse anpassen.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

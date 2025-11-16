@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017324559 Amazon Pay Geschäftskonto - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017324559 Amazon Pay Geschäftskonto</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017324559 Amazon Pay Geschäftskonto</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Amazon Pay ist ein Zahlungs-Plug-in für Onlineshops, das du in unterschiedlichen Onlineshops verwenden kannst.</p>
+<p>InXentral kannst du sowohl eingehende Amazon Pay-Zahlungen als auch Rückerstattungen über Amazon Pay verarbeiten. Eingehende Zahlungen und Rückerstattungen werden dabei unterschiedlich behandelt:</p>
+<ul>
+<li>Eingehende Zahlungen werden über das Bankkonto CSV-Geschäftskonto verarbeitet. Weitere Infos zu dieser Art Geschäftskonto und dessen Einrichtung findest du <a href="https://help.xentral.com/hc/de/articles/360020073639#UUID-5f6d6683-98a0-d026-f695-8a17ae8b143c">hier</a>.</li>
+<li>Rückerstattungen über Amazon Pay werden über das Amazon Pay-Geschäftskonto verarbeitet.</li>
+</ul>
+<h2 id="eingehende-amazon-pay-zahlungen-importieren">Eingehende Amazon Pay-Zahlungen importieren<a class="headerlink" href="#eingehende-amazon-pay-zahlungen-importieren" title="Permanent link">&para;</a></h2>
+<h3 id="bank-per-csv-import-geschaftskonto-anlegen">Bank per CSV-Import-Geschäftskonto anlegen<a class="headerlink" href="#bank-per-csv-import-geschaftskonto-anlegen" title="Permanent link">&para;</a></h3>
+<p>Eingehende Amazon Pay-Zahlungen werden über das GeschäftskontoBank per CSV-Importabgewickelt.</p>
+<p><a href="https://help.xentral.com/hc/de/articles/360020073639#UUID-5f6d6683-98a0-d026-f695-8a17ae8b143c">Dieser Artikel</a>erklärt dir, wie du deinBank per CSV-Import-Geschäftskonto anlegst.</p>
+<p>Bitte beachte bei Amazon Pay Folgendes:</p>
+<table>
+<thead>
+<tr>
+<th>Feld im Bereich CSV-Import in Xentral</th>
+<th>Spalte in Amazon Pay CSV-Vorlage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Datum</td>
+<td>TransactionPostedDate</td>
+</tr>
+<tr>
+<td>Betrag</td>
+<td>TransactionAmount</td>
+</tr>
+<tr>
+<td>Buchungstext</td>
+<td>AmazonTransactionId</td>
+</tr>
+<tr>
+<td>Währung</td>
+<td>CurrencyCode</td>
+</tr>
+</tbody>
+</table>
+<p>Du kannst das FeldZugangsdatenim BereichLive-Importdazu verwenden, Konten zu definieren, auf die gebucht werden sollen.</p>
+<h3 id="amazon-pay-bericht-fur-den-import-abrufen">Amazon Pay-Bericht für den Import abrufen<a class="headerlink" href="#amazon-pay-bericht-fur-den-import-abrufen" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um deine Amazon Pay-Berichte abzurufen:</p>
+<p><img alt="amazonpay_berichtsrepository_download.png" src="https://help.xentral.com/hc/article_attachments/17334725352604" /></p>
+<ol>
+<li>Melde dich in deinem Amazon Pay-Konto in Amazon Seller Central an.</li>
+<li>Klicke im Menü auf Zahlungen und wähle die Option Berichtsrepository aus.</li>
+<li>Öffne den Reiter Berichte nach Zeitraum aus dem Menü.</li>
+<li>Klicke im ReiterBerichte nach ZeitraumaufBericht erstellen. Der DialogBerichte nach Zeitraum erstellenwird angezeigt.</li>
+<li>Wähle den Berichtstyp Transaktion. Wähle den Berichtszeitraum:
+  - Monat. Hier kannst du einen Bericht nach Monat erstellen.
+  - Benutzerdefiniert. Gib den Zeitraum, für den du einen Bericht erstellen möchtest, in die passenden Felder ein.</li>
+<li>Klicke auf Bericht anfordern. Dein Amazon Pay-Bericht wird erstellt und im Reiter Berichte nach Zeitraum angezeigt.</li>
+<li>Klicke bei deinem Bericht auf Aktualisieren. Die Schaltfläche Herunterladen wird angezeigt. Lade den Amazon Pay-Bericht auf deinen Computer herunter.</li>
+</ol>
+<p>Du kannst den Amazon Pay-Bericht nun in Xentral importieren.</p>
+<h3 id="eingehende-amazon-pay-zahlungen-importieren_1">Eingehende Amazon Pay-Zahlungen importieren<a class="headerlink" href="#eingehende-amazon-pay-zahlungen-importieren_1" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um eingehende Amazon Pay-Zahlungen zu importieren:</p>
+<ol>
+<li>Navigiere zu Buchhaltung &gt; Zahlungseingang.</li>
+<li>Klicke auf in der Spalte Menü für das Konto, das du für den Import der Amazon Pay-Berichte angelegt hast.</li>
+<li>Klicke auf Datei auswählen und wähle die Amazon Pay-CSV-Datei, die du aus deinem Amazon Pay-Konto für den Import heruntergeladen hast.</li>
+<li>Klicke auf Importieren.</li>
+</ol>
+<p>Dein Amazon Pay-Bericht wird importiert und die Transaktionen werden im ReiterKontoauszügeangezeigt. Du kannst die Zahlungseingänge nun nach Bedarf weiter verarbeiten.</p>
+<h2 id="amazon-pay-ruckerstattungen-verarbeiten">Amazon Pay-Rückerstattungen verarbeiten<a class="headerlink" href="#amazon-pay-ruckerstattungen-verarbeiten" title="Permanent link">&para;</a></h2>
+<h3 id="amazon-pay-geschaftskonto-anlegen">Amazon Pay-Geschäftskonto anlegen<a class="headerlink" href="#amazon-pay-geschaftskonto-anlegen" title="Permanent link">&para;</a></h3>
+<p>App Center &gt; Buchhaltung &gt; Geschäftskonten</p>
+<p>Gehe wie folgt vor, um ein Geschäftskonto für Amazon Pay anzulegen:</p>
+<ol>
+<li>Klicke auf +NEU und wähle Konto: Amazon Pay (API) im Bereich Auswahl. Das Amazon-Anmeldeformular wird angezeigt.</li>
+<li>Hast du deine Amazon-Zugriffsdaten bereits in deiner Amazon-Schnittstelle hinterlegt, d.h. die Amazon Seller ID und die Amazon AWS Access Key ID, kannst du die entsprechende Schnittstelle unter Daten aus Schnittstelle auswählen.
+  Alternativ kopiere oder gib die entsprechenden Informationen aus dem Amazon-Verkäuferkonto unter Amazon SellerID und Amazon AWSAccessKeyID ein.</li>
+</ol>
+<p>Das Konto ist nun angelegt. Klicke aufKlassein der Bestätigungsmeldung. Die SeiteDetailswird für das Konto angezeigt. Hier kannst du deine Kontoeinstellungen pflegen. Wie du deine Kontoeinstellungen für Amazon Pay pflegst, wird im nächsten Abschnitt beschrieben.</p>
+<h3 id="dein-amazon-pay-geschaftskonto-pflegen">Dein Amazon Pay-Geschäftskonto pflegen<a class="headerlink" href="#dein-amazon-pay-geschaftskonto-pflegen" title="Permanent link">&para;</a></h3>
+<p>App Center &gt; Buchhaltung &gt; Geschäftskonten &gt; Öffne dein Amazon Pay-Geschäftskonto mit einem Klick auf<img alt="PenIcon.png" src="https://help.xentral.com/hc/article_attachments/6412259413532" /></p>
+<p>.</p>
+<p>Gehe wie folgt vor, um dein Amazon Pay-Geschäftskonto zu pflegen:</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die BereicheBankverbindungundCSV-Importsind für Amazon Pay-Geschäftskonten nicht relevant.</p>
+</blockquote>
+<ol>
+<li>Standardmäßig fügt Xentral bei Anlage eines neuen Geschäftskontos einen Namen für dieses Konto in das Feld Bezeichnung ein. Möchtest du einen anderen Namen verwenden, kannst du ihn in diesem Feld ändern.</li>
+<li>Stelle Sicher, dass das Feld Typ die Option Konto: Amazon Pay (API) enthält.</li>
+<li>Wähle das passende Projekt im Feld Projekt.</li>
+<li>Stelle sicher, dass ein Häkchen bei Aktiv gesetzt ist. Ist hier kein Häkchen gesetzt, kannst du dieses Konto nicht verwenden.</li>
+<li>Setze ein Häkchen bei Keine E-Mail, wenn beim Zahlungseingang keine E-Mail an den Kunden versendet werden soll. Standardmäßig wird eine E-Mail versendet.</li>
+<li>Setze ein Häkchen bei Änderungen erlauben, wenn spätere Änderungen an den Buchungen möglich sein sollen.</li>
+<li>Scrolle runter bis zum Bereich DATEV und gib dein DATEV-Konto ein.</li>
+<li>Scrolle runter bis zum Bereich Live-Import. Für Amazon Pay-Geschäftskonten sind keine Live-Imports möglich. Du kannst jedoch Folgendes in das Feld Zugangsdaten eingeben, um Rückerstattungen über dieses Konto zu verarbeiten:
+  - Option1:
+  <a href="https://help.xentral.com/hc/de/articles/6124566016540#UUID-9ee45046-bcb9-f7f9-26b8-19a117a484d4">Hier</a> kannst du herausfinden, wie du den MWS-Autorisierungstoken generierst.</li>
+</ol>
+<ul>
+<li>Option 2:
+  Du findest diese Informationen in deinem Amazon-Verkäuferkonto.</li>
+</ul>
+<ol>
+<li>Klicke auf Speichern.</li>
+</ol>
+<p>Du kannst dein Amazon Pay-Konto nun nutzen.</p>
+<h3 id="ruckerstattungen-uber-amazon-pay-verarbeiten">Rückerstattungen über Amazon Pay verarbeiten<a class="headerlink" href="#ruckerstattungen-uber-amazon-pay-verarbeiten" title="Permanent link">&para;</a></h3>
+<p>Die Verarbeitung der Rückerstattungen über Amazon Pay ist identisch zur Verarbeitung der Rückerstattungen in PayPal. Weitere Informationen dazu, wie du Paypal-Rückerstattungen verarbeitest, findest du<a href="https://help.xentral.com/hc/de/articles/360017416839#UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d">hier</a>.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

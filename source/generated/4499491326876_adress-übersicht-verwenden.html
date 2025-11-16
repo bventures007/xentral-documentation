@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4499491326876 Adress Übersicht Verwenden - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>4499491326876 Adress Übersicht Verwenden</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>4499491326876 Adress Übersicht Verwenden</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Im Modul <strong>Adressen</strong> in Xentral findest du die Adressdaten sämtlicher Kunden, Lieferanten und Mitarbeiter deines Unternehmens. Diese Adressen hast du entweder manuell in Xentral angelegt, oder sie sind durch den Auftragsimport von verschiedenen Shop-Schnittstellen automatisch importiert worden.</p>
+<p>Das Tab <strong>Übersicht </strong> im Modul <strong>Adressen </strong> enthält eine Liste aller im System vorhandenen Adressen. Dort kannst du Adressen je nach Bedarf löschen oder bearbeiten sowie zur besseren Übersicht selbst definierte Tags zuordnen. Zusätzlich stehen dir in den Tabs <strong>Adressfilter </strong> und <strong>Erweiterte Adresssuche</strong> verschiedene Filter- und Suchmöglichkeiten zur Verfügung.</p>
+<p><img alt="adressuebersicht-en.png" src="https://help.xentral.com/hc/article_attachments/23427658828700" /></p>
+<p>In diesem Artikel lernst du, welche Aktionen du im Modul <strong>Adressen</strong> zur Verwaltung deiner Adressen vornehmen kannst und wie du dabei vorgehst.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Video-Tutorial: Dein schneller Einstieg in die Adress-Übersicht</strong></p>
+<p>Möchtest du dir in nur drei Minuten einen Überblick über die Funktionen und die Nutzung der Adress-Übersicht in Xentral verschaffen? Dann ist unser Video-Tutorial genau das Richtige für dich. Schau es dir gleich an!</p>
+<p><strong><a href="https://www.youtube.com/embed/B6iXNBbTbEM">YouTube Video</a></strong></p>
+</blockquote>
+<h2 id="adressdaten-suchen">Adressdaten suchen<a class="headerlink" href="#adressdaten-suchen" title="Permanent link">&para;</a></h2>
+<p>Sowohl im Tab <strong>Übersicht </strong> als auch im Tab <strong>Erweiterte Adresssuche</strong> kannst du gezielt nach bestimmten Adressdaten suchen. Im Folgenden werden verschiedene Vorgehensweisen beschrieben.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bei beiden oben genannten Suchmethoden findet eine Live-Suche statt. Das bedeutet, dass du nach wenigen Sekunden und auch, wenn du nur nach einem Teilbegriff suchst, die passenden Suchergebnisse direkt in der Tabelle angezeigt bekommt. Es ist also nicht notwendig, die Suche anderweitig zu bestätigen oder durch einen separaten Klick auszulösen. Die Suchergebnisse aktualisieren sich ebenfalls automatisch, wenn du das Suchfeld leerst oder deinen Suchbegriff änderst.</p>
+</blockquote>
+<p>-<strong>Methode 1 </strong>: Gib den gewünschten Suchbegriff im Feld <strong>Suchen</strong> oben links über der Tabelle ein. Du kannst alternativ auch nach einem Teil eines Begriffs suchen.
+-<strong>Methode 2</strong>: Gib den gewünschten Suchbegriff in das Suchfeld unterhalb einer Spaltenüberschrift ein.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Kennst du schon die erweiterte Adresssuche in Xentral? Du kannst sie im Tab <strong>Erweiterte Adresssuche </strong> des Moduls <strong>Adressen</strong> nutzen. Weitere Informationen zur erweiterten Adresssuche findest du im ArtikelErweiterte Adresssuche - zusätzliche Spaltensuchfelder.</p>
+</blockquote>
+<h2 id="kurzubersicht-der-adressdaten-anzeigen">Kurzübersicht der Adressdaten anzeigen<a class="headerlink" href="#kurzubersicht-der-adressdaten-anzeigen" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Übersicht</strong> kannst du dir eine Kurzübersicht der Adressdaten anzeigen lassen.</p>
+<p>Klicke dazu links bei der Adresse, deren Kurzübersicht du einsehen möchtest, auf das <strong>Pfeilsymbol</strong>.</p>
+<p>Die Kurzübersicht enthält folgende Informationen:</p>
+<ul>
+<li>Anschrift/Kontakt</li>
+<li>Zahlungskonditionen</li>
+<li>Bankverbindung</li>
+<li>Lieferadressen</li>
+<li>Ansprechpartner</li>
+<li>Rollen/Gruppen</li>
+<li>CRM</li>
+</ul>
+<p>Mit einem erneuten Klick auf das <strong>Pfeilsymbol</strong> kannst du anschließend die Kurzübersicht wieder schließen.</p>
+<h2 id="adressdaten-filtern">Adressdaten filtern<a class="headerlink" href="#adressdaten-filtern" title="Permanent link">&para;</a></h2>
+<p>Neben den Suche steht dir im Tab <strong>Übersicht </strong> des Moduls <strong>Adressen </strong> auch eine Filterfunktion zur Verfügung. Diese findest du direkt neben dem Feld <strong>Suchen</strong> oben links.</p>
+<p>Gehe wie folgt vor, um Filter für die Adressdaten anzuwenden.</p>
+<ol>
+<li>Klicke auf das Filter-Symbol im Tab <strong>Übersicht</strong>.</li>
+<li>Definiere deine Suchkriterien über die vorhandenen Felder. Du kannst eines oder mehrere Suchkriterien definieren.</li>
+<li>Klicke auf <strong>Filter anwenden</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wusstest du schon, dass du in Xentral eigene Adressfilter speichern kannst, um schneller auf häufig genutzte Adressfilter zuzugreifen? Diese Funktion findest du im Tab <strong>Adressfilter </strong> des Moduls <strong>Adressen</strong>. Weitere Informationen zu Adressfiltern findest du im ArtikelAdressenfilter – Adressmengen flexibel segmentieren.</p>
+</blockquote>
+<h2 id="adressen-bearbeiten-oder-loschen">Adressen bearbeiten oder löschen<a class="headerlink" href="#adressen-bearbeiten-oder-loschen" title="Permanent link">&para;</a></h2>
+<p>In der Spalte <strong>Menü </strong> rechts im Tab <strong>Übersicht</strong> kannst du die Adressen deiner Kunden, Lieferanten und Mitarbeiter ändern oder löschen. Außerdem kannst du einzelne Adressen mit farbigen Tags kennzeichnen.</p>
+<p><img alt="adressen_uebersicht_aktionen-de.png" src="https://help.xentral.com/hc/article_attachments/18745641063452" /></p>
+<ul>
+<li>Klicke auf das <strong>Stift-Symbol</strong>, um eine Adresse zu bearbeiten.</li>
+<li>Klicke auf das <strong>X-Symbol</strong>, um eine Adresse zu löschen.</li>
+<li>Klicke auf das <strong>Etiketten-Symbol</strong>, um einer Adresse ein Tag hinzuzufügen. Weitere Informationen zu Tags findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/360016721480#UUID-e92d6610-dc35-5d62-a77b-8f11ba3fbf3a">Tags</a>.</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

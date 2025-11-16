@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017379440 Wichtige Funktionen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017379440 Wichtige Funktionen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017379440 Wichtige Funktionen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="secure-kommunikation-uber-get-und-post">Secure: Kommunikation über GET und POST<a class="headerlink" href="#secure-kommunikation-uber-get-und-post" title="Permanent link">&para;</a></h2>
+<h3 id="zugriff-per-getpost">Zugriff per GetPOST()<a class="headerlink" href="#zugriff-per-getpost" title="Permanent link">&para;</a></h3>
+<p>Holt den Value über POST aus einem Formular. Innerhalb () den Namen des Formularelementes angeben z.B.</p>
+<p>$name = $this-&gt;app-&gt;Secure-&gt;GetPOST(&lsquo;name&rsquo;);</p>
+<h3 id="zugriff-per-getget">Zugriff per GetGET()<a class="headerlink" href="#zugriff-per-getget" title="Permanent link">&para;</a></h3>
+<p>Holt den Value über GET aus der URL. Innerhalb () den Namen der Variable aus der URL angeben z.B.</p>
+<p>$id = $this-&gt;app-&gt;Secure-&gt;GetGET(&lsquo;id&rsquo;);</p>
+<h2 id="db-zugriff-auf-die-datenbank">DB: Zugriff auf die Datenbank<a class="headerlink" href="#db-zugriff-auf-die-datenbank" title="Permanent link">&para;</a></h2>
+<p>Wird verwendet um mit den Daten aus der Datenbank zu arbeiten. Für Module in Xentral sollten nur diese Funktionen verwendet werden.</p>
+<h3 id="zugriff-per-update">Zugriff per Update()<a class="headerlink" href="#zugriff-per-update" title="Permanent link">&para;</a></h3>
+<p>Innerhalb der Klammern das SQL Update-Statement zur Ausführung angeben z.B.</p>
+<p>$id = $this-&gt;app-&gt;Secure-&gt;GetGET(&lsquo;id&rsquo;); $this-&gt;app-&gt;DB-&gt;Update(&ldquo;UPDATE adresse SET name =&rsquo;Mayer Antonia&rsquo; WHERE id = &ldquo;$id&rdquo;&ldquo;);</p>
+<h3 id="ergebnis-mit-einem-wert-mit-select">Ergebnis mit einem Wert mit Select()<a class="headerlink" href="#ergebnis-mit-einem-wert-mit-select" title="Permanent link">&para;</a></h3>
+<p>Innerhalb der Klammern das SQL Abfrage-Statement zur Ausführung angeben z.B.</p>
+<p>$id = 4; $name = $this-&gt;app-&gt;DB-&gt;Select(&ldquo;SELECT name FROM adresse WHERE id = &ldquo;$id&rdquo;&ldquo;);</p>
+<h3 id="ergebnis-mit-mehreren-werten-mit-selectarr">Ergebnis mit mehreren Werten mit SelectArr()<a class="headerlink" href="#ergebnis-mit-mehreren-werten-mit-selectarr" title="Permanent link">&para;</a></h3>
+<p>Wird verwendet, wenn man Werte aus mehreren Spalten der Datenbank möchte. Die Rückgabe wird in einem Array mit assoziativen Indizes gespeichert z.B.</p>
+<p>$personendaten = $this-&gt;app-&gt;DB-&gt;SelectArr(&ldquo;SELECT name, strasse, ort, plz, land FROM adresse WHERE id = 5&rdquo;);</p>
+<h3 id="einfugen-per-insert">Einfügen per Insert()<a class="headerlink" href="#einfugen-per-insert" title="Permanent link">&para;</a></h3>
+<p>Innerhalb der Klammern das SQL Einfügen-Statement zur Ausführung angeben z.B.</p>
+<p>$this-&gt;app-&gt;DB-&gt;Insert(&ldquo;INSERT INTO adresse (name, strasse, ort, plz, land) VALUES (&lsquo;Klein Christian&rsquo;, &lsquo;Musterstrasse 10&rsquo;, &lsquo;Musterort&rsquo;, &lsquo;12345&rsquo;, &lsquo;DE&rsquo;)&rdquo;);</p>
+<h3 id="loschen-per-delete">Löschen per Delete()<a class="headerlink" href="#loschen-per-delete" title="Permanent link">&para;</a></h3>
+<p>Innerhalb der Klammern das SQL Lösch-Statement zur Ausführung angeben z.B.</p>
+<p>$this-&gt;app-&gt;DB-&gt;Delete(&ldquo;DELETE FROM adresse WHERE id = 10&rdquo;);</p>
+<h3 id="zuletzt-vergebene-id-per-getinsertid">Zuletzt vergebene ID per GetInsertID()<a class="headerlink" href="#zuletzt-vergebene-id-per-getinsertid" title="Permanent link">&para;</a></h3>
+<p>Gibt die zuletzt in die Datenbank eingefügte ID zurück, z.B.</p>
+<p>$adressid = $this-&gt;app-&gt;DB-&gt;GetInsertID();</p>
+<h2 id="tpl-das-templatesystem">Tpl: Das Templatesystem<a class="headerlink" href="#tpl-das-templatesystem" title="Permanent link">&para;</a></h2>
+<p>Wird verwendet um mit dem Template zu arbeiten.</p>
+<h3 id="werte-einfugen-ersetzen-mit-set">Werte einfügen / ersetzen mit Set()<a class="headerlink" href="#werte-einfugen-ersetzen-mit-set" title="Permanent link">&para;</a></h3>
+<p>Fügt dem Templatefeldbereich einen neuen String hinzu. Achtung: Set() überschreibt den Inhalt des bisherigen Templatefeldbereichs. Der erste Parameter steht für den beliebig benennbaren Templatefeldbereich (immer großgeschrieben!) und der zweite Parameter ist der String der diesen Templatefeldbereich überschreiben soll. Beispiel:</p>
+<p>$this-&gt;app-&gt;Tpl-&gt;Set(&ldquo;VORNAME&rdquo;, &ldquo;Marie&rdquo;);</p>
+<h3 id="werte-einfugen-mit-add">Werte einfügen mit Add()<a class="headerlink" href="#werte-einfugen-mit-add" title="Permanent link">&para;</a></h3>
+<p>Fügt dem Templatefeldbereich einen neuen String hinzu. Erster Parameter ist der beliebig benennbare Feldbereich des Templates, zweiter Parameter der String der eingefügt werden soll, wie z.B.</p>
+<p>$this-&gt;app-&gt;Tpl-&gt;Add(&ldquo;TABELLE&rdquo;, &ldquo;VornameNachname&rdquo;);</p>
+<h3 id="template-datei-auswahlen-mit-parse">Template Datei auswählen mit Parse()<a class="headerlink" href="#template-datei-auswahlen-mit-parse" title="Permanent link">&para;</a></h3>
+<p>Sorgt dafür, dass die in () angegebene Template Datei zur Darstellung des HTML Codes verwendet wird. Beispiel:</p>
+<p>$this-&gt;app-&gt;Tpl-&gt;Parse(&ldquo;PAGE&rdquo;,&rdquo;beispielmodul_list.tpl&rdquo;);</p>
+<h2 id="erp-die-kernbibliothek-fur-erp-funktionen">erp: Die Kernbibliothek für ERP Funktionen<a class="headerlink" href="#erp-die-kernbibliothek-fur-erp-funktionen" title="Permanent link">&para;</a></h2>
+<p>Diese Funktionen sind in der Datei class.erpapi.php zu finden.</p>
+<h3 id="neuen-menupunkt-hinzufugen">Neuen Menüpunkt hinzufügen<a class="headerlink" href="#neuen-menupunkt-hinzufugen" title="Permanent link">&para;</a></h3>
+<p>Fügt einen neuen Menüpunkt der Navigation hinzu. Der erste Parameter ist der Link des Moduls in dem der neue Menüpunkt hinzugefügt werden soll. Parameter 2 ist die Beschriftung des Menüpunktes. Beispiel:</p>
+<p>$this-&gt;app-&gt;erp-&gt;MenuEintrag(&ldquo;index.php?module=modulname&amp;action=list&rdquo;,&rdquo;Übersicht&rdquo;);</p>
+<h3 id="tabellen-vorhanden-anlegen-mit-checktable">Tabellen vorhanden / anlegen mit CheckTable()<a class="headerlink" href="#tabellen-vorhanden-anlegen-mit-checktable" title="Permanent link">&para;</a></h3>
+<p>Prüft, ob die Tabelle in der Datenbank vorhanden ist. Wenn sie nicht vorhanden ist, wird sie neu angelegt. Beispiel: $this-&gt;app-&gt;erp-&gt;CheckTable(&ldquo;adresse&rdquo;);</p>
+<h3 id="spalten-vorhanden-anlegen-mit-checkcolumn">Spalten vorhanden / anlegen mit CheckColumn()<a class="headerlink" href="#spalten-vorhanden-anlegen-mit-checkcolumn" title="Permanent link">&para;</a></h3>
+<p>Prüft, ob in der angegebenen Tabelle die Spalte vorhanden ist. Wenn sie nicht vorhanden ist, wird sie neu angelegt. Bedeutung der Parameter CheckColumn(Spaltenname, Datentyp, Tabellenname, Default Wert). Beispiel: $this-&gt;app-&gt;erp-&gt;CheckColumn(&ldquo;id&rdquo;, &ldquo;int(10)&rdquo;, &ldquo;adresse&rdquo;, &ldquo;NOT NULL AUTO_INCREMENT&rdquo;);</p>
+<h3 id="einkaufspreis-hinzufugen-mit-addeinkaufspreis">Einkaufspreis hinzufügen mit AddEinkaufspreis()<a class="headerlink" href="#einkaufspreis-hinzufugen-mit-addeinkaufspreis" title="Permanent link">&para;</a></h3>
+<p>Fügt dem angegebenen Artikel einen neuen Einkaufspreis hinzu. Bedeutung der Parameter AddEinkaufspreis(ArtikelID, AbMenge, IDLieferant, Bestellnr, NameLieferant, Einkaufspreis). Beispiel: $this-&gt;app-&gt;erp-&gt;AddEinkaufspreis(23, 1, 57, &ldquo;14456&rdquo;, &ldquo;Joghurt und Eis GmbH&rdquo;, 1.80);</p>
+<h3 id="verkaufspreis-hinzufugen-mit-addverkaufspreis">Verkaufspreis hinzufügen mit AddVerkaufspreis()<a class="headerlink" href="#verkaufspreis-hinzufugen-mit-addverkaufspreis" title="Permanent link">&para;</a></h3>
+<p>Fügt dem angegebenen Artikel einen neuen Verkaufspreis hinzu. Bedeutung der Parameter AddVerkaufspreis(ArtikelID, AbMenge, AdressID für welche Gruppe der Preis gilt, Verkaufspreis). 0 als dritter Parameter bedeutet, dass dieser Verkaufspreis für alle gilt, also für keine bestimmte Gruppe. Beispiel: $this-&gt;app-&gt;erp-&gt;AddVerkaufspreis(23, 1, 0, 2.00);</p>
+<h3 id="artikel-anlegen-aktualisieren-mit-insertupdateartikel">Artikel anlegen / aktualisieren mit InsertUpdateArtikel()<a class="headerlink" href="#artikel-anlegen-aktualisieren-mit-insertupdateartikel" title="Permanent link">&para;</a></h3>
+<p>Fügt einen neuen Artikel hinzu, bzw. aktualisiert einen bestehenden Artikel. Parameter muss ein Array sein. Falls der Artikel aktualisiert werden soll, muss die ID übergeben werden, sonst wird der Artikel neu erstellt. Die Indizes des Arrays müssen wie die Spalten der Tabelle artikel heißen. Beispiel: $artikeldaten = array(); $artikeldaten[&lsquo;name_de&rsquo;] = &ldquo;Apfel&rdquo;; $artikeldaten[&lsquo;anabregs_text&rsquo;] = &ldquo;Ein roter Apfel&rdquo;; $artikeldaten[&lsquo;hersteller&rsquo;] = &ldquo;Apfelfarm&rdquo;;</p>
+<p>$this-&gt;app-&gt;erp-&gt;InsertUpdateArtikel($artikeldaten);</p>
+<h3 id="adresse-anlegen-aktualisieren-mit-insertupdateadresse">Adresse anlegen / aktualisieren mit InsertUpdateAdresse()<a class="headerlink" href="#adresse-anlegen-aktualisieren-mit-insertupdateadresse" title="Permanent link">&para;</a></h3>
+<p>Fügt eine neue Adresse hinzu, bzw. aktualisiert eine bestehende Adresse. Parameter muss ein Array sein. Falls die Adresse aktualisiert werden soll, muss die ID und - je nachdem welche Rolle die Adresse hat - die Mitarbeiter-, oder Kunden-, oder Lieferantennummer angegeben werden, sonst wird die Adresse neu erstellt. Die Indizes des Arrays müssen wie die Spalten der Tabelle adresse heißen. Beispiel: $adressdaten = array(); $adressdaten[&lsquo;name&rsquo;] = &ldquo;Max Mustermann&rdquo;; $adressdaten[&lsquo;strasse&rsquo;] = &ldquo;Musterstraße 1&rdquo;; $adressdaten[&lsquo;plz&rsquo;] = &ldquo;00000&rdquo;; $adressdaten[&lsquo;ort&rsquo;] = &ldquo;Musterort&rdquo;; $adressdaten[&lsquo;land&rsquo;] = &ldquo;DE&rdquo;;</p>
+<p>$this-&gt;app-&gt;erp-&gt;InsertUpdateAdresse($adressdaten);</p>
+<h3 id="rollen-vergeben-mit-addrollezuadresse">Rollen vergeben mit AddRolleZuAdresse()<a class="headerlink" href="#rollen-vergeben-mit-addrollezuadresse" title="Permanent link">&para;</a></h3>
+<p>Fügt eine Rolle zu einer bereits vorhandenen Adresse hinzu. Es gibt die Rollen Mitarbeiter, Kunde und Lieferant. Die Rollen kann man bestimmten Objekten zuordnen, wie zum Beispiel &ldquo;Projekt&rdquo; oder &ldquo;Gruppe&rdquo;. Bedeutung der Parameter AddRolleZuAdresse(AdressID, Rolle, optional Prädikat, optional Objekt, optional ParameterID). Soll die Rolle allgemein gültig sein, können nur die ersten beiden Parameter verwendet werden, falls Sie bestimmten Objekten zugeordnet werden sollen, muss der letzte Parameter mit der jeweiligen Projekt- oder GruppenID befüllt werden. In folgendem Beispiel wird einer Adresse die Rolle Kunde für ein bestimmtes Projekt hinzugefügt. Beispiel: $this-&gt;app-&gt;erp-&gt;AddRolleZuAdresse(145, &ldquo;Kunde&rdquo;, &ldquo;von&rdquo;, &ldquo;Projekt&rdquo;, 2);</p>
+<h3 id="freie-artikelnummer-ermitteln-mit-getnextartikelnummer">Freie Artikelnummer ermitteln mit GetNextArtikelnummer()<a class="headerlink" href="#freie-artikelnummer-ermitteln-mit-getnextartikelnummer" title="Permanent link">&para;</a></h3>
+<p>Gibt die nächste freie Artikelnummer aus dem Nummernkreis zurück. Beispiel: $freieartikelnr = $this-&gt;app-&gt;erp-&gt;GetNextArtikelnummer();</p>
+<h3 id="freie-kundennummer-ermitteln-mit-getnextkundennummer">Freie Kundennummer ermitteln mit GetNextKundennummer()<a class="headerlink" href="#freie-kundennummer-ermitteln-mit-getnextkundennummer" title="Permanent link">&para;</a></h3>
+<p>Gibt die nächste freie Kundennummer aus dem Nummernkreis zurück. Beispiel: $freiekundennr = $this-&gt;app-&gt;erp-&gt;GetNextKundennummer();</p>
+<h3 id="freie-lieferantennummer-ermitteln-mit-getnextlieferantennummer">Freie Lieferantennummer ermitteln mit GetNextLieferantennummer()<a class="headerlink" href="#freie-lieferantennummer-ermitteln-mit-getnextlieferantennummer" title="Permanent link">&para;</a></h3>
+<p>Gibt die nächste freie Lieferantennummer aus dem Nummernkreis zurück. Beispiel: $freielieferantennr = $this-&gt;app-&gt;erp-&gt;GetNextLieferantennummer();</p>
+<h3 id="freie-mitarbeiternummer-ermitteln-mit-getnextmitarbeiternummer">Freie Mitarbeiternummer ermitteln mit GetNextMitarbeiternummer()<a class="headerlink" href="#freie-mitarbeiternummer-ermitteln-mit-getnextmitarbeiternummer" title="Permanent link">&para;</a></h3>
+<p>Gibt die nächste freie Mitarbeiternummer aus dem Nummernkreis zurück. Beispiel: $freiemitarbeiternr = $this-&gt;app-&gt;erp-&gt;GetNextMitarbeiternummer();</p>
+<h3 id="angebot-anlegen-mit-createangebot">Angebot anlegen mit CreateAngebot()<a class="headerlink" href="#angebot-anlegen-mit-createangebot" title="Permanent link">&para;</a></h3>
+<p>Erstellt ein neues Angebot für die in () angegebene AdressID. Gibt die ID vom erstellten Angebot zurück. Beispiel: $angebotid = $this-&gt;app-&gt;erp-&gt;CreateAngebot(22);</p>
+<h3 id="auftrag-anlegen-mit-createauftrag">Auftrag anlegen mit CreateAuftrag()<a class="headerlink" href="#auftrag-anlegen-mit-createauftrag" title="Permanent link">&para;</a></h3>
+<p>Erstellt einen neuen Auftrag für die in () angegebene AdressID. Gibt die ID vom erstellten Auftrag zurück. Beispiel: $auftragid = $this-&gt;app-&gt;erp-&gt;CreateAuftrag(34);</p>
+<h3 id="lieferschein-anlegen-mit-createlieferschein">Lieferschein anlegen mit CreateLieferschein()<a class="headerlink" href="#lieferschein-anlegen-mit-createlieferschein" title="Permanent link">&para;</a></h3>
+<p>Erstellt einen neuen Lieferschein für die in () angegebene AdressID. Gibt die ID vom erstellten Lieferschein zurück. Beispiel: $lieferscheinid = $this-&gt;app-&gt;erp-&gt;CreateLieferschein(12);</p>
+<h3 id="rechnung-anlegen-mit-createrechnung">Rechnung anlegen mit CreateRechnung()<a class="headerlink" href="#rechnung-anlegen-mit-createrechnung" title="Permanent link">&para;</a></h3>
+<p>Erstellt eine neue Rechnung für die in () angegebene AdressID. Gibt die ID von der erstellten Rechnung zurück. Beispiel: $rechnungid = $this-&gt;app-&gt;erp-&gt;CreateRechnung(23);</p>
+<h3 id="landernamen-mit-iso-erhalten-per-getselectlaenderliste">Ländernamen mit ISO erhalten per GetSelectLaenderliste()<a class="headerlink" href="#landernamen-mit-iso-erhalten-per-getselectlaenderliste" title="Permanent link">&para;</a></h3>
+<p>Gibt ein Array gefüllt mit Ländernamen und deren zweistelligen ISO-Code zurück. Ist der Parameter auf true, ist der Key vom Array die Landesbezeichnung und der Value der ISO-Code. Bei false ist es genau andersherum. Beispiel: $laender = $this-&gt;app-&gt;erp-&gt;GetSelectLaenderliste(true);</p>
+<h3 id="englische-landernamen-mit-iso-erhalten-per-getselectlaenderlisteen">Englische Ländernamen mit ISO erhalten per GetSelectLaenderlisteEN()<a class="headerlink" href="#englische-landernamen-mit-iso-erhalten-per-getselectlaenderlisteen" title="Permanent link">&para;</a></h3>
+<p>Gibt ein Array gefüllt mit englischen Ländernamen und deren zweistelligen ISO-Code zurück. Ist der Parameter auf true, ist der Key vom Array die englische Landesbezeichnung und der Value der ISO-Code. Bei false ist es genau andersherum. Beispiel: $laenderEN = $this-&gt;app-&gt;erp-&gt;GetSelectLaenderlisteEN(false);</p>
+<h2 id="yui-fur-jquery-und-javascript-widgets">YUI: Für jQuery und Javascript Widgets<a class="headerlink" href="#yui-fur-jquery-und-javascript-widgets" title="Permanent link">&para;</a></h2>
+<p>Diese Funktionen sind in der Datei class.yui.php zu finden.</p>
+<h3 id="livetabelle-wahlen-mit-tablesearch">LiveTabelle wählen mit TableSearch()<a class="headerlink" href="#livetabelle-wahlen-mit-tablesearch" title="Permanent link">&para;</a></h3>
+<p>Bestimmt, welches Template zur Darstellung der LiveTabelle verwendet wird. Der erste Parameter gibt an, in welchem Templatefeldbereich die LiveTabelle angezeigt werden soll. Der zweite Parameter gibt an, welche LiveTabelle verwendet werden soll. Beispiel: $this-&gt;app-&gt;YUI-&gt;TableSearch(&lsquo;TAB1&rsquo;,&rsquo;beispielmodul_list&rsquo;, &ldquo;show&rdquo;,&rdquo;&ldquo;,&rdquo;&ldquo;,basename(FILE), CLASS);</p>
+<h3 id="vorauswahl-fur-textfelder-per-autocomplete">Vorauswahl für Textfelder per AutoComplete()<a class="headerlink" href="#vorauswahl-fur-textfelder-per-autocomplete" title="Permanent link">&para;</a></h3>
+<p>Erzeugt während dem Tippen eine Vorauswahl passender Einträge. Bereits vorhandene Vorauswahlen sind in der Datei ajax.php in der Funktion AjaxFilter() zu finden. Bedeutung der Parameter AutoComplete(TextfeldID, Filter, Nur_Nummer). Nur_Nummer kann weggelassen werden oder auf 1 stehen. Ist der Parameter auf 1 gesetzt, wird nur die Nummer ins Textfeld eingefügt, statt Nummer und Bezeichnung. Beispiel: $this-&gt;app-&gt;YUI-&gt;AutoComplete(&ldquo;auswahlartikel&rdquo;, &ldquo;artikelnummer&rdquo;, 1);</p>
+<h3 id="datepicker-erstellen-mit-datepicker">DatePicker erstellen mit DatePicker()<a class="headerlink" href="#datepicker-erstellen-mit-datepicker" title="Permanent link">&para;</a></h3>
+<p>Erzeugt bei Klick in das in () angegebene Textfeld einen kleinen Kalender bei dem man das gewünschte Datum anklicken kann. Die grafische Oberfläche können Sie hier unter Widgets sehen. Beispiel: $this-&gt;app-&gt;YUI-&gt;DatePicker(&ldquo;datum_von&rdquo;);</p>
+<h3 id="timepicker-erstellen-mit-timepicker">TimePicker erstellen mit TimePicker()<a class="headerlink" href="#timepicker-erstellen-mit-timepicker" title="Permanent link">&para;</a></h3>
+<p>Erzeugt bei Klick in das in () angegebene Textfeld ein Fenster mit zwei Schiebern zur Zeitauswahl. Die grafische Oberfläche können Sie hier unter Widgets sehen. Beispiel: $this-&gt;app-&gt;YUI-&gt;TimePicker(&ldquo;zeit_von&rdquo;);</p>
+<h3 id="erweiterte-textarea-mit-ckeditor">Erweiterte Textarea mit CkEditor()<a class="headerlink" href="#erweiterte-textarea-mit-ckeditor" title="Permanent link">&para;</a></h3>
+<p>Fügt einer normalen HTML Textarea einige Formatierungsmöglichkeiten über Buttons hinzu. Als erster Parameter muss die Id des Textarea eingetragen werden. Der zweite Parameter ist die Art der Formatierungsmöglichkeiten, wie basic, belege oder all. Die verschiedenen grafischen Oberflächen können Sie hier unter Widgets sehen. Beispiel: $this-&gt;app-&gt;YUI-&gt;CkEditor(&ldquo;textarea&rdquo;, &ldquo;basic&rdquo;);</p>
+<h2 id="benachrichtigungen">Benachrichtigungen<a class="headerlink" href="#benachrichtigungen" title="Permanent link">&para;</a></h2>
+<p>$this-&gt;app-&gt;erp-&gt;InternesEvent($this-&gt;app-&gt;User-&gt;GetID(),&rdquo;text&rdquo;,&rdquo;typ&rdquo;,1);</p>
+<ol>
+<li>Parameter ist die BenutzerID, muss vorhanden sein</li>
+<li>Parameter ist der Text den man ausgeben möchte</li>
+<li>Parameter ist der Typ der Nachricht (siehe Auflistung unten)</li>
+<li>Parameter ob die Benachrichtigung mit Sound oder ohne Sound erscheinen soll</li>
+</ol>
+<h3 id="gultige-typen-fur-die-nachricht">Gültige Typen für die Nachricht<a class="headerlink" href="#gultige-typen-fur-die-nachricht" title="Permanent link">&para;</a></h3>
+<ul>
+<li>default</li>
+<li>notice</li>
+<li>success</li>
+<li>warning</li>
+<li>error</li>
+<li>push</li>
+</ul>
+<h2 id="eigene-quelltexte-anderungen-in-update-server-hinterlegen">Eigene Quelltexte / Änderungen in Update-Server hinterlegen<a class="headerlink" href="#eigene-quelltexte-anderungen-in-update-server-hinterlegen" title="Permanent link">&para;</a></h2>
+<p>Viele PHP Dateien können mit eigenen Dateien überladen werden. Dazu kopiert man den Rumpf einer originalen Datei z.B. class.rechnung.php und nennt diese class.rechnung_custom.php. In dieser Datei muss es die Klasse mit dem Anhang Custom geben. z.B. Class RechnungCustom Extends Rechnung Jetzt können die Methoden in der Datei einzeln überladen werden. Die neue Datei class.rechnung_custom.php wird vom Update-Server nicht überschrieben. Sie können auf Anfrage einen FTP Account für den Update-Server erhalten, so werden zu den normalen Updates die eigenen Anpassungen automatisch mit übertragen. Dateien, die mit der Open Source-Version identisch sind, werden unverschlüsselt ausgeliefert.</p>
+<h3 id="uberladbare-dateien">Überladbare Dateien<a class="headerlink" href="#uberladbare-dateien" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Module aus www/pages</li>
+<li>Dokumente aus lib/dokumente</li>
+<li>class.erpapi.php → class.erpapi_custom.php</li>
+<li>class.printer.php → class.printer_custom.php</li>
+</ul>
+<h3 id="quelltext-dateien">Quelltext Dateien<a class="headerlink" href="#quelltext-dateien" title="Permanent link">&para;</a></h3>
+<p>Den allgemeinen Quelltext finden Sie in der.src.php Datei Beispiel class.erpapi_custom.php</p>
+<h3 id="beispiel-classremote_customphp">Beispiel class.remote_custom.php<a class="headerlink" href="#beispiel-classremote_customphp" title="Permanent link">&para;</a></h3>
+<h2 id="bilderimport">Bilderimport<a class="headerlink" href="#bilderimport" title="Permanent link">&para;</a></h2>
+<p>Informationen zum Bilderimport findest du<a href="https://help.xentral.com/hc/articles/360017437599#UUID-aa9aeb9e-d458-f09b-7ea0-3917fc547eb7">in diesem Artikel</a>.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6576094191260 Smart Search In Xentral - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>6576094191260 Smart Search In Xentral</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>6576094191260 Smart Search In Xentral</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit der <strong>Smart Search</strong> findest du nicht nur blitzschnell Informationen, sondern kannst auch direkt aus der Suchleiste neue Objekte wie Artikel oder Rechnungen erstellen. Sie ist dein zentraler Einstiegspunkt, um alle Module und Funktionen von Xentral effizient zu nutzen – ohne Umwege. Dank der kontextsensitiven Ergebnisse, die auf deinem Benutzerprofil und deinen Rechten basieren, wird die Navigation präzise und maßgeschneidert. Egal ob du ein neuer Benutzer bist oder ein Power-User – die Smart Search spart dir wertvolle Zeit und ermöglicht dir, dich auf das Wesentliche zu konzentrieren: dein Geschäft.</p>
+<h2 id="funktionen-und-vorteile-der-smart-search-kurz-die-smart-search-in-xentral-bietet-dir-schnellen-zugriff-auf-alle-wichtigen-funktionen-und-module-ermoglicht-die-direkte-erstellung-neuer-objekte-und-liefert-ergebnisse-basierend-auf-deinem-benutzerprofil">Funktionen und Vorteile der Smart Search <strong>Kurz </strong>: Die <strong>Smart Search</strong> in Xentral bietet dir schnellen Zugriff auf alle wichtigen Funktionen und Module, ermöglicht die direkte Erstellung neuer Objekte und liefert Ergebnisse basierend auf deinem Benutzerprofil.<a class="headerlink" href="#funktionen-und-vorteile-der-smart-search-kurz-die-smart-search-in-xentral-bietet-dir-schnellen-zugriff-auf-alle-wichtigen-funktionen-und-module-ermoglicht-die-direkte-erstellung-neuer-objekte-und-liefert-ergebnisse-basierend-auf-deinem-benutzerprofil" title="Permanent link">&para;</a></h2>
+<p>-<strong>Schnelle und präzise Suche</strong>: Mit der Smart Search findest du Informationen, Artikel, Rechnungen oder andere Inhalte in Sekundenschnelle. Sie durchsucht die gesamte Xentral-Instanz und liefert dir relevante Ergebnisse.
+-<strong>Erstellung neuer Objekte</strong>: Direkt aus der Suchleiste kannst du neue Objekte wie Artikel, Rechnungen oder Kunden anlegen. Das spart Zeit und minimiert unnötige Klicks.
+-<strong>Benutzerfreundlichkeit durch Tastenkombinationen</strong>: Nutze Tastenkürzel, um die Suche noch schneller zu bedienen. Die Smart Search unterstützt dich mit effizienter Navigation, die insbesondere für Power-User hilfreich ist.
+-<strong>Filteroptionen</strong>: Verfeinere deine Suchergebnisse mit Filtern, die dir ermöglichen, genau das zu finden, was du suchst. Du kannst nach Modulen, Kategorien oder spezifischen Begriffen suchen.
+-<strong>Zugriff auf alle Module</strong>: Über die Smart Search kannst du schnell zu jedem Modul in Xentral navigieren, ohne dich durch das Menü bewegen zu müssen.
+-<strong>Abhängig von Benutzertyp und Rechten</strong>: Die Suchergebnisse passen sich an deinen Benutzertyp und die Rechte deines Accounts an. So werden dir nur Inhalte angezeigt, die für dich relevant und zugänglich sind.</p>
+<p><img alt="smart_search_auftrag_suche_beispiel.png" src="https://help.xentral.com/hc/article_attachments/17946343430428" /></p>
+<h2 id="anwendung-der-smart-search-schritte">Anwendung der Smart Search <strong>Schritte: </strong><a class="headerlink" href="#anwendung-der-smart-search-schritte" title="Permanent link">&para;</a></h2>
+<p>-<strong>Suche starten</strong>: Klicke oben rechts in der Xentral-Navigation auf das Suchfeld oder drücke &lsquo;Strg+K&rsquo; (Windows) bzw. &lsquo;Cmd+K&rsquo; (Mac), um die Suche zu öffnen.
+  Gib einen Suchbegriff ein, z. B. einen Kundennamen &lsquo;Max Mustermann&rsquo; oder einen Modulnamen &lsquo;Lagerverwaltung&rsquo;.</p>
+<p>-<strong>Ergebnisse filtern</strong>: Nutze die Filteroptionen, um die Ergebnisse einzugrenzen. Klicke dazu auf die Filter-Icons in der Ergebnisliste.
+-<strong>Objekte direkt erstellen</strong>: Klicke auf die Schnellwahltasten, um einen Kunden, einen Artikel, einen Auftrag, eine Rechnung, einen Lieferschein etc. neu anzulegen. Oder nutze die Schnellwahl Tastenkombinationen in der geöffneten Suche, um neue Objekte zu erstellen.
+-<strong>Navigation in Module</strong>: Gib den Modulnamen ein, z. B. &lsquo;Artikel&rsquo;, und springe direkt in das gewünschte Modul.
+-<strong>Steuerzeichen für die Suche</strong>:
+  -<strong>Pflichtbegriffe hinzufügen</strong>: Verwende den Operator + vor einem Suchbegriff (ohne Leerzeichen), um sicherzustellen, dass dieser Begriff in den Ergebnissen enthalten ist (z. B. +rot).
+  -<strong>Begriffe ausschließen</strong>: Setze den Operator - vor einen Begriff, um Ergebnisse auszuschließen, die diesen Begriff enthalten (z. B. -Deckenspot).</p>
+<h2 id="tastenkombinationen-fur-die-smart-search">Tastenkombinationen für die Smart Search<a class="headerlink" href="#tastenkombinationen-fur-die-smart-search" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Tastenkombination: macOS</th>
+<th>Tastenkombination: Windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smart Search öffnen</td>
+<td>Cmd+K</td>
+<td>Strg+K</td>
+</tr>
+<tr>
+<td>Nächstes Ergebnis anwählen inkl. Vorschauanzeige</td>
+<td>Pfeiltasten</td>
+<td>Pfeiltasten</td>
+</tr>
+<tr>
+<td>Ergebnis auswählen</td>
+<td>Enter</td>
+<td>Enter</td>
+</tr>
+<tr>
+<td>Neuen Auftrag anlegen</td>
+<td><strong>⌥ R <strong></td>
+<td></strong> Alt R</strong></td>
+</tr>
+<tr>
+<td>Neue Rechnung anlegen</td>
+<td><strong>⌥ I <strong></td>
+<td></strong> Alt I</strong></td>
+</tr>
+<tr>
+<td>Neues Angebot anlegen</td>
+<td><strong>⌥ O <strong></td>
+<td></strong> Alt O</strong></td>
+</tr>
+<tr>
+<td>Neuen Artikel anlegen</td>
+<td><strong>⌥ P <strong></td>
+<td></strong> Alt P</strong></td>
+</tr>
+<tr>
+<td>Neue Adresse anlegen</td>
+<td><strong>⌥ C <strong></td>
+<td></strong> Alt C</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="tipps-fur-effektive-nutzung">Tipps für effektive Nutzung<a class="headerlink" href="#tipps-fur-effektive-nutzung" title="Permanent link">&para;</a></h2>
+<p>-<strong>Tastenkürzel nutzen</strong>: Spare Zeit, indem du Tastenkombinationen für häufige Aktionen verwendest.
+-<strong>Direkt erstellen</strong>: Nutze die Möglichkeit, neue Objekte direkt aus der Suche zu erstellen, um deinen Workflow zu beschleunigen.
+-<strong>Vorschaufunktion</strong>: Nutze die Vorschau der Suchergebnisse mit den Pfeiltasten, um schneller zu sehen, welche Belege du zu deinem Vorgang einsehen willst.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

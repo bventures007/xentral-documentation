@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22381416567196 Amazon Classic Workflows - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>22381416567196 Amazon Classic Workflows</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>22381416567196 Amazon Classic Workflows</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h3 id="artikel-importieren">Artikel importieren<a class="headerlink" href="#artikel-importieren" title="Permanent link">&para;</a></h3>
+<h4 id="amazon-schnittstelle">Amazon Schnittstelle<a class="headerlink" href="#amazon-schnittstelle" title="Permanent link">&para;</a></h4>
+<p>Wenn du die XentralAmazon Schnittstelle zum Importieren von Aufträgen verwendest, werden Artikel nur mit Name (Titel) und Nummer importiert.</p>
+<h4 id="amazon-sellerapp">Amazon SellerApp<a class="headerlink" href="#amazon-sellerapp" title="Permanent link">&para;</a></h4>
+<p>Wenn du die XentralAmazon SellerApp zusätzlich verwendest, können folgende Informationen zusätzlich importiert werden:</p>
+<p>&lsquo;Publisher&rsquo;, &lsquo;Studio&rsquo;, &lsquo;ProductGroup&rsquo;, &lsquo;ProductTypeName&rsquo;, &lsquo;Size&rsquo;, &lsquo;Color&rsquo;, &lsquo;Manufacturer&rsquo;, &lsquo;Label&rsquo;, &lsquo;Model&rsquo;, &lsquo;NumberOfItems&rsquo;, &lsquo;Brand&rsquo;. Es wird zusätzlich noch ein Minibild als Gruppenbild importiert.</p>
+<p>Wenn du eine Preisgruppe in der Shopschnittstelle angegeben hast, wird der Artikelpreis als Gruppenpreis importiert. Dies funktioniert jedoch nur, wenn du auf einem Marktplatz verkaufst.</p>
+<p>Sobald die Amazon Schnittstelle initialisiert ist, du den Artikel mit der Schnittstelle verknüpft hast und du die Amazon Seller-App besitzt, wird ein neuer Lagerort namens &ldquo;Amazon&rdquo; angelegt. Dort werden die Bestände der FBA-Artikel via API ins System geladen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Damit die Schnittstelle vollständig initialisiert werden kann, musst du den Importmodus auf manueller Import einstellen.</p>
+</blockquote>
+<p>Einige Shop-Schnittstellen erlauben dir einen Import der Artikel aus deinem Shop zu xentral über die Aktion <strong>Artikelliste abholen</strong> unter Schnittstellen. Shopartikel, die bereits in xentral vorhanden waren, werden aktualisiert, fehlende Artikel werden angelegt. Die Artikel werden nach dem Ausführen der Aktion nach und nach vom Prozessstarter<a href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">Artikelimport</a>abgeholt.</p>
+<p>Einen einzelnen Artikel kannst du in den Stammdaten des Artikels unter <strong>Details &gt; Online Shop Optionen</strong> importieren. Das ist hilfreich um diesen zu aktualisieren, wenn Daten im Shop geändert wurden.</p>
+<p><img alt="Online-Shops-17.png" src="https://help.xentral.com/hc/article_attachments/22381431639196" /></p>
+<p>Damit der richtige Artikel aus dem Shop zugeordnet wird, musst du die<a href="https://help.xentral.com/hc/de/articles/360016758199#UUID-be6a2725-3071-98cf-ad2e-1a9016c503cc">Fremdnummer</a>bereits verknüpft haben.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es kann immer nur ein Shopartikel einem Lagerartikel zugeordnet werden. Soll z.B. eine Unisex Sonnenbrille im Shop eigene Einträge als Frauen und Männer Sonnenbrille erhalten, kann der hier beschriebene Workaround genutzt werden.</p>
+</blockquote>
+<h3 id="artikel-exportieren">Artikel exportieren<a class="headerlink" href="#artikel-exportieren" title="Permanent link">&para;</a></h3>
+<p>Die Artikelübertragung exportiert Artikel mitsamt der gepflegten Daten an den Shop. Exportiert werden u.a. die Online-Shop-Texte, Standardpreis, Gewichte, Abverkauf usw.</p>
+<p>Für den automatischen Export von Artikeln zu einem Online-Shop gibt es den Prozessstarter<a href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">artikeluebertragen</a>. Dieser überträgt alle zum Shop verknüpften Artikel nach und nach im Hintergrund, wenn der Export in der Schnittstellen über den Bereich &ldquo;Artikel Übertragung&rdquo; angestoßen wurde. Wurde ein Artikel verändert, kannst du im Artikelstamm (<strong>Stammdaten &gt; Artikel &gt;<em> Artikel auswählen</em></strong>) unter <strong>Details &gt; Online Shop Optionen</strong> auch direkt per Knopfdruck in den Shop exportiert werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beim Export von (JIT-)Stücklisten darf nur der Kopfartikel an den Shop übertragen werden. Die einzelnen Bestandteile der (JIT-)Stückliste werden dann beim Import des Auftrags wieder in Xentral ergänzt. Falls du die einzelnen Bestandteile auch im Shop anzeigen möchtest, kannst du diese in der Artikelbeschreibung eintragen.</p>
+</blockquote>
+<p><img alt="Online-Shops-18.png" src="https://help.xentral.com/hc/article_attachments/22381468950684" /></p>
+<p>Willst du nur die Lagerzahlen der Artikel übertragen, da alle anderen Artikeldaten im Shop gepflegt werden, solltest du die Option &ldquo;Artikel Übertragung erlauben&rdquo; nicht setzen, sondern nur die Option &ldquo;Lagerzahlen Übertragen erlauben&rdquo;.</p>
+<h3 id="lagerzahlen-synchronisieren">Lagerzahlen synchronisieren<a class="headerlink" href="#lagerzahlen-synchronisieren" title="Permanent link">&para;</a></h3>
+<p>Beim Lagerzahlenabgleich zu Amazon gibt es eine Besonderheit. Du musst alle Fremdnummern in den Artikeln pflegen, da die Amazon-Schnittstelle diese in einer Liste sammelt und die Lagerzahlen aller Artikel auf einmal überträgt. Hier könnte es also passieren, dass die ganze Liste nicht aktualisiert wird, wenn die Fremdnummer eines Artikels fehlt.</p>
+<p>Beachte, dass sich Reservierungen, die auf einen Artikel vorgenommen werden, auf den gemeldeten Lagerbestand auswirken.</p>
+<h4 id="lagerzahlen-ubertragung-erlauben">Lagerzahlen Übertragung erlauben<a class="headerlink" href="#lagerzahlen-ubertragung-erlauben" title="Permanent link">&para;</a></h4>
+<p>Um den Lagerbestand der Artikel automatisch an den Shop zurückzumelden, musst du die Option &ldquo;Lagerzahlen Übertragung erlauben&rdquo; aktivieren. Die Lagerzahl wird z.B. auch neu gemeldet, wenn du einen Auftrag mit einem Artikel anlegst. Dieser Artikel wird dann vom Bestand, der gekauft werden kann, weggerechnet.</p>
+<p>Die automatische Meldung der Lagerzahlen an den Shop erfolgt, wenn der Prozessstarter<a href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">lagerzahlen</a>aktiv ist und ausgeführt wird.</p>
+<p>Damit die Übertragung der Lagerzahlen möglichst wenige Ressourcen beansprucht, wird diese nicht jedes mal für alle Artikel durchgeführt. Nur Artikel, die seit ihrer letzten Synchronisation eingelagert, ausgelagert oder in einen Auftrag eingefügt werden, werden neu synchronisiert, wenn der Prozessstarter durchläuft. Zur Sicherheit werden zusätzlich alle 12 Stunden die Lagerbestände aller Artikel noch einmal synchronisiert.</p>
+<p>Mit der Einstellung Lager Grundlage unter Details &gt; Einstellungen definierst du, wie sich der &ldquo;Bestand&rdquo;, der an deinen Shop zurückgemeldet werden soll, zusammensetzen soll:</p>
+<p>Anhand &ldquo;Artikel verkaufbare&rdquo;: Es wird der &ldquo;berechnete Bestand&rdquo; im Artikel an den Onlineshop zurückgemeldet</p>
+<p>Anhand &ldquo;Lagerbestand minus Reservierungen&rdquo;: Es wird der Lagerbestand minus der reservierten Aufträge zurückgemeldet (offene nicht reservierte Aufträge werden nicht berücksichtigt)</p>
+<h4 id="lagerkorrektur-uberschreiben">Lagerkorrektur überschreiben<a class="headerlink" href="#lagerkorrektur-uberschreiben" title="Permanent link">&para;</a></h4>
+<p>Aktivierst du diese Option, kann der Lagerkorrekturwert global für alle Artikel in diesem Shop einstellen. Den Lagerkorrekturwert musst du dann nicht mehr pro Artikel im Artikelstamm pflegen. Der eingestellte Lagerkorrekturwert im Artikelstamm des Artikels wird von diesem Wert überschrieben.</p>
+<h4 id="vorraussetzungen-fur-den-lagerzahlensync">Vorraussetzungen für den Lagerzahlensync<a class="headerlink" href="#vorraussetzungen-fur-den-lagerzahlensync" title="Permanent link">&para;</a></h4>
+<ul>
+<li>In der Shop-Schnittstelle &gt; Einstellungen muss die Option &ldquo;Lagerzahlen Übertragung erlauben&rdquo; aktiviert sein</li>
+<li>Im Artikel &gt; Online-Shop Optionen muss die Option &ldquo;Lagerzahlen Sync.&rdquo; aktiviert sein &amp; der Artikel mit dem Shop verknüpft sein <strong>Manuell übertragen: </strong> Wenn die Lagerzahl eines einzelnen Artikels übertragen werden sollen, musst du unter Artikel &gt; Online-Shop Optionen gehen und auf die Schaltfläche &ldquo;Export&rdquo; klicken <strong> Automatisch übertragen:</strong> Wenn es automatisch gehen soll, musst du den Prozessstarter &ldquo;lagerzahlen&rdquo; aktivieren (ideal 5 oder 10 Minuten). Dann wird zyklisch der Wert im Shop angepasst bei Lagerdifferenzen zwischen Xentral und dem Shop.</li>
+</ul>
+<p>Allgemeine Informationen zu Prozessstartern findest du<a href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">hier</a>und Informationen zum Zeitpunkt des Lagerzahlensyncs unter<a href="https://help.xentral.com/hc/de/articles/18567521362332#UUID-7d97af0c-3e39-6798-67c6-50f26028c174">diesem Link</a>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Bezug zum Lagersync:</p>
+<ul>
+<li>Die Bestandsänderung muss auf Xentral-Seite passieren</li>
+<li>Xentral merkt sich, was das letzte mal an den Shop gemeldet wurde</li>
+<li>Wenn sich hieraus eine Änderung im Lagerbestand ergeben hat, werden genau diese Artikel übertragen</li>
+<li>Eine alleinige Änderung im Shop löst noch keine Bestandsänderung in xentral aus, eine Bestandsänderung in Xentral löst aber eine Rückmeldung zum Shop aus (sofern keine Pseudo-Lagerzahlen als Bestand verwendet werden)</li>
+</ul>
+</blockquote>
+<p>Durch Betätigung der Schaltfläche Lagerzahlen zurücksetzen kannst du die zuletzt gespeicherten Bestandswerte löschen. Im Anschluss holt der Cronjob &ldquo;lagerzahlen&rdquo; erneut alle neuen Bestände ab und meldet diese an den Shop zurück.</p>
+<h3 id="auftrage-importieren">Aufträge importieren<a class="headerlink" href="#auftrage-importieren" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Demo-Modus werden Lagerzahlen bzw. Auftragsdaten nicht gesendet und keine Rechnungen hochgeladen. VAT-Reports und Inventory-Reports werden hingegen abgeholt.</p>
+</blockquote>
+<p>In folgendem DropDown-Menü siehst du, welche verschiedenen Import-Modi zur Verfügung stehen.</p>
+<p><img alt="Amazon-13.png" src="https://help.xentral.com/hc/article_attachments/22381468951068" /></p>
+<p>Zum Test der Abholung empfehlen wir den &ldquo;Demo-Modus&rdquo;, da hier lediglich der letzte Auftrag abgeholt und dabei der Status bei Amazon nicht umgestellt wird.</p>
+<p>Im Anschluss musst du nur noch auf die Schaltfläche <strong>Aufträge abholen</strong> klicken. Solltest du die Option &ldquo;Aufträge in Zwischentabelle&rdquo; gewählt haben, dann wird dir im Anschluss an den Abholvorgang eine Zwischentabelle angezeigt, in der du den Import nochmals bestätigen, abbrechen oder auf später verschieben kannst. Ansonsten wird der Auftrag direkt in die Auftragsübersicht unter Verkauf &gt; Auftrag eingespielt.</p>
+<p>Du hast auch die Möglichkeit das Startabholdatum manuell über eine Schaltfläche auf &ldquo;gestern&rdquo; zurückzustellen wenn die Schnittstelle warnt, dass das Start Abholdatum weit zurückliegt.</p>
+<p><img alt="Amazon-14.png" src="https://help.xentral.com/hc/article_attachments/22381431640732" /></p>
+<h4 id="importierte-auftragsstatus">Importierte Auftragsstatus<a class="headerlink" href="#importierte-auftragsstatus" title="Permanent link">&para;</a></h4>
+<p>Aufträge mit folgenden Auftragsstatus lassen sich von Amazon abholen, wenn FBM versendet wird:</p>
+<ul>
+<li>unfulfilled</li>
+<li>partially fulfilled</li>
+</ul>
+<p>Alle anderen Auftragsstatus werden derzeit ignoriert und nicht importiert. Wenn es sich um FBA Aufträge handelt, holen wir jeden Status ab.</p>
+<h4 id="auftrage-importieren_1">Aufträge importieren<a class="headerlink" href="#auftrage-importieren_1" title="Permanent link">&para;</a></h4>
+<p>Die Shopschnittstelle von Xentral erlaubt einen manuellen oder automatischen Auftragsimport vom Shop zu Xentral. Zudem gibt es einen Modus &ldquo;Demo (Zum Testen)&rdquo;, bei dem der Auftragsstatus im Shop nicht umgestellt und keine Artikel oder Lagerzahlen übertragen werden.</p>
+<p>Um Aufträge manuell zu importieren wählst du zunächst unter Details &gt; Schnittstelle den Import-Modus aus und benutzt anschließend die Schaltfläche <strong>Aufträge abholen</strong>.</p>
+<p>Beim Import werden automatisch die neuen Aufträge auf bestehende Kunden gebucht, bzw. neue Kunden angelegt. Anhand der farblichen Markierung in der Shopimport Zwischentabelle ist erkennbar, ob ein Kunde bereits in der Datenbank existiert, oder ein ähnlicher Kunde gefunden wurde, dessen E-Mail-Adresse mit einem importierten Auftrag übereinstimmt.</p>
+<p>Ein Kunde wird beim Import als vorhanden erkannt (grüne Markierung), wenn folgende Datenfelder übereinstimmen:</p>
+<ul>
+<li>Name</li>
+<li>E-Mail-Adresse</li>
+<li>Abteilung</li>
+<li>Strasse</li>
+<li>PLZ</li>
+<li>Ort</li>
+</ul>
+<p>Wenn nur eines der folgenden Datenfelder übereinstimmt, ist eine manuelle Prüfung der Verknüpfung notwendig (lila Markierung):</p>
+<ul>
+<li>Name, oder</li>
+<li>E-Mail</li>
+</ul>
+<p>In der Zwischentabelle kannst du entscheiden, ob du die Aufträge direkt importieren, später importieren oder auf den Müll legen willst.</p>
+<p><img alt="Online-Shops-24.png" src="https://help.xentral.com/hc/article_attachments/22381468952348" /></p>
+<ul>
+<li>Grün &gt; eindeutig gefunden &gt; die Daten sind identisch zu den in den Stammdaten gespeicherten Werten</li>
+<li>Lila &gt; Kunde anhand der Mail Adresse gefunden, allerdings hat der Kunde eine andere Adresse eingegeben (zumindest liegt eine Abweichung vor)</li>
+<li>Rot &gt; Der Kunde hat seine Kundennummer im Shop eingegeben (sofern der Shop das unterstützt) &gt; diese Nummer sollte ggf. manuell geprüft werden</li>
+<li>Rote Shopbestellnummer &gt; Der Auftrag wurde bereits abgeholt, in diesem Fall steht der Auftrag auf &ldquo;später&rdquo;</li>
+</ul>
+<p>Der Auftragsimport aus dem Shop kann auch automatisch per Prozessstarter erfolgen.</p>
+<p>Hierfür muss der Prozessstarter <strong>shopimport </strong> aktiv sein und der Import-Modus der Shopschnittstelle muss auf <strong>Automatisch (per Prozessstarter)</strong> eingestellt sein.</p>
+<p>Eine ausführliche Anleitung für den Import von Aufträgen aus dem Online Shop befindet sich<a href="https://help.xentral.com/document/preview/42498#UUID-261d26b3-4119-fdc4-df27-ba7054e67b4b">hier</a>.</p>
+<p>Beim Abholen von älteren Aufträgen kann es passieren, dass nicht alle Aufträge importiert werden können.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Alte Aufträge können nur importiert werden, wenn sie max. 89 Tage vor dem aktuellen Datum liegen.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

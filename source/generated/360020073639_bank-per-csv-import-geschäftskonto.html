@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360020073639 Bank Per Csv Import Geschäftskonto - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360020073639 Bank Per Csv Import Geschäftskonto</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360020073639 Bank Per Csv Import Geschäftskonto</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Es gibt in xentral die Möglichkeit, ein Bankkonto per CSV-Import einzurichten. Dazu wird zunächst zum das Modul &ldquo;Geschäftskonten&rdquo; navigiert (Administration → Einstellungen → Buchhaltung → Geschäftskonten) und auf &ldquo;Neu&rdquo; → &ldquo;Custom&rdquo; geklickt.</p>
+<h2 id="felderklarungen">Felderklärungen<a class="headerlink" href="#felderklarungen" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden findest du Felderklärungen zu den einzelnen Felder, die im Modul Bankkonto CSV vorhanden sind.</p>
+<h3 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Bezeichnung</strong>→ Interne Bezeichnung für das Konto. Diese Bezeichnung kann beliebig gewählt werden und wird an verschiedenen Stellen in der Oberfläche angezeigt
+-<strong>Typ</strong>→ Typ des Kontos (Bankkonto: Konto (CSV-Import), PayPal-Konto, Kreditkartenanbieter, Kasse etc.)
+-<strong>aktiv</strong>→ dieses Konto ist aktiv (in Verwendung) oder inaktiv (stillgelegt)
+-<strong>keine E-Mail</strong>→ Der Kunde erhält keine automatische E-Mail-Benachrichtigung über den Eingang seiner Zahlung
+-<strong>Änderungen erlauben</strong>→ Es dürfen Änderungen in den Kontoauszügen vorgenommen werden (nicht empfohlen, wird nur benötigt, wenn die Kontoauszüge von Hand eingegeben werden)</li>
+</ul>
+<h4 id="bankverbindung-bei-typ-bank">Bankverbindung (bei Typ Bank)<a class="headerlink" href="#bankverbindung-bei-typ-bank" title="Permanent link">&para;</a></h4>
+<p>Bankdaten (werden für SEPA-Zahlungsverkehr und Lastschrift benötigt und sind hierfür Pflichtfelder)</p>
+<p>-<strong>Inhaber</strong>→ Kontoinhaber für dieses Konto (keine Sonderzeichen, wenn der Sepa Zahlungsverkehr via XML verwendet wird)
+-<strong>BIC</strong>→ BIC für dieses Konto (bei Bankkonten Pflichtangabe für Lastschrifteinzug und Sepa-Sammelüberweisung)
+-<strong>IBAN</strong>→ IBAN für dieses Konto (bei Bankkonten Pflichtangabe für Lastschrifteinzug und Sepa-Sammelüberweisung)
+-<strong>BLZ</strong>→ Bankleitzahl für dieses Konto
+-<strong>Konto</strong>→ Kontonummer für dieses Konto
+-<strong>Gläubiger ID</strong>→ Gläubiger ID für Bankkonten (bei Bankkonten Pflichtangabe für Lastschrifteinzug)
+-<strong>Lastschrift</strong>→ Haken setzen um den Lastschrifteinzug zu aktivieren
+- (HBCI → nur in alten Versionen noch vorhanden)
+- (HBCI-Kennung → nur in alten Versionen noch vorhanden)</p>
+<h4 id="konto-buchhaltung">Konto (Buchhaltung)<a class="headerlink" href="#konto-buchhaltung" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Kontenrahmen → Nummer des Kontenrahmens für das Bankkonto (für den Export der Auszüge); je nach Kontenrahmen z.B. 1800, 1700 etc.</li>
+</ul>
+<h4 id="csv-import">CSV-Import<a class="headerlink" href="#csv-import" title="Permanent link">&para;</a></h4>
+<p>-<strong>CSV-Import</strong>→ Eingabemaske für den CSV-Import (Beispiel siehe CSV-Import-Einstellungen)
+-<strong>Erste Datenzeile</strong>→ erste Zeilennummer in der echte Daten stehen (Bsp. für Daten ab Zeile 1: &ldquo;1&rdquo;). Sofern es eine Beschriftungszeile gibt, ist die erste richtige Datenzeile meist Zeile 2 (anzugeben dann &ldquo;2&rdquo;)
+-<strong>Kodierung</strong>→ Im Standard auf UTF8 Encode stellen, um die Umlaute korrekt zu übertragen
+-<strong>Trennzeichen</strong>→ Strichpunkt oder Komma. Das Trennzeichen ist in der CSV Datei über einen Texteditor ersichtlich
+-<strong>Maskierung</strong>→ Anführungszeichen oder keine Maskierung. Die Maskierung ist in der CSV Datei über einen Texteditor ersichtlich
+-<strong>Letzte Zeilen ignorieren</strong>→ im Standard eine &ldquo;0&rdquo; eintragen, es sei denn der Kontoauszug enthält am Ende weitere Informationszeilen, die nicht mehr zu den Einzelbuchungen gehören. Hierzu als Zahl angeben, wie viele Zeilen am Ende ignoriert werden sollen
+-<strong>Datum</strong>→ Spalte, in der das Datum steht.
+-<strong>Eingabeformat</strong>→ Format, wie das Datum in Ihrer CSV-Datei angegeben ist (Meist Datum dd.mm.yyyy dann: %1.%2.%3)Beispiel für komplizierteres Format: 07.01.2020 10:07:18 GMT+00:00 =&gt; %1.%2.%3 %4:%5:%6 GMT+00:00
+-<strong>Ausgabeformat</strong>→ Format, wie es für Xentral ausgegeben wird (Muss immer wie folgt ausgegeben werden: %3-%2-%1).
+- &ndash;&gt;&gt;&gt;&gt; Bsp. für Eingabe und Ausgabe: 24.12.2016 in CSV entspricht Eingabeformat %1.%2.%3 und Ausgabeformat %3-%2-%1 (Ausgabe muss immer auf diese Format gebracht werden YYYY-MM-DD). Weiteres Beispiel: Ist das Eingabeformat folgendermaßen: 08/11/2016 11:12:45 wird dieses mit Variablen so dargestellt: %1/%2/%3 %4:%5:%6. Das Ausgabeformat bleibt %3-%2-%1 (die Uhrzeit wird in der Ausgabe abgeschnitten)
+-<strong>Betrag</strong>→ Spalte, in der der Betrag steht (nur dieses Feld, wenn der Betrag in einer Spalte steht)
+-<strong>Extra Haben u. Soll</strong>→ wird benötigt (Haken setzen und Spalte für Haben und Soll angeben), sofern der Betrag auf 2 Spalten aufgeteilt ist nach Haben und Soll
+-<strong>Haben</strong>→ Spalte, in der der Betrag für HABEN steht (Voraussetzung: Haken bei &ldquo;Extra Haben u. Soll&rdquo; gesetzt)
+-<strong>Soll</strong>→ Spalte, in der der Betrag für SOLL steht (Voraussetzung: Haken bei &ldquo;Extra Haben u. Soll&rdquo; gesetzt)
+-<strong>Buchungstext</strong>→ Spalte(n), in der der Buchungstext steht. Besonderheit: für den Buchungstext können mehrere Spalten zusammengesetzt werden. Beispiel: 5+11+3+8+12+18+14. Bitte beachten: relevanteste Informationen für den Buchhaltungsexport nach vorne stellen, denn hier werden oft zu lange Texte abgeschnitten. Um möglichst viele relevante Informationen in eine separate Buchhaltungssoftware (z.B. Datev) zu importieren empfiehlt sich z.B. folgende Reihenfolge: Absender Name + Buchungstext + Referenznummer + Lastschriftinformationen + Sonstige Felder +&hellip; +&hellip;
+-<strong>Währung</strong>→ Spalte, in der die Währung steht
+-<strong>Haben/Soll Kennung</strong>→ Separate Spalte, die festlegt, ob der Betrag Haben oder Soll ist (z.B. eine extra Spalte, in der die Information &ldquo;H&rdquo; oder &ldquo;S&rdquo; zu finden ist)
+-<strong>Markierung Eingang</strong>→ Zeichen für &ldquo;Haben&rdquo; z.B. &ldquo;H&rdquo; oder &ldquo;+&rdquo; (Voraussetzung: Spaltenangabe für &ldquo;Haben/Soll Kennung&rdquo;)
+-<strong>Markierung Ausgang</strong>→ Zeichen für &ldquo;Soll&rdquo; z.B. &ldquo;S&rdquo; oder &ldquo;-&rdquo; (Voraussetzung: Spaltenangabe für &ldquo;Haben/Soll Kennung&rdquo;)</p>
+<h3 id="beispiel-fur-ein-bankkonto-mit-csv-einstellungen-csv-import">Beispiel für ein Bankkonto mit CSV <strong>Einstellungen (CSV Import)</strong>:<a class="headerlink" href="#beispiel-fur-ein-bankkonto-mit-csv-einstellungen-csv-import" title="Permanent link">&para;</a></h3>
+<p><img alt="BankViaCSV1.png" src="https://help.xentral.com/hc/article_attachments/15492809910172" /></p>
+<p><strong>Aufruf Beispiel-Bankkonto</strong>:</p>
+<p>Soll das Bankkonto aufgerufen werden, so wird zu Buchhaltung → Zahlungseingang navigiert und das jeweilige Konto über den Editor-Button ausgewählt.</p>
+<p><strong>Einstellungen Deutsche_Bank.csv (Stand 10/2019)</strong>:</p>
+<p><img alt="BankViaCSV2.png" src="https://help.xentral.com/hc/article_attachments/15492809910172" /></p>
+<ul>
+<li>Feld &ldquo;Buchungstext&rdquo;: 4+5+8+9+10+6+7+3</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bitte beachten, dass die Bank die Einstellungen ggf. von Zeit zu Zeit minimal ändert.</p>
+</blockquote>
+<p><strong>Beispiel der CSV-Einstellungen und einer CSV-Datei:</strong></p>
+<p>In diesem einfach gehaltenem Beispiel sehen Sie die CSV-Einstellungen des angelegten Geschäftskontos mit der dazugehörigen CSV-Datei.</p>
+<p><img alt="BankViaCSV3.png" src="https://help.xentral.com/hc/article_attachments/15492843307804" /></p>
+<p><strong>Beispieldatei</strong></p>
+<p><img alt="BankViaCSV4.png" src="https://help.xentral.com/hc/article_attachments/15492810450716" /></p>
+<p>Zu beachten beim CSV-Import ist, dass die Originaldatei der Bank oder des Zahlungsanbieters importiert wird und diese nicht über andere Systeme geöffnet und (automatisch) gespeichert wurde, da sonst die Originaldatei nicht mehr importfähig ist oder falsche Werte liefert. Bei Amazon Pay handelt es sich bei den &ldquo;Kontonummern&rdquo; um die entsprechende Kontonummer aus dem Kontorahmen.</p>
+<h3 id="kontenspezifische-einstellungen">Kontenspezifische Einstellungen<a class="headerlink" href="#kontenspezifische-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Im Zahlungseingang doppelte Zahlungen als Importfehler anzeigen: In manchen Fällen sind Zahlungen sehr ähnlich und werden von Xentralfälschlicherweise als Duplikate angesehen. Ist hier ein Häkchen gesetzt, kannst du vermeintliche Duplikate manuell überprüfen und importieren. Duplikate werden dir als Importfehler angezeigt.</p>
+<p><strong>Einzelbuchungen aktivieren <strong>: Sammellastschriften können in Xentral im Modul </strong> Zahlungsverkehr <strong>erstellt werden. Dabei werden mehrere Zahlungen zu einer gesammelten Zahlung zusammengefasst. Ist bei </strong> Einzelbuchungen aktivieren</strong> ein Haken gesetzt, so können diese Zahlungen durch Xentral wieder in Einzelpositionen aufgelöst werden. Dies ist in den Kontoauszügen in Xentral sichtbar und erleichtert die Zuordnung der Zahlungen zu Aufträgen, Gutschriften und Rechnungen.</p>
+<p>pain.001.001.03: Setze hier ein Häkchen, wenn du eine SEPA XML-Datei im Format pain.001.001.03 erstellen möchtest. Diese Datei kannst du manuell bei deiner Bank hochladen, um die Zahlung von Verbindlichkeiten und Gutschriften einzuleiten.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11739147762332 Logistik Und Lager Einrichtung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>11739147762332 Logistik Und Lager Einrichtung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>11739147762332 Logistik Und Lager Einrichtung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="ein-lager-anlegen-schnellstart">Ein Lager anlegen (Schnellstart)<a class="headerlink" href="#ein-lager-anlegen-schnellstart" title="Permanent link">&para;</a></h2>
+<p>In einem Lager kannst du deine Produkte und Materialien für den Verkauf verfügbar halten. Du kannst eine<a href="https://help.xentral.com/hc/de/articles/360016722900#UUID-527055ed-8627-f35b-455b-32892ca8d5ce">Struktur für das Lager festlegen</a>, es aktivieren und einrichten sowie Lagerplätze importieren. Außerdem kannst du Produkte ein-, aus- und umlagern, Reservierungen vornehmen und den Lagerbestand berechnen. Eine Inventur ist ebenfalls möglich.</p>
+<p>Ein Lager in Xentral besteht grundsätzlich aus zwei Ebenen: Lager und Regale. Dabei kannst du entscheiden, ob ein Lager ein Bereich, ein Raum oder ein Gebäude sein soll. Dasselbe gilt für die zweite Ebene. Ein Regal kann ein tatsächliches Regal, ein Fach oder ein Sichtlagerkasten sein.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>In automatischen Prozessen und Vertriebskanälen wird oft aus einem Standardlager ausgebucht, während der genaue Ort für den Pick-Prozess durch den Lagerplatz bestimmt wird. Dein Vertriebskanal greift auf das gesamte Lager zu, nicht auf einzelne Regale.</p>
+</blockquote>
+<p>Um Artikel in Xentral einzulagern, brauchst du ein <strong>Lager </strong> und zu diesem Lager mindestens ein <strong>Regal <strong>. </strong> Ein neues Lager legst du wie folgt an:</strong></p>
+<ol>
+<li>Gehe auf <strong>Lager </strong>&gt;<strong>Lagerverwaltung <strong> und klicke auf</strong>+NEU</strong>.</li>
+<li>Vergib eine Bezeichnung ohne Sonderzeichen für das neue Lager, z.B. Hauptlager, Produktionslager, Halle, Lager Berlin, etc.</li>
+<li>
+<p>Klicke auf <strong>Speichern </strong>.<strong>Ein neues Regal legst du wie folgt an:</strong></p>
+</li>
+<li>
+<p>Gehe auf <strong>Lagerplätze </strong> und klicke auf <strong>Neuen Lagerplatz anlegen. </strong></p>
+</li>
+<li>
+<p>Gib deinem <strong>Lagerplatz</strong>(= Regal) eine Bezeichnung aus zusammenhängenden Zeichen/Ziffern z.B. HL001, HL0101A etc..</p>
+</li>
+<li>Klicke auf <strong>Speichern. </strong>&gt;<strong>Anmerkung</strong><blockquote>
+<p>Weitere Informationen für deine Lagerstruktur, verschiedene Lagerplatztypen wie z.B. Sperrlagerplätze, Nachschublagerplätze, Verbrauchslagerplätze und Funktionen für die automatisierte Logistik findest du im Artikel zurLagerstruktur erstellen (Xentral Lagerverwaltung).</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="artikel-ein-und-auslagern-umlagern">Artikel ein- und auslagern, umlagern<a class="headerlink" href="#artikel-ein-und-auslagern-umlagern" title="Permanent link">&para;</a></h2>
+<p>Lagerbestände kannst du direkt in einem Artikel verändern oder anpassen. Für die Änderung erhältst du einen Protokolleintrag, der dir im Artikel und im betreffenden Lager angezeigt wird. Im Artikel stehen dir folgende Optionen zur Verfügung: Einlagern eines Artikels in einen neuen Lagerplatz, Umlagern von einem Lagerplatz zu einem anderen, Auslagern eines Artikels (nur wenn der Bestand größer als Null ist) und Hinzufügen/Einlagern weiterer Mengen zu einem bestehenden Lagerbestand.</p>
+<p><strong>Artikel in einen neuen Lagerplatz einlagern:</strong></p>
+<ol>
+<li>Klicke auf <strong>Artikel in einen neuen Lagerplatz einlagern</strong>.</li>
+<li>Gib die einzulagernde <strong>Menge </strong> und den <strong>Lagerplatz </strong>(= Regal) ein. Hat der Artikel ein <strong> Standardlager</strong> hinterlegt oder ist in ein Lager eingelagert worden, bekommst du den Lagerplatz (= Regal) fettgedruckt vorgeschlagen und kannst den Platz anklicken um das Feld zu füllen.</li>
+<li>
+<p>Klicke auf <strong>Weiter </strong> um den Artikel in den Lagerplatz einzubuchen.<strong>Artikel aus einem Lagerplatz auslagern:</strong></p>
+</li>
+<li>
+<p>Klicke auf das <strong>Minus Symbol</strong> um den Artikelbestand auszubuchen.</p>
+</li>
+<li>Gib die auszulagernde <strong>Menge </strong>, die aus diesem Lagerplatz (= Regal) genommen werden soll, ein und klicke auf <strong>OK</strong>.</li>
+<li>Gib einen <strong>Auslagerungsgrund</strong> an, z.B. Korrekturbuchung, Warendefekt.</li>
+<li>
+<p>Klicke auf <strong>OK </strong>, um den Artikel aus dem Lagerplatz zu buchen.<strong>Artikel aus einem Lagerplatz umlagern:</strong></p>
+</li>
+<li>
+<p>Klicke auf das <strong>Umlagern Symbol</strong>, um den Artikelbestand in einen anderen Lagerplatz zu buchen.</p>
+</li>
+<li>Gib die auszulagernde <strong>Menge </strong>, die aus diesem Regal genommen werden und umgebucht werden soll, ein und klicke auf <strong>OK</strong>.</li>
+<li>Gib einen <strong>Umlagerungsgrund </strong> an, z.B. Bestandsverschiebung und klicke auf <strong>OK</strong>, um den Artikel aus dem Lagerplatz zu buchen.</li>
+<li>Gib den <strong>Lagerplatz </strong>(= Regal) ein. Hat der Artikel ein <strong> Standardlager</strong> hinterlegt oder ist in ein Lager eingelagert worden, bekommst du den Lagerplatz (= Regal) fettgedruckt vorgeschlagen und kannst den Platz anklicken, um das Feld zu füllen.</li>
+<li>
+<p>Klicke auf <strong>Weiter </strong>, um den Artikel in den neuen Lagerplatz einzubuchen.<strong>Artikelmenge einer eingebuchten Mengen einem Lagerplatz hinzufügen:</strong></p>
+</li>
+<li>
+<p>Klicke auf das <strong>Plus Symbol</strong>, um den Artikelbestand hinzuzubuchen.</p>
+</li>
+<li>Gib die einzulagernde <strong>Menge </strong>, die dem Lagerplatz hinzugebucht werden soll, ein und klicke auf <strong>OK</strong>.</li>
+<li>Gib einen Grund für die <strong>Bestandserhöhung</strong> an, z.B. Wareneingang LS12345.</li>
+<li>Klicke auf <strong>OK</strong>, um den Artikelbestand einzubuchen.</li>
+</ol>
+<h2 id="verschiedene-moglichkeiten-bestande-anzupassen">Verschiedene Möglichkeiten Bestände anzupassen<a class="headerlink" href="#verschiedene-moglichkeiten-bestande-anzupassen" title="Permanent link">&para;</a></h2>
+<p>Es gibt verschiedene Möglichkeiten, die du nutzen kannst um Bestände anzupassen. Dazu gehören die Anpassung über den Lieferschein, eine Bestellung, den Wareneingang, die Logistik, die POS und auch über eine Inventur oder einen Import. Jeder dieser Prozesse bietet unterschiedliche Wege zur Anpassung der Bestände. Verwende die entsprechenden Links für detaillierte Informationen.</p>
+<h3 id="uber-die-logistik-bestande-anpassen-warenausgang">Über die Logistik Bestände anpassen (Warenausgang)<a class="headerlink" href="#uber-die-logistik-bestande-anpassen-warenausgang" title="Permanent link">&para;</a></h3>
+<p>Der<a href="https://help.xentral.com/hc/de/articles/360017571259#UUID-b3f7ea2e-7364-f4b2-cfc3-8566fa73cd0b">Logistikprozess</a>legt verschiedene Dinge fest, wie zum Beispiel ob eine Lagerbuchung stattfindet oder der Lieferschein zum Auslagern verwendet wird. Außerdem bestimmt er, ob das Auslagern und Bereitstellen von Artikeln zum Verpacken in einem separaten Schritt erfolgt. Des Weiteren regelt der Prozess den Zeitpunkt und Ort des Ausdrucks von Rechnungen, Lieferscheinen und Paketmarken. Die automatisierte Übergabe größerer Auftragsmengen an die Logistik erfolgt über ein Ampelsystem. Grüne Ampeln bedeuten, dass dein Auftrag in der automatischen Prozessteuerung abgeholt und weiterverarbeitet wird wohingegen dir orange Ampeln z.B. fehlendes Lager oder fehlende Zahlung zeigen und den Auftrag für die Logistik blockieren.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Schnellstart Logistik</strong> für die Prozesseinstellungen und ersten Schritte findest du im nächsten Hauptpunkt.</p>
+</blockquote>
+<ul>
+<li>Du kannst Aufträge einzeln abschliessen und verbuchen, indem du eine Rechnung und einen Lieferschein erstellst und die Artikel ausbuchst.</li>
+<li>Du kannst einen Auftrag einzeln über einen automatischen <a href="https://help.xentral.com/hc/de/articles/360016757139#UUID-8ee2b6e8-1c6c-8f2e-1259-35d3532701b0">Logistikprozess an das Versandzentrum übergeben</a>, der die Prozesskette wie in deiner Logistikeinstellung festgelegt durchläuft.</li>
+<li>Bei großen Auftragsmengen kannst du die Übergabe an die Logistik mittels Stapelverarbeitung oder mit einem automatischen Prozess steuern. Den Prozess kannst du z.B. auf 12 Uhr mittags oder stündliche Abarbeitung einstellen, um alle gründ geschalteten Aufträge automatisch zum Packtisch weiterzuverarbeiten.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die umfangreichen Möglichkeiten für die Erstellung von Logistikprozessen findest du in denEinstellungen der Vertriebskanäle. Den Workflow für Pick und Pack findest du im ArtikelVersandzentrum. Weiterführende Informationen über alle Logistik Themen z.B. Charge und MHD oder Dropshipping findest du in derKategorieübersicht Logistik und Fulfillment.</p>
+</blockquote>
+<h3 id="uber-den-lieferschein-bestande-anpassen-warenausgang">Über den Lieferschein Bestände anpassen (Warenausgang)<a class="headerlink" href="#uber-den-lieferschein-bestande-anpassen-warenausgang" title="Permanent link">&para;</a></h3>
+<p>Mit dem Modul<a href="https://help.xentral.com/hc/de/articles/360016721280#UUID-5a6cafce-14d0-1453-6d2d-e12d1a02b6ca">Belege ein- und auslagern</a>kannst du in manuellen Prozessen flexibel definieren, aus welchem Regal Mengen ein- oder ausgelagert werden sollen. Es können auch mehrere Lagerbuchungen pro Position festgelegt werden. Das Modul ermöglicht das Ein- und Auslagern von Positionen in Lieferscheinen und Bestellungen. Zur Nachverfolgung der Bewegungen kann eine Historie im Artikel oder im Lager über alle manuellen Ein- und Auslagerungsbewegungen eingesehen werden. Das Entnahmeregal kannst du auf dem Lieferbeleg anzeigen lassen. Die Einstellung für den Lagerplatz auf dem Lieferschein anzudrucken findest du in den Projekteinstellungen (= Vertriebskanal).</p>
+<h3 id="uber-eine-bestellung-bestande-anpassen-wareneingang">Über eine Bestellung Bestände anpassen (Wareneingang)<a class="headerlink" href="#uber-eine-bestellung-bestande-anpassen-wareneingang" title="Permanent link">&para;</a></h3>
+<p>Du kannst das Modul<a href="https://help.xentral.com/hc/de/articles/360016721280#UUID-5a6cafce-14d0-1453-6d2d-e12d1a02b6ca">Belege ein- und auslagern</a>neben dem Lieferschein auch für Bestellung und Produktion verwenden. Wenn du<a href="https://help.xentral.com/hc/de/articles/360016758259#UUID-7369de67-cb6f-2be5-936e-e154e4562001">Bestellungen</a>aus Xentral versenden möchtest kannst du hierfür eine eigene Belgart verwenden. Für Bestellvorschläge kannst du die<a href="https://help.xentral.com/hc/de/articles/360016757859#UUID-f9393e01-1987-9b20-46d9-e0b52b5710d3">Bestellvorschlag Übersicht</a>einsehen, bei komplexeren B2B Konstellationen den<a href="https://help.xentral.com/hc/de/articles/360016719720#UUID-76b4af30-85c4-6c9c-2594-36a4880ff4a2">erweiterten Bestellvorschlag</a>.</p>
+<h3 id="uber-den-wareneingang-bestande-anpassen-wareneingang">Über den Wareneingang Bestände anpassen (Wareneingang)<a class="headerlink" href="#uber-den-wareneingang-bestande-anpassen-wareneingang" title="Permanent link">&para;</a></h3>
+<p>Xentral bietet dir verschiedene Möglichkeiten für den Wareneingang an. Der<a href="https://help.xentral.com/hc/de/articles/360016756499#UUID-aafddb3f-d479-abe9-88d2-7bcee79b7c1e">Schnelle Wareneingang</a>ermöglicht eine zügige Erfassung großer Mengen mit weniger intensiven Schritt-für-Schritt Prüfung. Außerdem kann angelieferte Ware in einen Wareneingangsbeleg gebucht werden. Die<a href="https://help.xentral.com/hc/de/articles/360016763959#UUID-f3eadbf9-8f35-62af-1a6f-6bdc4ace44d9">Standard-Paketannahme</a>erfasst Artikelnummer, Menge und andere Informationen und schlägt einen Lagerplatz vor. Bei der<a href="https://help.xentral.com/document/preview/25769#UUID-0d5702d7-5f5e-fbc9-0576-dc2607450f6b">Großen Paketannahme</a>(Einstellung in den Systemeinstellungen) kann Dokumentation von Gewicht und Beschädigungen genutzt werden.</p>
+<h3 id="uber-die-inventur-bestande-anpassen-inventur">Über die Inventur Bestände anpassen (Inventur)<a class="headerlink" href="#uber-die-inventur-bestande-anpassen-inventur" title="Permanent link">&para;</a></h3>
+<p>Die<a href="https://help.xentral.com/hc/de/articles/11845142149148#UUID-c7418ff4-02db-fe82-5539-8843725f04ea">Inventur (= Mobile Inventory App)</a>bietet dir verschiedene Vorteile. Mit ihr können Inventur-Daten schnell und einfach erfasst werden. Produkte und Artikel kannst du bequem per Barcode-Scan einlesen. Nach Abschluss der Zählungen können die Operationsprozesse sofort fortgesetzt werden. Außerdem ermöglicht dir die App eine vollständige Transparenz über den Fortschritt und alle Bestandsanpassungen während der Inventur.</p>
+<h3 id="uber-die-pos-bestande-anpassen-point-of-sale">Über die POS Bestände anpassen (Point of Sale)<a class="headerlink" href="#uber-die-pos-bestande-anpassen-point-of-sale" title="Permanent link">&para;</a></h3>
+<p><a href="https://help.xentral.com/hc/de/articles/6515456674460#UUID-aff937ba-7125-9cd0-d03e-e2e971fa4dac">Shopify POS in Xentral einrichten und nutzen</a>(neue Xentral Connect Schnittstelle Beta Status)</p>
+<p><a href="https://help.xentral.com/hc/de/articles/360016756919#UUID-7d8931a1-dea7-dafd-377d-f65233011462">POS-Funktionen und Bedienung</a>( alte Xentral POS bis ende 2023)</p>
+<h3 id="uber-einen-datenimport-bestande-anpassen">Über einen Datenimport Bestände anpassen<a class="headerlink" href="#uber-einen-datenimport-bestande-anpassen" title="Permanent link">&para;</a></h3>
+<p>Der<a href="https://help.xentral.com/hc/de/articles/360016758939#UUID-f547c6d9-743a-a701-602b-449b7a4acb24">Import von Stammdaten und Unternehmensdaten (Datenimport)</a>in Xentral ermöglicht das einlesen von Datenbeständen aus anderen Systemen. Wenn du beispielsweise mit einem Fulfiller zusammenarbeitest, der dir die Lagerbestandszahlen zurückmeldet oder du Bestände aus Drittsystemen von B2B Händlerplattformen einspielen willst.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Achtung</strong></p>
+<p>Bestandsveränderungen und Anbindungen zu Drittsystemen (ausserhalb des Xentral Shop- und Marktplatz Standards) und deren Synchronisation fallen in den <strong>Advanced Bereich </strong>. Beachte, dass du hierfür die entsprechenden Schnittstellen oder <strong>IT-Unterstützung</strong> von deinem Partner benötigst.</p>
+<p>Informationen dazu findest du bei</p>
+<ul>
+<li>Vorbereitende Einstellungen in Xentral und der</li>
+<li>API Dokumentation und Ressourcen (Neue Xentral API)(neue API siehe Developer Portal).</li>
+<li>Siehe auchTechnische Ressourcen und Erweiterungen - Übersicht.</li>
+</ul>
+</blockquote>
+<h2 id="logistik-schnellstart-und-uberlegungen">Logistik Schnellstart und Überlegungen<a class="headerlink" href="#logistik-schnellstart-und-uberlegungen" title="Permanent link">&para;</a></h2>
+<p>Durch den Logistikprozess werden verschiedene Entscheidungen gesteuert, wie die Lagerbuchung, die Verwendung des Lieferscheins zum Auslagern und das separate Auslagern und Bereitstellen von Artikeln zum Verpacken. Der Prozess bestimmt auch, wann und wo Rechnungen, Lieferscheine und Paketmarken gedruckt werden. Die Auswahl des richtigen Logistikprozesses hängt von Faktoren wie der Größe deines Lagers, der Anzahl unterschiedlicher Artikel im Lager und der Anzahl der täglichen Sendungen ab. Außerdem spielt die Art, Größe und das Gewicht der Artikel sowie die Anzahl der Mitarbeiter in deinem Team eine Rolle.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Du kannst aus verschiedenen Logistikprozessen wählen und die Versandübergabe mit unterschiedlichem Automatisierungsgrad steuern:</p>
+<ul>
+<li>einzeln pro Auftrag manuell,</li>
+<li>manuell als ganzer Stapel,</li>
+<li>alle fertigen und grünen Aufträge nach Uhrzeit oder auch Intervall z.B. jede Stunde.</li>
+</ul>
+<p><strong>Anmerkung</strong></p>
+<ul>
+<li>Die beschriebenen Logistikprozesse sind nur für Aufträge verfügbar, die den Autoversandprozess erfolgreich durchlaufen haben. Es ist wichtig zu beachten, dass im Lager nur Artikel aus dem Bestand gebucht werden können, die als Lagerartikel markiert sind.</li>
+<li>Stückliste Setartikel: Just-In-Time Stücklisten (besondere Xentral Stücklistenart) mit Lagerartikeln benötigen keine weitere spezielle Markierung. Es ist ausreichend, wenn diese Stücklisten-Art als Kind-Artikel einzelne Lagerartikel hat. Die Unterscheidung der Stücklisten Artikel findest du im Onboarding ArtikelErste Schritteund im ArtikelStücklisten und Just-in-Time-Stücklisten verwenden.</li>
+</ul>
+</blockquote>
+<h3 id="einen-logistikprozess-auswahlen-voruberlegungen">Einen Logistikprozess auswählen (Vorüberlegungen)<a class="headerlink" href="#einen-logistikprozess-auswahlen-voruberlegungen" title="Permanent link">&para;</a></h3>
+<p>Xentral bietet dir im Bereich Logistik verschiedene Kommissionierprozesse, die auch kombiniert genutzt werden können. Die Palette reicht dabei vom Abschluss eines Auftrags ohne weiteren Prozess bis hin zum Picken und Packen der Waren mit mobilen Oberflächen und Geräten, einschließlich der Aufteilung von Mitarbeitern auf eigene Pack-Plätze und Drucker.</p>
+<p>Die Übersicht der Logistikprozesse findest du hier:<a href="https://help.xentral.com/hc/de/articles/360017571259#UUID-b3f7ea2e-7364-f4b2-cfc3-8566fa73cd0b">Auswahl und Einstellungen des Logistikprozesses</a></p>
+<ol>
+<li>Wähle den für dich und deine Firma heute am besten passenden Prozess aus.</li>
+<li>Du kannst auch pro Kanal unterschiedliche Prozesse definieren z.B. wenn du B2B Aufträge oder Paletten anders packen möchtest als deine B2C E-Commerce Aufträge von Shopify, Shopware.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst die Pickprozesse jederzeit auch im laufenden Betrieb anpassen und umstellen. An dieser Stelle wächst Xentral mit dir mit und bietet dir verschiedenen umfangreiche Möglichkeiten.</p>
+</blockquote>
+<p><strong>Auswahl des Logistikprozesses:</strong></p>
+<p><strong>Standard Pick+Pack Prozesse <strong>: Wenn du nur die Lagerbuchung bei der Versandübergabe und die Paketmarke+Lieferschein am Packtisch benötigst, kannst du den Logistikprozess &ldquo;Einfache Lagerbuchung + scannen im Versandzentrum&rdquo; verwenden oder einen anderen vorkonfigurierten Prozess wählen und weiter einstellen. </strong> Individuelle Pick + Pack Prozesse</strong>: Wenn du besondere Anforderungen oder komplexere Prozesschritte für größere Volumina benötigst kannst du den Grundprozess auswählen und konfigurieren.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Für individuelle Logistikeinstellungen und Prozessschritte empfehlen wir dir folgende Artikel:</p>
+<ul>
+<li>Picklisten-Profile</li>
+<li>Versandregeln</li>
+<li>Versandzentrum</li>
+<li>Automatisierung per Prozessstarter(Versandzentrum, Aotuoversand berechnen)
+-???</li>
+</ul>
+</blockquote>
+<h3 id="einen-logistikprozess-anlegen-schnellstart">Einen Logistikprozess anlegen (Schnellstart)<a class="headerlink" href="#einen-logistikprozess-anlegen-schnellstart" title="Permanent link">&para;</a></h3>
+<p>Einen Logistikprozess für einen neuen Vertriebskanal (= Projekt) kannst du im Modul <strong>Projekt </strong> anlegen. Du findest die <strong>Logistik Einstellungen pro Projekt </strong> in den Settings im Bereich <strong>Lager</strong>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>In älteren Xentral Versionen findest du die Logistikeinstellungen über Projekte &gt; Einstellungen &gt; Logistik/Versand.</p>
+</blockquote>
+<p><strong>Schritte einen neuen Logistikprozess einzustellen:</strong></p>
+<ol>
+<li>
+<p>Klicke auf <strong>Einstellungen &gt; Lager &gt; Logistik Einstellungen pro Projekt <strong>und wähle mit dem Stift-Symbol das entsprechende Projekt aus z.B. kannst du das Projekt </strong> STANDARD</strong> wählen. Dieses ist in jedem Xentral-System automatisch angelegt.
+  (Alternativ kannst du über <strong>+ Projekt hinzufügen</strong> ein neues Projekt anlegen, z.B. SHOP)</p>
+</li>
+<li>
+<p>Wähle einen <strong>Logistikprozess </strong> über die <strong>Schnellwahl Buttons </strong> oben aus, z.B.<strong>Einstufig: Einzel-kommissionierung mit Paketmarke</strong>.</p>
+</li>
+<li>Klicke auf <strong>Kommissionierverfahren aktivieren</strong>.</li>
+<li>Die neuen Einstellungen werden <strong>übernommen</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Achtung</strong></p>
+<p><strong>Bisherige Projekteinstellungen werden mit dem neuen Kommissionierverfahren überschrieben.</strong></p>
+<p>Wenn du dich bereits nach dem Golive befindest solltest du auf keinen Fall die Logistikeinstellungen im laufenden Betrieb umstellen. Lege am besten ein neues Projekt an um zu testen.</p>
+</blockquote>
+<h4 id="logistikprozesse-mit-schnellwahl">Logistikprozesse mit Schnellwahl<a class="headerlink" href="#logistikprozesse-mit-schnellwahl" title="Permanent link">&para;</a></h4>
+<p>Folgende Logistikprozesse kannst du über die Schnellwahl-Buttons auswählen:</p>
+<p>| |  |  |  |
+| &mdash; | &mdash; | &mdash; |
+|<strong>Einstufig: Einzel-kommissionierung mit Paketmarke</strong>| Hier handelt es sich um einen Prozess bei dem Sie jeden Auftrag einzeln an die Kommissionierung übergeben. Bei der Übergabe erfolgt zum einen die Lagerbuchung der Auftragspositionen und zum anderen der Ausdruck von Lieferschein und Paketmarke. Hier wird keine weitere Stufe für Verpackung der Sendung im System angeboten. | Voraussetzungen: - Prozess mit Versandzentrum<br>- Echter physisch angebundener Drucker<br>- autoversand_manuell Cronjob muss aktiv sein |
+|<strong>Zweistufig: Pickliste mit Versandzentrum</strong>| Hier handelt es sich um einen zweistufigen Prozess. Im ersten Schritt wird eine PICKLISTE erzeugt mit der man die Sammelkommissionierung durchführen kann. Die kommissionierte Ware kann dann im zweiten Schritt im Versandzentrum auf die einzelnen Lieferschein vereinzelt werden. Dort erfolgt auch die Erstellung von Paketmarke und Rechnung. | Voraussetzungen: - Autoversand_manuell darf dabei nicht aktiviert sein<br>- Kommissionierlauf gruppieren nach Lieferscheine |
+|<strong>Zweistufig: Multi-Order-Picking mit Versandzentrum</strong>| Hier handelt es sich ebenso um einen zweistufigen Prozess. Im ersten Schritt erfolgt die Kommissionierung papierlos mit einem mobilen Endgerät (z.B. Handheld). Hierbei können wie der Name schon sagt eine Sammelkommissionierung durchgeführt werden. Ebenso kann jedoch bei der Versandübergabe auch ein größer B2B-Auftrag einzeln an die Kommissionierung übergeben werden. Im darauffolgenden Schritt werden die gepickten Waren wieder auf die Lieferscheine vereinzelt, verpackt und gelabelt. | Voraussetzungen: - Kommissioinierlauf mit Multi-Order-Picking<br>- passende Einstellungen im Modul Multi-Order-Picking (z.B. Arbeit mit Kiste oder Lieferschein-Etikett usw.) |
+|<strong>Fulfiller oder externer Produzent</strong>| Hier handelt es sich um einen einfachen Prozess bei dem in Xentral im Rahmen der Versandübe eine Lagerbuchung erfolgt. Alle weiteren Einstellungen müssen pro Übertragen-Account vorgenommen werden. Dort kann definiert werden, ob direkt Aufträge oder Lieferscheine als Ergebnis der Versandübergabe übergeben werden. | Voraussetzungen: - Erfolgreich eingerichtete Übertragen-Accounts |</p>
+<h4 id="logistikprozesse-individuell-einstellen">Logistikprozesse individuell einstellen:<a class="headerlink" href="#logistikprozesse-individuell-einstellen" title="Permanent link">&para;</a></h4>
+<p>Wähle einen Logistikprozess für das Projekt aus. Im Anschluss kannst du deinen Prozess individuell konfigurieren. Informationen dazu siehe oben bei <strong>Individuelle Pick + Pack Prozesse</strong>.</p>
+<h3 id="mit-logistikprozessen-arbeiten-und-optimieren-schnellstart">Mit Logistikprozessen arbeiten und optimieren (Schnellstart)<a class="headerlink" href="#mit-logistikprozessen-arbeiten-und-optimieren-schnellstart" title="Permanent link">&para;</a></h3>
+<p>Deine Aufträge im System erhältst du über verschiedene Eingangskanäle wie z.B. Shops, Marktplätze, E-Mail-Bestellungen, telefonische Großbestellungen oder Individualanfertigungen. Du entscheidest, ob die Aufträge manuell, mit einem Schnellklick oder als Stapelübergabe an die Logistik abgearbeitet werden sollen. Wenn ein Auftrag eine grüne Ampelanzeige hat, kann er automatischen Prozessketten übergeben werden. Fehlende Informationen, Bestände oder von dir gesteuerte Prüfampeln können den Auftrag blockieren und verhindern eine zu frühe Übergabe an deinen Logistikbereich. Selbst bei Großaufträgen kannst du sicherstellen, dass die richtige Prüfung durchgeführt wurde. Du kannst Aufträge verschiedenen Projekten (= Verkaufskanälen) zuordnen und für jeden Kanal eine eigene Prozesskette festlegen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Zeitersparnis</strong>:</p>
+<ul>
+<li>Du kannst Logistikprozesse so einstellen, dass du Aufträge einzeln abschließt und am Schreibtisch ausdruckst oder ein PDF zum Download erhältst. Dadurch sparst du viele Klicks und musst nicht jeden Auftrag als Rechnung und Lieferschein separat bearbeiten und freigeben. Auch die Lagerbuchungen müssen nicht pro Artikel oder pro Lieferschein einzeln durchgeführt werden.</li>
+<li>Alternativ kannst du natürlich auch die gesamte Logistik für dein Team steuern und morgens oder jede Stunde alle Aufträge aus deinen Shops und Marktplätzen verarbeiten lassen. Wenn du zu dieser Zeit noch nicht am Standort bist, kannst du die Aufträge auch per Mausklick oder automatisch an deine Logistik senden und zu einer festen Uhrzeit über den Prozess gesteuert übergeben lassen.</li>
+</ul>
+</blockquote>
+<p><strong>Einen Auftrag an die Logistik (= Versandzentrum übergeben):</strong></p>
+<ol>
+<li>Voraussetzungen:<strong>der Auftrag hat alle Ampeln auf grün</strong>. z.B. hast du die Artikel eingelagert, den Auftrag für den Versand freigegeben und als bezahlt markiert.</li>
+<li>
+<p>Klicke auf einen <strong>Auftrag </strong> in der <strong>Auftragsübersicht. </strong></p>
+</li>
+<li>
+<p>Wähle im Aktionsmenü <strong>Auto-Versand: an Versandzentrum übergeben </strong> an. Achtung: je nach Logistikprozess kann im Auftrag für einen anderen Prozess z.B. auch <strong>Auto-Versand: RE und LS erstellen</strong> aufgelistet sein.<strong> Auto-Versand</strong> bedeutet, dass hinter dieser Funktion ein automatischer Abarbeitungsprozess hinterlegt ist.</p>
+</li>
+<li>Bestätige mit <strong>OK</strong>, um den Auftrag zum Versand weiter zu führen oder Auftrag abschließen.</li>
+<li>Der Auftrag durchläuft nun den von dir eingestellten Prozess. Zum Beispiel wird ein Lagerabzug erledigt, ein Lieferschein und eine Rechnung im Nummernkreis erstellt und evtl. der Auftrag an eine Logistiktabelle übergeben, die abgearbeitet werden kann.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Pick &amp; Pack</strong>: Die Verarbeitung der Ware im Lager, sowie den Pickprozess und zuschaltbaren Scan am Packtisch oder Packtischstaffelung und Kommissionierläufe findest du in derÜbersichtim Bereich Warenausgang.</p>
+</blockquote>
+<h2 id="drucker">Drucker<a class="headerlink" href="#drucker" title="Permanent link">&para;</a></h2>
+<p>Um in deinen Workflows Belege auszudrucken oder automatisch drucken zu lassen, benötigst du eine Druckmöglichkeit. In Xentral kannst du auf folgende Weisen drucken:</p>
+<p>-<strong>PDF Druck</strong>: Der Beleg wird als PDF-Datei auf deinem Computer gespeichert. Der PDF Druck ist voreingestellt/ schnell eingerichtet und eignet sich, wenn du schnell starten möchtest oder nur wenige Aufträge täglich abarbeiten möchtest. Du kannst den PDF Drucker auch verwenden, wenn du ab und zu einen Auftrag oder einen Beleg über deinen Arbeitsplatz parallel zum Packtischprozess ausdrucken möchtest.
+-<strong>Physischer Druck</strong>: Der Beleg wird von einem physischen Drucker ausgedruckt. Dies ist der typische Druckprozess für Logistikprozesse und eine größere Anzahl an Aufträgen. Über den Druckerspooler können eine große Anzahl von Versandaufträgen verarbeiten und Projekte (Vertriebskanäle) parallel bearbeitet werden. Stapelübergaben oder automatische Prozessübergaben im Hintergrund von Xentral kannst du hier besonders gut und einfach über die Logistikprozesse ausdrucken lassen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Du kannst Belege natürlich auch über E-Mail versenden. Sowohl einzeln manuell, als auch in Stapeldrucken und automatischen Prozessen. Hierbei kannst du die Einstellungen auch pro Vertriebskanal (= Projekt) unterschiedlich einstellen. Zum Beispiel kannst du für deine Shopsysteme und Marktplätze Rechnungen per E-Mail versenden und Lieferscheine in das Paket legen. Für B2B Gebinde Versand kannst du den Lieferschein mit den relevanten B2B-Daten außen auf das Paket anbringen. Die Rechnung kannst du in das Paket legen und/oder zusätzlich per E-Mail oder EDI versenden.</p>
+</blockquote>
+<h3 id="physischen-drucker-anbinden">(Physischen) Drucker anbinden<a class="headerlink" href="#physischen-drucker-anbinden" title="Permanent link">&para;</a></h3>
+<p>Um einen<a href="https://help.xentral.com/hc/de/articles/360016756299#UUID-24ed3a57-a4df-da7a-08f6-141949df3855">Drucker anzubinden</a>, navigierst du zu <strong>Einstellungen &gt; Administration &gt; Drucker &gt; Drucker einrichten (NextGen)</strong> und klickst auf <strong> Drucker hinzufügen</strong>. Im Drucker-Wizard kannst du konfigurieren für welche Belege und Versandlabel du den Drucker verwenden möchtest und ob du ihn nur für bestimmte Projekte oder Benutzer benötigst. Abschließend wählst du aus, in welcher Form du drucken möchtest (PDF, E-Mail, physisch). Entscheidest du dich für den physischen Drucker benötigst du die Druckerspooler-App.</p>
+<p>Du kannst die App entweder während der Einrichtung oder aus unserem<a href="https://github.com/xentral/downloads">GitHub-Repository</a>herunterladen. Achte dabei auf die richtige Version für dein Betriebssystem und Prozessor (Mac mit Intel oder Mac mit Apple-Chips (M1, M2, etc.).</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Um zu drucken, muss das Gerät auf dem der Printer-Spooler installiert ist, eingeschaltet sein!</p>
+<p>Für große Auftrags-Volumina solltest du ein separates Gerät aufsetzen, das dauerhaft eingeschaltet ist.</p>
+</blockquote>
+<p>In der Spooler-App kannst du sowohl neue Drucker an deine Instanz anbinden, als auch eine Liste deiner angebundenen Drucker sehen und ob es Probleme mit einem der Druckprozesse gibt.</p>
+<h3 id="drucker-verwenden-belege-stapelverarbeitung-logistik-automatisierung">Drucker verwenden - Belege, Stapelverarbeitung, Logistik Automatisierung<a class="headerlink" href="#drucker-verwenden-belege-stapelverarbeitung-logistik-automatisierung" title="Permanent link">&para;</a></h3>
+<p>Du kannst auf folgende Weise drucken:</p>
+<ul>
+<li>Einzelne Belege kannst du über das Aktion-Menü des jeweiligen Belegs (Aktion: Beleg abschicken &gt; per Drucker) drucken.</li>
+<li>Mehrere Belege kannst du über die Stapelverarbeitung unterhalb der Übersichtstabelle des Belegs ausdrucken lassen.</li>
+<li>Automatischer Druck erfolgt in verschiedenen Logistikprozessen. Die Druck- und Versandstufen kannst du im Projekt (= Vertriebskanal) einstellen.</li>
+</ul>
+<p>Die Konfiguration des Druckers für den automatischen Druck nimmst du während der Einrichtung im Drucker-Wizard vor. Hierbei bestimmst du welche Belege oder Versandlabel gedruckt werden sollen und ob es Beschränkungen hinsichtlich des Projekts oder der Versandart gibt.</p>
+<p>Du kannst die Verwendung des Druckers auch an vielen weiteren Stellen steuern:</p>
+<table>
+<thead>
+<tr>
+<th>Art des Druckers</th>
+<th>Änderbar in den Modulen</th>
+<th>Betrifft die Belege</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standarddrucker</td>
+<td>Systemeinstellungen, Benutzer</td>
+<td>Standardeinstellung, die immer genutzt wird, falls keine andere Einstellung vorgenommen wurde</td>
+</tr>
+<tr>
+<td>Etikettendrucker</td>
+<td>Systemeinstellungen, Benutzer</td>
+<td>Lageretiketten</td>
+</tr>
+<tr>
+<td>Drucker Versand</td>
+<td>Projekt, Benutzer</td>
+<td>Versanddokumente (z.B. Rechnung)</td>
+</tr>
+<tr>
+<td>Drucker Paketmarke</td>
+<td>Versandart, Benutzer</td>
+<td>Paketmarke/Versandlabel</td>
+</tr>
+<tr>
+<td>Drucker Kommissionierung</td>
+<td>Projekt</td>
+<td>Lagerdokumente (z.B. Pickliste)</td>
+</tr>
+<tr>
+<td>Drucker Export</td>
+<td>Versandart</td>
+<td>Rechnung bei Export</td>
+</tr>
+</tbody>
+</table>
+<p>Die Priorität der Einstellungen ist dabei folgendermaßen: Systemeinstellungen &lt; Versandart = Projekt &lt; Benutzer.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Die Etiketten für deine Artikel oder die Beschriftung deines Lagers kannst du im Modul Etiketten erstellen. Die Etiketten selbst druckst du in den folgenden Modulen:</p>
+<p>-<strong>Artikeletiketten</strong>:Artikel&gt; Reiter:Etikett. Ausdrucken kannst du Artikeletiketten im Artikel selbst oder im Wareneingang. Die Labeltypen kannst du im ModulEtikettendruckereinstellen. Artikeletiketten erhältst du über den Etiketten-Typ “artikel_klein”.
+-<strong>Lageretiketten</strong>:Lagerverwaltung&gt; Reiter:Lageretiketten. Ausdrucken kannst du Lageretiketten in der Lagerverwaltung. Die Labeltypen kannst du im ModulEtikettendruckereinstellen. Lageretiketten haben den Etiketten-Typ “lager_klein”.</p>
+</blockquote>
+<h2 id="retouren-erhalten-und-verarbeiten">Retouren erhalten und verarbeiten<a class="headerlink" href="#retouren-erhalten-und-verarbeiten" title="Permanent link">&para;</a></h2>
+<p>Ein gutes Retourenmanagement kann deinen Arbeitsaufwand verringern und dabei die Kundenzufriedenheit deutlich erhöhen. In Xentral kannst du Retouren deiner Kunden einfach bearbeiten, Retouren von Lieferanten sind jedoch nur eingeschränkt möglich.</p>
+<p>Die einfachste Art um Retouren zu ermöglichen, ist das<a href="https://help.xentral.com/hc/de/articles/9726301921692#UUID-32ba0bd9-9e35-0f56-1350-d492fc8c37e5">Xentral Retourenportal</a>. Dies ist eine eigene individualisierbare Webseite, bei der deine Kunden ihre Retouren einreichen können und sogleich eine automatisierte Antwort erhalten. So können deine Kunden z.B. automatisch ein Retourenlabel von einem Versanddienstleister deiner Wahl erhalten und so den Retourenprozess direkt starten. Die Retoure wird dabei direkt in deinem Xentral-System angelegt.</p>
+<p>Das Retourenportal bietet dir viele Möglichkeiten zur Individualisierung:</p>
+<ul>
+<li>Nutzung eigener Textvorlagen für automatische E-Mails und Infotexte</li>
+<li>Retourenbedingungen ermöglichen es bestimmte Artikel vom Versand auszuschließen oder nur mit einem bestimmten Versanddienstleister zu versenden. Die Bedingungen können an viele Situationen angepasst werden.</li>
+<li>Anpassung des Retourenportals an deine Corporate Identity durch Auswahl eines Logos und eigener Farben</li>
+</ul>
+<p>Die weitere Bearbeitung der Retouren findet im Modul<a href="https://help.xentral.com/hc/de/articles/360016764099#UUID-c22344fc-f20e-937d-0ee7-ad77535ee85b">Retouren Belege</a>statt. Hier kannst du auch manuelle Retouren anlegen, die dir per Telefon oder E-Mail angekündigt wurden. Du kannst dies komplett manuell machen, wir empfehlen dir jedoch die Retoure aus einem bestehenden Beleg (Auftrag, Rechnung, Lieferschein) anzulegen, da dies schneller und weniger fehleranfällig ist.</p>
+<p>Die Bearbeitung der Retouren findet auf der rechten Seite im <strong>Aktion</strong></p>
+<p>-Menü statt. Hier kannst du ein Retourenlabel anlegen, falls noch nicht im Retourenportal geschehen, einen Wareneingangsbeleg erstellen und die Ware einlagern, eine Gutschrift oder Stornorechnung erstellen, oder eine kostenlose Ersatzlieferung in Auftrag geben. Bei Einlagerung der Ware kannst du auch eine Seriennummer, ein Mindesthaltbarkeitsdatum oder eine Charge angeben.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst eine Retoure im Wareneingang leicht zuordnen, indem du die Retourennummer auf dem Retourenbeleg oder die Nummer eines verknüpften Belegs (Auftrag, Rechnung, Lieferschein) im Bereich <strong>Scan</strong> mit einem Barcodescanner einscannst oder manuell eingibst.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

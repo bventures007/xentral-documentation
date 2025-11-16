@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016757059 Belege Importer - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016757059 Belege Importer</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016757059 Belege Importer</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit dem <strong>Belegeimporter <strong>kannst du </strong> Belege <strong>aus externen Quellen oder anderen Systemen per</strong> CSV-Datei</strong> direkt in Xentral importieren. Das eignet sich z. B. für den Datentransfer aus einer anderen ERP- oder Buchhaltungssoftware, von Dienstleistern oder externen Abrechnungssystemen – etwa für Aufträge, Lieferscheine, Rechnungen oder Gutschriften. Der Import wird über einen Prozessstarter ausgeführt, sodass die Belege nach dem Hochladen automatisch im ERP weiterverarbeitet werden können.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wenn du <strong>Stammdaten</strong> importieren möchtest (z. B. Artikel, Adressen), verwende denCSV-Importer (Connect).</p>
+<p>Für <strong>Shopbestellungen </strong> nutze dieStandardisierten Connect-Shop-Schnittstellen mit No-Code-Import, um <strong>Aufträge direkt und automatisiert</strong> zu übernehmen.</p>
+</blockquote>
+<h2 id="belegeimporter-funktionsumfang">Belegeimporter Funktionsumfang<a class="headerlink" href="#belegeimporter-funktionsumfang" title="Permanent link">&para;</a></h2>
+<p>Der Belege Importer unterstützt den Import folgender Belegarten:<strong>Angebote <strong>,</strong> Aufträge <strong>,</strong> Lieferscheine <strong>,</strong> Rechnungen <strong>,</strong> Gutschriften <strong>, Preisanfragen,</strong> Bestellungen <strong>,</strong> Produktionen</strong>, Proforma-Rechnungen, Adressen (dafür ist die Importzentrale besser geeignet).</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst mehrere Belege in einer CSV-Datei hochladen – jede Zeile entspricht dabei einer Belegposition.</p>
+</blockquote>
+<p>-<strong>Vielfältige Belegarten importieren</strong>: Aufträge, Angebote, Bestellungen, Rechnungen, Gutschriften, Proforma-Rechnungen u. v. m.
+-<strong>Direkte Kundenzuordnung</strong>: Kundennummern oder Lieferantennummern direkt im Import festlegen.
+-<strong>Abweichende Lieferadressen automatisch übernehmen</strong>: inkl. Name, Abteilung, Straße, Ort, Postleitzahl und Land.
+-<strong>Komplette Beleg- und Zahlungsdetails importieren</strong>: Belegnummern, Wunsch- oder Auslieferungsdatum, Zahlungsweise, Zahlungsziel und Skonto.
+-<strong>Versand- und Lieferbedingungen setzen</strong>: Versandart, Lieferbedingung und Belegstatus individuell vorgeben.
+-<strong>Belegverknüpfungen herstellen</strong>: z. B. Rechnungen mit Aufträgen oder Lieferscheinen verknüpfen.
+-<strong>Detaillierte Artikelpositionen importieren</strong>: Artikelnummer, Bezeichnung, Menge, Preis, Rabatt, Währung, Steuersatz, Herkunftsland, Zolltarifnummer u. v. m.
+-<strong>Flexible Belegstruktur</strong>: Gruppierung von Positionen zu einem Beleg per PARENT- und NEW-Logik.
+-<strong>Individuelle Texte einfügen</strong>: Freitexte und Kopftexte direkt in den Beleg übernehmen.
+-<strong>Adressdaten komplett anlegen</strong>: inkl. Ansprechpartner, Abteilungen, Telefonnummer, E-Mail, USt-IdNr. und Anrede.</p>
+<h2 id="bedienung-und-workflow">Bedienung und Workflow<a class="headerlink" href="#bedienung-und-workflow" title="Permanent link">&para;</a></h2>
+<p>Die folgenden Schritte zeigen dir den genauen Ablauf von der CSV-Auswahl bis zur Übertragung der Daten ins System.</p>
+<p><strong>Schritte im Belegeimporter:</strong></p>
+<p>1.<strong>Datei auswählen</strong> – Wähle deine vorbereitete CSV-Datei aus.
+1.<strong>Belegart festlegen</strong>– Bestimme, ob du z. B. Aufträge, Rechnungen oder Gutschriften importierst.
+1.<strong>Status zuweisen</strong>– Lege fest, welchen Status die Belege nach dem Import haben sollen (z. B. angelegt, freigegeben).
+1.<strong>Upload starten</strong>– Starte den Importprozess. * Optional*: Zwischenspeicher leeren – Falls du den Import abbrechen oder Änderungen vornehmen möchtest.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Reiter <strong>Formate</strong> findest du eine Liste aller möglichen Feldnamen. Die erste Zeile deiner CSV muss exakt diese Spaltenüberschriften enthalten, und es gilt: eine Position = eine Zeile.</p>
+</blockquote>
+<h2 id="wichtige-felder-im-belegeimporter">Wichtige Felder im Belegeimporter<a class="headerlink" href="#wichtige-felder-im-belegeimporter" title="Permanent link">&para;</a></h2>
+<p>Die folgende Tabelle listet alle unterstützten Feldbezeichnungen des Belegeimporters mit ihrer jeweiligen Bedeutung auf. Sie dient als Referenz, um deine CSV-Datei korrekt zu strukturieren und sicherzustellen, dass alle Daten den richtigen Feldern im System zugeordnet werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>In der <strong>ersten Zeile </strong> der hochzuladenden CSV-Datei müssen die <strong>Spaltenüberschriften gemäß den Felddefinitionen in Xentral </strong> stehen. Die Datei muss als CSV mit <strong>Semikolon-separierten Werten</strong>(;) vorliegen.</p>
+<p>-<strong>Kundennummer fehlt</strong>: Xentral legt automatisch eine neue Adresse und einen neuen Kundendatensatz an.
+-<strong>Artikelnummer fehlt</strong>: Xentral legt automatisch einen neuen Artikel an.
+-<strong>Steuersatz in Prozent</strong>: Entspricht dem Feld Individueller Steuersatz in Xentral.</p>
+<p><strong>Tipp</strong></p>
+<p>Der Import verändert keine bestehenden Stammdaten. Abweichungen zu gespeicherten Adress- oder Artikeldaten werden nur für den importierten Beleg übernommen.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>art</td>
+<td>Beleg-Typ (z. B. Auftrag, Angebot, Bestellung, Rechnung, Adresse etc.)</td>
+</tr>
+<tr>
+<td><strong>beleg_belegnr</strong></td>
+<td>Manuell vergebene Belegnummer</td>
+</tr>
+<tr>
+<td>beleg_datum</td>
+<td>Manuell vergebenes Belegdatum</td>
+</tr>
+<tr>
+<td>beleg_lieferdatum</td>
+<td>Manuell vergebenes Wunschlieferdatum</td>
+</tr>
+<tr>
+<td>beleg_tatsaechlicheslieferdatum</td>
+<td>Manuelle Auslieferung Lager im Auftrag</td>
+</tr>
+<tr>
+<td>beleg_versandart</td>
+<td>Manuell vergebene Versandart</td>
+</tr>
+<tr>
+<td>beleg_status</td>
+<td>Manuell vergebener Belegstatus. Ersetzt den beim Dateiupload ausgewählten Status</td>
+</tr>
+<tr>
+<td>beleg_hauptbelegnr</td>
+<td>Haupt-Belegnummer, falls Teilauftrag</td>
+</tr>
+<tr>
+<td><strong>beleg_kundennummer <strong>/</strong> adresse_kundennummer</strong></td>
+<td>Kundennummer</td>
+</tr>
+<tr>
+<td><strong>beleg_lieferantennummer</strong></td>
+<td>Lieferantennummer</td>
+</tr>
+<tr>
+<td>beleg_name / adresse_name</td>
+<td>Name des Kunden</td>
+</tr>
+<tr>
+<td>beleg_abteilung / adresse_abteilung</td>
+<td>Abteilung des Kunden</td>
+</tr>
+<tr>
+<td>beleg_unterabteilung / adresse_unterabteilung</td>
+<td>Unterabteilung des Kunden</td>
+</tr>
+<tr>
+<td>beleg_adresszusatz / adresse_adresszusatz</td>
+<td>Adresszusatz des Kunden</td>
+</tr>
+<tr>
+<td>beleg_ansprechpartner / adresse_ansprechpartner</td>
+<td>Ansprechpartner beim Kunden</td>
+</tr>
+<tr>
+<td>beleg_telefon / adresse_telefon</td>
+<td>Telefonnummer des Kunden</td>
+</tr>
+<tr>
+<td>beleg_email / adresse_email</td>
+<td>E-Mail-Adresse des Kunden</td>
+</tr>
+<tr>
+<td>beleg_land / adresse_land</td>
+<td>Land des Kunden (ISO-3166, z. B. DE, AT, FR)</td>
+</tr>
+<tr>
+<td>beleg_strasse / adresse_strasse</td>
+<td>Straße inkl. Hausnummer des Kunden</td>
+</tr>
+<tr>
+<td>beleg_plz / adresse_plz</td>
+<td>Postleitzahl des Kunden</td>
+</tr>
+<tr>
+<td>beleg_ort / adresse_ort</td>
+<td>Ort des Kunden</td>
+</tr>
+<tr>
+<td>beleg_projekt / adresse_projekt</td>
+<td>Abkürzung aus Xentral</td>
+</tr>
+<tr>
+<td>beleg_ihrebestellnummer</td>
+<td>Bestellnummer / Kommission aus Xentral</td>
+</tr>
+<tr>
+<td>beleg_aktion</td>
+<td>Aktionscode aus Xentral</td>
+</tr>
+<tr>
+<td>beleg_internebemerkung</td>
+<td>Interne Bemerkung aus Xentral</td>
+</tr>
+<tr>
+<td>beleg_internebezeichnung</td>
+<td>Interne Bezeichnung aus Xentral</td>
+</tr>
+<tr>
+<td>beleg_zahlungsweise</td>
+<td>Zahlungsweise (Bitte die Spalte &ldquo;Typ&rdquo; verwenden)</td>
+</tr>
+<tr>
+<td>beleg_zahlungszieltage</td>
+<td>Beleg-Zahlungsziel</td>
+</tr>
+<tr>
+<td>beleg_zahlungszieltageskonto</td>
+<td>Beleg-Zahlungsziel Skonto</td>
+</tr>
+<tr>
+<td>beleg_zahlungszielskonto</td>
+<td>Beleg-Skonto</td>
+</tr>
+<tr>
+<td>beleg_freitext</td>
+<td>Freitext aus Xentral</td>
+</tr>
+<tr>
+<td>beleg_bodyzusatz</td>
+<td>Kopftext aus Xentral</td>
+</tr>
+<tr>
+<td>beleg_lieferbedingung</td>
+<td>Lieferbedingung aus Xentral</td>
+</tr>
+<tr>
+<td>beleg_art</td>
+<td>Belege im Auto-Versand erstellen (Standardauftrag, Lieferung, Rechnung)</td>
+</tr>
+<tr>
+<td>beleg_auftragsnummer</td>
+<td>Verknüpfung von Rechnungen und Lieferscheinen mit dem Auftrag</td>
+</tr>
+<tr>
+<td>beleg_rechnungsnumer</td>
+<td>Verknüpfung von Aufträgen, Lieferscheinen und Gutschriften mit der Rechnung</td>
+</tr>
+<tr>
+<td>beleg_bearbeiter</td>
+<td>Bearbeiter des Beleges</td>
+</tr>
+<tr>
+<td>beleg_sprache</td>
+<td>Sprache des Belegs</td>
+</tr>
+<tr>
+<td>beleg_liefername</td>
+<td>Abweichende Lieferadresse – Name</td>
+</tr>
+<tr>
+<td>beleg_lieferabteilung</td>
+<td>Abweichende Lieferadresse – Abteilung</td>
+</tr>
+<tr>
+<td>beleg_lieferunterabteilung</td>
+<td>Abweichende Lieferadresse – Unterabteilung</td>
+</tr>
+<tr>
+<td>beleg_lieferland</td>
+<td>Abweichende Lieferadresse – Land</td>
+</tr>
+<tr>
+<td>beleg_lieferstrasse</td>
+<td>Abweichende Lieferadresse – Straße</td>
+</tr>
+<tr>
+<td>beleg_lieferort</td>
+<td>Abweichende Lieferadresse – Ort</td>
+</tr>
+<tr>
+<td>beleg_lieferplz</td>
+<td>Abweichende Lieferadresse – Postleitzahl</td>
+</tr>
+<tr>
+<td>beleg_lieferadresszusatz</td>
+<td>Abweichende Lieferadresse – Adresszusatz</td>
+</tr>
+<tr>
+<td>beleg_lieferansprechpartner</td>
+<td>Abweichende Lieferadresse – Ansprechpartner</td>
+</tr>
+<tr>
+<td>beleg_abschlagauftrag</td>
+<td>Zur Abschlagsrechnung zugehörige Auftragsnummer</td>
+</tr>
+<tr>
+<td>beleg_abschlagauftragbezeichnung</td>
+<td>Bezeichnung der Abschlagsrechnung</td>
+</tr>
+<tr>
+<td>beleg_waehrung</td>
+<td>Währung (z. B. EUR, USD)</td>
+</tr>
+<tr>
+<td>beleg_bundesstaat</td>
+<td>Bundesland / Bundesstaat (ISO-codiert, z. B. BY für Bayern)</td>
+</tr>
+<tr>
+<td>beleg_internet</td>
+<td>Shopbestellnummer oder Fremdnummer</td>
+</tr>
+<tr>
+<td><strong>artikel_nummer</strong></td>
+<td>Artikelnummer für Position</td>
+</tr>
+<tr>
+<td>artikel_bezeichnung</td>
+<td>Bezeichnung für Position</td>
+</tr>
+<tr>
+<td>artikel_beschreibung</td>
+<td>Beschreibung für Position</td>
+</tr>
+<tr>
+<td><strong>artikel_menge</strong></td>
+<td>Mengenangabe für Position</td>
+</tr>
+<tr>
+<td>artikel_preis</td>
+<td>Einzelpreis (netto) für Position</td>
+</tr>
+<tr>
+<td>artikel_preisfuermenge</td>
+<td>Preis bezieht sich auf folgende Menge (leer = 1)</td>
+</tr>
+<tr>
+<td>artikel_waehrung</td>
+<td>Währung für Position</td>
+</tr>
+<tr>
+<td>artikel_lieferdatum</td>
+<td>Lieferdatum für Position</td>
+</tr>
+<tr>
+<td>artikel_sort</td>
+<td>Reihenfolge in Positionstabelle</td>
+</tr>
+<tr>
+<td>artikel_umsatzsteuer</td>
+<td>Umsatzsteuer (leer = normal, sonst &ldquo;ermaessigt&rdquo;)</td>
+</tr>
+<tr>
+<td>artikel_steuersatz</td>
+<td>Steuersatz</td>
+</tr>
+<tr>
+<td>artikel_einheit</td>
+<td>Einheit für Position</td>
+</tr>
+<tr>
+<td>artikel_rabatt</td>
+<td>Rabatt für Position (in %)</td>
+</tr>
+<tr>
+<td>artikel_zolltarifnummer</td>
+<td>Zolltarifnummer für Position</td>
+</tr>
+<tr>
+<td>artikel_herkunftsland</td>
+<td>Herkunftsland für Position</td>
+</tr>
+<tr>
+<td>artikel_artikelnummerkunde</td>
+<td>Artikelnummer beim Kunden</td>
+</tr>
+<tr>
+<td>artikel_freifeld1 – artikel_freifeld10</td>
+<td>Freifelder 1 bis 10</td>
+</tr>
+<tr>
+<td>adresse_typ</td>
+<td>Anrede des Kunden (firma, herr, frau)</td>
+</tr>
+<tr>
+<td>adresse_ustid</td>
+<td>USt-IdNr. des Kunden</td>
+</tr>
+<tr>
+<td>adresse_anschreiben</td>
+<td>Anschreiben bei Kunde</td>
+</tr>
+<tr>
+<td>adresse_freifeld1 – adresse_freifeld20</td>
+<td>Freifelder 1 bis 20</td>
+</tr>
+</tbody>
+</table>
+<h2 id="schlusselworte-fur-dynamische-belegnummern-belegeimporter">Schlüsselworte für dynamische Belegnummern (Belegeimporter)<a class="headerlink" href="#schlusselworte-fur-dynamische-belegnummern-belegeimporter" title="Permanent link">&para;</a></h2>
+<p>Der Belegeimporter kennt zwei besondere Steuerworte:</p>
+<p>-<strong>NEW </strong>– Erstellt eine neue Belegnummer auf Basis der Belegart. Beispiel: Jede Zeile mit <strong>NEW</strong> erzeugt einen neuen Beleg.
+-<strong>PARENT</strong>– Nutzt die Belegnummer der vorherigen Zeile, um mehrere Positionen zu einem Beleg zu gruppieren.</p>
+<h2 id="beispielstruktur-belegeimporter">Beispielstruktur (Belegeimporter)<a class="headerlink" href="#beispielstruktur-belegeimporter" title="Permanent link">&para;</a></h2>
+<p><strong>Beispiel:</strong></p>
+<pre><code>beleg_belegnr;beleg_kundennummer;artikel_bezeichnung;artikel_nummer;artikel_preis;artikel_menge
+203567;10456;Artikel A;A_100001;19.90;1
+PARENT;10456;Artikel B;A_100002;29.90;2
+NEW;10456;Artikel C;A_100003;15.50;1
+</code></pre>
+<p>-<strong>203567</strong>= erste Belegnummer (z.B. Rechnung oder Auftrag).
+-<strong>PARENT</strong>= Artikel B wird dem vorherigen Beleg zugeordnet (gleiche Belegnummer wie Artikel A).
+-<strong>NEW</strong>= erstellt einen neuen Beleg für Artikel C.
+-<strong>10456</strong>= Kundennummer.
+-<strong>A_100001 <strong>/</strong> A_100002 <strong>= Artikelnummern aus deinem Beispiel. </strong> Die erzeugte Belegstruktur basierend auf dem CSV-Beispiel:</strong></p>
+<pre><code>Beleg 203567
+  - Artikel A (A_100001, 19.90 €, Menge 1)
+  - Artikel B (A_100002, 29.90 €, Menge 2)
+
+Beleg 30001 (neu erstellt durch NEW)
+  - Artikel C (A_100003, 15.50 €, Menge 1)
+</code></pre>
+<p>So funktioniert’s:</p>
+<ul>
+<li>Der erste Artikel bestimmt den Startbeleg (<strong>203567</strong>).
+-<strong>PARENT</strong> hängt den nächsten Artikel an denselben Beleg an.
+-<strong>NEW </strong> startet einen komplett neuen Beleg mit einer automatisch vergebenen Nummer (hier z. B.<strong>30001</strong>).</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p><strong>Hinweis zu NEW </strong>: Nach der ersten Zeile mit <strong>NEW </strong> dürfen <strong>keine statischen Belegnummern</strong> mehr folgen – sonst landen Positionen auf falschen Belegen.</p>
+<p><strong>Status &lsquo;angelegt&rsquo;<strong>: Wenn der Zielstatus &lsquo;</strong> angelegt <strong>&rsquo; ist, wird jede Belegnummer ≠ PARENT als NEW behandelt; die temporären </strong> ENTWURF_X_</strong></p>
+</blockquote>
+<p>-Nummern dienen nur der Zuordnung und werden beim finalen Import verworfen.</p>
+<blockquote>
+<p><strong>PARENT in der ersten Zeile</strong>: Wird wie NEW behandelt (es wird eine neue Belegnummer erzeugt).</p>
+<p><strong>CSV-Struktur</strong>: Eine Position = eine Zeile; die erste Zeile enthält exakt die Feldnamen (aus dem Reiter Formate).</p>
+<p><strong>Voransicht &amp; Freigabe</strong>: Nach Upload Zuweisungen prüfen und erst dann auf „Belege jetzt importieren“ klicken..</p>
+<p><strong>Stammdaten bleiben unverändert</strong>: Abweichungen zu Artikel-/Adress-Stammdaten werden rot angezeigt und gelten nur für den importierten Beleg.</p>
+<p><strong>Prozessstarter</strong>: Der Import wird über einen Prozessstarter ausgeführt – dieser muss aktiv laufen, sonst werden die hochgeladenen Belege nicht verarbeitet.</p>
+</blockquote>
+<h2 id="best-practices-fur-den-import-belegeimporter">Best Practices für den Import (Belegeimporter)<a class="headerlink" href="#best-practices-fur-den-import-belegeimporter" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Vorher CSV in <strong>Excel oder LibreOffice prüfen</strong>, um Formatfehler zu vermeiden.</li>
+<li>Immer die offiziellen Feldnamen aus dem Reiter <strong>Formate</strong> verwenden.</li>
+<li>Bei vielen Belegen den Import zunächst mit einer <strong>kleinen Testdatei</strong> durchführen.
+-<strong>Prozessstarter</strong> beim Import regelmäßig überwachen - checken, um sicherzustellen, dass der Import läuft.</li>
+</ul>
+<h3 id="achtung-technischer-hinweis-zu-groen-datenmengen">Achtung <strong>Technischer Hinweis zu großen Datenmengen:</strong><a class="headerlink" href="#achtung-technischer-hinweis-zu-groen-datenmengen" title="Permanent link">&para;</a></h3>
+<p>Für sehr hohe Beleg- und Positionsvolumina empfiehlt sich die Verarbeitung über die<a href="https://help.xentral.com/hc/de/articles/6618896113820#UUID-111b6679-d25f-f139-f468-9380f9e785b1">Xentral API</a>, die<a href="https://help.xentral.com/hc/de/articles/13235039238428-Xentral-Connect-%C3%9Cbersicht">Shop-Importer</a>oder das<a href="https://help.xentral.com/hc/de/articles/16164850902428#UUID-8975f07c-756b-3cdf-6500-9cd416962345">Übertragungsmodul (3PL)</a>. Der Belegeimporter ist nicht für High-Volume-Datenimporte optimiert.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

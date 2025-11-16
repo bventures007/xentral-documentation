@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11739147629340 System Und Einstellungen Einrichtung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>11739147629340 System Und Einstellungen Einrichtung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>11739147629340 System Und Einstellungen Einrichtung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="xentral-nextgen-bedienelemente">Xentral NextGen Bedienelemente<a class="headerlink" href="#xentral-nextgen-bedienelemente" title="Permanent link">&para;</a></h2>
+<p>Die <strong>Startseite von Xentral <strong>NextGen bietet dir Zugriff auf verschiedene Bereiche. Dazu gehören die</strong> Smart Search <strong>, das </strong> Dashboard <strong>mit Geschäftsdaten und Empfehlungen, das </strong> Menü <strong>, das </strong> Launchpad <strong>, das </strong> Administrations-Menü <strong>und die System-</strong> Einstellungen</strong>.</p>
+<p>Das<a href="urn:resource:component:57728">Menü</a>enthält weniger Bereiche als die vorherigen XentralVersionen. Das Hauptmenü kannst du dir in NextGen individuell anpassen. Im Launchpad werden alle wichtigen Funktionalitäten von Xentral aus deinem Hauptmenü angezeigt.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Je nach verwendetem Plan können sich verfügbare Menüpunkte und Apps unterscheiden.</p>
+</blockquote>
+<p>Die<a href="https://help.xentral.com/hc/de/articles/6576094191260#UUID-42f7b663-6ed9-ceaa-3114-1552c7383882">Smart Search</a>ermöglicht dir eine <strong>schnelle Suche </strong> nach Informationen z.B. Kunden, Belegen, Artikeln,XentralModulen durch eine kombinierte Suche nach Objekten. Über die Smart Search kannst du auch <strong>neue Objekte wie z.B. Artikel, Adressen, Aufträge, Rechnungen u.v.m. erstellen</strong>. Die Funktion verbessert auch die Benutzerfreundlichkeit durch die Verwendung von Tastenkombinationen. Um auf Smart Search zuzugreifen, kannst du entweder die Startseite verwenden oder die Tastenkombination ⌘ K (macOS) bzw. Strg K (Windows). Es ist möglich, nach Modulen oder Objekten in Xentral zu suchen und dabei auf vorherige Suchanfragen zuzugreifen. Die Operatoren + und - können verwendet werden, um Suchbegriffe genauer anzugeben. Außerdem kannst du Filter anwenden, um die Suche weiter einzuschränken.</p>
+<p>Das<a href="https://help.xentral.com/hc/de/articles/6576078712220#UUID-521cdcc4-2c2d-cc65-a681-dd3f67de2f93">Dashboard</a>zeigt wichtige Geschäftsdaten in Form von <strong>Widgets </strong> an z.B. Umsatz und Auftragsvolumen. Im Bereich <strong>Empfehlungen</strong> werden wichtige Aktionen angezeigt z.B. wieviele Aufträge in der Logistik noch gepackt werden müssen, welche Ware bald ausgeht.</p>
+<p>Im<a href="urn:resource:component:57728/section-idm4490167204377633347838389852">Administrations-Menü</a>befinden sich Appstore, Informationen zu deinem Xentral-Abonnement, Systemmeldungen und deine individuellen Benutzer-Kontoeinstellungen z.B. die Spracheinstellungen.</p>
+<h2 id="allgemeine-firmeneinstellungen">Allgemeine Firmeneinstellungen<a class="headerlink" href="#allgemeine-firmeneinstellungen" title="Permanent link">&para;</a></h2>
+<p>DieXentralEinstellungen (= zentrale Systemeinstellungen) sind ebenfalls in der Menü Seitenleiste zu erreichen. Sie sind für Benutzer des Typs Admin sichtbar. Hier findest du alle Einstellungen, die für das System vorgenommen werden, einschließlich der Konfiguration von Firmendaten, Anpassung der Belege durch Textbausteine, Belegsprache sowie Nummernkreise für Belege.</p>
+<p>Die Einbindung einer zentralen E-Mail Adresse zum Versenden deiner Angebote, Aufträge und Tracking Informationen sowie die Einrichtung der Benutzerrechte für dein Team findest du ebenso dort.</p>
+<p>Die<a href="https://help.xentral.com/hc/de/articles/6576078818076#UUID-3a3caf99-b4d1-05e3-6473-195d17ae19f9">wichtigsten Einstellungen</a>für den Start mit Xentral helfen dir, dich in den Systemeinstellungen zurecht zu finden. Eine Übersicht im Detail findest du ebenso sortiert nach Kategorien dort.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du die Einstellungen wie z.B. Briefpapier im Detail überspringen willst und den XentralStandard erstmal verwenden möchtest, kannst du auch direkt hier weiterlesen und später vor dem Golive nochmals den finalen <strong>Check</strong> durchführen.</p>
+</blockquote>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Für einen erfolgreichen Start solltest du genügend Sorgfalt und Zeit für dein Onboarding einplanen. Wenn du eine größere Firma hast und auch eine<a href="https://help.xentral.com/hc/de/articles/360016758939#UUID-f547c6d9-743a-a701-602b-449b7a4acb24">Datenmigration</a>mit Adress- und Artikeldaten durchführen möchtest, solltest du dich an die empfohlenen Onboarding-Schritte halten und z.B. deine Strategie der Nummernkreise durchdenken.</p>
+<p>Informationen und Hilfe kannst du beim Xentral Onboarding-Team oder bei einem Partner erhalten.</p>
+<p>Trage deine<a href="https://help.xentral.com/hc/de/articles/360016760679#UUID-84937f94-55de-df2d-2b9e-379734f4a3c6">Firmendaten</a>ein z.B. Daten wie deine Umsatzsteuer-ID und das Land, sowie die vollständige Adresse für Kommunikation mit Kunden und Lieferanten. Dein Firmen Name wird im Xentral-System angezeigt.</p>
+<p>Füge beim<a href="https://help.xentral.com/hc/de/articles/360017518360#UUID-95dcea4e-5bdf-c38b-ad25-9b775764f562">Briefpapier</a>dein Logo hinzu oder lade dein Briefpapier als PDF hoch um es im Hintergrund anzeigen zu lassen. Platziere deine rechtlich notwendigen Firmendaten z.B. Handelsregister und Geschäftsführung, Umsatzsteuernummer, Bankdaten und Anschrift im Footer Bereich.</p>
+<h3 id="achtung_1">Achtung<a class="headerlink" href="#achtung_1" title="Permanent link">&para;</a></h3>
+<p>Stelle sicher, dass du alle vorgeschriebenen Richtlinien für dein Land und in die Länder, in die du versenden möchtest einhältst und hole dir ggf. rechtliche Beratung von deinem Steuerbüro oder den Steuerbehörden.</p>
+<p>Wenn du nur einen Vertriebskanal verwendest z.B. einen Onlineshop und deine manuell angelegten Aufträge denselben Nummernkreis haben dürfen, kannst du das Projekt STANDARD im voreingestellten<a href="https://help.xentral.com/hc/de/articles/5697692402204#UUID-400d130b-3d3e-1afb-97bf-87d0d87403e9">Standard Nummernkreis</a>im Standard Kontenrahmen SKR04 belassen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Sollte dir die Länge der Zeichen des hinterlegten Standard Nummerkreises nicht ausreichen oder du jetzt schon wissen, dass du mindestens zwei Nummernkreise benötigst (z.B. für eine Steuerrechtliche Trennung verschiedener Vertriebskanäle), findest du beiNummernkreise verwenden - Belegnummer, Kundennummer, Lieferantennummer, Artikelnummereine Zusammenstellung an Informationen.</p>
+</blockquote>
+<p><strong>Weitere Einstellmöglichkeiten:</strong></p>
+<p><strong>Belegtexte</strong>: Die<a href="https://help.xentral.com/hc/de/articles/360021441799#UUID-7f7f61af-1277-f484-2138-07f5c0f301be">Texte auf deinen Belegen (= Textvorlagen)</a>wie Auftrag, Angebot, Rechnung, Lieferschein etc. kannst du individuell anpassen. Z.B. ist es möglich, viele Variablen einzufügen und die Standardvorlagen von Xentral zu bearbeiten (z.B. Trackingnummer auf dem Lieferschein ausblenden, anstelle der erweiterten Lieferadresse die kurze Lieferadresse einblenden).</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Auch steuerrechtliche Text Abdrucke wie z.B. die Innergemeinschaftliche Lieferung und Export Lieferung sind hier einstellbar.</p>
+</blockquote>
+<p><strong>Beleginformationen <strong>: Kundeninformationen für eine Belegart (z.B. Kundennummer, Bearbeiter, Vertrieb) sind in einer Box aufgelistet - der Infobox. Hier kannst du Elemente hinzuschalten oder wegnehmen. Die Konfigurationen für die unterschiedlichen Belegarten findest du in den<a href="https://help.xentral.com/hc/de/articles/360021442299#UUID-01e6f15a-0842-8062-543b-7e9dbeea74cc">Systemeinstellungen</a>. Eine erweitere Möglichkeit die Infobox auf Projektebene (= Vertriebskanäle) zu definieren findest du im Modul<a href="https://help.xentral.com/hc/de/articles/360021418600#UUID-249f32de-8d9f-e1e3-086f-a1da086c6e49">Belege Infoboxen</a>. </strong> Belegsprache <strong>: Sollen deine EU Kunden die Belege in Sprache z.B. Englisch erhalten, kannst du die<a href="https://help.xentral.com/hc/de/articles/360017663439#UUID-b03577d6-29ae-331c-12fa-916d7af5529e">Belegsprache</a>einstellen und auch deine Textbausteine übersetzen. </strong> Steuersätze:<strong> Die Steuersätze sind auf Deutschland eingestellt. Die kannst deine<a href="https://help.xentral.com/hc/de/articles/360021442099#UUID-470c8a49-f068-06c3-da99-0aabea721d66">Steuersätze und Währungen</a>in den Systemeinstellungen bearbeiten. Weitere Steuersätze kannst du manuell über das<a href="https://help.xentral.com/hc/de/articles/360016774199#UUID-343c04c9-96f1-468c-fb8a-ed0a1a1f524e">Modul Steuersätze</a>hinzufügen. Steuersätze für den Versand in das EU Ausland kannst du über das Modul<a href="https://help.xentral.com/hc/de/articles/360016761099#UUID-6237681c-243a-c50e-832e-48dff58c0430">Lieferschwelle</a>einstellen.</strong> Versandarten und Zahlungsweisen </strong> In Xentral findest du die wichtigsten <strong>Versandarten </strong> und <strong>Zahlungsarten</strong> bereits angelegt oder vorkonfiguriert vor. Du kannst eine Versandart und Zahlungsweise in einem Beleg z.B. Auftrag auswählen. Wenn du einen Onlineshop angebunden hast, wird die Zahlungsweise und die Versandart aus der Shopkonfiguration übergeben. Natürlich kannst du einer Adresse auch eine bevorzugte Zahlungsweise z.B. Rechnung 14 Tage oder eine bevorzugte Versandart z.B. DHL hinterlegen.</p>
+<p>Die<a href="https://help.xentral.com/hc/de/articles/18567521362332#UUID-7d97af0c-3e39-6798-67c6-50f26028c174">generelle Verwendung der Versandart</a>und der<a href="https://help.xentral.com/hc/de/articles/360016722120#UUID-433e20cc-ea89-69c7-82d9-a0d724052c90">Zahlungsweisen</a>findest du in diesen Artikeln.</p>
+<p>Die wichtigsten Versandarten wie<a href="https://help.xentral.com/hc/de/articles/360016739020#UUID-48d8b79a-61c4-0aaf-e6f6-993e5f205c19">DHL</a>,<a href="https://help.xentral.com/hc/de/articles/360016725260#UUID-9f51bd6e-fef2-53da-cbe3-31186c4c67b0">Sendcloud</a>,<a href="https://help.xentral.com/hc/de/articles/360016756439#UUID-5a27ffa9-23ea-b334-96c7-033bff29b17e">Internetmarke</a>,<a href="https://help.xentral.com/hc/de/articles/360016725140#UUID-230ea457-3aef-7367-b7fc-c46f780ac3f6">Selbstabholer</a>und<a href="urn:resource:component:72738">weitere Versandarten</a>sowie die wichtigsten<a href="https://help.xentral.com/hc/de/articles/360016722120#UUID-433e20cc-ea89-69c7-82d9-a0d724052c90">Zahlungsarten in den Systemeinstellungen</a>sowie<a href="https://help.xentral.com/hc/de/articles/360016759159#UUID-fcd07798-0866-60a9-cda0-5480c90ac4aa">Vorkasse, Rechnung</a>,<a href="https://help.xentral.com/hc/de/articles/360016725340#UUID-8acf162e-23bb-697d-2791-c1668defa002">PayPal</a>und die<a href="https://help.xentral.com/hc/de/articles/6380930667548#UUID-1f35f492-922d-cd82-1335-4dba5cc71dc0">Anbindung der Bankkonten</a>haben wir zusammengestellt.</p>
+<h2 id="e-mail-anbinden">E-Mail anbinden<a class="headerlink" href="#e-mail-anbinden" title="Permanent link">&para;</a></h2>
+<p>E-Mails sind ein wichtiges Kommunikationsmittel in Xentral. In der Regel werden alle Belege (Angebot, Auftrag, Lieferschein) über E-Mail versendet. Du kannst deine Belege einzeln oder über eine automatische Stapelverarbeitung in der Logistik versenden lassen.</p>
+<p>Du kannst folgende E-Mail-Anbieter anbinden:</p>
+<ul>
+<li>Google (z.B. Gmail)</li>
+<li>Microsoft 365 (z.B. Office 365, Outlook, Hotmail)</li>
+<li>Manuelle Anbindung weiterer Anbieter (z.B. GMX, Web, Yahoo)</li>
+</ul>
+<p>In den zentralen Einstellungen kannst du dein<a href="https://help.xentral.com/hc/de/articles/8718596261532#UUID-584abf89-832e-ed3d-8601-336d809de512">E-Mail-Konto anbinden</a>. Die Anbindung von Google und Microsoft E-Mail-Konten ist dabei besonders einfach: Klicke auf die entsprechende Option, um das Konto hinzuzufügen und melde dich in deinem E-Mail-Konto an. Die technischen Verbindungseinstellungen werden automatisch für dich ausgefüllt. Bindest du einen anderen E-Mail-Anbieter an, musst du die Einstellungen selbst konfigurieren.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst in Xentral über dein E-Mail-Konto auch einTicketsystem einrichtenund es als primäre Kommunikationsplattform für deine Kunden verwenden. So erhältst du klar definierte Kommunikationsstränge, die einer Ticketnummer zugeordnet sind und hast immer alle Kundenanfragen zentral an einem Ort gesammelt.</p>
+</blockquote>
+<p>Mit Textvorlagen und Variablen kannst du deine E-Mails für jede Belegart individuell gestalten. Die jeweiligen Textvorlagen findest du im Modul<a href="https://help.xentral.com/hc/de/articles/360016769320#UUID-e16cfc81-1c42-23c1-223b-dd8af0023a31">Geschäftsbrief Vorlagen</a>. Im Standard ist für jeden typischen Anwendungsfall eine Vorlage hinterlegt, die du frei an deine Bedürfnisse anpassen kannst. Typische Variablen in einer E-Mail-Vorlage sind z.B. die Belegnummer, der Name deines Kunden und das Datum. Welche Variablen du verwenden kannst, siehst du beim Bearbeiten der jeweiligen Textvorlage. Eine Liste der Variablen, die dir zur Verfügung stehen, findest du<a href="https://help.xentral.com/hc/de/articles/360016769320#UUID-e16cfc81-1c42-23c1-223b-dd8af0023a31">hier</a>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du deine Geschäftsbriefe in einer anderen Sprache versenden möchtest, kannst du die Textvorlagen der Geschäftsbriefe auch übersetzen. Die benötigte Sprache kannst du im Modul <strong>Geschäftsbrief Vorlagen</strong> aus einem Dropdown-Menü auswählen. Über das ModulSprachenlistekönnen diesem Menü neue Sprachen hinzufügt werden. Die Sprachen sind sowohl für Geschäftsbriefe als auch Belege verfügbar.</p>
+<p>Die Sprache des Belegs kannst du in der Adresse (<strong>Reiter Details &gt; Unterreiter Adressdaten <strong>im Bereich </strong> Einstellungen <strong>) oder im Auftrag (</strong> Reiter Details &gt; Unterreiter Auftrag <strong>im Bereich</strong> Einstellung</strong>) festlegen.</p>
+</blockquote>
+<h2 id="benutzer-anlegen-bringe-dein-team-an-den-start">Benutzer anlegen - bringe dein Team an den Start<a class="headerlink" href="#benutzer-anlegen-bringe-dein-team-an-den-start" title="Permanent link">&para;</a></h2>
+<p>In den<a href="https://xentral.com/de/preise">neuen Xentral-Plänen</a>hast du eine unbegrenzte Anzahl an Benutzern zur Verfügung. Du kannst für jeden deiner Mitarbeiter ein eigenes Benutzerkonto anlegen, damit diese selbstständig in ihrem Bereich arbeiten können. So kann sich ein Mitarbeiter voll auf die Buchhaltung konzentrieren, während ein anderer das Versandzentrum leitet. Die Sichtbarkeit der Daten kannst du über die Rechteverwaltung steuern. Hier kannst du unter anderem festlegen, welche Module von deinen Mitarbeitern genutzt, welchem Projekt sie zugeordnet sind und welche Daten von ihnen eingesehen werden können.</p>
+<p>Die Grundlage für das Anlegen von Benutzern ist das<a href="https://help.xentral.com/hc/de/articles/360016724780#UUID-9acb0680-6ff5-a807-490a-c0e1ddaa9692">Benutzer</a>-Modul. Hier kannst du neue Benutzer über ihre E-Mail-Adresse einladen und festlegen, ob es sich bei dem Mitarbeiter um einen Benutzer mit allen Rechten (Administrator) oder um einen einfachen Mitarbeiter mit begrenzten Rechten handeln soll. Nachdem der Mitarbeiter die Einladung per E-Mail erhalten hat, kann er sich in deiner<a href="https://help.xentral.com/hc/de/articles/21756262512924#UUID-32368de0-211b-34fb-c6de-61a0b9e4c44f">Instanz anmelden</a>und ein eigenes Passwort erstellen. Anschließend kann er jederzeit selbst die<a href="https://help.xentral.com/document/preview/68890#UUID-e21b6a79-4af1-67b8-19fd-edce84887e64">Zugangsdaten ändern</a>.</p>
+<p>Solltest du den Mitarbeiter über eine Gmail-Adresse eingeladen haben, dann kann er sich auch bequem über den<a href="https://help.xentral.com/hc/de/articles/21756262512924#UUID-32368de0-211b-34fb-c6de-61a0b9e4c44f">Social Login</a>in deiner Instanz anmelden. Die Identifizierung findet hierbei über das Google-Konto des Benutzers statt.</p>
+<p>Rechte erlauben dir den Zugriff auf Daten für jeden Mitarbeiter entsprechend seiner Aufgaben im Unternehmen einzuschränken. Der Nutzer kann Funktionen, für die er keine Berechtigung hat, nicht in der Benutzeroberfläche sehen. Du hast folgende Möglichkeiten, um Rechte zu vergeben:</p>
+<p>-<strong>Individuell für jeden Nutzer</strong>: Du hast viele Auswahlmöglichkeiten, um einzelne Rechte sehr kleinteilig in der <a href="https://help.xentral.com/hc/de/articles/360017521360#UUID-caabd28e-f77e-c7f3-1119-c1f5e033f206">Benutzerrechte Vergabe</a> zu vergeben. So kannst du einem Benutzer z.B. das Anlegen von Aufträgen erlauben, das Löschen aber nicht.
+-<strong>Von anderem Nutzer kopieren</strong>: Du kannst einen Basis-Benutzer mit grundlegenden Rechten anlegen. Diese Rechte kannst du dann für andere Benutzer kopieren und anschließend individuell anpassen.
+-<strong>Benutzervorlagen</strong>: Mit einer <a href="https://help.xentral.com/hc/de/articles/360020065779#UUID-f82083c5-aa41-1709-1700-484672c27946">Benutzervorlage</a> kannst du eine Gruppe von Rechten vergeben, um so z.B. eine ganze Abteilung, wie die Buchhaltung, schnell mit identischen Rechten auszustatten.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

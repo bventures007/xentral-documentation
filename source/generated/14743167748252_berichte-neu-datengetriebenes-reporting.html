@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14743167748252 Berichte Neu Datengetriebenes Reporting - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>14743167748252 Berichte Neu Datengetriebenes Reporting</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>14743167748252 Berichte Neu Datengetriebenes Reporting</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Berichte geben dir die Möglichkeit, deine Daten in Xentral auszuwerten. Ob datengetriebenes Management deiner Artikel und Verkaufskanäle, ein schneller Überblick über deine Kundenumsätze oder die Optimierung deiner Lager-Performance - Berichte sind der perfekte Startpunkt, um Potenziale und Problemfelder in deinem Geschäft aufzudecken.</p>
+<p>Für Einsteiger in die Datenanalyse erleichtert die intuitive No-Code-Oberfläche und die Auswahl an vordefinierten Berichtsvorlagen den Start. Diese Vorlagen, entwickelt aus der Praxis der wichtigsten Geschäftsmodelle und der Erfahrung von Experten, bieten sofort einsatzbereite Einblicke. Erfahrene Nutzer können die erweiterten Funktionen des SQL-Editors nutzen und von der modernen Datenbanktechnologie AWS Redshift profitieren, die schnelle und zeitnahe Datenaktualisierungen ermöglicht.</p>
+<p>Die Berichte zu Bruttoumsatz (Auftragswert) ermöglichen dir, die generierten Umsätze vor Abzügen zu analysieren und die Performance deiner Verkaufskanäle und Artikel zu bewerten. Mit der Lagerperformance erhältst du Einblicke in Bestandswerte und Lagerumschläge, um die Effizienz deines Lagers zu optimieren. Die Reports zu Nettoumsatz &amp; Rohertrag helfen dir, die Rentabilität nach Abzug von Retouren und Rabatten zu ermitteln. Retouren-, Storno- und Rabattquoten geben dir Aufschluss über potenzielle Schwachstellen in deinen Verkaufsprozessen. Zusätzlich sorgt die Stammdatenpflege für eine hohe Datenqualität und unterstützt wichtige operative Prozesse.</p>
+<p><img alt="berichte_neu_001.png" src="https://help.xentral.com/hc/article_attachments/15365243779868" /></p>
+<h2 id="allgemeines-zu-den-berichten">Allgemeines zu den Berichten<a class="headerlink" href="#allgemeines-zu-den-berichten" title="Permanent link">&para;</a></h2>
+<p>Die Berichte-Plattform basiert auf modernster Datenbank-Technologie und ermöglicht dadurch schnelle, stabile und zuverlässige Auswertungen. Das zugrunde liegende Datenmodell ist vollständig dokumentiert und bietet detaillierte Informationen zu allen Tabellen und Spalten. Alle Bezeichner und Inhalte sind konsistent ins Englische übersetzt, sodass ein einheitlicher Zugriff und eine klare Orientierung gewährleistet sind. Das Modell wird fortlaufend erweitert und optimiert, beispielsweise durch intelligente Tabellen, die Rechnungen, Gutschriften und deren Positionen strukturiert zusammenfassen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Details zur Datenbank:</strong> Wir nutzen AWS Redshift, das für hohe Geschwindigkeit und Effizienz bei großen Datenmengen optimiert ist. Im Gegensatz zu MySQL, das zeilenbasiert arbeitet, verwendet Redshift eine spaltenbasierte Speicherung. Dies ermöglicht schnellere Abfragen und Analysen, ideal für datenintensive Aufgaben und schnelles Reporting. Bitte beachte, dass der Redshift Dialekt zwar dem von MySQL sehr ähnlich ist, hier und da jedoch Unterschiede in der Syntax aufweist.</p>
+</blockquote>
+<h3 id="wichtige-hinweise-zur-datenaktualisierung">Wichtige Hinweise zur Datenaktualisierung<a class="headerlink" href="#wichtige-hinweise-zur-datenaktualisierung" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Standardmäßig werden die Daten <strong>einmal pro Nacht</strong> aktualisiert. Dies ist sowohl aus Kostengründen als auch aufgrund unserer Nutzungsanalyse sinnvoll, da über 90 % der Kunden ihre Berichte nicht mehrmals täglich abfragen. Solltest du eine höhere Aktualisierungsfrequenz benötigen (z.B. alle 3 Stunden oder sogar in nahezu Echtzeit), kannst du dies über einen individuellen Vertrag für deine Instanz beantragen. Kontaktiere hierfür bitte unser Customer Development Team unteraccountmanagement@xentral.com.</p>
+</blockquote>
+<h2 id="berichte-verwenden">Berichte verwenden<a class="headerlink" href="#berichte-verwenden" title="Permanent link">&para;</a></h2>
+<p>Berichte können sensible Informationen enthalten. Aus diesem Grund sind Berichte standardmäßig nur für Admins freigeschaltet. Sofern der Benutzer keine Admin-Rechte hat, braucht er die Berechtigung <strong>Benutzer &gt; Analytics_platform &gt; all</strong>.</p>
+<p>Für einen unbeschwerten Start ohne technische Kenntnisse, empfiehlt es sich, mit vordefinierten Berichtsvorlagen zu starten. Diese Vorlagen decken bereits viele generelle Analysen ab, von<a href="#UUID-0c282c1c-34bb-ff63-e4f5-88fc343e49a2_id_reportNEW-HandbookDraft-XentralBerichtswesen-Berichteneu-BerichtsvorlagenfrdasManagementdeinesGeschfts">Management</a>bis<a href="#UUID-0c282c1c-34bb-ff63-e4f5-88fc343e49a2_id_reportNEW-HandbookDraft-XentralBerichtswesen-Berichteneu-BerichtsvorlagenzurPflegevonStammdatenundUntersttzungoperativerProzesse">Stammdatenpflege</a>.</p>
+<p>Für individuelle Fragestellungen, die über den Inhalt von Berichtsvorlagen hinausgehen, kannst du hingegen eigene Berichte anlegen. Je nach technischem Kenntnisstand und Komplexität bieten wir dir hierzu einen einfachen, klick-basierten<a href="#UUID-0c282c1c-34bb-ff63-e4f5-88fc343e49a2_id_reportNEW-HandbookDraft-XentralBerichtswesen-Berichteneu-No-CodeEditorErstellenvonBerichtenleichtgemacht">No-Code Editor</a>sowie einen deutlich flexibleren<a href="#UUID-0c282c1c-34bb-ff63-e4f5-88fc343e49a2_id_reportNEW-HandbookDraft-XentralBerichtswesen-Berichteneu-SQL-EditorFrkomplexereAbfragen">SQL Editor</a>.</p>
+<h3 id="benutzerrechte-und-berichte-freigaben">Benutzerrechte und Berichte Freigaben<a class="headerlink" href="#benutzerrechte-und-berichte-freigaben" title="Permanent link">&para;</a></h3>
+<p>Das Freigabesystem für Berichte ermöglicht es dir, einzelnen Mitarbeitern Lesezugriff auf  ausgewählte Berichte einzurichten. Mitarbeiter mit reinem Lesezugriff können nur freigegebene Berichte sehen und abrufen. Das Schreiben oder Verändern von Berichten bleibt gesperrt.</p>
+<p>Als Xentral Admin hast du unter <strong>Benutzer &gt; Rechte </strong> die Option, einem Xentral Nutzer vollen Schreib- und Lesezugriff auf das Berichtswesen (“<strong>all <strong>”) oder lediglich beschränkten Lesezugriff (“</strong> restricted</strong>”) einzurichten.</p>
+<p><img alt="berichtswesen_rechte_benutzer_einstellen.png" src="https://help.xentral.com/hc/article_attachments/18748066788764" /></p>
+<p>Der beschränkte Lesezugriff wird grundsätzlich im Berichtswesen unter dem Menüpunkt <strong>Berichte (neu) &gt; Freigabe </strong> erteilt und konfiguriert. Du musst dies nicht vorab unter <strong>Benutzer &gt; Rechte</strong> zuteilen (dies passiert automatisch mit der ersten Berichtsfreigabe). Nach Freigabe kann der Nutzer freigegebene Berichte sehen, abrufen und exportieren. Das Erstellen oder Verändern von SQL statements / No-Code Konfigurationen ist hingegen nicht möglich. Nicht freigegebene Berichte werden dem Nutzer nicht angezeigt.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Hat ein Benutzer mehrere Freigabe-Niveaus, gewinnt das höchste (Xentral Admin → “all” → “restricted”). Willst du sicherstellen, dass ein Benutzer nicht bereits Vollzugriff (“all”) hat, macht der Umweg über die Benutzerrechte Sinn, um die Rechte von “all” auf “restricted” zu ändern.</p>
+</blockquote>
+<h4 id="berichte-freigaben-fur-einzelne-nutzer-erteilen-schritte">Berichte Freigaben für einzelne Nutzer erteilen <strong>Schritte: </strong><a class="headerlink" href="#berichte-freigaben-fur-einzelne-nutzer-erteilen-schritte" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Erstelle ein <strong>neues Freigabeprofil</strong>. Ein Freigabeprofil bündelt den Zugriff auf einen oder mehrere Berichte, z.B. alle Sales oder Logistik Berichte.</li>
+<li>Wähle die <strong>Berichte </strong> oder <strong>Berichts-Sammlungen</strong> aus, für die du eine Lese-Freigabe erteilen möchtest.</li>
+<li>Unter “<strong>Nutzerfreigabe <strong>” kannst du dieses Profil anschließend beliebig vielen </strong> Mitarbeitern zuordnen <strong>, um ihnen den </strong> Zugriff</strong> auf die ausgewählten Berichte zu ermöglichen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Beispielsweise könntest du ein Freigabeprofil “<strong>Controlling <strong>” für Auswertungen von Nettoumsatz und Deckungsbeitrag anlegen, während ein anderes Profil namens “</strong> Lagerauswertung</strong>” Zugriff auf Berichte zur Lagerperformance gewährt.</p>
+</blockquote>
+<h3 id="unterschiede-zwischen-basis-und-premium-version-im-berichtswesen">Unterschiede zwischen Basis und Premium Version im Berichtswesen<a class="headerlink" href="#unterschiede-zwischen-basis-und-premium-version-im-berichtswesen" title="Permanent link">&para;</a></h3>
+<p>In der Basis Version (im Standard für alle Pläne freigeschaltet) kannst du grundsätzlich alle Berichtsvorlagen ansehen, Inhalte prüfen und eigene Berichte konfigurieren. Das Abrufvolumen ist unbegrenzt, sollte jedoch einen gewöhnlichen Umfang nicht regelmäßig überschreiten. Die einzige Limitation besteht bei der Ansicht der Ergebnisse - hier ist der Toggle auf “Vorschau” festgesetzt und lässt sich nicht auf “Vollansicht” umstellen. Dies hat zur Folge, dass a) nur 5 Zeilen des Ergebnisses angezeigt werden und b) die Exportfunktionen deaktiviert sind.</p>
+<p>Eine Ausnahme bilden Berichte in der Sammlung “Stammdatenpflege und Unterstützung operativer Prozesse”. Diese dienen nicht dem klassischen Reporting und stehen dir daher vollständig zur Verfügung, inkl. Download von CSV Dateien. Sollten hier deiner Meinung nach wichtige Berichte fehlen, kannst du uns dies gerne per Ticket melden. Wir prüfen anschließend, ob dein Berichtswunsch nachträglich hinzugefügt werden kann.</p>
+<p>In der Premium Version erhältst du hingegen den vollen Umfang des Add-ons und kannst von einer Vollansicht der Ergebnisse sowie<a href="#UUID-0c282c1c-34bb-ff63-e4f5-88fc343e49a2_id_reportNEW-HandbookDraft-XentralBerichtswesen-Berichteneu-ExportierenvonDaten">erweiterten Exportfunktionen</a>Gebrauch machen. Der Vorschau-Modus steht dir weiterhin zum kostenfreien Entwickeln und Testen von Berichten zur Verfügung.</p>
+<p>Beachte, dass der Toggle in der Premium Version auf dem Vorschau-Modus beginnt und mit dem ersten Wechsel auf Vollansicht auch nach dem Wiederholten Öffnen von Berichten in der Vollansicht verbleibt, bis du den Toggle wieder auf Vorschau zurückstellst.</p>
+<p><img alt="vs_1_berichte_neu_003.png" src="https://help.xentral.com/hc/article_attachments/15368378316316" /></p>
+<h3 id="vorgefertigte-berichtsvorlagen">Vorgefertigte Berichtsvorlagen<a class="headerlink" href="#vorgefertigte-berichtsvorlagen" title="Permanent link">&para;</a></h3>
+<h4 id="berichtsvorlagen-zur-pflege-von-stammdaten-und-unterstutzung-operativer-prozesse">Berichtsvorlagen zur Pflege von Stammdaten und Unterstützung operativer Prozesse<a class="headerlink" href="#berichtsvorlagen-zur-pflege-von-stammdaten-und-unterstutzung-operativer-prozesse" title="Permanent link">&para;</a></h4>
+<p>Gut gepflegte Stammdaten sind essenziell für eine sinnvolle Datenanalyse und ein datengetriebenes Management. Da noch nicht alle Xentral-Module eine ideale Stammdatenpflege unterstützen, bieten wir kostenfreie Möglichkeiten, Probleme in den Stammdaten zu identifizieren und zu beheben. Ein Beispiel hierfür ist das Auffinden und Nachhalten von Artikeln ohne EAN-Codes.</p>
+<p>Darüber hinaus können unsere Berichte operative Prozesse unterstützen, die noch nicht optimal durch bestehende Xentral-Module abgedeckt sind. Wir haben die gängigsten individuellen Berichte gescannt und in generischer Form bereitgestellt. Diese Sammlung dient als Erweiterung der aktuellen Exportzentrale, z.B. für das Exportieren von Lagerbeständen für eigene Pick &amp; Pack Prozesse.</p>
+<p>Xentral-Berichte zur Pflege von Stammdaten und zur Unterstützung operativer Prozesse sind bei üblicher Nutzung (mehrmals täglich, jedoch nicht im Minutentakt) kostenfrei.</p>
+<h4 id="berichtsvorlagen-fur-das-management-deines-geschafts">Berichtsvorlagen für das Management deines Geschäfts<a class="headerlink" href="#berichtsvorlagen-fur-das-management-deines-geschafts" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bruttoumsatz</td>
+<td>Analysiere deinen Bruttoumsatz basierend auf Aufträgen (exkl. angelegte Aufträge) vor Retouren, Stornos und Rabatten. Diese Berichte helfen dir, den Bestelleingang zu verstehen und die Performance einzelner Hebel zu identifizieren. Schneide deinen Bruttoumsatz nach Dimensionen wie Zeit, Artikel, Kunde, Verkaufskanal und mehr.</td>
+</tr>
+<tr>
+<td>Nettoumsatz &amp; Rohertrag</td>
+<td>Bewerte deinen Nettoumsatz basierend auf Rechnungen und Gutschriften (exkl. angelegte) nach Retouren, Stornos und Rabatten. Diese Berichte unterstützen dich bei der Analyse deines Umsatzes und Rohertrags und helfen dir, Optimierungspotenziale zu identifizieren.</td>
+</tr>
+<tr>
+<td>Retouren-/Rabatt-/Stornoquoten</td>
+<td>Analysiere die Quoten für Retouren, Rabatte und Stornos, um mögliche Schwachstellen in deinem Prozess zu identifizieren. Dir stehen die gleichen Dimensionen zur Verfügung, wie in der Analyse von Brutto- und Nettoumsatz.</td>
+</tr>
+<tr>
+<td>Lagerbestand und Performance</td>
+<td>Überwache deinen Lagerbestand und die Performance, um potenzielle Engpässe oder Überbestände frühzeitig zu erkennen. In dieser Sammlung findest du beispielsweise Berichte zu Lagerbestand und -wert, Penner/Renner-Analyse, Lagerumschlag und Abverkaufsquoten.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="individuelle-berichte-erstellen">Individuelle Berichte erstellen<a class="headerlink" href="#individuelle-berichte-erstellen" title="Permanent link">&para;</a></h3>
+<p>Manchmal reichen die vordefinierten Analysen nicht aus und es bedarf einer individuellen Lösung. Genau dafür kannst du dir individuelle Berichte erstellen und in einer Sammlung abspeichern.</p>
+<h4 id="sammlungen-zum-ablegen-von-berichten">Sammlungen zum Ablegen von Berichten<a class="headerlink" href="#sammlungen-zum-ablegen-von-berichten" title="Permanent link">&para;</a></h4>
+<p>Berichtssammlungen funktionieren ähnlich wie Ordner und helfen dir, den Überblick zu behalten, indem du Berichte logisch gruppierst. So findest du schnell relevante Berichte zu Finanzen, Verkauf oder Lager. Auch das Erstellen einer Archiv-Sammlung für alte, überholte Berichte kann sinnvoll sein.</p>
+<p><strong>Sammlung bearbeiten und löschen <strong>: Deine selbst erstellten Sammlungen kannst du über das 3-Punkte-Menü rechts neben dem Sammlungstitel bearbeiten oder löschen. Die von Xentral erstellten Sammlungen sind schreibgeschützt und lassen sich nicht bearbeiten. </strong> Einen neuen Bericht anlegen</strong>: Du kannst einen neuen Bericht entweder über den Button in einer leeren Sammlung oder über den Button &ldquo;Bericht erstellen&rdquo; in der rechten oberen Ecke anlegen. Bestehende Berichte lassen sich ebenfalls über das 3-Punkte-Menü rechts neben ihrem Titel löschen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Direkt neben dem Editor findest du unsere interaktive Dokumentation. Sie ermöglicht dir die Suche nach spezifischen Inhalten in Deutsch und Englisch und bietet dir durch neue Kurzbeschreibungen für Tabellen / Spalten genauere Einblicke in die Datenpunkte. Zur besseren Orientierung wird zusätzlich die alte Bezeichnung der Quell-Daten für jede Tabelle und Spalte angezeigt.</p>
+</blockquote>
+<h4 id="no-code-editor-erstellen-von-berichten-leicht-gemacht">No-Code Editor: Erstellen von Berichten leicht gemacht<a class="headerlink" href="#no-code-editor-erstellen-von-berichten-leicht-gemacht" title="Permanent link">&para;</a></h4>
+<p>Der No-Code Editor führt dich Schritt für Schritt durch die Erstellung deiner Abfrage, ohne dass tiefgehende Programmierkenntnisse erforderlich sind. Eine gründliche Auseinandersetzung mit dem englischen Datenmodell sowie dem Zusammenführen von Tabellen (join) wird sich jedoch schnell in der Bearbeitungseffizienz und dem Ergebnis wiederspiegeln.</p>
+<p><img alt="berichte_neu_004.png" src="https://help.xentral.com/hc/article_attachments/15365460656924" /></p>
+<h5 id="schritt-1-datensatz-auswahlen">Schritt 1: Datensatz auswählen<a class="headerlink" href="#schritt-1-datensatz-auswahlen" title="Permanent link">&para;</a></h5>
+<p>Zu Beginn wählst du den Datensatz aus, der am besten zu deiner Frage passt. Zum Beispiel wählst du Aufträge (sales orders), wenn es um Bestelleingänge geht. Bei Fragen zu Nettoumsatz oder Rohertrag startest du mit Rechnungen (invoices).</p>
+<p>Über das Drop-Down Icon neben deinem gewählten Datensatz kannst du die Spalten auswählen, die deine Ergebnistabelle enthalten soll.</p>
+<h5 id="schritt-2-weitere-datensatze-hinzufugen">Schritt 2: Weitere Datensätze hinzufügen<a class="headerlink" href="#schritt-2-weitere-datensatze-hinzufugen" title="Permanent link">&para;</a></h5>
+<p>Du kannst zusätzliche Datensätze hinzufügen, um deine Abfrage zu erweitern. Dabei wählst du zwischen zwei Optionen:</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>-<strong>Left Join</strong>: Erweiterung des bestehenden Datensatzes (häufig der beste Startpunkt).
+-<strong>Inner Join</strong>: Ergänzung und Einschränkung des bestehenden Datensatzes.</p>
+</blockquote>
+<p>Wähle die Tabelle aus, die du hinzufügen möchtest, und spezifiziere den Parameter, auf den sie hinzugefügt werden soll. Meist sind dies ID-Felder mit ähnlichem Namen wie die zuerst gewählte Tabelle, auch bekannt als Primary und Foreign Keys.</p>
+<p>Falls dir diese Begriffe noch zu kryptisch erscheinen, findest du nachfolgend ein anschauliches Beispiel als Hilfestellung.</p>
+<h5 id="beispiele-fur-left-join-und-inner-join">Beispiele für LEFT JOIN und INNER JOIN<a class="headerlink" href="#beispiele-fur-left-join-und-inner-join" title="Permanent link">&para;</a></h5>
+<p><em>Stell dir vor, du hast zwei Excel-Tabellen: eine mit den Namen aller Familienmitglieder und eine mit den Geburtstagsgeschenken. </em>&gt;<strong>Anmerkung</strong></p>
+<blockquote>
+<p><strong>Hinweis</strong></p>
+<p>LEFT JOIN</p>
+<p><em>Ein SQL LEFT JOIN kombiniert beide Tabellen, sodass du siehst, welches Familienmitglied ein Geschenk bekommen hat und wer nicht. Dabei werden alle Familienmitglieder angezeigt, auch wenn sie kein Geschenk erhalten haben.</em></p>
+<p><em>In Excel würdest du die SVERWEIS-Funktion (VLOOKUP) verwenden, um in der Geschenkliste nachzusehen, welches Geschenk jedes Familienmitglied erhalten hat. Der LEFT JOIN funktioniert ähnlich, aber mit einem entscheidenden Unterschied: Er zeigt auch diejenigen Familienmitglieder an, die kein Geschenk bekommen haben. Der &ldquo;ON&rdquo;-Parameter im LEFT JOIN entspricht dem Suchkriterium in SVERWEIS (VLOOKUP) und verbindet die Listen anhand eines gemeinsamen Merkmals, wie dem Namen.</em></p>
+</blockquote>
+<p><em>Beispiel: </em>-<em> Tabelle 1 (Familienmitglieder): Namen </em>-<em> Tabelle 2 (Geschenke): Namen und Geschenk</em></p>
+<p><em>Der LEFT JOIN verbindet die Tabellen &ldquo;ON&rdquo; (basierend auf) dem gemeinsamen Namen, sodass du siehst, wer ein Geschenk bekommen hat und wer nicht.</em></p>
+<p><em>Ergebnis des LEFT JOIN: </em>-<em> Kind A hat ein Auto </em>-<em> Kind B hat eine Puppe </em>-<em> Kind B hat einen Ball </em>-<em> Kind C hat kein Geschenk </em>&gt;<strong>Anmerkung</strong></p>
+<blockquote>
+<p><strong>Hinweis</strong></p>
+<p>INNER JOIN</p>
+<p><em>Ein INNER JOIN funktioniert ebenfalls wie ein SVERWEIS (VLOOKUP) in Excel, zeigt jedoch nur die Familienmitglieder an, die tatsächlich ein Geschenk erhalten haben.</em></p>
+</blockquote>
+<p><em>Beispiel: </em>-<em> Tabelle 1 (Familienmitglieder): Namen </em>-<em> Tabelle 2 (Geschenke): Namen und Geschenk</em></p>
+<p><em>Beim INNER JOIN werden nur die Namen der Familienmitglieder angezeigt, die auch in der Geschenkliste stehen. Das heißt, du siehst nur die Familienmitglieder, die ein Geschenk bekommen haben. Der &ldquo;ON&rdquo;-Parameter im INNER JOIN sagt, dass die Listen basierend auf einem gemeinsamen Merkmal, wie dem Namen, verbunden werden sollen.</em></p>
+<p><em>Ergebnis des INNER JOIN: </em>-<em> Wenn Kind A ein Geschenk hat, wird es angezeigt. </em>-<em> Wenn Kind B ein Geschenk hat, wird es angezeigt. </em>-<em> Wenn Kind C kein Geschenk hat, wird es nicht angezeigt.</em></p>
+<p><em>Nur diejenigen, die ein Geschenk bekommen haben, sind im Ergebnis sichtbar. </em>&gt;<strong>Tipp</strong></p>
+<blockquote>
+<p><em>Diese Erklärungen helfen dir, die Unterschiede zwischen LEFT JOIN und INNER JOIN zu verstehen und wie sie in SQL-Abfragen verwendet werden.</em></p>
+</blockquote>
+<h5 id="schritt-3-datensatz-filtern">Schritt 3: Datensatz filtern<a class="headerlink" href="#schritt-3-datensatz-filtern" title="Permanent link">&para;</a></h5>
+<p>Nachdem du deinen Datensatz erstellt hast, kannst du ihn über Regeln filtern:</p>
+<p>Wähle eine Spalte aus und setze Vergleichsparameter, z.B.:</p>
+<ul>
+<li><strong>Textfelder</strong>: enthält/nicht enthält bestimmten Wert.
+-<strong>Zahlenwerte</strong>: größer/kleiner als eine bestimmte Zahl.
+-<strong>Datumsfelder:</strong> vor/nach/zu einem bestimmten Datum.
+-<strong>Boolean-Felder</strong>: wahr/falsch.</li>
+</ul>
+<p>Kombiniere beliebig viele Regeln mit UND/ODER, und lösche sie bei Bedarf mit dem X. Beachte, dass nur Felder gefiltert werden können, die du im ersten Schritt ausgewählt hast.</p>
+<h5 id="schritt-4-spalten-aggregieren">Schritt 4: Spalten aggregieren<a class="headerlink" href="#schritt-4-spalten-aggregieren" title="Permanent link">&para;</a></h5>
+<p>Fasse bestimmte Spalten zusammen, indem du Funktionen wie Summe, Durchschnitt, Minimum, Maximum oder Anzahl verwendest. Der Editor lässt nur gültige Operationen basierend auf dem Spaltentyp zu. Beispielsweise kannst du keine Summe über eine Textspalte wie “Stadt” bilden.</p>
+<h5 id="schritt-5-ergebnisse-sortieren-und-begrenzen">Schritt 5: Ergebnisse sortieren und begrenzen<a class="headerlink" href="#schritt-5-ergebnisse-sortieren-und-begrenzen" title="Permanent link">&para;</a></h5>
+<p>Sortiere deine Ergebnisse nach einer bestimmten Spalte, auf- oder absteigend. Begrenze die Anzahl der angezeigten Zeilen über den Limit-Parameter, um z.B. nur die ersten 100 Ergebnisse zu sehen.</p>
+<h5 id="schritt-6-vorschau-und-speichern">Schritt 6: Vorschau und Speichern<a class="headerlink" href="#schritt-6-vorschau-und-speichern" title="Permanent link">&para;</a></h5>
+<p>Überprüfe die Vollständigkeit deiner Auswahl im Editor. Wenn die Auswahl gültig ist, klicke auf den Vorschau-Button, um deine Abfrage zu testen. Die Gültigkeitsanzeige neben dem Titel zeigt dir zu jeder Zeit an, ob sich dein Bericht bereits ausführen lässt.</p>
+<p><img alt="vs_1_berichte_neu_005.png" src="https://help.xentral.com/hc/article_attachments/15368402786716" /></p>
+<p><img alt="vs_1_berichte_neu_006.png" src="https://help.xentral.com/hc/article_attachments/15368391266588" /></p>
+<p>Speichere den Bericht, indem du auf den Speichern-Button in der rechten oberen Ecke klickst. Achte darauf, Änderungen zu speichern, bevor du die Seite verlässt, um Datenverlust zu vermeiden.</p>
+<h4 id="sql-editor-fur-komplexere-abfragen">SQL-Editor: Für komplexere Abfragen<a class="headerlink" href="#sql-editor-fur-komplexere-abfragen" title="Permanent link">&para;</a></h4>
+<p>Zusätzlich zum No-Code Editor bietet Xentral einen SQL-Editor für fortgeschrittene Benutzer.</p>
+<p><img alt="berichte_neu_007.png" src="https://help.xentral.com/hc/article_attachments/15365489842332" /></p>
+<p>Dieser Editor unterstützt:</p>
+<p>-<strong>Auto-Complete</strong>: Vorschläge während des Tippens.
+-<strong>Syntax-Highlighting</strong>: Farbige Hervorhebung von Schlüsselwörtern.
+-<strong>Fehleranzeige</strong>: Zeigt Fehlermeldungen im Ergebnisfeld an.</p>
+<p>Erweitere das Editor-Eingabefeld bei Bedarf über die sechs Punkte unterhalb des Eingabefelds und rufe die Dokumentation über das Fragezeichen neben dem Editor auf. Klappe den Editor bei Bedarf über die zwei gegeneinander gerichteten Pfeile ein oder aus. Speichere deine Änderungen, um Datenverlust zu vermeiden.</p>
+<p>Bearbeite den Titel deines Berichts und die ausgewählte Kollektion direkt im Editor über das Stift-Symbol in der rechten oberen Ecke.</p>
+<p><strong>Dynamische Parameter / Filter einfügen</strong></p>
+<p>Filter dynamisieren deinen Bericht und verleihen deinen Nutzern die Möglichkeit, ohne Programmierkenntnisse Ergebnisse zu verändern. Du erstellt Filter ganz einfach über Parameter in deinem SQL Statement. Konfigurieren kannst du Parameter über den Button {x} rechts neben dem Eingabefeld.</p>
+<p><img alt="berichte_neu_008.png" src="https://help.xentral.com/hc/article_attachments/15365506589596" /></p>
+<p>In der Seitenleiste kannst du nun einen neuen Parameter anlegen. Der Parameter wird beim Ausführen einer Abfrage automatisch mit dem gesetzten Filterwert ersetzt.</p>
+<p>Ein Parameter hat folgende Eigenschaften:</p>
+<p>-<strong>Wert</strong>: Der Wert ist das, was du in deinem SQL Statement in geschweiften Klammern einsetzt. Zum Beispiel <em>{name_filter}</em>-<strong>Label</strong>: Das Label beschreibt den Namen, unter dem dein neuer Filter für Nutzer angezeigt wird. Zum Beispiel * Name Filter.* In der aktuellen Implementierung wird das Label automatisch erzeugt, indem der Bindestrich in ein Leerzeichen umgewandelt wird.
+- <strong>Typ</strong>: Der Datentyp des Parameters. Du kannst wählen zwischen Text, Nummer, Datum und SQL Statement. Beachte, dass du Werte beim Typ “SQL Statement” in einzelne Anführungszeichen wrappen musst (’yxz’). Dies ermöglicht dir komplexere Filterausdrücke, wie z.B. WHERE product_name LIKE {{VAR}} mit Filter ’
+-<strong>Standardwert</strong>: Damit dein SQL Statement auch ohne das Setzen von Filterwerten funktioniert, musst du einen Standardwert vorgeben. Dein Parameter wird dann beim Ausführen der Abfrage automatisch mit dem Standardwert ersetzt, sollte kein Filterwert vorgegeben sein.</p>
+<p><img alt="berichte_neu_009.png" src="https://help.xentral.com/hc/article_attachments/15365460982044" /></p>
+<h4 id="exportieren-von-daten">Exportieren von Daten<a class="headerlink" href="#exportieren-von-daten" title="Permanent link">&para;</a></h4>
+<p>Daten können auf verschiedene Wege aus dem Berichte Modul exportiert werden:</p>
+<p>-<strong>Permanent-Link (URL):</strong>
+  Die URL ist ein permanenter Link, über den du durch Aufrufen im Browser oder ein Drittanbieter-Tool den Download einer.csv Datei mit deinen Berichtsergebnissen auslöst. Du erstellst und verwaltest deine individuelle Berichts-URL im Tab Exporteinstellungen → Permalink.</p>
+<p>-<strong>E-Mail:</strong>
+  Beim Einrichten des E-Mail Versands kannst du sowohl angeben, in welchem Zeitintervall die Mail versendet wird, als auch in welchem Dateiformat der Bericht gespeichert wird. Du erhältst dann zur entsprechenden Zeit eine E-Mail mit Download-Link.</p>
+<p>-<strong>FTP/SFTP/FTPS:</strong>
+  Mit dem neuen Berichte-Modul erhaltet ihr auch einen vollständig überarbeiteten FTP Service. Dieser basiert auf der neuen Connect Technologie und lässt sich in zwei Schritten einrichten.</p>
+<ul>
+<li>Zuerst konfigurierst du deinen Server (FTP/SFTP/..) unter Einstellungen → Administration → Datenaustausch → FTP</li>
+<li>Im zweiten Schritt kannst du für jeden Bericht eine FTP Konfiguration auswählen sowie ein Zeitintervall definieren, indem du im Bericht auf das Tab “Exporteinstellungen” klickst und den FTP Export aufklappst.</li>
+</ul>
+<p>-<strong>File download:</strong>
+  Über den Export Button rechts oben kannst du deinen aktuellen, gespeicherten (!) Bericht als.csv file herunterladen. Die Erstellung deines Reports geschieht asynchron im Hintergrund und kann ggf. ein paar Sekunden dauern. Du findest den Download Link zur Datei unter dem Tab Exporte auf jeder Berichtsansicht.</p>
+<p>-<strong>Reporting API:</strong>
+  Wir entwickeln aktiv an neuen API Endpunkten zum programmatischen Abrufen und Bearbeiten von Berichten und Konfigurationen. Die Dokumentation dazu findest du in unseren OpenAPI specs. Folgende Endpunkte stehen dir derzeit zur Verfügung:</p>
+<p>-<strong>Query endpoint</strong> to create, execute and list the history of executed SQL queries
+  <a href="https://developer.xentral.com/v24.31/reference/analyticsquery">https://developer.xentral.com/reference/analyticsquery</a></p>
+<p>-<strong>Report endpoint</strong> to create, alter, delete reports, retrieve / change export configurations
+  <a href="https://developer.xentral.com/v24.31/reference/analyticsreportlist">https://developer.xentral.com/reference/analyticsreportlist</a></p>
+<p><strong>Report usage endpoint</strong> to show the history of chargeable requests made within the given timeframe</p>
+<p><a href="https://developer.xentral.com/v24.31/reference/analyticsreportusageget">https://developer.xentral.com/reference/analyticsreportusageget</a></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Um die Ergebnisse (und nicht nur die Konfiguration) von Berichten über die API abzurufen, gibt es mehrere Wege. Du kannst z.B. das SQL Statement eines angelegten Berichts via GET /report/{id} abfragen und es dann in einem zweiten Schritt über /query ausführen. Alternativ erzeugst du ein CSV file über POST /report/{id}/export und fragst das Ergebnis über GET /report/{id}/export ab. Wurde das file erfolgreich erstellt, liefert GET neben dem Status auch das file zurück.</p>
+<p>Die Report ID findest du in der URL, z.B. 1362 für <em>&hellip;xentral.biz/app/analytics-platform?activeReport=1362&amp;editorModeActive=false&amp;tab=report</em>-<strong>GSheet Integration:</strong></p>
+</blockquote>
+<ul>
+<li>Schritt 1) Downloade die Code Datei zum Upload in Google Scripts (Status:<strong>In Arbeit</strong>)</li>
+<li>
+<p>Schritt 2) Folge <a href="https://drive.google.com/file/d/1yq3ys5mh_TvoeKVzI9jCGdHNmipMFXDJ/view?usp=drive_link">dieser Anleitung</a>, um deine Verbindung zu Xentral zu konfigurieren (Status:<strong>Vorläufig</strong>)
+-<strong>Excel Integration: </strong></p>
+</li>
+<li>
+<p>Schritt 1) Downloade die Code Datei zum Upload in Google Scripts (Status:<strong>In Arbeit</strong>)</p>
+</li>
+<li>Schritt 2) Folge dieser Anleitung, um deine Verbindung zu Xentral zu konfigurieren (Status:<strong>In Arbeit</strong>)</li>
+</ul>
+<h3 id="weitere-informationen">Weitere Informationen<a class="headerlink" href="#weitere-informationen" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://docs.google.com/document/d/1-gSzD_dQ_fhZmwp4_c6beyfmckiohpVsQfnX8fjx8_k/edit">Xentral Berichtswesen - Übersicht</a></li>
+<li><a href="https://docs.google.com/document/d/17UoqFdqPbQMgvwAMuwoqTIlxL3bG_HCHZ-4Cgg1c510/edit?usp=sharing">Xentral Berichtswesen - Datenmodell</a></li>
+<li><a href="https://docs.google.com/document/d/1yc63I8VDichHVm2bH0A1_58gxJAQy4f_rLmG3sAMfjA/edit">Xentral Berichtswesen - Berichtsvorlagen (neu)</a></li>
+<li><a href="https://docs.google.com/document/d/1CjUtNv1qPd6MEm88tbbmms4JU63J6XlsWtcgzQYh9II/edit">Xentral Berichtswesen - Q&amp;A + known issues</a></li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12746941178140 Checklisten Ersteinrichtung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>12746941178140 Checklisten Ersteinrichtung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>12746941178140 Checklisten Ersteinrichtung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>In diesen Checklisten findest du nochmals die wichtigsten Schritte, die du vor deinem Go-Live checken solltest. Hier findest du ebenso Hinweise und Tips, die dir dabei helfen, Themen nochmals auf deine ursprünglichen Entscheidungen die du während der Einrichtung getroffen hast zu prüfen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Xentral liefert dir an einigen Stellen bereits viele vorkonfigurierte Einstellungen z.B. Standardlager, Nummernkreise im SKR04 Format, Steuersätze Deutschland 7% und 19%.</p>
+<p>Prüfe, welche Einstellungen du verwenden möchtest und welche Konfigurationen du für dein Businessmodell anders aufsetzen willst und ggf. anpassen musst um den rechtlichen Vorgaben zu entsprechen.</p>
+</blockquote>
+<h2 id="checkliste-systemeinstellungen-basic-setup-basic-settings-fur-den-xentral-standard-den-jeder-kunde-benotigt">Checkliste Systemeinstellungen - Basic Setup <strong>Basic Settings für den Xentral Standard, den jeder Kunde benötigt. </strong><a class="headerlink" href="#checkliste-systemeinstellungen-basic-setup-basic-settings-fur-den-xentral-standard-den-jeder-kunde-benotigt" title="Permanent link">&para;</a></h2>
+<p>-<strong>Bei Xentral anmelden als Admin</strong> und mit den Einstellungen und Tests starten.
+-<strong>Gib als erstes deine Firmendaten und Umsatzsteuernummer ein</strong>, um die ersten wichtigen Systemdaten für deine FIBU im System einzurichten. Zusätzlich wird für dein Team in verschiedenen Xentral Oberflächen dein Firmenname angezeigt, ebenso personalisierte Informationen.
+-<strong>Stelle dein Briefpapier mit Logo und den wichtigsten Textbausteinen ein. </strong> Um rechtssichere Belege auszustellen, musst du die für dein Geschäft geltenden rechtlich verpflichtenden Daten hinterlegen. Vergiss nicht, dass sich noch Demo-Daten z.B. im Footer des Briefpapiers befinden.<strong> Ändere je nach Anforderung ebenfalls die Textbausteine - die Textvorlagen.</strong></p>
+<p>-<strong>Steuersätze einrichten <strong>. Um rechtssichere Belege auszustellen, musst du die für dein Geschäft geltenden rechtlich verpflichtenden Steuern ausweisen. (Informationen dazu findest du bei Buchhaltung in den Artikeln <a href="https://help.xentral.com/hc/de/articles/360021442099#UUID-470c8a49-f068-06c3-da99-0aabea721d66"></strong> Steuer/ Währung <strong></a> und <a href="https://help.xentral.com/hc/de/articles/360016774199#UUID-343c04c9-96f1-468c-fb8a-ed0a1a1f524e"></strong> Steuersätze</strong></a>.)</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Bevor du mit der Erstellung von Rechnungen an deine Kunden beginnst, stelle sicher, welche Steuerrechtlichen Vorgaben für dein Geschäft gelten, indem du dich an dein lokales Steuerbüro oder das Finanzamt/Steuerbehörde wendest.</p>
+</blockquote>
+<p>-<strong>Verbinde deine Firmen E-Mail Adresse </strong> mit der du Dokumente und E-Mails an deine Kunden und Lieferanten versenden wirst.<strong>Hinweis </strong>: Verwende am besten eine <strong>neue Mail Adresse</strong>, wenn du den laufenden Betrieb nicht stören willst und keine Zeit hast das bestehende System umzuziehen. Weitere zusätzliche Mail Adressen kannst du auch später hinzufügen.</p>
+<p>-<strong>Nummernkreise festlegen <strong>. Verwende den Standard Nummernkreis von Xentral (SKR04) oder wähle andere <a href="https://help.xentral.com/hc/de/articles/5697692402204#UUID-400d130b-3d3e-1afb-97bf-87d0d87403e9"></strong> Nummernkreise</strong></a> in Abstimmung mit deinem Steuerbüro. Z.B. solltest du darauf achten, welche Nummernkreise Drittsysteme wie deine Buchhaltungssoftware benötigten.
+-<strong>Zahlungsweisen einrichten </strong>. Füge weitere für dein Geschäft wichtige <strong>Zahlungsweisen</strong> hinzu und lege das Zahlungsziel fest z.B. Rechnung 14 Tage.
+-<strong>Prüfe in den Systemeinstellungen für dich weitere wichtige Einstellungsoptionen</strong>. Evtl. gibt es Einstellungen, die für deine Anforderungen z.B. für Belege oder Module wichtig sind.
+-<strong>Versandarten einrichten <strong>. Füge weitere für dein Geschäft wichtige <a href="https://help.xentral.com/hc/de/articles/18567521362332#UUID-7d97af0c-3e39-6798-67c6-50f26028c174"></strong> Versandarten <strong></a> hinzu und verbinde die Schnittstelle deines Versanddienstleisters mit Xentral z.B. deinen</strong> DHL</strong> Geschäftskundenaccount.
+-<strong>Lager einrichten </strong>: Füge einen <strong>Lagerort und Lagerplätze</strong> hinzu, um deine Bestände zu sehen.
+  Wenn du Neueinsteiger bist: mit einem Lager und einem Lagerplatz (=Regal) kannst du bereits starten mehr Sichtbarkeit über dein Sortiment zu bekommen.</p>
+<p>-<strong>Richte einen Drucker ein </strong>. Wenn du kleine Mengen oder Tests durchführen möchtest, kannst du den PDF Drucker im Standard verwenden. Wenn du Logistik Prozessketten einrichten möchtest, verbinde den <strong>Xentral Druckerspooler</strong>, um schnelle automatische Ausdrucke ohne weiteren Zwischenklick in der Logistik zu erhalten.
+-<strong>Benutzer anlegen und dein Team an den Start bringen <strong>. <a href="https://help.xentral.com/hc/de/articles/11739147629340#UUID-87e4c6b2-d11f-904c-14a3-1d0b986620f4"></strong> Lade dein Team ein <strong></a> und weise Module und Rechte zu (<a href="https://help.xentral.com/hc/de/articles/360017521360#UUID-caabd28e-f77e-c7f3-1119-c1f5e033f206"></strong> Benutzerrechte <strong></a>). Lege fest, wer Key-User in deinem Team ist und Admin. Denke daran, dass du im Idealfall immer jemanden zweites in deinem Unternehmen eingelernt hast, der dich oder deinen Admin vertrauensvoll und inhaltlich vertreten kann - nicht nur intern in deinem Unternehmen, sondern auch z.B. zu unserem <a href="https://help.xentral.com/hc/de/articles/360017546079#UUID-2d8ff8ca-05dd-84b6-5452-cda0534a3070"></strong> Xentral Support</strong></a>.
+-<strong>Artikel und Stammdaten einpflegen </strong>. Entscheide, ob du deine Daten von Hand anlegen möchtest, oder ob eine <strong>Datenmigration</strong> notwendig sein wird.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Du solltest genügend Zeit einplanen und die Daten richtig und vollständig in deinem Xentral System haben, bevor du deinen Go-Live angehst und die finalen Abläufe noch einmal durchtestest.</p>
+<p><strong>Tipp</strong></p>
+<p>Wenn du noch eine <strong>kleine Firma</strong> mit wenig Sortiment und überschaubaren händischen Prozessen und kleinem Team bist, kannst du hier auch mit den wichtigsten Workflows loslegen und auf deinem Weg Einstellungen erkunden und nachschärfen. Das solltest du aber nur tun, wenn du genügend Zeit und keinen Druck hast, da du vor der Welle schwimmst.</p>
+</blockquote>
+<h2 id="checkliste-logistik-einstellungen">Checkliste Logistik Einstellungen<a class="headerlink" href="#checkliste-logistik-einstellungen" title="Permanent link">&para;</a></h2>
+<p>-<strong>Einen Logistikprozess einrichten <strong>. Wähle den für dich passenden <a href="https://help.xentral.com/hc/de/articles/360017571259#UUID-b3f7ea2e-7364-f4b2-cfc3-8566fa73cd0b"></strong> Logistikprozess <strong></a> aus und richte den Workflow ein. Du kannst auch mehrere Prozesse auswählen z.B. einen für den gesamten Offline Bereich (B2B Geschäft, Großgebinde Versand, ggf. Seriennummern und Chargen) und einen für dein E-Commerce Geschäft (Bsp. Alle Online Kanäle, B2C Packtisch Versand).</strong> Beispiel:<strong> Für genau dieses Modell kannst du beispielsweise den zentralen <a href="https://help.xentral.com/hc/de/articles/5697692402204#UUID-400d130b-3d3e-1afb-97bf-87d0d87403e9"></strong> Standardnummernkreis</strong></a> für alle E-Commerce Projekte nutzen und für B2B einen separaten kleineren Nummernkreis in einem neuen Projekt (= Vertriebskanal) einstellen.</p>
+<p>-<strong>Eine Lagerstruktur festlegen und anlegen <strong>. Wähle passend zu deinem <a href="https://help.xentral.com/hc/de/articles/360016722900#UUID-527055ed-8627-f35b-455b-32892ca8d5ce"></strong> Lager eine Lagerort- und Lagerplatz-Aufteilung <strong></a>. Hier hast du verschiedene Optionen und bist in der Gestaltung relativ frei. Überlege dir welche Struktur sich bisher bewährt hat oder welche Wege dein team im Pickprozess zurücklegen muss. Davon Abhängig solltest du deinen Pickprozess und die Lageraufteilung wählen.</strong> Beispiele</strong>: Du kannst deinen Lagerort als Standort wählen z.B. “Lager Augsburg”. Deine Regale können jeweils in der Kennung die Raumnummer enthalten z.B. für den Hauptlagerraum “HL001”. Wenn du später einen Ladenverkauf hinzufügst, kannst du z.B. für den Point-of-Sale Ladenraum “POS-001” verwenden. Für viele Lagerorte und komplexere Systeme kannst du auch Nachschublagerplätze, Sperrlagerplätze und Wareneingangslagerplätze (= Zwischenlagerplätze) definieren.</p>
+<p>-<strong>Richte deine Drucker in der Logistik ein</strong>. Wenn du Logistik Prozessketten einrichten möchtest, verbinde den Xentral Druckerspooler, um schnelle automatische Ausdrucke ohne weiteren Zwischenklick in der Logistik zu erhalten. Richte bei mehreren Packtischen pro Tisch zugehörige Dokumenten- und Paketmarkendrucker ein.
+-<strong>Versandarten einrichten <strong>. Füge weitere für dein Geschäft wichtige <a href="https://help.xentral.com/hc/de/articles/18567521362332#UUID-7d97af0c-3e39-6798-67c6-50f26028c174"></strong> Versandarten <strong></a> hinzu und verbinde die Schnittstelle deiner Versanddienstleister mit Xentral z.B. deinen <a href="https://help.xentral.com/hc/de/articles/360016739020#UUID-48d8b79a-61c4-0aaf-e6f6-993e5f205c19"></strong> DHL <strong></a> Geschäftskundenaccount. Du kannst mehrere Versanddienstleister wählen und in den <a href="https://help.xentral.com/hc/de/articles/360021241459#UUID-eae175eb-c113-a22c-f143-f346af8355da"></strong> Versandregeln <strong></a> oder im Online-Shop Importer über Mappings einstellen. Für <a href="https://help.xentral.com/hc/de/articles/360016725140#UUID-230ea457-3aef-7367-b7fc-c46f780ac3f6"></strong> Selbstabholer</strong></a> bietet dir Xentral eine Versandart, die dich beim Packen darauf aufmerksam macht das Paket zur Abholung bereitzulegen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Achtung</strong></p>
+<p>Führe einen Testdruck einer Paketmarke über deinen Logistik Workflow durch und prüfe den Workflow, die Paketlabels und Preise sowie die Performance deines Setups.</p>
+</blockquote>
+<p>-<strong>Prozessautomatisierung <strong>: Je nach ausgewähltem Logistikprozess bekommst du eine Teil- oder Vollautomatisierung deines Prozesses.</strong> Beispiel <strong>: Ein teilautomatisierter Prozess z.B. &ldquo;Einfache Lagerbuchung ohne weiteren Prozess&rdquo; ermöglicht dir eine einzelne Auftragsbearbeitung mit automatischer Lagerausbuchung+Belegerstellung sowie eine Stapelverarbeitung mehrere Aufträge gleichzeitig abzuschliessen. Da der Prozess keinen Packtisch Scan hat, kannst du die Belege an deinem Schreibtisch oder eurer Empfangstheke ausdrucken.</strong> Beispiel</strong>: Ein Vollautomatisierter Prozess wie die Zweistufige Kommissionierung, ermöglicht dir größere Mengen zu ausgewählten Zeiten oder als Stapelübergabe an die Logistik zu geben. In diesen Automatisierungsstufen hast du viele Konfigurationsmöglichkeiten. Für diese Standardworkflows helfen dir bereits vorkonfigurierte Logistikprozesse in den Projekteinstellungen (Bereich Logistik).</p>
+<h3 id="mehrere-logistikkanale-und-prozesse-sowie-automatisierungen-und-individuelle-anforderungen">Mehrere Logistikkanäle und Prozesse sowie Automatisierungen und individuelle Anforderungen<a class="headerlink" href="#mehrere-logistikkanale-und-prozesse-sowie-automatisierungen-und-individuelle-anforderungen" title="Permanent link">&para;</a></h3>
+<p>-<strong>Fortgeschrittene</strong>: Wenn du ein komplexeres Setup mit Spezialeinstellungen, mehreren Lägern und Lagertypen benötigst, kannst du dir über die Projekteinstellungen, die Lagereinstellungen, die Versandarten, die Druckerkonfigurationen und Packtisch Einstellungen verschiedene Prozesse einrichten.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Achtung</strong></p>
+<p>Für individuelle Logistikeinstellungen und Prozessschritte empfehlen wir dir folgende Artikel:</p>
+<ul>
+<li>Picklisten-Profile</li>
+<li>Versandregeln</li>
+<li>Versandzentrum</li>
+<li>Automatisierung per Prozessstarter(Versandzentrum, Autoversand berechnen)</li>
+<li>Versandarten</li>
+<li>Lagerstruktur erstellen (Xentral Lagerverwaltung)</li>
+</ul>
+<p><strong>Warnung</strong></p>
+<p>Hier benötigst du evtl. auch die Erfahrung eines Partners oder hast Anforderungen, die ein IT Partner oder Administrator erledigen wird.</p>
+</blockquote>
+<h2 id="checkliste-e-commerce-einstellungen">Checkliste E-Commerce Einstellungen<a class="headerlink" href="#checkliste-e-commerce-einstellungen" title="Permanent link">&para;</a></h2>
+<p>-<strong>Shop an Xentral anbinden: </strong> Binde deinen (Test-)Shop an Xentral an und importiere im ersten Schritt einen Testauftrag (= Order to Cash Prozess).<strong> Starte im ersten Schritt mit der Anbindung deines (Test) Shops und Einrichtung der Basis-Funktionen</strong>: Aufträge abholen, Statusrückmeldung des Auftrags (“abgeholt”), Lagerbestandsabgleich und Tracking Rückmeldung.</p>
+<p>-<strong>Testbestellung</strong>: Idealerweise kannst du mit einem Testshop oder einem Testauftrag loslegen um Xentral und die Möglichkeiten der Shop Konfiguration kennen zu lernen. Im Basis Setup ist der Shop schnell angebunden.
+-<strong>Anforderungen an die Shop-/ Marktplatzschnittstelle. </strong> Du solltest acht geben bei der Synchronisation von Daten und Lagerbeständen. Überlege dir hier zunächst deine Anforderungen.<strong> Beispiel <strong>: Du kannst Lagerbestandsänderungen (Wareneingang, Offline Verkauf, Lagerausbuchung wegen Defekt, Reservierung für einen Kunden) zu deinem Shop(s) und Marktplätzen zurückmelden lassen. </strong> Beispiel</strong>: Du kannst aber auch eine andere Strategie wählen und z.B. große Mengen für ein überschaubares kleines Produkt-Sortiment (z.B. Food) direkt in deinen Shopsystemen und Marktplätzen einpflegen und optimieren. In diesem Fall benötigst du einen Sicherheitsbestand (Nachschublagerplatz), wohingegen einzelne Reservierungen von B2C Kunden und ein sofortiger Abgleich eine weniger große Rolle speilt.</p>
+<p>-<strong>Check der Auftragsdaten</strong>. Prüfe die Auftragsdaten auf Vollständigkeit und lege die Mappings korrekt an. Xentral bietet dir hier einen Standard für die verschiedenen Shopsysteme. Solltest du am Standard Setup deines Shops Änderungen vornehmen, kannst du den Import weiter konfigurieren und mit Hilfe von Mappings, Settings oder kleinen technischen Anpassungen verfeinern.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Hier benötigst du technische Kenntnisse und ggf. auch Unterstützung eines Partners oder hast Anforderungen, die ein IT Partner oder Administrator erledigen wird.</p>
+</blockquote>
+<h3 id="mehrere-shop-und-marktplatzanbindungen-subshops-oder-varianten-und-matrixartikel">Mehrere Shop- und Marktplatzanbindungen, Subshops oder Varianten und Matrixartikel<a class="headerlink" href="#mehrere-shop-und-marktplatzanbindungen-subshops-oder-varianten-und-matrixartikel" title="Permanent link">&para;</a></h3>
+<p>-<strong>Fortgeschrittene <strong>:</strong> Überlege dir welches System führend sein soll</strong>. Bei einem überschaubaren Sortiment kannst du deine Artikel in den Shopsystemen oder Marktplätzen optimieren. Xentral ist dann das System, das die Abholung der Aufträge erledigt und Bestände Synchronisiert, allerdings keine Artikeldaten überschreibt.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Praxistip: Lege für dich fest, wie wichtig dir die Anforderungen Spezieller Marktplätze in der Artikelpflege sind. Evtl. willst du die Daten selbst pflegen und als CSV auf den Marktplatz laden. Oder du möchtest ein separates PIM System verwenden. Wenn die Datenstrukturen für dein Modell passend sind, kannst du die Artikel auch von Xentral aus listen.</p>
+<p><strong>Warnung</strong></p>
+<p>Hinweis: Achte hier auf die Features des jeweiligen Shops. Nicht alle Shopsysteme bieten dieselben Möglichkeiten. Du findest eine genaue Auflistung in der <strong>Shop Feature Matrix</strong>.</p>
+</blockquote>
+<h2 id="checkliste-datenmigration-artikel-kunden-lieferanten-fulle-xentral-mit-den-wichtigsten-daten-damit-du-live-gehen-kannst">Checkliste Datenmigration: Artikel, Kunden, Lieferanten - fülle xentral mit den wichtigsten Daten, damit du Live gehen kannst<a class="headerlink" href="#checkliste-datenmigration-artikel-kunden-lieferanten-fulle-xentral-mit-den-wichtigsten-daten-damit-du-live-gehen-kannst" title="Permanent link">&para;</a></h2>
+<h3 id="checkliste-datenpflege-daten-manuell-einpflegen">Checkliste Datenpflege- Daten manuell einpflegen<a class="headerlink" href="#checkliste-datenpflege-daten-manuell-einpflegen" title="Permanent link">&para;</a></h3>
+<p>-<strong>Artikelnummernkreis festlegen <strong>. Nutze die Standard <a href="https://help.xentral.com/hc/de/articles/5355892884636-Artikelkategorien-und-Artikelbaum-verwenden"></strong> Artikelkategorien</strong></a> oder lege eigene an.
+-<strong>Artikeldaten einpflegen <strong>. Pflege die wichtigsten <a href="https://help.xentral.com/hc/de/articles/360016809699-%C3%9Cberblick-Artikelstammdaten"></strong> Artikelstammdaten</strong></a> wie Artikelbezeichnung, Beschreibung, Einkaufspreis, Verkaufspreis, Zolltarifnummer.
+-<strong>Artikeltyp festlegen <strong>. Klassifiziere den <a href="https://help.xentral.com/hc/de/articles/5355868375324#UUID-7b466ccc-d331-8e18-2f8e-9a396ad6b84d"></strong> Artikel</strong></a> als Lagerartikel, Stückliste, Rabattartikel, Diensleistungsartikel, Portoartikel
+-<strong>Fremdnummern, SKU <strong>. Pflege für Onlineshops und Drittsysteme <a href="https://help.xentral.com/hc/de/articles/360016758199-Artikel-aus-Fremdsystemen-in-Xentral-zuordnen-Artikel-Fremdnummern"></strong> Fremdnummern</strong></a> und SKUs.</p>
+<h3 id="checkliste-datenmigration-basic">Checkliste Datenmigration basic<a class="headerlink" href="#checkliste-datenmigration-basic" title="Permanent link">&para;</a></h3>
+<p>-<strong>Einfacher Adressdatenimport </strong>. Du kannst um Zeit zu sparen <strong>die wichtigsten Standard Adressdatenfelder</strong> in dein System laden und z.B. die Xentral Vorlagen verwenden.
+-<strong>Einfacher Artikeldatenimport </strong>. Du kannst um Zeit zu sparen <strong>die wichtigsten Standard Artikeldatenfelder</strong> in dein System laden und z.B. die Xentral Vorlagen verwenden.</p>
+<h3 id="checkliste-datenmigration-plus-viele-komplexe-daten-migrieren-it-migration">Checkliste Datenmigration plus - viele komplexe Daten migrieren - IT Migration<a class="headerlink" href="#checkliste-datenmigration-plus-viele-komplexe-daten-migrieren-it-migration" title="Permanent link">&para;</a></h3>
+<p>Informationen zu umfangreicher Datenmigration findest du in Übersicht der<a href="https://help.xentral.com/hc/de/articles/360016758939-Import-von-Stammdaten-und-Unternehmensdaten">Datenmigration</a>und im Einrichtungspfad<a href="https://help.xentral.com/hc/de/articles/11739100947868#UUID-90e11b99-1417-da00-d6f9-cdb07ab9122a">Stammdaten Import - Adressen, Artikel (Einrichtung)</a>. Bewegungsdaten können über den<a href="https://help.xentral.com/hc/de/articles/360016757059-Belege-Importer">Belegeimporter</a>oder die<a href="https://developer.xentral.com/reference/intro">API</a>importiert werden.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Hier benötigst du technische Kenntnisse und ggf. auch Unterstützung eines Partners oder hast Anforderungen, die ein IT Partner oder Administrator erledigen wird.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

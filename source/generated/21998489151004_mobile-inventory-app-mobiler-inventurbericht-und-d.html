@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21998489151004 Mobile Inventory App Mobiler Inventurbericht Und D - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>21998489151004 Mobile Inventory App Mobiler Inventurbericht Und D</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>21998489151004 Mobile Inventory App Mobiler Inventurbericht Und D</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Nach einer Inventur benötigst du zuverlässige und transparente Daten darüber, welche Lager und Lagerplätze Teil der Inventur waren, welche Bestände jeweils gezählt wurden und welche Bestandsabweichungen sich durch die Zählung ergeben haben.</p>
+<p>Zur transparenten Auswertung und Nachbereitung der Inventur stellt Xentral dir zwei verschiedene Werkzeuge zur Verfügung, die in diesem Artikel beschrieben werden. Sowohl den<a href="#UUID-080224fa-2bd8-5ce9-97bf-743bbf49d409_section-id235122729682173">mobilen Inventurbericht</a>als auch den<a href="#UUID-080224fa-2bd8-5ce9-97bf-743bbf49d409_section-id235122729845039">Delta Report</a>kannst du unkompliziert und ohne manuelle Vorarbeiten oder vorherige Einstellungen ganz einfach und bequem nutzen, sodass du jederzeit den Überblick über die gezählten Bestände und mögliche Abweichungen hast.</p>
+<ul>
+<li><strong>Mobiler Inventurbericht</strong>: Als Inventurleiter kannst du hier schon während der Inventur den Fortschritt der Zählung pro Lagerplatz nachverfolgen. Nach Abschluss der Zählung kannst du hier die Zähllisten herunterladen, die die Inventurläufe und ihre Ergebnisse detailliert dokumentieren.
+-<strong>Delta Report </strong>: Der so genannte Delta Report steht dir nach Abschluss der Inventur im Modul <strong>Berichte</strong> zur Verfügung. Er listet die Bestandsabweichungen auf, die während der Inventur festgestellt wurden.</li>
+</ul>
+<h2 id="mobile-inventurberichte">Mobile Inventurberichte<a class="headerlink" href="#mobile-inventurberichte" title="Permanent link">&para;</a></h2>
+<p>Im Menü <strong>Lager &gt; Mobile Inventurberichte</strong> findest du eine Übersicht aller aktuellen und vergangenen Inventurläufe, die über die Mobile Inventory App durchgeführt wurden.</p>
+<p><img alt="mobile-lagerberichte-ubersicht-de.png" src="https://help.xentral.com/hc/article_attachments/21998465225372" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Mithilfe der Filter <strong>VON </strong>,<strong>BIS </strong> und <strong>Stichtag</strong> kannst du entweder gezielt nach Inventurläufen filtern, die in dem von dir festgelegten Zeitraum stattgefunden haben, oder Bestandszahlen für einen bestimmten Stichtag feststellen. Wie du mit diesen Filtern konkret anwendest und Bestände zu einem bestimmten Stichtag feststellen kannst, wird im KapitelBestand zum Stichtag feststellenbeschrieben.</p>
+</blockquote>
+<h3 id="status-des-inventurlaufs-nachvollziehen">Status des Inventurlaufs nachvollziehen<a class="headerlink" href="#status-des-inventurlaufs-nachvollziehen" title="Permanent link">&para;</a></h3>
+<p>Möchtest du Informationen zu bestimmten Inventurläufen im Menü <strong>Lager &gt; Inventurberichte</strong> nachvollziehen, musst du keine gesonderten Filter setzen.</p>
+<p>Nachdem du das Menü in Xentral geöffnet hast, klicke links neben dem gewünschten Lager auf das <strong>Pfeil-Symbol</strong>. Daraufhin wird dir die Detailansicht zu den Inventurläufen in diesem Lager angezeigt.</p>
+<p><img alt="lager-inventurlauf-details-de.png" src="https://help.xentral.com/hc/article_attachments/21998461146652" /></p>
+<p>In der Spalte <strong>Status</strong> kannst du während und nach einem Inventurlauf seinen genauen Status sehen. Die folgende Tabelle gibt dir einen Überblick über die verfügbaren Status und ihre Bedeutung.</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Innerhalb des Laufs gibt es noch Lagerplätze, für die keine Zählung durchgeführt wurde.</td>
+</tr>
+<tr>
+<td></td>
+<td>Das Inventurteam (bestehend aus Zähler und Prüfer) hat die Zählung abgeschlossen und die erforderlichen Unterschriften zur Bestätigung in der Mobile Inventory App geleistet. Die Übertragung der gezählten Bestände an Xentral steht unmittelbar bevor.</td>
+</tr>
+<tr>
+<td></td>
+<td>Das Inventurteam (bestehend aus Zähler und Prüfer) hat mit der Zählung begonnen.</td>
+</tr>
+<tr>
+<td></td>
+<td>Die Daten des Inventurlauf und die gezählten Bestände wurden vollständig in Xentral übertragen und verarbeitet. Die gezählten Bestände wurden als neue Bestände der gezählten Lagerplätze erfasst.</td>
+</tr>
+</tbody>
+</table>
+<p>Folgende Zusatzinformationen findest du in der Detailansicht:</p>
+<p>-<strong>Name</strong>: Der Name des Inventurlaufs, der bei Erstellung des Laufs in der Mobile Inventory App vergeben wurde.
+-<strong>Zähler</strong>: Der Name des Mitarbeiters, der als Zähler für den Lauf ausgewählt wurde.
+-<strong>Controller</strong>: Der Name des Mitarbeiters, der als Prüfer für den Lauf ausgewählt wurde.
+-<strong>Gestartete Zählungen</strong>: Dieser Zeitstempel zeigt, zu welchem Zeitpunkt die Zählung im Lager begonnen wurde.
+-<strong>Fertige Zählungen</strong>: Dieser Zeitstempel zeigt an, zu welchem Zeitpunkt die Zählung im Lager abgeschlossen wurde.
+-<strong>Offene Plätze</strong>: Anzahl der Lagerplätze, für die noch keine Zählung durchgeführt wurde.
+-<strong>Gezählte Plätze</strong>: Anzahl der Lagerplätze, für die bereits eine Zählung durchgeführt wurde.</p>
+<h3 id="zahlliste-fur-inventurlauf-herunterladen">Zählliste für Inventurlauf herunterladen<a class="headerlink" href="#zahlliste-fur-inventurlauf-herunterladen" title="Permanent link">&para;</a></h3>
+<p>Falls benötigt, kannst du für jeden einzelnen Inventurlauf eine eigene, so genannte Zählliste herunterladen. Dabei kannst du wählen, ob du die Datei im CSV- oder PDF-Format herunterladen möchtest. Klicke dazu in der Spalte <strong>Zählliste </strong> ganz recht in der Detailansicht des Inventurlaufs auf das <strong>CSV-Symbol </strong> oder das <strong>PDF-Symbol</strong>.</p>
+<p><img alt="inventurlauf-zaehlliste-de.png" src="https://help.xentral.com/hc/article_attachments/21998461157788" /></p>
+<p>So sieht eine beispielhafte Inventur-Zählliste im PDF-Format aus:</p>
+<p><img alt="inventur-zaehlliste-beispiel-de.png" src="https://help.xentral.com/hc/article_attachments/21998461163292" /></p>
+<h3 id="bestand-zum-stichtag-feststellen">Bestand zum Stichtag feststellen<a class="headerlink" href="#bestand-zum-stichtag-feststellen" title="Permanent link">&para;</a></h3>
+<p>In den allermeisten Branchen muss eine Inventur zum Jahresende, genauer gesagt zu einem jedes Jahr fest definierten Stichtag, durchgeführt werden. Eine Feststellung aller vorhandenen Bestände zum 31. Dezember des Jahres ist dabei üblich.</p>
+<p>Vor allem, wenn dein Lager über eine sehr große Fläche verfügt und zahlreiche Artikel gezählt werden müssen, wirst du die Inventur nicht an einem einzigen Tag mit nur einem Inventurlauf durchführen. Stattdessen werden in einem festgelegten Inventurzeitraum mehrere Inventurläufe mit der Mobile Inventory App durchgeführt, bis alle Lagerplätze erfasst und gezählt wurden. Im Modul <strong>Mobile Inventurberichte </strong> kannst du spezielle Filter nutzen, um den Bestand zu einem von dir definierten Stichtag festzustellen.Xentral berechnet dann aus der Kombination aller Zählergebnisse des von dir festgelegten Zeitraums und der zwischenzeitlichen Ausbuchungen im Rahmen deines Tagesgeschäfts automatisch den Bestand zum Stichtag.<strong>Beispiel 1. Praxisbeispiel für die Jahres- bzw. Stichtagsinventur</strong></p>
+<ul>
+<li>Vom 16. bis zum 23. Dezember 2024 wurde in mehreren Läufen die Jahresinventur durchgeführt</li>
+<li>Du benötigst den Bestand für den Stichtag 31. Dezember für den Jahresabschluss</li>
+<li>Öffne zunächst das Menü <strong>Lager &gt; Mobile Inventurberichte</strong>.</li>
+<li>Setze dann den Filter <strong>VON </strong> auf den 16.12.2024 und den Filter <strong>BIS</strong> auf den 23.12.2024.</li>
+<li>Als <strong>Stichtag</strong> wählst du den 31.12.2025 aus.</li>
+<li>Klicke auf <strong>Filter bestätigen</strong>.</li>
+<li>Die Tabelle wird neu geladen. Du kannst nun in der entsprechenden Spalte rechts den <strong>Stichtagsbericht</strong> im PDF- oder CSV-Format generieren und anschließend herunterladen.</li>
+</ul>
+<h2 id="bestandsabweichungen-nachvollziehen-delta-report">Bestandsabweichungen nachvollziehen (Delta Report)<a class="headerlink" href="#bestandsabweichungen-nachvollziehen-delta-report" title="Permanent link">&para;</a></h2>
+<p>Im Rahmen der Inventur kann es vorkommen, dass die gezählten Bestände von den in Xentral vorhandenen Beständen abweichen. In der Praxis gibt es zwei verschiedene Arten von Bestandsabweichungen:</p>
+<p>-<strong>Ist-Bestand ist größer als Soll-Bestand</strong>: Bei der Inventur werden mehr Artikel auf dem Lagerplatz gezählt, als laut Xentral vorhanden sein sollten.
+-<strong>Ist-Bestand ist größer als Soll-Bestand</strong>: Bei der Inventur werden weniger Artikel auf dem Lagerplatz gezählt, als laut Xentral vorhanden sein sollten.</p>
+<p>Der so genannte <strong>Delta Report</strong> listet alle Bestandsveränderungen auf, die im Rahmen der Inventur mit der Mobile Inventory App vorgenommen wurden. Diese Ergebnisse findest du dann zusammengefasst im Delta Report.</p>
+<p>Schau dir folgendes Beispiel an, um zu verstehen, was damit konkret gemeint ist:</p>
+<p><strong>Beispiel 2. Praxisbeispiel für den Delta Report</strong></p>
+<ul>
+<li>Auf dem Lagerplatz <strong>H1L1R1</strong> waren vor der Inventur laut Bestandsdaten in Xentral 20 Exemplare eines bestimmten Artikels vorhanden.</li>
+<li>Im Rahmen der Inventur und wurden auf dem Lagerplatz <strong>H1L1R1</strong> 18 Artikelexemplare vorgefunden und diese Anzahl mit der Mobile Inventory App erfasst.</li>
+<li>Die Inventur wird in der App abgeschlossen und damit auch der Bestand in Xentral auf 18 Stück für den Lagerplatz <strong>H1L1R1</strong> angepasst.</li>
+<li>Der Delta Report gibt in diesem Fall eine Bestandsänderung von <strong>-2</strong> für diesen Artikel auf diesem Lagerplatz aus.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wurden für den selben Lagerplatz nacheinander mehrere Zählungen vorgenommen? In diesem Fall bezieht der Delta Report sich immer auf das aktuellste Ergebnis, also die neueste Zählung die mit der App erfasst wurde, bevor der Delta Report erstellt wird.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um den Delta Report in Xentral zu erstellen und herunterzuladen.</p>
+<ol>
+<li>Öffne das Menü <strong>Berichtswesen &gt; Berichte (Neu)</strong>.</li>
+<li>Klicke im Tab <strong>Deine Berichte </strong> auf den Abschnitt <strong>[6] Stammdatenpflege und Unterstützung operativer Prozesse</strong>.</li>
+<li>Klicke auf <strong>Delta Report</strong>.</li>
+<li>Gib in den Feldern <strong>Von Datum </strong> und <strong>Bis Datum</strong> dein gewünschten Zeitraum der per App erfassten Bestandsabweichungen ein.</li>
+<li>Wähle oben das gewünschte Exportformat für den Delta Report aus.</li>
+<li>Klicke oben rechts auf <strong>Anfrage ausführen</strong>.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

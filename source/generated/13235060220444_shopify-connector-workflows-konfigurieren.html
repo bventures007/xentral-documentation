@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13235060220444 Shopify Connector Workflows Konfigurieren - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>13235060220444 Shopify Connector Workflows Konfigurieren</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>13235060220444 Shopify Connector Workflows Konfigurieren</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>ZusammenfassungOptimiere deinen Shopify-Connector in Xentral: Konfiguriere Workflows für Artikel, Bestände, Preise und Aufträge. Aktiviere Funktionen individuell für effiziente Prozesse.</p>
+<h2 id="uberblick">Überblick<a class="headerlink" href="#uberblick" title="Permanent link">&para;</a></h2>
+<p>Im Bereich Workflows kannst du nun die Details zu den gewählten Features konfigurieren und die Features einzeln aktiv schalten. Du erreichst die Workflows unter dem Pfad <strong>Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; Shopify-Connector &gt; Workflows</strong>.</p>
+<p><img alt="Shared_Workflows_Ubersicht.png" src="https://help.xentral.com/hc/article_attachments/18723405793820" /></p>
+<h2 id="allgemeine-funktionen">Allgemeine Funktionen<a class="headerlink" href="#allgemeine-funktionen" title="Permanent link">&para;</a></h2>
+<h3 id="integrationsmodus">Integrationsmodus<a class="headerlink" href="#integrationsmodus" title="Permanent link">&para;</a></h3>
+<p>Die Schaltfläche “Aktivsteht dir in jedem Reiter zur Verfügung. Sie bezieht sich jeweils auf den Reiter, in dem du dich gerade befindest.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Schaltfläche benötigst du erst, nachdem du alle Einstellungen vorgenommen und getestet hast und alles bereit ist für den produktiven Einsatz deiner Schnittstelle.</p>
+<p><strong>Belasse den Schalter bis zum Abschluss deiner Tests auf links (inaktiv).</strong></p>
+</blockquote>
+<p><img alt="ShopifyShopwareWoo_Workflows_Allgemein_Integrationsmodus.png" src="https://help.xentral.com/hc/article_attachments/18723449193116" /></p>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Erst nachdem deine Einrichtung und Tests abgeschlossen sind, kannst du die Schnittstelle produktiv schalten. Beachte dazu die Hinweise in diesem<a href="https://help.xentral.com/hc/de/articles/18589752911516#UUID-e51cce39-191a-dec1-8f90-44b0af01a9f4">Handbuchabschnitt</a>.</p>
+<h2 id="features-reiter">Features-Reiter<a class="headerlink" href="#features-reiter" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden findest du zu jedem Feature detaillierte Konfigurationsmöglichkeiten.</p>
+<h3 id="reiter-artikel">Reiter “Artikel”<a class="headerlink" href="#reiter-artikel" title="Permanent link">&para;</a></h3>
+<h4 id="datentypen">Datentypen<a class="headerlink" href="#datentypen" title="Permanent link">&para;</a></h4>
+<p>Lege fest, welche <strong>Datentypen</strong> zwischen den Systemen ausgetauscht werden sollen:</p>
+<p><img alt="Shopify_Workflows_Artikel_Datentypen.png" src="https://help.xentral.com/hc/article_attachments/21714227021468" /></p>
+<h5 id="nutzung-von-ubersetzungen">Nutzung von Übersetzungen<a class="headerlink" href="#nutzung-von-ubersetzungen" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Damit du die Übersetzungs-Funktion für Texte nutzen kannst, benötigst du die Shopify AppTranslate &amp; Adapt (Lokalize), die du kostenlos im Shopify Appstore erhälst. Weitere Infos dazu findest duhier.</p>
+</blockquote>
+<p>MIt der Connect-Schnittstelle kannst du Übersetzungen und kanal-spezifische Sprachen an Shopify übertragen. Folgende Felder werden dabei berücksichtigt:</p>
+<ul>
+<li>Artikel</li>
+<li>Kurztext</li>
+<li>Artikelbeschreibung</li>
+<li>Meta-Title</li>
+<li>Meta-Description</li>
+<li>Meta-Keywords</li>
+</ul>
+<p>Um eine reibungslose und wunschgemäße Übertragung zu erreichen, beachte, dass die Übersetzungen nach folgender Priorität berücksichtigt werden:</p>
+<ol>
+<li>Zuerst werden Online-Shop Texte berücksichtigt, die unter Artikel &gt; Texte mit einer spezifischen Shop-Auswahl angelegt wurden.</li>
+<li>Es folgen die Einträge, die unter Artikel &gt; Texte ohne spezifische Shop-Auswahl gemacht wurden.</li>
+<li>Abschließend werden Texte einbezogen, die unter Artikel &gt; Details &gt; Texte und Beschreibungen eingegeben wurden. Hierbei wird das Feld Artikelbeschreibung im Bereich Online-Shop Texte zuerst berücksichtigt - nur wenn dieses Feld leer ist, wenn das gleichnamige Feld im Bereich Beschreibung verwendet.</li>
+</ol>
+<h4 id="meta-texte">Meta Texte<a class="headerlink" href="#meta-texte" title="Permanent link">&para;</a></h4>
+<p>Setze den Schalter nach rechts, wenn du Metatexte an den Shop übertragen möchtest.</p>
+<p><img alt="WooCommerce_Workflows_Artikel_Metatexte.png" src="https://help.xentral.com/hc/article_attachments/18723449194908" /></p>
+<h4 id="stammdaten">Stammdaten<a class="headerlink" href="#stammdaten" title="Permanent link">&para;</a></h4>
+<p><img alt="Shared_Workflows_Artikel_Stammdaten.png" src="https://help.xentral.com/hc/article_attachments/18723405801884" /></p>
+<p>Um das Nettogewicht an den Shop zu übertragen, setze hier den Schalter nach rechts, andernfalls wird das Gewicht übertragen.</p>
+<h4 id="update-strategie">Update Strategie<a class="headerlink" href="#update-strategie" title="Permanent link">&para;</a></h4>
+<p>Bestimme, wie Artikel von Xentral an den Shop übertragen werden sollen:</p>
+<p><img alt="Shared_Workflows_Artikel_Updatestrategie.png" src="https://help.xentral.com/hc/article_attachments/18723449196828" /></p>
+<p>Bei der Update Strategie hast du folgende Möglichkeiten:</p>
+<p><img alt="Shared_Workflows_Artikel_UpdatestrategieDetails.png" src="https://help.xentral.com/hc/article_attachments/18723449201180" /></p>
+<p>Wenn Artikel, die du in Xentral löschst, automatisch im Shop gelöscht werden sollen, setze den Auswahlschalter “Produkte automatisch in Shop löschen?” nach rechts.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wird ein Matrixartikel gelöscht, werden alle zugehörigen Varianten im Shop gelöscht.</p>
+</blockquote>
+<h4 id="steuern">Steuern<a class="headerlink" href="#steuern" title="Permanent link">&para;</a></h4>
+<p>Lege im folgenden Abschnitt die Steuereinstellungen fest:</p>
+<p><img alt="image-20240312-153334.png" src="https://help.xentral.com/hc/article_attachments/13235058458652" /></p>
+<ul>
+<li>“Collection für reduzierten Steuersatz”: Falls es in deinem Shop Artikel gibt, für die ein reduzierter Steuersatz gilt, wähle hier die entsprechende Kollektion aus Shopify aus, um die richtige Steuerberechnung sicherzustellen.</li>
+<li>“Collection für befreiten Steuersatz”: Falls es in deinem Shop Artikel gibt, für die eine Steuerbefreiung gilt, wähle hier die entsprechende Kollektion aus Shopify aus, um die richtige Steuerberechnung sicherzustellen.</li>
+<li>“Steuersatz (normal)”: Trage hier den Prozentwert (ohne Prozentzeichen) für normal besteuerte Artikel ein. (In Deutschland derzeit 19%)</li>
+<li>“Steuersatz (ermäßigt)”: Trage hier den Prozentwert (ohne Prozentzeichen) für Artikel mit ermäßigtem Steuersatz ein. (In Deutschland derzeit 7%)</li>
+<li>“Nettopreise übertragen”: Stelle den Schalter nach rechts, wenn du im Shop Nettopreise gepflegt hast, oder auf links für Bruttopreise.</li>
+<li>“Land des Firmensitzes”: Wähle hier das Land aus, in dem deine Firma sitzt.</li>
+</ul>
+<h4 id="freifeldzuordnung">Freifeldzuordnung<a class="headerlink" href="#freifeldzuordnung" title="Permanent link">&para;</a></h4>
+<p>Bei den Freifeldern hast du die Möglichkeit, Xentral Freifelder oder Xentral Eigenschaften an Metafelder in Shopify zu übertragen. Folgende Optionen stehen zur Wahl:</p>
+<p><img alt="connect_workflow_freefields.png" src="https://help.xentral.com/hc/article_attachments/15365033924380" /></p>
+<p>Freifeld zu Metafeld:</p>
+<ul>
+<li>“Freifelder aus Xentral übernehmen”: Freifelder aus Xentral werden automatisch in gleich lautende Metafelder geschrieben.</li>
+<li>“Manuelle Zuordnungstabelle”: Freifelder aus Xentral werden den Metafeldern manuell zugeordnet.</li>
+</ul>
+<p>Eigenschaft zu Metafeld:</p>
+<ul>
+<li>“Eigenschaften aus Xentral automatisch in verfügbare Freifelder schreiben”: Eigenschaften aus Xentral werden automatisch in gleich lautende Metafelder geschrieben.</li>
+<li>“Eigenschaften aus Xentral den Shop verfügbaren Freifeldern manuell zuordnen”: Eigenschaften aus Xentral werden den Metafeldern manuell zugeordnet.</li>
+</ul>
+<p>Bei der “Manuellen Zuordnungstabelle” und bei “Eigenschaften aus Xentral den Shop verfügbaren Freifeldern manuell zuordnen” erscheint eine Tabelle, in der du die Zuordnung eintragen kannst:</p>
+<p><img alt="image-20240223-085130.png" src="https://help.xentral.com/hc/article_attachments/15365050023836" /></p>
+<h4 id="sales-channels">Sales Channels<a class="headerlink" href="#sales-channels" title="Permanent link">&para;</a></h4>
+<p>Triff hier eine Auswahl, welchemShopify-Vertriebskanal die Artikel zugeordnet werden sollen.</p>
+<p><img alt="image-20240223-085310.png" src="https://help.xentral.com/hc/article_attachments/15365039893020" /></p>
+<h4 id="medien">Medien<a class="headerlink" href="#medien" title="Permanent link">&para;</a></h4>
+<p>Entscheide, ob Artikelbilder nur angelegt werden sollen, oder ob sie sowohl angelegt als auch gelöscht werden sollen.</p>
+<p><img alt="connect_media.png" src="https://help.xentral.com/hc/article_attachments/13921859495324" /></p>
+<h3 id="reiter-kategorie">Reiter “Kategorie”<a class="headerlink" href="#reiter-kategorie" title="Permanent link">&para;</a></h3>
+<p>Hier legst du fest, welche Kategorien aus dem Xentral Artikelbaum in die Kategorien der Shopify Produkttaxonomie übertragen werden werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es erfolgtkeinedirekte Verknüpfung “Artikelkategorie zu Kollektion”. Wir verknüpfen Xentral Artikel-Tags mit Shopify Produkttags und den Xentral Artikelbaum mit der Shopify Produkttaxonomie. Wenn du Kollektionen auf Basis von Tags anlegen möchtest, erfolgt dies innerhalb Shopify mit automatisierten Anlage.</p>
+</blockquote>
+<p>Für die erste Gruppe klicke auf <strong>+ Gruppe hinzufügen</strong> und ordne eine (Unter-)Kategorie des Xentral-Artikelbaums einer Shopify-Kategorie zu. Optional kannst du weitere Kategorien verknüpfen.</p>
+<p><img alt="connect_categorytab_shopify.png" src="https://help.xentral.com/hc/article_attachments/15371580665116" /></p>
+<p>Setze den Schalter <strong>Warengruppe in Produkttyp übertragen?</strong> nach rechts, wenn du die Xentral Artikelkategorie in den Shopify Produkttyp übertragen möchtest.</p>
+<h3 id="reiter-bestand">Reiter “Bestand”<a class="headerlink" href="#reiter-bestand" title="Permanent link">&para;</a></h3>
+<h4 id="lager">Lager<a class="headerlink" href="#lager" title="Permanent link">&para;</a></h4>
+<p>“Lager Zuordnung”: Verknüpfe hier die Lagerorte aus Xentral mit den entsprechenden Standorten des Shops. Du kannst mehrere Lagerorte verknüpfen:</p>
+<p><img alt="Shopify_Workflows_Bestand_Lagerzuordnung.png" src="https://help.xentral.com/hc/article_attachments/18723449202076" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wenn du einen neuen Lagerort angelegt hast, der im Auswahlfeld noch nicht zur Verfügung steht, klicke auf <strong>Optionen neu laden</strong>, um die Auswahl zu aktualisieren.</p>
+</blockquote>
+<h4 id="lagerbestand-berechnen">Lagerbestand berechnen<a class="headerlink" href="#lagerbestand-berechnen" title="Permanent link">&para;</a></h4>
+<p><img alt="Shared_Workflows_Bestand_Berechnen.png" src="https://help.xentral.com/hc/article_attachments/18723405805340" /></p>
+<p>Wähle folgende Optionen aus, um die an den Shop übertragene Bestandsmenge zu manipulieren:</p>
+<ul>
+<li>“Reservierungen beachten”: Setze den Schalter nach rechts, wenn die reservierte Menge vom Lagerbestand abgezogen werden soll.</li>
+<li>“Offene Bestellungen beachten”: Setze den Schalter nach rechts, wenn offene Auftragsmengen abgezogen werden sollen.</li>
+<li>“Lagerkorrekturwert beachten”: Setze den Schalter nach rechts, wenn der Lagerbestand um den im Artikel festgelegten Lagerkorrekturwert verändert werden soll. Das Feld “Lagerkorrekturwert” findest du unter <strong>Artikel &gt; Details &gt; Online-Shop Optionen </strong>, Bereich <strong>Lagerbestand</strong>.</li>
+<li>“Pseudo Lagerzahl statt echten Lagerzahlen verwenden”: Setze den Schalter nach rechts, wenn statt dem berechneten Lagerbestand eine im Artikelstamm festgelegte Pseudomenge übertragen werden soll. Das Feld <strong>Pseudo Lagerzahl </strong> findest du ebenfalls unter <strong>Artikel &gt; Details &gt; Online-Shop Optionen </strong>, Bereich <strong>Lagerbestand</strong>.</li>
+</ul>
+<h3 id="reiter-preise">Reiter “Preise”<a class="headerlink" href="#reiter-preise" title="Permanent link">&para;</a></h3>
+<h4 id="preisauswahl">Preisauswahl<a class="headerlink" href="#preisauswahl" title="Permanent link">&para;</a></h4>
+<p>Falls du für deinenShopeinen bestimmten Preis festlegen möchtest, kannst du in diesem Feld einen Kundennamen oder einen Kundengruppennamen eintragen. Möchtest du Standardpreise nutzen, lasse das Feld leer.</p>
+<p><img alt="image-20240311-095853.png" src="https://help.xentral.com/hc/article_attachments/18723405807900" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Trage hier nur dieBezeichnungder Gruppe ein, nicht die Kennziffer. Entnimm die korrekte Bezeichnung aus der Tabelle im ModulGruppen.</p>
+</blockquote>
+<h4 id="erweiterte-preise">Erweiterte Preise<a class="headerlink" href="#erweiterte-preise" title="Permanent link">&para;</a></h4>
+<p>Wenn du Preisgruppen von Xentral in Shopify importieren möchtest, so aktiviere zunächst den Schalter “Erweiterte Preise importieren”. Anschließend kannst du diejenigen Xentral Kundengruppen auswählen, die für Shopify-B2B-Kataloge berücksichtigt werden sollen.</p>
+<p><img alt="Shopify_Workflows_Preise_ErweitertePreise.png" src="https://help.xentral.com/hc/article_attachments/20345615373340" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beachte, dass du die Kundengruppen in Shopify als Katalog anlegen musst und die Bezeichnungen in beiden Systemen gleich sein müssen.</p>
+</blockquote>
+<h3 id="reiter-auftrage">Reiter “Aufträge”<a class="headerlink" href="#reiter-auftrage" title="Permanent link">&para;</a></h3>
+<p>Der Reiter Aufträge ist das Kernstück der Workflow-Konfiguration. Hier legst du unter anderem fest, ab welchem Zahlungsstatus Bestellungen aus dem Shop zu Xentral importiert werden und wie Zahlungen gehandhabt werden, wie Vertriebskanäle zugeordnet und Lieferbedingungen verknüpft werden, auf welche Artikelnummern Versandgebühren und Rabatte gebucht werden, wie mit Kommentaren verfahren werden soll und wie Kunden angelegt und zugeordnet werden.</p>
+<h4 id="update-strategie_1">Update Strategie<a class="headerlink" href="#update-strategie_1" title="Permanent link">&para;</a></h4>
+<p>Bestimme, welche Zahlungsstatus als Auslöser für den Import aus dem Shop dienen sollen und (optional) welcher Name als Bearbeiter in die importierten Aufträge eingetragen werden soll:</p>
+<p><img alt="Shared_Workflow_Updatestrategie.png" src="https://help.xentral.com/hc/article_attachments/18723405811356" /></p>
+<h4 id="projektzuordnung">Projektzuordnung<a class="headerlink" href="#projektzuordnung" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20240223-095944.png" src="https://help.xentral.com/hc/article_attachments/15365546754972" /></p>
+<p>Wähle ein <strong>Standardprojekt</strong>, das standardmäßig in die importierten Aufträge eingefügt wird.</p>
+<p>Sofern du unterschiedliche Vertriebskanäle in deinem Shop angelegt hast, kannst du sie unter <strong>Sales Channel &gt; Projekt Zuordnung</strong> mit den dazugehörigen Xentral-Projekten verknüpfen</p>
+<p>Außerdem kannst Du bestimmte <strong>Tags</strong> aus Shopify-Bestellungen einem Xentral-Projekt zuordnen. Beachte, dass diese Einstellung eine eventuelle Zuordnung über den Sales-Channel überschreibt.</p>
+<h4 id="zahlungsarten-zahlungsweisen-zahlungsbedingungen">Zahlungsarten / Zahlungsweisen / Zahlungsbedingungen<a class="headerlink" href="#zahlungsarten-zahlungsweisen-zahlungsbedingungen" title="Permanent link">&para;</a></h4>
+<p><img alt="Shopify_Workflows_Auftrage_Zahlungsarten.png" src="https://help.xentral.com/hc/article_attachments/21740257610140" /></p>
+<p>Hinterlege bei der <strong>Standardzahlungsart</strong> eine Zahlungsweise, die verwendet werden soll, falls keine Zahlungsweise vom Shop übergeben wird.</p>
+<p>Wenn du den Schalter <strong>Standardzahlungsart auch bei fehlender Zuordnung verwenden</strong> aktivierst, wird diese nicht nur bei fehlenden Informationen zur Zahlungsart im Shop gezogen, sondern auch, wenn gar keine Zahlungsart zugeordnet ist.</p>
+<p>Verknüpfe bei Bedarf weitere Zahlungsweisen, in dem du auf <strong>+ Gruppe hinzufügen</strong> klickst.</p>
+<p>Du kannst außerdem Zahlungsarten auswählen, für die kein Autoversand gelten soll. Solche Aufträge werden importiert und können im weiteren Verlauf manuell in den Versand gegeben werden.</p>
+<h4 id="versandarten-lieferbedingungen">Versandarten &amp; Lieferbedingungen<a class="headerlink" href="#versandarten-lieferbedingungen" title="Permanent link">&para;</a></h4>
+<p><img alt="Shopify_Workflows_Auftrage_Versandarten.png" src="https://help.xentral.com/hc/article_attachments/21740257610908" /></p>
+<ul>
+<li>Hinterlege bei <strong>Welche Lieferbedingungen sollen für den Bestellimport für diesen Onlineshop gelten?</strong> eine feste Lieferbedingung, die bei importierten Belegen eingetragen wird. Möchtest du keine Lieferbedingungen nutzen, kannst du das Feld leer lassen.</li>
+<li>Hinterlege bei der <strong>Standardversandart</strong> eine Versandart, die verwendet werden soll, falls keine Versandart vom Shop übergeben wird.</li>
+<li>Wenn du den Schalter <strong>Standardversandart auch bei fehlender Zuordnung verwenden</strong> aktivierst, wird diese nicht nur bei fehlenden Informationen zur Versandart im Shop gezogen, sondern auch, wenn gar keine Versandart zugeordnet ist.</li>
+<li>Verknüpfe bei Bedarf weitere Versandarten, in dem Du auf <strong>+ Gruppe hinzufügen</strong> klickst.
+-<strong>Fast-Lane Versandarten</strong>: Falls du deinen Kunden Express-Versandarten anbieten möchtest, kannst du auf dieses Feld klicken und dort die zutreffenden Versandarten anhaken.
+-<strong>Belege im Autoversand erstellen </strong>: Wähle hier, welche Belege im Autoversand erstellt werden sollen. Die Option <strong>Nur Rechnung</strong> bietet sich z. B. an, wenn du einen Abholprozess abbilden möchtest.</li>
+</ul>
+<h4 id="versandkosten">Versandkosten<a class="headerlink" href="#versandkosten" title="Permanent link">&para;</a></h4>
+<p><img alt="TB_Workflows_Auftrage_Versandkosten.png" src="https://help.xentral.com/hc/article_attachments/20345585100700" /></p>
+<ul>
+<li>Ordne unter <strong>Artikelnummer für Versandkosten</strong> den Porto-Artikel zu, auf den Versandgebühren geschrieben werden sollen.</li>
+</ul>
+<h4 id="steuern_1">Steuern<a class="headerlink" href="#steuern_1" title="Permanent link">&para;</a></h4>
+<p><img alt="Shopify_Workflows_Auftrage_Steuern.png" src="https://help.xentral.com/hc/article_attachments/20345615377564" /></p>
+<ul>
+<li>Belässt du den Auswahlschalter <strong>Befreiten Steuersatz bei fehlender Steuerinformation übertragen</strong> links (Standardeinstellung), erscheint beim Auftragsimport eine Fehlermeldung, für den Fall dass Steuerinformationen in den Auftragspositionen fehlen. Setze den Auswahlschalter nach rechts, falls du Steuerinformationen bewusst nicht übertragen möchtest. So unterbindest du an dieser Stelle ungewollte Fehlermeldungen.</li>
+<li>Trage den Standort des Versandlagers ein, damit Steuern korrekt berechnet werden können.</li>
+<li>Falls du eine USt-Identprüfung bereits im Shop abgedeckt hast, kannst du den Auswahlschalter <strong>USt-IdNr. automatisch als geprüft kennzeichnen</strong> nach rechts stellen, um eine Doppelprüfung zu vermeiden.</li>
+<li>
+<p>Wenn dein jährlicher EU-weite Gesamtumsatz unter 10.000 EUR liegt, kannst du aktivieren, um die Mehrwertsteuer im Land des Lagerstandortes zu entrichten.<strong>Besteuerung abhängig vom Lagerstandardort machen </strong></p>
+</li>
+<li>
+<p>Wenn du <strong>Gesamtbetrag festsetzen </strong> aktivierst, übernimmt Xentral des Gesamtbetrag aus dem Verkaufskanal und berechnet ihn nicht als Summe aus den Einzelpreisen. So werden Rundungsdifferenzen vermieden. Aktivierst du diese Schaltfläche, kannst du im nächsten Feld die <strong>maximale Differenz</strong> zwischen den Beträgen in Verkaufskanal und Xentral definieren. Überschreitet die Differenz eines Auftrags die von dir festgelegte Grenze, so wird der Autoversand für diesen Auftrag deaktiviert und du kannst die notwendigen Korrekturen vornehmen.</p>
+</li>
+</ul>
+<h4 id="rabatte">Rabatte<a class="headerlink" href="#rabatte" title="Permanent link">&para;</a></h4>
+<p><img alt="TB_Workflows_Auftrage_WahrungRabatte.png" src="https://help.xentral.com/hc/article_attachments/20345615378716" /></p>
+<ul>
+<li>Weise einen <strong>Rabatt</strong></li>
+</ul>
+<p>-Artikel zu, auf den Gutschriften und Rabatte gebucht werden sollen.</p>
+<h4 id="kommentare">Kommentare<a class="headerlink" href="#kommentare" title="Permanent link">&para;</a></h4>
+<p>Lege hier fest, wie Kommentare aus dem Shop-Beleg in Xentral übernommen werden sollen.</p>
+<p><img alt="Shared_Workflows_Auftrage_Kommentare.png" src="https://help.xentral.com/hc/article_attachments/18723449217564" /></p>
+<p>Unter “Kommentar aus Bestellung verarbeiten” stehen dir folgende Möglichkeiten zur Verfügung:</p>
+<ul>
+<li>“nicht beachten”: Kommentare werden nicht übernommen</li>
+<li>“in Freitext schreiben”: Kommentare werden in das Freitextfeld des Auftrags importiert</li>
+<li>“in interne Bezeichnung schreiben”: Kommentare werden in das Interne Bezeichnung Feld des Auftrags importiert</li>
+</ul>
+<p>Setze den Auswahlschieber bei <strong>Autoversand bei Kommentar stoppen?</strong> nach rechts, wenn du verhindern möchtest, dass Aufträge mit Kommentar automatisch im Auto-Versand fortgeführt werden.</p>
+<h4 id="kundenzuordnung">Kundenzuordnung<a class="headerlink" href="#kundenzuordnung" title="Permanent link">&para;</a></h4>
+<p>In den folgenden Feldern legst du fest, wie Kunden zwischen deinem Shop und Xentral verknüpft werden sollen. Wir unterscheiden zwischen im Shop angelegten Kunden und Gastkunden, die kein Konto angelegt haben.</p>
+<p><img alt="Shared_Workflows_Auftrage_Kundenzuordnung.png" src="https://help.xentral.com/hc/article_attachments/18723449219612" /></p>
+<ul>
+<li>Für Kunden sowie für Kunden ohne Kundenkonto (Gastkunden) hast du folgende Optionen:</li>
+<li>
+<p>Hast du bei mind. einem der beiden vorhergehenden Felder die Option “Kunde aus Bestellung auf einen bestehenden Kunden zuordnen” gewählt, legst du im Feld <strong>Kundenzuordnung</strong> fest, anhand welcher Kriterien die Zuordnung erfolgt, wobei die Prüfreihenfolge “Kundennummer” vor “Mail-Adresse” vor “Name &amp; Adresse” ist.</p>
+</li>
+<li>
+<p>Bestimme schließlich im Feld <strong>Wenn kein Kunde gefunden wird, dann:</strong> wie verfahren werden soll, falls kein Kunde zugeordnet werden kann:</p>
+</li>
+<li>Setze den Auswahlschieber bei <strong>Bestehende Kunden nur innerhalb des Projektes zuordnen?</strong> nach rechts, wenn du die Suche nach Kunden auf das Shopify-spezifische Projekt in Xentral einschränken möchtest. Üblicherweise bleibt diese Schaltfläche deaktiviert.</li>
+<li>Hast du oben bei der Kundenanlage die Option “Jeden Kunden auf Default-Kunden schreiben” gewählt, trägst du schließlich im Feld “Default-Kunden auswählen” eine entsprechende Kundennummer ein.</li>
+</ul>
+<h4 id="pos-kunden">POS Kunden<a class="headerlink" href="#pos-kunden" title="Permanent link">&para;</a></h4>
+<p>Wenn du POS-Kunden hast, wähle im Auswahlfeld “Ja” und gib im nächsten Feld die gewünschte allgemeine Kundennummer an.</p>
+<p><img alt="Workflows_Bestellungen08.png" src="https://help.xentral.com/hc/article_attachments/15365040691484" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dies ist nur zutreffend, falls du deinen Shop für Kunden nutzt, die vor Ort im Laden kaufen und von denen dir nicht alle Daten vorliegen, um ein einzelnes Kundenkonto anzulegen.</p>
+<p><strong>Tipp</strong></p>
+<p>Wenn du sowohl POS- als auch Online-Kunden hast, kannst du über dieSaleschannel-Zuordnungfür jeden Vertriebskanal unterschiedliche Projekte zuordnen, um die Prozesse unterschiedlich steuern und auswerten zu können.</p>
+</blockquote>
+<h4 id="sprachenzuordnung">Sprachenzuordnung<a class="headerlink" href="#sprachenzuordnung" title="Permanent link">&para;</a></h4>
+<p>In diesem Abschnitt kannst du festlegen, in welcher Sprache Belege ausgegeben werden sollen. Du kannst die Sprache aus dem Shop übernehmen oder eine manuelle Zuordnung hinterlegen.</p>
+<p><img alt="Shopify_Workflows_Auftrage_Sprachenzuordnung__1_.png" src="https://help.xentral.com/hc/article_attachments/18723449227420" /></p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Stelle sicher, dass die Sprachen, die du verwenden möchtest, in der Xentral-Sprachenliste angelegt sind. Weitere Hinweise dazu findest duhier.</p>
+</blockquote>
+<h4 id="positionen">Positionen<a class="headerlink" href="#positionen" title="Permanent link">&para;</a></h4>
+<p>Setze den Auftragsschalter nach rechts, wenn du in den Belegen die Artikelbezeichnung aus dem XentralArtikelstamm andrucken möchtest. Dies ist beispielsweise sinnvoll, wenn du im Shop andere Bezeichnungen (z. B. für SEO-Zwecke) verwendest, als du in der Auftragsabwicklung nutzen möchtest. Du kannst außerdem wählen, ob bzw. welche Artikelbeschreibung in den Auftragspositionen angezeigt werden soll:</p>
+<p><img alt="Shared_Workflows_Auftrage_Positionen.png" src="https://help.xentral.com/hc/article_attachments/18723405840412" /></p>
+<h3 id="reiter-auftragsstatus-tracking">Reiter “Auftragsstatus &amp; Tracking”<a class="headerlink" href="#reiter-auftragsstatus-tracking" title="Permanent link">&para;</a></h3>
+<h4 id="update-strategie_2">Update Strategie<a class="headerlink" href="#update-strategie_2" title="Permanent link">&para;</a></h4>
+<p><img alt="connect_workflows_update_shopify.png" src="https://help.xentral.com/hc/article_attachments/15365069973532" /></p>
+<p>Im Feld “Auftragsstatus für Auftragsstatus &amp; Tracking Export” hast du folgende Wahlmöglichkeiten:</p>
+<p><img alt="image-20240223-090617.png" src="https://help.xentral.com/hc/article_attachments/15365034995228" /></p>
+<p>Setze den Schalter “Aufträge automatisch im Shop stornieren” nach rechts, wenn du Aufträge, die in Xentral storniert werden, auch im Shop stornieren möchtest.</p>
+<p>Wenn in Xentral erstellte Retouren an den Shop übertragen werden sollen, setze den Schalter im entsprechenden Feld nach rechts.</p>
+<h4 id="versanddienstleister-zuordnung">Versanddienstleister-Zuordnung<a class="headerlink" href="#versanddienstleister-zuordnung" title="Permanent link">&para;</a></h4>
+<p>Klicke auf <strong>+ Gruppe hinzufügen</strong>, um die Versanddienstleister aus deinemShopmit den Versandarten in Xentral zu verknüpfen.</p>
+<p><img alt="MiraklShopify_Workflows_Auftragsstatus_Versanddienstleister.png" src="https://help.xentral.com/hc/article_attachments/18723405843100" /></p>
+<h4 id="benachrichtigungen">Benachrichtigungen<a class="headerlink" href="#benachrichtigungen" title="Permanent link">&para;</a></h4>
+<p>Setze den Schalter nach rechts, wennShopifyeine Versandbenachrichtigung per Mail an den Kunden senden soll.</p>
+<p><img alt="Shared_Workflows_Auftragsstatus_Benachrichtigungen.png" src="https://help.xentral.com/hc/article_attachments/18723405847708" /></p>
+<h3 id="reiter-ruckzahlungen-shopify-refund">Reiter &ldquo;Rückzahlungen&rdquo; (Shopify Refund)<a class="headerlink" href="#reiter-ruckzahlungen-shopify-refund" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dies ist eine neue Funktionserweiterung. Falls du die Schnittstelle schon länger nutzt, kann es sein, dass du diesen Reiter noch nicht sehen kannst. Um ihn zu aktivieren, folge in Xentral dem Pfad <strong>Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; Shopify-Connector &gt; Einstellungen (Zahnrädchen)</strong> und aktiviere dort das Feature &ldquo;Rückzahlungen&rdquo;.</p>
+</blockquote>
+<h4 id="funktionalitat">Funktionalität<a class="headerlink" href="#funktionalitat" title="Permanent link">&para;</a></h4>
+<p>Die Funktion &ldquo;Rückzahlungen&rdquo; ermöglicht, dass Gutschriften nach Freigabe automatisch als Rückzahlung an Shopify Pay übergeben und dem Kunden ausgezahlt werden.</p>
+<h5 id="ablauf-einer-einzelnen-ruckzahlung">Ablauf einer einzelnen Rückzahlung:<a class="headerlink" href="#ablauf-einer-einzelnen-ruckzahlung" title="Permanent link">&para;</a></h5>
+<ol>
+<li>Auftrag als Retoure weiterführen. Details dazu findest du unter <a href="https://help.xentral.com/hc/de/articles/360016764099#UUID-7d6e48fa-434c-01df-f6fe-f1f4589f2f89">Deine Retouren verwalten (Retouren Belege)</a>.</li>
+<li>Retoure als Gutschrift oder Stornorechnung weiterführen. Wenn du mehr dazu wissen möchtest, lies in o. g. Artikel weiter: <a href="https://help.xentral.com/hc/de/articles/360016764099#UUID-7d6e48fa-434c-01df-f6fe-f1f4589f2f89">Deine Retouren verwalten (Retouren Belege)</a>.</li>
+<li>Gutschrift freigeben. Dadurch erscheint die Gutschrift in der Tabelle <strong>Zahlungsverkehr</strong>.</li>
+<li>Tabelle <strong>Zahlungsverkehr</strong> öffnen.</li>
+<li>Register &ldquo;Offen&rdquo;: Vorgang markieren &ndash;&gt;<strong>Shopify Pay </strong> als Konto wählen &ndash;&gt;<strong>Zahlung zuordnen und freigeben</strong>.</li>
+<li>Register &ldquo;Shopify Pay&rdquo;: Vorgang markieren &ndash;&gt;<strong>Zahlung ausführen</strong>. Dadurch wird der Vorgang an Shopify Pay übergeben und die Zahlung an den Kunden veranlasst.</li>
+</ol>
+<h4 id="aktivierung">Aktivierung<a class="headerlink" href="#aktivierung" title="Permanent link">&para;</a></h4>
+<p>Um die o. g. Funktionalität zu nutzen, stelle sicher, dass das Feature in den Einstellungen aktiviert ist und gehe dann in den Workflows zum Reiter &ldquo;Rückzahlungen&rdquo;.</p>
+<p>Setze dort die Schaltfläche Integrationsmodus nach rechts (aktiv):</p>
+<p><img alt="Shopify_Workflows_Ruckzahlungen.png" src="https://help.xentral.com/hc/article_attachments/18723449234844" /></p>
+<p>Es ist keine weitere Konfiguration notwendig.</p>
+<h2 id="testphase-und-produktivschaltung">Testphase und Produktivschaltung<a class="headerlink" href="#testphase-und-produktivschaltung" title="Permanent link">&para;</a></h2>
+<h3 id="testphase">Testphase<a class="headerlink" href="#testphase" title="Permanent link">&para;</a></h3>
+<p>Wenn du alle Einstellungen in den Workflows vorgenommen hast, solltest du die Anbindung ausgiebig testen.</p>
+<p>Schränke die<a href="https://help.xentral.com/hc/de/articles/13235060173596#UUID-6b6b31e2-79dc-2826-dd07-8cf4e4976109">Artikelzuordnung</a>auf wenige Artikel ein.</p>
+<p>Nutze einige Testdaten und führe die Tests mit Hilfe der Funktionen im<a href="https://help.xentral.com/hc/de/articles/13921857699612#UUID-d8ed9992-afac-447b-5f28-2e5f96fd98ac">Journal</a>durch.</p>
+<h3 id="produktivschaltung">Produktivschaltung<a class="headerlink" href="#produktivschaltung" title="Permanent link">&para;</a></h3>
+<p>Sobald die Schnittstelle die Testdaten richtig und wie erwartet übergibt, kannst du mit der<a href="https://help.xentral.com/hc/de/articles/18589752911516#UUID-e51cce39-191a-dec1-8f90-44b0af01a9f4">Produktiv-Schaltung</a>fortfahren.</p>
+<p><strong>Viel Spaß mit deiner neuen Schnittstelle!</strong></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

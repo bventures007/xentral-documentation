@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016725040 Abolauf Abosystem - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016725040 Abolauf Abosystem</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016725040 Abolauf Abosystem</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Das in Xentral integrierte Abo-System ermöglicht es regelmäßige Leistungen automatisiert bei Kunden abzurechnen. Das Abosystem senkt den Aufwand der regelmäßigen Abrechnung für Serviceverträge, Vermietungen, Dienstleistungsverhältnisse, Abonnements und ähnliches auf ein Minimum. Dieses Modul ist somit für alle relevant, die regelmäßige Leistungen beim Kunden abrechnen.</p>
+<h2 id="neues-abo-anlegen">Neues Abo anlegen<a class="headerlink" href="#neues-abo-anlegen" title="Permanent link">&para;</a></h2>
+<p>Abos werden direkt in der Adresse im Tab <strong>Abos</strong> neu angelegt. Hier können Artikel eingefügt werden, die der Kunde gebucht hat. Zusätzlich zu wiederkehrenden Gebühren können auch einmalige Artikel (z.B. Waren) mit abgerechnet werden.</p>
+<p>Klicke auf <strong>+Neue Position einfügen</strong>, um einen neuen Artikel zum Abo hinzuzufügen. Sobald ein neuer Artikel eingefügt wurde, erscheint dieser in der Übersicht.</p>
+<h3 id="einstellungen-fur-die-abrechnung">Einstellungen für die Abrechnung<a class="headerlink" href="#einstellungen-fur-die-abrechnung" title="Permanent link">&para;</a></h3>
+<p>In der Ansicht <strong>Allgemein</strong> kannst du folgende Eingaben machen:</p>
+<ul>
+<li>Artikel→ Zeigt den Artikel, der vom Kunden abonniert wird. Dieser kann über das Lupensymbol gesucht werden</li>
+<li>Bezeichnung → Bezeichnung des Aboartikels im Beleg (kann bei Bedarf verändert werden)</li>
+<li>Beschreibung → Beschreibung des Aboartikels im Beleg (kann bei Bedarf verändert werden)</li>
+<li>Menge → Menge des abonnierten Artikels</li>
+<li>Preis (netto) → Nettopreis pro Stück. Rechts daneben kann ausgewählt werden, ob das Abo monatlich, monatlich für x Monate, jährlich, wöchentlich, 30-tägig oder einmalig ist</li>
+<li>Automatisch anlegen als → Auswahl zwischen Auftrag oder Rechnung. Zudem kann hier eine Gruppe und eine Reihenfolge angegeben werden, wobei die zwei letztgenannten Punkte optional sind</li>
+<li>Erstes Startdatum → Datum, an dem der Abolauf startet. Sobald die ersten Aboläufe gestartet sind, darf das Feld nicht mehr verändert werden</li>
+<li>Zahlzyklus → Angabe des Rhythmus zu dem der Abolauf ausgeführt werden soll</li>
+<li>Enddatum → Das Enddatum bestimmt nur das Ende des Zyklus. Es wird nicht taggenau abgerechnet, sondern nur geprüft ob das Enddatum erreicht ist oder nicht. Ist es nicht erreicht wird der Zyklus vollständig abgerechnet, erst nach Ablauf des Enddatums verschwindet der Artikel im Abo. Soll vor dem Zyklus beendet werden, müsste die Differenz manuell nach dem Erstellen der Rechnung abgezogen bzw. eine Gutschrift angelegt werden</li>
+<li>Expertenmodus → Auswahl des Expertenmodus. Wird dieser ausgewählt, können zusätzliche Einstellungen wie das Datum bis welches bereits abgerechnet wurde eingestellt und eine interne Bemerkung hinzugefügt werden</li>
+</ul>
+<h2 id="abo-gruppen-verwenden">Abo-Gruppen verwenden<a class="headerlink" href="#abo-gruppen-verwenden" title="Permanent link">&para;</a></h2>
+<p>Mit Abo-Gruppen können Artikel in den Aborechnungen zu sogenannten Abo-Gruppen zusammengefasst werden. Diese erscheinen dann gruppiert auf der Rechnung. Es können auch einzelne Rechnungen pro Abo-Gruppe erstellt werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Damit Abo-Gruppen ausgewertet werden, muss unter Buchhaltung → Abolauf → Einstellungen ein Haken bei &ldquo;Abo-Gruppen verwenden&rdquo; gesetzt sein.</p>
+</blockquote>
+<h3 id="abo-gruppe-erstellen">Abo-Gruppe erstellen<a class="headerlink" href="#abo-gruppe-erstellen" title="Permanent link">&para;</a></h3>
+<p>Damit eine Abo-Gruppe zugeordnet werden kann, muss diese zuvor unter &ldquo;Gruppen&rdquo; angelegt werden. Hier kann auch die Einstellung getätigt werden, ob eine gemeinsame Rechnung, eine eigene Rechnung oder eine Sammelrechnung erstellt werden soll. Diese Abo-Gruppen werden global erstellt und sind für alle Adressen gültig.</p>
+<p>Über &ldquo;+Neuen Eintrag anlegen&rdquo; kann eine neue Abo-Gruppe erstellt werden.</p>
+<p>Trage dafür folgendes ein:</p>
+<ul>
+<li>Bezeichnung → Name der Gruppe (dies erscheint auf der Rechnung)</li>
+<li>Beschreibung → Beschreibung der Gruppe (dies erscheint auf der Rechnung)</li>
+<li>Rabatt → optional kann hier ein Rabatt in % angegeben werden</li>
+<li>Rechnung → Auswahl wie die Gruppe in die Rechnung kommen soll:</li>
+<li>Gemeinsame Rechnung → Die Gruppen werden untereinander in einer gemeinsamen Rechnung gelistet</li>
+<li>Eigene Rechnung → Für jede Gruppe wird eine eigene Rechnung erstellt</li>
+<li>Sammelrechnung → Mehrere Gruppen können zu einer Sammelrechnung zusammengefasst werden. Nach der Auswahl im Dropdown erscheint ein Suchfeld für eine Sammelrechnung, die unter Adresse → Abo → Sammelrechnung angelegt wurde</li>
+<li>Abweichender Ansprechpartner → Wird für das Ansprechpartner-Feld in der Rechnung übernommen</li>
+<li>Ziel-Projekt → Die erstellte Rechnung läuft auf dieses Projekt</li>
+<li>Reihenfolge → Wenn mehrere Gruppen in einer Rechnung vorkommen, kann die Reihenfolge der Gruppen damit angepasst werden (ab Version 18.3)</li>
+<li>Gruppensumme → Nach jeder Auflistung der Artikel einer Gruppe, wird eine Gruppensumme auf dem Beleg ausgegeben</li>
+</ul>
+<p>Eine zweite Möglichkeit eine Abo-Gruppe zu erstellen besteht darin, diese direkt unter Adresse → Abo → Gruppe anzulegen. Hierbei ist zu beachten, dass diese Abo-Gruppe nur für diese Adresse gültig ist und bei anderen Adressen nicht ausgewählt werden kann.</p>
+<h3 id="ubersicht">Übersicht<a class="headerlink" href="#ubersicht" title="Permanent link">&para;</a></h3>
+<p>Unter dem Reiter &ldquo;Gruppen&rdquo; befindet sich eine Auflistung aller angelegten Abo-Gruppen. Unter Adresse → Abo → Gruppen befindet sich eine Übersicht aller Gruppen, die für diese Adresse in Verwendung sind.</p>
+<h3 id="abo-gruppen-einem-abo-artikel-zuweisen">Abo-Gruppen einem Abo-Artikel zuweisen<a class="headerlink" href="#abo-gruppen-einem-abo-artikel-zuweisen" title="Permanent link">&para;</a></h3>
+<p>Nach dem Erstellen einer Abo-Gruppe kann unter Adresse → Abo → Artikel die Gruppe im Artikel angegeben werden.</p>
+<p><img alt="rechnungslauf_3475.png" src="https://help.xentral.com/hc/article_attachments/5077618160540" /></p>
+<h3 id="abo-gruppen-in-belegen">Abo-Gruppen in Belegen<a class="headerlink" href="#abo-gruppen-in-belegen" title="Permanent link">&para;</a></h3>
+<p>Unter Buchhaltung → Abolauf können die Belege für den Abolauf erstellt werden. Hier werden die Gruppen hinten in Klammern angezeigt:</p>
+<p><img alt="rechnungslauf_3476.png" src="https://help.xentral.com/hc/article_attachments/5077571762588" /></p>
+<p>Auf der erstellten Rechnung wird die Gruppe dann so dargestellt:</p>
+<p><img alt="rechnungslauf_3477.png" src="https://help.xentral.com/hc/article_attachments/5077618268956" /></p>
+<h2 id="abo-sammelrechnungen">Abo Sammelrechnungen<a class="headerlink" href="#abo-sammelrechnungen" title="Permanent link">&para;</a></h2>
+<p>Der zusätzliche Reiter unter Adresse → Abo → Sammelrechnung dient dazu, einzelne Abo-Gruppen zu einer Sammelrechnung zusammenzuführen.</p>
+<h3 id="ubersicht_1">Übersicht<a class="headerlink" href="#ubersicht_1" title="Permanent link">&para;</a></h3>
+<p>In der Übersicht werden alle angelegten Sammelrechnungen angezeigt.</p>
+<h3 id="sammelrechnung-hinzufugen">Sammelrechnung hinzufügen<a class="headerlink" href="#sammelrechnung-hinzufugen" title="Permanent link">&para;</a></h3>
+<p>Mit der Schaltfläche &lsquo;Neuen Eintrag anlegen&rsquo; kann eine neue Sammelrechnung für die Abo-Gruppen erstellt werden.</p>
+<p>Befülle folgende Felder:</p>
+<ul>
+<li>Bezeichnung → Name der Sammelrechnung, wird nur gebraucht zur Auswahl in den Abo-Gruppen</li>
+<li>Rabatt → optional kann hier ein Rabatt in % angegeben werden</li>
+<li>Abweichende Rechnungsadresse → Wird als Rechnungsadresse in der erstellen Abo Rechnung genommen</li>
+<li>Ziel-Projekt → Optional, bestimmt das Rechnungs-Projekt der Sammelrechnung</li>
+</ul>
+<h3 id="auswahl-der-sammelrechnung-in-den-abo-gruppen">Auswahl der Sammelrechnung in den Abo-Gruppen<a class="headerlink" href="#auswahl-der-sammelrechnung-in-den-abo-gruppen" title="Permanent link">&para;</a></h3>
+<p>Sobald unter Adresse → Abo → Gruppen: Rechnung Dropdown &ldquo;Sammelrechnung&rdquo; ausgewählt wurde, erscheint ein zusätzliches Feld, um die Sammelrechnung auszuwählen.</p>
+<h2 id="abrechnung-uber-das-abosystem">Abrechnung über das Abosystem<a class="headerlink" href="#abrechnung-uber-das-abosystem" title="Permanent link">&para;</a></h2>
+<h3 id="ubersicht-der-falligen-betrage">Übersicht der fälligen Beträge<a class="headerlink" href="#ubersicht-der-falligen-betrage" title="Permanent link">&para;</a></h3>
+<p>Über den Abolauf können Rechnungen oder Aufträge automatisch erstellt werden. Die &ldquo;Übersicht&rdquo; zeigt die abzurechnenden Kunden und Artikel mit den Abrechnungszeiträumen an.</p>
+<h3 id="gebuchte-abos">Gebuchte Abos<a class="headerlink" href="#gebuchte-abos" title="Permanent link">&para;</a></h3>
+<p>Der Reiter &ldquo;gebuchte Abos&rdquo; bietet eine allgemeine Übersicht über alle aktuellen Abos.</p>
+<p>Hier kann durchsucht werden nach:</p>
+<ul>
+<li>Kunde</li>
+<li>Kundennummer</li>
+<li>Bezeichnung</li>
+<li>Nummer</li>
+<li>Abgerechnet bis</li>
+<li>Enddatum</li>
+<li>Preis</li>
+<li>Menge</li>
+<li>Art</li>
+<li>Zahlperiode</li>
+<li>Dokument</li>
+</ul>
+<p>Über den Filter kann zudem nach abgeschlossenen Projekten sowie nach einem Zeitraum gefiltert werden.</p>
+<h3 id="vorschau-der-rechnungspositionen">Vorschau der Rechnungspositionen<a class="headerlink" href="#vorschau-der-rechnungspositionen" title="Permanent link">&para;</a></h3>
+<p>Die Vorschau der Positionen, die für den Kunden berechnet werden, wird über &ldquo;Details&rdquo; in der letzten Spalte aufgerufen. Diese Übersicht zeigt die Zeiträume und die Positionen, die für den Kunden eingetragen wurden und aktuell berechnet werden sollen.</p>
+<p>Wird auf Details geklickt, öffnet sich ein neues Browserfenster mit der Vorschau der Rechnungspositionen.</p>
+<p><img alt="rechnungslauf_3484.png" src="https://help.xentral.com/hc/article_attachments/5077618321308" /></p>
+<h3 id="abrechnung-starten">Abrechnung starten<a class="headerlink" href="#abrechnung-starten" title="Permanent link">&para;</a></h3>
+<p>Die abzurechnenden Kunden können in der ersten Spalte gesammelt an- oder abgewählt werden. Nur für angewählte Kunden wird eine Abrechnung erstellt.</p>
+<h4 id="abrechnungsart-auswahlen">Abrechnungsart auswählen<a class="headerlink" href="#abrechnungsart-auswahlen" title="Permanent link">&para;</a></h4>
+<p>Über das Dropdown-Menü (über &ldquo;Abrechnung starten&rdquo;) kann die Abrechnungsart ausgewählt werden.</p>
+<p>Folgende Abrechnungsarten stehen zur Verfügung:</p>
+<ul>
+<li>Rechnungen generieren - kein Versand der Rechnung → Die Rechnung wird generiert, der Status der Rechnung ist &ldquo;freigegeben&rdquo;. Die Rechnung muss noch manuell über das System versendet werden.</li>
+<li>Rechnungen generieren - Rechnung per Mail versenden (wenn E-Mail vorhanden) → Die Rechnung wird generiert, der Status der Rechnung ist &ldquo;versendet&rdquo;. Eine E-Mail wird versendet, sofern der Kunde eine E-Mail Adresse hinterlegt hat.</li>
+<li>Rechnungen generieren - Alle Rechnungen drucken (auch wenn E-Mail vorhanden) → Die Rechnung wird generiert, der Status der Rechnung ist &ldquo;versendet&rdquo;. Die Rechnung wird an dem Drucker ausgedruckt, der ausgewählt wurde.</li>
+<li>Rechnung generieren - Rechnung drucken oder Mail Versand (wenn E-Mail vorhanden) → Die Rechnung wird generiert, der Status der Rechnung ist versendet. Die Rechnung wird gedruckt oder per Mail versendet.</li>
+<li>Rechnung generieren - Rechnungen drucken und Mail Versand (wenn E-Mail vorhanden) → Die Rechnung wird generiert, der Status der Rechnung ist &ldquo;versendet&rdquo;. Die Rechnung wird per E-Mail versendet, sofern bei den Kundendaten eine E-Mail Adresse hinterlegt ist. Ansonsten wird die Rechnung an dem Drucker ausgedruckt, der ausgewählt wurde.</li>
+</ul>
+<p>Die Abrechnungsart ist analog zu betrachten für den Reiter &ldquo;Aufträge&rdquo;.</p>
+<h4 id="drucker-auswahlen">Drucker auswählen<a class="headerlink" href="#drucker-auswahlen" title="Permanent link">&para;</a></h4>
+<p>Bei Abrechnungsarten, die eine Druckeranbindung benötigen, muss mindestens ein Drucker an Xentral angebunden sein. Sind mehrere Drucker angebunden, kann der gewünschte Drucker für den Abrechnungslauf aus dem Dropdown-Menü (links neben &ldquo;Abrechnung starten&rdquo;) ausgewählt werden.</p>
+<h3 id="abrechnung-via-prozessstarter">Abrechnung via Prozessstarter<a class="headerlink" href="#abrechnung-via-prozessstarter" title="Permanent link">&para;</a></h3>
+<p>Die Abrechnung muss nicht zwingend manuell stattfinden, sondern kann auch via Prozessstarter automatisch laufen. Der entsprechende Prozessstarter heißt &ldquo;rechnungslauf&rdquo; und muss dafür aktiviert werden.</p>
+<p><img alt="subscription1.png" src="https://help.xentral.com/hc/article_attachments/5077630258332" /></p>
+<p>Darüber hinaus gibt es den Prozessstarter &ldquo;Abolauf Manuell&rdquo;, der im Standard bereits aktiviert ist. Dieser Prozessstarter arbeitet die ausgelösten Rechnungsläufe schrittweise ab, so ähnlich wie der Prozessstarter &ldquo;Autoversand manuell&rdquo;. Im Standardprozess landen die Aboläufe zunächst in der Warteschlange und werden nach und nach von diesem Prozessstarter abgewickelt. Ist die Anzahl der Aboläufe gering, kann dieser Prozessstarter auch deaktiviert werden, um den Prozess zu beschleunigen.</p>
+<h3 id="ruckwirkende-abrechnung">Rückwirkende Abrechnung<a class="headerlink" href="#ruckwirkende-abrechnung" title="Permanent link">&para;</a></h3>
+<h4 id="abrechnung-wurde-im-letzten-monat-vergessen">Abrechnung wurde im letzten Monat vergessen<a class="headerlink" href="#abrechnung-wurde-im-letzten-monat-vergessen" title="Permanent link">&para;</a></h4>
+<p>Falls die Abrechnung im letzten Monat vergessen wurde, die Artikel aber nicht für zwei Abrechnungszeiträume summiert auf der Rechnung stehen dürfen, gibt es hier die Möglichkeit, den vergessenen Monat nochmals abzurechnen.</p>
+<ol>
+<li>
+<p>Öffne Abolauf → Einstellungen</p>
+</li>
+<li>
+<p>Setze einen Haken bei &ldquo;Vergangenes Datum für Abrechnungserstellung&rdquo;</p>
+</li>
+<li>
+<p>Datum auswählen (= Datum, an dem die Abrechnung erledigt werden sollte z.B. ein paar Tage zurück am Ende des letzten Monats)</p>
+</li>
+<li>
+<p>Sperchern</p>
+</li>
+<li>
+<p>Klicke auf Übersicht und wähle den Reiter &ldquo;Rechnungen&rdquo; oder &ldquo;Aufträge&rdquo; (je nach dem, welches Dokument erstellt werden soll)</p>
+</li>
+<li>
+<p>Wähle die gewünschten Kunden und drücke &ldquo;Abrechnung starten&rdquo;</p>
+</li>
+<li>
+<p>Bei Einstellungen den Haken wieder entfernen, das Datum löschen und speichern</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die Einstellungen unbedingt wieder komplett zurücksetzen und speichern!</p>
+</blockquote>
+<p>Abrechnung mit Leistungsdatum erstellen - Abos im Leistungszeitraum anstelle vor dem Leistungszeitraum abrechnen → berechnet einen Monat später; Rechnung bzw. Auftrag wird in dem Intervall bzw. Monat erstellt in dem das Abo gebucht ist (z.B. Abrechnung im Juni für Leistungszeitraum Mai). Somit muss das Datum für die Abrechnung nicht mehr jeden Monat manuell gesetzt werden. Der Abolauf wird somit im Standard um einen Monat/Intervall verschoben.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Sollte der Abrechnungszeitraum vergessen worden sein oder doch manuell einmal geändert werden, kann mit den Datumseinstellungen der Zeitraum auch trotzdem weiterhin speziell temporär verschoben werden.</p>
+</blockquote>
+<h4 id="einstellung-der-zahlungsweise-fur-den-kunden">Einstellung der Zahlungsweise für den Kunden<a class="headerlink" href="#einstellung-der-zahlungsweise-fur-den-kunden" title="Permanent link">&para;</a></h4>
+<p>Die Zahlungsweise für den Kunden wird in der Adresse eingestellt. Stammdaten → Adressen → Details → Zahlungskonditionen.</p>
+<h3 id="rabatte-im-abolauf">Rabatte im Abolauf<a class="headerlink" href="#rabatte-im-abolauf" title="Permanent link">&para;</a></h3>
+<h4 id="abrechnen-mit-eur-rabatten">Abrechnen mit EUR Rabatten<a class="headerlink" href="#abrechnen-mit-eur-rabatten" title="Permanent link">&para;</a></h4>
+<p>In die Abrechnung können sowohl einmalige als auch wiederkehrende Rabatte eingefügt werden.</p>
+<ul>
+<li>Artikel mit negativem Verkaufspreis anlegen</li>
+<li>Artikel dem Abo eines Kunden hinzufügen</li>
+<li>Abrechnung: &ldquo;Einmalig&rdquo; bzw. Monatspreis, wenn eine mehrmalige Abrechnung gewünscht wird</li>
+<li>Es ist zu beachten, dass bei Aboabrechnungen nicht mit prozentualen Preisnachlässen, sondern fixen Beträgen zu arbeiten ist</li>
+</ul>
+<p>Der Betrag wird in der Abrechnung, für die dieser voreingestellt ist mit abgezogen:</p>
+<p><img alt="rechnungslauf_3491.png" src="https://help.xentral.com/hc/article_attachments/5077609845404" /></p>
+<h4 id="rabatte-in-prozent-hinzufugen">Rabatte in Prozent hinzufügen<a class="headerlink" href="#rabatte-in-prozent-hinzufugen" title="Permanent link">&para;</a></h4>
+<p>Es ist möglich Rabatte auch in Prozent hinzuzufügen.</p>
+<p>Über das Edit-Icon unter Adresse → Abo können die Abo-Artikel überarbeitet werden. Hier kann für diese Abo-Position ein Rabatt hinzugefügt werden.</p>
+<p>Dieser Rabatt wird auch in der Spalte angezeigt:</p>
+<p><img alt="rechnungslauf_3492.png" src="https://help.xentral.com/hc/article_attachments/5077630333084" /></p>
+<h3 id="abos-mit-zukunftigem-startzeitpunkt">Abos mit zukünftigem Startzeitpunkt<a class="headerlink" href="#abos-mit-zukunftigem-startzeitpunkt" title="Permanent link">&para;</a></h3>
+<p>Sollen Abos angelegt werden, bevor diese starten und daher für die Abrechnung zu berücksichtigen sind, z.B. weil gerade auf Xentral umgestiegen wird oder die Abos bereits eingetragen sind, ist in der entsprechenden Adresse zu dem Abo zu navigieren und auf das Stift-Icon zum Bearbeiten zu klicken.</p>
+<p>In diesem Spezialfall ist der Haken für den Expertenmodus zu aktivieren. Anschließend ist als Datum &ldquo;Abgerechnet bis&rdquo; der letzte Tag des Monats, der in der Abrechnung nicht mehr berücksichtigt werden soll, auszuwählen.</p>
+<h2 id="automatische-abos-verwenden">Automatische Abos verwenden<a class="headerlink" href="#automatische-abos-verwenden" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Automatische Abos werden anhand der gefundenen Artikel in einem Auftrag automatisch erstellt</li>
+<li>Preis, Rabatt und Menge werden aus dem Auftrag verwendet</li>
+<li>Wenn ein Projekt ausgewählt wird, wird nur dann ein automatisches Abo aus einem Auftrag erzeugt, wenn der Auftrag und das Abo das selbe Projekt haben</li>
+<li>Als Preisart stehen Monats- oder Jahrespreis zur Verfügung</li>
+<li>Es kann ausgewählt werden, ob eine Rechnung oder ein Auftrag beim Abolauf angelegt wird</li>
+<li>Auswählbar ist auch die Abo Gruppe, die dann dem automatischen Abo zugeordnet wird</li>
+<li>Die Position gibt an, an welcher Stelle im erzeugten Beleg der Abo-Artikel stehen soll</li>
+<li>Beim ersten Startdatum stehen drei Optionen zur Verfügung: das Auftragsdatum, der nächstmögliche 15. oder der 1. des nächsten Monats</li>
+<li>Es gibt die Möglichkeit in dem Auftrag, in dem der automatische Abo Artikel gefunden wurde, den Autoversand zu blockieren.</li>
+<li>Wenn die automatische E-Mail Bestätigung aktiv ist, kann mit der voreingestellten Geschäftsbriefvorlage eine Mail versendet werden. In dieser Geschäftsbriefvorlage steht eine weitere Variable {ABOARTIKEL} zur Verfügung in der alle Artikel samt Nummer aufgeführt werden, die in auslösenden Aufträgen für ein automatisches Abo in Frage kommen</li>
+<li>An diese Mail kann ein PDF des Belegs angehängt werden</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

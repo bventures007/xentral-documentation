@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016773679 Netstock Csv Export Legacy - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016773679 Netstock Csv Export Legacy</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016773679 Netstock Csv Export Legacy</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>Netstock ist eine Cloud-Lösung für professionelles Lagerbestandsmanagement im Online-Handel. Das Tool dient der Lagerbestandsoptimierung und wird über eine 2-Wege-Kommunikation an Xentral angebunden. Informationen (z.B. Aufträge, Lagerbestände, Stücklisten) werden von Xentral zunächst über die Netstock App an Netstock geschickt (Weg 1). Netstock verarbeitet diese und nutzt auch Informationen wie Daten aus den letzten Jahren oder Lagermindestbestände. Das Tool erstellt daraus neue Informationen wie Bestellvorschläge, Produktionsaufträge und weitere Ideen zur Optimierung des Lagerbestands, und schickt diese wiederum an Xentral. Diese eingehenden Informationen kommen dann im<a href="https://help.xentral.com/hc/de/articles/360016738020#UUID-72f37f06-2871-0785-7286-1f7a2707c88d">Übertragungen Modul</a>an (Weg 2), wo sie weiter verarbeitet werden. Dieses Modul ist notwendig, um eingehende Daten von Netstock zu empfangen und zu verarbeiten.</p>
+<p>Im folgenden Abschnitt wird der 1. Weg beschrieben, sprich die ausgehenden Informationen von Xentral an Netstock über die Netstock App. Die Einrichtung wird zukünftig von Netstock unterstützt werden.</p>
+<h2 id="netstock-anbindung">Netstock Anbindung<a class="headerlink" href="#netstock-anbindung" title="Permanent link">&para;</a></h2>
+<p>Die App <strong>Netstock CSV Export </strong> kann über die Super-Search oder über <strong>App Center &gt; Netstock CSV Export</strong> gefunden werden.</p>
+<p>Die Netstock App erzeugt CSV-Dateien, die für die Übertragung von relevanten Informationen an Netstock dienen. Diese können dann entweder per FTP übertragen oder von einem definiertem Ordner auf dem Server abgeholt werden. Der zugehörige <strong>Prozessstarter netstock</strong> muss aktiviert werden um die unten beschriebenen Dateien zu erzeugen und zu übertragen.</p>
+<h3 id="registerkarte-grundeinstellungen">Registerkarte Grundeinstellungen<a class="headerlink" href="#registerkarte-grundeinstellungen" title="Permanent link">&para;</a></h3>
+<h4 id="zugangsdaten-ftp-upload">Zugangsdaten (FTP-Upload)<a class="headerlink" href="#zugangsdaten-ftp-upload" title="Permanent link">&para;</a></h4>
+<p>Speicherung der Ausgangs-Dateien über eine FTP-Verbindung.</p>
+<p>-<strong>FTP-Server:</strong> Hostname des Servers
+-<strong>FTP-Benutzer:</strong> Benutzername
+-<strong>FTP-Passwort:</strong> Passwort</p>
+<h4 id="konfiguration">Konfiguration<a class="headerlink" href="#konfiguration" title="Permanent link">&para;</a></h4>
+<p>-<strong>Lager für Intern (Beistellungen):</strong> Internes Lager für Beistellungen
+-<strong>Lager für Extern:</strong> Externes Lager</p>
+<h4 id="uber-netstock-csv-export">Über Netstock CSV Export<a class="headerlink" href="#uber-netstock-csv-export" title="Permanent link">&para;</a></h4>
+<p>Hier erhalten Sie einen Überblick über die erzeugten Dateien. Die Anwendung erzeugt csv-Dateien für:</p>
+<ul>
+<li>Lager/Filialen (location.csv)</li>
+<li>Lieferanten (supplier.csv)</li>
+<li>Artikelstamm (master.csv)</li>
+<li>Bestand je Lagerort (stock.csv)</li>
+<li>Verkauf &amp; Verbrauch (sales.csv)</li>
+<li>Offene Lieferanten oder Produktionsbestellungen (po.csv)</li>
+</ul>
+<p>Die Dateien werden per FTP übertragen und sind im Folgenden detailliert beschrieben.</p>
+<h4 id="live-monitor-ftp">Live Monitor FTP<a class="headerlink" href="#live-monitor-ftp" title="Permanent link">&para;</a></h4>
+<p>Im Monitor werden die letzten FTP-Übertragungen sichtbar. Hier können fehlerhafte Verbindungsversuche (z.B. durch Änderung von FTP-Zugangsdaten) erkannt werden.</p>
+<h3 id="netstock-dateitypen">Netstock Dateitypen<a class="headerlink" href="#netstock-dateitypen" title="Permanent link">&para;</a></h3>
+<p>Folgende Dateitypen finden in XentralAnwendung:</p>
+<ul>
+<li>control.csv: Informationen über die Datenextraktionen</li>
+<li>master.csv: Artikelinformationen (Stammdaten)</li>
+<li>group.csv: Artikelkategorien (Stammdaten)</li>
+<li>bom.csv: Stücklisten (Stammdaten)</li>
+<li>supplier.csv: Aktive Lieferanten</li>
+<li>location.csv: physische Lagerorte (Lager und Filialen)</li>
+<li>stock.csv: Bestand je Lagerort</li>
+<li>sales.csv: Rechnungen und Gutschriften jeweils ab dem 1. Tag des Vormonats</li>
+<li>co.csv: Offene Aufträge</li>
+<li>po.csv: Offene Bestellungen und Produktionen</li>
+<li>pohist.csv: Erfüllte Bestellungen und Produktionen</li>
+</ul>
+<h4 id="datei-controlcsv">Datei: control.csv<a class="headerlink" href="#datei-controlcsv" title="Permanent link">&para;</a></h4>
+<p>Übersicht über die Grundeinstellungen der Netstock-Schnittstelle. Die Datei umfasst immer nur die folgenden vier Zeilen.</p>
+<p>Beispielinhalt für die CSV</p>
+<p>Datei:KeyValueINTERFACE_VERSION2.0.8EXTRACTION_DATE2019/07/17EXTRACTION_TIME12:00:36HOST_SYSTEM_VERSION19.3</p>
+<h4 id="datei-mastercsv">Datei: master.csv<a class="headerlink" href="#datei-mastercsv" title="Permanent link">&para;</a></h4>
+<p>Übersicht über alle Artikel.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<ul>
+<li>Item Code: Artikelnummer</li>
+<li>Beschreibung: Artikelname</li>
+<li>NETSTOCK Unit of Measure: Artikeleinheit</li>
+<li>Unit Volume: immer leer</li>
+<li>Unit Weight: Artikelgewicht</li>
+<li>Superseded Item Code: immer leer</li>
+<li>Superseded Item Factor: immer leer</li>
+<li>Not used: Artikelfeld &lsquo;gesperrt&rsquo;</li>
+<li>Unique Identifier: Interne ID des Artikels, sichtbar in der URL</li>
+</ul>
+<h4 id="datei-groupcsv">Datei: group.csv<a class="headerlink" href="#datei-groupcsv" title="Permanent link">&para;</a></h4>
+<p>Umfasst derzeit die Artikelkategorien.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<ul>
+<li>Identifier: Interne ID</li>
+<li>Value: (Numerischer) Wert</li>
+<li>Beschreibung: Name der Gruppe</li>
+</ul>
+<h4 id="datei-bomcsv">Datei: bom.csv<a class="headerlink" href="#datei-bomcsv" title="Permanent link">&para;</a></h4>
+<p>Übersicht über die Stücklisten.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<ul>
+<li>Finished Good Item: Artikelnummer</li>
+<li>Finished Good Item Location: Lager-ID</li>
+<li>Raw Material Item: Artikelnummer</li>
+<li>Raw Material Location: Lager-ID</li>
+<li>Ratio: Menge des Ausgangsartikels in der Stückliste</li>
+</ul>
+<h4 id="datei-suppliercsv">Datei: supplier.csv<a class="headerlink" href="#datei-suppliercsv" title="Permanent link">&para;</a></h4>
+<p>Übersicht über die Lieferanten.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<ul>
+<li>Supplier: Lieferantennummer</li>
+<li>Beschreibung: Name des Lieferanten</li>
+<li>Type: immer leer</li>
+<li>Lead time: Durchnittslieferzeit aus den Einkaufspreisen</li>
+</ul>
+<h4 id="datei-locationcsv">Datei: location.csv<a class="headerlink" href="#datei-locationcsv" title="Permanent link">&para;</a></h4>
+<p>Physische Bestandsorte / Filialen (nicht Lagerpositionen).</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<ul>
+<li>Location Code: Interne Id des Lagers</li>
+<li>Beschreibung: Bezeichnung des Lagers</li>
+<li>Active: immer 1</li>
+<li>Group: immer leer</li>
+<li>Type: &lsquo;ST&rsquo; (Laden/Filiale) oder &lsquo;CW&rsquo; (Zentrallager, Projekt-ID = 1) abhängig vom Projekt</li>
+</ul>
+<h4 id="datei-stockcsv">Datei: stock.csv<a class="headerlink" href="#datei-stockcsv" title="Permanent link">&para;</a></h4>
+<p>Der jetzige Bestand je Lagerort. Es werden alle Lagerplätze berücksichtigt, die zum konfigurierten &lsquo;Lager für Intern (Beistellungen)&rsquo; gehören und solche die als Produktionslager gekennzeichnet sind.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<ul>
+<li>Item Code: Artikelnummer</li>
+<li>Location: Meistens Hauptlager, Konfiguriernbar in der Netstock App</li>
+<li>Date Added: leer</li>
+<li>Inventory Unit Cost: berechneter Einkaufspreis: wenn fehlt, dann &ldquo;0&rdquo;</li>
+<li>Purchase Unit Cost: Standard Einkaufspreis 1er Menge, wenn fehlt dann &ldquo;0&rdquo;</li>
+<li>Selling Price: Verkaufspreis für Menge 1, wird erst in zweiten Schritt erzeugt; Fallback? &gt; schaut komisch aus &gt; aber kommt der richtig im Schritt 2?</li>
+<li>Stock On Hand: Lagerbestand</li>
+<li>Allocated Stock: immer 0</li>
+<li>Supply Type: Konstanter Wert &lsquo;EX&rsquo;</li>
+<li>Supply Code: Lieferantennummer, Standartlieferant kommt entweder aus EK Fallback Artikel</li>
+<li>Vendor Code: Lieferantennummer, Standartlieferant kommt entweder aus EK Fallback Artikel</li>
+<li>Purchase Unit of Measure: Artikel Einheit</li>
+<li>Purchase Factor: bleibt leer</li>
+<li>Purchase Currency Code: derzeit immer Euro; ggf. Wärung aus kalk. Ek nehmen (PASST, ist IMMER EUR)</li>
+<li>Lead Time: Standard Lieferzeit aus EK in Tagen, Fallback: wenn nicht angegeben, dann &ldquo;0&rdquo;</li>
+<li>Stocking Indicator: Ist ein konfigurierbares (Frei-)Feld in der Netstock App</li>
+<li>Minimum Stock: Artikel Mindestlager: wenn leer dann 0</li>
+<li>Minimum Order Qty: Artikel Mindestbestellmwnge → wenn leer dann 0</li>
+<li>Order Multiple: Artikel Mindestbestellmwnge → wenn leer dann 0</li>
+<li>Group 1: Artikelkategorie</li>
+</ul>
+<h4 id="datei-salescsv">Datei: sales.csv<a class="headerlink" href="#datei-salescsv" title="Permanent link">&para;</a></h4>
+<p>Verbrauch- und Verkaufs-Historie. Eingeschränkt auf alle Einträge ab dem Ersten des Vormonats. Beispiel: Aktuelles Datum 15.07. - angezeigt werden Daten ab dem 01.06.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<ul>
+<li>Item Code: RE/GS-Position Artikelnummer</li>
+<li>Location: Übernommen aus den Modul-Einstellungen (Lager für Intern (Beistellungen))</li>
+<li>Customer Code: Kundenummer von RE/GS; Fallback adresse.kundenummer</li>
+<li>Order Date: Auftrag Datum; (Auftrag in Gutschrift über die Rechnung gejoint);Fallback RE/GS-Datum</li>
+<li>Invoice/Issue Date: RE/GS-Datum</li>
+<li>Sales Quantity: RE/GS-Position Menge</li>
+<li>Cost of Sales: RE/GS-Position Menge * RE/GS-Position Einkaufspreis</li>
+<li>Sales Value: RE/GS-Position.umsatz_netto_gesamt; Fallback Preis Menge und Rabatt der Position</li>
+<li>Issues Quantity: immer leer</li>
+<li>Transaction Type: &lsquo;S&rsquo; für Rechnung, &lsquo;R&rsquo; für Gutschrift</li>
+</ul>
+<h4 id="datei-cocsv">Datei: co.csv<a class="headerlink" href="#datei-cocsv" title="Permanent link">&para;</a></h4>
+<p>Offene Kundenbestellungen. Enthält alle Lagerartikel oder Artikel die keine Lagerartikel sind aber Kopf-Artikel von &lsquo;Just in Time&rsquo;-Stücklisten.Unterelemente von &lsquo;Just in Time&rsquo;-Artikeln werden ausgeschlossen.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<ul>
+<li>Item Code: Artikelnummer</li>
+<li>Location: Übernommen aus den Modul-Einstellungen (Lager für Intern (Beistellungen))</li>
+<li>Customer Code: Kundennummer aus AU; Fallback Kundennummer aus Adresse (über Adresse aus AU)</li>
+<li>Order Number: AU Belegnummer</li>
+<li>Line Number: Sortierung aus Position</li>
+<li>Order Date: AU-Datum</li>
+<li>Order Quantity: AU-Position Menge</li>
+<li>Requested Date: Lieferdatum aus Position; Fallback Liefersdatum aus AU; Fallback Datum aus AU</li>
+<li>Outstanding Quantity: AU-Position Menge - AU-Position Geliefert</li>
+</ul>
+<h4 id="datei-pocsv">Datei: po.csv<a class="headerlink" href="#datei-pocsv" title="Permanent link">&para;</a></h4>
+<p>Enthält alle Positionen aller Produktionen deren Belegstatus nicht abgeschlossen, nicht storniert und nicht angelegt ist. Zusätzlich alle Bestellpositionen die nicht geliefert sind und deren Belegstatus nicht angelegt, nicht abgeschlossen und nicht storniert ist.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<ul>
+<li>Item Code: Artikelnummer</li>
+<li>Location: Übernommen aus den Modul-Einstellungen (Lager für Intern (Beistellungen))</li>
+<li>Supplier Code: Lieferantennummer (bei Bestellungen: Lieferant der Bestellung, bei Produktionen: Standardlieferant des Artikels)</li>
+<li>Order Number: BE/PROD-Belegnummer</li>
+<li>Line Number: Sortierung aus Position</li>
+<li>Order Date: BE/PROD-Datum</li>
+<li>Order Quantity: Menge aus Position</li>
+<li>Expected Arrival Date: BE/PROD-Datum + Artikel-Lieferzeit</li>
+<li>Outstanding Quantity: BE/PROD-Menge aus Position - BE/PROD-Geliefert aus Position</li>
+<li>Order Type: &lsquo;P&rsquo; für Bestellung, &lsquo;M&rsquo; für Produktion</li>
+<li>Purchase Unit Cost: Wenn der Artikel ein Produktionsartikel ist dann Preis aus Position, ansonsten Kalkulierter EK</li>
+</ul>
+<h4 id="datei-pohistcsv">Datei: pohist.csv<a class="headerlink" href="#datei-pohistcsv" title="Permanent link">&para;</a></h4>
+<p>Enthält alle Positionen aller Produktionen deren Belegstatus abgeschlossen ist. Und alle Bestellungspositionen die geliefert wurden aber auch alle Positonen die nicht geliefert wurden und deren Belegstatus abgeschlossen ist.</p>
+<p>Spalten der CSV-Datei und Beschreibung:</p>
+<ul>
+<li>Item Code: Artikelnummer</li>
+<li>Location: Übernommen aus den Modul-Einstellungen (Lager für Intern (Beistellungen))</li>
+<li>Supplier Code: Lieferantennummer (gemappt über Lieferant aus BE oder PROD)</li>
+<li>Order Number: BE/PROD-Belegnummer</li>
+<li>Line Number: Sortierung aus Position</li>
+<li>Order Date: BE/PROD-Datum</li>
+<li>Order Quantity: Menge aus Position</li>
+<li>Expected Arrival Date: BE/PROD-Datum + Artikel-Lieferzeit</li>
+<li>Order Urgency: Derzeit immer leer; Definiert als entweder ST = Standardbestellung oder EM = Expressbestellung (Bestellung mit deutlich geringerer Lieferzeit)</li>
+<li>Quantity Received: Das Feld &lsquo;Geliefert&rsquo; aus BE/PROD-Position</li>
+<li>Date of Receipt: BE/PROD-Lieferdatum</li>
+<li>Purchase Unit Cost: Kalkulierter EK des Artikels</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

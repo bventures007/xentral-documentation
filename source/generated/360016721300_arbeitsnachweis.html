@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016721300 Arbeitsnachweis - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016721300 Arbeitsnachweis</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016721300 Arbeitsnachweis</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>Über das Modul &ldquo;Arbeitsnachweis&rdquo; können Dokumente für reine Arbeitsstunden erstellt werden.</p>
+<h2 id="arbeitsnachweis">Arbeitsnachweis<a class="headerlink" href="#arbeitsnachweis" title="Permanent link">&para;</a></h2>
+<p>Über Buchhaltung → Arbeitsnachweis können Arbeitsnachweise eingesehen und eingetragen werden.</p>
+<h3 id="arbeitsnachweise-ubersicht">Arbeitsnachweise Übersicht<a class="headerlink" href="#arbeitsnachweise-ubersicht" title="Permanent link">&para;</a></h3>
+<p>Alle Arbeitsnachweise sind in der Übersicht zu sehen und können über die Suche gefiltert werden.</p>
+<p>Zudem können Filter verwendet werden:</p>
+<ul>
+<li>Alle nicht versendeten Arbeitsnachweise → Durch Anklicken werden nach allen nicht versendeten Arbeitsnachweisen gefiltert</li>
+<li>Alle Arbeitsnachweise von heute → Dieser Filter zeigt alle Arbeitsnachweise von heute</li>
+</ul>
+<p>Ein Arbeitsnachweis/ Stundenübersicht kann abgerechnet, versendet oder in einen Auftrag/eine Rechnung überführt werden:</p>
+<ul>
+<li>markierte Zeilen Arbeitsnachweise in Rechnung oder Auftrag überführen → Die angehakten Arbeitsnachweise werden in eine Rechnung oder einen Auftrag überführt</li>
+<li>als abgerechnet markieren → Die angehakten Arbeitsnachweise werden als abgerechnet markiert</li>
+<li>als versendet markieren → Die angehakten Arbeitsnachweise werden als versendet markiert</li>
+</ul>
+<h4 id="uberfuhren-in-auftragrechnung">Überführen in Auftrag/Rechnung<a class="headerlink" href="#uberfuhren-in-auftragrechnung" title="Permanent link">&para;</a></h4>
+<p>Um ein Arbeitsnachweis in einen Auftrag oder eine Rechnung zu überführen, ist ein Artikel, z.B. ein Stundensatz, anzugegeben. Folgende Optionen sind nach dem Klick auf &ldquo;markierte Zeilen Arbeitsnachweise in Rechnung oder Auftrag überführen&rdquo; möglich:</p>
+<p>Abrechnungsart:</p>
+<ul>
+<li>jeden Mitarbeiter aufsummiert als einzelne Position → Durch Anhaken wird jeder Mitarbeiter als einzelne Position aufsummiert</li>
+<li>alle Positionen 1:1 → Durch Anhaken werden alle Positionen 1:1 bzw. im direkten Vergleich dargestellt</li>
+</ul>
+<p>Arbeitsnachweis(e) abrechnen als</p>
+<ul>
+<li>neuen Auftrag → Falls der Arbeitsnachweis als neuer Auftrag abgerechnet werden soll, ist &ldquo;neuer Auftrag&rdquo; aus dem Drop-Down-Menü auszuwählen</li>
+<li>neue Rechnung → Falls der Arbeitsnachweis als neue Rechnung abgerechnet werden soll, ist &ldquo;neue Rechnung&rdquo; aus dem Drop-Down-Menü auszuwählen</li>
+<li>als Artikel → Es ist der Artikel auswählen, der für die Positionen verwendet werden soll, z.B. Stundensatz</li>
+</ul>
+<h4 id="status-setzen">Status setzen<a class="headerlink" href="#status-setzen" title="Permanent link">&para;</a></h4>
+<p>Wird der Arbeitsnachweis nicht über das System abgesendet oder abgerechnet, kann dieser auch durch eine Statusänderung umgestellt werden:</p>
+<p><img alt="arbnachweis8.png" src="https://help.xentral.com/hc/article_attachments/5077573193500" /></p>
+<p>Der Status kann auch manuell gesetzt werden. Hierzu sind die Arbeitsnachweise anzuhaken und der gewünschte Button anzuklicken:</p>
+<ul>
+<li>als abgerechnet markieren → Der Status wird auf „abgerechnet“ gesetzt</li>
+<li>als versendet markieren → Der Status wird auf „versendet“ gesetzt</li>
+</ul>
+<h3 id="arbeitsnachweis-neu-anlegen">Arbeitsnachweis neu anlegen<a class="headerlink" href="#arbeitsnachweis-neu-anlegen" title="Permanent link">&para;</a></h3>
+<p>Ein Arbeitsnachweis kann über &ldquo;+NEU“ angelegt werden.</p>
+<p><strong>Kunden</strong></p>
+<p>Der Arbeitsnachweis für den jeweiligen Kunden kann hier angelegt werden. Dazu ist folgende Angabe zu machen:</p>
+<ul>
+<li>Kunden-Nr. → Die Kundennummer ist einzugeben bzw. falls bereits vorhanden, aus der Auflistung auszuwählen. Falls der Kunde bereits in xentral inkl. Kundennummer angelegt wurde, kann der &ldquo;übernehmen&rdquo; Button verwendet werden</li>
+</ul>
+<p>Allgemein</p>
+<p>Hier können allgemeine Angaben gemacht werden:</p>
+<ul>
+<li>Projekt → Das gewünschte Projekt ist anzugeben bzw. aus der Auflistung auszuwählen</li>
+<li>Status → Der Status ist bereits von xentral auf &ldquo;freigegeben&rdquo; gesetzt und damit zunächst bei der Neuanlage unveränderlich</li>
+<li>Auftrag → Die Auftragsnummer inkl. Kunde ist einzugeben bzw. aus der Auflistung auszuwählen</li>
+<li>Datum → Das entsprechende Datum des Arbeitsnachweises ist anzugeben</li>
+<li>Suffix → Falls ein Suffix gesetzt werden soll, kann dies hier eingegeben werden</li>
+<li>Schreibschutz → Falls der Arbeitsnachweis schreibgeschützt sein soll, ist das Kästchen anzuhaken</li>
+</ul>
+<p>Stammdaten</p>
+<p>Hier sind die Stammdaten des Kunden einzupflegen:</p>
+<ul>
+<li>Anrede → Aus dem Drop-Down Menü ist die passende Anrede auszuwählen</li>
+<li>Name → Der Name des Kunden ist einzugeben</li>
+<li>Abteilung → Falls keine Privatperson vorliegt, kann die Abteilung der jeweiligen Person in ihrer Firma eingegeben werden</li>
+<li>Unterabteilung → Falls keine Privatperson vorliegt, kann die Unterabteilung der jeweiligen Person in ihrer Firma eingegeben werden</li>
+<li>Adresszusatz → Falls ein Adresszusatz vorhanden ist, ist dieser hier einzugeben</li>
+<li>Straße → Die Straße des Kunden ist anzugeben</li>
+<li>PLZ/Ort → Die PLZ des Kunden ist anzugeben</li>
+<li>Land → Das Land des Kunden ist anzugeben</li>
+<li>Telefon → Die Telefonnummer des Kunden ist anzugeben</li>
+<li>Telefax → Die Faxnummer des Kunden ist anzugeben</li>
+<li>E-Mail → Die E-Mail Adresse des Kunden ist anzugeben</li>
+<li>Anschreiben → Falls ein bestimmtes Anschreiben für diesen Kunden bzgl. des vorliegenden Arbeitsnachweises gewünscht ist, ist dieses hier einzugeben</li>
+</ul>
+<p>Freitext</p>
+<p>Hier kann ein beliebiger Freitext zum Arbeitnachweis eingegeben werdenwork</p>
+<p>Ansprechpartner</p>
+<p>Der Ansprechpartner des Arbeitsnachweises kann ebenfalls angegeben werden:</p>
+<ul>
+<li>Bearbeiter → Der Bearbeiter des Arbeitnachweises ist anzugeben</li>
+<li>Kein Briefpapier und kein Logo → Durch Anhaken erscheint kein Briefpapier und kein Logo</li>
+<li>Anzeige Verrechnungsart → Durch Anhaken wird die Verrechnungsart angezeigt</li>
+</ul>
+<p>Interne Bemerkung</p>
+<p>Hier kann noch eine zusätzliche, interne Bemerkung gemacht werden.</p>
+<p>Aktionen</p>
+<p>Im Drop-Down-Menü im Feld &ldquo;Aktionen&rdquo; rechts oben, kann eine Aktion für den jeweiligen Arbeitsnachweis ausgewählt werden:</p>
+<ul>
+<li>Arbeitsnachweis stornieren → Diese Aktion storniert den Arbeitsnachweis</li>
+<li>Arbeitsnachweis kopieren → Diese Aktion kopiert den Arbeitsnachweis</li>
+<li>Arbeitsnachweis abschicken → Diese Aktion schickt den Arbeitsnachweis ab</li>
+<li>Arbeitsnachweis Leerformular → Diese Aktion druckt ein Leerformular auf eine Adresse oder auf einen leeren Arbeitsnachweis</li>
+<li>PDF öffnen → Durch diese Aktion wird der Arbeitsnachweis als PDF geöffnet</li>
+</ul>
+<p>Ein Leerformular sieht so aus:</p>
+<p><img alt="arbnachweis6.png" src="https://help.xentral.com/hc/article_attachments/5077610961692" /></p>
+<h4 id="positionen-einfugen">Positionen einfügen<a class="headerlink" href="#positionen-einfugen" title="Permanent link">&para;</a></h4>
+<p>Im Untertab &ldquo;Positionen&rdquo; können Positionen eingefügt werden. Dazu ist auf das erste Feld zu klicken. Hier kann nach Mitarbeitern gesucht werden. Die gewünschte Person ist auszuwählen. Im Feld rechts davon ist der Ort einzugeben, daneben das Datum und die Zeit. Im Feld ganz rechts ist die Tätigkeit des jeweiligen Mitarbeiters für den Kunden einzutragen. Mit Enter oder dem Button &ldquo;einfügen&rdquo; kann die Buchung eingefügt werden.</p>
+<h4 id="vorschau">Vorschau<a class="headerlink" href="#vorschau" title="Permanent link">&para;</a></h4>
+<p>Im Untertab &ldquo;Vorschau&rdquo; wird das Dokument über den Arbeitsnachweis in der Vorschau dargestellt.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

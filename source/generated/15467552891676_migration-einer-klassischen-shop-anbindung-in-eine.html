@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15467552891676 Migration Einer Klassischen Shop Anbindung In Eine - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>15467552891676 Migration Einer Klassischen Shop Anbindung In Eine</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>15467552891676 Migration Einer Klassischen Shop Anbindung In Eine</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="uberblick">Überblick<a class="headerlink" href="#uberblick" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die hier beschriebene Funktion ist ausschließlich für Kunden relevant, die derzeit eine klassische Shop-Anbindung nutzen und auf die Xentral Connect Schnittstelle umstellen möchten.</p>
+</blockquote>
+<p>In dieser Anleitung erfährst du, wie du in wenigen Schritten eine bestehende klassische Shop-Schnittstelle (Shopimporter) in die neue Xentral Connect-Schnittstelle migrieren kannst. Die Übernahme der Einstellungen aus der alten Schnittstelle in die Connect-Schnittstelle durchläuft folgende Schritte, die wir in den nächsten Abschnitten im Detail erläutern:</p>
+<ol>
+<li><a href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-1AppinXentralinstallieren">Connect App in Xentral installieren</a></li>
+<li><a href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-2bernahmewizarddurchfhren">Übernahmewizard starten</a></li>
+<li><a href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-3bernommeneEinstellungenprfenundtesten">Übernommene Einstellungen prüfen und testen</a></li>
+<li><a href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-aArtikelzuordnungprfenoderneuanlegen">Artikelzuordnung prüfen oder neu anlegen</a></li>
+<li><a href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-bWorkflow-Einstellungenprfen">Workflow-Einstellungen prüfen</a></li>
+<li><a href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-cWorkflowstesten">Workflows testen</a></li>
+<li><a href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-4AltenShopimporterdeaktivieren">Alten Shopimporter deaktivieren</a></li>
+<li><a href="#UUID-6de2ece7-a6ef-36e4-311c-cda7397cfb63_id_MigrationeinerklassischenShop-AnbindungineineXentralConnectSchnittstelle-5ConnectSchnittstelleliveschalten">Connect-Schnittstelle testen und produktiv schalten</a></li>
+</ol>
+<h2 id="voraussetzungen">Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Permanent link">&para;</a></h2>
+<p>Um eine reibungslose Übernahme und Funktionalität der Schnittstelle zu gewährleisten, ist es wichtig, zunächst einige allgemeine Einstellungen in Xentral durchzuführen. Beachte dazu diesen<a href="https://help.xentral.com/hc/de/articles/13235039280796#UUID-efc2789d-fff6-f3d6-8a10-5c87f55efd62">Handbuchabschnitt</a>. Prüfe deine Einstellungen insbesondere dann, wenn deine bisherige Shop-Schnittstelle individuell angepasst war, z. B. über Smarty.</p>
+<p>Die Connect-Schnittstelle bietet eine hohe Standardisierung, was die Wartbarkeit und die Upgradefähigkeit deines Systems erhöht. Viele Funktionen, die in der klassischen Schnittstelle nur über einer individuelle Anpassung möglich waren, sind in Connect im Standard bereits enthalten. Bei der Übernahme einer individuell angepassten klassischen Schnittstelle musst du die Einstellungen jedoch sorgsam vornehmen und auf das korrekte Verknüpfen von Datenfeldern (sog. Mapping) achten. Nimm im Zweifel vorher Kontakt zu deinem Solution Consultant auf.</p>
+<h2 id="1-connect-app-in-xentral-installieren">1. Connect App in Xentral installieren<a class="headerlink" href="#1-connect-app-in-xentral-installieren" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dieser Schritt ist nur für die erste Anbindung eines Shops erforderlich und entfällt bei weiteren Integrationen desselben Shop-Anbieters.</p>
+<p><strong>Anmerkung</strong></p>
+<p>Wir schalten die Funktion schrittweise frei, um eine maximale Stabilität und die reibungslose Migration zu gewährleisten. Du bekommst von uns aktiv in der Software Bescheid, sobald die Xentral Connect-Schnittstelle für Dich zur Verfügung steht. Möchtest du vorzeitig Zugriff haben, wende dich gerne an deinen Solution Consultant.</p>
+</blockquote>
+<p><img alt="Shared_NeueAnbindung_Pfad.png" src="https://help.xentral.com/hc/article_attachments/18680610398620" /></p>
+<ol>
+<li>Klicke in deinem Xentral auf das Zahnrädchen oben rechts, um zu den Systemeinstellungen zu gelangen:</li>
+<li>Folge dem Menüpfad <strong>Einstellungen &gt; Verkaufen &gt; […] Connector</strong>(hier als Beispiel: WooCommerce Connector)</li>
+<li>Klicke jetzt auf <strong>Install App</strong> um das System vorzubereiten:</li>
+</ol>
+<p>Sobald die Connect-Schnittstelle angelegt wurde, kannst du mit dem Übernahmewizard fortfahren.</p>
+<h2 id="2-ubernahmewizard-durchfuhren">2. Übernahmewizard durchführen<a class="headerlink" href="#2-ubernahmewizard-durchfuhren" title="Permanent link">&para;</a></h2>
+<h3 id="fur-shopify-anbindungen">Für Shopify-Anbindungen<a class="headerlink" href="#fur-shopify-anbindungen" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Klicke auf <strong>Integration übernehmen</strong>, um den Wizard zu starten:</li>
+<li>Wähle die bestehende Shop-Anbindung, aus der du die Einstellungen zu Xentral Connect übernehmen möchtest und klicke auf <strong>Weiter</strong>.</li>
+<li>Du kannst die Anbindung ganz bequem über die Shopify Public App aufsetzen und sparst dir so das manuelle Setzen von so keine Berechtigungen. Alternativ kannst du einen bestehenden API Token oder eine Custom App mit neuem Token verwenden:</li>
+<li>Um die Anbindung über die Public App aufzusetzen, belasse die ersten beiden Schaltflächen deaktiviert (links):</li>
+<li>Wenn deine vorhandene App alle Berechtigungen gesetzt hat und du diese weiter nutzen möchtest, kannst du den bestehenden API Token weiter verwenden. Setze dazu die erste Schaltfläche nach rechts:</li>
+<li>Wenn du eine Custom App mit neuem Token nutzen möchtest, lasse die erste Schaltfläche deaktiviert (links) und setze die zweite Schaltfläche nach rechts. Du kannst dann im nächsten Feld den Token einfügen:</li>
+<li>Falls es in deinem Shop Artikel gibt, für die ein reduzierter Steuersatz und/oder eine Steuerbefreiung gilt, wähle in den nächsten beiden Feldern die entsprechende Kollektion aus Shopify aus, um die richtige Steuerberechnung sicherzustellen:</li>
+<li>Wähle anschließend die Art der Artikelzuordnung. Du kannst…</li>
+<li>… die Artikelzuordnung von deiner bestehenden Anbindung übernehmen oder</li>
+<li>… eine neue Artikelzuordnung anhand selbst gewählter Kriterien einrichten. Wenn du diese Option wählst, kannst du die Filterkriterien für die Artikelzuordnung nach Abschluss des Wizards eintragen.</li>
+<li>Belasse den Schalter <strong>Bilderübertragung</strong> auf links, wenn Bilder aus dem Onlineshop weiter verwendet werden sollen. Du kannst die Synchronisierung von Bilddateien zwischen Xentral und Shop später in den Workflows aktivieren. (Nur falls du sichergestellt hast, dass die Artikelbilder in Xentral vollständig und aktuell sind, kannst du den Schalter nach rechts setzen. In diesem Fall werden alle im Shop vorhandenen Bilder von den Bildern in Xentral ersetzt.)</li>
+<li>Bestätige die Übernahme der Schnittstellen-Konfiguration und beachte die Hinweise:</li>
+<li>Markiere deinen Shopify-Account in der Liste und warte einen Moment:</li>
+<li>Im Hintergrund werden nun die Shopify-App installiert und alle benötigten Rechte automatisch gesetzt. Sobald die Anbindung erfolgreich abgeschlossen ist, erhälst du eine Bestätigung auf deinem Bildschirm:</li>
+</ol>
+<h3 id="fur-shopware-6-anbindungen">Für Shopware 6-Anbindungen<a class="headerlink" href="#fur-shopware-6-anbindungen" title="Permanent link">&para;</a></h3>
+<p><img alt="SW6_Migrationswizard_IntegrationUbernehmen.png" src="https://help.xentral.com/hc/article_attachments/18680627201052" /></p>
+<ol>
+<li>Klicke auf <strong>Integration übernehmen</strong>, um den Wizard zu starten:</li>
+<li>Wähle die bestehende Shop-Anbindung, aus der du die Einstellungen zu Xentral Connect übernehmen möchtest und klicke auf <strong>Weiter</strong>.</li>
+<li>Gib anschließend deine Shopware 6-Zugangsdaten ein (bestätige die Daten im sich öffnenden Shopware 6-Fenster, sobald du dazu aufgefordert wirst)&hellip;
+1.... und wähle die Art der Artikelzuordnung. Du kannst…</li>
+<li>… die Artikelzuordnung von deiner bestehenden Anbindung übernehmen oder</li>
+<li>… eine neue Artikelzuordnung anhand selbst gewählter Kriterien einrichten. Wenn du diese Option wählst, kannst du die Filterkriterien für die Artikelzuordnung nach Abschluss des Wizards eintragen.</li>
+<li>Belasse den Schalter <strong>Bilderübertragung</strong> auf links, wenn Bilder aus dem Onlineshop weiter verwendet werden sollen. Du kannst die Synchronisierung von Bilddateien zwischen Xentral und Shop später in den Workflows aktivieren. (Nur falls du sichergestellt hast, dass die Artikelbilder in Xentral vollständig und aktuell sind, kannst du den Schalter nach rechts setzen. In diesem Fall werden alle im Shop vorhandenen Bilder von den Bildern in Xentral ersetzt.)</li>
+<li>Bestätige die Übernahme der Schnittstellen-Konfiguration und beachte die Hinweise:</li>
+<li>Die Integration wird angelegt:</li>
+<li>Nach Abschluss erhälst du eine Erfolgsmeldung:</li>
+</ol>
+<h3 id="fur-woocommerce-anbindungen">Für WooCommerce-Anbindungen<a class="headerlink" href="#fur-woocommerce-anbindungen" title="Permanent link">&para;</a></h3>
+<p><img alt="Shared_Migrationswizard_WichtigeHinweise.png" src="https://help.xentral.com/hc/article_attachments/18680627213084" /></p>
+<ol>
+<li>Klicke auf <strong>Integration übernehmen</strong>, um den Wizard zu starten:</li>
+<li>Wähle die bestehende Shop-Anbindung, aus der du die Einstellungen zu Xentral Connect übernehmen möchtest und klicke auf <strong>Weiter</strong>.</li>
+<li>Wähle anschließend die Art der Artikelzuordnung. Du kannst…</li>
+<li>… die Artikelzuordnung von deiner bestehenden Anbindung übernehmen oder</li>
+<li>… eine neue Artikelzuordnung anhand selbst gewählter Kriterien einrichten. Wenn du diese Option wählst, kannst du die Filterkriterien für die Artikelzuordnung nach Abschluss des Wizards eintragen.</li>
+<li>Belasse den Schalter <strong>Bilderübertragung</strong> auf links, wenn Bilder aus dem Onlineshop weiter verwendet werden sollen. Du kannst die Synchronisierung von Bilddateien zwischen Xentral und Shop später in den Workflows aktivieren. (Nur falls du sichergestellt hast, dass die Artikelbilder in Xentral vollständig und aktuell sind, kannst du den Schalter nach rechts setzen. In diesem Fall werden alle im Shop vorhandenen Bilder von den Bildern in Xentral ersetzt.)</li>
+<li>Bestätige die Übernahme der Schnittstellen-Konfiguration und beachte die Hinweise:</li>
+<li>Die Integration wird angelegt:</li>
+<li>Nach Abschluss erhälst du eine Erfolgsmeldung:</li>
+</ol>
+<h2 id="3-ubernommene-einstellungen-prufen-und-testen">3. Übernommene Einstellungen prüfen und testen<a class="headerlink" href="#3-ubernommene-einstellungen-prufen-und-testen" title="Permanent link">&para;</a></h2>
+<p>Bevor du die Liveschaltung aktivierst, solltest du alle übernommenen Einstellungen gründlich überprüfen. Dazu gehören die Artikelzuordnung und die Workflow-Konfiguration.</p>
+<h3 id="a-artikelzuordnung-prufen-oder-neu-anlegen">a. Artikelzuordnung prüfen oder neu anlegen<a class="headerlink" href="#a-artikelzuordnung-prufen-oder-neu-anlegen" title="Permanent link">&para;</a></h3>
+<p>Um die Artikelzuordnung zu prüfen oder neu anzulegen, klicke auf diese Schaltfläche:</p>
+<p><img alt="Migration_Shopimporter8.png" src="https://help.xentral.com/hc/article_attachments/15467586979228" /></p>
+<h4 id="artikelzuordnung-prufen">Artikelzuordnung prüfen<a class="headerlink" href="#artikelzuordnung-prufen" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dieser Abschnitt ist relevant, falls du im Wizard <strong>Artikelzuordnung aus der bestehenden Integration übernehmen</strong> gewählt hast.</p>
+</blockquote>
+<p>Die vorhandene Zuordnung ist hier bereits eingetragen. Stelle sicher, dass die gefundene Anzahl der Artikel korrekt ist. Falls sie nicht deinen Erwartungen entspricht, überprüfe die <strong>Online-Shop Optionen</strong> in den Artikeln oder lege deine Artikelzuordnung neu an, wie im nächsten Abschnitt beschrieben.</p>
+<p><img alt="Migration_Shopimporter10.png" src="https://help.xentral.com/hc/article_attachments/15467556320284" /></p>
+<h4 id="artikelzuordnung-neu-anlegen">Artikelzuordnung neu anlegen<a class="headerlink" href="#artikelzuordnung-neu-anlegen" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dieser Abschnitt ist relevant, falls du im Wizard <strong>Artikel anhand einer definierten Regel (z. B. Projekt, Freifeld etc. zuordnen</strong> gewählt hast oder dich später entscheidest, eine neue Artikelzuordnung zu definieren.</p>
+</blockquote>
+<p>Richte dir die Filterkriterien nach deinem Bedarf ein. Schaue dir dazu den Handbuchabschnitt<a href="https://help.xentral.com/hc/de/articles/13235023557532#UUID-2e1a76ae-2150-3aca-98cf-7f80d6c6f0b7">Artikel zuordnen</a>an.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Der Link hier verweist beispielhaft auf WooCommerce. Die Artikelzuordnung erfolgt in allen Shop-Schnittstellen gleich.</p>
+</blockquote>
+<h3 id="b-workflow-einstellungen-prufen">b. Workflow-Einstellungen prüfen<a class="headerlink" href="#b-workflow-einstellungen-prufen" title="Permanent link">&para;</a></h3>
+<p>Um die Workflows zu prüfen oder anzupassen, klicke auf diese Schaltfläche:</p>
+<p><img alt="Migration_Shopimporter9.png" src="https://help.xentral.com/hc/article_attachments/15467578596252" /></p>
+<p>Überprüfe in allen Reitern, ob die übernommenen Einstellungen deiner Erwartung entsprechen, falls nicht, nehme Änderungen vor und speichere sie. Detaillierte Anleitungen zu den Workflows findest du in den einzelnen Shop-Handbüchern:</p>
+<p><a href="https://help.xentral.com/hc/de/articles/13235060220444#UUID-55e1cf94-dd5f-eb68-4337-cabda5e7ee49">Shopify: Workflows konfigurieren</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/13234992002460#UUID-2da1fca7-0bf6-4ed1-5caa-064075c28cd0">Woo-Commerce: Workflows konfigurieren</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/14528034840732#UUID-b0386169-a59f-1d8d-1375-62b9ba1825d5">Shopware6: Workflows konfigurieren</a></p>
+<p>Falls du die Bilderübertragung beim Übernahmewizard deaktiviert hattest und Bilder zwischen Xentral und Shop synchronisieren möchtest, aktiviere die entsprechende Schaltfläche. Du findest sie in den <strong>Workflows &gt; Reiter Artikel &gt; Datentypen</strong>:</p>
+<p><img alt="Migration_Shopimporter14.png" src="https://help.xentral.com/hc/article_attachments/15467587160732" /></p>
+<h3 id="c-workflows-testen">c. Workflows testen<a class="headerlink" href="#c-workflows-testen" title="Permanent link">&para;</a></h3>
+<p>Mit Hilfe des Journals kannst du einzelne Testdaten anstoßen und deren korrekte Übertragung testen. Um zum Journal zu gelangen, klicke auf diese Schaltfläche:</p>
+<p><img alt="Migration_Shopimporter16.png" src="https://help.xentral.com/hc/article_attachments/15467578702108" /></p>
+<p>Stoße für jeden Datentyp, den du nutzen möchtest - also z. B. Artikel und Aufträge - einzelne Datensätze zur Synchronisierung an, indem du beispielsweise bei einem Artikel auf <strong>Artikel synchronisieren </strong> oder bei den Aufträgen auf <strong>Workflow starten </strong> klickst und eine Auftragsnummer eingibst. Anschließend aktualisierst du den Status durch die <strong>Neu laden</strong></p>
+<p>-Schaltfläche und prüfst, ob die Datenübertragung funktioniert. Falls nicht, orientiere dich an den Fehlerhinweisen im Journal und nimm Korrekturen vor. Nähere Informationen zur Nutzung des Journals findest du in den einzelnen Shop-Handbüchern:</p>
+<p><a href="https://help.xentral.com/hc/de/articles/13921857699612#UUID-d8ed9992-afac-447b-5f28-2e5f96fd98ac">Shopify: Journal</a></p>
+<p>Die Schnittstelle synchronisiert nach der Produktiv-Schaltung - je nach Feature Artikel, Bestände, Preise, Aufträge und Auftragsstatus - automatisch zwischen Xentral und deinem Shop. Der Prozessstarter ist dafür nicht mehr erforderlich.</p>
+<p><a href="https://help.xentral.com/hc/de/articles/13921840987036#UUID-24f64971-99da-b968-5ba9-ff6a97dfabb5">WooCommerce: Journal</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/14528034952476#UUID-0748de4e-37e4-85a3-21a3-6a2c51fcb42b">Shopware6: Journal</a></p>
+<h2 id="4-alten-shopimporter-deaktivieren">4. Alten Shopimporter deaktivieren<a class="headerlink" href="#4-alten-shopimporter-deaktivieren" title="Permanent link">&para;</a></h2>
+<p>Nachdem du alle Einstellungen erfolgreich geprüft hast, ist deine neue Xentral Connect Schnittstelle grundsätzlich bereit zur Liveschaltung.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Stelle sicher, dass du den Livemodus der alten Shop-Anbindung <strong>deaktivierst</strong>, bevor du die Connect-Schnittstelle live schaltest, um Konflikte und doppelte Auftragsimporte zu vermeiden!</p>
+<p><strong>Die alte Shop-Integration </strong> muss weiterhin im System verbleiben und <strong>darf nicht gelöscht werden</strong>!</p>
+</blockquote>
+<p>Um die alte Shop-Anbindung zu deaktivieren, führe folgendes aus:</p>
+<ol>
+<li>Navigiere zur Übersicht der Shops &amp; Marktplätze:<strong>Systemeinstellungen (Zahnrädchen) &gt; Verkaufen &gt; Shops &amp; Marktplätze Übersicht</strong>. Öffne die zu deaktivierende Schnittstelle:</li>
+<li>Entferne den Haken <strong>Aktiv </strong>, entferne die Einträge in den Feldern <strong>URL </strong>,<strong>API-Key <strong>,</strong> Passwort <strong>,</strong> Token </strong> und klicke unten auf der Seite auf <strong>Speichern</strong>:</li>
+<li>Stelle in der Übersicht sicher, dass die alte Schnittstelle deaktiviert ist:</li>
+</ol>
+<h2 id="5-connect-schnittstelle-testen-und-produktiv-schalten">5. Connect-Schnittstelle testen und produktiv schalten<a class="headerlink" href="#5-connect-schnittstelle-testen-und-produktiv-schalten" title="Permanent link">&para;</a></h2>
+<p>Mehr Informationen zur Xentral Connect-Schnittstelle und ihrer Konfiguration, findest du in den Handbuch-Artikel des jeweiligen Shop-Systems. Hier ist auch beschrieben, wie du die Schnittstelle vor der Produktiv-Schaltung testen kannst:</p>
+<p><a href="https://help.xentral.com/hc/de/articles/13235060016796#UUID-ececee00-f23a-e3d2-f4be-6a460247b779">Shopify Connector: Überblick</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/14528018649244#UUID-9a01cf3b-a21b-b87d-fef7-25e98b30175a">Shopware6-Connector: Überblick</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/13235023397404#UUID-37643e86-d675-5eb3-89cb-8885a658df23">WooCommerce Connector: Überblick</a></p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Stelle sicher, dass die alte Schnittstelle wie im vorherigen Abschnitt beschrieben <strong>deaktiviert</strong> ist, bevor du die Connect-Schnittstelle produktiv schaltest, um Konflikte und doppelte Auftragsimporte zu vermeiden!</p>
+<p><strong>Die alte Shop-Integration </strong> muss jedoch weiterhin im System verbleiben und <strong>darf nicht gelöscht werden</strong>!</p>
+</blockquote>
+<p>Nach Überprüfung der Konfiguration kannst du den Produktiv-Modus aktivieren. Wie du dabei vorgehst, erfährst du in diesen Artikeln:</p>
+<p><a href="https://help.xentral.com/hc/de/articles/18589752911516#UUID-e51cce39-191a-dec1-8f90-44b0af01a9f4">Shopify Connector: Produktiv schalten</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/18589763018012#UUID-51edb066-e697-e70b-6116-829fdd05e479">Shopware6-Connector: Produktiv schalten</a></p>
+<p><a href="https://help.xentral.com/hc/de/articles/18589740730012#UUID-3482c0db-0cbb-26a5-6a44-9a82f4cfb81a">WooCommerce Connector: Produktiv schalten</a></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

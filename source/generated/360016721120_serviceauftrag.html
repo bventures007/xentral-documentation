@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016721120 Serviceauftrag - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016721120 Serviceauftrag</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016721120 Serviceauftrag</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit dem Modul <strong>Serviceauftrag <strong>kannst du Serviceanfragen, wie z.B. Reparaturen, in xentral erfassen und den betroffenen Artikel entweder einlagern oder dem Kunden zu senden. Zusätzlich bietet dir dieses Modul die Buchung von Materialien und/oder Arbeitsaufwand für diese Serviceleistung sowie die Dokumentation der Zeiten der Mitarbeiter. </strong> App Center &gt; Serviceauftrag</strong></p>
+<h2 id="ubersicht">Übersicht<a class="headerlink" href="#ubersicht" title="Permanent link">&para;</a></h2>
+<p>Über <strong>App Center &gt; Serviceauftrag</strong> werden dir alle angelegten Serviceaufträge angezeigt.</p>
+<h3 id="filter">Filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h3>
+<p>Im Filter-Bereich kannst du nach dem Status des Serviceauftrags filtern. Die verschiedenen Status legt du vorher im Reiter <strong>Einstellungen</strong> an. Näheres dazu findest du im nächsten Abschnitt.</p>
+<p>Die individuell angelegten Filter stehen dir anschließend zur Verfügung. Durch Anhaken einer oder mehrerer Filter filterst du die Übersicht der Serviceaufträge nach dem, mit diesen Aufträgen verknüpftem, Status.</p>
+<h2 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h2>
+<p>Im Reiter <strong>Einstellungen</strong> kannst du verschiedene Optionen für den Serviceauftrag wählen.</p>
+<h3 id="ubersicht_1">Übersicht<a class="headerlink" href="#ubersicht_1" title="Permanent link">&para;</a></h3>
+<p>Du kannst verschiedene Status definieren, die dann im Serviceauftrag selber markiert werden können und auch in der Übersicht als Filter dienen.</p>
+<p>Befülle dafür folgende Felder:</p>
+<p>-<strong>Bezeichnung</strong>: Gib die Bezeichnung des Status an. Diese erscheint dann als Filter in der Übersicht-Oberfläche
+-<strong>Beschreibung</strong>: Gib eine genaue Beschreibung des Status an</p>
+<p>Klicke abschließend auf <strong>Speichern</strong>.</p>
+<p>Bei einem erfolgreich angelegten Status findest du hinter jeder Statuszeile ein Barcode-Icon. Wenn du auf dieses klickst, wird der Code heruntergeladen.</p>
+<h3 id="einstellungen_1">Einstellungen<a class="headerlink" href="#einstellungen_1" title="Permanent link">&para;</a></h3>
+<p>Im Bereich <strong>Einstellungen </strong> im Reiter <strong>Einstellungen</strong> kannst du verschiedene Einstellungen z.B. zu den Dateien und Etiketten vornehmen.</p>
+<p>-<strong>Nächste Serviceauftragsnummer</strong>: Trage den Nummernkreis für Serviceauftrags-Belege ein. Durch einen Klick auf &ldquo;bearbeiten&rdquo; kannst du die Nummer verändern
+-<strong>Dateien zum Angebot übernehmen</strong>: Durch Anhaken übernimmst du beim Weiterführen eines Serviceauftrags zu einem Angebot die Dateien aus dem Serviceauftrag zum Angebot
+-<strong>Dateien zum Auftrag übernehmen</strong>: Durch Anhaken übernimmst du beim Weiterführen eines Serviceauftrags zu einem Auftrag die Dateien aus dem Serviceauftrag zum Auftrag
+-<strong>Dateien zum Lieferschein übernehmen</strong>: Durch Anhaken übernimmst du beim Weiterführen eines Serviceauftrags zu einem Lieferschein die Dateien aus dem Serviceauftrag zum Lieferschein
+-<strong>Dateien zur Rechnung übernehmen</strong>: Durch Anhaken übernimmst du beim Weiterführen eines Serviceauftrags zu einer Rechnung die Dateien aus dem Serviceauftrag zur Rechnung
+-<strong>Erweiterte Controlling-Funktionen</strong>: Durch Anhaken werden dir in der Artikeltabelle eines Serviceauftrags zusätzliche Spalten angezeigt. In diesen kannst du dann die Anzahl der Belege der Artikel sowie die Lagermenge einsehen
+-<strong>VK Preise auf Serviceauftrag Beleg einblenden</strong>: Durch Anhaken werden folgende zusätzliche Spalten im Serviceauftrag eingeblendet: Mehrwertsteuer, Einzelpreis, Gesamtpreis
+-<strong>Etikett für Wareneingang</strong>: Wähle aus dem Drop-Down Menü ein Etikett für den Wareneingang aus. Wenn du einen Serviceauftrag aus dem Wareneingang erstellst, kannst du hier ein spezielles Etikett auswählen, das dabei gedruckt werden soll. Wenn du zuvor ein entsprechendes Etikett mit bestimmten Variablen im Etiketten-Modul erstellt hast, dann wähle dieses hier aus. Bei einer Übersicht des Serviceauftrags als PDF werden diese Variablen dann mit ausgegeben
+-<strong>Etikettendrucker</strong>: Wähle aus dem Drop-Down Menü den Etikettendrucker aus, der für das Serviceauftrags-Etiketten verwendet werden soll
+-<strong>Tätigkeit Vorbelegung</strong>: Trage deine Tätigkeit ein. Wenn über die &ldquo;Start Zeiterfassung&rdquo;-Schaltfläche im Serviceauftrag die Zeiten auf einen Serviceauftrag gebucht werden, wird jenes Feld &ldquo;Tätigkeit&rdquo; mit dem Wert aus &ldquo;Tätigkeit Vorbelegung&rdquo; gleich vor ausgefüllt</p>
+<p>Ein Klick auf die Schaltfläche <strong>Alle Status Barcodes </strong> lädt dir alle unter <strong>Übersicht</strong> eingetragenen Status mit Barcodes als PDF herunter.</p>
+<h2 id="anlegen-eines-serviceauftrags">Anlegen eines Serviceauftrags<a class="headerlink" href="#anlegen-eines-serviceauftrags" title="Permanent link">&para;</a></h2>
+<p>Es gibt zwei Möglichkeiten einen Serviceauftrag anzulegen, entweder über den Wareneingang oder über das Modul.</p>
+<h3 id="serviceauftrag-uber-den-wareneingang-anlegen">Serviceauftrag über den Wareneingang anlegen<a class="headerlink" href="#serviceauftrag-uber-den-wareneingang-anlegen" title="Permanent link">&para;</a></h3>
+<p>Über <strong>Lager &amp; Logistik &gt; Paket Annahme &gt; Auswahl eines Eintrags über das &ldquo;Pfeil&rdquo;-Icon &gt; Unangekündigte Retouren &gt; Artikel manuell erfassen</strong> kannst du eine Sendung des Kunden annehmen. Wichtig dabei ist, dass du den Haken für Serviceauftrag anlegen aktivierst.</p>
+<p><img alt="ServiceOrder1.png" src="https://help.xentral.com/hc/article_attachments/13440115034268" /></p>
+<p>Über <strong>Artikel einlagern</strong> schließt du den Vorgang ab.</p>
+<h3 id="serviceauftrag-uber-das-modul-anlegen">Serviceauftrag über das Modul anlegen<a class="headerlink" href="#serviceauftrag-uber-das-modul-anlegen" title="Permanent link">&para;</a></h3>
+<p>Alternativ kannst du einen Serviceauftrag auch über das Modul <strong>Serviceauftrag </strong> anlegen. Das machst du über <strong>App Center &gt; Serviceauftrag &gt; +NEU <strong>. Es erscheint eine neue Oberfläche. </strong> Details</strong></p>
+<p>Im Bereich Details kannst du diverse Informationen zum Kunden und dem Serviceauftrag eingeben.</p>
+<p>Folgende Felder kannst du befüllen:</p>
+<p>-<strong>Kunde</strong>: Gib den Kunden des Serviceauftrags ein oder wähle einen angelegten Kunden über das &ldquo;Lupe&rdquo;-Icon aus
+-<strong>Datum</strong>: Gib das Datum des Serviceauftrags ein
+-<strong>Projekt</strong>: Wähle ein Projekt aus dem Drop-Down Menü aus
+-<strong>Bearbeiter</strong>: Trage optional einen Bearbeiter des Serviceauftrags ein oder wähle über das &ldquo;Lupe&rdquo;-Icon einen bereits angelegten Mitarbeiter aus
+-<strong>Abschluss bis</strong>: Gib optional ein Abschlussdatum für den Serviceauftrag ein
+-<strong>Prio</strong>: Durch Anhaken priorisierst du diesen Serviceauftrag
+-<strong>Ihre Bestellnummer</strong>: Gib die Bestellnummer aus deinem xentral ein
+-<strong>Kostenstelle</strong>: Trage die Kostenstelle ein
+-<strong>Ls-Nr vom Kunde</strong>: Gib die Ls.-Nr. des oben eingegebenen Kunden ein
+-<strong>Vorgang / Bezug</strong>: Trage optional einen Vorgang ein
+-<strong>geplante Dauer</strong>: Trage die geplante Dauer in h ein
+-<strong>Ansprechpartner</strong>: Trage den Ansprechpartner auf Kunden-Seite ein oder wähle einen über das &ldquo;Lupe&rdquo;-Icon aus
+-<strong>Auftrag</strong>: Trage die Auftragsnummer ein oder wähle einen über das &ldquo;Lupe&rdquo;-Icon aus
+-<strong>Kunde zahlt extra</strong>: Durch Anhaken aktivierst du die Extrazahlung des Kunden
+-<strong>Betreff</strong>: Trage den Betreffs des Serviceauftrags ein
+-<strong>Freifeld</strong>: Trage optional weitere Anmerkungen in das Freifeld ein</p>
+<h4 id="aktionen-und-status">Aktionen und Status<a class="headerlink" href="#aktionen-und-status" title="Permanent link">&para;</a></h4>
+<p>In den Bereichen <strong>Aktionen </strong> und <strong>Status</strong> auf der rechten Seite kannst du diverse Funktionen im Serviceauftrag ausführen.</p>
+<p>Bei den Aktionen kannst du aus vier verschiedenen Schaltflächen auswählen:</p>
+<p>-<strong>Start Zeiterfassung</strong>: Durch einen Klick beginnst du mit der Zeiterfassung auf diesen Serviceauftrag bzw. auf diesen Kunden. Wenn du die Zeiterfassung beenden willst, klicke auf die &ldquo;Stop Zeiterfassung&rdquo;-Schaltfläche
+-<strong>Zeiterfassung</strong>: Mit einem Klick auf diese Aktion öffnest du einen Popup, in welchem du die Zeit manuell einträgst
+-<strong>Artikel</strong>: Mit dieser Aktion fügst du einen Artikel zum Serviceauftrag hinzu. Es öffnet sich ein Popup
+-<strong>Etiketten drucken</strong>: Druckt ein Artikeletikett für alle Artikel, die als &ldquo;Wareneingang&rdquo; im Serviceauftrag eingebucht wurden
+-<strong>Status:</strong> Hier kannst du den Status eines Serviceauftrags ändern. Diese Status werden in den Einstellungen der Serviceauftrag-Übersicht angelegt.</p>
+<p>Folgende Felder kannst du im Popup bei der Aktion <strong>Artikel</strong> ausfüllen:</p>
+<p>-<strong>Artikel-Nr</strong>: Trage die Artikelnummer händisch ein oder wähle über das &ldquo;Lupe&rdquo;-Icon eine Nummer aus der Liste aus, die die bereits im System angelegten Artikelnummern zeigt
+-<strong>Art</strong>: Wähle aus dem Drop-Down Menü die Art des Artikels aus, zur Verfügung stehen Wareneingang, Material und Dienstleistung
+-<strong>Menge</strong>: Gib die Menge des Artikels, die im Serviceauftrag benötigt wird, an
+-<strong>EK</strong>: Trage entweder händisch den EK-Preis ein oder verwende das vor ausgefüllte Feld, wenn du zuvor bereits eine Artikelnummer aus der Liste ausgewählt hast
+-<strong>VK</strong>: Trage entweder händisch den VK-Preis ein oder verwende das vor ausgefüllte Feld, wenn du zuvor bereits eine Artikelnummer aus der Liste ausgewählt hast
+-<strong>Auslagern aus</strong>: Trage händisch ein Lager ein oder wähle über das &ldquo;Lupe&rdquo;-Icon ein Lager aus der Liste aus, aus welchem du den Artikel für den Serviceauftrag auslagern möchtest
+-<strong>Kommentar</strong>: Trage optional einen Kommentar ein
+-<strong>Im Beleg anzeigen</strong>: Durch Anhaken wird dieser Artikel im Beleg angezeigt</p>
+<p>Klicke abschließend auf <strong>Speichern</strong>.</p>
+<p>Seriennummern</p>
+<p>Seriennummern werden im Serviceauftrag bei einem manuellen Hinzufügen eines Seriennummern-Artikels berücksichtigt bzw. bei dir abgefragt.</p>
+<p><img alt="ServiceOrder2.png" src="https://help.xentral.com/hc/article_attachments/13440115079964" /></p>
+<p>Durch einen Klick auf <strong>Assistent verwenden</strong> erscheinen diese Felder, die du zusätzlich ausfüllen kannst:</p>
+<p>-<strong>Start</strong>: Gib die Startziffer der Seriennummer ein
+-<strong>Anzahl fortlaufende NVEs</strong>: Trage die Anzahl der fortlaufenden NVEs ein</p>
+<p>Klicke abschließend auf <strong>Seriennummern jetzt erstellen</strong>.</p>
+<p>Beim Überführen der Seriennummern aus dem Serviceauftrag in einen Lieferschein oder eine Rechnung über das Aktions-Menü werden die Seriennummern weiter übergeben.</p>
+<p>Du kannst zudem die, von dir zuvor in den Einstellungen festgelegte, Status, auf diesen Serviceauftrag durch Anhaken des gewünschten Status verknüpfen.</p>
+<h3 id="artikeltabelle-und-filter">Artikeltabelle und Filter<a class="headerlink" href="#artikeltabelle-und-filter" title="Permanent link">&para;</a></h3>
+<p>Unter dem Punkt Filter bzw. der Artikeltabelle kannst du alle Artikel einsehen, die du zuvor über die Aktion Artikel eingetragen hast.</p>
+<p>Du kannst dabei diese Artikel nach Wareneingang, Material oder Dienstleistung filtern, je nachdem, welche Art du zuvor in der Aktion Artikel für den jeweiligen Artikel ausgewählt hast.</p>
+<p><strong>Aktion wählen <strong>Hier kannst du aus der Artikeltabelle durch Anhaken die Artikel auswählen und dann eine der folgenden Aktionen im Dropdown-Menü im Bereich </strong> Stapelverarbeitung</strong> ausführen.</p>
+<p>-<strong>Rechnung erstellen</strong>: Du erstellst dir eine Rechnung aus dem Serviceauftrag
+-<strong>Rücklieferung an den Kunden (Lieferschein)</strong>: Du erstellst einen Lieferschein für den Kunden aus dem Serviceauftrag
+-<strong>Weitergeben für Reparatur an Lieferanten erstellen (Lieferschein)</strong>: Du erstellst einen Lieferschein an den Lieferanten aus dem Serviceauftrag
+-<strong>Kostenvoranschlag erstellen</strong>: Du erstellst ein Angebot an den Kunden aus dem Serviceauftrag
+-<strong>Abholauftrag erstellen</strong>: Du erstellst einen Auftrag für Abholung an den Kunden aus dem Serviceauftrag
+-<strong>Artikel auslagern</strong>: Du lagerst einen Artikel über den Serviceauftrag aus dem Lager aus, das gilt auch für Stücklisten</p>
+<p>Wenn du als Aktion <strong>Artikel auslagern </strong> ausgewählt und auf die rechte Schaltfläche <strong>erstellen</strong> geklickt hast, dann erscheint folgende Übersicht, in der du die auszulagernde Menge sowie das Lager einträgst.</p>
+<p><img alt="ServiceOrder3.png" src="https://help.xentral.com/hc/article_attachments/13440100881308" /></p>
+<p>Wenn du alle Eingaben vollständig eingetragen hast, klicke auf <strong>Auslagern</strong>.</p>
+<p>Wenn du als Aktion <strong>Rechnung erstellen </strong> ausgewählt hast und auf die rechte Schaltfläche <strong>erstellen</strong> geklickt hast, dann erscheint folgende Übersicht:</p>
+<p><img alt="ServiceOrder4.png" src="https://help.xentral.com/hc/article_attachments/13440144208924" /></p>
+<p>Diese bietet dir dir die Option <strong>Dateien aus Serviceauftrag als Anhang in Rechnung übernehmen</strong> an. Wenn du diese anhakst, werden die Dateien, die zum Serviceauftrag gehören, in den Anhang der zugehörigen Rechnung übernommen und sind von dort ebenfalls einsehbar.</p>
+<p>Wenn du alle Eingaben vollständig eingetragen hast, klicke auf <strong>erstellen </strong>.<strong>Akkordeon Menü auf der rechten Seite</strong></p>
+<p>Auf der rechten unteren Seite unten findest du ein Akkordeon-Menü, in welchem du verschiedene Aktionen auswählen kannst:</p>
+<p>-<strong>Zeiterfassung</strong>: Du siehst hier eine Übersicht der gebuchten Zeiten. Durch einen Klick auf &ldquo;Artikel aus Zeiterfassung generieren&rdquo; kannst du einen Artikel im dann erscheinenden Feld eintragen und einer Zeit zuordnen
+-<strong>Foto hinzufügen</strong>: Hier kannst du ein Foto zum Serviceauftrag über die &ldquo;Datei auswählen&rdquo;-Schaltfläche hinzufügen. Auf mobilen Geräten springt hier die Kamera an
+-<strong>Dateien</strong>: Unter &ldquo;Dateien&rdquo; werden dir alle Dateien des vorliegenden Serviceauftrags angezeigt
+-<strong>Belege</strong>: Hier werden dir die Belege, die über den Serviceauftrag erstellt wurden, angezeigt
+-<strong>Logbuch</strong>: Hier werden dir die Logbucheinträge angezeigt
+-<strong>Serviceauftrag PDF</strong>: Unter diesem Punkt kannst du dir die Vorschau des PDFs des Serviceauftrags ansehen</p>
+<h3 id="logbuch">Logbuch<a class="headerlink" href="#logbuch" title="Permanent link">&para;</a></h3>
+<p>Im Reiter <strong>Logbuch</strong> kannst du die Arbeitsschritte festhalten, die für die Serviceleistung angefallen sind:</p>
+<p>Über das <strong>Suche </strong></p>
+<p>-Feld kannst du in den angelegten Logbucheinträgen suchen. In der Menü-Spalte kannst du über das <strong>Stift </strong></p>
+<p>-Icon den Eintrag editieren und über das <strong>Kreuz</strong></p>
+<p>-Icon den Eintrag löschen.</p>
+<p>Um einen neuen Eintrag zu erstellen, klicke auf die <strong>Neuer Eintrag</strong></p>
+<p>-Schaltfläche.</p>
+<p>Befülle folgende Felder:</p>
+<p>-<strong>Betreff</strong>: Trage den Grund des Logbucheintrags ein
+-<strong>Text</strong>: Trage weitere Informationen ein
+-<strong>Bearbeiter</strong>: Trage den Bearbeiter händisch ein oder wähle diesen über das &ldquo;Lupe&rdquo;-Icon aus der dann erscheinende Liste aus
+-<strong>Datum</strong>: Wähle das Datum aus dem Kalender aus
+-<strong>Reparaturbericht</strong>: Durch Anhaken machst du deutlich, dass es sich um einen Reparaturbericht handelt</p>
+<p>Klicke abschließend auf <strong>Speichern</strong>.</p>
+<h3 id="abweichende-adressen">Abweichende Adressen<a class="headerlink" href="#abweichende-adressen" title="Permanent link">&para;</a></h3>
+<p>Im Reiter <strong>Abweichende Adressen</strong> kannst du für den Serviceauftrag eine abweichende Rechnungs- und eine abweichende Lieferadresse definieren. Hake dazu die Felder Abweichende Lieferadresse sowie Abweichende Rechnungsadresse an.</p>
+<p>Befülle folgende Felder:</p>
+<p>-<strong>Name</strong>: Trage den Namen ein
+-<strong>Titel</strong>: Dieses Feld ist optional. Trage den Titel ein, der zu dem zuvor eingetragenen Namen gehört
+-<strong>Ansprechpartner</strong>: Dieses Feld ist optional. Trage den Ansprechpartner ein
+-<strong>Abteilung</strong>: Dieses Feld ist optional. Trage die Abteilung ein
+-<strong>Unterabteilung</strong>: Dieses Feld ist optional. Trage hier die Unterabteilung ein
+-<strong>Adresszusatz</strong>: Gib, falls notwendig, hier den Adresszusatz an
+-<strong>Straße</strong>: Trage die Straße ein
+-<strong>PLZ/Ort</strong>: Trage die PLZ sowie den dazugehörigen Ort ein
+-<strong>Land</strong>: Wähle das Land aus dem Drop-Down Menü aus
+-<strong>GLN</strong>: Dieses Feld ist optional. Trage die GLN ein</p>
+<p>Klicke abschließend auf die <strong>Speichern</strong></p>
+<p>-Schaltfläche oberhalb der Felder.</p>
+<p>Mach optional weitere Angabe, indem du entweder auf Lieferadresse, Ansprechpartner oder aus Stammdaten klickst und in den dann erscheinenden Feldern alle notwendigen Informationen einpflegst.</p>
+<h3 id="dateien">Dateien<a class="headerlink" href="#dateien" title="Permanent link">&para;</a></h3>
+<p>Im Reiter <strong>Dateien</strong> kannst du im Bilder, PDFs, etc. zum Serviceauftrag hinterlegen.</p>
+<h4 id="ubersicht_2">Übersicht<a class="headerlink" href="#ubersicht_2" title="Permanent link">&para;</a></h4>
+<p>Im Unterreiter <strong>Übersicht</strong> kannst du alle bereits angelegten Dateien in einer Übersicht einsehen.</p>
+<p>In der Menü-Spalte kannst du über das <strong>Stift </strong></p>
+<p>-Icon den Eintrag editieren, über das <strong>Pfeil </strong></p>
+<p>-Icon den Eintrag herunterladen und über das <strong>Kreuz</strong></p>
+<p>-Icon löschen.</p>
+<p>Über <strong>Zip erstellen </strong> kannst du aus allen vorliegenden Dateien eine Zip-Datei erstellen. Über <strong>Sammel-PDF öffnen</strong> kannst du alle Einträge in der Übersicht als Sammel-PDF zusammenführen und öffnen.</p>
+<h4 id="neue-datei-anlegen">Neue Datei anlegen<a class="headerlink" href="#neue-datei-anlegen" title="Permanent link">&para;</a></h4>
+<p>Im Unterreiter neue Datei anlegen kannst du eine weitere Datei zum Serviceauftrag hinzufügen.</p>
+<p>Hier hast du zwei Möglichkeiten:</p>
+<ol>
+<li>
+<p>Wähle eine Datei aus und ziehe sie per Drag-and-Drop in das Feld <strong>Dateien hier einfügen </strong></p>
+</li>
+<li>
+<p>Klicke auf die Schaltfläche <strong>Datei auswählen</strong> und wähle dann eine Datei aus.</p>
+</li>
+</ol>
+<p>Trage optional folgende Infos ein:</p>
+<p>-<strong>Titel</strong>: Trage den Titel der Datei ein, der dann auch in der Übersicht erscheint
+-<strong>Beschreibung</strong>: Trage eine Beschreibung der Datei ein
+-<strong>Stichwort</strong>: Wähle ein Stichwort aus dem Drop-Down Menü aus</p>
+<p>Klicke abschließend rechts unten auf <strong>Speichern</strong>.</p>
+<h3 id="zeiterfassung">Zeiterfassung<a class="headerlink" href="#zeiterfassung" title="Permanent link">&para;</a></h3>
+<p>Im Reiter <strong>Zeiterfassung</strong> werden alle auf dem Serviceauftrag gebuchte Zeiten aufgelistet.</p>
+<p>Über das <strong>Stift </strong></p>
+<p>-Icon editierst du den Eintrag, über das <strong>Kreuz</strong></p>
+<p>-Icon löschst du ihn.</p>
+<h2 id="serviceauftrage-im-kalender">Serviceaufträge im Kalender<a class="headerlink" href="#serviceauftrage-im-kalender" title="Permanent link">&para;</a></h2>
+<p>Serviceaufträge werden separat als Termine im Kalender auf der Startseite ausgewiesen. Über das Setzen des Hakens bei <strong>Serviceauftrag</strong> kannst du die Serviceaufträge ein- oder ausblenden:</p>
+<p><img alt="ServiceOrder5.png" src="https://help.xentral.com/hc/article_attachments/13440128996636" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

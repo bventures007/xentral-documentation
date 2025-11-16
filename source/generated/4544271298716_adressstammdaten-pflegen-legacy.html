@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4544271298716 Adressstammdaten Pflegen Legacy - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>4544271298716 Adressstammdaten Pflegen Legacy</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>4544271298716 Adressstammdaten Pflegen Legacy</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Deine Adressstammdaten pflegst du im Menü <strong>Verkaufen &gt; Adressen</strong>. Hier kannst du genau die Adressstammdaten öffnen, die du pflegen oder ändern möchtest.</p>
+<p>Gehe wie folgt vor, um die gewünschten Adressstammdaten zu öffnen:</p>
+<ol>
+<li>Gib den Kunden-, Lieferanten oder Mitarbeiternamen oder einen Teil des Namens in den Suchfilter der Spalte <strong>Name</strong> ein.</li>
+<li>Wähle aus den angezeigten Ergebnissen den gewünschten Kunden, Lieferanten oder Mitarbeiter und öffne den Adressstammdatensatz per Doppelklick auf die entsprechende Zeile oder per Klick auf das <strong>Stift-Symbol</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Alle in dieser Anleitung beschriebenen Felder sind optional, soweit sie nicht spezifisch als verpflichtend gekennzeichnet sind. Wir empfehlen jedoch, alle für dich relevanten Felder bestmöglich auszufüllen, da viele Felder auch in anderen Funktionalitäten Anwendung finden und du dir damit die Arbeit im Nachgang erleichterst.</p>
+</blockquote>
+<p>Die meisten der hier beschriebenen Tabs bieten dir mithilfe der Schaltfläche <strong>Werkzeuge</strong> oberhalb der Tabellen folgende Exportfunktionen an:</p>
+<p>-<strong>CSV </strong></p>
+<p>-<strong>Excel</strong></p>
+<p>-<strong>PDF</strong></p>
+<p>-<strong>Zwischenablage</strong></p>
+<p>-<strong>Drucken</strong></p>
+<p>Weitere informationen zum Export von Adressstammdaten findest du<a href="https://help.xentral.com/hc/de/articles/4499048021788#UUID-4ad63149-2c1d-09b5-5c41-ff4d7e5da3a9">in diesem Artikel</a>.</p>
+<p>Ebenso bieten dir die meisten Tabs verschiedene Filter- und Suchoptionen.</p>
+<p>Folgende Such- und Filteroptionen stehen zur Verfügung:</p>
+<ul>
+<li>Filteroptionen oberhalb der Tabelle, die aktiviert oder deaktiviert werden können:</li>
+</ul>
+<p><img alt="maintaincontactmaster_1.png" src="https://help.xentral.com/hc/article_attachments/5091263340188" /></p>
+<ul>
+<li>Spaltenfilter unterhalb der Überschriften von Tabellen, in denen du einen (Teil-)Suchbegriff eingeben kannst:</li>
+</ul>
+<p><img alt="maintaincontactmaster_2.png" src="https://help.xentral.com/hc/article_attachments/5091263394332" /></p>
+<ul>
+<li>Das Feld <strong>Suchen</strong> rechts über der Tabelle, in dem du einen (Teil-)Suchbegriff eingeben kannst:</li>
+</ul>
+<p><img alt="maintaincontactmaster_3.png" src="https://help.xentral.com/hc/article_attachments/5091171803164" /></p>
+<p>Die beschriebenen Such- und Filteroptionen kannst du auch untereinander kombinieren.</p>
+<h2 id="tab-details">Tab Details<a class="headerlink" href="#tab-details" title="Permanent link">&para;</a></h2>
+<p>Informationen zum Ausfüllen der Felder des Tabs <strong>Details</strong> findest du im Artikel<a href="https://help.xentral.com/hc/de/articles/4539623305500#UUID-5eb13622-c11e-65ae-3f78-826dda45c848">Adressstammdaten anlegen</a>.</p>
+<h2 id="tab-dateien">Tab Dateien<a class="headerlink" href="#tab-dateien" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Dateien</strong> kannst du Dateien mit verschiedenen Inhalten wie z.B. den Anlieferrichtlinien oder Service Level Agreements mit Lieferanten hinterlegen.</p>
+<p>Gehe wie folgt vor, um eine neue Datei zu hinterlegen:</p>
+<ol>
+<li>Klicke auf <strong>neue Datei anlegen</strong> unter der Registerübersicht.</li>
+<li>Ziehe die gewünschte Datei per Drag &amp; Drop in den Bereich <strong>Dateien hier einfügen </strong> oder klicke auf <strong>Datei auswählen</strong> und wähle die gewünschte Datei auf deinem PC aus.</li>
+<li>Gib eine eindeutige Bezeichnung deiner Datei in das Feld <strong>Titel</strong> ein.</li>
+<li>Gib eine Beschreibung deiner Datei in das Feld <strong>Beschreibung</strong> ein.</li>
+<li>Wähle im Feld <strong>Stichwort </strong> ein Stichwort für deine Datei aus. Mögliche Optionen sind:<strong>Sonstige Datei <strong>,</strong> Deckblatt <strong>,</strong> Anhang </strong> und <strong>Profilbild </strong>. Wählst du z.B. das Stichwort <strong>Anhang </strong>, kannst du die Datei beim Versenden von Belegen (z.B. dem Lieferschein) im Dialog <strong>Abschicken</strong> als Anhang mit versenden.</li>
+</ol>
+<p>Über die <strong>Stapelverarbeitung</strong> kannst du eine ZIP-Datei mit mehreren Dateien erstellen oder die Dateien als Sammel-PDF öffnen.</p>
+<p>Gehe wie folgt vor, um eine ZIP-Datei mit mehreren Dateien zu erstellen oder eine Sammel-PDF mit meinen Dateien zu öffnen:</p>
+<ol>
+<li>Wähle die gewünschten Dateien, indem du sie links auswählst. Alternativ klicke auf <strong>alle markieren </strong> unter <strong>Stapelverarbeitung</strong>.</li>
+<li>Klicke auf <strong>ZIP erstellen </strong> oder <strong>Sammel-PDF öffnen</strong>.</li>
+</ol>
+<h2 id="tab-crm">Tab CRM<a class="headerlink" href="#tab-crm" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>CRM</strong> findest du eine Übersicht aller bisherigen Interaktionen mit deinem Kunden, Lieferanten oder Mitarbeiter. Diese Interaktionen bestehen aus folgenden Elementen:</p>
+<ul>
+<li>Alle versendeten Briefe</li>
+<li>Alle ausgetauschten E-Mails</li>
+<li>Alle Telefonnotizen, die erstellt wurden</li>
+<li>Alle Notizen, die erfasst wurden</li>
+<li>Alle Wiedervorlagen, die intern erstellt wurden</li>
+<li>Alle Tickets des Kunden oder Lieferanten</li>
+<li>Alle Termine</li>
+<li>Alle Belege wie z.B. Angebote, Lieferscheine, Rechnungen etc.</li>
+</ul>
+<p>Links im Tab werden dir die verschiedenen (CRM-)Kategorien angezeigt, die in der Übersicht enthalten sind. Bei den Kategorien, die ein Kreuz rechts daneben aufweisen, kannst du direkt Kontakt mit dem Kunden, Lieferanten oder Mitarbeiter aufnehmen oder Notizen, Anmerkungen, Wiedervorlagen oder Termine erfassen.</p>
+<p>Infos dazu, wie du CRM-Aktivitäten über die Adressstammdaten startest oder erfasst, findet du im Artikel<a href="https://help.xentral.com/hc/de/articles/4536861889052#UUID-37a921f2-f546-6f5d-cf78-86f2afab00ea">CRM-Aktivitäten über die Adressstammdaten starten</a>.</p>
+<p>Rechts im Tab siehst du eine Übersicht aller vorhandenen Kontakte zwischen dir und dem Kunden, Lieferanten oder Mitarbeiter sowie Notizen und Belege.</p>
+<p>Neben den bereits in der Einleitung dieses Artikels beschriebenen Filteroptionen steht dir in diesem Tab eine weitere Filteroption zur Verfügung:</p>
+<ul>
+<li>Möchtest du nur bestimmte Kategorien wie z.B.<strong>Wiedervorlagen <strong>,</strong> Briefe</strong> etc. in der Übersicht angezeigt bekommen, kannst du über die entsprechenden Checkboxen links die gewünschten Kategorien auswählen. Eine Mehrfachauswahl ist möglich.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Damit Antworten des Kunden oder Lieferanten in der Übersicht angezeigt werden, müssen diese an die zentrale Mailadresse deiner eigenen Firma gesendet werden.</p>
+</blockquote>
+<h2 id="tab-rollen">Tab Rollen<a class="headerlink" href="#tab-rollen" title="Permanent link">&para;</a></h2>
+<p>Bei Anlage deiner Stammdaten definierst du Rollen, die diesen Stammdaten zugewiesen werden, d.h. Kunde, Lieferant und/oder Mitarbeiter.</p>
+<p>Im Tab <strong>Rollen </strong> wird dir angezeigt, welche Rollen dem aktuell geöffneten Adressstammdatensatz zugewiesen sind. Zusätzlich werden dir weitere Informationen wie <strong>Zuordnung</strong>(Projekt oder Gruppe), <strong> Auswahl <strong>(welches Projekt bzw. welche Gruppe) sowie (</strong> Start-</strong> und, wenn vorhanden,<strong> Enddatum</strong>) der Rollenzuteilung in der Tabelle angezeigt.</p>
+<p>In diesem Tab kannst du deinen Adressstammdaten auch nachträglich weitere Rollen zuweisen, wenn z.B. ein bisheriger Kunde nun auch dein Lieferant ist oder die Rollenzuweisung nach Projekt unterschiedlich ist. Außerdem kannst du hier temporäre Rollen vergeben und vorhandene Rollen löschen.</p>
+<p>Gehe wie folgt vor, um eine neue Rolle zuzuweisen:</p>
+<ol>
+<li>Wähle im Feld <strong>Rolle </strong> die neue Rolle, die du dem Adressstammdatensatz zuweisen möchtest. Mögliche Optionen sind <strong>Kunde </strong>,<strong>Lieferant <strong>,</strong> Mitarbeiter </strong> oder <strong>Mitglied </strong>. Die Rolle <strong>Mitglied</strong> bezieht sich dabei auf Gruppen. Weitere Informationen zu Gruppen findest du im Artikel.</li>
+<li>Wähle im Feld <strong>von</strong> aus, ob die Rolle auf Basis eines Projekts oder einer Gruppe zugewiesen werden soll.</li>
+<li>Wähle im Auswahlfeld rechts des Feldes <strong>von</strong> das gewünschte Projekt oder die gewünschte Gruppe. Lässt du das Feld leer, bezieht sich die Rolle auf alle Projekte oder Gruppen.</li>
+<li>Klicke auf <strong>als neue Rolle anlegen</strong>, um die Rolle zuzuweisen.</li>
+</ol>
+<p>Die neue Rolle wird nun in der Tabelle aufgelistet.</p>
+<p>Gehe wie folgt vor, um eine temporäre Rolle zuzuweisen:</p>
+<ol>
+<li>Führe die oben beschriebenen Schritte für die temporäre Rolle aus.</li>
+<li>Klicke auf das <strong>Stift-Symbol </strong> in der Spalte <strong>Aktion</strong> für die Rolle, die du temporär vergeben möchtest.</li>
+<li>Definiere das <strong>Von-</strong> und <strong> Bis-</strong> Datum und klicke auf <strong> Speichern</strong>.</li>
+</ol>
+<p>In der Tabelle findest du nun in den Spalten <strong>Seit </strong> und <strong>Bis</strong> das Start- und Enddatum für die Zuweisung der temporären Rolle.</p>
+<p>Gehe wie folgt vor, um Rollen zu löschen:</p>
+<ol>
+<li>Klicke bei der entsprechenden Rolle auf das <strong>X-Symbol </strong> in der Spalte <strong>Aktion</strong>.</li>
+<li>Du wirst gefragt, ob du die Rolle wirklich löschen möchtest. Klicke auf <strong>OK</strong>.</li>
+<li>Die Rollenzuweisung wird aus der Tabelle gelöscht.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Mithilfe von Rollen können die Benutzerrechte von Mitarbeitern gesteuert werden. Weiterführende Informationen zu Benutzerrechten findest du im ArtikelBenutzer verwalten.</p>
+</blockquote>
+<h2 id="tab-gruppen">Tab Gruppen<a class="headerlink" href="#tab-gruppen" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Gruppen</strong> kannst du deine Adressstammdaten zu Gruppen und Preisgruppen hinzufügen. Diese Gruppen müssen zuvor angelegt worden sein. Mehr dazu, wie du Gruppen verwendest und wie du sie anlegst, erfährst du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016722000#UUID-27c9f5ac-bebe-bc23-79b2-b19285784cfc">Gruppen</a>.</p>
+<p>In der Tabelle dieses Tabs sind alle verfügbaren Gruppen angezeigt. Möchtest du deinen Kunden einer Gruppe hinzufügen, aktivierst du einfach das Kontrollkästchen links in der Tabelle für die entsprechende(n) Gruppe(n).</p>
+<h2 id="tab-zeit-nur-bei-mitarbeiterstammdaten">Tab Zeit (nur bei Mitarbeiterstammdaten)<a class="headerlink" href="#tab-zeit-nur-bei-mitarbeiterstammdaten" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Zeit </strong> werden dir alle für den Mitarbeiter erfassten Zeiten mitsamt der dazugehörigen Tätigkeit angezeigt. Die Zeiterfassung erfolgt über das Modul <strong>Zeiterfassung</strong>.</p>
+<p>Du kannst die angezeigten Zeiten bearbeiten, indem du in der Spalte <strong>Menü </strong> auf das <strong>Stift</strong></p>
+<p>-Symbol klickst.</p>
+<p>Mehr zur Zeiterfassung erfährst du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016757839#UUID-c32e78b6-a00e-1901-94ee-55950ed36367">Zeiterfassung</a>.</p>
+<h2 id="tab-ansprechpartner">Tab Ansprechpartner<a class="headerlink" href="#tab-ansprechpartner" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Ansprechpartner</strong> findest du alle Ansprechpartner auf Seiten deines Kunden oder Lieferanten. Zudem kannst du hier neue Ansprechpartner anlegen.</p>
+<p>Gehe wie folgt vor, um einen neuen Ansprechpartner anzulegen:</p>
+<ol>
+<li>Klicke rechts unter <strong>Aktionen </strong> auf <strong>+Neuen Eintrag anlegen</strong>.</li>
+<li>Fülle im Formular <strong>Ansprechpartner</strong> alle Felder mit den erforderlichen Informationen, füge sonstige Informationen in den entsprechenden Textfeldern hinzu und aktiviere die relevanten Checkboxen. Die Checkboxen sind im Artikel <a href="https://help.xentral.com/hc/de/articles/4539623305500#UUID-5eb13622-c11e-65ae-3f78-826dda45c848">Adressstammdaten anlegen</a> beschrieben.</li>
+<li>Wähle bei Bedarf eine Gruppe aus (muss bereits angelegt sein).</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Der neue Ansprechpartner wird deiner Übersichtstabelle hinzugefügt.</p>
+<h2 id="tab-lieferadressen">Tab Lieferadressen<a class="headerlink" href="#tab-lieferadressen" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Lieferadressen</strong> kannst du abweichende Lieferadressen zur Hauptadresse angeben und eine abweichende Standardlieferadresse definieren.</p>
+<p>Gehe wie folgt vor, um eine (abweichende) Lieferadresse anzulegen:</p>
+<ol>
+<li>Klicke unter <strong>Aktionen </strong> auf die Schaltfläche <strong>Neuen Eintrag anlegen</strong>.</li>
+<li>
+<p>Trage die Adress- und Kontaktdaten sowie die weiteren Informationen in die entsprechenden Felder ein.
+1.<strong>Optional</strong>: Text, den du in das Feld Lieferhinweis Bemerkung einträgst, wird anschließend auf Belegen (Angebot, Auftrag und Lieferschein) angezeigt, wenn du die Variable {LIEFERADRESSE_HINWEIS} der entsprechenden Textvorlage des Belegs hinzugefügt hast.
+  Du kannst die Variable unter Einstellungen &gt; &gt; Grundeinstellungen &gt; Belege &gt; Textvorlagen dem Beleg hinzufügen.</p>
+</li>
+<li>
+<p>Sollte die <strong>USt-ID </strong> oder die <strong>Besteuerung </strong> der abweichenden Lieferadresse von den im Tab <strong>Details</strong> erfassten Informationen abweichen, gib die alternative ID ein bzw. wähle die alternative Besteuerung.</p>
+</li>
+<li>Möchtest du die abweichende Lieferadresse zukünftig als Standard-Lieferadresse verwenden, aktiviere die Option <strong>Standard-Lieferadresse</strong>.</li>
+<li>Klicke nach Eingabe aller Daten auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Die abweichende Lieferadresse kannst du in deinem Kundenauftrag auswählen.</p>
+<h2 id="tab-preisliste">Tab Preisliste<a class="headerlink" href="#tab-preisliste" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Preisliste</strong> findest du eine Übersicht aller Artikel mitsamt der der aktuellen Preise.</p>
+<h2 id="tab-accounts">Tab Accounts<a class="headerlink" href="#tab-accounts" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Accounts</strong> kannst du Zugänge zu anderen Anwendungen wie z.B. einem Amazon-Verkäuferkonto oder einem LinkedIn-Konto verwalten.</p>
+<p>Gehe wie folgt vor, um einen neuen Account anzulegen:</p>
+<ol>
+<li>Klicke unter <strong>Aktionen </strong> auf <strong>+Neuen Eintrag anlegen</strong>.</li>
+<li>Gib die erforderlichen Daten in die Felder <strong>Bezeichnung </strong>,<strong>Benutzername <strong>,</strong> Passwort <strong>,</strong> Art <strong> (z.B. LinkedIn, Amazon),</strong> URL </strong>, und <strong>E-Mail</strong> ein.</li>
+<li>Möchtest du weitere Informationen wie z.B. Fernwartungsinformationen zu diesem Account hinterlegen, kannst du das im Feld <strong>Notizen</strong> tun.</li>
+<li>Gib in die Felder <strong>Gültig ab </strong> und <strong>bis</strong> einen Zeitraum ein, in dem der Account gültig ist.</li>
+<li>Aktiviere die Option <strong>Aktiv</strong>, um den Account aktiv zu schalten.</li>
+<li>Wenn du alle Daten eingegeben hast, klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Der Account wird deiner Übersicht hinzugefügt.</p>
+<h2 id="tab-belege-nur-kundenstammdaten">Tab Belege (nur Kundenstammdaten)<a class="headerlink" href="#tab-belege-nur-kundenstammdaten" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Belege </strong> werden dir alle Belege des Kunden angezeigt. Hier findest du außerdem eine kurze Kundenstatistik inkl.<strong>Kreditlimit <strong>,</strong> Nettoumsatz des aktuellen Jahres </strong> und <strong>Salden</strong>.</p>
+<h2 id="tab-artikel">Tab Artikel<a class="headerlink" href="#tab-artikel" title="Permanent link">&para;</a></h2>
+<p>Der Tab <strong>Artikel </strong> enthält die folgenden untergeordneten Tabs:<strong>Artikel <strong>,</strong> Seriennummern / Chargen / MHD </strong> und <strong>RMA</strong>.</p>
+<p>In diesen Tabs werden dir alle Artikel angezeigt, die auf den Kundenbelegen enthalten sind.</p>
+<h3 id="tab-artikel_1">Tab Artikel<a class="headerlink" href="#tab-artikel_1" title="Permanent link">&para;</a></h3>
+<p>Dieser Tab beinhaltet eine Übersicht aller auf den Belegen erfassten Artikel samt Verkaufspreis. Maßgeblich ist hier immer der Zeitpunkt, zu dem ein Artikel in einen Lieferschein bzw. in eine Rechnung eingefügt wurde.</p>
+<p>Der untergeordnete Tab <strong>Seriennummern / Chargen / MHD</strong>:</p>
+<p>Dieser Tab zeigt alle Artikel, die eine Seriennummer, ein Mindesthaltbarkeitsdatum oder eine Chargennummer haben.</p>
+<h3 id="tab-rma">Tab RMA<a class="headerlink" href="#tab-rma" title="Permanent link">&para;</a></h3>
+<p>Dieser Tab zeigt alle Artikel, die als Retouren erfasst wurden.</p>
+<h2 id="tab-zeitkonto-nur-fur-kundenstammdaten">Tab Zeitkonto (nur für Kundenstammdaten)<a class="headerlink" href="#tab-zeitkonto-nur-fur-kundenstammdaten" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Zeitkonto</strong> findest du alle Zeiten, die auf den Kunden gebucht wurden, z.B. im Rahmen der Bereitstellung von Dienstleistungen. Diese Zeiten kannst du mit und ohne Zeitangabe als Dienstleistung auf einen Auftrag oder eine Rechnung übernehmen.</p>
+<p>Die in dieser Übersicht angezeigten Zeiten kannst du per <strong>Stapelverarbeitung</strong> weiter verarbeiten.</p>
+<p>Gehe wie folgt vor, um Zeiten per Stapelverarbeitung zu verarbeiten:</p>
+<ol>
+<li>Wähle die gewünschten Zeiten aus oder markiere alle Zeiten durch Auswahl der Checkbox <strong>alle markieren </strong> unter <strong>Stapelverarbeitung</strong>.</li>
+<li>Wenn gewünscht, aktiviere die Option <strong>inkl. Datum und Bearbeiter als Beschriftung</strong>, um Bearbeiter und Datum im Beleg zu ergänzen.</li>
+<li>Klicke nun auf eine der folgenden Schaltflächen:</li>
+</ol>
+<p>-<strong>Zeiten abrechnen</strong>. Die Zeiten werden abgerechnet, d.h. es kann ein Auftrag oder eine Rechnung mit einem Stundensatz-Artikel an die Adresse erstellt werden.
+-<strong>nur als abgerechnet markieren</strong>. Die Zeiten werden als abgerechnet markiert, jedoch wird kein Beleg erstellt.
+-<strong>nur als offen markieren</strong>. Die Zeiten werden als offen gekennzeichnet.</p>
+<p>Die Zeiten werden verarbeitet. In den Adressstammdaten eines Mitarbeiters kannst du die gebuchten Arbeits- und Pausenzeiten im Tabs <strong>Zeit</strong> einsehen.</p>
+<h2 id="tab-abos-nur-fur-kundenstammdaten">Tab Abos (nur für Kundenstammdaten)<a class="headerlink" href="#tab-abos-nur-fur-kundenstammdaten" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Abos</strong> findest du alle Informationen zu bestehenden Abos und du kannst neue Abos anlegen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Damit dir dieser Tab angezeigt wird, muss das entsprechende Modul im App-Center aktiviert sein.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um ein neues Abo anzulegen:</p>
+<ol>
+<li>Klicke unter <strong>Aktionen </strong> auf <strong>+Neue Position einfügen</strong>.</li>
+<li>Wähle den <strong>Artikel </strong> aus, für den ein Abo erstellt werden soll und gebe eine <strong>Bezeichnung </strong> des Abos und eine <strong>Beschreibung</strong> des Abos ein.</li>
+<li>Aktiviere die Option <strong>Beschreibungstext ersetzen</strong>, wenn nur die hier erfasste Beschreibung und nicht die Beschreibung aus den Stammdaten angezeigt werden soll.</li>
+<li>Gib die <strong>Menge </strong> des Artikels ein, den <strong>Preis (netto)</strong> und, falls gewünscht, den <strong> Rabatt</strong> in %.</li>
+<li>Wähle unter <strong>Automatisch anlegen als </strong> aus, ob das Abo automatisch als Rechnung oder Auftrag in einer zuvor definierten Gruppe festgelegt werden soll. Optional kannst du auch eine <strong>Reihenfolge</strong> festlegen.</li>
+<li>Gib als <strong>Erstes Startdatum </strong>, zu welchem Datum das Abo beginnen soll, im Feld <strong>Zahlzyklus </strong> den Zyklus in Wochen, Monaten oder Jahren, in dem abgerechnet werden soll und im Feld <strong>Enddatum</strong> das Enddatum des Abos.</li>
+<li>Aktiviere die Option <strong>Expertenmodus</strong>, um weitere Einstellungen sowie ein händisches Zurücksetzen des letzten Abrechnungsdatums zu ermöglichen.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Das neue Abo ist angelegt und wird in der Übersicht angezeigt.</p>
+<p>Mit einem Klick auf <strong>Sortieren </strong> unter <strong>Aktionen</strong> werden die Aboartikel sortiert.</p>
+<p>Du kannst hier auch Abos bearbeiten oder löschen. Zum Bearbeiten eines Abos klickst du für das jeweilige Abo unter <strong>Menü </strong> auf das <strong>Stift-Symbol <strong>. Zum Löschen klickst du auf das </strong> Kreuz</strong>.</p>
+<h2 id="tab-service-nur-fur-kundenstammdaten">Tab Service (nur für Kundenstammdaten)<a class="headerlink" href="#tab-service-nur-fur-kundenstammdaten" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Service</strong> findest du die aktuellen Service &amp; Support-Tickets. Dort können auch neue Anfragen in Form eines Service &amp; Support-Tickets erstellt werden.</p>
+<p>Gehe wie folgt vor, um ein neues Service &amp; Support-Ticket zu erstellen:</p>
+<ol>
+<li>Klicke unter <strong>Aktionen </strong> auf <strong>+Neue Anfrage anlegen</strong>.</li>
+<li>Du wirst gefragt, ob eine neue Anfrage angelegt werden soll. Klicke auf <strong>OK</strong>.</li>
+<li>Fülle alle relevanten Felder aus und reiche deine Anfrage ein.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Das neue Service &amp; Support-Ticket ist erstellt und wird in der Übersicht angezeigt. Mehr zum Thema Service &amp; Support findest du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016774259#UUID-938c8659-8712-e2aa-5cc5-db372c3b6779">Service &amp; Support</a>.</p>
+<h2 id="tab-lieferprogramm-nur-fur-lieferantenstammdaten">Tab Lieferprogramm (nur für Lieferantenstammdaten)<a class="headerlink" href="#tab-lieferprogramm-nur-fur-lieferantenstammdaten" title="Permanent link">&para;</a></h2>
+<p>Der Tab <strong>Lieferprogramm</strong> enthält eine Übersicht der Einkaufspreise dieses Lieferanten für alle Artikel. Zudem kannst du sehen, in welchem Beleg der Artikel in welcher Menge auftaucht und die aktuelle Bestandssituation, sowie die Abfrage im aktuellen sowie im vergangenen Monat.</p>
+<h2 id="tab-bestellungen-nur-fur-lieferantenstammdaten">Tab Bestellungen (nur für Lieferantenstammdaten)<a class="headerlink" href="#tab-bestellungen-nur-fur-lieferantenstammdaten" title="Permanent link">&para;</a></h2>
+<p>Der Tab <strong>Bestellungen </strong> enthält die beiden untergeordneten Tabs.<strong>Bestellungen </strong> und <strong>Artikel</strong>.</p>
+<p>Im untergeordneten Tab <strong>Bestellungen </strong> werden dir alle offenen Bestellungen mit Status, Datum und Bearbeiter des Lieferanten angezeigt. Möchtest du auch die bereits abgeschlossenen Bestellungen sehen, aktiviere den Filter <strong>auch abgeschlossene</strong> über der Tabelle.</p>
+<p>Im untergeordneten Tab <strong>Artikel </strong> findest du alle noch ausstehenden Artikel der Bestellungen. Möchtest du hier Artikel als geliefert kennzeichnen, klicke in der Spalte <strong>Menü </strong> auf den <strong>blauen Pfeil</strong>.</p>
+<h2 id="tab-verbindlichkeiten-nur-fur-lieferantenstammdaten">Tab Verbindlichkeiten (nur für Lieferantenstammdaten)<a class="headerlink" href="#tab-verbindlichkeiten-nur-fur-lieferantenstammdaten" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Verbindlichkeiten </strong> findest du alle deine Verbindlichkeiten dem Lieferanten gegenüber. Neben den Rechnungsinformationen werden dir hier die Zahlungsoptionen sowie der aktuell offene Betrag angezeigt. In der Spalte <strong>Monitor</strong> kannst du an der Ampel direkt sehen, welche Schritte im Zahlungsprozess bereits abgeschlossen sind (grüne Darstellung) und welche noch offen sind (orangene Darstellung), z.B. Wareneingangsprüfung, Vorkontierung oder Zahlung.</p>
+<p>Du kannst deine Verbindlichkeiten unter <strong>Menü </strong> mit einem Klick auf das <strong>Stift</strong></p>
+<p>-Symbol öffnen und bearbeiten oder die Rechnung direkt als PDF-Dokument herunterladen, indem du auf das <strong>PDF</strong></p>
+<p>-Symbol für deine Verbindlichkeit klickst.</p>
+<h2 id="tab-serienbriefe">Tab Serienbriefe<a class="headerlink" href="#tab-serienbriefe" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Serienbriefe</strong> werden dir alle verfügbaren Layoutvorlagen für Serienbriefe angezeigt. Wie du Layoutvorlagen für Serienbriefe erstellst, erfährst du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016756559#UUID-64ac3470-4c9b-918d-f6aa-ea9fb026b82d">Layoutvorlagen</a>.</p>
+<p>Du kannst die hier angezeigten Layoutvorlagen im PDF-Format herunterladen, indem du in der Spalte <strong>Menü </strong> auf das <strong>PDF-Symbol</strong> klickst.</p>
+<h2 id="tab-ust-id-prf">Tab Ust-ID Prf.<a class="headerlink" href="#tab-ust-id-prf" title="Permanent link">&para;</a></h2>
+<p>Im Tab <strong>Ust-ID Prf. </strong> kannst du die Umsatzsteuer-ID bei Kunden aus dem EU-Ausland abfragen. Für Prüfungszwecke wird dazu der offizielle Brief vom Bundeszentralamt für Steuern benötigt. Stelle sicher, dass jeweils ein Brief pro Anfrage vorliegt. Unter <strong>Adresse &gt; Details &gt; Zahlungskonditionen/Besteuerung</strong> handelt es sich nur um eine Formatprüfung der Ust.-ID. Die eigentliche Ust.-ID-Prüfung erfolgt im Tab <strong>Ust.-ID Prüfung</strong>.</p>
+<p>Gehe wie folgt vor, um die Umsatzsteuer-ID des Kunden abzufragen:</p>
+<ol>
+<li>Klicke unter <strong>Aktionen </strong> auf <strong>+Neue Ust-ID Prüfung</strong>. Beachte, dass auch ohne Speichern automatisch eine neue Umfrage angelegt wird.</li>
+<li>Die Felder des Bereichs <strong>Daten</strong> werden automatisch mit den hinterlegten Stammdaten gefüllt. Trage fehlende Daten nach.</li>
+<li>Wähle eine der folgenden Aktionen aus:</li>
+</ol>
+<p>-<strong>Einfache Online Prüfung</strong>. Bei korrekten Adressangaben kann eine Online-Prüfung beim Bundeszentralamt für Steuern erfolgen. Du bekommst eine Rückmeldung, ob die Prüfung der Daten erfolgreich war.
+-<strong>Qualifizierte Online Prüfung</strong>. Diese Prüfung ist umfangreicher als die einfache Online-Prüfung. Neben der Ust-ID wird hier auch die Gültigkeit von Firmenname, Straße, PLZ und Ort geprüft.
+-<strong>Stammdaten aktualisieren</strong>. Die Adressdaten werden aktualisiert und gleichzeitig alle angelegten offenen Aufträge.
+-<strong>Google Suche</strong>. Die Google-Suche hilft dir dabei, die korrekten Adressdaten des Kunden zu finden.</p>
+<p>Nach der Online-Prüfung zeigt Xentral dir an, ob die Umsatzsteuer-ID gültig oder ungültig ist.</p>
+<p>Jede Prüfung wird in der Übersichtstabelle angezeigt.</p>
+<p>Bitte beachte, dass die Schnittstelle aufgrund der Arbeitszeiten des Bundeszentralamts nur zwischen 5 und 23 Uhr funktioniert.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Stelle sicher, dass deine eigene USt.-ID in deinen Firmendaten erfasst ist, so dass diese als &ldquo;anfragende&rdquo; Nummer verwendet werden kann. Nur Firmen mit Sitz in Deutschland können diese Funktion nutzen.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

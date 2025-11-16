@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016725100 Finanzbuchhaltung Export Datev Export Einstellunge - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016725100 Finanzbuchhaltung Export Datev Export Einstellunge</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016725100 Finanzbuchhaltung Export Datev Export Einstellunge</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Für den reibungslosen Datenaustausch mit externen Buchhaltungsprogrammen ist es möglich, verschiedene Dateitypen zu exportieren. Diese umfassen Rechnungen und Gutschriften, Verbindlichkeiten sowie Konten- und Adressdaten. Durch die Anpassung dieser Einstellungen kann der Datenaustausch effizient gestaltet werden, um die Buchhaltungsprozesse zu optimieren und den betrieblichen Anforderungen gerecht zu werden.</p>
+<ul>
+<li>Export von <strong>Rechnungen <strong>und </strong> Gutschriften</strong> im <a href="#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e_section-idm234605846815923">DATEV-Format</a> oder <a href="#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e_N1730823450593">XML Format (Unternehmen Online)</a>.</li>
+<li>Export von <strong>Verbindlichkeiten</strong> im <a href="#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e_N1730823488592">DATEV-Format</a> oder <a href="#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e_N1730823450593">XML Format (Unternehmen Online)</a>.</li>
+<li>
+<p>Export von <strong>Bankkonten</strong></p>
+</li>
+<li>
+<p>Kontobuchungen mit Kontierungen und Belegzuordnungen <a href="#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e_N1730823525659">(Kostenkonto, Debitor, Kreditor) im DATEV Format</a>.</p>
+</li>
+<li>Export von <strong>Stammdaten</strong>(= Kontenbeschriftungen) wie Adressdaten der <a href="#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e_section-idm234605907502066">Debitoren und Kreditoren im DATEV Format</a>.</li>
+</ul>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Die <strong>Automatische </strong> XML-Übertragung zu Unternehmen Online mit dem <strong>Rechnungsdatenservice1.0</strong> findest du im ArtikelDATEV Rechnungsdatenservice 1.0 (zuvor DATEV connect online).</p>
+</blockquote>
+<h2 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Bevor du mit dem Export beginnst, ist eine <a href="#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e_section-idm2346058023653">initiale Einrichtung der Stammdaten</a> erforderlich. Dazu zählen die Eingabe von Beraternummer, Mandantennummer, Wirtschaftsjahr und die Festlegung der Sachkontenlänge. Diese Stammdaten sind entscheidend, da sie in die Exportdateien übernommen werden und eine korrekte Zuordnung der Buchhaltungsinformationen ermöglichen.</li>
+<li>Stelle vor dem Export der Daten die Konfiguration für DATEV ein bzw. prüfe, ob der Standard für dich passend ist: <a href="#einstellungen">Einstellungen</a></li>
+</ol>
+<h2 id="einstellungen-datev-export-konfiguration">Einstellungen (DATEV Export Konfiguration)<a class="headerlink" href="#einstellungen-datev-export-konfiguration" title="Permanent link">&para;</a></h2>
+<p>Die Einstellungen zum Finanzbuchhaltung Export findest du im Hauptmenü unter <strong>Buchhaltung &gt; Buchhaltung Export </strong> oder über die Smart-Suche über <strong>Finanzbuchhaltung Export <strong>. Klicke für die Einstellungen (Initiale Stammdaten-Einrichtung) auf das Tab: </strong> Einstellungen <strong>. Die Konfiguration und den Export findest du im Tab: </strong> Export</strong>.</p>
+<h3 id="einstellungen-initiale-stammdaten-einrichtung">Einstellungen (Initiale Stammdaten-Einrichtung)<a class="headerlink" href="#einstellungen-initiale-stammdaten-einrichtung" title="Permanent link">&para;</a></h3>
+<p>Für die <strong>initiale Einrichtung des DATEV-Datenaustauschs </strong> musst du wichtige <strong>Stammdaten </strong> wie <strong>Beraternummer <strong>, </strong> Mandantennummer <strong>und das</strong> Wirtschaftsjahr <strong>und </strong> Sachkontenlänge</strong>in das System eintragen. Diese Daten werden anschließend in die Exportdateien übernommen und ermöglichen eine korrekte Zuordnung der Buchhaltungsinformationen. Je nach Bedarf kannst du diese Einstellungen global oder auch projektspezifisch vornehmen, um den Export an die Anforderungen deines Unternehmens anzupassen. <strong> Schritte:</strong></p>
+<ol>
+<li>Klicke im Tab <strong>Einstellungen </strong> auf <strong>+Neuen Eintrag anlegen</strong>.</li>
+<li>Trage <strong>Beraternummer </strong> und <strong>Mandantennummer</strong> ein (beide Nummern erhältst du von deinem Steuerberater).</li>
+<li>Trage das <strong>Wirtschaftsjahr </strong> im Format &lsquo;<strong>TTMM</strong>&rsquo; ein, für das du die Übertragung benötigst. Z.B. für Start des Wirtschaftsjahres am 01.01.2025 verwende 0101 für &ldquo;erster Januar&rdquo;. Das Jahr wird automatisch über die Buchungsdaten und deine Datumseingrenzung für den Export mitgegeben.</li>
+<li>Gib die <strong>Sachkontenlänge</strong> an z.B. &lsquo;4&rsquo; für SKR04 oder &lsquo;6&rsquo; für SKR03 (wenn du 6-stellig verwendest).</li>
+</ol>
+<p><img alt="datev_mandantennummer_beraternummer_eintragen_001.png" src="https://help.xentral.com/hc/article_attachments/16751320050716" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Beraternummer <strong></td>
+<td>Die</strong> Beraternummer</strong> erhältst du von deinem Steuerbüro. Sie identifiziert die Kanzlei oder den Steuerberater eindeutig im DATEV-System und wird von der DATEV an Steuerberater, Wirtschaftsprüfer oder Kanzleien vergeben.</td>
+</tr>
+<tr>
+<td><strong>Mandantennummer <strong></td>
+<td>Die</strong> Mandantennummer</strong> erhältst du von deinem Steuerbüro oder vergibst du in deiner lokalen DATEV Version (z.B. Rechnungswesen Einzelplatz). Diese Nummer ordnet einen Mandanten innerhalb der DATEV-Datenverwaltung eindeutig zu. Die Mandantennummer wird entweder von der Kanzlei selbst innerhalb der DATEV-Software vergeben oder kann durch den Steuerberater in Absprache mit dem Mandanten eingerichtet werden</td>
+</tr>
+<tr>
+<td>Projekt (optional)</td>
+<td>Optional: Nur zu verwenden, wenn du den Export projektweise durchführen möchtest und für jedes Projekt eine eigene Mandanten- und Beraternummer verwendet werden soll.</td>
+</tr>
+<tr>
+<td>Zahlungsweise in Datev (optional)</td>
+<td>Optional: Du kannst hier ein Freifeld in der Adresse definieren und die Zahlungsweise für Datev in den Kundenstammdaten eintragen. Z.B. einzutragen: &ldquo;freifeld1&rdquo; bezeichnet das Freifeld 1 bei der Kundenadresse unter &ldquo;Sonstige Daten&rdquo;. Nur ausfüllen, wenn du die Zahlungsweise inklusive der Anzahl der Tage bis zur Fälligkeit und eventuell gewährten Skonto an Datev übergeben möchtest z.B. weil du das DATEV Mahnwesen nutzt.</td>
+</tr>
+<tr>
+<td><strong>Wirtschaftsjahr <strong></td>
+<td>Das</strong> Wirtschaftsjahr </strong> gibt an, für welchen Zeitraum deine Buchungen und Abschlüsse gelten. DATEV liest diese Daten aus und ordnet sie dem entsprechenden Wirtschaftsjahr zu. Trage das Wirtschaftsjahr im Format ‘<strong>TTMM</strong>&rsquo; ein z.B. &lsquo;0101’ für 1. Januar oder &lsquo;0104&rsquo; für 1. April.</td>
+</tr>
+<tr>
+<td><strong>Sachkontenlänge <strong></td>
+<td>Die</strong> Sachkontenlänge</strong> legt fest, wie viele Stellen deine Kontonummern haben, wobei der SKR03 normalerweise vierstellig ist, aber auf sechs Stellen erweitert werden kann, wenn du detailliertere Buchungen benötigst. Z.B. &lsquo;4&rsquo; für SKR04 oder &lsquo;6&rsquo; für SKR03.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="export-einstellungen">Export &amp; Einstellungen<a class="headerlink" href="#export-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Manuelle Datenexporte bieten eine flexible Lösung für die Übertragung betrieblicher Informationen in Buchhaltungssoftware. Sie ermöglichen den Export von Rechnungen, Gutschriften, Verbindlichkeiten und Bankkontobuchungen im DATEV- oder XML-Format direkt zu DATEV Unternehmen Online. Zusätzlich lassen sich Stammdaten wie Adressen von Debitoren und Kreditoren exportieren. Diese Exporte können durch verschiedene Einstellungen angepasst werden, beispielsweise durch das Hinzufügen von Transaktionsnummern aus Shopsystemen zu Belegfeldern in DATEV.</p>
+<p><img alt="buchhaltung_export.png" src="https://help.xentral.com/hc/article_attachments/16658129312028" /></p>
+<h4 id="export-rechnungen-gutschriften-datev-format">Export Rechnungen / Gutschriften (DATEV Format)<a class="headerlink" href="#export-rechnungen-gutschriften-datev-format" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Diese Daten erhältst du im DATEV Format als manuellen Export.</p>
+</blockquote>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Wähle als Sortierung &lsquo;<strong>Rechnungsnummer <strong>&rsquo; aus und gruppiere nach &lsquo;</strong> Konten</strong>&lsquo;.</li>
+<li>Wähle als <strong>Datumsbereich</strong> einen Monat aus z.B. 01.10.2024 bis 31.10.2024.</li>
+<li>Klicke auf &lsquo;<strong>Export</strong>&rsquo; um die CSV Datei im DATEV Format zu erhalten.</li>
+</ol>
+<p><img alt="buchhaltungsesport_rechnungen_gutschriften_datev_format.png" src="https://help.xentral.com/hc/article_attachments/16656799810716" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sortiert nach: &lsquo;Datum&rsquo; oder &lsquo;Rechnungsnummer&rsquo;</td>
+<td>Sortierung der Buchungen im Export des Stapels im von dir ausgewählten Zeitraum: - &lsquo;<strong>Datum <strong>&lsquo;: Sortierung der Erlöse z.B. Rechnungsbuchungen oder Gutschriftenbuchungen nach Datum.<br>- &lsquo;</strong> Rechnungsnummer</strong>&lsquo;: Sortierung der Erlöse z.B. Rechnungsbuchungen oder Gutschriftenbuchungen nach Belegnummer aufsteigend.</td>
+</tr>
+<tr>
+<td>Gruppiert nach: &lsquo;Konten&rsquo; oder &lsquo;Positionen&rsquo;</td>
+<td>Gruppiert die Inhalte der Erlöse nach Steuersätzen gebündelt oder auf Positionsebene: - &lsquo;<strong>Konten <strong>&lsquo;: Aufteilung der Erlöse nach Steuern z.B. 7% und 19% in Belegen mit gemischten Steuersätzen. z.B. Beleg mit 19% Inland wird im SKR04 auf 4400 gebucht. z.B. Beleg mit 19% und 7% wird im SKR04 auf 4400 und 4300 gebucht.<br>- Optional: &lsquo;Positionen&rsquo;: Aufteilung nach den Konten auf Positionsebene (Artikelebene). 💬</strong> Anmerkung:</strong> Die Einstellungen für die Konten findest du in den Systemeinstellungen der Steuern. Die Einstellungen der Konten für Positionen (= Artikelebene) findest du im Artikel.</td>
+</tr>
+<tr>
+<td>Projekt</td>
+<td>Optional / Standardmäßig leer lassen: Das Projekt nur angeben, wenn du ausschliesslich einen Kanal exportieren möchtest.</td>
+</tr>
+<tr>
+<td>von ‘TT.MM.JJJJ’ bis ‘TT.MM.JJJJ’</td>
+<td>Wähle einen Exportbereich aus, indem du ein Datum von ‘<strong>TT.MM.JJJJ <strong>’ bis ‘</strong> TT.MM.JJJJ</strong>&rsquo; angibst. Exportiere für DATEV z.B. den Zeitraum eines Monats für den Monatsabschluss.</td>
+</tr>
+<tr>
+<td>Bereits exportierte Dokumente ignorieren</td>
+<td>Optional/ Besonderer Workflow: Ignoriert die bereits gezogenen Daten z.B. wenn du täglich exportierst kannst du die Daten von gestern ausschliessen. 💬<strong>Anmerkung:</strong> Nur zu empfehlen bei hochpreisigen Produkten und wenig Durchsatz in Belegen.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="export-verbindlichkeiten-datev-format">Export Verbindlichkeiten (DATEV Format)<a class="headerlink" href="#export-verbindlichkeiten-datev-format" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Diese Daten erhältst du im DATEV Format als manuellen Export.</p>
+</blockquote>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Wähle als <strong>Datumsbereich</strong> einen Monat aus z.B. 01.10.2024 bis 31.10.2024.</li>
+<li>Klicke auf &lsquo;<strong>Export</strong>&rsquo; um die CSV Datei im DATEV Format zu erhalten.</li>
+</ol>
+<p><img alt="buchhaltungsesport_verbindlichkeiten_datev_format.png" src="https://help.xentral.com/hc/article_attachments/16656823936284" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projekt</td>
+<td>Optional / Standardmäßig leer lassen: Das Projekt nur angeben, wenn du ausschliesslich einen Kanal exportieren möchtest.</td>
+</tr>
+<tr>
+<td>von ‘TT.MM.JJJJ’ bis ‘TT.MM.JJJJ’</td>
+<td>Wähle einen Exportbereich aus, indem du ein Datum von ‘<strong>TT.MM.JJJJ <strong>’ bis ‘</strong> TT.MM.JJJJ</strong>&rsquo; angibst. Exportiere für DATEV z.B. den Zeitraum eines Monats für den Monatsabschluss.</td>
+</tr>
+<tr>
+<td>Bereits exportierte Dokumente ignorieren</td>
+<td>Optional/ Besonderer Workflow: Ignoriert die bereits gezogenen Daten z.B. wenn du täglich exportierst kannst du die Daten von gestern ausschliessen. 💬<strong>Anmerkung:</strong> Nur zu empfehlen bei hochpreisigen Produkten und wenig Durchsatz in Belegen.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="export-konten-datev-format">Export Konten (DATEV Format)<a class="headerlink" href="#export-konten-datev-format" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Diese Daten erhältst du im DATEV Format als manuellen Export.</p>
+</blockquote>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Wähle &lsquo;<strong>alle Konten</strong>&rsquo; aus.</li>
+<li>Wähle als <strong>Datumsbereich</strong> einen Monat aus z.B. 01.10.2024 bis 31.10.2024.</li>
+<li>Klicke auf &lsquo;<strong>Export</strong>&rsquo; um die CSV Datei im DATEV Format zu erhalten.</li>
+</ol>
+<p><img alt="buchhaltungsesport_konten_datev_format.png" src="https://help.xentral.com/hc/article_attachments/16656807091996" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Sortierung erfolgt nach Konten absteigend.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Konto</td>
+<td>Auswahl alle Buchungen über alle Konten (= Bankkonten) als Stapel zu erhalten. Alternativ Export der in Xentral manuell angelegten Buchungen zur Kontrolle oder als separater Stapel. Alternativ Auswahl eines speziellen Kontos als separater Stapelexport z.B. Deutsche Bank. -<strong>Alle Konten <strong>: Export aller Konten in einer Datei.<br>-</strong> Nur Manuelle Buchung <strong>: Export der in Xentral manuell gebuchten Einträge.<br>-</strong> Bankkonto CSV</strong>: Auswahl spezielles Bankkonto oder der Konten einzeln als Stapel.</td>
+</tr>
+<tr>
+<td>von ‘TT.MM.JJJJ’ bis ‘TT.MM.JJJJ’</td>
+<td>Wähle einen Exportbereich aus, indem du ein Datum von ‘<strong>TT.MM.JJJJ <strong>’ bis ‘</strong> TT.MM.JJJJ</strong>&rsquo; angibst. Exportiere für DATEV z.B. den Zeitraum eines Monats für den Monatsabschluss.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="export-datev-unternehmen-online">Export DATEV Unternehmen online<a class="headerlink" href="#export-datev-unternehmen-online" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Diese Daten erhältst du im DATEV-XML Format als manuellen Export.</p>
+</blockquote>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Wähle Beleg &lsquo;<strong>Verbindlichkeiten</strong>&rsquo; aus.</li>
+<li>Wähle als <strong>Datumsbereich</strong> einen Monat aus z.B. 01.10.2024 bis 31.10.2024.</li>
+<li>Klicke auf &lsquo;<strong>Export</strong>&rsquo; um die XML Datei für &lsquo;DATEV Unternehmen Online&rsquo; zu erhalten.</li>
+</ol>
+<p><img alt="buchhaltungsesport_unternehmen_online_xml_format.png" src="https://help.xentral.com/hc/article_attachments/16656824080412" /></p>
+<h3 id="achtung_1">Achtung<a class="headerlink" href="#achtung_1" title="Permanent link">&para;</a></h3>
+<p>Bei der Nutzung von DATEV Unternehmen Online wird der Export von Daten im Hintergrund durchgeführt, um das System nicht unnötig zu belasten. Wenn du auf „Export“ klickst, zeigt das System zunächst „Exportiere…“ an. Je nach Anzahl der Belege kann das etwas dauern.</p>
+<p>Danach bekommst du einen Link, über den du die Daten herunterladen kannst. Die ZIP-Dateien, die dabei erstellt werden, enthalten jeweils höchstens 100 Belege. Wenn also zum Beispiel 150 Belege exportiert werden, erhältst du zwei ZIP-Dateien: eine mit 100 und eine mit 50 Belegen.</p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Beleg</strong></td>
+<td>Wähle die Belegart für den XML Export für &lsquo;DATEV Unternehmen Online&rsquo; aus: - Rechnungen<br>- Gutschriften<br>- Verbindlichkeiten</td>
+</tr>
+<tr>
+<td>Projekt</td>
+<td>(Optional / Standardmäßig leer lassen)</td>
+</tr>
+<tr>
+<td>von ‘TT.MM.JJJJ’ bis ‘TT.MM.JJJJ’</td>
+<td>Wähle einen Exportbereich aus, indem du ein Datum von ‘<strong>TT.MM.JJJJ <strong>’ bis ‘</strong> TT.MM.JJJJ</strong>&rsquo; angibst.</td>
+</tr>
+<tr>
+<td>Bereits exportierte Dokumente ignorieren</td>
+<td>Optional/ Besonderer Workflow: Ignoriert die bereits gezogenen Daten z.B. wenn du täglich exportierst kannst du die Daten von gestern ausschliessen. 💬<strong>Anmerkung:</strong> Nur zu empfehlen bei hochpreisigen Produkten und wenig Durchsatz in Belegen.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="export-stammdaten-schritte">Export Stammdaten <strong>Schritte: </strong><a class="headerlink" href="#export-stammdaten-schritte" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Wähle ein Datum von ‘<strong>TT.MM.JJJJ <strong>’ bis ‘</strong> TT.MM.JJJJ</strong>&rsquo; aus.</li>
+<li>Klicke auf den Button ‘<strong>Kunden <strong>’ oder ‘</strong> Lieferanten</strong>’.</li>
+</ol>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Im Beispiel siehst du einen Kundendaten Export ab einer speziellen Kundennummer und einen Lieferantendaten Export für einen Datumsbereich.</p>
+</blockquote>
+<p><img alt="datev_stammdaten_export_kunden_lieferanten.png" src="https://help.xentral.com/hc/article_attachments/16656817649692" /></p>
+<h4 id="export-kunden-datev-format">Export Kunden (DATEV Format)<a class="headerlink" href="#export-kunden-datev-format" title="Permanent link">&para;</a></h4>
+<p><strong>Export Kunden:</strong> Der Button <strong> Kunden</strong> liefert ALLE Kundenbeschriftungen eines Datumsbereiches (Neu angelegte Kundennummern und z.B. Namensänderungen). Die Eingabe Kundennummer limitiert diese Liste, Export erfolgt aufsteigend ab dieser Nummer (= aufsteigend nach der System-ID dieser Kundennummer). Voraussetzung ist, dass du die Datumsfelder leer gesetzt hast.</p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export ab Kd.-Nr.</td>
+<td>Export erfolgt aufsteigend ab dieser Nummer (= aufsteigend nach der System-ID dieser Kundennummer).</td>
+</tr>
+<tr>
+<td>Kunden ab Datum ‘TT.MM.JJJJ’ bis ‘TT.MM.JJJJ’</td>
+<td>Wähle einen Exportbereich aus, indem du ein Datum von ‘<strong>TT.MM.JJJJ <strong>’ bis ‘</strong> TT.MM.JJJJ</strong>&rsquo; angibst. Exportiert werden Neu angelegte Kundennummern und z.B. Namensänderungen</td>
+</tr>
+</tbody>
+</table>
+<h4 id="export-lieferanten-datev-format">Export Lieferanten (DATEV Format)<a class="headerlink" href="#export-lieferanten-datev-format" title="Permanent link">&para;</a></h4>
+<p><strong>Export Lieferanten:</strong> Der Button <strong> Lieferanten</strong> liefert ALLE Lieferantenbeschriftungen eines Datumsbereiches. (Neu angelegte Lieferantennummern und z.B. Namensänderungen). Die Eingabe der Lieferantennummer limitiert diese Liste, Export erfolgt aufsteigend ab dieser Nummer (= aufsteigend nach der System-ID dieser Lieferantennummer). Voraussetzung ist, dass du die Datumsfelder leer gesetzt hast.</p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export ab Lf.-Nr.</td>
+<td>Export erfolgt aufsteigend ab dieser Nummer (= aufsteigend nach der System-ID dieser Lieferantennummer).</td>
+</tr>
+<tr>
+<td>Lieferanten ab Datum ‘TT.MM.JJJJ’ bis ‘TT.MM.JJJJ’</td>
+<td>Wähle einen Exportbereich aus, indem du ein Datum von ‘<strong>TT.MM.JJJJ <strong>’ bis ‘</strong> TT.MM.JJJJ</strong>&rsquo; angibst. Exportiert werden Neu angelegte Lieferantennummern und z.B. Namensänderungen</td>
+</tr>
+</tbody>
+</table>
+<h2 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h2>
+<p>x</p>
+<h3 id="rechnungen-gutschriften-export-einstellungen">Rechnungen / Gutschriften (Export Einstellungen)<a class="headerlink" href="#rechnungen-gutschriften-export-einstellungen" title="Permanent link">&para;</a></h3>
+<p><img alt="buchhaltungsexport_einstellungen_export_rechnungen_gutschriften.png" src="https://help.xentral.com/hc/article_attachments/18965495796124" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Belegfeld1 bei Kontoauszugsexport mit Rechnungsnummer füllen wenn möglich</td>
+<td>Ergänzt die Rechnungsnummer in &lsquo;Belegfeld 1&rsquo; automatisch, z.B. wenn die Rechnung mit der Bankzahlung verknüpft ist.</td>
+</tr>
+<tr>
+<td>Belegfeld1 bei Rechnungs- u. Gutschrift um Internet- und Transaktionsnummer erweitern</td>
+<td>Ergänzt die Internet- und Transaktionsnummer in &lsquo;Belegfeld 1&rsquo; sofern es die Zeichenmenge in DATEV erlaubt.</td>
+</tr>
+<tr>
+<td>Belegfeld 2 bei Rechnung u. Gutschrift mit Fälligkeitsdatum füllen</td>
+<td></td>
+</tr>
+<tr>
+<td>KOST1 mit Lieferland füllen anstelle Kostenstelle (Lieferschwelle)</td>
+<td>Verwendet das DATEV Kostenstellenfeld für die Lieferschwelle um die Berechnung in DATEV für die Lieferschwelle zu steuern. Achtung: In diesem Fall ist das Feld KOST1 nicht mehr für die Kostenstelle genutzt sondern die Berechnung in DATEV angesteuert.</td>
+</tr>
+<tr>
+<td>AmaInvoice-Belege ausschließen</td>
+<td>Belege aus Amainvoice ausschliessen um den Amainvoice Export separat zu nutzen.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="verbindlichkeit-export-einstellungen">Verbindlichkeit (Export Einstellungen)<a class="headerlink" href="#verbindlichkeit-export-einstellungen" title="Permanent link">&para;</a></h3>
+<p><img alt="buchhaltungsexport_einstellungen_export_verbindlichkeiten.png" src="https://help.xentral.com/hc/article_attachments/18965495797788" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verbindlichkeit Auswahl</td>
+<td>Auswahl des Abgrenzungszeitraumes nach Eingangsdatum der Verbindlichkeit (= Lieferantenrechnung) oder nach Rechnungsdatum der Verbindlichkeit (= Lieferantenrechnung). Abhängig von dieser Einstellung werden die Belege in den von dir ausgewählten Exportzeitraum einbezogen oder ausgenommen. - Nach Eingangsdatum: Eingangsdatumsfeld im Modul Verbindlichkeiten (Eingangsdatum in der Belegeingabe)<br>- Nach Rechnungsdatum: Rechnungsdatumsfeld im Modul Verbindlichkeiten (Rechnungsdatum in der Belegeingabe)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datev-export-einstellungen">Datev (Export Einstellungen)<a class="headerlink" href="#datev-export-einstellungen" title="Permanent link">&para;</a></h3>
+<p><img alt="buchhaltungsexport_einstellungen_export_datev.png" src="https://help.xentral.com/hc/article_attachments/18965495798172" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Belege mit Betrag = 0 EUR auch exportieren</td>
+<td>Belege mit Gesamtsumme 0 EUR in den Export einschliessen. Z.B. wenn &lsquo;0 Euro Rechnungen&rsquo; mit zu DATEV übergeben werden sollen. 💬<strong>Anmerkung:</strong> Beachte, dass 0 EUR Belege evtl. als Fehler erscheinen beim Import in Buchhaltungssysteme oder markiert werden z.B. DATEV.</td>
+</tr>
+<tr>
+<td>Neues Datev Format (Testbuchung einfügen)</td>
+<td>Fügt eine Markierungsbuchung ein, so dass der importierte Buchhungsstapel in DATEV importiert aber nicht festgeschrieben wird. Festgeschriebene Buchungsstapel können z.B. nur über dein Steuerbüro geöffnet oder falsche Importe evtl. nur durch Korrekturbuchungen korrigiert werden.</td>
+</tr>
+<tr>
+<td>Erweiterte Buchungs-Codes erlauben</td>
+<td>Erkennt in den Konten hinzugefügte Buchhungsschlüssel, die du deiner Standard Kontenlänge vorangestellt hast. Die Schlüssel werden in DATEV separat entsprechend dem DATEV Standard getrennt dargestellt. Z.B. kannst du für 4-stellige Kontenlänge folgende Nummern im <a href="https://help.xentral.com/hc/de/articles/360016775339#UUID-ea5b2535-11f1-4efa-8b41-f5ea33a91bf4">Kontenrahmen</a> angeben: &lsquo;4400&rsquo; für Umsatzerlöse als DATEV Automatikkonto, für ein Kostenkonto z.B. Bürobedarf mit 19% Steuer das Konto &lsquo;906815&rsquo;, für Innergemeinschafltiche Erwerbe 19% könnte es auch ein dreistelliger Schlüssel sein z.B. &lsquo;9405900&rsquo;.</td>
+</tr>
+<tr>
+<td>CSV Validierung deaktivieren</td>
+<td>Validerung der CSV für den DATEV Standard z.B. Anzeige einer Fehlermeldung bei Leerzeichen.</td>
+</tr>
+<tr>
+<td>im XML für Datev Unternehmen Online ergänzen</td>
+<td>Mit dieser Auswahl kannst du im DATEV XML für DATEV Unternehmen Online die Shopbestellnummer (= Internetnummer) oder die PayPal Transaktionsnummer (= Transaktionsnummer) oder beide hinzufügen lassen. - Internetnummer<br>- Transaktionsnummer<br>- Internetnummer und Transaktionsnummer<br>- Transaktionsnummer und Internetnumme</td>
+</tr>
+</tbody>
+</table>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+<p>Überschneidungen zum letzten exportierten Bereich vermeiden! Buchhaltungsprogramme erkennen in der Regel keine Überschneidungen → Doppelimport. Empfehlung: hier immer feste Zeitbereiche auswählen z.B. ganze Monate.</p>
+<h2 id="export-fur-datev">Export für Datev<a class="headerlink" href="#export-fur-datev" title="Permanent link">&para;</a></h2>
+<p>Für den Export zu Datev muss folgendes erledigt werden:</p>
+<ol>
+<li>Beraternummer und Mandantennummer in Xentral angeben (wird in die Datei geschrieben und von Datev ausgewertet)</li>
+<li>Export Haken einstellen und die Datei ziehen</li>
+</ol>
+<p>Um in DATEV bereits einige Buchungen vorab automatisiert abzuschließen ist es notwendig, vor dem Einspielen der Daten aus DATEV Unternehmen Online diese auch als DATEV Connect Online hineinzuladen. DATEV Connect Online sind die Kontenbewegungen in DATEV. Sofern ihr den Zahlungseingang aktiv nutzt, könnt ihr diese Daten direkt aus Xentral herunterladen und zu DATEV Rechnungswesen importieren.</p>
+<p>Dieser Schritt, ist trotz aktivem Matching im Zahlungseingang notwendig, da die Daten aus Unternehmen Online oder Connect Online lediglich Rechnungsdaten beeinhalten.</p>
+<h3 id="1-berater-nummer-mandanten-nummer">1. Berater Nummer / Mandanten Nummer<a class="headerlink" href="#1-berater-nummer-mandanten-nummer" title="Permanent link">&para;</a></h3>
+<p>Für den neuen Datev Export (ab 2018) kann eine Berater- und Mandantennummer vergeben werden. Die Vergabe kann auch auf Projektebene stattfinden. Im angefügten Beispiel ist die Berater- und Mandantennummer global systemweit zu betrachten. Im Modul Finanzbuchhaltung Export ist unter dem Tab Einstellungen über den Button +Neuen Eintrag anlegen ein neuer Eintrag anzulegen.</p>
+<p>Anschließend öffnet sich ein Dialogfeld, in dem die notwendigen Informationen eingetragen werden können. Diese sind:</p>
+<ul>
+<li>Beraternummer: Beraternummer eintragen. Diese wird dann mit in die Export-Datei generiert</li>
+<li>Mandantennummer: Mandantennummer eintragen. Diese wird dann mit in die Export-Datei generiert</li>
+<li>Projekt: Optional. Nur zu verwenden, wenn projektweise exportiert wird und für jedes Projekt eine eigenen Mandanten- und Beraternummer verwendet werden soll</li>
+<li>Zahlungsweise in Datev: Optional. freifeld1 bezeichnet bei Adresse des Kunden → Sonstige Daten das Freifeld 1. Nur zu verwenden, wenn bei den Kundenstammdaten die Zahlungsweise mit Anzahl der Tagen bis zur Fälligkeit und gegebenen Skonto an Datev übergeben werden soll</li>
+<li>Wirtschaftsjahr: Start des Wirtschaftsjahrs im Format TTMM - Beispiele: 0101 für 1. Januar oder 0104 für 1. April</li>
+<li>Sachkontenlänge: Gebe hier die Länge des Sachkontos an, die du benötigst (ggf. beim Steuerberater nachfragen). Diese wird dann mit in die Export-Datei generiert</li>
+</ul>
+<p>Anschließend ist die Eingabe zu speichern. Beispiel für die Anzeige in Datev (Stand 02/2018):</p>
+<ul>
+<li>Beraternummer: 33333</li>
+<li>Mandantennummer: 10000</li>
+</ul>
+<p><img alt="buchhaltungexport_3.png" src="https://help.xentral.com/hc/article_attachments/5077565006364" /></p>
+<h4 id="lange-von-nummernkreisen-anpassen">Länge von Nummernkreisen anpassen<a class="headerlink" href="#lange-von-nummernkreisen-anpassen" title="Permanent link">&para;</a></h4>
+<p>Es ist auch möglich 6-stellige Sachkonten zu buchen oder mit 7-stelligen Kreditoren- bzw. Debitorennummern zu arbeiten. Hierzu können unter Administration &gt; Einstellungen &gt; System &gt; Grundeinstellungen &gt; Einstellungen im Tab Nummernkreise die Kunden- und Lieferanten-Nummernkreise entsprechend umgestellt werden. Dies kann auch pro Projekt durchgeführt werden.</p>
+<p>Die Datev-Konten können dann beim Export eingestellt werden, sodass Datev diese Info im Dateiheader mitbekommt (Buchhaltung &gt; Finanzbuchhaltung Export &gt; Einstellungen).</p>
+<p>Ansonsten können die Datev-Konten in Xentral direkt 6-stellig gepflegt werden (Administration &gt; Einstellungen &gt; Buchhaltung &gt; Kontenrahmen).</p>
+<p>Zu beachten ist, dass Konten beim Export nicht automatisch mit dem Steuerfeld mit einem Schlüssel vorkontiert werden. Der Steuerschlüssel wird in Xentral immer direkt vor die Kontierung eingetragen.</p>
+<p>Hier besteht folgende Möglichkeit:</p>
+<ol>
+<li>Den Steuerschlüssel vorne mit dazu nehmen/dazu tippen</li>
+<li>Im Kontenrahmen die wichtigsten Verbindlichkeitskonten mit Steuerschlüssel zusätzlich anlegen und textuell bezeichnen</li>
+</ol>
+<h4 id="verbindlichkeiten">Verbindlichkeiten:<a class="headerlink" href="#verbindlichkeiten" title="Permanent link">&para;</a></h4>
+<p>Bei der Kontierung der Verbindlichkeiten ist der Steuerschlüssel mit anzugeben. Das Feld für den Steuersatz wandelt sich nicht für Datev in den Steuerschlüssel um.</p>
+<p>Beim Datev Export (CSV) kommt die Verbindlichkeit dann in 2 Splittbuchungen mit.</p>
+<p>Unten bei Unternehmen Online erhält man dann hier bei dem Verbindlichkeiten Export in der XML jeweils die Kontierungen: einmal mit Steuerschlüssel, einmal ohne.</p>
+<h3 id="2-export-haken-einstellen-und-die-datei-ziehen">2. Export Haken einstellen und die Datei ziehen<a class="headerlink" href="#2-export-haken-einstellen-und-die-datei-ziehen" title="Permanent link">&para;</a></h3>
+<p>Im TabExportim BereichEinstellungenkönnen auf der rechten Seite die benötigten Einstellungen für den Export getätigt werden.</p>
+<p>Rechnungen/Gutschriften:</p>
+<ul>
+<li>Belegfeld1 bei Kontoauszugsexport mit Rechnungsnummer füllen wenn möglich (Datev findet die Pärchen und es erleichtert die Zuordnung für das Steuerbüro)</li>
+<li>Belegfeld1 bei Rechnung und Gutschrift um Internet- und Transaktionsnummer erweitern (nur wenn unbedingt gewünscht hier Haken setzen)</li>
+</ul>
+<p>Verbindlichkeiten:</p>
+<ul>
+<li>Verbindlichkeit Auswahl nach Eingangsdatum oder Rechnungsdaten (für den eingegebenen Zeitraum werden nur die Verbindlichkeiten mit Eingangs- oder Rechnungsdatum, die in diesem Zeitraum liegen, exportiert)</li>
+</ul>
+<p>Datev:</p>
+<ul>
+<li>Belege mit Betrag = 0 EUR auch exportieren (allgemeine Einstellung, bei gemischten Steuersätzen werden die Beträge der Rechnung einzeln zeilenweise exportiert)</li>
+<li>Datev Format auswählen: Neues Datev Format (ab 2018) oder Neues Datev Format Version 700</li>
+<li>Neues Datev Format (Testbuchung einfügen) (Wichtig → denn ansonsten wird in Datev sofort alles festgeschrieben beim Import)</li>
+<li>Erweiterte Buchungs-Codes (ermöglicht 3-4 stellige Buchungsschlüssel zu exportieren)</li>
+<li>Mit Anwählen der Option wird ein Splitten der Konten herbeigeführt. Anhand der Sachkontenlänge bzw. die Angabe der entsprechenden Konten, kommt es dann bei der Ausgabe zu einer neuen Spalte mit dem gesplitteten Teil. Z.B. Kontonummer 2250880, Sachkontenlänge → 4, Angabe &ldquo;BU-Schlüssel&rdquo; → 225</li>
+<li>Internet-,Transaktionsnummer im XML für Datev Unternehmen Online (übermittelt die Online-Shop oder Paypal Kennungen an Datev)</li>
+</ul>
+<p>Zahlweisen/Steuersätze:</p>
+<ul>
+<li>Auswählen wenn diese Zusatzinformationen exportiert werden soll.</li>
+</ul>
+<h3 id="datev-unternehmen-online">Datev Unternehmen Online<a class="headerlink" href="#datev-unternehmen-online" title="Permanent link">&para;</a></h3>
+<p>Mit Datev Unternehmen Online können Rechnungen, Gutschriften und Verbindlichkeiten als PDF-Beleg an die Buchhaltung übergeben werden. Bei den Rechnungen werden die Belege verwendet, die von Xentral erzeugt wurden. Bei den Verbindlichkeiten werden diejenigen verwendet, die beim Modul Verbindlichkeiten hochgeladen wurden. Für die Einstellung DATEV Unternehmen Online muss die Vorkontierung der Verbindlichkeiten (im Tab Vorkontierung) vollständig abgeschlossen sein, bevor die Übertragung stattfinden kann. Im Tab Vorkontierung ist es ebenfalls möglich Konten zu splitten. Ein Sachkonto/Gegenkonto (Feld „Sachkonto“ im Verbindlichkeiten-Beleg, erster Tab) anzugeben, reicht hierfür nicht aus.</p>
+<p>Es können alle Belege dieser Art exportiert werden, die sich in Xentral befinden, außer diese sind noch im Entwurfsmodus.Xentral bietet eine erweiterte Exportmöglichkeit für Datev Unternehmen Online an. Damit können Belege der Ausgangsrechnungen, Gutschriften und Eingangsrechnungen (Verbindlichkeiten) als ZIP-Datei exportieren werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn gewisse Zeiträume überschritten werden, werden die Daten stumpf weiter übertragen. D.h. die Daten werden doppelt ohne eine Überprüfung auf eine mögliche Dopplung übertragen.</p>
+</blockquote>
+<ul>
+<li>Beleg: Im Dropdown können Rechnungen, Gutschriften oder Verbindlichkeiten ausgewählt werden. Die Lieferantenrechnung muss bei der Verbindlichkeit hochgeladen werden, damit diese für den Export zur Verfügung stehen kann. Außerdem müssen bei den Verbindlichkeiten bei Vorkontierung ein Aufwandskonto eingegeben werden. Es muss zwingend das Feld &ldquo;Währung&rdquo; unter dem Modul &ldquo;Verbindlichkeiten&rdquo; ausgefüllt sein, da ansonsten das Datev-Tool die Daten nicht annimmt</li>
+<li>Projekt: Damit können Exportberichte nach Projekten sortiert ausgegeben werden. Über das Suchfeld kann das Projekt ausgewählt werden. Wird das Feld ist leer gelassen, werden alle Projekte exportiert.</li>
+<li>von / bis: Hier kann der Datumsbereich des Exports ausgewählt werden (Belegdatum).</li>
+</ul>
+<p>Die ZIP-Dateien können mit dem Datev-Belegtransfer an das Datev-Rechenzentrum übertragen werden. (Die Software Belegtransfer kann von Datev kostenlos heruntergeladen werden).</p>
+<p><img alt="buchhaltungexport_6.png" src="https://help.xentral.com/hc/article_attachments/5077565021852" /></p>
+<ul>
+<li>Verzeichnistyp: Bitte unbedingt im Belegtransfer beachten, dass der Verzeichnistyp nicht auf &ldquo;Standard&rdquo; ausgewählt ist, sondern &ldquo;DATEV XML-Schnittstelle online&rdquo;</li>
+<li>Belegtyp: Bei Belegtyp muss &ldquo;ohne Belegtyp&rdquo; ausgewählt seintype</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es werden ausschließlich vorkontierte Buchungen in DATEV akzeptiert. Um zu prüfen, ob sämtliche Verbindlichkeiten über eine Vorkontierung besitzen, kann der Filter &ldquo;fehlende Kontierung&rdquo; in den Verbindlichkeiten aktiviert werden.</p>
+</blockquote>
+<h2 id="einstellung-der-exportkonten">Einstellung der Exportkonten<a class="headerlink" href="#einstellung-der-exportkonten" title="Permanent link">&para;</a></h2>
+<p>Die Einstellung der Exportkonten sind direkt über das TabExportim BereichEinstellungenvorzunehmen.</p>
+<h3 id="export-rechnungen-gutschriften">Export Rechnungen / Gutschriften<a class="headerlink" href="#export-rechnungen-gutschriften" title="Permanent link">&para;</a></h3>
+<p>Auf der linken Seite kann der Export der Dokumente Rechnungen und Gutschriften und den dazugehörigen Erlöskonten durchgeführt werden. Folgende Optionen stehen zur Verfügung:</p>
+<ul>
+<li>Sortiert nach: Datum oder Belegnummer</li>
+<li>Gruppiert nach: Konto oder Positionen</li>
+<li>Projekt: nicht ausfüllen (wird nur benötigt für Multimandanten oder getrennte Buchhaltung)</li>
+<li>von bis: Datumsbereich auswählen (Überschneidungen zum letzten exportierten Bereich vermeiden! Buchhaltungsprogramme erkenne in der Regel keine Überschneidungen → Doppelimport) Empfehlung: hier immer feste Zeitbereiche auswählen z.B. ganze Monate</li>
+<li>Export: Export der Rechnungen oder Gutschrift</li>
+</ul>
+<h3 id="export-verbindlichkeiten">Export Verbindlichkeiten<a class="headerlink" href="#export-verbindlichkeiten" title="Permanent link">&para;</a></h3>
+<p>Auch die Verbindlichkeiten können auf der linken Seite exportiert werden.</p>
+<ul>
+<li>Projekt: Optional und wird Standardmäßig leer gelassendefault</li>
+<li>von bis: Datumsbereich auswählen (Überschneidungen zum letzten exportierten Bereich vermeiden! Buchhaltungsprogramme erkenne in der Regel keine Überschneidungen → Doppelimport) Empfehlung: hier immer feste Zeitbereiche auswählen z.B. ganze Monate</li>
+<li>Export: Export der Rechnungen oder Gutschrift</li>
+</ul>
+<p>Beschriftungsfelder</p>
+<p>Folgende Felder stehen für den Export zur Verfügung: 1. Datum, 2. Betrag, 3. Konto/Lieferanten-Nr, 4. Belegfeld 1, 5. Buchungstext, 6. Land, 7. Ust-Id, 8. Gegenkonto, 9. Währung.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wird beim Erstellen einer Verbindlichkeit kein Rechnungs- und Eingangsdatum eingetragen, so werden die Felder automatisch mit dem aktuellen Datum gefüllt.</p>
+</blockquote>
+<ul>
+<li>Auch eine abweichende Rechnungsadresse wird exportiert.</li>
+<li>In Xentral stornierte Verbindlichkeiten werden nicht exportiert.</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

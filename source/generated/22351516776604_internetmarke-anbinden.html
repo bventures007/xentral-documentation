@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22351516776604 Internetmarke Anbinden - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>22351516776604 Internetmarke Anbinden</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>22351516776604 Internetmarke Anbinden</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit der Anbindung des Service <strong>Internetmarke</strong> der Deutschen Post an Xentral kannst du deine Briefsendungen direkt in Xentral frankieren. Die Marken für das Porto werden für dich als PDF erstellt und du kannst sie manuell im Lieferschein oder automatisiert innerhalb verschiedener Logistikprozesse automatisiert ausdrucken.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Alle wichtigen Informationen zum Service <strong>Internetmarke</strong> findest du in denFAQ der Deutschen Post.</p>
+</blockquote>
+<p>Um den Service <strong>Internetmarke</strong> an dein Xentral anzubinden, legst du die gleichnamige Versandart in Xentral an. Außerdem musst du über eine Portokasse bei der Deutschen Post verfügen (siehe Kapitel<a href="#UUID-2f5a869a-9887-d44f-ce44-05d98a4ee203_id_360016756439_id_h_01F20T5RBB617BW5T629YH7124">Portokasse bei der Deutschen Post anlegen</a>).</p>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<p>DieXentralVersandart <strong>Internetmarke</strong> bietet dir die folgenden Features:</p>
+<ul>
+<li>Auswahl des Produkts, das standardmäßig für den Versand verwendet werden soll</li>
+<li>Individuelle Angabe des Formats der Internetmarke</li>
+<li>Einfaches Frankieren per PDF-Ausdruck - von der Postkarte bis zum Kleinpaket (bis 1.000 g)</li>
+</ul>
+<h2 id="portokasse-bei-der-deutschen-post-anlegen">Portokasse bei der Deutschen Post anlegen<a class="headerlink" href="#portokasse-bei-der-deutschen-post-anlegen" title="Permanent link">&para;</a></h2>
+<p>Für die Nutzung des Services <strong>Internetmarke </strong> benötigst du die so genannte <strong>Portokasse</strong> der Deutschen Post. Solltest du für diesen Dienst noch keine Registrierung für dein Unternehmen besitzen, registriere dich hier:<a href="https://portokasse.deutschepost.de/portokasse/">https://portokasse.deutschepost.de/portokasse/</a>.</p>
+<p>Nach der Registrierung erhältst du einen Benutzernamen und ein Passwort als Zugangsdaten. Diese benötigst du für die Einrichtung der Versandart in Xentral.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Als Geschäfts- oder Privatkunde der Deutschen Post kannst du seit dem <strong>31.12.2024</strong> die Portokasse nicht mehr über den Online-Shop der Deutschen Post nutzen. Die Aufladung der Portokasse steht Geschäftskunden nach diesem Datum weiterhin unterportokasse.deutschepost.demit den bekannten Zahlungsverfahren zur Verfügung. Nutzt du noch die Portokasse im Online-Shop der Deutschen Post als Privatkunde, empfehlen wir dir, so bald wie möglich einen Account als Geschäftskunde bei der Deutschen Post anzulegen, damit du nicht von der Abschaltung betroffen bist.</p>
+</blockquote>
+<h2 id="internetmarke-an-xentral-anbinden">Internetmarke an Xentral anbinden<a class="headerlink" href="#internetmarke-an-xentral-anbinden" title="Permanent link">&para;</a></h2>
+<p>Um die Internetmarke in Xentral als Versandart zu nutzen, legst du zunächst eine neue Versandart an. Anschließend aktivierst du diese mit deinen Zugangsdaten für die Portokasse der Deutschen Post.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du die Internetmarke bislang noch nicht nutzt, informiere dich auf deroffiziellen Website der Deutschen Postüber das Angebot.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um die Versandart <strong>Internetmarke</strong> in Xentral einzurichten.</p>
+<ol>
+<li>Suche mithilfe der Smart Search nach <strong>Versandarten</strong>.</li>
+<li>Klicke oben rechts auf <strong>+ NEU</strong>.</li>
+<li>Klicke auf <strong>Internetmarke</strong>.</li>
+<li>Nimm die Einstellungen wie in der Tabelle unten beschrieben vor.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bezeichnung</strong></td>
+<td>Gib eine Bezeichnung für die Versandart ein, die später bei der Auftragsbearbeitung in Xentral angezeigt wird. Die Bezeichnung ist nur für dich und deine Mitarbeiter sichtbar. Achte darauf, dass jede Bezeichnung nur einmal in Xentral vorkommt, damit die Versandart stets eindeutig identifiziert werden kann.</td>
+</tr>
+<tr>
+<td><strong>Typ <strong></td>
+<td>Dies ist eine interne Feldbezeichnung, die für die Zuordnung bei deinen Online-Shops und anderen Verkaufsplattformen benötigt wird. ⚠️</strong> Wichtig:</strong> Verändere diese Bezeichnung nicht!</td>
+</tr>
+<tr>
+<td><strong>Modul</strong></td>
+<td>Wähle das passende Modul aus dem Dropdown-Menü. Dabei muss der Modulname identisch zum Namen der Versandart sein, die du gerade einrichtest.</td>
+</tr>
+<tr>
+<td><strong>Projekt <strong></td>
+<td></strong> Optional</strong>: Gib eine Projektzuordnung an. Diese wird benötigt, wenn du die Versandart auf einen bestimmten Verkaufskanal oder ein Projekt (beispielsweise eine spezifische Niederlassung) beschränken möchtest. Lasse das Feld leer, falls die Versandart in allen Projekten genutzt werden soll.</td>
+</tr>
+<tr>
+<td><strong>Aktiv <strong></td>
+<td>Aktiviere diese Option, sobald du alle benötigten Einstellungen für die Versandart vorgenommen hast. 💬</strong> Anmerkung:</strong> Nicht mehr verwendete Versandarten kannst du später deaktivieren. Beachte jedoch, dass deaktivierte Versandarten nur noch in bereits erstellten Belegen angezeigt werden. In neu erstellten Belegen und in Benutzerflächen wie der Auftragsübersicht oder in den Kundendaten steht eine deaktivierte Versandart nicht mehr zur Auswahl zur Verfügung. Du kannst Versandarten auch löschen. Dadurch wird jedoch auch die Versandhistorie gelöscht. Deshalb solltest du nur fälschlicherweise angelegte Versandarten löschen, die du nicht produktiv genutzt hast.</td>
+</tr>
+<tr>
+<td><strong>Kein Portocheck</strong></td>
+<td>Mit dieser Option kannst du den Porto-Check im Auftrag deaktivieren. Bleibt der Porto-Check aktiv, zeigt die Auftragsampel ein rotes Symbol für den Portocheck an, falls nicht mindestens ein Portoartikel in den Auftragspositionen enthalten ist. So wird verhindert, dass bei manuell angelegten Aufträgen der Portoartikel vergessen wird. Überlege anhand deiner eigenen Workflows und Arbeitsweise mit Xentral, ob du diese Option aktivieren oder deaktivieren willst. Legst du typischerweise viele Aufträge manuell in Xentral an, kann es sinnvoll sein, diese Option nicht zu aktivieren, sodass gerade bei hochpreisigen Artikeln oder internationalen Sendungen das Porto immer zuverlässig am Auftrag hinterlegt wird.</td>
+</tr>
+<tr>
+<td><strong>Drucker Versandlabel <strong></td>
+<td>Wähle aus dem Dropdown-Menü den Drucker aus, der standardmäßig für die Internetmarke genutzt werden soll. Beachte, dass hier nur Drucker auswählbar sind, die du bereits in Xentral eingerichtet hast. Je nachdem, wie und wo der Versandprozess in deinem Unternehmen abläuft, kannst du hier genau den Drucker auswählen, den du benötigst - egal ob direkt am Schreibtisch oder am Packtisch im Lager. 💡</strong> Tipp:</strong> Falls du keinen physischen Drucker in Xentral angebunden hast, kannst du hier den Dokumentendrucker auswählen. So wird die Internetmarke als PDF-Datei bereitgesetellt. Diese Datei kannst du herunterladen und manuell ausdrucken. Allerdings empfehlen wir die Anbindung eines geeigneten Etikettendruckers, sodass der Ausdruck automatisiert abläuft. Weitere Informationen findest du im Artikel Deinen Drucker mit Xentral verbinden.</td>
+</tr>
+<tr>
+<td><strong>Drucker Export <strong></td>
+<td></strong> Nur bei internationalem Versand relevant</strong>: Wähle aus dem Dropdown-Menü den Drucker aus, der standardmäßig für Zollpapiere (CN23) genutzt werden soll.</td>
+</tr>
+<tr>
+<td><strong>Versand-E-Mail <strong></td>
+<td>Lege hier fest, nach welchen Regeln Versandbenachrichtigungen per E-Mail an deine Kunden verschickt werden sollen, sobald sich die Sendung auf dem Weg befindet. Die folgenden drei Optionen stehen dir zur Verfügung:</strong> Standardverhalten <strong>: Die Logistikeinstellungen aus dem Projekt werden verwendet. Diese Einstellungen nimmst du im Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; Projekte &gt; Projekt öffnen &gt; Tab: Einstellungen &gt; Tab: Logistik / Versand </strong> vor. In den Bereichen <strong>Stufe 1 (Pick/Kommissionierung)</strong> und <strong>Stufe 2 (Pack)</strong> definierst du über die Checkboxen namens <strong>E-Mail </strong>, bei welchen Schritten deine Kunden über den Stand der Auftragsbearbeitung informiert werden.</strong> Keine Versandmail <strong>: Für diese Versandart wird keine Versandinformation per E-Mail versendet.</strong> Eigene Textvorlage </strong>: Für diese Versandart wird die ausgewählte Textvorlage per E-Mail versendet. Diese Vorlage musst du vorab im Menü <strong>Einstellungen &gt; Grundeinstellungen &gt; Belege &gt; Textvorlagen </strong> erstellen. Anschließend wählst du die gewünschte Vorlage im Dropdown-Menü <strong>Textvorlage</strong> aus. Durch diese Auswahl werden die Logistikeinstellungen des Projekts für diese Versandart nicht genutzt.</td>
+</tr>
+<tr>
+<td><strong>Lieferungen unterstützt <strong></td>
+<td>Diese Option wird bei der Anlage der Versandart standardmäßig aktiviert. Sobald du alle weiteren benötigten Einstellungen vorgenommen und die Versandart auf</strong> Aktiv</strong> gestellt hast, kannst du die Versandart in Aufträgen, Lieferscheinen und im Versandzentrum auswählen.</td>
+</tr>
+<tr>
+<td><strong>Retouren unterstützt</strong></td>
+<td>Aktiviere diese Option, um zu erlauben, dass deine Kunden Retouren zu Aufträgen einsenden können, die ursprünglich mit dieser Versandart erstellt wurden.</td>
+</tr>
+<tr>
+<td><strong>Bevorzugte Rücksendemethode</strong></td>
+<td>Wähle eine bevorzugte Versandart für Retouren aus. Sobald in Xentral manuell eine Retoure zu einem Auftrag mit der vorliegenden Versandart angelegt ist, wird die hier gewählte Versandart automatisch im Retourenauftrag vorausgewählt. Diese Einstellung greift nur in Fällen der manuellen Retourenerstellung.</td>
+</tr>
+<tr>
+<td><strong>Portokasse</strong></td>
+<td>Gib die E-Mail Adresse ein, mit der du dich unter<a href="https://portokasse.deutschepost.de/portokasse/#!/">https://portokasse.deutschepost.de/portokasse/#!/</a> registriert hast</td>
+</tr>
+<tr>
+<td><strong>Passwort</strong></td>
+<td>Gib das Passwort für deinen Zugang zur Portokasse bei der Deutschen Post ein.</td>
+</tr>
+<tr>
+<td><strong>Versender Firma / Straße / Hausnummer / Ort / PLZ <strong></td>
+<td>Gib deinen Firmennamen ein und trage in den restlichen Feldern die Adressdaten deines Unternehmens ein. ⚠️</strong> Wichtig:</strong> Übernimm die hier geforderten Daten genau so, wie sie auch in deinem Konto für die Portokasse hinterlegt sind.</td>
+</tr>
+<tr>
+<td><strong>Versender Land (2-stellig)</strong></td>
+<td>Gib den ISO-Ländercode für das Land ein, aus dem du versendest. Für Deutschland lautet der korrekte ISO-Code <strong>DE</strong>.</td>
+</tr>
+<tr>
+<td><strong>Produkt <strong></td>
+<td>Wähle aus dem Dropdown-Menü aus, welches Internetmarke-Produkt (Sendungsgröße und -Gewicht) die Versandart nutzen soll. Falls du erst bei der Erstellung des Versandlabels das passende Produkt auswählen möchtest, wähle die Option</strong> Im Paketmarkenedialog auswählbar</strong> aus.</td>
+</tr>
+<tr>
+<td><strong>Format</strong></td>
+<td>Wähle aus dem Dropdown-Menü das Etikettenformat für den Ausdruck der Internetmarke aus.</td>
+</tr>
+<tr>
+<td><strong>Tracking übernehmen <strong></td>
+<td>Diese Einstellung ist für die Versandart</strong> Internetmarke</strong> nicht relevant, da dir bei den Produkten der Internetmarke keine Trackingnummern zur Verfügung gestellt werden. Nimm hier also keine Einstellung vor.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="internetmarke-drucken">Internetmarke drucken<a class="headerlink" href="#internetmarke-drucken" title="Permanent link">&para;</a></h2>
+<p>Sobald du alle Einstellungen<a href="#UUID-2f5a869a-9887-d44f-ce44-05d98a4ee203_id_360016756439_id_h_01F20T5JPG1B6GY4JJM9C9DZBJ">wie oben beschrieben</a>vorgenommen hast, kannst du den Druck der Internetmarke im Versandzentrum oder auch in einem einzelnen Lieferschein testen. Gehe dazu wie folgt vor.</p>
+<ol>
+<li>Öffne per Klick auf das <strong>Stift-Symbol </strong> rechts einen Lieferschein im Menü <strong>Lager &gt; Lieferschein</strong>.</li>
+<li>
+<p>Öffne das Tab <strong>Details </strong></p>
+</li>
+<li>
+<p>Scrolle nach unten, bis du den Bereich <strong>Lieferschein</strong> erreichst.</p>
+</li>
+<li>Wähle die Versandart <strong>Internetmarke </strong> aus dem Dropdown-Menü <strong>Versandart</strong> aus.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+<li>Passe, falls nötig die Adressdaten an.</li>
+<li>Klicke auf <strong>Paketmarke drucken</strong>.</li>
+</ol>
+<p>So sieht eine gedruckte Internetmarke beispielhaft aus:</p>
+<p><img alt="internetmarke-beispiel.png" src="https://help.xentral.com/hc/article_attachments/22371911544860" /></p>
+<p>Nachdem dein Testdruck abgeschlossen ist, kannst du im Anschluss die Internetmarke in der Portokasse stornieren.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Beachte die folgenden Voraussetzungen zur Stornierung von Internetmarken:</p>
+<ul>
+<li>Die Internetmarke darf nicht zum Versand benutzt worden sein</li>
+<li>Stornierungen sind bis maximal 14 Tage nach dem Kauf möglich</li>
+</ul>
+</blockquote>
+<ol>
+<li>Logge dich <a href="https://portokasse.deutschepost.de/portokasse/#!/">in der Portokasse</a> ein.</li>
+<li>Klicke auf <strong>Meine Bestellungen</strong>.</li>
+<li>Klicke bei der gewünschten Internetmarke auf <strong>Details</strong>.</li>
+<li>Klicke auf <strong>Stornieren</strong>.</li>
+<li>Bestätige die angezeigte Abfrage.</li>
+</ol>
+<h2 id="haufige-fehlermeldungen-und-losungen">Häufige Fehlermeldungen und Lösungen<a class="headerlink" href="#haufige-fehlermeldungen-und-losungen" title="Permanent link">&para;</a></h2>
+<p>In diesem Kapitel haben wir die Fehlermeldungen aufgelistet, die bei der Verwendung der Versandart <strong>Internetmarke</strong> in Xentral auftreten können.</p>
+<table>
+<thead>
+<tr>
+<th>Fehlermeldung</th>
+<th>Erläuterung und Lösung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Problems creating SAAJ object model</td>
+<td>Dieser Fehler tritt auf, wenn Sonderzeichen wie Semikolon (<strong>;</strong>) oder Sternchen (<strong>*</strong>) im Absendernamen, Empfängernamen, Benutzernamen, der Artikelbezeichnung oder dem Passwort für die Portokasse verwendet werden. Überprüfe bitte, ob du Sonderzeichen verwendest und entferne sie gegebenenfalls.</td>
+</tr>
+</tbody>
+</table>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

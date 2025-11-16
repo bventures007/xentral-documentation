@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017436039 Anforderungen An Das On Premise Hosting - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017436039 Anforderungen An Das On Premise Hosting</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017436039 Anforderungen An Das On Premise Hosting</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>End-of-Life für On-Premise-Instanzen</strong></p>
+<p>Ende März 2023 beenden wir die Unterstützung von Xentral-Instanzen, die „On-Premise“ von unseren Kunden selbst gehostet werden. Wir empfehlen dir daher, deine Xentral-Instanz in unsere Cloud zu migrieren. Kontaktiere uns gerne jederzeit unteraccount@xentral.com, um diesbezügliche Fragen zu klären oder einen Termin für deine Migration zu buchen. Alternativ kannst du weitere Informationen aufunserer Websiteoder inunserer Communityfinden.</p>
+<p>Beachte bitte, dass wir Ende März 2023 jegliche Supportleistungen für On-Premise-Instanzen beenden. Wir stellen dann keine weiteren Bug-Fixes oder Updates mehr zur Verfügung. Außerdem wird es keine weitere Open-Source-Version mehr geben.</p>
+</blockquote>
+<p>Dieser Artikel beschreibt die Hardware- und Software-Anforderungen für das Hosting von XentralOn-Premise sowie die erforderliche Konfiguration auf dem Server. Hier werden auch die Anforderungen beschrieben, die erforderlich sind, um Support für deine On-Premise gehostete Xentral-Instanz zu erhalten. Sollten diese Anforderungen nicht erfüllt sein, läuftXentral unter Umständen nicht richtig und wir bieten keine Unterstützung.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Xentral bietet Neukunden nur Cloud-Hosting an und möchte Altkunden motivieren, in die Xentral-Cloud zu migrieren.</p>
+</blockquote>
+<h2 id="hardware-anforderungen">Hardware-Anforderungen<a class="headerlink" href="#hardware-anforderungen" title="Permanent link">&para;</a></h2>
+<p>Mindestanforderung an deinen Server:</p>
+<ul>
+<li>8 CPU-Kerne</li>
+<li>16 GB Arbeitsspeicher (RAM)</li>
+<li>500 GB verfügbarer SSD-Festplattenspeicher</li>
+</ul>
+<p>Sind diese Anforderungen nicht erfüllt, kann das zu Leistungsproblemen deiner Xentral-Instanz führen.</p>
+<h2 id="software-anforderungen">Software-Anforderungen<a class="headerlink" href="#software-anforderungen" title="Permanent link">&para;</a></h2>
+<p>Zur Sicherstellung, dass deine Xentral-Instanz korrekt eingerichtet und ausgeführt werden kann, müssen die folgenden Software-Anforderungen erfüllt werden.</p>
+<h3 id="betriebssystem">Betriebssystem<a class="headerlink" href="#betriebssystem" title="Permanent link">&para;</a></h3>
+<p>Auf deinem Server ist eine der folgenden Linux-Distributionen als Betriebssystem erforderlich:</p>
+<ul>
+<li>Ubuntu</li>
+<li>64-Bit</li>
+<li>Version 18.04 oder höher (<code>&gt;=18.04</code>)</li>
+<li>Debian</li>
+<li>64-Bit</li>
+<li>Version 10.3 oder höher (<code>&gt;=10.3</code>)</li>
+</ul>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Du musst SSH-Zugriff auf dein Betriebssystem haben, um die erforderlichen Cronjobs einrichten zu können.</p>
+</blockquote>
+<h3 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">&para;</a></h3>
+<p>Du musst PHP-FPM und PHP-CLI auf deinem Server mit der folgenden Version, Konfiguration und den folgenden Erweiterungen installieren.</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>PHP 7.4 oder höher (PHP^7.4), aber noch nicht 8.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Konfiguration</strong></td>
+<td>Stelle sicher, dass die folgenden <code>php.ini</code>-Werte definiert sind: -<code>max_execution_time = 600</code>Wert in Sekunden, d.h. 600 entspricht 10 Minuten.<br>-<code>max_input_time = 1000</code>Wert in Sekunden, d.h. 1000 entspricht ungefähr einer Viertelstunde.<br>-<code>memory_limit = 512M</code></td>
+</tr>
+<tr>
+<td><strong>Erweiterungen</strong></td>
+<td>Die nachfolgend beschriebenen PHP-Erweiterungen sind erforderlich, wobei &ldquo;*&rdquo; bedeutet, dass jede Version verwendet werden kann und z.B. &ldquo;&gt;=10.4&rdquo; bedeutet, dass Version 10.4 oder höher erforderlich ist:</td>
+</tr>
+</tbody>
+</table>
+<h3 id="webserver">Webserver<a class="headerlink" href="#webserver" title="Permanent link">&para;</a></h3>
+<p>Wir unterstützen offiziell nur den folgenden Webserver:</p>
+<ul>
+<li>Nginx Version 1.18 oder höher (<code>&gt;=1.18</code>)</li>
+</ul>
+<h3 id="datenbank">Datenbank<a class="headerlink" href="#datenbank" title="Permanent link">&para;</a></h3>
+<p>Wir unterstützen offiziell nur die folgende Datenbank:</p>
+<ul>
+<li>MySQL 5.7</li>
+</ul>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>MySQL 8.0 wird <strong>nicht</strong> unterstützt.</p>
+</blockquote>
+<p>Einige andere Datenbank-Systeme können funktionieren, ein Funktionieren wird von uns aber nicht garantiert und eine Nutzung solcher Systeme kann die Support-Dienstleistungen, die wir unterstützen, beeinflussen, siehe<a href="#UUID-dc5a1e39-8c4d-6bef-619f-f6bec2725cac_section-idm467254917197763323003201353">Support-Anforderungen</a></p>
+<h2 id="anforderungen-an-die-konfiguration">Anforderungen an die Konfiguration<a class="headerlink" href="#anforderungen-an-die-konfiguration" title="Permanent link">&para;</a></h2>
+<p>Stelle sicher, dass du dich bei Einrichtung deines Xentral-Systems an die folgenden Konfigurationsanforderungen hältst.</p>
+<h3 id="dokumentenstamm">Dokumentenstamm<a class="headerlink" href="#dokumentenstamm" title="Permanent link">&para;</a></h3>
+<p>Der Dokumentenstamm des Webservers muss auf die Ordner <code>www</code> des Xentral-Repositories verweisen.<code>server {
+2 location / {
+3 #...
+4 root /xentral/www
+5 #...
+6} 
+7}</code></p>
+<h3 id="ssl-zertifikat">SSL-Zertifikat<a class="headerlink" href="#ssl-zertifikat" title="Permanent link">&para;</a></h3>
+<p>Der Server muss über ein gültiges SSL-Zertifikat verfügen, um die Kommunikation mit dem Xentral-System zu ermöglichen.</p>
+<p>Du kannst gratis SSL-Zertifikate über<a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>erhalten.</p>
+<h2 id="support-anforderungen">Support-Anforderungen<a class="headerlink" href="#support-anforderungen" title="Permanent link">&para;</a></h2>
+<p>Bitte beachte, dass unsere Support-Dienstleistungen fürXentral-Systeme, die On-Premise gehostet werden, an spezielle Bedingungen geknüpft sind.</p>
+<h3 id="prufung-der-hosting-anforderungen">Prüfung der Hosting-Anforderungen<a class="headerlink" href="#prufung-der-hosting-anforderungen" title="Permanent link">&para;</a></h3>
+<p>Stelle sicher, dass du die tatsächliche Systemkonfiguration mit der aktuellen Hardware, Software und Konfigurationsanforderungen dieses Artikels vergleichst, bevor du den Xentral-Support kontaktierst.</p>
+<p>Sollte es Abweichungen geben, nenne diese bitte zu Beginn deiner Support-Anfrage.</p>
+<p>Bitte beachte, dass wir für abweichende Systeme und Konfigurationen unter Umständen keinen Support leisten können.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Hast es du unterlassen, uns in deinem Support-Ticket über ein abweichendes Set-up zu unterrichten und dies führt zu einem Mehraufwand bei der Prüfung auf unserer Seite, können wir dir diesen Mehraufwand in Rechnung stellen.</p>
+</blockquote>
+<h3 id="zugriff-auf-dein-on-premise-system">Zugriff auf dein On-Premise-System<a class="headerlink" href="#zugriff-auf-dein-on-premise-system" title="Permanent link">&para;</a></h3>
+<p>Um dir Support anbieten zu können, brauchen wir Zugriff auf dein Xentral-System und den Server, auf dem es gehostet wird.</p>
+<p>Stelle bitte Folgendes sicher:</p>
+<ul>
+<li>Du hast einen Support-Benutzer mit Admin-Rechten auf deiner Xentral-Instanz eingerichtet und stellst diesen dem Xentral-Support-Team zur Verfügung.</li>
+<li>Du hast SSH-Zugriff auf deinem Server mit <code>sudo</code>-Berechtigungen eingerichtet und stellst diesen dem Xentral-Support-Team zur Verfügung.</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

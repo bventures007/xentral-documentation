@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016724700 Zahlungsverkehr - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016724700 Zahlungsverkehr</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016724700 Zahlungsverkehr</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>ImXentral NextGenDesign:Buchhaltung &gt; Zahlungsverkehr.</p>
+<p>Im Classic Design:Buchhaltung &gt; Zahlungsverkehr.</p>
+<p>Der Zahlungsverkehr umfasst alle Übertragungen von Zahlungsmitteln.</p>
+<p>In xentral können in diesem Modul Beträge sowohl beglichen, als auch eingezogen werden. Es ist auch möglich eine Verbindlichkeit direkt in diesem Modul anzulegen. Voraussetzungen für die Nutzung dieses Moduls sind:</p>
+<ul>
+<li>dass der SEPA-Zahlungsverkehr in xentral eingerichtet ist</li>
+<li>dass eine SEPA-Gläubiger-Identifikationsnummer vorhanden ist</li>
+</ul>
+<p>Besonders relevant ist dieses Modul, wenn der Zahlungsverkehr über xentral abgewickelt wird.</p>
+<p>In der App Zahlungsverkehr könnt ihr Überweisungen von euren Bankkonten veranlassen, indem ihr im Modul eine XML-Datei erzeugt und diese in eurer Online-Banking-Software hochlädt. Zu diesem Zweck können Verbindlichkeiten und Gutschriften direkt hereingeladen werden, um die Auszahlung zu veranlassen und die erstellte Buchung direkt auf den korrekten Beleg zu verknüpfen – und diesen als bezahlt zu markieren. Diese Belege könnt ihr nach Offenen, Fehlgeschlagenen, Ausgeführten, etc. filtern, um stets den benötigten Überblick zu erhalten.</p>
+<p>Über die Aktion Zahlungen zuordnen und freigeben werden die vorgeschlagenen Buchungen vorbereitet. Anschließend kann oben auf den Reiter des gewünschten Kontos navigiert werden und mit der Aktion Zahlung ausführen die Überweisungen ausgelöst werden.</p>
+<h2 id="voraussetzungen">Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Permanent link">&para;</a></h2>
+<h3 id="sepa-zahlungsverkehr-einrichten">SEPA-Zahlungsverkehr einrichten<a class="headerlink" href="#sepa-zahlungsverkehr-einrichten" title="Permanent link">&para;</a></h3>
+<p>Der SEPA-Zahlungsverkehr kann unter Administration → Einstellungen → Buchhaltung → Geschäftskonten für jedes Konto aktiviert werden. Folgende Daten müssen vorab im Geschäftskonto eingetragen werden:</p>
+<ul>
+<li>Inhaber</li>
+<li>BIC</li>
+<li>IBAN</li>
+<li>BLZ (optional)</li>
+<li>Konto (optional)</li>
+<li>Gläubiger ID</li>
+<li>Lastschrift: aktiviert durch Setzen eines Hakens</li>
+</ul>
+<h3 id="sepa-glaubiger-identifikationsnummer">SEPA-Gläubiger-Identifikationsnummer<a class="headerlink" href="#sepa-glaubiger-identifikationsnummer" title="Permanent link">&para;</a></h3>
+<p>Für das Lastschriftverfahren wird für die eigene Firma eine SEPA-Gläubiger-Identifikationsnummer benötigt. Diese muss z.B. für Deutschland bei der Deutschen Bundesbank mit dem „Formular zur Beantragung Ihrer Gläubiger-Identifikationsnummer“ beantragt werden.</p>
+<p>Mit dieser Nummer kann man sich bei der Hausbank freischalten lassen. Für die einzelnen Kunden muss bei jedem Lastschrifteinzug die Mandatsreferenz übermittelt werden. Diese Daten werden beim Einzug jedes Mal für jeden Kunden von xentral aus mit übergeben.</p>
+<p>Diese Nummer wird direkt bei den Firmendaten eingetragen: Administration → Einstellungen → System → Grundeinstellungen → Firmenanschrift.</p>
+<h2 id="zahlungen">Zahlungen<a class="headerlink" href="#zahlungen" title="Permanent link">&para;</a></h2>
+<h3 id="offen">Offen<a class="headerlink" href="#offen" title="Permanent link">&para;</a></h3>
+<p>In der Übersicht sind alle offenen Lastschriften aufgelistet. Diese können nach bestimmten Kriterien gefiltert werden. Außerdem ist es möglich im Bereich &ldquo;Aktion&rdquo; direkt hier eine neue Überweisung anzulegen sowie Gutschriften und Verbindlichkeiten zu laden.</p>
+<h3 id="filter">Filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>nur Offene</strong>→ zeigt ausschließlich die Verbindlichkeiten und Gutschriften an, die noch offen sind und noch keinem Zahlungskonto zugeordnet wurden. Dieser Filter sollte standardmäßig gesetzt werden
+-<strong>nur Fehlgeschlagene</strong>→ zeigt ausschließlich die Verbindlichkeiten und Gutschriften an, die fehlgeschlagen sind
+-<strong>nur Ausgeführte</strong>→ zeigt ausschließlich bereits ausgeführte Verbindlichkeiten und Gutschriften an
+-<strong>nur Verbindlichkeiten</strong>→ zeigt ausschließlich Verbindlichkeiten an
+-<strong>nur Gutschriften</strong>→ zeigt ausschließlich Gutschriften an
+-<strong>Skonto-Datum verwenden</strong>→ Verwendet das Skonto-Datum zur Sortierung</li>
+</ul>
+<h3 id="neue-uberweisung">Neue Überweisung<a class="headerlink" href="#neue-uberweisung" title="Permanent link">&para;</a></h3>
+<p>Über die Schaltfläche &ldquo;Neue Überweisung&rdquo; kann eine Überweisung direkt hier neu angelegt werden.</p>
+<p>In der Eingabemaske können die notwendigen Informationen hinterlegt werden. Über die Edit-Schaltfläche bei bestehenden Überweisungen erscheint ebenfalls diese Maske, wobei die Informationen dann noch einmal angepasst werden können, z.B. wenn für diese eine Überweisung eine andere IBAN verwendet werden soll, als die, die in den Stammdaten hinterlegt ist.</p>
+<h3 id="offene-zahlungen">Offene Zahlungen<a class="headerlink" href="#offene-zahlungen" title="Permanent link">&para;</a></h3>
+<p>Hier können Gutschriften und Verbindlichkeiten geladen werden. Im ersten Schritt werden die Überweisungen händisch angehakt oder über den Haken &ldquo;alle markieren&rdquo; ausgewählt. Dann ist das Konto auszuwählen, zu welchem die Überweisung zugeordnet werden soll. Als letztes ist die Auswahl mit der Schaltfläche &ldquo;Zahlungen zuordnen und freigeben&rdquo; abzuschließen.</p>
+<h3 id="konten">Konten<a class="headerlink" href="#konten" title="Permanent link">&para;</a></h3>
+<p>Neben dem Tab &ldquo;offen&rdquo; erscheinen alle angelegten Konten, die für den Zahlungsverkehr freigegeben wurden. In unseren Bsp. sind dies &ldquo;Bankkonto CSV (Beispiel:Deutsche Bank)&rdquo;, &ldquo;Barkasse&rdquo;, &ldquo;Konto: AmazonPay (API)&rdquo;. Hier werden die Überweisungen angezeigt, die diesem Konto zugeordnet wurden.</p>
+<p><img alt="PaymentTransactions1.png" src="https://help.xentral.com/hc/article_attachments/13026760349468" /></p>
+<h3 id="filter_1">Filter<a class="headerlink" href="#filter_1" title="Permanent link">&para;</a></h3>
+<p>Auch hier ist es möglich über Filter nach bestimmten Kriterien zu filtern.</p>
+<p>-<strong>nur Fehlgeschlagene</strong>→ zeigt ausschließlich die Verbindlichkeiten und Gutschriften an, die fehlgeschlagen sind
+-<strong>nur Ausgeführte</strong>→ zeigt ausschließlich bereits ausgeführte Verbindlichkeiten und Gutschriften an
+-<strong>nur Verbindlichkeiten</strong>→ zeigt ausschließlich Verbindlichkeiten an
+-<strong>nur Gutschriften</strong>→ zeigt ausschließlich Gutschriften an
+-<strong>Skonto-Datum verwenden</strong>→ Verwendet das Skonto-Datum zur Sortierung</p>
+<h3 id="transaktionsmonitor">Transaktionsmonitor<a class="headerlink" href="#transaktionsmonitor" title="Permanent link">&para;</a></h3>
+<p>Hier liegt eine Auflistung aller ausgeführten Zahlungen für dieses Konto.</p>
+<h3 id="zahlungsausfuhrung">Zahlungsausführung<a class="headerlink" href="#zahlungsausfuhrung" title="Permanent link">&para;</a></h3>
+<p>Nachdem die Zahlung ausgeführt wurde, erscheint im Transaktionsmonitor die XML-Datei zum Download. Nach dem Download kann diese wiederum bei der jeweiligen Bank hochgeladen werden. Dieser Ablauf ist immer der gleiche, außer bei<a href="https://help.xentral.com/hc/de/articles/360017416839#UUID-d95f79b2-836e-9f04-5bfc-ecd171d4550d">Paypal</a>und<a href="https://help.xentral.com/document/preview/24279#UUID-917f32e3-64d6-2860-9ca2-9f0de43a94a9">Amazon Pay</a>. Dort erfolgt die Rückzahlung direkt über die API.</p>
+<h3 id="sepa-sammeluberweisung">SEPA Sammelüberweisung<a class="headerlink" href="#sepa-sammeluberweisung" title="Permanent link">&para;</a></h3>
+<p>Dieser Tab wird nicht mehr verwendet. Alle Aktionen erfolgen nun über die Konten Tabs.</p>
+<h2 id="lastschriften">Lastschriften<a class="headerlink" href="#lastschriften" title="Permanent link">&para;</a></h2>
+<h3 id="offene-rechnungen">offene Rechnungen<a class="headerlink" href="#offene-rechnungen" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab werden alle offenen Rechnungen aufgelistet. Es kann danach gefiltert werden, dass nur Rechnungen angezeigt werden, die in mindestens 10 Tagen fällig sind. Im Bereich &ldquo;Übersicht&rdquo; wird die Gesamtsumme dargestellt. Mit der Stapelverarbeitung kann ein Konto und optional ein Präfix vor dem Buchungstext ausgewählt werden, um dann eine Sammellastschrift anzulegen.</p>
+<h3 id="offene-gutschriften">offene Gutschriften<a class="headerlink" href="#offene-gutschriften" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab werden alle offenen Gutschriften aufgelistet. Im Bereich Übersicht wird die Gesamtsumme dargestellt.</p>
+<h3 id="abgebuchte-rechnungen">Abgebuchte Rechnungen<a class="headerlink" href="#abgebuchte-rechnungen" title="Permanent link">&para;</a></h3>
+<p>Wurden Rechnungen verbucht, erscheinen diese in diesem Tab. Die Rechnungen können hier noch einmal bearbeitet oder als PDF ausgegeben werden.</p>
+<h3 id="zahlungsavis">Zahlungsavis<a class="headerlink" href="#zahlungsavis" title="Permanent link">&para;</a></h3>
+<p>Mit einem Zahlungsavis werden ausstehende Rechnungen angekündigt. In diesem Tab liegt eine Auflistung aller bestehenden Avis. Das Avis Dokument ist via PDF Icon abrufbar. Über die Stapelverarbeitung können die Avis über einen Prozessstarter versendet oder gedruckt und versendet werden. Stand Juni 2021 kann das Zahlungsavis nur in deutscher Sprache verschickt werden.</p>
+<p>Wenn es einen Lastschrifteinzug für einen Kunden mit mehreren Rechnungen gleichzeitig in einem SEPA-Sammellauf gibt, werden die Rechnungen zu einer Summe zusammengefasst und anstelle der Rechnungsnummern wird dann die Nummer der Avis mit in den Überweisungstext verwendet. Z.B. bei 10 Rechnungen als Sammeleinzug sind zu viele Zeichen im Buchungstext, wenn jede Rechnung einzeln mit Nummer aufgelistet wird.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Zahlungsavis wird standardmäßig an die in den Adressstammdaten hinterlegte E-Mail-Adresse gesendet. Falls unter <strong>Adresse &gt; Details &gt; Dokumente Versandoptionen &gt; Rechnung</strong> eine abweichende E-Mail-Adresse hinterlegt ist, wird der Zahlungsavis stattdessen an diese gesendet.</p>
+</blockquote>
+<h3 id="zahlungsavis-per-prozessstarter-versenden">Zahlungsavis per Prozessstarter versenden<a class="headerlink" href="#zahlungsavis-per-prozessstarter-versenden" title="Permanent link">&para;</a></h3>
+<p>Zahlungsavise können gesammelt in großer Menge versendet werden. Zu versendende Avise können in der Übersicht ausgewählt und dann als Alternative zum Druck zu einer internen Liste hinzugefügt werden, von der aus diese der Prozessstarter &ldquo;zahlungsavis_mailausgang&rdquo; verschickt. Für die Mail wird die Geschäftsbriefvorlage &ldquo;LastschriftenZahlungsavis&rdquo; verwendet. Wenn die Geschäftsbriefvorlage nicht vorhanden ist, oder Text bzw. Betreff leer sind, dann wird keine Mail versendet.</p>
+<h3 id="sepa-sammellastschriften">SEPA Sammellastschriften<a class="headerlink" href="#sepa-sammellastschriften" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab liegt eine Übersicht über alle SEPA Sammellastschriften. Diese können hier mit dem &ldquo;x&rdquo; entfernt oder über den Pfeil heruntergeladen werden. Durch das entfernen werden die einzelnen Rechnungen wieder in den Bereich der offenen Lastschriften verschoben, falls bspw. Änderungen an den Bankdaten des Kunden vorgenommen werden sollen, bevor die XML Datei erzeugt wird. Sind in einem Lastschrift Lauf Erstlastschriften und Folgelastschriften vorhanden, werden hier zwei Dateien für die Bank angelegt.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beim &lsquo;Präfix vor Buchungstext&rsquo; ist darauf zu achten, dass der ausgewählte Text nicht zu lang ist. Ansonsten könnte die Banksoftware die Rechnungsnummer in 2 Zeilen trennen, was zur Folge hat, dass im xentral Zahlungseingang die Rechnungsnummer nicht mehr automatisch erkannt werden kann. Die Rechnungsnummer muss zusammenhängend in der Zahlungszeile beim Zahlungsimport vorhanden sein. Wird kein Präfix eingegeben, setzt sich der Buchungstext aus der Rechnungsnummer, der Kundennummer sowie des vollständigen Kundennamens zusammen.</p>
+</blockquote>
+<p>In der Minidetail Ansicht können zudem weitere Details eingesehen werden und die Buchungsübersicht kann hier ausgedruckt werden. Kunden mit mehreren Rechnungen werden als Avis zusammengefasst und in einer Buchung angezeigt. Der Einzug via XML erfolgt dann auch in einer Sammelbuchung für diesen Kunden und wird später auf dem Bankkonto auch so verbucht. Die Aufsplittung der Einzelbuchungen kann dann im Zahlungseingang mit der Splitfunktion erfolgen. Um die Auflösung in Einzelpositionen von Sammellastschriften durch xentral zu gewährleisten, muss die Einstellung &ldquo;Einzelbuchungen aktivieren&rdquo; im Geschäftskonto aktiviert werden.</p>
+<h2 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h2>
+<p>Im ReiterEinstellungenkann festgelegt werden, mit wie vielen Tagen das Skonto überzogen werden darf. Standardmäßig ist hier 0 eingestellt.</p>
+<h3 id="einzugsdatum-einstellen">Einzugsdatum einstellen<a class="headerlink" href="#einzugsdatum-einstellen" title="Permanent link">&para;</a></h3>
+<p>Das Einzugsdatum für Lastschriften wird in der Rechnung im BereichEinzugsermächtigungeingestellt. Das Einzugsdatum hat einen Einfluss auf die offenen Lastschriften unterZahlungsverkehr &gt; Reiter Lastschriften &gt; Unterreiter Offene Rechnungen. Hier wird die Rechnung automatisch für eine Sammellastschrift markiert, sobald das Einzugsdatum (z.B. der 15.06.2023 im folgenden Screenshot) erreicht ist. Alle Rechnungen ohne Einzugsdatum werden ebenfalls automatisch markiert.</p>
+<p><img alt="paymenttransaction_directdebit.png" src="https://help.xentral.com/hc/article_attachments/11351053692444" /></p>
+<p>Wenn du eine Rechnung manuell für eine Sammellastschrift auswählst, bevor ihr Einzugsdatum erreicht ist, wird das Einzugsdatum ignoriert und das Geld vorzeitig eingezogen.</p>
+<h3 id="rechnungsbetrag-nochmals-einziehen">Rechnungsbetrag nochmals einziehen<a class="headerlink" href="#rechnungsbetrag-nochmals-einziehen" title="Permanent link">&para;</a></h3>
+<p>Um einen Rechnungsbetrag noch einmal einzuziehen ist in eine Rechnung zu klicken und dort den Schreibschutz zu entfernen. Danach ist die Schaltfläche &ldquo;nochmals einziehen&rdquo; auszuwählen. Die Rechnung wird nun nochmals in den Lastschriftenlauf (Liste aller fälligen) aufgenommen.</p>
+<h3 id="rechnung-mit-gutschrift-verrechnen">Rechnung mit Gutschrift verrechnen<a class="headerlink" href="#rechnung-mit-gutschrift-verrechnen" title="Permanent link">&para;</a></h3>
+<p>Gutschriften können mit Rechnungen gemeinsam verrechnet werden. Hierzu muss der Rechnungsbetrag größer als der Gutschriftsbetrag sein. Andernfalls wäre es eine Rücküberweisung. Der Gutschriftsbetrag wird vom Rechnungsbetrag abgezogen. Folgende Rechnung soll als Lastschrift eingezogen werden:</p>
+<p><img alt="PaymentTransactions2.png" src="https://help.xentral.com/hc/article_attachments/13026768608028" /></p>
+<p>Zu dieser Rechnung wurde eine Gutschrift erstellt (Rechnung weiterführen als Gutschrift, Zahlungsweise &ldquo;Lastschrift&rdquo;). Diese Gutschrift erscheint bei den &ldquo;Offene Gutschriften&rdquo;.</p>
+<p>Bei der Erstellung der XML-Datei wird die Gutschrift mit der Rechnung verrechnet, sofern die Gutschrift einen Betrag kleiner / gleich der Rechnung hat.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

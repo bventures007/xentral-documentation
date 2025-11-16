@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18870420757404 Produktionssteuerung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>18870420757404 Produktionssteuerung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>18870420757404 Produktionssteuerung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="von-der-planung-zur-steuerung">Von der Planung zur Steuerung<a class="headerlink" href="#von-der-planung-zur-steuerung" title="Permanent link">&para;</a></h2>
+<p>Xentral hilft dir nicht nur bei der Produktionsplanung, sondern auch bei der Produktionssteuerung. Während die Produktionsplanung über einen gewissen zeitlichen Vorlauf bestimmt, was und wann produziert werden soll, sorgt die Produktionssteuerung dafür, dass die Planung zum gegebenen Zeitpunkt in die Tat umgesetzt wird – effizient, termintreu und fehlerfrei. Bei der Produktionssteuerung geht es also um die Feinjustierung. In unserem Fall zählen wir auch die Materialentnahme zur Produktionssteuerung.</p>
+<p>Nachdem du entschieden hast, ob du nach Auftrag (make-to-order) oder auf Lager (make-to-stock) produzierst, stellt sich die Frage, wie du die Produktion tatsächlich steuerst. Du musst überwachen, dass alle Aufträge rechtzeitig und in der richtigen Reihenfolge bearbeitet werden, und sicherstellen, dass Materialien verfügbar sind.</p>
+<h2 id="priorisierung-und-produktionsstart">Priorisierung und Produktionsstart<a class="headerlink" href="#priorisierung-und-produktionsstart" title="Permanent link">&para;</a></h2>
+<p>Ein wichtiger Aspekt der Produktionssteuerung ist die punktgenaue Einlastung in die Produktion. Sinnvollerweise hälst du stets nur so viele Produktionen im StatusGESTARTET, dass die Produktion zwar aus- aber nicht überlastet ist.</p>
+<p>Eine Überlastung der Produktion führt zu zahlreichen negativen Effekten und Folgeeffekten: Ein hohes &ldquo;Work-in-Progress&rdquo; (WIP) führt zu längeren Durchlaufzeiten. Dadurch ergibt sich ein hoher Bestand an unfertigen Erzeugnissen. Das führt wiederum zu höheren Lagerkosten, höherem Verwaltungsaufwand und schwierigeren Abschlüssen. Darüber hinaus verliert die Organisation Überblick, was eine höhere Fehleranfälligkeit bedeuten kann. Außerdem verlierst du an Flexibilität und kannst schlechter auf neue Aufträge oder Störungen reagieren. Im Gegensatz dazu solltest du aber auch dringend sicherstellen, dass deine Produktion nie leerläuft, denn dies wäre ineffizient, führt zu höheren Stückkosten, demotiviert Mitarbeiter in der Produktion und führt ebenfalls zu einer höheren Fehleranfälligkeit.</p>
+<p>Berücksichtige diese Aspekte beim Starten deiner Produktionen: &ldquo;So viele wie nötig, so wenige wie möglich.&rdquo; So erreichst du einen stabilen, fließenden Prozess, der sich an den Kundenbedarfen orientiert. Es bietet sich an, dass du zyklisch (z. B. täglich, wöchentlich) prüfst, wie hoch die aktuelle Auslastung in der Produktion ist und daraufhin genau so viele Produktionen startest, dass eine optimale Auslastung für den nächsten Zyklus sichergestellt ist.</p>
+<p>Nun stellt sich noch die Frage, welche Produktionen du für den nächsten Durchlauf startest. Möglicherweise ist es hilfreich, sich an gängigen Prioritätsregeln zu orientieren:</p>
+<ul>
+<li>First In, First Out (FIFO): Die ältesten Aufträge werden zuerst bearbeitet. Das ist sinnvoll, wenn es keine besonderen Dringlichkeiten gibt.</li>
+<li>Dringlichkeitssteuerung: Besonders eilige Aufträge werden bevorzugt behandelt, um Lieferzeiten einzuhalten.</li>
+<li>Losgrößenoptimierung: Wenn du Losfertigung nutzt, können ähnliche Aufträge gebündelt werden, um Rüst- und Vorbereitungszeiten zu minimieren.</li>
+</ul>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Xentral überprüft die Materialverfügbarkeit im Hintergrund stetig und stellt sicher, dass du nur Produktionen starten kannst, für die ausreichend Material verfügbar ist.</p>
+</blockquote>
+<h3 id="produktion-in-xentral-starten">Produktion in Xentral starten<a class="headerlink" href="#produktion-in-xentral-starten" title="Permanent link">&para;</a></h3>
+<p>Um das Produktionsmodul zu erreichen, folge dem PfadLager &gt; Produktionoder suche über die Smart Search nach “Produktion”. Du befindest dich in der Produktionsübersicht.</p>
+<p>Nutze die Filter, um z. B. nur Produktionen anzeigen, für die Material verfügbar ist und die noch nicht gestartet wurden:</p>
+<p><img alt="Produktionssteuerung_Produktionsubersicht_Filter.png" src="https://help.xentral.com/hc/article_attachments/19368060889500" /></p>
+<p>Orientiere dich an den oben genannten Prioritätsregeln und den individuellen Bedürfnissen in deinem Unternehmen, um die Produktionen festzulegen, die gestartet werden sollen. Hake die entsprechenden Produktionen an und nutze die Stapelverarbeitung zum Starten:</p>
+<p><img alt="Produktionssteuerung_Produktionsubersicht_ProduktionenStarten.png" src="https://help.xentral.com/hc/article_attachments/19368060896028" /></p>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Beachte, dass die kombinierte AktionStarten und Auslagernbei Artikeln mit Chargennummern zu Diskrepanzen zwischen Lager- und Chargenbestand führt. Wenn du chargen-geführte Artikel hast, achte hier unbedingt darauf, die FunktionStartenzu nutzen!</p>
+<p>Die Produktionen befinden sich nun im StatusGESTARTETin der Produktionsübersicht:</p>
+<p><img alt="Produktionssteuerung_Produktionsubersicht_GESTARTET.png" src="https://help.xentral.com/hc/article_attachments/19368060899996" /></p>
+<h2 id="materialentnahme-fur-die-produktion-material-auslagern">Materialentnahme für die Produktion (Material auslagern)<a class="headerlink" href="#materialentnahme-fur-die-produktion-material-auslagern" title="Permanent link">&para;</a></h2>
+<p>Nachdem du die Produktion gestartet hast, kannst du das Material dafür auslagern. Je nachdem, ob du chargen-geführte Artikel hast oder nicht, unterscheidet sich das Vorgehen geringfügig.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Materialauslagerung kann - je nach Berechtigung - entweder durch dich oder durch die Mitarbeiter im Lager erfolgen.</p>
+</blockquote>
+<h3 id="mit-chargen-gefuhrten-artikeln-bzw-artikeln-mit-mindesthaltbarkeitsdatum">Mit chargen-geführten Artikeln bzw. Artikeln mit Mindesthaltbarkeitsdatum<a class="headerlink" href="#mit-chargen-gefuhrten-artikeln-bzw-artikeln-mit-mindesthaltbarkeitsdatum" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dieses Vorgehen trifft zu, wenn mindestens eine Komponente chargen-geführt ist bzw. ein Mindesthaltbarkeitsdatum hat.</p>
+</blockquote>
+<ol>
+<li>Öffne die Produktion zur Bearbeitung.</li>
+<li>Gehe zum Reiter Chargen.</li>
+<li>Buche deine eingesetzten Chargen aus, indem du den Artikel, die Charge / das Mindesthaltbarkeitsdatum und die Anzahl eingibst und auf hinzufügen klickst:</li>
+<li>Sobald du nun zum ReiterDetailswechselst, wird dir der Auslagerungsstatus gelb (Produktion teilausgelagert) angezeigt. Sowohl deine Charge(n) / die Mindesthaltbarkeitsdaten als auch der Lagerbestand der chargen-geführten Artikel bzw. Artikel mit Mindesthaltbarkeitsdatum wurden in einem Schritt reduziert.</li>
+<li>Wähle nun die Aktion Produktion auslagern.</li>
+<li>Du gelangst automatisch auf die Seite Artikel für Produktionen. Bestätige dort die Entnahme mit Klick auf Lager anpassen.</li>
+<li>Damit werden die restlichen, nicht-chargen-geführten Artikel aus dem Lager ausgebucht und der Auslagerungsstatus wechselt zu grün (Produktion ausgelagert).</li>
+</ol>
+<h3 id="vereinfachter-prozess-ohne-chargen-gefuhrte-artikel">Vereinfachter Prozess ohne chargen-geführte Artikel<a class="headerlink" href="#vereinfachter-prozess-ohne-chargen-gefuhrte-artikel" title="Permanent link">&para;</a></h3>
+<h3 id="achtung_1">Achtung<a class="headerlink" href="#achtung_1" title="Permanent link">&para;</a></h3>
+<p>Verwende dieses Vorgehen nur, wenn du keine chargen-geführten Artikel hast, um Diskrepanzen zwischen Lager- und Chargenbestand zu vermeiden!</p>
+<ol>
+<li>Hake die Produktionen, für die du Material auslagern möchtest, in der Produktionsübersicht an und wähle in der Stapelverarbeitung Auslagern.</li>
+<li>Damit werden die Artikel aus dem Lager ausgebucht und der Auslagerungsstatus wechselt zu grün (Produktion ausgelagert).</li>
+</ol>
+<h2 id="mit-dem-produktionszentrum-arbeiten">Mit dem Produktionszentrum arbeiten<a class="headerlink" href="#mit-dem-produktionszentrum-arbeiten" title="Permanent link">&para;</a></h2>
+<p>Nachdem du die Produktion gestartet hast, steht dir das Produktionszentrum zur Verfügung.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das Produktionszentrum kann - je nach Berechtigung - durch dich und/oder durch die Mitarbeiter der Produktion genutzt werden. Letztere Variante ermöglicht Euch z. B., dass die Produktion selbst zeitnah Eintragungen zu Funktionsprotokoll, Seriennummern und Ausschuss vornimmt, Doppelerfassungen vermieden werden, und du in Echtzeit Rückmeldungen zum Status hast und darauf bei Bedarf reagieren kannst.</p>
+</blockquote>
+<p>Mit dem Produktionszentrum kannst du:</p>
+<ul>
+<li>Den Status der Zeiterfassung überblicken,</li>
+<li>Den Status der Funktionstests beobachten,</li>
+<li>Seriennummern zuordnen bzw. vergeben,</li>
+<li>Chargennummern und Mindesthaltbarkeitsdatum für das Erzeugnis eintragen.</li>
+</ul>
+<h3 id="produktionszentrum-ubersicht">Produktionszentrum-Übersicht<a class="headerlink" href="#produktionszentrum-ubersicht" title="Permanent link">&para;</a></h3>
+<p>Um das Produktionszentrum zu erreichen, folge dem PfadLager &gt; Produktionszentrumoder suche über die Smart Search nach “Produktionszentrum”. Du befindest dich dann in der Produktionszentrums-Übersicht.</p>
+<h4 id="reiter-ubersicht">Reiter Übersicht<a class="headerlink" href="#reiter-ubersicht" title="Permanent link">&para;</a></h4>
+<p>In der Übersicht siehst du alle gestarteten Produktionen auf einen Blick. Von hier kannst du eine bestimmte Produktion in der Einzelansicht öffnen (1).</p>
+<p><img alt="Produktionssteuerung_Produktionszentrum_Ubersicht.png" src="https://help.xentral.com/hc/article_attachments/19368094128412" /></p>
+<p>Falls ein anderer Nutzer eine Produktion geöffnet hat (du erkennst dies an dem roten Hinweis &ldquo;in Bearbeitung von xxx&rdquo;), und du die Produktion bearbeiten willst, kannst du die Nutzer-Sperre durch die Schaltfläche (2) aufheben.</p>
+<h4 id="reiter-einstellungen">Reiter Einstellungen<a class="headerlink" href="#reiter-einstellungen" title="Permanent link">&para;</a></h4>
+<p>Im ReiterEinstellungenkannst du festlegen, ob der Funktionstest als einzelne Icons dargestellt werden soll und einen globalen Seriennummernkreis festlegen, wenn du für alle Erzeugnisse denselben Seriennummernkreis verwenden möchtest:</p>
+<p><img alt="Produktionssteuerung_Produktionszentrum_Einstellungen.png" src="https://help.xentral.com/hc/article_attachments/19368094130204" /></p>
+<p>Setzt du den Haken beim Funktionstest, wird in der Einzelansicht des Produktionszentrums für jeden Prüfschritt ein eigenes Symbol anzeigt:</p>
+<p><img alt="Produktionssteuerung_Produktionszentrum_Einzelansicht_FT-einzeln.png" src="https://help.xentral.com/hc/article_attachments/19368060927900" /></p>
+<p>Lässt du den Haken weg, erscheint dagegen ein Sammelsymbol:</p>
+<p><img alt="Produktionssteuerung_Produktionszentrum_Einzelansicht_FT-kompakt.png" src="https://help.xentral.com/hc/article_attachments/19368060930204" /></p>
+<h3 id="produktionszentrum-einzelansicht">Produktionszentrum-Einzelansicht<a class="headerlink" href="#produktionszentrum-einzelansicht" title="Permanent link">&para;</a></h3>
+<p>Um die Einzelansicht zu öffnen, klicke auf den Pfeil in der Übersicht. Alternativ gelangst du auch über eine gestartete Produktion hierher.</p>
+<h4 id="reiter-einzelproduktionen-erfassen">Reiter EInzelproduktionen erfassen<a class="headerlink" href="#reiter-einzelproduktionen-erfassen" title="Permanent link">&para;</a></h4>
+<p>Dieser Reiter ist das Kernstück des Produktionszentrums.</p>
+<p><img alt="Produktionssteuerung_Produktionszentrum_Einzelansicht_Vorversion.png" src="https://help.xentral.com/hc/article_attachments/19368094138780" /></p>
+<p>Im oberen Teil kannst du</p>
+<ul>
+<li>die Seriennummer des Erzeugnisses vom Produktions-PDF scannen, sofern im Vorfeld eine Seriennummer vergeben wurde, um die Funktionstests zu starten und zu protokollieren,</li>
+<li>verwendete Komponenten-Seriennummern (Unterseriennummern) scannen, um sie dem Erzeugnis zuzuordnen,</li>
+<li>über den Generator neue Seriennummern bzw. Chargennummern definieren.</li>
+<li>Außerdem kannst du verschiedene Dokumente an den Drucker senden.</li>
+</ul>
+<p>Im unteren Teil erhälst du einen Überblick über die in der Produktion zu erzeugenden Baugruppen, den Status von Seriennummern und Funktionstests. Im Menü stehen dir von links nach rechts folgende Aktionen zur Verfügung:</p>
+<ul>
+<li>Seriennummer ändern: Nutze diese Schaltfläche, wenn du eine Seriennummer für das Erzeugnis manuell eingeben oder ändern möchtest. Falls du eine automatische Vergabe bevorzugst, nutze den Generator oder den globalen Seriennummernkreis (Produktionszentrum &gt; Übersicht &gt; Einstellungen).</li>
+<li>Unterseriennummer ändern: Hier ordnest du die verwendeten Komponenten-Seriennummern (Unterseriennummern) dem Erzeugnis zu.</li>
+<li>Funktionstest ausführen: Öffne hier, um die Testschritte durchzuführen und zu protokollieren.</li>
+<li>Kommentar ändern: Hier kannst du einen kurzen Kommentar eingeben.</li>
+<li>Etikettenset für Baugruppe drucken</li>
+<li>setze Baugruppe auf Ausschuss: Klicke hier, um eine Baugruppe als Ausschuss zu kennzeichnen.</li>
+</ul>
+<h4 id="reiter-arbeitsanweisungen">Reiter Arbeitsanweisungen<a class="headerlink" href="#reiter-arbeitsanweisungen" title="Permanent link">&para;</a></h4>
+<p>In diesem Reiter erhälst du bzw. die Mitarbeiter der Produktion einen Überblick über die durchzuführenden Arbeitsschritte.</p>
+<p><img alt="Produktionssteuerung_Produktionszentrum_Arbeitsanweisungen.png" src="https://help.xentral.com/hc/article_attachments/19368094140572" /></p>
+<h4 id="reiter-funktionsprotokoll">Reiter Funktionsprotokoll<a class="headerlink" href="#reiter-funktionsprotokoll" title="Permanent link">&para;</a></h4>
+<p>In diesem Reiter erhälst du bzw. die Mitarbeiter der Produktion einen Überblick über die durchzuführenden Testschritte.</p>
+<p><img alt="Produktionssteuerung_Produktionszentrum_Funktionsprotokoll.png" src="https://help.xentral.com/hc/article_attachments/19368094145948" /></p>
+<h4 id="reiter-seriennummern">Reiter Seriennummern<a class="headerlink" href="#reiter-seriennummern" title="Permanent link">&para;</a></h4>
+<p>Hier bekommst du einen Überblick über die zu der Produktion gehörigen Seriennummern - sowohl der Erzeugnisse (1), als auch der Komponenten (2). Über den Stift (3) gelangst du zum ReiterEinzelproduktionen erfassen.</p>
+<p><img alt="Produktionssteuerung_ReiterSeriennummern.png" src="https://help.xentral.com/hc/article_attachments/19368060941596" /></p>
+<h4 id="reiter-chargen">Reiter Chargen<a class="headerlink" href="#reiter-chargen" title="Permanent link">&para;</a></h4>
+<p>Hier erhälst du einen Überblick über die in der Produktion eingesetzten und produzierten Chargen bzw. Mindesthaltbarkeitsdaten.</p>
+<p>Unter dem TabEingesetzte Chargensind alle chargengeführten Bauteile oder Bauteile mit Mindesthaltbarkeitsdatum aufgelistet mit der Angabe, in welcher Produktion sie verwendet wurden. Über das X am rechten Rand kannst du eine Zuweisung entfernen.</p>
+<p><img alt="Produktionsubersicht_Chargen.png" src="https://help.xentral.com/hc/article_attachments/19368060942364" /></p>
+<p>Unter dem TabProduzierte Chargenfindest du alle erzeugten Chargen bzw. Mindesthaltbarkeitsdaten der von dir produzierten Artikel. Über die Produktionsnummer kannst du zu einer betreffenden Produktion wechseln.</p>
+<h4 id="reiter-abschluss">Reiter Abschluss<a class="headerlink" href="#reiter-abschluss" title="Permanent link">&para;</a></h4>
+<p>Eine ausführliche Beschreibung dieses Reiters und zu dem generellen Vorgehen beim Produktionsabschluss findest du<a href="https://help.xentral.com/hc/de/articles/18870451160988#UUID-29284617-b0fc-fc6e-2df7-284c68337605">hier</a>.</p>
+<h2 id="zeiten-auf-produktionen-erfassen">Zeiten auf Produktionen erfassen<a class="headerlink" href="#zeiten-auf-produktionen-erfassen" title="Permanent link">&para;</a></h2>
+<p>Wenn du die Zeiterfassung in Xentral nutzt, können deine Produktionsmitarbeiter Zeiten auf Produktionen buchen. Dazu verwendet Ihr die Stechuhr. Generelle Informationen zur Zeiterfassung in Xentral findest du<a href="https://help.xentral.com/hc/de/articles/360016728560#UUID-bf44543b-82c9-1fe7-9f42-c180c152a6f3">hier</a>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Damit Zeiten auf Produktionen zugeordnet werden, nutze dieStechuhr. Bei einer Eingabe über Zeiterfassung &gt; Zeiterfassung buchen, erfolgt keine Zuordnung auf Produktionsschritte!</p>
+</blockquote>
+<p>Im Folgenden findest du eine Schritt-für-Schritt-Anleitung zum Erfassen ohne Verwendung eines Barcode-Scanners:</p>
+<p>Um die Stechuhr zu erreichen, suche über die Smart Search nach “Stechuhr”.</p>
+<ol>
+<li>Tagesbeginn: Dokumentiere den Start deines Arbeitstages mit der Schaltfläche Kommen.</li>
+<li>Um die Arbeitsschritterfassung zu starten, verwende die Schaltfläche Arbeitsschritte:</li>
+<li>Start eines Arbeitsschrittes:</li>
+<li>Um laufende Arbeitsschritte aufzurufen, verwende diese Schaltfläche:</li>
+<li>Beenden eines Arbeitsschrittes:</li>
+<li>
+<p>Sobald ein Arbeitsschritt vollständig abgeschlossen ist, kannst du den Abschluss mit dieser Schaltfläche dokumentieren:
+  Im Protokoll der Produktion ist der Abschluss nun aufgezeichnet:</p>
+</li>
+<li>
+<p>Tagesende: Dokumentiere das Ende deines Arbeitstages mit der Schaltfläche Gehen.</p>
+</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

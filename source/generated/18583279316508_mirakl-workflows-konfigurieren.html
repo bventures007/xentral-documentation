@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18583279316508 Mirakl Workflows Konfigurieren - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>18583279316508 Mirakl Workflows Konfigurieren</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>18583279316508 Mirakl Workflows Konfigurieren</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="uberblick">Überblick<a class="headerlink" href="#uberblick" title="Permanent link">&para;</a></h2>
+<p>Im Bereich Workflows kannst du nun die Details zu den gewählten Features konfigurieren und die Features einzeln aktiv schalten. Du erreichst die Workflows unter dem Pfad <strong>Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; [Marktplatzname] &gt; Workflows</strong>.</p>
+<p><img alt="Shared_Workflows_Ubersicht.png" src="https://help.xentral.com/hc/article_attachments/18670825450012" /></p>
+<h2 id="allgemeine-funktionen">Allgemeine Funktionen<a class="headerlink" href="#allgemeine-funktionen" title="Permanent link">&para;</a></h2>
+<h3 id="integrationsmodus">Integrationsmodus<a class="headerlink" href="#integrationsmodus" title="Permanent link">&para;</a></h3>
+<p>Die Schaltfläche “Aktivsteht dir in jedem Reiter zur Verfügung. Sie bezieht sich jeweils auf den Reiter, in dem du dich gerade befindest.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Schaltfläche benötigst du erst, nachdem du alle Einstellungen vorgenommen und getestet hast und alles bereit ist für den produktiven Einsatz deiner Schnittstelle.</p>
+<p><strong>Belasse den Schalter bis zum Abschluss deiner Tests auf links (inaktiv).</strong></p>
+</blockquote>
+<p><img alt="MiraklOtto_Workflows_Allgemein_Integrationsmodus.png" src="https://help.xentral.com/hc/article_attachments/18670825451676" /></p>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Erst nachdem deine Einrichtung und Tests abgeschlossen sind, kannst du die Schnittstelle produktiv schalten. Beachte dazu die Hinweise in diesem<a href="https://help.xentral.com/hc/de/articles/18589768508828#UUID-94e6be55-89a9-e758-91fc-d82d54bd7940">Handbuchabschnitt</a>.</p>
+<h2 id="features-reiter">Features-Reiter<a class="headerlink" href="#features-reiter" title="Permanent link">&para;</a></h2>
+<p>Im Folgenden findest du zu jedem Feature detaillierte Konfigurationsmöglichkeiten.</p>
+<h3 id="reiter-artikel">Reiter “Artikel”<a class="headerlink" href="#reiter-artikel" title="Permanent link">&para;</a></h3>
+<h4 id="voraussetzungen">Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Dieses Feature verwendest du, wenn du Stammdaten aus Xentral automatisch mit Mirakl abgleichen möchtest. Falls du Stammdaten lieber manuell in Mirakl pflegen möchtest, benötigst du diesen Reiter nicht.</p>
+</blockquote>
+<p>Bevor du den Integrationsmodus aktiv schaltest, musst du</p>
+<ol>
+<li>eine initiale Importdatei erstellen und anschließend</li>
+<li>das Kategorienmapping auf Mirakl vornehmen.</li>
+</ol>
+<p>Wie du die initiale Importdatei erstellst, erklären wir dir im nächsten Abschnitt. Wie du das Kategorienmapping vornimmst, findest du weiter unten.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Nachdem du die Voraussetzungen geschaffen hast und die Übertragung mit einigen Testdaten geprüft hast, kannst du den Integrationsmodus aktivieren. Artikelstammdaten aus Xentral werden dann bei Neuanlage oder Änderungen an Mirakl übertragen.</p>
+</blockquote>
+<h4 id="initiale-importdatei-erstellen">Initiale Importdatei erstellen<a class="headerlink" href="#initiale-importdatei-erstellen" title="Permanent link">&para;</a></h4>
+<p>Um das Kategorienmapping auf Mirakl vorzunehmen, benötigst du eine initiale Artikeldatei. Diese muss nicht alle Xentral Artikel enthalten, sondern nur so viele, dass alle Möglichkeiten an Kategorien, Attributen, Freifeldern etc. abgedeckt sind. Hast du also z. B. eine sehr einfache Artikelstruktur, bei der alle Artikel einer oder zwei Kategorien zugeordnet sind und wenige Freifelder verwendet werden, genügt es nur einige Artikel in die Importdatei zu übertragen. Ist der Artikelstamm sehr komplex mit vielen Kategorien und Freifeldern, kann es nötig sein, viele Artikel in die Datei zu schreiben, um sicherzustellen, dass alle Kombinationen abgedeckt werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Importdatei musst du nur einmalig für das anschließende Mapping erzeugen. Nachdem das Mapping durchgeführt und das Feature aktiv geschaltet wurde, erfolgt der Austausch der Artikelstammdaten automatisch.</p>
+</blockquote>
+<p>Um die initiale Artikeldatei zu erstellen, klicke auf <strong>Initiale Datei erzeugen</strong>.</p>
+<p><img alt="Workflows_Artikel_InitialeDatei.png" src="https://help.xentral.com/hc/article_attachments/18670825454108" /></p>
+<p>Wähle ein Limit abhängig von der Größe und Komplexität deines Artikelstamms aus.</p>
+<p><img alt="Workflows_Artikel_Datei_Limit.png" src="https://help.xentral.com/hc/article_attachments/18670851228188" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wie zuvor beschrieben, solltest du nur so viele Artikel wie nötig und so wenige wie möglich übertragen. Bei einem großen Limit dauert die Erzeugung und das Einlesen der Datei entsprechend lange.</p>
+</blockquote>
+<h3 id="reiter-angebote">Reiter “Angebote”<a class="headerlink" href="#reiter-angebote" title="Permanent link">&para;</a></h3>
+<p>Damit ein Artikel auf dem Marktplatz verkauft werden kann, muss ein sogenanntes Angebot angelegt werden. Ein Angebot besteht aus Beständen und Preisen, wobei beide getrennt voneinander aktiviert und deaktiviert werden können.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beispiel: Wenn du z. B. Preise manuell in Mirakl verwalten möchtest, kannst du die Bestände aktivieren, während du die Preise deaktiviert lässt. Diese werden dann nicht von Xentral übertragen.</p>
+</blockquote>
+<h4 id="initiale-importdatei-erstellen_1">Initiale Importdatei erstellen<a class="headerlink" href="#initiale-importdatei-erstellen_1" title="Permanent link">&para;</a></h4>
+<p>Um Angebote einmalig auf Mirakl zu importieren, benötigst du eine initiale Angebotsdatei.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Importdatei musst du nur einmalig für den initialen Import erzeugen. Nachdem das Feature aktiv geschaltet wurde, erfolgt der Austausch der Bestände und Preise automatisch.</p>
+</blockquote>
+<p>Um die initiale Angebotsdatei zu erstellen, klicke auf <strong>Initiale Datei erzeugen</strong> und wähle als Limit “Alle”.</p>
+<p><img alt="Workflows_Angebote_InitialeDatei.png" src="https://help.xentral.com/hc/article_attachments/18670851229596" /></p>
+<h4 id="allgemein">Allgemein<a class="headerlink" href="#allgemein" title="Permanent link">&para;</a></h4>
+<p><img alt="Workflows_Angebote_Allgemein.png" src="https://help.xentral.com/hc/article_attachments/18670825458076" /></p>
+<ul>
+<li>Artikelzuordnung: Damit die Artikelzuordnung korrekt funktioniert, müssen die Felder richtig zugeordnet werden. Es stehen folgende Zuordnung zur Verfügung. Wähle:</li>
+<li>“Marktplatz Artikelnummer”, um anhand der Xentral-Artikelnummer zuzuordnen oder</li>
+<li>“GTIN”, um die Xentral EAN-Nummer aus dem Artikelstamm für die Zuordnung zu verwenden.</li>
+<li>Status für neue Angebote: Wähle den Status beim Erstellen von neuen Angeboten aus.</li>
+</ul>
+<h4 id="bestand">Bestand<a class="headerlink" href="#bestand" title="Permanent link">&para;</a></h4>
+<p><img alt="Workflows_Angebote_Bestand.png" src="https://help.xentral.com/hc/article_attachments/18670825459100" /></p>
+<ul>
+<li>Auswahl Xentral Lager: Hake hier die Xentral-Lagerorte an, aus denen die Bestände (summiert) an den Marktplatz gemeldet werden.</li>
+<li>Reservierungen beachten: Setze den Schalter nach rechts, wenn die reservierte Menge vom Lagerbestand abgezogen werden soll.</li>
+<li>Offene Bestellungen beachten: Setze den Schalter nach rechts, wenn offene Auftragsmengen abgezogen werden sollen.</li>
+<li>Lagerkorrekturwert beachten: Setze den Schalter nach rechts, wenn der Lagerbestand um den im Artikel festgelegten Lagerkorrekturwert verändert werden soll. Das Feld “Lagerkorrekturwert” findest du unter Artikel → Details → Online-Shop Optionen, Bereich Lagerbestand.</li>
+<li>Pseudo Lagerzahl statt echten Lagerzahlen verwenden: Setze den Schalter nach rechts, wenn statt dem berechneten Lagerbestand eine im Artikelstamm festgelegte Pseudomenge übertragen werden soll. Das Feld “Pseudo Lagerzahl” findest du ebenfalls unter Artikel → Details → Online-Shop Optionen, Bereich Lagerbestand.</li>
+</ul>
+<h4 id="preise">Preise<a class="headerlink" href="#preise" title="Permanent link">&para;</a></h4>
+<p><img alt="Workflows_Angebote_Preise.png" src="https://help.xentral.com/hc/article_attachments/18670825463196" /></p>
+<ul>
+<li>Kunde bzw. Kundengruppe: Falls du für deinen Marktplatz einen bestimmten Preis festlegen möchtest, kannst du in diesem Feld einen Kundennamen oder einen Kundengruppennamen eintragen. Möchtest du Standardpreise nutzen, lasse das Feld leer.</li>
+<li>Steuersatz (normal): Trage hier den Prozentwert (ohne Prozentzeichen) für normal besteuerte Artikel ein. (In Deutschland derzeit 19%)</li>
+<li>Steuersatz (ermäßigt): Trage hier den Prozentwert (ohne Prozentzeichen) für Artikel mit ermäßigtem Steuersatz ein. (In Deutschland derzeit 7%)</li>
+</ul>
+<h3 id="reiter-auftrage">Reiter “Aufträge”<a class="headerlink" href="#reiter-auftrage" title="Permanent link">&para;</a></h3>
+<p>Der Reiter Aufträge ist das Kernstück der Workflow-Konfiguration. Hier legst du unter anderem fest, ab welchem Zahlungsstatus Bestellungen aus demMarktplatzzu Xentral importiert werden und wie Zahlungen gehandhabt werden, wie Lieferbedingungen verknüpft werden, auf welche Artikelnummern Versandgebühren und Rabatte gebucht werden, wie mit Kommentaren verfahren werden soll und wie Kunden angelegt und zugeordnet werden.</p>
+<h4 id="update-strategie">Update Strategie<a class="headerlink" href="#update-strategie" title="Permanent link">&para;</a></h4>
+<p>Grundsätzlich werden Aufträge erst dann importiert, wenn sie in Mirakl manuell akzeptiert wurden. Wenn du alle Aufträge automatisch zu Xentral importieren möchtest, ohne sie manuell in Mirakl auf akzeptiert zu setzen, aktiviere diese Schaltfläche:</p>
+<p><img alt="Workflows_Auftrage_Updatestrategie.png" src="https://help.xentral.com/hc/article_attachments/18670825464604" /></p>
+<h4 id="projektzuordnung">Projektzuordnung<a class="headerlink" href="#projektzuordnung" title="Permanent link">&para;</a></h4>
+<p><img alt="Workflows_Auftrage_Projektzuordnung.png" src="https://help.xentral.com/hc/article_attachments/18670851235612" /></p>
+<p>Wähle ein <strong>Standardprojekt</strong>, das standardmäßig in die importierten Aufträge eingefügt wird.</p>
+<p>Sofern du unterschiedliche Vertriebskanäle in deinem Shop angelegt hast, kannst du sie unter <strong>Sales Channel &gt; Projekt Zuordnung</strong> mit den dazugehörigen Xentral-Projekten verknüpfen</p>
+<h4 id="zahlungsarten-zahlungsweisen-zahlungsbedingungen">Zahlungsarten / Zahlungsweisen / Zahlungsbedingungen<a class="headerlink" href="#zahlungsarten-zahlungsweisen-zahlungsbedingungen" title="Permanent link">&para;</a></h4>
+<p><img alt="Mirakl_Workflows_Auftrage_Zahlungsarten.png" src="https://help.xentral.com/hc/article_attachments/21740287187740" /></p>
+<p>Hinterlege bei der <strong>Standardzahlungsart</strong> eine Zahlungsweise, die verwendet werden soll, falls keine Zahlungsweise vom Shop übergeben wird.</p>
+<p>Wenn du den Schalter <strong>Standardzahlungsart auch bei fehlender Zuordnung verwenden</strong> aktivierst, wird diese nicht nur bei fehlenden Informationen zur Zahlungsart im Shop gezogen, sondern auch, wenn gar keine Zahlungsart zugeordnet ist.</p>
+<p>Verknüpfe bei Bedarf weitere Zahlungsweisen, in dem du auf <strong>+ Gruppe hinzufügen</strong> klickst.</p>
+<p>Du kannst außerdem Zahlungsarten auswählen, für die kein Autoversand gelten soll. Solche Aufträge werden importiert und können im weiteren Verlauf manuell in den Versand gegeben werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Tippe die Zahlungsarten exakt so ein, wie sie im Marktplatz angelegt sind. Die Angabe findest du im Portal unter den Einstellungen.</p>
+</blockquote>
+<h4 id="versandkosten">Versandkosten<a class="headerlink" href="#versandkosten" title="Permanent link">&para;</a></h4>
+<p><img alt="TB_Workflows_Auftrage_Versandkosten.png" src="https://help.xentral.com/hc/article_attachments/20345584471068" /></p>
+<ul>
+<li>Ordne unter <strong>Artikelnummer für Versandkosten</strong> den Porto-Artikel zu, auf den Versandgebühren geschrieben werden sollen.</li>
+</ul>
+<h4 id="steuern">Steuern<a class="headerlink" href="#steuern" title="Permanent link">&para;</a></h4>
+<p><img alt="Mirakl_Workflows_Auftrage_Steuern.png" src="https://help.xentral.com/hc/article_attachments/20345584472348" /></p>
+<ul>
+<li>Trage den Standort des Versandlagers ein, damit Steuern korrekt berechnet werden können.</li>
+<li>Falls du eine USt-Identprüfung bereits im Shop abgedeckt hast, kannst du den Auswahlschalter <strong>USt-IdNr. automatisch als geprüft kennzeichnen</strong> nach rechts stellen, um eine Doppelprüfung zu vermeiden.</li>
+</ul>
+<h4 id="rabatte">Rabatte<a class="headerlink" href="#rabatte" title="Permanent link">&para;</a></h4>
+<p><img alt="TB_Workflows_Auftrage_WahrungRabatte.png" src="https://help.xentral.com/hc/article_attachments/20345584473756" /></p>
+<ul>
+<li>Weise einen <strong>Rabatt</strong></li>
+</ul>
+<p>-Artikel zu, auf den Gutschriften und Rabatte gebucht werden sollen.</p>
+<h4 id="kommentare">Kommentare<a class="headerlink" href="#kommentare" title="Permanent link">&para;</a></h4>
+<p>Lege hier fest, wie Kommentare aus dem Shop-Beleg in Xentral übernommen werden sollen.</p>
+<p><img alt="Shared_Workflows_Auftrage_Kommentare.png" src="https://help.xentral.com/hc/article_attachments/18670851239068" /></p>
+<p>Unter “Kommentar aus Bestellung verarbeiten” stehen dir folgende Möglichkeiten zur Verfügung:</p>
+<ul>
+<li>“nicht beachten”: Kommentare werden nicht übernommen</li>
+<li>“in Freitext schreiben”: Kommentare werden in das Freitextfeld des Auftrags importiert</li>
+<li>“in interne Bezeichnung schreiben”: Kommentare werden in das Interne Bezeichnung Feld des Auftrags importiert</li>
+</ul>
+<p>Setze den Auswahlschieber bei <strong>Autoversand bei Kommentar stoppen?</strong> nach rechts, wenn du verhindern möchtest, dass Aufträge mit Kommentar automatisch im Auto-Versand fortgeführt werden.</p>
+<h4 id="kundenzuordnung">Kundenzuordnung<a class="headerlink" href="#kundenzuordnung" title="Permanent link">&para;</a></h4>
+<p>In den folgenden Feldern legst du fest, wie Kunden zwischen deinem Shop und Xentral verknüpft werden sollen. Wir unterscheiden zwischen im Shop angelegten Kunden und Gastkunden, die kein Konto angelegt haben.</p>
+<p><img alt="Shared_Workflows_Auftrage_Kundenzuordnung.png" src="https://help.xentral.com/hc/article_attachments/18670825477148" /></p>
+<ul>
+<li>Für Kunden sowie für Kunden ohne Kundenkonto (Gastkunden) hast du folgende Optionen:</li>
+<li>
+<p>Hast du bei mind. einem der beiden vorhergehenden Felder die Option “Kunde aus Bestellung auf einen bestehenden Kunden zuordnen” gewählt, legst du im Feld <strong>Kundenzuordnung</strong> fest, anhand welcher Kriterien die Zuordnung erfolgt, wobei die Prüfreihenfolge “Kundennummer” vor “Mail-Adresse” vor “Name &amp; Adresse” ist.</p>
+</li>
+<li>
+<p>Bestimme schließlich im Feld <strong>Wenn kein Kunde gefunden wird, dann:</strong> wie verfahren werden soll, falls kein Kunde zugeordnet werden kann:</p>
+</li>
+<li>Setze den Auswahlschieber bei <strong>Bestehende Kunden nur innerhalb des Projektes zuordnen?</strong> nach rechts, wenn du die Suche nach Kunden auf das -spezifische Projekt in Xentral einschränken möchtest. Üblicherweise bleibt diese Schaltfläche deaktiviert.</li>
+<li>Hast du oben bei der Kundenanlage die Option “Jeden Kunden auf Default-Kunden schreiben” gewählt, trägst du schließlich im Feld “Default-Kunden auswählen” eine entsprechende Kundennummer ein.</li>
+</ul>
+<h4 id="positionen">Positionen<a class="headerlink" href="#positionen" title="Permanent link">&para;</a></h4>
+<p>Setze den Auftragsschalter nach rechts, wenn du in den Belegen die Artikelbezeichnung aus dem XentralArtikelstamm andrucken möchtest. Dies ist beispielsweise sinnvoll, wenn du im Shop andere Bezeichnungen (z. B. für SEO-Zwecke) verwendest, als du in der Auftragsabwicklung nutzen möchtest. Du kannst außerdem wählen, ob bzw. welche Artikelbeschreibung in den Auftragspositionen angezeigt werden soll:</p>
+<p><img alt="Shared_Workflows_Auftrage_Positionen.png" src="https://help.xentral.com/hc/article_attachments/18670851247900" /></p>
+<h3 id="reiter-auftragsstatus-tracking">Reiter “Auftragsstatus &amp; Tracking”<a class="headerlink" href="#reiter-auftragsstatus-tracking" title="Permanent link">&para;</a></h3>
+<h4 id="update-strategie_1">Update Strategie<a class="headerlink" href="#update-strategie_1" title="Permanent link">&para;</a></h4>
+<p><img alt="connect_workflows_auftragsstatus_update_otto.png" src="https://help.xentral.com/hc/article_attachments/18670851249948" /></p>
+<p>Setze den Schalter “Aufträge automatisch im Shop stornieren” nach rechts, wenn du Aufträge, die in Xentral storniert werden, auch im Marktplatz stornieren möchtest. Dies hat nur Auswirkungen auf noch nicht versendete Aufträge.</p>
+<h4 id="versanddienstleister-zuordnung">Versanddienstleister-Zuordnung<a class="headerlink" href="#versanddienstleister-zuordnung" title="Permanent link">&para;</a></h4>
+<p>Klicke auf <strong>+ Gruppe hinzufügen</strong>, um die Versanddienstleister aus deinemMarktplatzmit den Versandarten in Xentral zu verknüpfen.</p>
+<p><img alt="MiraklShopify_Workflows_Auftragsstatus_Versanddienstleister.png" src="https://help.xentral.com/hc/article_attachments/18670851251484" /></p>
+<h3 id="reiter-belege">Reiter &ldquo;Belege&rdquo;<a class="headerlink" href="#reiter-belege" title="Permanent link">&para;</a></h3>
+<p>In diesem Reiter kannst du einstellen, dass Belege aus Xentral als PDF an denMarktplatzexportiert werden. Um Rechnungs-Belege zu übertragen, aktiviere die Schaltfläche:</p>
+<p><img alt="Workflows_Belege.png" src="https://help.xentral.com/hc/article_attachments/18670851253148" /></p>
+<h2 id="testphase-und-produktivschaltung">Testphase und Produktivschaltung<a class="headerlink" href="#testphase-und-produktivschaltung" title="Permanent link">&para;</a></h2>
+<h3 id="testphase">Testphase<a class="headerlink" href="#testphase" title="Permanent link">&para;</a></h3>
+<p>Wenn du alle Einstellungen in den Workflows vorgenommen hast, solltest du die Anbindung ausgiebig testen.</p>
+<p>Schränke die<a href="https://help.xentral.com/hc/de/articles/18583246646684#UUID-9e1f9a28-77b4-16d1-be1a-bb9985f2090a">Artikelzuordnung</a>auf wenige Artikel ein.</p>
+<p>Nutze einige Testdaten und führe die Tests mit Hilfe der Funktionen im<a href="https://help.xentral.com/hc/de/articles/18583263358108#UUID-2c706abd-1741-7567-9171-df43c2e898f3">Journal</a>durch.</p>
+<h3 id="produktivschaltung">Produktivschaltung<a class="headerlink" href="#produktivschaltung" title="Permanent link">&para;</a></h3>
+<p>Sobald die Schnittstelle die Testdaten richtig und wie erwartet übergibt, kannst du mit der<a href="https://help.xentral.com/hc/de/articles/18589768508828#UUID-94e6be55-89a9-e758-91fc-d82d54bd7940">Produktiv-Schaltung</a>fortfahren.</p>
+<p><strong>Viel Spaß mit deiner neuen Schnittstelle!</strong></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

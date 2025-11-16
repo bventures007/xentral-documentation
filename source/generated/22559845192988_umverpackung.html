@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22559845192988 Umverpackung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>22559845192988 Umverpackung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>22559845192988 Umverpackung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die hier beschriebene Funktion ist für dich verfügbar, wenn du Xentral mit einem Business- oder Pro-Vertrag in Version <strong>25.29.4</strong> und höher nutzt.</p>
+</blockquote>
+<p>Die Funktion <strong>Umverpackung</strong> in Xentral ermöglicht es dir, Verpackungseinheiten (z. B. Kartons mit mehreren Stück eines Artikels) direkt im Versandzentrum zu verarbeiten, ohne jeden einzelnen Artikel separat scannen zu müssen. Ziel ist es, den Packprozess zu beschleunigen und Fehlerquellen zu minimieren – besonders bei Artikeln, die in festen Gebinden oder Großpackungen gelagert werden. Diese Umverpackungen können genau wie Kartonagen oder Trays direkt am Packtisch gescannt werden.</p>
+<p>Um Umverpackungen in Xentral zu definieren, hinterlegst du im Tab <strong>Umverpackung </strong> der Artikelstammdaten beliebig viele Verpackungs-Barcodes mit den zugehörigen Mengen je Verpackungseinheit. Sobald du eine solche Umverpackung am Packtisch scannst, erkennt Xentral automatisch den zugrunde liegenden Artikel sowie die enthaltene Stückzahl und bucht diese in den Versandprozess ein.<strong>Beispiel:</strong></p>
+<p>Eine Bestellung umfasst 10 Stück eines Artikels. Im Lager liegen Kartons mit je 4 Stück. Statt zehnmal den Einzelartikel zu scannen, scannst du zweimal den Barcode der Umverpackung (2 × 4 = 8 Stück) und ergänzt anschließend zwei Einzelartikel. Der Prozess ist schneller, weniger fehleranfällig und erhöht die Effizienz deutlich.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Xentral prüft beim Scannen automatisch, ob der Umverpackungsbarcode mit einer definierten Verpackungseinheit im Artikelstamm übereinstimmt, und multipliziert entsprechend die Artikelmenge.</p>
+</blockquote>
+<h2 id="praxisfokus-effizienzsteigerung-am-packtisch">Praxisfokus: Effizienzsteigerung am Packtisch<a class="headerlink" href="#praxisfokus-effizienzsteigerung-am-packtisch" title="Permanent link">&para;</a></h2>
+<p>Durch die Nutzung der Umverpackungsfunktion wird der Verpackungsprozess am Packtisch wesentlich effizienter:</p>
+<p>-<strong>Zeitersparnis</strong>: Du sparst Zeit, indem du Umverpackungen mit mehreren Stücken auf einmal scannst, anstatt jedes Stück einzeln zu erfassen.
+-<strong>Fehlerreduktion</strong>: Das Risiko von Fehlern bei der manuellen Eingabe wird minimiert, da das System automatisch die korrekten Mengen aus dem Artikelstamm übernimmt.
+-<strong>Flexibilität bei der Bestellabwicklung</strong>: Du kannst flexibel auf die Bestellmengen reagieren, indem du bei Bedarf Umverpackungen und Einzelstücke kombinierst.</p>
+<p>Diese Optimierungen führen nicht nur zu einer schnelleren Abwicklung von Versandaufträgen, sondern auch zu einer erhöhten Kundenzufriedenheit durch schnelle und korrekte Lieferungen. Durch die effizientere Nutzung deiner Ressourcen am Packtisch kannst du letztendlich auch die Betriebskosten senken.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die Umverpackungsfunktion steht derzeit ausschließlich im Versandzentrum zur Verfügung - also nach abgeschlossener Kommissionierung. Die Funktion ist nicht verfügbar im Wareneingang, der Mobile Picking App, beim Multi-Order-Picking oder innerhalb sonstiger Kommissioniervorgänge.</p>
+</blockquote>
+<h2 id="einstellungen-in-den-artikelstammdaten-vornehmen">Einstellungen in den Artikelstammdaten vornehmen<a class="headerlink" href="#einstellungen-in-den-artikelstammdaten-vornehmen" title="Permanent link">&para;</a></h2>
+<p>Um die Funktion <strong>Umverpackung</strong> zu nutzen, nimmst du einmalig die benötigten Einstellungen in den Artikelstammdaten vor. Damit legst du fest, welche Barcodes den Umverpackungen zugeordnet sind und wie viele Einheiten eines Artikels jeweils in der Umverpackung enthalten sind.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Standardmäßig können nur Benutzer, die über einen Admin-Zugang zu Xentral verfügen, die Konfiguration der Umverpackung in den Artikelstammdaten vornehmen.</p>
+<p>Möchtest du diesen Schritt auch Benutzern ohne Admin-Zugang erlauben, musst du ihnen zuvor gesonderte Berechtigungen erteilen. Nutze die Smart Search, um das Modul <strong>Benutzer </strong> zu öffnen. Öffne dann den gewünschten Benutzer per Klick auf das <strong>Stift-Symbol <strong>. Öffne das Tab </strong> Rechte <strong>und aktiviere im Bereich </strong> Packaging_unit <strong>die Rechte </strong> edit <strong>und </strong> list <strong>. Klicke anschließend auf </strong> Speichern</strong>.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um die benötigten Einstellungen zur Umverpackung in den Artikelstammdaten vorzunehmen.</p>
+<ol>
+<li>Öffne das Menü <strong>Verkaufen &gt; Artikel</strong>.</li>
+<li>Klicke rechts neben dem gewünschten Artikel auf das <strong>Stift-Symbol</strong>.</li>
+<li>Öffne das Tab <strong>Umverpackung</strong>.</li>
+<li>Klicke im Bereich <strong>Aktionen </strong> auf <strong>Neue Umverpackung</strong>.
+  Füge für den Artikel eine oder mehrere Umverpackungen hinzu.</li>
+</ol>
+<p>1.<strong>Umverpackungs-Artikelnummer: </strong> Gib im Feld <strong> Barcode</strong> den Barcode der Umverpackung an.
+  1.<strong>Anzahl der Stücke pro Umverpackung: </strong> Lege im Feld <strong> Menge</strong> fest, wie viele Einheiten des Artikels in der Umverpackung enthalten sind.
+1. Klicke auf <strong>Speichern</strong>.</p>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Damit die Umverpackungsfunktion korrekt genutzt werden kann, muss jede Umverpackungsnummer eindeutig im Artikelstamm hinterlegt sein. Pro Artikel darf es keine doppelte Verwendung dieser Nummer geben (z. B. auch nicht als reguläre Artikelnummer bei einem anderen Produkt).</p>
+<p><strong>Verwende für Artikel und Umverpackungen stets eindeutige, getrennte Nummernkreise</strong>.</p>
+<p>Nur so ist sichergestellt, dass die richtige Artikelmenge zugeordnet und verbucht wird.</p>
+<h2 id="verfugbare-einstellung-fur-umverpackungen">Verfügbare Einstellung für Umverpackungen<a class="headerlink" href="#verfugbare-einstellung-fur-umverpackungen" title="Permanent link">&para;</a></h2>
+<p>Nachdem du wie oben beschrieben eine Umverpackung in den Artikelstammdaten hinterlegt hast, klicke rechts neben dem Eintrag auf das <strong>Stift-Symbol</strong>, um alle benötigten Einstellungen vorzunehmen.</p>
+<p>Diese Einstellungen sind wichtig, damit unter anderem Gewicht und Größe der Umverpackung korrekt in Xentral gespeichert werden.</p>
+<p>Die folgenden Kapitel enthalten genauere Informationen zu den Einstellungen in jedem einzelnen Bereich.</p>
+<h3 id="allgemein">Allgemein<a class="headerlink" href="#allgemein" title="Permanent link">&para;</a></h3>
+<p><img alt="umverpackung-beschreibung-en.png" src="https://help.xentral.com/hc/article_attachments/23142402096412" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Menge</strong></td>
+<td>Die Anzahl der Einheiten des Artikels, die in der Umverpackung enthalten sind.</td>
+</tr>
+<tr>
+<td><strong>Barcode</strong></td>
+<td>Der Barcode, der spezifisch der Umverpackung zugeordnet ist und zur Identifikation beim Scannen verwendet wird.</td>
+</tr>
+<tr>
+<td><strong>Beschreibung <strong></td>
+<td>Eine detaillierte Beschreibung der Umverpackung, die Informationen über die Art der Verpackung, ihre Verwendung und eventuelle Besonderheiten enthält. 💬</strong> Anmerkung:</strong> Beispiel: Dieser Karton enthält 4 Trinkflaschen und ist für die optimale Nutzung auf Standard-Europaletten konzipiert. Mit Abmessungen von 30x30x40 cm ermöglicht er 8 Kartons pro Lage und bis zu 5 Lagen pro Palette, was insgesamt 40 Kartons oder 160 Flaschen pro Palette entspricht. Die Konfiguration ist ideal für effizienten Transport und Lagerung.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kartondaten">Kartondaten<a class="headerlink" href="#kartondaten" title="Permanent link">&para;</a></h3>
+<p><img alt="umverpackung-kartondaten-en.png" src="https://help.xentral.com/hc/article_attachments/23142416331036" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Länge</strong></td>
+<td>Die Länge der Verpackung oder des Kartons in entsprechenden Maßeinheiten.</td>
+</tr>
+<tr>
+<td><strong>Breite</strong></td>
+<td>Die Breite der Verpackung oder des Kartons in entsprechenden Maßeinheiten.</td>
+</tr>
+<tr>
+<td><strong>Höhe</strong></td>
+<td>Die Höhe der Verpackung oder des Kartons in entsprechenden Maßeinheiten.</td>
+</tr>
+<tr>
+<td><strong>Taragewicht (in Gramm)</strong></td>
+<td>Das Karton-Taragewicht bezieht sich auf das Gewicht der Verpackung selbst, ohne den Inhalt, der darin transportiert wird. Es ist also das Leergewicht eines Kartons oder einer anderen Art von Verpackungsmaterial. In der Logistik und im Versandwesen ist es wichtig, das Taragewicht zu kennen, um das Bruttogewicht (Gesamtgewicht inklusive Inhalt) und das Nettogewicht (Gewicht des Inhalts allein) korrekt berechnen zu können.</td>
+</tr>
+<tr>
+<td><strong>Nettogewicht (in Kilogramm)</strong></td>
+<td>Das Nettogewicht ist das Gewicht des Inhalts allein, ohne das Gewicht der Verpackung.</td>
+</tr>
+<tr>
+<td><strong>Bruttogewicht (in Kilogramm)</strong></td>
+<td>Das Bruttogewicht ist das Gesamtgewicht inklusive Inhalt und Verpackung.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="palettenschema">Palettenschema<a class="headerlink" href="#palettenschema" title="Permanent link">&para;</a></h3>
+<p><img alt="umverpackung-palettenschema-en.png" src="https://help.xentral.com/hc/article_attachments/23142402190108" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kartons pro Lage</strong></td>
+<td>Die Anzahl der Kartons, die auf einer einzelnen Lage einer Palette angeordnet werden können.</td>
+</tr>
+<tr>
+<td><strong>Lagen pro Palette</strong></td>
+<td>Die Anzahl der Lagen, die auf einer Palette gestapelt werden.</td>
+</tr>
+<tr>
+<td><strong>Zusätzliche Kartons</strong></td>
+<td>Die Anzahl der Kartons, die zusätzlich auf der obersten Lage platziert werden können, wenn das Standardmuster nicht die gesamte Palettenkapazität ausschöpft.</td>
+</tr>
+<tr>
+<td><strong>Gesamthöhe</strong></td>
+<td>Die Gesamthöhe der Palette inklusive aller Lagen und der Palette selbst, üblicherweise angegeben in Zentimetern oder Metern.</td>
+</tr>
+<tr>
+<td><strong>Kartons pro Palette</strong></td>
+<td>Die Gesamtzahl der Kartons, die auf einer Palette untergebracht werden können, unter Berücksichtigung aller Lagen und zusätzlicher Kartons.</td>
+</tr>
+<tr>
+<td><strong>Stück pro Palette</strong></td>
+<td>Die Gesamtzahl der Stücke oder Einheiten, die in allen Kartons auf einer Palette enthalten sind.</td>
+</tr>
+<tr>
+<td><strong>Nettogewicht</strong></td>
+<td>Das Gesamtgewicht aller Produkte auf der Palette ohne das Gewicht der Palette selbst.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="beispiel-fur-ein-palettenschema">Beispiel für ein Palettenschema<a class="headerlink" href="#beispiel-fur-ein-palettenschema" title="Permanent link">&para;</a></h4>
+<p>Um ein gutes Palettenschema für deine Trinkflaschen zu erstellen, die in Kartons mit den Maßen 30x30x40 cm verpackt sind, nehmen wir zunächst an, dass jede Palette standardmäßig die Maße 120 cm x 80 cm hat. Wir gehen davon aus, dass jeder Karton 4 Trinkflaschen enthält. Hier ist ein Beispiel, wie du die Anordnung planen könntest:</p>
+<p><strong>Palettenschema für Trinkflaschen in Kartons:</strong></p>
+<p>1.<strong>Kartons pro Lage:</strong> Da jeder Karton 30 cm breit und 30 cm lang ist, kannst du auf der Palette, die 120 cm lang und 80 cm breit ist, pro Lage 4 Kartons in der Länge und etwa 2 Kartons in der Breite platzieren. Das ergibt insgesamt 8 Kartons pro Lage.
+1.<strong>Lagen pro Palette:</strong> Wenn jeder Karton 40 cm hoch ist und du eine maximale Palettenhöhe von etwa 220 cm (Standardhöhe inklusive Palette) nicht überschreiten möchtest, kannst du 5 Lagen übereinander stapeln, ohne die maximale Höhe zu überschreiten.
+1.<strong>Zusätzliche Kartons:</strong> Da die Kartons genau auf die Palettenmaße abgestimmt sind, gibt es keine zusätzlichen Kartons pro Lage.
+1.<strong>Gesamthöhe:</strong> Die Gesamthöhe der Palette wäre 200 cm (5 Lagen × 40 cm pro Karton).
+1.<strong>Kartons pro Palette:</strong> Mit 8 Kartons pro Lage und 5 Lagen pro Palette sind das insgesamt 40 Kartons pro Palette.
+1.<strong>Stück pro Palette:</strong> Da jeder Karton 4 Trinkflaschen enthält, hättest du auf der ganzen Palette 160 Trinkflaschen (40 Kartons × 4 Trinkflaschen pro Karton).
+1.<strong>Nettogewicht:</strong> Nehmen wir an, jede Flasche wiegt 150 Gramm. Das Gewicht aller Flaschen wäre dann 24 kg (160 Flaschen × 150 g). Das Gewicht des leeren Kartons (angenommen 500 g pro Karton) wäre zusätzlich 20 kg (40 Kartons × 500 g). Das Gesamtnettogewicht der Palette wäre somit 44 kg.</p>
+<h2 id="umverpackung-im-versandzentrum-scannen-abfrage-am-packtisch">Umverpackung im Versandzentrum scannen - Abfrage am Packtisch<a class="headerlink" href="#umverpackung-im-versandzentrum-scannen-abfrage-am-packtisch" title="Permanent link">&para;</a></h2>
+<p>Gehe wie folgt vor, um Umverpackungen korrekt am Packtisch zu erfassen.</p>
+<p>1.<strong>Auftrag öffnen </strong>: Öffne das Versandzentrum und öffne das Tab Offene <strong>Lieferungen</strong>. Wähle dort gewünschten Auftrag aus, den du verpacken möchtest.
+1.<strong>Umverpackung scannen</strong>: Statt den Barcode der einzelnen Artikel zu scannen, scannst du den Barcode der Umverpackung (z. B. Karton mit 4 Stück). Xentral erkennt automatisch den zugehörigen Artikel und bucht die entsprechende Artikelmenge (z. B. 4 Stück der Trinkflasche) in den Auftrag ein.
+1.<strong>Vorgang wiederholen</strong>: Scanne weitere Umverpackungen oder bei Bedarf zusätzlich einzelne Artikel mit deren regulären Artikelnummern, bis die vollständige Auftragsmenge eingebucht ist.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

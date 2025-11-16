@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5355878386972 Artikeleigenschaften Anlegen Und Pflegen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>5355878386972 Artikeleigenschaften Anlegen Und Pflegen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>5355878386972 Artikeleigenschaften Anlegen Und Pflegen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>InXentral kannst du Artikeleigenschaften definieren. Diese Artikeleigenschaften kannst du dann deinem Artikel in den Artikelstammdaten zuweisen.</p>
+<p>Eine Artikeleigenschaft ist z.B. die Farbe, das Gewicht, der Umfang, die Bildschirmgröße etc. Dazu definierst du einen Wert und bei Bedarf eine Maßeinheit.</p>
+<p>Beispiel:</p>
+<table>
+<thead>
+<tr>
+<th>Eigenschaft</th>
+<th>Wert</th>
+<th>Einheit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bildschirmgröße</td>
+<td>13</td>
+<td>Zoll</td>
+</tr>
+<tr>
+<td>Farbe</td>
+<td>rot</td>
+<td></td>
+</tr>
+<tr>
+<td>Gewicht</td>
+<td>1000</td>
+<td>Gramm</td>
+</tr>
+</tbody>
+</table>
+<h2 id="artikeleigenschaften-anlegen">Artikeleigenschaften anlegen<a class="headerlink" href="#artikeleigenschaften-anlegen" title="Permanent link">&para;</a></h2>
+<p>App Center &gt; Stammdaten &gt; Artikel Eigenschaften</p>
+<p>In der AppArtikel Eigenschaftenkannst du Artikeleigenschaften anlegen. Du kannst diese entweder direkt in den Stammdaten zuweisen oder Vorlagen mit Artikeleigenschaften erstellen und nutzen.</p>
+<p>Artikeleigenschaften kannst du so anlegen, dass der Wert dazu in den Artikelstammdaten frei wählbar ist oder so, dass der Wert aus einer vordefinierten Liste gewählt werden muss. Wenn du die Werte zu deiner Eigenschaften vorgibst, kannst du vermeiden, dass später ein falscher oder nicht vorhandener Wert zugewiesen wird.</p>
+<p>Folgende Voraussetzungen sind erforderlich, damit in den Artikelstammdaten eine Auswahlliste mit vordefinierten Werten angezeigt wird:</p>
+<ul>
+<li>Die Eigenschaft wurde in der AppArtikel Eigenschaftenmit dem TypSelectfeldangelegt.</li>
+<li>Die verschiedenen Werte der Eigenschaft wurden in der AppEigenschaften Vorlagenfür eine Vorlage definiert.</li>
+<li>Dem Artikel wurde diese Vorlage zugewiesen.</li>
+</ul>
+<p>Wie du dabei vorgehst, wird dir nachfolgend in diesem Dokument beschrieben.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Auswahlliste der Werte wird nicht angezeigt, wenn du die Eigenschaft direkt in den Artikelstammdaten zuweist.</p>
+</blockquote>
+<p>Um eine Artikeleigenschaft anzulegen:</p>
+<ol>
+<li>Klicke auf+NEU. DasEinstellungen-Formular wird geöffnet.</li>
+<li>Gib deiner Artikeleigenschaft einen aussagekräftigen Namen, z.B. Farbe, Umfang, Gewicht, etc.</li>
+<li>Möchtest du deine Artikeleigenschaft nur in einem speziellen Projekt anwenden, wähle das entsprechende Projekt im FeldProjektaus. Mehr dazu, wie du Projekte anlegst, erfährst du<a href="https://help.xentral.com/hc/articles/360016723620#UUID-a5ebd026-5507-1c92-7a7f-41bcefd1d0af">hier</a>.</li>
+<li>Wähle im FeldTypaus, ob die Eigenschafteinzeilig(frei wählbare Werte) oder alsSelectfeld(vordefinierte Auswahlliste) definiert werden soll.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Die neue Artikeleigenschaft wird in der Übersicht angezeigt.</p>
+<p>Hast du mehrere Artikel mit gleichen oder ähnlichen Eigenschaften, kannst du eine Eigenschaften-Vorlage anlegen und diesen Artikeln zuweisen. So sparst du dir Zeit und manuellen Aufwand, da du nicht jede Eigenschaft einzeln zuweisen musst.</p>
+<h2 id="artikeleigenschaften-vorlage-erstellen">Artikeleigenschaften-Vorlage erstellen<a class="headerlink" href="#artikeleigenschaften-vorlage-erstellen" title="Permanent link">&para;</a></h2>
+<p>App Center &gt; Stammdaten &gt; Eigenschaften Vorlagen</p>
+<p>Um eine neue Eigenschaften-Vorlage zu erstellen:</p>
+<ol>
+<li>Gib im BereichAnlegeneineBezeichnungfür deine neue Vorlage ein.</li>
+<li>Aktiviere das KontrollkästchenAktiv, um deine Vorlage zu aktivieren.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Deine neue Vorlage wird in der Übersicht angezeigt.</p>
+<p>Nun kannst du deiner Vorlage Eigenschaften hinzufügen. Dabei kannst du direkt neue Eigenschaften definieren oder vordefinierte Artikeleigenschaften verwenden.</p>
+<p>Um Eigenschaften zu deiner Vorlage hinzuzufügen:</p>
+<ol>
+<li>Klicke in derMenü-Spalte der Übersicht bei der Vorlage, die du bearbeiten möchtest, auf den gebogenen Pfeil. Der ReiterDetailswird angezeigt.</li>
+<li>Gib die gewünschte Eigenschaft in das entsprechende Feld ein oder wähle aus bereits angelegten Eigenschaften aus, indem du auf dieLupeklickst. Artikeleigenschaften legst du unterApps &gt; Stammdaten &gt; Artikel Eigenschaftenan.</li>
+<li>Gib denWertdeiner Eigenschaft ein, z.B. rot/grün/blau, rund/oval/eckig oder S/M/L/XL oder wähle eine vordefinierte Eigenschaft aus. Hast du eine Eigenschaft ausgewählt, deren Werte später als Auswahlfeld angezeigt werden sollen, gib hier einen der gewünschten Werte ein. Wir erklären dir weiter unten, wie du in diesem Fall weiter vorgehst.</li>
+<li>Gib bei Bedarf eineEinheitan oder wähle eine vordefinierte Einheit über dieLupeaus. Wie du Einheiten anlegst, erfährst du<a href="https://help.xentral.com/document/preview/5906#UUID-a8b328ce-aef1-c216-846e-b14eec01e11a">hier</a>.</li>
+<li>Klicke aufSpeichern.</li>
+<li>Wiederhole die Schritte 2 bis 5 für alle Eigenschaften, die du deiner Vorlage zuweisen möchtest.</li>
+</ol>
+<p>Die Eigenschaften werden im ReiterDetailsangezeigt.</p>
+<p>Für Eigenschaften, bei denen in den Artikelstammdaten eine festgelegte Auswahlliste mit Werten angezeigt werden soll, wiederholst du die eben beschriebenen Schritte und wählst als Eigenschaft immer deine Eigenschaft aus, gibst aber jedes Mal einen anderen Wert ein.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Reihenfolge deiner Eingabe definiert auch die Reihenfolge, in der die Werte im Auswahlfeld angezeigt werden, d.h. der zuerst eingegebene Wert wird auch zuerst angezeigt.</p>
+</blockquote>
+<p>Beispiel für die Eingabe verschiedener Werte für ein Auswahlfeld:</p>
+<p><img alt="ProductProperties1.png" src="https://help.xentral.com/hc/article_attachments/5355868901532" /></p>
+<p>Bei Anwendung der Vorlage in deinen Artikelstammdaten wird standardmäßig der erste, definierte Wert angezeigt. Diesen kannst du ändern:</p>
+<p><img alt="ProductProperties2.png" src="https://help.xentral.com/hc/article_attachments/5355837245340" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Reihenfolge der angezeigten Werte kann nicht nachträglich geändert werden, die Werte werden in der Reihenfolge der Eingabe angezeigt.</p>
+</blockquote>
+<p>Du kannst eine Eigenschaften deiner Vorlage bearbeiten, indem du auf dasStift-Symbol in derMenü-Spalte klickst.</p>
+<p>Du kannst eine Eigenschaften aus deiner Vorlage löschen, indem du auf dasKreuzin derMenü-Spalte.</p>
+<h2 id="artikeleigenschaften-in-andere-sprachen-ubersetzen">Artikeleigenschaften in andere Sprachen übersetzen<a class="headerlink" href="#artikeleigenschaften-in-andere-sprachen-ubersetzen" title="Permanent link">&para;</a></h2>
+<p>Apps &gt; Stammdaten &gt; Artikel Eigenschaften Übersetzung</p>
+<p>Mit der AppArtikel Eigenschaften Übersetzungkannst du die Eigenschaften deiner Artikel in andere Sprachen übersetzen. Voraussetzung ist, dass die Sprache als Belegsprache in Xentral existiert.</p>
+<p>Um eine neue Übersetzung für eine Eigenschaft anzulegen:</p>
+<ol>
+<li>Klicke auf+NEU. DasBearbeiten-Formular wird geöffnet.</li>
+<li>Möchtest du eine Eigenschaft allgemein und nicht artikelspezifisch übersetzen, lasse das FeldArtikelleer. Dann wird diese Übersetzung artikelübergreifend angewendet. Möchtest du eine Übersetzung nur für einen bestimmten Artikel, gib den gewünschten Artikel in das FeldArtikelein oder wähle ihn über dasLupen-Symbol aus.</li>
+<li>Wähle im BereichVondie Ausgangssprache, in der deine Eigenschaft erfasst ist, die gewünschteEigenschaftund den gewünschtenWert, der übersetzt werden soll.</li>
+<li>Wähle im BereichNachdie Zielsprache, in die du deine Eigenschaft übersetzen möchtest und gebe die gewünschten Übersetzungen in die FelderEigenschaftundWertein.</li>
+<li>Soll die Übersetzung nur in einem Shop angewendet werden, kannst du den entsprechenden Shop im FeldShopauswählen.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<p>Die Übersetzung deiner Eigenschaft wird in der Übersicht angezeigt.</p>
+<p>Hast du eine Eigenschaft artikelspezifisch übersetzt, wird die Übersetzung der Eigenschaft ausschließlich für diesen Artikel im ReiterEigenschaftenangezeigt. Hast du eine generelle Übersetzung hinzugefügt, wird die Übersetzung in allen Artikeln angezeigt, denen die übersetzte Eigenschaft zugewiesen wurde.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

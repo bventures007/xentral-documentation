@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016761539 Gambio - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016761539 Gambio</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016761539 Gambio</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>Mit dieser Schnittstelle kannst du xentral mit Gambio verbinden, um Bestellungen von dort in xentral zu importieren und deine im Shop verkauften Artikel in Xentral zu verwalten. Die Anbindung geschieht über eine API-Schnittstelle (Shopimporter).</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Aktuell unterstützen wir beim Gambio Importer einen rudimentären Funktionsumfang. Eine Anbindung an Gambio Cloud ist nicht möglich. Ansonsten ist im Moment nur der Auftragsimport möglich, eine Artikelanlage und Lagerzahlenabgleich ist nicht möglich.</p>
+</blockquote>
+<h2 id="features-der-schnittstelle">Features der Schnittstelle<a class="headerlink" href="#features-der-schnittstelle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Aufträge aus Gambio abholen</li>
+<li>Auftragsstatus bei Versand in Gambio umstellen inkl. Meldung Trackingnummer</li>
+<li>Artikel einzeln von Xentral nach Gambio oder von Gambio nach Xentral übertragen (aktuell nicht für Varianten möglich 06/21)</li>
+<li>Artikelkategorien sowie Artikeleigenschaften von Xentral nach Gambio übertragen (aktuell nicht für Varianten möglich 06/21)</li>
+<li>Lagerzahlen sowie Pseudolagerzahlen zu Gambio übertragen (aktuell nicht für Varianten möglich 06/21)</li>
+</ul>
+<h2 id="anbindung">Anbindung<a class="headerlink" href="#anbindung" title="Permanent link">&para;</a></h2>
+<h3 id="api-zugangsdaten-im-shop-generieren">API-Zugangsdaten im Shop generieren<a class="headerlink" href="#api-zugangsdaten-im-shop-generieren" title="Permanent link">&para;</a></h3>
+<p>Zunächst musst du dir die API-Zugangsdaten für die Anbindung an xentral im jeweiligen Shop bzw. Marktplatz generieren. Wie du das machst findest du im Helpdesk in den zugehörigen Shopartikeln. Wenn du die API-Zugangsdaten hast kannst du mit dem Anlegen der Schnittstelle in xentral fortfahren.</p>
+<h3 id="schnittstelle-in-xentral-anlegen">Schnittstelle in xentral anlegen<a class="headerlink" href="#schnittstelle-in-xentral-anlegen" title="Permanent link">&para;</a></h3>
+<p>UnterAdministration → Shop Schnittstelle → Übersicht → NEUkannst du den Gambio Shop auswählen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bis Version 21.1 unterAdministration → Online-Shops / Marktplätze → NEU.</p>
+</blockquote>
+<p>UnterDetails → Schnittstellekannst du danach die entsprechenden Daten aus dem Gambio-Backend hinterlegen:</p>
+<p><img alt="Gambio-2.png" src="https://help.xentral.com/hc/article_attachments/5102255292956" /></p>
+<h3 id="typische-fehlermeldungen-probleme">Typische Fehlermeldungen / Probleme<a class="headerlink" href="#typische-fehlermeldungen-probleme" title="Permanent link">&para;</a></h3>
+<p>xentral meldet, dass keine Aufträge im Shop vorhanden sind, obwohl welche vorhanden sein müssten. Folgende Punkte könnten die Ursache für das Problem sein:</p>
+<ol>
+<li>
+<p>Anmeldedaten fehlerhaft
+  Der Importer meldet nicht zurück, dass die Anmeldedaten fehlerhaft sind. Wenn eine Anmeldung im Gambio Shop als Admin möglich ist, kannst du davon ausgehen, dass die Daten korrekt sind.</p>
+</li>
+<li>
+<p>Fehlender Logfiles Ordner
+  Bei der Installation von Gambio wurde aus irgendeinem Grund kein Logfiles Ordner angelegt. Diesen kannst du nachträglich, am Besten mit allen Rechten per FTP anlegen. Da Gambio bei der Anmeldung über die API versucht in die Logdatei in diesem Ordner zu schreiben, kommt es zu einem Fehler, der die Anmeldung scheitern lässt. Die Antwort XML enthält in diesem Fall keine SessionID und den Wortlaut:</p>
+</li>
+</ol>
+<p><code>...ErrorException'. with message 'file_put_contents(/var/www/vhosts/webshop.com/httpdocs/logfiles/xml.log): failed to open stream: No such file or directory in /var/www/vhosts/webshop.com/httpdocs/system/classes/gambio_xml/...</code></p>
+<h3 id="schnellstart">Schnellstart<a class="headerlink" href="#schnellstart" title="Permanent link">&para;</a></h3>
+<p>In diesen Abschnitt erfährst du, wie du die Schnittstelle möglichst schnell zum Laufen bringst, sodass Aufträge importiert, Lagerzahlen abgeglichen und die Trackingnummern zurückgemeldet werden.</p>
+<h2 id="einstellungen-fur-shop-oder-marktplatz">Einstellungen für Shop oder Marktplatz<a class="headerlink" href="#einstellungen-fur-shop-oder-marktplatz" title="Permanent link">&para;</a></h2>
+<p>Wenn du die Einstellungen der Gambio Schnittstelle öffnest, landest du zunächst im TabDetails → Schnittstelle.</p>
+<p>Einstellungen:</p>
+<ul>
+<li>Bezeichnung→ Name frei wählbar für den Shop (wird z.B. im Artikel und im Import-Menü angezeigt)</li>
+<li>Aktiv→ Haken setzen, damit die Schnittstelle aktiv ist. Nicht mehr benötigte Schnittstellen kannst du auf inaktiv setzen</li>
+<li>Projekt→ Verknüpfung des Shops auf ein Projekt. Im Projekt kannst du die Logistikeinstellungen vornehmen</li>
+<li>Abholmodus→ Bei Gambio kannst du hier ab einem bestimmten Status abholen</li>
+<li>Import-Modus→ Legt fest, ob die Aufträge aus dem Shop manuell (per Knopfdruck) oder automatisch importiert werden sollen</li>
+<li>Demo(zum Testen) → Der Auftragsstatus im Shop nicht umgestellt, keine Artikel oder Lagerzahlen übertragen</li>
+<li>Manuell(mit Importzentrale) → Die Aufträge werden erst abgeholt, wenn der ButtonAufträge abholengeklickt wird</li>
+<li>Automatisch(per Prozessstarter) → Die Aufträge werden regelmäßig automatisch vom Shop abgeholt. Hierfür wird der Prozessstarter Shopimporter benötigt</li>
+<li>Nur 1 Auftrag pro Anfrage→ Es wird nur 1 Auftrag pro Anfrage vom Shop übertragen</li>
+<li>Aufträge in Zwischentabelle→ Beim Abholen der Aufträge werden die Aufträge nicht direkt angelegt, sondern erstmal zum Durchschauen in einer Zwischentabelle gespeichert. Hier kannst du entscheiden, welche Aufträge angelegt und welche erst später importiert werden sollen</li>
+<li>Anzahl abholen begrenzen→ Möglichkeit, um eingehende Aufträge auf einmal zu begrenzen Steht nichts (0) drin gilt die Default-Begrenzung von 100</li>
+<li>Protokollierung im Logfile→ Legt beim Arbeiten mit der Shop-Schnittstelle Daten zur Fehlersuche in einem Log ab</li>
+<li>Benutzer→ Hier musst du den Nutzer eintragen, der Zugriff auf die API hat. Meistens ein Administrator</li>
+<li>Passwort→ Hier musst du das entsprechende Passwort für den API Nutzer eintragen</li>
+<li>API Url→<a href="https://ihreshopurl/api.php/v2">https://ihreshopurl/api.php/v2</a> (Bitte achte auf http oder https)</li>
+<li>Artikel in passende Kategorie verschieben→ Relevant für Artikelexport von xentral zum Shop Wenn nicht gesetzt wird eine Sammelkategorie in Gambio verwendet</li>
+<li>ID Steuerklasse Normal→ Steuerklassen gemäß Gambio Einstellung</li>
+<li>ID Steuerklasse Ermäßigt→ Steuerklassen gemäß Gambio Einstellung</li>
+<li>ID Steuerklasse Befreit→ Steuerklassen gemäß Gambio Einstellung</li>
+<li>Statusname Bestellung offen→ Der Name des Status im Shop, um offene Bestellungen darzustellen</li>
+<li>ID Bestellung in Bearbeitung → Hier trägst du die ID ein, auf welcher Gambio Bestellungen mit dem Status „in Bearbeitung“ setzt</li>
+<li>ID Bestellung abgeschlossen→ Hier trägst du die ID ein, auf welche Gambio Bestellungen mit dem Status „abgeschlossen“ setzt</li>
+<li>Datenbank Pfad→ Diese Information bekommst du bei deinem Webhoster</li>
+<li>Datenbank Name→ Diese Information bekommst du bei deinem Webhoster</li>
+<li>Datenbank Benutzer→ Diese Information bekommst du bei deinem Webhoster</li>
+<li>Datenbank Passwort→ Diese Information bekommst du bei deinem Webhoster</li>
+<li>Verbindung über ODBC herstellen→ Auswählen, wenn du die Verbindung über ODBC herstellen willst</li>
+<li>Abweichender ODBC Connector→ Diese Information bekommst du vom ODBC. Es gibt verschlüssselte Verbindungsmöglichkeiten zwischen der xentral Datenbank und der Shop Datenbank</li>
+</ul>
+<p>Aktion:</p>
+<ul>
+<li>
+<p>Verbindung prüfen→ Hier kannst du die korrekte Verbindung zu Gambio prüfen.
+  Bitte beachte, dass die Verbindung nicht klappt, wenn der Shop sich im Wartungsmodus befindet</p>
+</li>
+<li>
+<p>Aufträge abholen→ Holt die Aufträge aus deinem Shop ab. Das ist notwendig, wenn du den Importmodus der Schnittstelle auf manuell gestellt hast.</p>
+</li>
+<li>
+<p>Shopimport Zwischentabelle→ Springt zur Zwischentabelle der Aufträge vom Shop. Die Zwischentabelle wird nur im manuellen Importmodus befüllt und wenn die Option &lsquo;Aufträge in Zwischentabelle&rsquo; aktiviert ist.
+  In der Zwischentabelle wählst du in der linken Spalte zwischen &ldquo;Import&rdquo;, &ldquo;Müll&rdquo; und &ldquo;Später&rdquo; aus.</p>
+</li>
+<li>
+<p>Import: Auftrag wird direkt importiert</p>
+</li>
+<li>Müll: Auftrag landet im Müll und kann kein zweites Mal importiert werden</li>
+<li>Später: Auftrag kann zu einem späteren Zeitpunkt importiert werden</li>
+<li>Artikelliste abholen→ Importiert Artikel aus deinem Gambio Shop zu xentral. Shopartikel, die bereits in xentral vorhanden waren, werden aktualisiert, fehlende Artikel werden angelegt. Die Artikel werden nach dem Ausführen der Aktion nach und nach vom Prozessstarter Artikelimport abgeholt.</li>
+</ul>
+<p>Andere Reiter:</p>
+<p>Weitere Informationen zu den Einstellmöglichkeiten auf den anderen Reitern findest du unter<a href="https://help.xentral.com/hc/articles/360016756799#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">Online-Shops</a>.</p>
+<p>Eventuell muss jeder Artikel in Gambio Informationen im Feld &ldquo;Wesentliche Merkmale&rdquo; besitzen. Dieses Feld kannst du durch den Artikelexport von xentral zu Gambio füllen, indem du ein Freifeld im Artikel anlegst und dieses im Freifeldermapping der Shop-Schnittstelle auf das Feld checkoutinformation mappst. Weiter unten findest du mehr Informationen zu den &ldquo;Wesentliche Merkmalen&rdquo;.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Subshop(Subshopmapping) undGruppenmappingsind für Gambio derzeit nicht verfügbar.</p>
+</blockquote>
+<h2 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h2>
+<h3 id="auftrage-an-xentral-ubertragen">Aufträge an Xentral übertragen<a class="headerlink" href="#auftrage-an-xentral-ubertragen" title="Permanent link">&para;</a></h3>
+<p>Das Importieren von Aufträgen aus dem Shop nach Xentral wird<a href="https://xentral.com/helpdesk/kurzanleitung-import-von-bestellungen-aus-online-shops">in diesem Artikel</a>beschrieben.</p>
+<h3 id="artikel-nach-gambio-exportieren">Artikel nach Gambio exportieren<a class="headerlink" href="#artikel-nach-gambio-exportieren" title="Permanent link">&para;</a></h3>
+<p>Die folgenden Informationen zu einem Artikel können an Gambio übertragen werden:</p>
+<ul>
+<li>Wesentliche Merkmale → Im Artikel kann in Xentral ein Freifeld angelegt werden, dessen Inhalt in das Gambio-Feld &ldquo;Wesentliche Merkmale&rdquo; (Kasseninformationen) übernommen wird. Gambio (Anleitung unten).</li>
+<li>Hersteller → Hersteller des Artikels. Wird im Shop neu angelegt, wenn im Artikel angegeben, ist aber noch nicht im Shop vorhanden.</li>
+<li>Herstellerlink → Herstellerlink des Artikels. Für Deutsch und Englisch wird hier der gleiche Link übertragen.</li>
+<li>Alternative Beschreibung des Artikelbildes → Stammt aus der Bildbeschreibung in Xentral. Der gleiche Text wird hier für Deutsch und Englisch übertragen.</li>
+</ul>
+<h4 id="wesentliche-merkmale-ubertragen">Wesentliche Merkmale übertragen<a class="headerlink" href="#wesentliche-merkmale-ubertragen" title="Permanent link">&para;</a></h4>
+<p>Gambio verlangt unter Umständen, dass jeder Artikel Informationen im Feld &ldquo;Wesentliche Merkmale&rdquo; besitzt. Um dieses Feld durch den Artikelexport von Xentral zu Gambio zu füllen, kannst du ein Freifeld im Artikel anlegen und dieses im Freifeldermapping der Shop-Schnittstelle auf das Feld checkoutinformation mappen.</p>
+<ol>
+<li>Du legst im Artikel ein Freifeld an und befüllst es mit den Informationen, die später im Feld &ldquo;Wesentliche Merkmalen&rdquo; in Gambio stehen sollen. Soll im englischen Shop ein anderer Text gezeigt werden, legst du auch eine englische Übersetzung des Freifeldes an.</li>
+<li>Nun mappst du das Freifeld in der Shopschnittstelle im Tab Freifelder auf das Feld &ldquo;checkoutinformation&rdquo; von Gambio.</li>
+<li>In Gambio erscheint nun der Inhalt des Freifeldes unter &ldquo;Wesentliche Merkmale&rdquo; des Artikels.</li>
+</ol>
+<h4 id="export-von-artikel-eigenschaften">Export von Artikel-Eigenschaften<a class="headerlink" href="#export-von-artikel-eigenschaften" title="Permanent link">&para;</a></h4>
+<p>In xentral kannst du Artikeleigenschaften an Gambio übertragen. Dazu benötigt xentral die Datenbankzugangsdaten des Gambio-Shops, da die Gambio-API diese Funktion nicht unterstützt.</p>
+<p>Den Datenbankpfad musst du ohne http: und ohne Port angegeben.</p>
+<h3 id="lagerzahlen-synchronisieren-und-auftrage-importieren">Lagerzahlen synchronisieren und Aufträge importieren<a class="headerlink" href="#lagerzahlen-synchronisieren-und-auftrage-importieren" title="Permanent link">&para;</a></h3>
+<p>Allgemeine Informationen zur Lagerzahlen Synchronisation und zum Auftagsimport findest du im folgenden Helpcenter Artikel:<a href="https://help.xentral.com/hc/articles/360016756799#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">Online-Shops</a></p>
+<p>Beachte bitte, dass sich der Funktionsumfang der verschiedenen Shopanbindungen in Xentral deutlich unterscheidet. Die Shop Matrix zeigt dir detaillierte Informationen zum Funktionsumfang aller Shops. Du kannst die Shop Matrix unterShops und Marktplätze &gt; Shop Funktioneneinsehen.</p>
+<h2 id="datenbank-verbindung-zu-gambio-herstellen-fur-techniker">Datenbank-Verbindung zu Gambio herstellen (für Techniker)<a class="headerlink" href="#datenbank-verbindung-zu-gambio-herstellen-fur-techniker" title="Permanent link">&para;</a></h2>
+<p>Für einige Features der Gambio-Schnittstelle benötigst du eine direkte Anbindung an die Datenbank des Shops, da die REST-API von Gambio diese Funktionen nicht bereitstellt.</p>
+<p>Für folgende Funktionen wird eine Datenbankverbindung benötigt:</p>
+<ul>
+<li>Artikelexport: Eigenschaftenübertragung</li>
+<li>Artikelexport: Variantenartikel in korrekter Variantenstruktur übertragen</li>
+<li>Auftragsimport: Artikelnummer bei Varianten</li>
+<li>Auftragsimport: Customizer Data bei Artikeln</li>
+<li>Auftragsimport: Transaktionsnummer</li>
+</ul>
+<p>Um deine Shopdatenbank mit xentral zu verbinden kannst du auf zwei Arten vorgehen:</p>
+<p>-<strong>Datenbank nach außen öffnen:</strong> Du kannst die Datenbank des Gambio-Shops kann für den Außenzugriff öffnen. Sollte die Datenbank des Shops von außen erreichbar sein, bzw. sich im selben Netz befinden wie xentral, kannst du den Datenbankzugriff über Bordmittel realisieren. Dazu ist es ausreichend die Felder für den Datenbankzugriff entsprechend zu pflegen.
+-<strong>Veschlüsselter Zugriff auf die Datenbank über ODBC:</strong> Falls die Shopdatenbank nicht direkt vom xentral-System aus erreichbar ist, oder ein Öffnen der Datenbank nach außen nicht gewollt oder möglich ist, kannst du stattdessen eine Verbindung über einen ODBC-Connector herstellen. Hierfür musst du neben den Datenbankzugriffsdaten noch den Pfad zum ODBC-Connector eintragen, der verwendet werden soll.</p>
+<p>Wenn du die Daten eingetragen und gespeichert hast, kannst du durch einen Klick auf Verbindung prüfen sicherstellen, dass die Datenbankverbindung korrekt hergestellt werden kann.</p>
+<p>Falls dein System auf der xentral Cloud installiert ist, reicht es zur Verwendung des ODBC-Connectors aus die Checkbox &ldquo;Verbindung über ODBC herstellen&rdquo; zu aktivieren. Auf der Cloud ist bei allen Installation der Connector bereits hinterlegt.</p>
+<p>Ist die xentral-Installation nicht auf der Cloud gehostet, musst du den ODBC-Connector gegebenenfalls manuell installieren. Zusätzlich musst du dafür auch den lokalen Pfad zum Treiber in den Importereinstellungen hinterlegen.<a href="https://putokaz.wordpress.com/2018/02/12/how-to-install-the-mysql-odbc-driver-on-ubuntu-16-04-or-linux-mint-18-x/">Hier</a>findest du eine Anleitung für ein exemplarisches Vorgehen.</p>
+<p>Nachdem du die Einstellungen gespeichert hast, kannst du mit einem Klick auf Verbindung prüfen überprüfen, ob der Connector funktioniert. Etwaige Fehlermeldungen vom Connector werden durch den Importer direkt weitergereicht.</p>
+<h2 id="technische-dokumentation">Technische Dokumentation<a class="headerlink" href="#technische-dokumentation" title="Permanent link">&para;</a></h2>
+<h3 id="status-der-auftrage">Status der Aufträge<a class="headerlink" href="#status-der-auftrage" title="Permanent link">&para;</a></h3>
+<p>Über die API werden alle Aufträge mit Order Status &ldquo;1&rdquo; (Im Standard ist das &ldquo;offen&rdquo; / Stand 12/2016) abgeholt. Die Tabelle für die Status in Gambio findet sich hier: orders_status</p>
+<h3 id="import-von-paypal-zahlungen">Import von PayPal-Zahlungen<a class="headerlink" href="#import-von-paypal-zahlungen" title="Permanent link">&para;</a></h3>
+<p>Wenn du aus dem Gambio-Shop Aufträge mit der Zahlungsweise PayPal importierst, beachte Folgendes:</p>
+<p>Beim Import eines Shop-Auftrags wird folgende Transaktionsnummer mit übergeben (abhängig von der Einstellung des Shops kann eine der beiden Nummerntypen in das Feld &ldquo;Transaktion&rdquo; zu Xentral übernommen werden):</p>
+<ul>
+<li>PayPal: Transaktionsnummer (Transaktions-ID) → Normales PayPal Konto ohne PayPalPlus → Es wird die reguläre Transaktionsnummer übergeben, welche dann zum Kontoauszug gemapped wird (im Kontoauszug befindet sich ebenfalls die Transaktionsnummer)</li>
+<li><a href="https://xentral.com/helpdesk/kurzanleitung-paypalplus?">PayPal Plus</a>: PAYID → PayPalPlus Konto → Es wird meist die PAYID (anstelle der regulären Transaktionsnummer) übergeben, diese wird dann zum Kontoauszug gemapped. Im Kontoauszug befindet sich die Transaktionsnummer, xentral holt parallel die PAYID über die Bankanbindung mit ab, sodass diese Nummer ein erfolgreiches Zahlungsmapping gewährleistet.</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

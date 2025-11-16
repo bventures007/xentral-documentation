@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6113588370204 Zentrale Auftragsübersicht - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>6113588370204 Zentrale Auftragsübersicht</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>6113588370204 Zentrale Auftragsübersicht</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Die Übersicht aller vorhandenen Aufträge in Xentral findest du im Menü <strong>Verkaufen &gt; Auftrag</strong>.</p>
+<p>Die Auftragsübersicht besteht aus den beiden TabsAufträgeundin Bearbeitung.</p>
+<p>Das TabAufträgeenthält alle in Xentral vorhandenen Aufträge. Das Tabin Bearbeitungenthält nur Aufträge, die noch nicht freigegeben wurden und sich daher noch im Entwurfsmodus befinden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Auftragsübersicht bietet dir folgende Features für dein Tagesgeschäft:</p>
+<ul>
+<li>Vielfältige Filteroptionen für deine Aufträge</li>
+<li>Suche nach bestimmten Begriffen innerhalb der Aufträge</li>
+<li>Kurzübersicht bestimmter Auftragsinformationen</li>
+<li>Verarbeitung mehrere Aufträge über die Stapelverarbeitung</li>
+<li>Schnelle Übersicht über den aktuellen Auftragsstatus deines Auftrags mittels Auftragsampel</li>
+</ul>
+</blockquote>
+<h2 id="auftrage-filtern">Aufträge filtern<a class="headerlink" href="#auftrage-filtern" title="Permanent link">&para;</a></h2>
+<p>In der Auftragsübersicht findest du diverse Filter, mit denen du deine Aufträge auf Basis verschiedener Kriterien und Anforderungen sortieren und anzeigen lassen kannst.</p>
+<p>Die folgenden Kapitel enthalten detaillierte Informationen zu den verschiedenen Filtermöglichkeiten im Menü <strong>Verkaufen &gt; Auftrag</strong>.</p>
+<h3 id="filter-im-tab-auftrage">Filter im Tab Aufträge<a class="headerlink" href="#filter-im-tab-auftrage" title="Permanent link">&para;</a></h3>
+<p>Sobald du das Menü <strong>Verkaufen &gt; Auftrag </strong> öffnest, findest du direkt oben links die erste Option namens <strong>Filter</strong>.</p>
+<p><img alt="auftragsuebersicht-filter.png" src="https://help.xentral.com/hc/article_attachments/19449821873564" /></p>
+<p>Klicke auf <strong>Filter</strong>, um die Filteroptionen anzuzeigen.</p>
+<p><img alt="auftragsuebersicht-filter-aufgeklappt.png" src="https://help.xentral.com/hc/article_attachments/19449844190876" /></p>
+<p>Die folgende Tabelle enthält eine Auflistung aller verfügbaren Filter und deren Funktionen.</p>
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Artikel fehlt</strong></td>
+<td>Zeigt alle Aufträge an, bei denen ein Artikel fehlt. Artikel können fehlen, weil kein (ausreichender) Bestand vorhanden ist oder Artikel sich aktuell noch in Produktion befinden.</td>
+</tr>
+<tr>
+<td><strong>Teillieferung mögl</strong></td>
+<td>Zeigt alle Aufträge an, bei denen eine Teillieferung möglich ist.</td>
+</tr>
+<tr>
+<td><strong>UST-Prüf. fehlt</strong></td>
+<td>Zeigt alle Aufträge an, für die noch keine Umsatzsteuerprüfung stattgefunden hat.</td>
+</tr>
+<tr>
+<td><strong>Zahlung ok</strong></td>
+<td>Zeigt alle Aufträge an, für die eine vollständige Zahlung eingegangen ist.</td>
+</tr>
+<tr>
+<td><strong>Zahlung fehlt</strong></td>
+<td>Zeigt alle Aufträge an, für die noch keine Zahlung eingegangen ist.</td>
+</tr>
+<tr>
+<td><strong>Porto fehlt</strong></td>
+<td>Zeigt alle Aufträge an, die keinen Portoartikel enthalten.</td>
+</tr>
+<tr>
+<td><strong>Manuelle Prüf.</strong></td>
+<td>Zeigt alle Aufträge an, die noch manuell geprüft werden müssen.</td>
+</tr>
+<tr>
+<td><strong>Teilzahlung</strong></td>
+<td>Zeigt alle Aufträge an, bei denen eine Teilzahlung möglich ist.</td>
+</tr>
+<tr>
+<td><strong>ohne Rechnung</strong></td>
+<td>Zeigt alle Aufträge an, für die noch keine Rechnung erstellt wurde.</td>
+</tr>
+<tr>
+<td><strong>Heute</strong></td>
+<td>Zeigt alle Aufträge an, die am aktuellen Tag angelegt wurden.</td>
+</tr>
+<tr>
+<td><strong>Auto-Versand fehlt</strong></td>
+<td>Zeigt alle Aufträge an, bei denen die Übergabe in den Auto-Versand deaktiviert ist und die dementsprechend noch nicht an das Versandzentrum übergeben wurden.</td>
+</tr>
+<tr>
+<td><strong>Auto-Versand OK</strong></td>
+<td>Zeigt alle Aufträge an, bei denen der Auto-Versand aktiviert ist.</td>
+</tr>
+<tr>
+<td><strong>Fast-Lane <strong></td>
+<td>Zeigt alle priorisierten Aufträge an, also Aufträge, die über die Fast-Lane-Markierung verfügen. 💡</strong> Tipp:</strong> Weitere Informationen zur Fast-Lane findest du im Artikel Aufträge priorisieren - Die Fast-Lane-Funktionalität.</td>
+</tr>
+<tr>
+<td>Lieferdatum überfällig</td>
+<td>Zeigt alle Aufträge an, deren Lieferdatum überfällig ist. Hierbei wird das Datum aus dem Feld Auslieferung Lager berücksichtigt. Wenn dieses Feld leer ist, wird das Feld Wunsch Liefertermin geprüft. Wenn dieses Feld ebenfalls leer ist, wird das Feld Auftragsdatum geprüft.</td>
+</tr>
+<tr>
+<td><strong>Adresse nicht valide <strong></td>
+<td>Zeigt alle Aufträge an, deren Lieferadressen von Xentral als ungültig oder fehlerhaft erkannt wurden. ⚠️</strong> Wichtig:</strong> Dieser Filter funktioniert nur, wenn du die Adressvalidierung im Menü Einstellungen &gt; Lager &amp; Logistik &gt; Logistik &gt; Adressvalidierung aktiviert hast. Weitere Informationen dazu findest du im Artikel Adressprüfung für Logistikprozesse (Adressvalidierung).</td>
+</tr>
+<tr>
+<td><strong>Kunden mit mehreren offenen Aufträgen</strong></td>
+<td>Zeigt alle Aufträge von Kunden an, für die mehrere offene Aufträge in Xentral vorhanden sind.</td>
+</tr>
+<tr>
+<td>Übertragung ausstehend</td>
+<td>Zeigt alle Aufträge an, die sich im Modul <strong>Übertragungen </strong> im Status <strong>zu übertragen </strong> befinden. ⚠️<strong>Wichtig:</strong> Dieser Filter funktioniert nur, wenn du das Modul Übertragungen aktiv zum Datenaustausch verwendest. Weitere Informationen zum Übertragungen-Modul findest du im Artikel Übersicht: Fulfillment-Dienstleister (3PL) anbinden.</td>
+</tr>
+<tr>
+<td><strong>Übertragung fehlgeschlagen <strong></td>
+<td>Zeigt alle Aufträge an, bei denen die Datenübertragung im Modul</strong> Übertragungen </strong> fehlgeschlagen ist. ⚠️<strong>Wichtig:</strong> Dieser Filter funktioniert nur, wenn du das Modul Übertragungen aktiv zum Datenaustausch verwendest. Weitere Informationen zum Übertragungen-Modul findest du im Artikel Übersicht: Fulfillment-Dienstleister (3PL) anbinden.</td>
+</tr>
+<tr>
+<td><strong>Übertragung erfolgreich <strong></td>
+<td>Zeigt alle Aufträge an, bei denen die Datenübertragung im Modul</strong> Übertragungen </strong> erfolgreich war. ⚠️<strong>Wichtig:</strong> Dieser Filter funktioniert nur, wenn du das Modul Übertragungen aktiv zum Datenaustausch verwendest. Weitere Informationen zum Übertragungen-Modul findest du im Artikel Übersicht: Fulfillment-Dienstleister (3PL) anbinden.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nach-auftragsstatus-filtern">Nach Auftragsstatus filtern<a class="headerlink" href="#nach-auftragsstatus-filtern" title="Permanent link">&para;</a></h3>
+<p>Oberhalb der Auftragsübersicht im Menü <strong>Verkaufen &gt; Auftrag</strong> hast du die Möglichkeit, alle vorhandenen Aufträge nach ihrem aktuellen Status der Auftragsabwicklung in Xentral zu filtern.</p>
+<p><img alt="auftragsuebersicht-filter-oben.png" src="https://help.xentral.com/hc/article_attachments/19449796900508" /></p>
+<h3 id="detaillierter-auftragsfilter">Detaillierter Auftragsfilter<a class="headerlink" href="#detaillierter-auftragsfilter" title="Permanent link">&para;</a></h3>
+<p>Zusätzlich zu den bereits beschriebenen Filtermöglichkeiten steht dir direkt neben dem Suchfeld oberhalb der Auftragsübersicht ein detaillierter Auftragsfilter zur Verfügung.</p>
+<p>Dieser Filter beinhaltet weitreichendere Kriterien wie beispielsweise die Belegnummer, die Freitextsuche oder die gezielte Filterung nach bestimmten Datumsbereichen und Auftragssummen.</p>
+<p><img alt="auftragsuebersicht-filter-suchfeld.png" src="https://help.xentral.com/hc/article_attachments/19449930865180" /></p>
+<p><img alt="auftragsuebersicht-filter-suchfeld-aufgeklappt.png" src="https://help.xentral.com/hc/article_attachments/19449844446364" /></p>
+<h2 id="auftragssuche-nutzen">Auftragssuche nutzen<a class="headerlink" href="#auftragssuche-nutzen" title="Permanent link">&para;</a></h2>
+<p>Die Auftragsübersicht bietet dir mehrere Möglichkeiten, um anhand eines bestimmten Begriffs gezielt nach Aufträgen zu suchen.</p>
+<p>-<strong>Möglichkeit 1:</strong> Gib deinen Suchbegriff in das Feld Suche links oberhalb der Tabelle ein. Die Suche funktioniert auch, wenn du nur einen Teil des Suchbegriffs eingibst.
+-<strong>Möglichkeit 2:</strong> Gib deinen Suchbegriff im Suchfeld der jeweiligen Tabellenspalte ein.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Mithilfe der hier beschriebenen Suchfelder kannst du nicht nach Informationen suchen, die nicht in der Übersicht angezeigt werden, z. B. nach einem Produktnamen, der in einem Kundenauftrag enthalten ist. Verwende stattdessendie passenden Filter, um nach Auftragsinformationen zu suchen, die nicht in der Übersicht angezeigt sind.</p>
+</blockquote>
+<h2 id="stapelverarbeitung-fur-auftrage-nutzen">Stapelverarbeitung für Aufträge nutzen<a class="headerlink" href="#stapelverarbeitung-fur-auftrage-nutzen" title="Permanent link">&para;</a></h2>
+<p>In der Übersicht kannst du mit derStapelverarbeitungmehrere Aufträge auf einmal bearbeiten.</p>
+<p>Gehe wie folgt vor, um mehrere Aufträge gleichzeitig zu verarbeiten:</p>
+<p>1.<strong>Optional:</strong> Wende nach Bedarf die im Kapitel <a href="#auftraege-filtern">Aufträge filtern</a> beschriebenen Filter an, um die Aufträge anzuzeigen, die du per Stapelverarbeitung verarbeiten möchtest.
+1. Wähle links in der Tabelle die gewünschten Aufträge aus, in dem du die Checkbox aktivierst. Wenn du alle angezeigten Aufträge per Stapelverarbeitung verarbeiten möchtest, aktiviere die Optionalle markierenim Abschnitt Stapelverarbeitung.
+1. Wähle im linken Dropdown-Menü die Aktion aus, die du für die ausgewählten Aufträge durchführen möchtest.
+  In der Stapelverarbeitung stehen dir folgende Aktionen zur Verfügung:</p>
+<ul>
+<li>als freigegeben markieren: Aufträge, die sich noch im Entwurfsmodus befinden, werden freigegeben.</li>
+<li>als storniert markieren: Die ausgewählten Aufträge werden als storniert markiert.</li>
+<li>Option “Für den Versand“ freigeben: Die ausgewählten Aufträge werden in den Auto-Versand übergeben.</li>
+<li>Option “Für den Versand“ entfernen: Die Freigabe für den Auto-Versand wird für die ausgewählten Aufträge storniert.</li>
+<li>Option “Fast-Lane“ setzen: Die Option Fast-Lane wird für die ausgewählten Aufträge wird aktiviert.</li>
+<li>Option “Fast-Lane“ entfernen: Die Option Fast-Lane wird für die ausgewählten Aufträge deaktiviert, womit die Priorisierung aufgehoben wird.</li>
+<li>Per Mail versenden: Es wird eine Auftragsbestätigung per E-Mail an die Kunden der entsprechenden Aufträge gesendet.</li>
+<li>Als versendet markieren: Die ausgewählten Aufträge werden als versendet markiert.</li>
+<li>Als Produktion weiterführen: Die ausgewählten Aufträge werden als Produktion weitergeführt.</li>
+<li>Sammel-PDF: Eine PDF-Datei mit den Auftragsbestätigungen der ausgewählten Aufträge wird auf deinen Computer heruntergeladen.</li>
+<li>Drucken: Die Auftragsbestätigungen der ausgewählten Aufträge werden auf dem Drucker ausgedruckt, der im Dropdown-Menü namens Drucker ausgewählt wurde.</li>
+<li>Aufträge erneut übertragen: Aufträge, die bereits an das Übertragungen-Modul übergeben wurden, werden noch einmal übergeben.</li>
+<li>Aufträge zusammenführen: Die ausgewählten Aufträge werden in einem einzigen Auftrag zusammengeführt. Weitere Informationen zum Thema Zusammenführen von Aufträgen findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/6113651676444#UUID-7360cd09-b92e-dc32-06ab-2ac365128a3f">Zusammenführung von Aufträgen</a>.
+1. Für einige Aktionen kannst du wählen, ob du die Informationen ausdrucken möchtest. Wenn du Informationen drucken möchtest, wähle den korrekten Drucker aus dem Dropdown-Menü Drucker.
+1. Klicke auf Ausführen.</li>
+</ul>
+<h2 id="minidetail-ansicht-in-der-auftragsubersicht">Minidetail-Ansicht in der Auftragsübersicht<a class="headerlink" href="#minidetail-ansicht-in-der-auftragsubersicht" title="Permanent link">&para;</a></h2>
+<p>Die Minidetail-Ansicht (Quick Preview) ist eine zentrale Funktion in der globalen Auftragsübersicht von Xentral, mit der du einen oder mehrere Aufträge gleichzeitig aufklappen kannst, ohne sie einzeln zu öffnen. So erhältst du auf einen Blick alle wichtigen Informationen für Vertrieb, Buchhaltung und Lager – ideal, um schnell Entscheidungen zu treffen oder den Auftragsstatus zu prüfen.</p>
+<h3 id="vorteile-der-minidetail-ansicht">Vorteile der Minidetail-Ansicht<a class="headerlink" href="#vorteile-der-minidetail-ansicht" title="Permanent link">&para;</a></h3>
+<p>-<strong>Zeitersparnis</strong>: Kein Wechsel in die Detailansicht des Auftrags nötig.
+-<strong>Sofortüberblick</strong>: Wichtige Statusinformationen aus Vertrieb, Buchhaltung und Lager zentral sichtbar.
+-<strong>Schnelle Entscheidungen</strong>: Direkt erkennbar, ob ein Auftrag versendet werden kann oder ob Bestände fehlen.</p>
+<h3 id="so-offnest-du-die-minidetail-ansicht">So öffnest du die Minidetail-Ansicht<a class="headerlink" href="#so-offnest-du-die-minidetail-ansicht" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Öffne die globale <strong>Auftragsübersicht</strong>.</li>
+<li>Klicke in der Auftragstabelle links auf das <strong>Quick-Preview-Symbol</strong>(Pfeilsymbol) bei dem Auftrag, den du einsehen möchtest.</li>
+<li>Die <strong>Minidetail-Ansicht</strong> klappt unterhalb des Auftrags auf und zeigt dir alle relevanten Daten.</li>
+<li>Schließe die Ansicht, indem du links in der Tabelle auf das Schließen-Symbol (Pfeilsymbol) klickst.</li>
+</ol>
+<p><img alt="minidetail_001.png" src="https://help.xentral.com/hc/article_attachments/21761754166300" /></p>
+<h3 id="enthaltene-informationen-im-minidetail">Enthaltene Informationen im Minidetail<a class="headerlink" href="#enthaltene-informationen-im-minidetail" title="Permanent link">&para;</a></h3>
+<p>1.<strong>Lagerbestände &amp; Verfügbarkeit </strong>: Aktueller Bestand pro Artikelposition, Lagerort(e) an dem die Ware liegt, Reservierungen für diesen Auftrag und global systemweit, Fehlbestände werden <strong>rot</strong> markiert, detaillierte Bestandsinformationen über das Info-Icon (inkl. Lager, Reservierungen, Zulauf)
+1.<strong>Zahlungsstatus &amp; Buchungen</strong>: Aktueller Zahlungsstatus (offen, bezahlt, teilbezahlt), Kundensaldo, Liste aller Buchungen inkl. Datum, Betrag und Belegreferenz
+1.<strong>Verknüpfte Belege </strong>: Schnellzugriff auf Rechnungen, Gutschriften, Lieferscheine, Bestellungen, Anzeige ob der Auftrag in <strong>Teilaufträge</strong> gesplittet wurde, automatisch erstellte Dokumente durch Prozesse (z. B. Lieferschein &amp; Rechnung bei Auto-Versand)
+1.<strong>Bearbeitungs- &amp; Verarbeitungsstatus </strong>: Wurde der Auftrag bereits von einem Mitarbeiter bearbeitet?, wurde er an die Logistik übergeben?, ist er durch einen <strong>automatischen Prozess</strong> abgewickelt worden?, Abwicklung über 3PL/Fulfillment-Modul inkl. Status
+1.<strong>Versandstatus &amp; Tracking</strong>: Ob der Auftrag das Lager verlassen hat, Versanddienstleister und Trackingnummer (falls vorhanden), Versand- oder Liefersperren
+1.<strong>Zusatzinformationen</strong>: Online-Shop Bestellnummer (Internetnummer), Interne Bemerkungen für die interne Kommunikation, Freitext/Kundenhinweise (z. B. aus dem Onlineshop)</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

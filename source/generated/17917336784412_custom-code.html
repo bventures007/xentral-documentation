@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17917336784412 Custom Code - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>17917336784412 Custom Code</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>17917336784412 Custom Code</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Tipp</strong></p>
+<p>Xentral bietet dir leistungsstarke Lösungen, um individuelle Anforderungen effizient umzusetzen. Unsere API und die Middleware-Plattform Connect ermöglichen dir, Prozesse nahtlos zu integrieren und zu automatisieren – wartungsfreundlich, zukunftssicher und kosteneffizient.</p>
+<p>-<strong>Neue API</strong>:Hier geht es zur neuen Xentral API
+-<strong>Schnittstellen und Connect Plattform</strong>: In diesem Artikel findest du eine Übersicht über die Xentral Shop-Schnittstellenund Informationen überXentral Connect.</p>
+</blockquote>
+<p>Falls deine Business-Anforderung mit diesen bewährten Optionen nicht abgedeckt werden kann, bietet Custom Code eine Alternative. Dabei solltest du jedoch die zusätzlichen Verantwortlichkeiten und potenziellen Risiken im Blick behalten, wie z. B. die Notwendigkeit von Anpassungen bei Updates und mögliche Einschränkungen bei neuen Features.</p>
+<h2 id="wichtige-informationen-fur-die-nutzung-von-custom-code-in-deiner-xentral-instanz">Wichtige Informationen für die Nutzung von Custom Code in deiner Xentral-Instanz<a class="headerlink" href="#wichtige-informationen-fur-die-nutzung-von-custom-code-in-deiner-xentral-instanz" title="Permanent link">&para;</a></h2>
+<p>Wenn du darüber nachdenkst, Custom Code in deiner Xentral-Instanz einzusetzen, oder bereits bestehenden Custom Code nutzt, möchten wir dir die wichtigsten Aspekte mit auf den Weg geben. Unser Ziel ist es, dich dabei zu unterstützen, die beste Lösung für dein Unternehmen zu finden – effizient, sicher und zukunftsfähig.</p>
+<h2 id="warum-custom-code-eine-bewusste-entscheidung-sein-sollte">Warum Custom Code eine bewusste Entscheidung sein sollte<a class="headerlink" href="#warum-custom-code-eine-bewusste-entscheidung-sein-sollte" title="Permanent link">&para;</a></h2>
+<p>Custom Code ermöglicht es, spezifische Anforderungen umzusetzen, die über den Standard von Xentral hinausgehen. Das kann in manchen Fällen sinnvoll sein, bringt jedoch auch Herausforderungen mit sich. Custom Code erhöht die Komplexität deines Systems und birgt Risiken, etwa dass er nach einem Update nicht mehr funktioniert. Gründe hierfür können unter anderem Änderungen an <strong>Datenstrukturen </strong>,<strong>Funktionen </strong>, der <strong>Datenbankversion </strong> oder der <strong>PHP-Version</strong> sein.</p>
+<p>Stelle dem Nutzen, den dir eine kundenspezifische Funktionalität bringen soll, immer die Kosten der Erstellung, der Wartung und des Betriebs gegenüber, um zu entscheiden, ob das Investment langfristig für dich rentabel ist. Prozesse, die über unsere API gebaut werden, sind in der Regel sinnvoller und langfristig kostengünstiger.</p>
+<p><strong>Deshalb empfehlen wir dir, Prozesse, wann immer möglich, über unsere API zu lösen.</strong></p>
+<h2 id="unsere-empfehlung-setze-auf-die-api">Unsere Empfehlung: Setze auf die API<a class="headerlink" href="#unsere-empfehlung-setze-auf-die-api" title="Permanent link">&para;</a></h2>
+<p>Die<a href="https://help.xentral.com/hc/de/articles/6618896113820#UUID-03a6d5d2-0c6b-65c8-6753-4bc5ad5bb509">Xentral API</a>ist leistungsstark, flexibel und wird kontinuierlich weiterentwickelt. Mit der API kannst du Prozesse automatisieren, Systeme nahtlos verbinden und maßgeschneiderte Lösungen entwickeln – ohne die Nachteile von Custom Code. Solltest du spezielle Anforderungen haben, die derzeit nicht über die API abgedeckt werden, lass es uns wissen. Unser Team prüft gerne, ob weitere Endpunkte ergänzt werden können. (<em>Die API ist für dich in den größeren Versionen mit dabei. Hier auf der Xentral Webseite kannst du dein Paket prüfen</em>).</p>
+<h2 id="bestehenden-custom-code-weiter-nutzen-oder-entfernen">Bestehenden Custom Code weiter nutzen oder entfernen?<a class="headerlink" href="#bestehenden-custom-code-weiter-nutzen-oder-entfernen" title="Permanent link">&para;</a></h2>
+<p>Wenn du bereits Custom Code nutzt, stehen dir zwei Optionen offen:</p>
+<ol>
+<li><strong>Beibehaltung des Custom Codes:</strong> Du kannst deinen bestehenden Code weiter nutzen, solltest jedoch bedenken, dass die Verantwortung für dessen Wartung und Funktionalität bei dir liegt. Sollte dein Custom Code durch ein Update beeinträchtigt werden, können Kosten für Anpassungen entstehen.
+1.<strong>Entfernung des Custom Codes:</strong> Wenn der Custom Code nicht mehr benötigt wird oder durch eine API-Lösung ersetzt werden kann, helfen wir dir gerne bei der Deaktivierung oder Umstellung.</li>
+</ol>
+<h2 id="so-gehen-wir-mit-neuen-custom-code-anfragen-um">So gehen wir mit neuen Custom Code-Anfragen um<a class="headerlink" href="#so-gehen-wir-mit-neuen-custom-code-anfragen-um" title="Permanent link">&para;</a></h2>
+<p>Wenn du neuen Custom Code einführen möchtest, prüfen wir zunächst, ob dieser den Richtlinien entspricht und ob er nicht durch eine API-Lösung abgedeckt werden kann. Sollte der Custom Code zugelassen werden, unterstützen wir bei der Integration. Bitte sende uns deine Anfrage mit dem Betreff <strong>Custom Code</strong> an<a href="https://help.xentral.com/hc/de/requests/new">support@xentral.com</a>, und unser Team wird dich durch den Prozess begleiten.</p>
+<p>Bitte beachte, dass bei der Nutzung von Custom Code ein zusätzlicher Serviceaufwand entstehen kann, insbesondere wenn dein spezifischer Anwendungsfall nicht außerhalb des Systems oder über eine API-Lösung abgedeckt werden kann. Für den regelmäßigen Betrieb und die Verwaltung können monatliche Kosten anfallen, die unter anderem Uploads und technische Prüfungen abdecken. Beachte jedoch, dass die Stabilität und Sicherheit von Custom Code ausschließlich in deiner Verantwortung liegen und Xentral hierfür keine Garantien übernehmen kann.</p>
+<h2 id="wie-wir-dich-unterstutzen">Wie wir dich unterstützen<a class="headerlink" href="#wie-wir-dich-unterstutzen" title="Permanent link">&para;</a></h2>
+<p>-<strong>Prüfung:</strong> Bei neuen Anfragen analysieren wir den zugrunde liegenden Use-Case und helfen dir zu verstehen, ob der Einsatz von Custom Code noch notwendig ist oder durch eine modernere API basierte Lösung ersetzt werden kann.
+-<strong>Klarheit über Zuständigkeiten:</strong> Wir übernehmen die technischen Prüfungen, während du oder dein Partner sich um die Erstellung und Anpassung des Codes kümmern.
+-<strong>Unterstützung bei der Migration:</strong> Falls du deinen Custom Code durch die API ersetzen möchtest, stehen wir dir beratend zur Seite. Je nach Umfang der Migration können hier zusätzliche Kosten entstehen.</p>
+<h2 id="warum-jetzt-handeln">Warum jetzt handeln?<a class="headerlink" href="#warum-jetzt-handeln" title="Permanent link">&para;</a></h2>
+<p>Die Nutzung von Custom Code ist eine bewusste Entscheidung, die langfristige Auswirkungen auf die Stabilität und Wartbarkeit deines Systems hat. Mit unserer API-Infrastruktur kannst du nicht nur Kosten sparen, sondern auch sicherstellen, dass dein System stets auf dem neuesten Stand bleibt. Ein weiterer Vorteil unserer API ist, dass sie durch automatische Tests abgedeckt ist, wodurch gewährleistet wird, dass sie auch nach Updates weiterhin einwandfrei funktioniert – im Gegensatz zu Custom Code, der bei einem Update evtl. angepasst werden muss.</p>
+<p>Wenn du Fragen hast oder Unterstützung benötigst, melde dich gerne bei uns. Gemeinsam finden wir die beste Lösung für dein Unternehmen und machen deine Xentral-Instanz fit für die Zukunft.</p>
+<h2 id="hinweis-kosten-fur-upload-und-entfernung-von-custom-code">Hinweis: Kosten für Upload und Entfernung von Custom Code<a class="headerlink" href="#hinweis-kosten-fur-upload-und-entfernung-von-custom-code" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p><strong>Hinweis: Kosten für Upload und Entfernung von Custom Code</strong></p>
+<p>Der Upload von Custom Code in deiner produktiven Xentral-Instanz ist mit zusätzlichen Kosten verbunden. Da Custom Code individuelle Prüfungen und Anpassungen erfordert, berechnen wir eine Gebühr für die Analyse, Genehmigung und Umsetzung, um die Stabilität und Sicherheit deiner Instanz zu gewährleisten. Ebenso fallen Kosten an, wenn bestehender Custom Code angepasst werden muss, beispielsweise nach einem Systemupdate.</p>
+<p>Diese Regelung stellt sicher, dass alle Änderungen professionell und verantwortungsvoll durchgeführt werden. Gleichzeitig unterstützen wir dich gerne bei der Umstellung auf moderne, wartungsarme Lösungen wie unsere API, um langfristig Kosten zu reduzieren und dein System zukunftssicher zu machen.</p>
+<p>Bei Fragen oder für weitere Informationen steht dir unser Team untersupport@xentral.commit dem Betreff <strong>Custom Code</strong> gerne zur Verfügung.</p>
+</blockquote>
+<h2 id="wichtige-hinweise-zur-nutzung-von-custom-code">Wichtige Hinweise zur Nutzung von Custom Code<a class="headerlink" href="#wichtige-hinweise-zur-nutzung-von-custom-code" title="Permanent link">&para;</a></h2>
+<h3 id="achtung-bitte-beachte-die-verwendung-von-custom-code-in-einer-xentral-instanz-erfolgt-auf-eigenes-risiko-xentral-ubernimmt-keine-garantie-fur-die-dauerhafte-funktionalitat-von-custom-code-sollten-zukunftige-updates-die-funktionalitat-deines-custom-codes-beeintrachtigen-konnte-es-erforderlich-sein-den-code-auf-eigene-kosten-zu-aktualisieren">Achtung <strong>Bitte beachte:</strong> Die Verwendung von Custom Code in einer Xentral-Instanz erfolgt auf eigenes Risiko. Xentral übernimmt keine Garantie für die dauerhafte Funktionalität von Custom Code. Sollten zukünftige Updates die Funktionalität deines Custom Codes beeinträchtigen, könnte es erforderlich sein, den Code auf eigene Kosten zu aktualisieren.<a class="headerlink" href="#achtung-bitte-beachte-die-verwendung-von-custom-code-in-einer-xentral-instanz-erfolgt-auf-eigenes-risiko-xentral-ubernimmt-keine-garantie-fur-die-dauerhafte-funktionalitat-von-custom-code-sollten-zukunftige-updates-die-funktionalitat-deines-custom-codes-beeintrachtigen-konnte-es-erforderlich-sein-den-code-auf-eigene-kosten-zu-aktualisieren" title="Permanent link">&para;</a></h3>
+<p>Nutze die Gelegenheit, mit standardisierten Lösungen und unserer API-Infrastruktur auf eine zukunftssichere, wartungsfreundliche Alternative umzusteigen. Unser Team unterstützt dich gerne bei der Umstellung.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

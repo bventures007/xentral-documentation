@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5091351567388 Variablen Für Datenimport Und Datenexport - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>5091351567388 Variablen Für Datenimport Und Datenexport</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>5091351567388 Variablen Für Datenimport Und Datenexport</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="formate">Formate<a class="headerlink" href="#formate" title="Permanent link">&para;</a></h2>
+<p>Wenn du in der Import/Export Zentrale unter Stammdaten Import einen neuen Eintrag anlegst, findest du im Reiter Formate eine große Auswahl an verfügbaren Variablen. Diese Variablen sind im Folgenden aufgelistet und beschrieben:</p>
+<h2 id="artikel-einkauf">Artikel / Einkauf<a class="headerlink" href="#artikel-einkauf" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nummer</td>
+<td>Feld: Artikel Nr.</td>
+</tr>
+<tr>
+<td>name_de</td>
+<td>Feld: Artikel (DE)</td>
+</tr>
+<tr>
+<td>name_en</td>
+<td>Feld: Artikel (EN)</td>
+</tr>
+<tr>
+<td>artikelbeschreibung_de</td>
+<td>Feld: Artikelbeschreibung (DE)</td>
+</tr>
+<tr>
+<td>artikelbeschreibung_en</td>
+<td>Artikelbeschreibung (EN)</td>
+</tr>
+<tr>
+<td>kurztext_de</td>
+<td>Kurztext (DE)</td>
+</tr>
+<tr>
+<td>kurztext_en</td>
+<td>Kurztext (EN)</td>
+</tr>
+<tr>
+<td>uebersicht_de</td>
+<td>Onlineshop / Artikelbeschreibung (DE)</td>
+</tr>
+<tr>
+<td>uebersicht_en</td>
+<td>Onlineshop / Artikelbeschreibung (EN)</td>
+</tr>
+<tr>
+<td>metatitle_de</td>
+<td>Im Artikelstamm/Texte, Tag für alternativen Artikel</td>
+</tr>
+<tr>
+<td>metatitle_en</td>
+<td>englischer Metatitel</td>
+</tr>
+<tr>
+<td>metadescription_de</td>
+<td>Weitere Artikelbeschreibung</td>
+</tr>
+<tr>
+<td>metadescription_en</td>
+<td>englische Metabeschreibung</td>
+</tr>
+<tr>
+<td>metakeywords_de</td>
+<td>Schlüsselbegriffe, mit denen Artikel gefunden werden kann</td>
+</tr>
+<tr>
+<td>metakeywords_en</td>
+<td>englische Metakeywords</td>
+</tr>
+<tr>
+<td>artikelkategorie (id)</td>
+<td>ID der Artikelkategorie für Zuweisung bei Import</td>
+</tr>
+<tr>
+<td>artikelkategorie_name</td>
+<td>Artikelkategorie</td>
+</tr>
+<tr>
+<td>artikelbaumX (X=1 bis 20; CLEAR um alle Zuordnungen zu löschen)</td>
+<td>X ist Variable zur Nummerierung der Artikelkategorie im Artikelbaum</td>
+</tr>
+<tr>
+<td>bildtitelX (X=1 bis 20; X entspricht der Sortierung des Bildes in den Dateien des Artikels)</td>
+<td>Bestimmt Reihenfolge für Import von Bilddateien, X wird durch eine Zahl 1-20 ersetzt.</td>
+</tr>
+<tr>
+<td>bildbeschreibung(X=1 bis 20; X entspricht der Sortierung des Bildes in den Dateien des Artikels)</td>
+<td>Analog Bildtitel, außer dass es um die Beschreibung geht</td>
+</tr>
+<tr>
+<td>internerkommentar</td>
+<td>Interner Kommentar</td>
+</tr>
+<tr>
+<td>hersteller</td>
+<td>Feld Hersteller im Artikelstamm</td>
+</tr>
+<tr>
+<td>herstellerlink</td>
+<td>URL zum Hersteller</td>
+</tr>
+<tr>
+<td>herstellernummer</td>
+<td>Identifikationsnummer des Herstellers</td>
+</tr>
+<tr>
+<td>ean</td>
+<td>EAN Nr.</td>
+</tr>
+<tr>
+<td>herstellerland</td>
+<td>Land in dem Hersteller des Artikels sitzt</td>
+</tr>
+<tr>
+<td>herkunftsland</td>
+<td>Land in dem der Artikel produziert wurde</td>
+</tr>
+<tr>
+<td>zolltarifnummer</td>
+<td>Nummer für den Zoll</td>
+</tr>
+<tr>
+<td>ursprungsregion</td>
+<td>Subnationale Region aus welcher der Artikel stammt</td>
+</tr>
+<tr>
+<td>allelieferanten</td>
+<td>Setzt den Haken &ldquo;Einkauf&rdquo; bei allen Artikeln im Artikelstamm</td>
+</tr>
+<tr>
+<td>standardlieferant</td>
+<td>Standardlieferantennummer</td>
+</tr>
+<tr>
+<td>geraet</td>
+<td>Setzt den Haken &ldquo;Gerät&rdquo;, ob Artikel ein Gerät ist. Nur nützlich zur Auswertung.</td>
+</tr>
+<tr>
+<td>serviceartikel</td>
+<td>Setzt den Haken &ldquo;Serviceartikel&rdquo;.</td>
+</tr>
+<tr>
+<td>inventurek</td>
+<td>Inventurwert im Artikelstamm wird importiert</td>
+</tr>
+<tr>
+<td>inventurekaktiv</td>
+<td>Setzt Haken bei Inventurwert</td>
+</tr>
+<tr>
+<td>berechneterek</td>
+<td>Kalkulierter Einkaufspreis aus Artikelstamm</td>
+</tr>
+<tr>
+<td>berechneterekwaehrung</td>
+<td>Währung des kalkulierten Einkaufspreis</td>
+</tr>
+<tr>
+<td>verwendeberechneterek</td>
+<td>Setzt Haken bei kalkuliertem EK-Preis</td>
+</tr>
+<tr>
+<td>steuer_erloese_inland_normal</td>
+<td>Unter Artikel → Details → Finanzbuchhaltung das Feld Inland (normal) unter Erlöse</td>
+</tr>
+<tr>
+<td>steuer_erloese_inland_ermaessigt</td>
+<td>Das Feld Inland (ermäßigt) unter Erlöse</td>
+</tr>
+<tr>
+<td>steuer_aufwendung_inland_nichtsteuerbar</td>
+<td>Das Feld Inland (steuerfrei) unter Erlöse</td>
+</tr>
+<tr>
+<td>steuer_erloese_inland_innergemeinschaftlich</td>
+<td>Das Feld Innergemeinschaftlich EU unter Erlöse</td>
+</tr>
+<tr>
+<td>steuer_erloese_inland_eunormal</td>
+<td>Das Feld EU (normal) unter Erlöse</td>
+</tr>
+<tr>
+<td>steuer_erloese_inland_euermaessigt</td>
+<td>Das Feld EU (ermäßigt) unter Erlöse</td>
+</tr>
+<tr>
+<td>steuer_erloese_inland_export</td>
+<td>Das Feld Export unter Erlöse</td>
+</tr>
+<tr>
+<td>steuer_aufwendung_inland_normal</td>
+<td>Das Feld Inland (normal) unter Aufwendungen</td>
+</tr>
+<tr>
+<td>steuer_aufwendung_inland_ermaessigt</td>
+<td>Das Feld Inland (ermäßigt) unter Aufwendungen</td>
+</tr>
+<tr>
+<td>steuer_aufwendung_inland_nichtsteuerbar</td>
+<td>Das Feld Inland (steuerfrei) unter Aufwendungen</td>
+</tr>
+<tr>
+<td>steuer_aufwendung_inland_innergemeinschaftlich</td>
+<td>Das Feld Innergemeinschaftlich EU unter Aufwendungen</td>
+</tr>
+<tr>
+<td>steuer_aufwendung_inland_eunormal</td>
+<td>Das Feld EU (normal) unter Aufwendungen</td>
+</tr>
+<tr>
+<td>steuer_aufwendung_inland_euermaessigt</td>
+<td>Das Feld EU (ermäßigt) unter Aufwendungen</td>
+</tr>
+<tr>
+<td>steuer_aufwendung_inland_import</td>
+<td>Das Feld Import unter Aufwendungen</td>
+</tr>
+<tr>
+<td>mindesthaltbarkeitsdatum (1=aktiv,0=nicht aktiv)</td>
+<td>Haken bei MHD</td>
+</tr>
+<tr>
+<td>seriennummern (keine,eigene,vomprodukt,vomprodukteinlagern)</td>
+<td>Eine der folgenden Optionen für Seriennummer kann eingetragen werden: keine,eigene,vomprodukt,vomprodukteinlagern</td>
+</tr>
+<tr>
+<td>chargenverwaltung (0=keine,2=originale nutzen)</td>
+<td>Auswahl ob Artikel Chargen hat oder nicht</td>
+</tr>
+<tr>
+<td>mindestlager</td>
+<td>Minimaler Lagerbestand</td>
+</tr>
+<tr>
+<td>mindestbestellung</td>
+<td>Zahlenwert im Feld &ldquo;Mindestbestellmenge&rdquo;</td>
+</tr>
+<tr>
+<td>umsatzsteuer</td>
+<td>Ermäßigte Umsatzsteuer</td>
+</tr>
+<tr>
+<td>artikelabschliessenkalkulation</td>
+<td>Checkbox &lsquo;Einkaufspreis beim Abschließen der Bestellung in Kalkulation übernehmen&rsquo; zu finden unter Artikel / Kalkulation</td>
+</tr>
+<tr>
+<td>artikelfifokalkulation</td>
+<td>Checkbox &lsquo;Kalkulierter EK Preis automatisch nach FIFO Prinzip der letzten Eingänge den Mittelwert neu berechnen&rsquo; zu finden unter Artikel / Kalkulation</td>
+</tr>
+<tr>
+<td>lieferantname</td>
+<td>Im Tab &ldquo;Einkaufspreis&rdquo; beim Anlegen eines Einkaufspreis der Name des Lieferanten</td>
+</tr>
+<tr>
+<td>lieferantbestellnummer</td>
+<td>Analog lieferantname die Artikelnummer des Lieferanten</td>
+</tr>
+<tr>
+<td>lieferantartikelbezeichnung</td>
+<td>Analog lieferantname die Artikelbezeichnung des Lieferanten</td>
+</tr>
+<tr>
+<td>lieferanteinkaufnetto</td>
+<td>Einkaufspreis (netto) pro Stück</td>
+</tr>
+<tr>
+<td>lieferanteinkaufwaehrung</td>
+<td>Währung des EInkaufspreises, z.B. (EUR, CHF, USD)</td>
+</tr>
+<tr>
+<td>lieferanteinkaufmenge</td>
+<td>Staffelmenge des Einkaufspreise z.B. ab 10 Stück = 10, für Standardpreis Menge = 1 angeben</td>
+</tr>
+<tr>
+<td>lieferanteinkaufvpemenge</td>
+<td>Beim Anlegen des Einkaufspreis kann eine VPE (Verpackungseinheit) angelegt werden. Diese Variable befüllt die Menge der VPE</td>
+</tr>
+<tr>
+<td>lieferanteinkaufvpepreis</td>
+<td>Preis der VPE</td>
+</tr>
+<tr>
+<td>lieferantbestellnummer2 - 3</td>
+<td>siehe lieferantbestellnummer</td>
+</tr>
+<tr>
+<td>lieferantartikelbezeichnung2 - 3</td>
+<td>siehe lieferantartikelbezeichnung</td>
+</tr>
+<tr>
+<td>lieferanteinkaufnetto2 - 3</td>
+<td>siehe lieferanteinkaufnetto</td>
+</tr>
+<tr>
+<td>lieferanteinkaufwaehrung2 - 3</td>
+<td>siehe lieferanteinkaufwaehrung</td>
+</tr>
+<tr>
+<td>lieferanteinkaufmenge2 - 3</td>
+<td>siehe lieferanteinkaufmenge</td>
+</tr>
+<tr>
+<td>lieferanteinkaufvpemenge2 - 3</td>
+<td>siehe lieferanteinkaufvpemenge</td>
+</tr>
+<tr>
+<td>lieferanteinkaufvpepreis2 - 3</td>
+<td>siehe lieferanteinkaufvpepreis</td>
+</tr>
+<tr>
+<td>lieferantrahmenvertrag_vonX (X = leer, bzw 1-3)</td>
+<td>lieferantrahmenvertrag_vonX (X = leer, bzw 1-3)     Es kann ein Lieferantrahmenvertrag beim Anlegen eines Einkaufspreis angelegt werden. Gibt das Startdatum des Vertrags an.</td>
+</tr>
+<tr>
+<td>lieferantrahmenvertrag_bisX (X = leer, bzw 1-3)</td>
+<td>Enddatum des Vertrags</td>
+</tr>
+<tr>
+<td>lieferantpreis_anfrage_vomX (X = leer, bzw 1-3)</td>
+<td>Beim Anlegen des Einkaufspreises kann eine Lieferantenpreisanfrage von einem bestimmten Datum zugeordnet werden.</td>
+</tr>
+<tr>
+<td>lieferantgueltig_bisX (X = leer, bzw 1-3)</td>
+<td>Befüllt das Feld &ldquo;Gültig bis&rdquo; beim Anlegen eines Einkaufspreises</td>
+</tr>
+<tr>
+<td>lieferantdatum_lagerlieferantX (X = leer, bzw 1-3)</td>
+<td>Wert des Lager</td>
+</tr>
+<tr>
+<td>lieferantsicherheitslagerX (X = leer, bzw 1-3)</td>
+<td>Feld Sicherheitslager bei Anlage Einkaufspreis</td>
+</tr>
+<tr>
+<td>lieferantrahmenvertrag_mengeX (X = leer, bzw 1-3)</td>
+<td>Befüllt das Feld Menge unter Rahmenvertrag bei Anlage Einkaufspreis</td>
+</tr>
+<tr>
+<td>lieferantlieferzeit_aktuellX (X = leer, bzw 1-3)</td>
+<td>Befüllt die Felder bei Lieferzeit Aktuell bei Anlage Einkaufspreis</td>
+</tr>
+<tr>
+<td>lieferantlieferzeit_standardX (X = leer, bzw 1-3)</td>
+<td>Befüllt die Felder bei Lieferzeit Standard bei Anlage Einkaufspreis</td>
+</tr>
+<tr>
+<td>lieferantlager_lieferantX (X = leer, bzw 1-3)</td>
+<td>Befüllt das Feld bei Lagerbestand Lieferant bei Anlage Einkaufspreis</td>
+</tr>
+<tr>
+<td>lieferantrahmenvertragX (X = leer, bzw 1-3)</td>
+<td>Setzt Haken bei Rahmenvertrag bei Anlage Einkaufspreis</td>
+</tr>
+<tr>
+<td>lieferantbemerkungX (X = leer, bzw 1-3)</td>
+<td>Befüllt Feld Interner Kommentar, nur zu Infozwecken für Mitarbeiter</td>
+</tr>
+<tr>
+<td>lieferantnichtberechnetX (X = leer, bzw 1-3)</td>
+<td>Haken bei Preis nicht berechnet aus Währungstabelle bei Anlage Einkaufspreis (0, 1)</td>
+</tr>
+<tr>
+<td>lieferantennummer</td>
+<td>Lieferantennummer, muss im System vorhanden sein</td>
+</tr>
+<tr>
+<td>standardlieferant (Lieferantennummer aus Xentral)</td>
+<td>Befüllt Feld Standardlieferant unter den Details im Artikel</td>
+</tr>
+<tr>
+<td>kundennummer</td>
+<td>Befüllt Feld Kunde bei Anlage Verkaufspreis</td>
+</tr>
+<tr>
+<td>gewicht</td>
+<td>Gewicht (in kg)</td>
+</tr>
+<tr>
+<td>breite</td>
+<td>Breite (in cm)</td>
+</tr>
+<tr>
+<td>hoehe</td>
+<td>Höhe (in cm)</td>
+</tr>
+<tr>
+<td>laenge</td>
+<td>Länge (in cm)</td>
+</tr>
+<tr>
+<td>einheit</td>
+<td>Einheit des Artikels</td>
+</tr>
+<tr>
+<td>xvp</td>
+<td>Anzahl der Xentral Volume Points (XVPs)</td>
+</tr>
+<tr>
+<td>produktion</td>
+<td>Haken bei Produktionsartikel in Details</td>
+</tr>
+<tr>
+<td>lagerartikel</td>
+<td>Lagerartikel = 1, Kein Lagerartikel (z.B. Dienstleistung, Porto) = 0</td>
+</tr>
+<tr>
+<td>lager_platz</td>
+<td>Standardlager (Regalname angeben, nicht Lagername)</td>
+</tr>
+<tr>
+<td>lager_menge_addieren</td>
+<td>Lagerbestand der zum bestehenden Bestand addiert werden soll</td>
+</tr>
+<tr>
+<td>lager_menge_total</td>
+<td>Lagerbestand der auf den Lagerplatz gebucht werden soll</td>
+</tr>
+<tr>
+<td>lager_mhd</td>
+<td>MHD zur Einlagerung auf dem Lagerplatz</td>
+</tr>
+<tr>
+<td>lager_charge</td>
+<td>Charge zur Einlagerung auf dem Lagerplatz</td>
+</tr>
+<tr>
+<td>lager_platzX (X = 1-5)</td>
+<td>siehe lager_platz</td>
+</tr>
+<tr>
+<td>lager_menge_addierenX (X = 1-5)</td>
+<td>siehe lager_menge_addieren</td>
+</tr>
+<tr>
+<td>lager_menge_totalX (X = 1-5)</td>
+<td>siehe lager_menge_total</td>
+</tr>
+<tr>
+<td>lager_mhdX (X = 1-5)</td>
+<td>siehe lager_mhd</td>
+</tr>
+<tr>
+<td>lager_chargeX (X = 1-5)</td>
+<td>siehe lager_charge</td>
+</tr>
+<tr>
+<td>lager_vpe_mengeX (X = 1-5)</td>
+<td>Das Feld Menge in VPE unter Artikel -&gt; Lager -&gt; Lagerbestand -&gt; Stiftsymbol (wird für amazon seller app Anlieferungen FBA benötigt), X für die Durchnummerierung</td>
+</tr>
+<tr>
+<td>lager_vpe_gewichtX (X = 1-5)</td>
+<td>Das Feld Gewicht von VPE</td>
+</tr>
+<tr>
+<td>lager_vpe_laengeX (X = 1-5)</td>
+<td>Das Feld Länge von VPE</td>
+</tr>
+<tr>
+<td>lager_vpe_breiteX (X = 1-5)</td>
+<td>Das Feld Breite von VPE</td>
+</tr>
+<tr>
+<td>lager_vpe_hoeheX (X = 1-5)</td>
+<td>Das Feld Höhe von VPE</td>
+</tr>
+<tr>
+<td>lager_vpe_mengeX2 (X = 1-5)</td>
+<td>Das Feld Menge in VPE von X2</td>
+</tr>
+<tr>
+<td>lager_vpe_gewichtX2 (X = 1-5)</td>
+<td>Das Feld Gewicht von VPE von X2</td>
+</tr>
+<tr>
+<td>lager_vpe_laengeX2 (X = 1-5)</td>
+<td>Das Feld Länge von VPE von X2</td>
+</tr>
+<tr>
+<td>lager_vpe_breiteX2 (X = 1-5)</td>
+<td>Das Feld Breite von VPE von X2</td>
+</tr>
+<tr>
+<td>lager_vpe_hoeheX2 (X = 1-5)</td>
+<td>Das Feld Höhe von VPE von X2</td>
+</tr>
+<tr>
+<td>verkaufspreisXnetto (X = 1-10)</td>
+<td>Verkaufspreis</td>
+</tr>
+<tr>
+<td>verkaufspreisXpreisfuermenge (X = 1-10)</td>
+<td>Angegebener verkaufspreisXnetto gilt für Menge</td>
+</tr>
+<tr>
+<td>verkaufspreisXmenge (X = 1-10)</td>
+<td>Ab Menge</td>
+</tr>
+<tr>
+<td>verkaufspreisXwaehrung (EUR,CHF,USD,&hellip;) (X = 1-10)</td>
+<td>Währung</td>
+</tr>
+<tr>
+<td>verkaufspreisXgruppe (Kennziffer) (X = 1-10)</td>
+<td>Gruppenspezifischer Preis für Gruppe</td>
+</tr>
+<tr>
+<td>verkaufspreisXkundennummer (X = 1-10)</td>
+<td>Kundenspezifischer Preis für Kunde mit Kundennummer</td>
+</tr>
+<tr>
+<td>verkaufspreisXartikelnummerbeikunde (X = 1-10)</td>
+<td>Artikelnummer, die der Kunde verwendet (zur Information)</td>
+</tr>
+<tr>
+<td>verkaufspreisXgueltigab (X = 1-10)</td>
+<td>Startdatum des Verkaufspreises</td>
+</tr>
+<tr>
+<td>verkaufspreisXgueltigbis (X = 1-10)</td>
+<td>Enddatum des Verkaufspreises</td>
+</tr>
+<tr>
+<td>verkaufspreisXinternerkommentar (X = 1-10)</td>
+<td>Interner Kommentar z.B. bzgl. besonderer Konditionen oder Gründe für Zeitraum</td>
+</tr>
+<tr>
+<td>variante_von</td>
+<td>Artikel ist eine Variante von (Artikelnummer)</td>
+</tr>
+<tr>
+<td>projekt</td>
+<td>Projekt</td>
+</tr>
+<tr>
+<td>geloescht (auf 1 setzen)</td>
+<td>Gelöschter Artikel = 1, nicht gelöscht = 0</td>
+</tr>
+<tr>
+<td>inaktiv</td>
+<td>Kein Haken bei Artikel inaktiv unter Online-Shop Optionen (Inaktiver Artikel = 1, aktiver Artikel = 0)</td>
+</tr>
+<tr>
+<td>juststueckliste</td>
+<td>Haken bei Just-in-time-Stückliste in den Details vom Artikel</td>
+</tr>
+<tr>
+<td>stueckliste</td>
+<td>Haken bei Stückliste in den Details vom Artikel</td>
+</tr>
+<tr>
+<td>stuecklistevonartikel</td>
+<td>In Stückliste (Nummer): Gibt Hauptartikel von diesem Stücklistenartikel an</td>
+</tr>
+<tr>
+<td>stuecklistemenge</td>
+<td>Anzahl des Artikels in Stücklisten</td>
+</tr>
+<tr>
+<td>stuecklisteart</td>
+<td>Art der Stückliste: et = Einkauf, it = Information, bt = Beistellung</td>
+</tr>
+<tr>
+<td>vkmeldungunterdruecken</td>
+<td>Haken bei Keine Verkaufspreis Meldung bei Artikeldetails</td>
+</tr>
+<tr>
+<td>shop_shopid (shopid ersetzen durch die ID des Shops)</td>
+<td>Hier muss die ID des Shops angegeben werden, der mit dem verknüpft werden soll. z.B. shop_3 für Shop mit ID 3. Tipp: Die ID der Shopschnittstelle sehen Sie zum Beispiel am Ende der URL einer Shopschnittstelle</td>
+</tr>
+<tr>
+<td>aktiv_shopid (shopid ersetzen durch die ID des Shops)</td>
+<td>Angabe im Artikel in den Online-Shop Optionen, ob die Shop-Verknüpfung aktiv ist</td>
+</tr>
+<tr>
+<td>fremdnummerX_shopid (shopid ersetzen durch die ID des Shops, X = 1-40)</td>
+<td>Befüllt das Feld Shop unter Fremdnummern im Artikel</td>
+</tr>
+<tr>
+<td>fremdnummerbezeichnungX_shopid (shopid ersetzen durch die ID des Shops, X = 1-40)</td>
+<td>Befüllt das Feld Bezeichnung unter Fremdnummern im Artikel</td>
+</tr>
+<tr>
+<td>pseudopreis</td>
+<td>Pseudopreis, auch Streichpreis z.B. zur Anzeige im Onlineshop</td>
+</tr>
+<tr>
+<td>freifeld1 - freifeld40</td>
+<td>Freifelder des Artikels nach eigener Definition im System, eine Typprüfung findet nicht statt</td>
+</tr>
+<tr>
+<td>intern_gesperrt</td>
+<td>Feld Sperre aktiv unter den Details im Artikel</td>
+</tr>
+<tr>
+<td>intern_gesperrtgrund</td>
+<td>Textfeld Meldung zur Sperre unter den Details im Artikel</td>
+</tr>
+<tr>
+<td>autolagerlampe (Lagersync)</td>
+<td>Haken bei Lagerzahlen Sync. unter den Online-Shop Optionen im Artikel (aktiviert = 1, deaktiviert = 0)</td>
+</tr>
+<tr>
+<td>pseudolager</td>
+<td>Befüllt das Feld Pseudo Lagerzahl in den Online-Shop Optionen des Artikels</td>
+</tr>
+<tr>
+<td>lagerkorrekturwert</td>
+<td>Befüllt das Feld Lagerkorrekturwert in den Online-Shop Optionen des Artikels. Zur Anpassung des Lagerbestand (z.B. &ldquo;1&rdquo; zum Erhöhen, &ldquo;-1&rdquo; zum Verringern)</td>
+</tr>
+<tr>
+<td>restmenge</td>
+<td>Setzt Haken bei Restmenge (Abverkauf): Artikel wird nach Abverkauf auf &ldquo;nicht mehr verfügbar&rdquo; umgestellt</td>
+</tr>
+<tr>
+<td>provision1 (in %)</td>
+<td>Modul Provisionen → Provisionen → Neuer Eintrag unter den Provisioneneinstellungen das Feld Provision</td>
+</tr>
+<tr>
+<td>provisiontyp1 (ek, vk, erloes, leer)</td>
+<td>In der gleichen Zeile das Feld Typ</td>
+</tr>
+<tr>
+<td>provision2 (in %)</td>
+<td>In den gleichen Einstellungen das Feld Provision Vertriebsleitung</td>
+</tr>
+<tr>
+<td>provisiontyp2 (ek, vk, erloes, leer)</td>
+<td>In der gleichen Zeile das Feld Typ</td>
+</tr>
+<tr>
+<td>eigenschaftname1 bis 50 (mehrfach)</td>
+<td>Befüllt das Feld Eigenschaft beim Anlegen einer Eigenschaft im Artikel. Bei Verwendung dieser Variable wird bei Eingabe eines vorhandenes Eigenschaftsnamens eine neue Eigenschaft erstellt und die alte Eigenschaft bleibt bestehen.</td>
+</tr>
+<tr>
+<td>eigenschaftnameeindeutig1 bis 50 (einzeln)</td>
+<td>Bei Verwendung dieser Variable wird bei Eingabe eines vorhandenes Eigenschaftsnamens die vorhandene Eigenschaft überschrieben</td>
+</tr>
+<tr>
+<td>eigenschaftwert1 bis 50</td>
+<td>Befüllt das Feld Wert beim Anlegen einer Eigenschaft im Artikel</td>
+</tr>
+<tr>
+<td>eigenschaftname1_xx bis 50 (xx country code en, fr&hellip;)</td>
+<td>Befüllt das Feld Eigenschaft beim Anlegen einer Übersetzung im Artikel</td>
+</tr>
+<tr>
+<td>eigenschaftwert1_xx bis 50 (xx country code en, fr&hellip;)</td>
+<td>Befüllt das Feld Wert beim Anlegen einer Übersetzung im Artikel</td>
+</tr>
+<tr>
+<td>matrixprodukt</td>
+<td>Setzt Haken bei Matrixprodukt in den Details im Artikel</td>
+</tr>
+<tr>
+<td>matrixproduktvon</td>
+<td>Wird nur befüllt wenn es sich um ein Matrixprodukt von einem anderen Artikel handelt</td>
+</tr>
+<tr>
+<td>matrixproduktgruppe1</td>
+<td>Erste Dimension der Matrixeigenschaften</td>
+</tr>
+<tr>
+<td>matrixproduktgruppe2</td>
+<td>Zweite Dimension der Matrixeigenschaften, analog für weitere Eigenschaften möglich.</td>
+</tr>
+<tr>
+<td>matrixproduktwert1</td>
+<td>Ausprägung der ersten Dimension der Matrixeigenschaften</td>
+</tr>
+<tr>
+<td>matrixproduktwert2</td>
+<td>Ausprägung der zweiten Dimension der Matrixeigenschaften</td>
+</tr>
+<tr>
+<td>matrixgruppe1 (alle Optionen aus Gruppe1)</td>
+<td>Alle Optionen der ersten Dimension der Matrix</td>
+</tr>
+<tr>
+<td>matrixgruppe2 (alle Optionen aus Gruppe2)</td>
+<td>Alle Optionen der zweiten Dimension der Matrix</td>
+</tr>
+<tr>
+<td>matrixartikelnummer (1 = Nummernkreis, 2 = Optionnamen als Postfix, 3|trennzeichen|Stellen|Startnummer = Postfix)</td>
+<td>Automatisches generieren der Artikelnummern von Matrixausprägungen nach der Form: Artikelnummern von Hauptartikel mit Suffix Trennzeichen und weiteren Ziffern</td>
+</tr>
+<tr>
+<td>matrixnamefuerunterartikel (1 = Optionen werden an Artikelbezeichnung der Unterartikel gehängt, 0 = Artikelbezeichnung wird vom Hauptartikel genommen)</td>
+<td>Automatisches generieren der Artikelbezeichnungen von Matrixausprägungen</td>
+</tr>
+<tr>
+<td>Weitere Sprachen (X = 1-100, YY ersetzt durch den ISO Code der Sprache aus dem Sprachen Modul)</td>
+<td></td>
+</tr>
+<tr>
+<td>nameX_YY</td>
+<td>Befüllt das Feld Name beim Anlegen der Artikeltexte in einer anderen Sprache</td>
+</tr>
+<tr>
+<td>kurztextX_YY</td>
+<td>Befüllt das Feld Kurztext beim Anlegen der Artikeltexte in einer anderen Sprache</td>
+</tr>
+<tr>
+<td>beschreibungX_YY</td>
+<td>Befüllt das Feld Beschreibung beim Anlegen der Artikeltexte in einer anderen Sprache</td>
+</tr>
+<tr>
+<td>beschreibung_onlineX_YY</td>
+<td>Befüllt das Feld Beschreibung unter Online-Shop Texte beim Anlegen der Artikeltexte in einer anderen Sprache</td>
+</tr>
+<tr>
+<td>meta_titleX_YY</td>
+<td>Befüllt das Feld Meta-Titel unter Online-Shop Texte beim Anlegen der Artikeltexte in einer anderen Sprache</td>
+</tr>
+<tr>
+<td>meta_descriptionX_YY</td>
+<td>Befüllt das Feld Meta-Beschreibung unter Online-Shop Texte beim Anlegen der Artikeltexte in einer anderen Sprache</td>
+</tr>
+<tr>
+<td>meta_keywordsX_YY</td>
+<td>Befüllt das Feld Meta-Keywords unter Online-Shop Texte beim Anlegen der Artikeltexte in einer anderen Sprache</td>
+</tr>
+<tr>
+<td>katalogartikelX_YY</td>
+<td>Setzt den Haken bei Katalogartikel unter Katalog beim Anlegen der Artikeltexte in einer anderen Sprache</td>
+</tr>
+<tr>
+<td>katalog_bezeichnungX_YY</td>
+<td>Befüllt das Feld Bezeichnung unter Katalog beim Anlegen der Artikeltexte</td>
+</tr>
+<tr>
+<td>katalog_textX_YY</td>
+<td>Befüllt das Feld Katalogtext unter Katalog beim Anlegen der Artikeltexte</td>
+</tr>
+<tr>
+<td>shopX_YY</td>
+<td></td>
+</tr>
+<tr>
+<td>aktivX_YY</td>
+<td></td>
+</tr>
+<tr>
+<td>freifeld1_YY - freifeld40_YY</td>
+<td></td>
+</tr>
+<tr>
+<td>hinweis_einfuegen</td>
+<td>Befüllt das Feld Hinweis-Text im Reiter Details &gt; Unterreiter Artikel eines Artikels.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="adressen">Adressen<a class="headerlink" href="#adressen" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>typ (herr,frau,firma)</td>
+<td>Anrede</td>
+</tr>
+<tr>
+<td>marketingsperre</td>
+<td>Setzt den Haken bei Marketingsperre in den Adressdaten unter Einstellungen</td>
+</tr>
+<tr>
+<td>trackingsperre</td>
+<td>Setzt den Haken bei Trackingmailsperre in den Adressdaten unter Einstellungen</td>
+</tr>
+<tr>
+<td>sprache</td>
+<td>Sprache für Belege</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name</td>
+</tr>
+<tr>
+<td>vorname (falls nicht bei name)</td>
+<td>Vorname</td>
+</tr>
+<tr>
+<td>abteilung</td>
+<td>Abteilung</td>
+</tr>
+<tr>
+<td>unterabteilung</td>
+<td>Unterabteilung</td>
+</tr>
+<tr>
+<td>ansprechpartner</td>
+<td>Ansprechpartner</td>
+</tr>
+<tr>
+<td>land (DE,AT,&hellip;)</td>
+<td>Land</td>
+</tr>
+<tr>
+<td>strasse</td>
+<td>Straße</td>
+</tr>
+<tr>
+<td>strasse_hausnummer</td>
+<td>Straße und Hausnummer</td>
+</tr>
+<tr>
+<td>hausnummer</td>
+<td>Hausnummer</td>
+</tr>
+<tr>
+<td>ort</td>
+<td>Ort</td>
+</tr>
+<tr>
+<td>plz</td>
+<td>PLZ</td>
+</tr>
+<tr>
+<td>plz_ort</td>
+<td>PLZ und Ort</td>
+</tr>
+<tr>
+<td>telefon</td>
+<td>Telefonnummer</td>
+</tr>
+<tr>
+<td>telefax</td>
+<td>Telefax-Nummer</td>
+</tr>
+<tr>
+<td>mobil</td>
+<td>Mobiltelefonnummer</td>
+</tr>
+<tr>
+<td>email</td>
+<td>E-Mail-Adresse</td>
+</tr>
+<tr>
+<td>ustid</td>
+<td>USt.-ID-Nr.</td>
+</tr>
+<tr>
+<td>ust_befreit</td>
+<td>Variable für den Import der Besteuerung von Kunden: 0 (für Inland) 1 (für EU-Lieferung) 2 (für Export) 3 (für Steuerfrei Inland)</td>
+</tr>
+<tr>
+<td>sonstiges</td>
+<td>Sonstiges</td>
+</tr>
+<tr>
+<td>adresszusatz</td>
+<td>Adresszusatz</td>
+</tr>
+<tr>
+<td>kundenfreigabe</td>
+<td>Das Auswahlmenü Kundenfreigabe in den Adressdaten unter Einstellungen</td>
+</tr>
+<tr>
+<td>kundennummer</td>
+<td>Kundennummer</td>
+</tr>
+<tr>
+<td>lieferantennummer</td>
+<td>Lieferantennummer</td>
+</tr>
+<tr>
+<td>mitarbeiternummer</td>
+<td>Mitarbeiternummer</td>
+</tr>
+<tr>
+<td>bank</td>
+<td>Name der Bank</td>
+</tr>
+<tr>
+<td>inhaber</td>
+<td>Kontoinhaber</td>
+</tr>
+<tr>
+<td>swift</td>
+<td>SWIFT-Code / BIC</td>
+</tr>
+<tr>
+<td>iban</td>
+<td>IBAN</td>
+</tr>
+<tr>
+<td>waehrung</td>
+<td>Währung des Kontos</td>
+</tr>
+<tr>
+<td>paypal</td>
+<td>Unter Adresse anlegen/Bankverbindung das Feld &ldquo;Paypal-Account&rdquo; bei Paypal (bei Zahlungen)</td>
+</tr>
+<tr>
+<td>paypalinhaber</td>
+<td>Unter Adresse anlegen/Bankverbindung das Feld &ldquo;Inhaber&rdquo; bei Paypal (bei Zahlungen)</td>
+</tr>
+<tr>
+<td>paypalwaehrung</td>
+<td>Unter Adresse anlegen/Bankverbindung das Feld &ldquo;Währung&rdquo; bei Paypal (bei Zahlungen)</td>
+</tr>
+<tr>
+<td>projekt</td>
+<td>Bei den Adressdaten das Feld &ldquo;Hauptprojekt&rdquo;</td>
+</tr>
+<tr>
+<td>zahlungsweise</td>
+<td>Befüllt das Feld Zahlungsweise unter Zahlungskonditionen/Besteuerung bei Zahlungskonditionen des Kunden</td>
+</tr>
+<tr>
+<td>zahlungszieltage</td>
+<td>Befüllt das Feld Zahlungsziel (in Tagen) unter Zahlungskonditionen/Besteuerung</td>
+</tr>
+<tr>
+<td>zahlungszieltageskonto</td>
+<td>Befüllt das Feld Zahlungsziel Skonto (in Tagen)</td>
+</tr>
+<tr>
+<td>zahlungszielskonto</td>
+<td>Befüllt das Feld Skonto</td>
+</tr>
+<tr>
+<td>versandart</td>
+<td>Befüllt das Feld Lieferart</td>
+</tr>
+<tr>
+<td>kundennummerlieferant</td>
+<td>Befüllt das Feld Kundennummer bei bei Zahlungskonditionen beim Lieferant</td>
+</tr>
+<tr>
+<td>zahlungsweiselieferant</td>
+<td>Befüllt das Feld Zahlungsweise bei Zahlungskonditionen beim Lieferant</td>
+</tr>
+<tr>
+<td>zahlungszieltagelieferant</td>
+<td>Befüllt das Feld Zahlungsziel (in Tagen) bei Zahlungskonditionen beim Lieferant</td>
+</tr>
+<tr>
+<td>zahlungszieltageskontolieferant</td>
+<td>Befüllt das Feld Zahlungsziel Skonto (in Tagen) bei Zahlungskonditionen beim Lieferant</td>
+</tr>
+<tr>
+<td>zahlungszielskontolieferant</td>
+<td>Befüllt das Feld Skonto bei Zahlungskonditionen beim Lieferant</td>
+</tr>
+<tr>
+<td>versandartlieferant</td>
+<td>Befüllt das Feld Lieferart bei Zahlungskonditionen beim Lieferant</td>
+</tr>
+<tr>
+<td>firma</td>
+<td>Firmenname</td>
+</tr>
+<tr>
+<td>webid</td>
+<td></td>
+</tr>
+<tr>
+<td>internetseite</td>
+<td>Internetseite</td>
+</tr>
+<tr>
+<td>titel</td>
+<td>Akademischer Titel</td>
+</tr>
+<tr>
+<td>anschreiben</td>
+<td>Anschreiben</td>
+</tr>
+<tr>
+<td>geburtstag</td>
+<td>Geburtstag</td>
+</tr>
+<tr>
+<td>liefersperre</td>
+<td>Befüllt das Feld Liefersperre in den Adressdaten unter Einstellungen</td>
+</tr>
+<tr>
+<td>steuernummer</td>
+<td>Befüllt das Feld Steuernummer unter Zahlungskonditionen/Besteuerung bei Steuer/Währung/Zoll</td>
+</tr>
+<tr>
+<td>steuerbefreit</td>
+<td>Auswahl von &ldquo;Steuerfrei Inland&rdquo; in der Dropdown-Liste für das Feld Besteuerung</td>
+</tr>
+<tr>
+<td>liefersperregrund</td>
+<td>Befüllt das Feld Liefersperre Grund in den Adressdaten</td>
+</tr>
+<tr>
+<td>verrechnungskontoreisekosten</td>
+<td>Das Feld Reisekosten unter den Sonstigen Daten</td>
+</tr>
+<tr>
+<td>abweichende_rechnungsadresse</td>
+<td>Setzt den Haken bei Abw. Rechnungsadresse unter den Adressdaten</td>
+</tr>
+<tr>
+<td>rechnung_vorname</td>
+<td>Abweichende Rechnungsadresse: Vorname</td>
+</tr>
+<tr>
+<td>rechnung_name</td>
+<td>Abweichende Rechnungsadresse: Name</td>
+</tr>
+<tr>
+<td>rechnung_titel</td>
+<td>Abweichende Rechnungsadresse: Akademischer Titel</td>
+</tr>
+<tr>
+<td>rechnung_typ</td>
+<td>Abweichende Rechnungsadresse: Typ (firma, herr, frau, mr., mrs.)</td>
+</tr>
+<tr>
+<td>rechnung_strasse</td>
+<td>Abweichende Rechnungsadresse: Straße</td>
+</tr>
+<tr>
+<td>rechnung_ort</td>
+<td>Abweichende Rechnungsadresse: Ort</td>
+</tr>
+<tr>
+<td>rechnung_land</td>
+<td>Abweichende Rechnungsadresse: Land</td>
+</tr>
+<tr>
+<td>rechnung_abteilung</td>
+<td>Abweichende Rechnungsadresse: Abteilung (Zeile 2)</td>
+</tr>
+<tr>
+<td>rechnung_unterabteilung</td>
+<td>Abweichende Rechnungsadresse: Unterabteilung (Zeile 3)</td>
+</tr>
+<tr>
+<td>rechnung_adresszusatz</td>
+<td>Abweichende Rechnungsadresse: Adresszusatz</td>
+</tr>
+<tr>
+<td>rechnung_telefon</td>
+<td>Abweichende Rechnungsadresse: Telefonnummer</td>
+</tr>
+<tr>
+<td>rechnung_telefax</td>
+<td>Abweichende Rechnungsadresse: Telefax-Nummer</td>
+</tr>
+<tr>
+<td>rechnung_anschreiben</td>
+<td>Abweichende Rechnungsadresse: Anschreiben</td>
+</tr>
+<tr>
+<td>rechnungs_email</td>
+<td>Abweichende Rechnungsadresse: E-Mail-Adresse</td>
+</tr>
+<tr>
+<td>rechnung_plz</td>
+<td>Abweichende Rechnungsadresse: Postleitzahl (PLZ)</td>
+</tr>
+<tr>
+<td>rechnung_ansprechpartner</td>
+<td>Abweichende Rechnungsadresse: Ansprechpartner</td>
+</tr>
+<tr>
+<td>kennung</td>
+<td>Befüllt das Feld Eindeutige Kennung unter den Sonstigen Daten</td>
+</tr>
+<tr>
+<td>vertrieb</td>
+<td>Mitarbeiter Vertrieb; hier muss die ID angegeben werden, nicht die Mitarbeiternummer</td>
+</tr>
+<tr>
+<td>innendienst</td>
+<td>Mitarbeiter Innendienst</td>
+</tr>
+<tr>
+<td>rabatt</td>
+<td></td>
+</tr>
+<tr>
+<td>rabattX (X = 1 - 5)</td>
+<td></td>
+</tr>
+<tr>
+<td>bonusX (X = 1-10)</td>
+<td></td>
+</tr>
+<tr>
+<td>bonusX_ab (X = 1-10)</td>
+<td></td>
+</tr>
+<tr>
+<td>verbandsnummer</td>
+<td></td>
+</tr>
+<tr>
+<td>portofreiab</td>
+<td>Befüllt das Feld ab.. € Porto frei ab bestimmtem Umsatz (netto) unter Sonstige Daten</td>
+</tr>
+<tr>
+<td>zahlungskonditionen_festschreiben</td>
+<td>Setzt Haken bei Zahlungskonditionen festschreiben unter Zahlungskonditionen/Besteuerung</td>
+</tr>
+<tr>
+<td>rabatte_festschreiben</td>
+<td></td>
+</tr>
+<tr>
+<td>provision</td>
+<td>Befüllt das Feld Provision unter Sonstige Daten</td>
+</tr>
+<tr>
+<td>portofrei_aktiv</td>
+<td>Setzt den Haken bei Porto frei aktiv</td>
+</tr>
+<tr>
+<td>rabattinformation</td>
+<td></td>
+</tr>
+<tr>
+<td>freifeld1 - freifeld20</td>
+<td>Freifelder des Artikels nach eigener Definition im System, eine Typprüfung findet nicht statt</td>
+</tr>
+<tr>
+<td>rechnung_periode</td>
+<td></td>
+</tr>
+<tr>
+<td>rechnung_anzahlpapier</td>
+<td></td>
+</tr>
+<tr>
+<td>usereditid</td>
+<td></td>
+</tr>
+<tr>
+<td>useredittimestamp</td>
+<td></td>
+</tr>
+<tr>
+<td>infoauftragserfassung</td>
+<td></td>
+</tr>
+<tr>
+<td>mandatsreferenz</td>
+<td>Befüllt das Feld Mandatsreferenz unter Bankverbindung</td>
+</tr>
+<tr>
+<td>kreditlimit</td>
+<td></td>
+</tr>
+<tr>
+<td>abweichendeemailab</td>
+<td></td>
+</tr>
+<tr>
+<td>filiale</td>
+<td></td>
+</tr>
+<tr>
+<td>mandatsreferenzdatum</td>
+<td>Befüllt das Feld Mandatsreferenz Datum unter Bankverbindung</td>
+</tr>
+<tr>
+<td>mandatsreferenzaenderung</td>
+<td>Setzt den Haken bei Mandatsreferenz Änderung unter Bankverbindung</td>
+</tr>
+<tr>
+<td>sachkonto</td>
+<td></td>
+</tr>
+<tr>
+<td>ansprechpartner1name (1-3 möglich)</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Name</td>
+</tr>
+<tr>
+<td>ansprechpartner1typ</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Typ</td>
+</tr>
+<tr>
+<td>ansprechpartner1strasse</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Straße</td>
+</tr>
+<tr>
+<td>ansprechpartner1sprache</td>
+<td></td>
+</tr>
+<tr>
+<td>ansprechpartner1bereich</td>
+<td></td>
+</tr>
+<tr>
+<td>ansprechpartner1abteilung</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Abteilung</td>
+</tr>
+<tr>
+<td>ansprechpartner1unterabteilung</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Unterabteilung</td>
+</tr>
+<tr>
+<td>ansprechpartner1land</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Land</td>
+</tr>
+<tr>
+<td>ansprechpartner1ort</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Ort</td>
+</tr>
+<tr>
+<td>ansprechpartner1plz</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld PLZ</td>
+</tr>
+<tr>
+<td>ansprechpartner1telefon</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Telefon</td>
+</tr>
+<tr>
+<td>ansprechpartner1telefax</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Telefax</td>
+</tr>
+<tr>
+<td>ansprechpartner1mobil</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Mobil</td>
+</tr>
+<tr>
+<td>ansprechpartner1email</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Email</td>
+</tr>
+<tr>
+<td>ansprechpartner1sonstiges</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Sonstiges</td>
+</tr>
+<tr>
+<td>ansprechpartner1adresszusatz</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Adresszusatz</td>
+</tr>
+<tr>
+<td>ansprechpartner1ansprechpartner_land</td>
+<td></td>
+</tr>
+<tr>
+<td>ansprechpartner1anschreiben</td>
+<td></td>
+</tr>
+<tr>
+<td>ansprechpartner1titel</td>
+<td>Im Reiter Ansprechpartner beim Anlegen eines Eintrags das Feld Titel</td>
+</tr>
+<tr>
+<td>ansprechpartner1marketingsperre</td>
+<td>Setzt Haken bei Marketingsperre</td>
+</tr>
+<tr>
+<td>lieferadresse1name (1-3 möglich)</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld Name</td>
+</tr>
+<tr>
+<td>lieferadresse1typ</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld Typ</td>
+</tr>
+<tr>
+<td>lieferadresse1strasse</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld Straße</td>
+</tr>
+<tr>
+<td>lieferadresse1abteilung</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld Abteilung</td>
+</tr>
+<tr>
+<td>lieferadresse1unterabteilung</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld Unterabteilung</td>
+</tr>
+<tr>
+<td>lieferadresse1land</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld Land</td>
+</tr>
+<tr>
+<td>lieferadresse1ort</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld Ort</td>
+</tr>
+<tr>
+<td>lieferadresse1plz</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld PLZ</td>
+</tr>
+<tr>
+<td>lieferadresse1telefon</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld Telefon</td>
+</tr>
+<tr>
+<td>lieferadresse1gln</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld GLN</td>
+</tr>
+<tr>
+<td>lieferadresse1email</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld E-Mail</td>
+</tr>
+<tr>
+<td>lieferadresse1adresszusatz</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld Adresszusatz</td>
+</tr>
+<tr>
+<td>lieferadresse1standardlieferadresse</td>
+<td>Setzt Haken bei Standard Lieferadresse</td>
+</tr>
+<tr>
+<td>lieferadresse1ustid</td>
+<td>Im Reiter Lieferadresse beim Anlegen eines neuen Eintrags das Feld USt-ID</td>
+</tr>
+<tr>
+<td>lieferadresse1ust_befreit</td>
+<td></td>
+</tr>
+<tr>
+<td>gruppe1-5</td>
+<td>Gruppe</td>
+</tr>
+<tr>
+<td>kundennummer_buchhaltung</td>
+<td>Von der Kunden-Nr. abweichendes Buchungskonto (Debitoren-Nr.)</td>
+</tr>
+<tr>
+<td>lieferantennummer_buchhaltung</td>
+<td>Von der Lieferanten-Nr. abweichendes Buchungskonto (Kreditoren-Nr.)</td>
+</tr>
+<tr>
+<td>GLN</td>
+<td>GLN des Kunden</td>
+</tr>
+</tbody>
+</table>
+<h2 id="zeiterfassung">Zeiterfassung<a class="headerlink" href="#zeiterfassung" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>datum_von</td>
+<td>Im Modul Zeiterfassung beim Buchen von Zeiten das Feld nach &ldquo;Am:&rdquo;</td>
+</tr>
+<tr>
+<td>zeit_von</td>
+<td>Startzeit</td>
+</tr>
+<tr>
+<td>zeit_bis</td>
+<td>Endzeit</td>
+</tr>
+<tr>
+<td>kennung</td>
+<td>Auswahl aus Arbeit, Pause, Urlaub, Krankheit, Freizeitausgleich, Feiertag</td>
+</tr>
+<tr>
+<td>taetigkeit</td>
+<td>Kurzbeschreibung der Tätigkeit</td>
+</tr>
+<tr>
+<td>details</td>
+<td>Erweiterte Beschreibung der Tätigkeit</td>
+</tr>
+<tr>
+<td>mitarbeiternummer</td>
+<td>Mitarbeiter</td>
+</tr>
+<tr>
+<td>kundennummer</td>
+<td>Kundennummer für Zeiten, die auf Kunden gebucht werden</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wiedervorlagen">Wiedervorlagen<a class="headerlink" href="#wiedervorlagen" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>datum_faellig</td>
+<td>Befüllt das Feld Erinnerung-Datum im Modul Wiedervorlage beim Erstellen eines neuen Eintrags</td>
+</tr>
+<tr>
+<td>uhrzeit_faellig</td>
+<td>Befüllt das Feld Uhrzeit im Modul Wiedervorlage beim Erstellen eines neuen Eintrags</td>
+</tr>
+<tr>
+<td>kundennummer</td>
+<td>Befüllt das Feld für Kunde im Modul Wiedervorlage beim Erstellen eines neuen Eintrags</td>
+</tr>
+<tr>
+<td>mitarbeiternummer</td>
+<td>Befüllt das Feld Verantwortlicher im Modul Wiedervorlage beim Erstellen eines neuen Eintrags</td>
+</tr>
+<tr>
+<td>betreff</td>
+<td>Befüllt das Feld Bezeichnung im Modul Wiedervorlage beim Erstellen eines neuen Eintrags</td>
+</tr>
+<tr>
+<td>text</td>
+<td>Befüllt das Feld Beschreibung im Modul Wiedervorlage beim Erstellen eines neuen Eintrags</td>
+</tr>
+<tr>
+<td>abgeschlossen</td>
+<td>Setzt Haken bei abgeschlossen</td>
+</tr>
+<tr>
+<td>prio</td>
+<td>Setzt Haken bei Prio</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notizen">Notizen<a class="headerlink" href="#notizen" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>datum</td>
+<td>Unter Aufgaben beim Anlegen einer neuen Aufgabe das Feld Datum / Abgabe bis</td>
+</tr>
+<tr>
+<td>uhrzeit</td>
+<td>Unter Aufgaben beim Anlegen einer neuen Aufgabe das Feld Uhrzeit</td>
+</tr>
+<tr>
+<td>kundennummer</td>
+<td>Unter Aufgaben beim Anlegen einer neuen Aufgabe das Feld für Kunde</td>
+</tr>
+<tr>
+<td>mitarbeiternummer</td>
+<td>Unter Aufgaben beim Anlegen einer neuen Aufgabe das Feld Mitarbeiter</td>
+</tr>
+<tr>
+<td>betreff</td>
+<td>Unter Aufgaben beim Anlegen einer neuen Aufgabe das Feld Aufgabe</td>
+</tr>
+<tr>
+<td>text</td>
+<td>Unter Aufgaben beim Anlegen einer neuen Aufgabe das Feld Beschreibung</td>
+</tr>
+</tbody>
+</table>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

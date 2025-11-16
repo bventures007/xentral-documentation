@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016722640 Angebot - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016722640 Angebot</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016722640 Angebot</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Ein Angebot ist mehr als eine bloße Liste von Preisen und Produkten – es ist die Grundlage für eine klare und verbindliche Kommunikation mit deinen Kunden. Mit einem schriftlichen Angebot kannst du nicht nur Produkte und Konditionen festlegen, sondern auch rechtliche und logistische Details wie Lieferzeiten, Zahlungsbedingungen oder AGBs klar kommunizieren. Es bietet dir die Möglichkeit, deinen Kunden gezielt Informationen bereitzustellen, die sie benötigen, um eine Kaufentscheidung zu treffen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p><strong>Was ist ein Angebot?</strong></p>
+<p>Ein schriftliches Angebot ist die rechtssicherste Form, um Waren, Konditionen und Lieferdetails festzulegen. Es kann online, schriftlich oder mündlich erfolgen und wird rechtlich bindend, wenn die entsprechenden Voraussetzungen erfüllt sind.</p>
+<p>-<strong>Beschreibung der Ware/Dienstleistung</strong>: Art, Umfang und Spezifikationen.
+-<strong>Angebotene Menge und Preis</strong>: Inklusive Rabatte, falls zutreffend.
+-<strong>Lieferdetails</strong>: Lieferzeit, Verpackungs- und Frachtkosten.
+-<strong>Zahlungsbedingungen</strong>: Fälligkeiten, Zahlungsarten und Fristen.
+-<strong>Rechtliche Bedingungen</strong>: Eigentumsvorbehalt, AGBs, Erfüllungsort und Gerichtsstand.</p>
+<p><strong>Tipp</strong></p>
+<p><strong>Unterschiede zwischen B2B- und B2C-Angeboten:</strong></p>
+<p>Im <strong>B2B-Geschäft</strong> sind schriftliche Angebote der Standard. Sie werden häufig für hochpreisige Waren oder individuell produzierte Produkte erstellt. Entscheidend sind hier präzise Festlegungen zu Einkaufspreisen, Produktionskosten, Lieferbedingungen, Lieferzeiten und rechtlichen Rahmenbedingungen. Diese Faktoren sichern die Planungssicherheit entlang der gesamten Versorgungskette.</p>
+<p>Im <strong>B2C-Geschäft</strong> geht es dahingegen meistens um attraktive Angebotsdarstellung z.B. in Online-Kanälen, wichtigste Standardinformationen auf einen Blick, Einfachheit sowie eine schnelle und leichte Abwicklung der Bezahlung.</p>
+</blockquote>
+<h2 id="aktionsmenu-im-angebot">Aktionsmenü im Angebot<a class="headerlink" href="#aktionsmenu-im-angebot" title="Permanent link">&para;</a></h2>
+<p>Du kannst ein Angebot freigeben, stornieren, als beauftragt markieren oder das nächstfolgende Dokument überführen. Das Aktionsmenü findest du im Beleg oder in der Belegübersicht, wenn du auf die Schnellvorschau für das jeweilige Angebot klickst.</p>
+<p><img alt="2647097422.png" src="https://help.xentral.com/hc/article_attachments/10896824948252" /></p>
+<p><strong>Allgemeine Aktionen:</strong></p>
+<p>Unabhängig vom Status stehen dir folgende Funktionen zur Verfügung:</p>
+<table>
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Angebot stornieren</strong></td>
+<td>Setzt den Status des Angebots auf Storniert.</td>
+</tr>
+<tr>
+<td><strong>Angebot kopieren</strong></td>
+<td>Erstellt ein neues Angebot im Entwurfsmodus mit denselben Stammdaten und Positionen.</td>
+</tr>
+<tr>
+<td><strong>PDF öffnen</strong></td>
+<td>Zeigt das Angebot als PDF-Dokument an.</td>
+</tr>
+<tr>
+<td><strong>Export als CSV <strong></td>
+<td>Exportiert die Angebotspositionen als CSV-Datei.</td>
+</tr>
+</tbody>
+</table>
+<p>Diese Aktionen ändern den Status deines Angebots:</p>
+<table>
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Angebot freigeben</strong></td>
+<td>Setzt das Angebot im Entwurfsmodus auf den Status Freigegeben.</td>
+</tr>
+<tr>
+<td><strong>Angebot abschicken <strong></td>
+<td></strong> Angebot abschicken</strong>: Versendet das Angebot per E-Mail, druckt es aus oder markiert es als Erledigt. Der Status wechselt zu Versendet.</td>
+</tr>
+<tr>
+<td><strong>Angebot abgelehnt</strong></td>
+<td>Markiert das Angebot als Abgelehnt.</td>
+</tr>
+<tr>
+<td><strong>Als beauftragt markieren <strong></td>
+<td>Ändert den Status auf Beauftragt.</td>
+</tr>
+</tbody>
+</table>
+<p>Über das Aktionsmenü kannst du dein Angebot in andere Belegarten überführen:</p>
+<table>
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Als Auftrag weiterführen</strong></td>
+<td>[en-us] Creates a new order in draft mode based on the offer.</td>
+</tr>
+<tr>
+<td><strong>Als Proformarechnung weiterführen <strong></td>
+<td>Erstellt eine Proformarechnung im Entwurfsmodus.</td>
+</tr>
+</tbody>
+</table>
+<p>Für Angebote kannst du neue Versionen erstellen:</p>
+<table>
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Angebot neue Version</strong></td>
+<td>Erstellt ein neues Angebot mit denselben Daten und einer erweiterten Nummer (z. B. -1). Es wird automatisch mit dem ursprünglichen Angebot verknüpft.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stuckliste-hinzufugen-angebot">Stückliste hinzufügen (Angebot)<a class="headerlink" href="#stuckliste-hinzufugen-angebot" title="Permanent link">&para;</a></h2>
+<p>Im Angebot werden Stücklisten nicht aufgelöst dargestellt. Du kannst die Produktinformationen im Artikeltext anzeigen lassen oder bearbeiten. Wenn du Stücklisten aufgelöst (= in explodierter Darstellung) angezeigt haben möchtest, kannst du die Stückliste über den Button <strong>Stückliste hinzufügen</strong> in dein Angebot einfügen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Stückliste hinzufügen </strong> ist ein Modul im Appstore und im xentral Plan im Modul Angebot enthalten. Prüfe ggf. deinen Plan.<strong>Schritte:</strong></p>
+</blockquote>
+<ol>
+<li>Klicke in der Positionstabelle auf <strong>Stückliste hinzufügen</strong>.</li>
+<li>Wähle eine Stückliste aus deinem Produktsortiment über das <strong>Pfeil Icon</strong> aus.</li>
+<li>
+<p>Wähle die Menge aus, in der die Stückliste in das Angebot eingefügt werden soll.
+ <strong>Menge <strong>→ Positionsmenge, wie oft die Stückliste in den Beleg eingefügt werden soll.</strong> Preis berechnen aus Teile <strong>→ Kalkuliert den Verkaufspreis der Stückliste aus den VKs der einzelnen Bestandteile der Stückliste. Blendet den gepflegten Preis des Hauptartikels aus.</strong> Auswahl</strong> der Stücklistenartikel → Die Auswahl legt fest, welche Artikel auf dem Beleg erscheinen werden. Der kalkulierte Preis wird nur aufgrund der ausgewählten Artikel festgelegt. Mit der Auswahl der Unterartikel kannst du steuern, wie dein Angebot optisch aussehen soll, welche Informationen du abdrucken möchtest und welche Preise du manuell eingeben möchtest.</p>
+</li>
+<li>
+<p>Klicke auf <strong>OK</strong>, um die Stückliste unten in der Positionstabelle einzufügen.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Diese Funktionen ermöglichen es dir, dein Angebot für B2B Kunden individuell anzupassen.</p>
+<p><strong>Anmerkung</strong></p>
+<p>Eine Änderung der Artikelmengen in einer Stückliste ist nicht möglich. Die Menge kannst du in der Positionstabelle individuell anpassen.</p>
+</blockquote>
+<p><img alt="2646868029.png" src="https://help.xentral.com/hc/article_attachments/10896777320220" /></p>
+<p><img alt="2646769723.png" src="https://help.xentral.com/hc/article_attachments/10896808944156" /></p>
+<h3 id="preis-einer-stuckliste-berechnen">Preis einer Stückliste berechnen<a class="headerlink" href="#preis-einer-stuckliste-berechnen" title="Permanent link">&para;</a></h3>
+<p>Den Preis einer Stückliste kannst du auf zwei Arten berechnen lassen. Entweder verwendest du den Verkaufspreis des Stücklisten-Hauptartikels (Kopf der Stückliste). Alternativ kannst du auch den Preis aus den Komponenten der Stückliste berechnen lassen z.B. wenn du Preise der Produktion auflisten möchtest, die sich in einer Stückliste zum Endpreis kalkulieren.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Klicke in der Positionstabelle auf <strong>bearbeiten</strong> eines Stücklisten Hauptartikels.</li>
+<li>
+<p>Setze die Einstellung <strong>Preis berechnen aus Teile. </strong></p>
+</li>
+<li>
+<p>Klicke auf <strong>Speichern</strong>.</p>
+</li>
+</ol>
+<p><img alt="2649817146.png" src="https://help.xentral.com/hc/article_attachments/10896777454876" /></p>
+<h3 id="artikel-einer-stuckliste-hinzufugen">Artikel einer Stückliste hinzufügen<a class="headerlink" href="#artikel-einer-stuckliste-hinzufugen" title="Permanent link">&para;</a></h3>
+<p>Einzelartikel können zu Stücklisten in den Angebotspositionen hinzugefügt werden, in dem sie unter einen Stücklisten Kopfartikel einsortiert werden.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Füge einen Einzelartikel in der Positionstabelle im Angebot hinzu.</li>
+<li>Klicke in der Positionstabelle auf <strong>bearbeiten</strong> dieses Artikels.</li>
+<li>Gib im Feld <strong>Gehört zu </strong> die Artikelnummer der Stückliste ein, der du den Artikel zuweisen möchtest. Wähle den Artikel durch <strong>Anklicken</strong> aus. Die Zahl vor der Artikelnummer gibt dir die Positionsnummer, so dass du erkennen kannst, um welche Postion im Angebot es sich handelt.</li>
+<li>Klicke auf <strong>Speichern</strong> um den Artikel der Stückliste zuzuordnen.</li>
+</ol>
+<p><img alt="2649587779.png" src="https://help.xentral.com/hc/article_attachments/10896825215260" /></p>
+<h2 id="ein-angebot-auf-wiedervorlage-nehmen">Ein Angebot auf Wiedervorlage nehmen<a class="headerlink" href="#ein-angebot-auf-wiedervorlage-nehmen" title="Permanent link">&para;</a></h2>
+<p>Ein Angebot kannst du mit der Dokumenten Freigabe automatisch auf<a href="https://help.xentral.com/hc/de/articles/360016759419-Wiedervorlage">Wiedervorlage</a>nehmen lassen. Die Wiedervorlage erinnert dich und dein Team bei einem Angebot nach z.B. 14 Tagen nachzufassen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Voraussetzung für die automatische Wiedervorlage ist die Aktivierung der automatischen Funktion in den Systemeinstellungen. Zusätzlich muss dein Angebot bis mindestens morgen gültig sein (Gültig bis Datum muss größer als heute sein). Abgelaufene Angebote erhalten keine automatische Wiedervorlage.</p>
+</blockquote>
+<p><strong>Schritte Systemeinstellungen:</strong></p>
+<ol>
+<li>Lege fest, wie viele Tage deine Angebote gültig sind (<strong>Angebot Tage gültig bis</strong>).</li>
+<li>Lege fest, nach wie vielen Tagen die Erinnerung der Wiedervorlage angezeigt werden soll (<strong>Angebot Tage Wiedervorlage</strong>).</li>
+<li>Die Wiedervorlage wird bei <strong>Freigabe </strong> des Angebots abgespeichert und du wirst nach Ablauf der Tage automatisch erinnert. Wenn du jemanden aus deinem Team zusätzlich in Vertretung für dich Erinnern lassen möchtest, kannst du die Person in das Feld <strong>Melden bei Mitarbeiter </strong> eintragen und <strong>Speichern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst das Gültigkeitsdatum eines Angebots und das Erinnerungsdatum der Wiedervorlage natürlich auch manuell setzen oder ändern. Eine Nachbearbeitung der Wiedervorlage ist nicht notwendig. Du kannst die Felder nutzen, um weitere wichtige Informationen hinzuzufügen.</p>
+</blockquote>
+<p>Wird ein Angebot als Auftrag weitergeführt, storniert, als <strong>abgelehnt </strong> markiert oder als <strong>beauftragt</strong> markiert, wird die Wiedervorlage automatisch geschlossen.</p>
+<p><img alt="2628223177.png" src="https://help.xentral.com/hc/article_attachments/10896825257628" /></p>
+<h2 id="angebot-formatieren-spezialfeld-einfugen">Angebot formatieren - Spezialfeld einfügen<a class="headerlink" href="#angebot-formatieren-spezialfeld-einfugen" title="Permanent link">&para;</a></h2>
+<p>Du kannst ein Angebot in der Positionstabelle formatieren, indem du Positionen gruppierst, Überschriften einfügst und Zwischensummen berechnen lässt.</p>
+<h3 id="gruppensumme-gruppensumme-mit-optionalen-positionen-zwischensumme">Gruppensumme, Gruppensumme mit optionalen Positionen, Zwischensumme<a class="headerlink" href="#gruppensumme-gruppensumme-mit-optionalen-positionen-zwischensumme" title="Permanent link">&para;</a></h3>
+<p>Du kannst Positionen auf unterschiedliche Weise summieren lassen:</p>
+<p>-<strong>Zwischensumme </strong>: Summe aller Positionen, die über der Position <strong>Zwischensumme</strong> gelistet sind. Optionale Artikel werden in die Zwischensumme nicht mit einbezogen.
+-<strong>Gruppensumme </strong>: Summe aller Positionen, die über der Position <strong>Gruppensumme </strong> gelistet sind. Voraussetzung ist die Verwendung von <strong>Gruppenüberschriften </strong> um die Artikelblöcke zu definieren. Optionale Artikel werden in die <strong>Gruppensumme</strong> nicht mit einbezogen.
+-<strong>Gruppensumme mit optionalen Positionen <strong>: Verhält sich wie die Gruppensumme, bezieht optionale Artikel in der <strong>Gruppensumme </strong> mit ein.</strong> Schritte: Einfügen einer Gruppensumme </strong></p>
+<ol>
+<li>Klicke auf <strong>Spezialfeld einfügen </strong> und wähle <strong>Gruppenüberschrift </strong> als Spezialfeld aus. Füge eine <strong>Bezeichnung </strong> ein, die im Dokument als Überschrift fettgedruckt angezeigt wird und füge optional eine <strong>Beschreibung</strong> hinzu.</li>
+<li>Füge den Positionen Artikel hinzu.</li>
+<li>Klicke auf <strong>Spezialfeld einfügen </strong> und wähle <strong>Gruppensumme </strong> als Spezialfeld aus. Füge eine <strong>Bezeichnung</strong> ein, die im Dokument als Summenbeschriftung fettgedruckt angezeigt wird.</li>
+<li>Prüfe das Angebot in der Vorschau.</li>
+</ol>
+<p><img alt="2628813083.png" src="https://help.xentral.com/hc/article_attachments/10896825330588" /></p>
+<p><img alt="2628813089.png" src="https://help.xentral.com/hc/article_attachments/10896809233564" /></p>
+<h3 id="seitenumbruch">Seitenumbruch<a class="headerlink" href="#seitenumbruch" title="Permanent link">&para;</a></h3>
+<p>Mit einem Seitenumbruch kannst du bei langen Angeboten einen ganzen Abschnitt auf die nächste Seite nehmen, um eine schöne optische Darstellung zu erhalten.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Klicke auf <strong>Spezialfeld einfügen <strong>und wähle </strong> Seitenumbruch</strong> als Spezialfeld aus.</li>
+<li>Füge weitere Artikel den Positionen hinzu.</li>
+<li>Prüfe das Angebot in der Vorschau.</li>
+</ol>
+<p><img alt="2628485403.png" src="https://help.xentral.com/hc/article_attachments/10896777794076" /></p>
+<h3 id="separates-bild-einfugen-auf-angebot">Separates Bild einfügen auf Angebot<a class="headerlink" href="#separates-bild-einfugen-auf-angebot" title="Permanent link">&para;</a></h3>
+<p>Zusätzlich zum Artikelbild kannst du deinem Angebot auch weitere Bilder hinzufügen, wenn du einen Hinweis wie ein Zertifikat, ein Logo oder ein Diagramm einfügen möchtest.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Klicke auf <strong>Spezialfeld einfügen <strong>und wähle </strong> Bild</strong> als Spezialfeld aus.</li>
+<li>Gib eine <strong>Bezeichnung</strong> an, um eine fett gedruckte Überschrift über dem Bild zu erhalten. (Pflichtfeld)</li>
+<li>Gib eine <strong>Beschreibung</strong> ein, um einen Textabschnitt über dem Bild hinzuzufügen. (Optional)</li>
+<li>Wähle unter <strong>Bild</strong> eine Datei aus und füge sie hinzu.</li>
+<li>Gib die <strong>Breite </strong> und <strong>Höhe</strong> des Bildes in Millimeter an. Wenn du keine Größe auswählst, wird als Standard 30mm x 30mm gesetzt. (Optional)</li>
+<li>Klicke auf <strong>Speichern</strong> um das Bild unten in der Positionstabelle einzufügen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst das Bild mit Drag &amp; Drop oder den Pfeiltasten an eine andere Position verschieben.</p>
+</blockquote>
+<p><img alt="2628583497.png" src="https://help.xentral.com/hc/article_attachments/10896777863068" /></p>
+<h2 id="funktionen-in-der-artikelbearbeitung-angebot">Funktionen in der Artikelbearbeitung (Angebot)<a class="headerlink" href="#funktionen-in-der-artikelbearbeitung-angebot" title="Permanent link">&para;</a></h2>
+<p>Positionen in Belegen kannst du bearbeiten, indem du auf das Edit-Icon<img alt="PenIcon.png" src="https://help.xentral.com/hc/article_attachments/10896825667996" /></p>
+<p>klickst.</p>
+<h3 id="optionaler-alternativer-angebotsartikel">Optionaler/ alternativer Angebotsartikel<a class="headerlink" href="#optionaler-alternativer-angebotsartikel" title="Permanent link">&para;</a></h3>
+<p>Mit optionalen Artikeln kannst du deinen Kunden Angebotspositionen anbieten, die nicht in deinem Liefer- und Leistungsumfang enthalten sind. In der Gesamtsumme sind sie standardmässig nicht berücksichtigt.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Füge einen Artikel den Positionen hinzu.</li>
+<li>Klicke auf <strong>bearbeiten </strong> und setze den Artikel auf <strong>Optional</strong>.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+<li>Der Artikel wird im Dokument mit <strong>Optional</strong> gekennzeichnet und aus der Summe ausgenommen.</li>
+</ol>
+<p><img alt="2628223248.png" src="https://help.xentral.com/hc/article_attachments/10896793783580" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du Artikel als Optional kennzeichnen willst sie aber in die Summe mit einbeziehen, kannst du diese Artikel auch unter eine <strong>Gruppenüberschrift</strong> einfügen. Die Artikelbezeichnungen kannst du im Angebot natürlich textuell anpassen.</p>
+</blockquote>
+<h3 id="alternativtext-fur-einzelpreis">Alternativtext für Einzelpreis<a class="headerlink" href="#alternativtext-fur-einzelpreis" title="Permanent link">&para;</a></h3>
+<p>Den Preis im Angebot kannst du pro Artikel auch mit einem alternativen Beschriftungstext überdrucken, wenn du keinen Euro Betrag angeben möchtest, sondern z.B. eine <strong>Pauschale </strong> oder einen Preis <strong>nach Aufwand <strong>. </strong> Schritte:</strong></p>
+<ol>
+<li>Klicke auf <strong>bearbeiten </strong> und gib im <strong>Alternativ Text Preis</strong> einen Text ein z.B. “nach Aufwand”.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p><img alt="2651062305.png" src="https://help.xentral.com/hc/article_attachments/10896810643100" /></p>
+<h3 id="formeln-in-angebote-einfugen">Formeln in Angebote einfügen<a class="headerlink" href="#formeln-in-angebote-einfugen" title="Permanent link">&para;</a></h3>
+<p>Zur Berechnung von Mengen und Preisen kannst du mit Variablen<a href="https://help.xentral.com/hc/de/articles/360016756619-Formeln">Formeln</a>in Angebote einfügen.</p>
+<h3 id="artikel-im-angebot-dokument-ausblenden">Artikel im Angebot Dokument ausblenden<a class="headerlink" href="#artikel-im-angebot-dokument-ausblenden" title="Permanent link">&para;</a></h3>
+<p>Artikel kannst du gezielt im Dokument ausblenden, indem du <strong>im PDF ausblenden</strong> anwählst.</p>
+<h2 id="funktionen-der-positionstabelle-angebot">Funktionen der Positionstabelle (Angebot)<a class="headerlink" href="#funktionen-der-positionstabelle-angebot" title="Permanent link">&para;</a></h2>
+<p>In der Positionstabelle kannst du Funktionen auf alle dort eingegebenen Artikel anwenden, Vorlagen erstellen oder Positionen neu aktualisieren.</p>
+<h3 id="eine-angebotsvorlage-erstellen-und-einfugen">Eine Angebotsvorlage erstellen und einfügen<a class="headerlink" href="#eine-angebotsvorlage-erstellen-und-einfugen" title="Permanent link">&para;</a></h3>
+<p>Wenn du immer wieder ähnliche Angebote mit Artikeln und Stücklisten oder Spezialtexten erstellst, kannst du ein Angebot als Vorlage speichern. Diese <strong>Belegevorlage </strong> kannst du in ein leeres neues Angebotsdokument einfügen.<strong>Schritte Belegevorlage anlegen:</strong></p>
+<ol>
+<li>Klicke auf <strong>Belegevorlagen </strong> und wähle <strong>als Vorlage anlegen</strong> aus und gib der Vorlage eine Beschriftung z.B. Produktion Materialkosten (Angebot 100007).</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beim Speichern der <strong>Belegevorlage</strong> wird das Projekt aus dem Angebot verwendet. Beachte, dass die Vorlage je nachRechtekonzeptnur für Benutzer sichtbar ist, die dieses Projekt einsehen dürfen.</p>
+</blockquote>
+<p><img alt="2650832929.png" src="https://help.xentral.com/hc/article_attachments/10896766487580" /></p>
+<p><strong>Schritte Belegevorlage einfügen:</strong></p>
+<ol>
+<li>Lege ein neues leeres Angebot an.</li>
+<li>Klicke auf <strong>Belegevorlagen </strong> und wähle eine Vorlage mit <strong>Einfügen</strong> aus z.B. Produktion Materialkosten (Angebot 100007).</li>
+<li>Die Vorlage mit den Positionen wird in das Angebot eingefügt.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Alternativ kannst du Angebote auch über das Aktionsmenü <strong>Kopieren</strong>. Hierbei werden die Positionen in den neuen Angebot Entwurf übernommen. Du kannst die Kundendaten durch Eingabe und Laden einer anderen Kundennummer überschreiben.</p>
+</blockquote>
+<h3 id="positionen-aktualisieren">Positionen aktualisieren<a class="headerlink" href="#positionen-aktualisieren" title="Permanent link">&para;</a></h3>
+<p>Daten der Artikelpositionen kannst du über <strong>Positionen aktualisieren</strong> neu aus dem Artikelstamm laden. Die bisherigen Preise, Texte, Rabatte u.v.m. werden dadurch überschrieben. Ein Zurücksetzen auf den vorherigen Zustand ist nicht mehr möglich.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Funktion steht dir nur im Entwurf-Modus zur Verfügung. Sobald ein Beleg freigegeben ist, kannst du die Positionen nicht mehr aus dem Artikelstamm nachladen oder automatisch überschreiben lassen.</p>
+</blockquote>
+<p><img alt="2651062317.png" src="https://help.xentral.com/hc/article_attachments/10896809678876" /></p>
+<h3 id="rabatt-in-prozent-auf-alle-positionen">Rabatt in Prozent auf alle Positionen<a class="headerlink" href="#rabatt-in-prozent-auf-alle-positionen" title="Permanent link">&para;</a></h3>
+<p>Du kannst einen Prozent Rabatt auf alle Angebotspositionen vergeben.</p>
+<p><strong>Schritte Rabatt auf Positionen vergeben:</strong></p>
+<ol>
+<li>Klicke auf <strong>Rabatt in % auf alle Positionen</strong> und gib den Rabatt als Zahl ein z.B. 10.</li>
+<li>Klicke auf <strong>Ok </strong>. Der Rabatt wird in die Spalte <strong>Rabatt</strong> auf alle Positionen eingetragen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Den Rabatt zurücksetzen kannst du mit der Eingabe der Zahl Null (= 0) in <strong>Rabatt in % auf alle Positionen.</strong></p>
+</blockquote>
+<p><img alt="2650767377.png" src="https://help.xentral.com/hc/article_attachments/10896825969564" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Rabatte für einzelne Artikel kannst du löschen, indem du einzelne Artikel bearbeitest und den Rabattwert aus dem Feld pro Artikel nimmst.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4402048488722 Reservierungen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>4402048488722 Reservierungen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>4402048488722 Reservierungen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Reservierungen können für einzelne Großaufträge oder die gesamte Ware vorgenommen werden. Du kannst also steuern, ob du alle offenen eingehenden Aufträge in die Lagerware einbeziehen möchtest oder nur große B2B Lieferungen z.B. Palettenlieferungen oder langfristige Großbestellungen vor reservieren möchtest.</p>
+<h2 id="reservierung-fur-einen-auftrag">Reservierung für einen Auftrag<a class="headerlink" href="#reservierung-fur-einen-auftrag" title="Permanent link">&para;</a></h2>
+<p>Reservierungen kannst du direkt im Auftrag priorisiert vergeben. Klicke dafür auf das <strong>Aktionsmenü <strong>oben rechts und wähle</strong> alle Artikel reservieren</strong>. Die Artikel dieses einen Auftrages werden reserviert.</p>
+<p><img alt="image-20240306-172204.png" src="https://help.xentral.com/hc/article_attachments/12960341668892" /></p>
+<h2 id="reservierung-im-artikel">Reservierung im Artikel<a class="headerlink" href="#reservierung-im-artikel" title="Permanent link">&para;</a></h2>
+<p>Reservierungen werden dir in jedem Artikel im Tab <strong>Lager </strong> angezeigt. Auch hier kannst du Reservierungen löschen und bei Bedarf über den Auftrag wieder neu setzen. Die Reservierungen pro Artikel kannst du direkt im Artikel selbst einsehen unter <strong>Verkaufen &gt; Artikel &gt; Artikel öffnen &gt; Tab: Lager.</strong></p>
+<p>In dieser Ansicht findest du Reservierungen offener Aufträge und auch von Aufträgen, die in der Logistik gerade aktiv verarbeitet werden, deren Reservierung im Prozessschritt durch die tatsächliche Lagerausbuchung noch ausgebucht werden wird, beispielsweise wenn ein Auftrag als Lieferschein weitergeführt wurde, allerdings die Ware noch nicht für den Kunden ausgebucht und kommissioniert wurde.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Achtung</strong>: Wenn du Reservierungen löschst und automatische Logistikprozesse Aufträge verarbeiten, kann es zu Zwischenverkäufen kommen, denn die Ware wird mit Löschung der Reservierung für einen Moment wieder freigegeben.</p>
+<p><strong>Tipp</strong>: Du kannst wichtige Großkunden auch über ein separatesLageroder einen Nachschublagerplatz bedienen um sicherzustellen, dass der Warenbestand separat verwaltet und gepflegt wird und in keinem Fall durch Aufträge von anderen Verkaufskanälen ausgebucht wird.</p>
+</blockquote>
+<p><img alt="image-20240306-171945.png" src="https://help.xentral.com/hc/article_attachments/12960349103644" /></p>
+<h2 id="automatische-reservierung">Automatische Reservierung<a class="headerlink" href="#automatische-reservierung" title="Permanent link">&para;</a></h2>
+<p>Du kannst Reservierungen auch systemweit automatisch einstellen. Der Autoversandprozess (= Autoversand berechnen) vergibt die Reservierungen sofort wieder neu aufsteigend, wobei zuerst bestellte Aufträge zuerst reserviert werden.</p>
+<p>Unter den Reservierungen befinden sich auch Aufträge, welche noch nicht die Logistik erreicht haben oder Aufträge, die noch nicht vollständig abgeschlossen sind. Die reservierten Artikel bleiben so lange stehen, bis die Ware tatsächlich manuell oder per Autoversand in einem Prozess aus dem Lager ausgebucht wurde.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Berechnung und Zurückmeldung des Lagerbestands</strong>: Die Reservierungen werden in die Menge der noch möglichen “Verkaufbaren Artikel” einberechnet und von der Lagerbestandsmenge für den Shop abgezogen. D.h. wenn du 10 Artikel lagernd hast und 2 Stück davon in einem Auftrag bereits reserviert sind, werden 8 Stück an deinen Shop zurück gemeldet. Deine tatsächliche Lagermenge reduziert sich also um die reservierten Artikel, denn diese Waren sind für Aufträge bereits blockiert.</p>
+</blockquote>
+<h3 id="automatische-reservierung-aktivieren">Automatische Reservierung aktivieren<a class="headerlink" href="#automatische-reservierung-aktivieren" title="Permanent link">&para;</a></h3>
+<p>Die automatische Reservierung kannst du für jeden Verkaufskanal einstellen. Nutze hierzu die Smart Search, um das Modul <strong>Projekte </strong> zu öffnen. Öffne dann das gewünschte Projekt und klicke auf das Tab <strong>Einstellungen <strong>. Klicke dann auf </strong> Logistik / Versand <strong>. Scrolle nach unten, bis du den Abschnitt </strong> Optionen <strong>erreichst und aktiviere die Option </strong> Auto-Reservierung im Lager</strong>. Für Aufträge in diesem Projekt werden nun nach Freigabe des Auftrags alle Artikel direkt im Lager reserviert.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

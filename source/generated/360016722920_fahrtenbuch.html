@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016722920 Fahrtenbuch - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016722920 Fahrtenbuch</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016722920 Fahrtenbuch</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>Mit dem extra Modul „Fahrtenbuch“ können in der Zeiterfassung die Fahrtzeiten erfasst und pro Fahrzeug ausgewertet werden.</p>
+<p>App Center → Fahrtenbuch</p>
+<h2 id="fahrten">Fahrten<a class="headerlink" href="#fahrten" title="Permanent link">&para;</a></h2>
+<p>Im „Fahrten“ Tab wird eine Übersicht über alle zuvor in der Zeiterfassung gebuchten Fahrten dargestellt.</p>
+<p>In der Übersicht ist einzusehen, an welchem Datum die Fahrt stattgefunden hat, wie lange sie gedauert hat, die gefahrenen Kilometer, welches Kennzeichen das verwendete Auto hatte, welcher Kunde betreut wurde, wer der Fahrer war, welche Strecke er gefahren ist und der Zweck der Fahrt.</p>
+<p>Um einen besseren Überblick zu bekommen und die Liste einzuschränken, können Filter eingesetzt werden.</p>
+<p>Folgende Filtermöglichkeiten stehen zur Verfügung:</p>
+<p>-<strong>Von</strong>→Das Datum, ab welchem der Zeitraum gilt
+- Bis→ Das Datum, zu dem der Zeitraum des Filters enden sollend
+- Kunde→ Der Kunden, auf den die Zeit/Fahrt gebucht werden sollbooked
+- Fahrer→ Der Mitarbeiter/Bearbeiter, der die Zeit/Fahrt gebucht hattrip
+-<strong>Kennzeichen</strong>→ Das Kennzeichen des Fahrzeugs, das für die Zeit/Fahrt verwendet wurdetrip</p>
+<h2 id="fahrzeuge">Fahrzeuge<a class="headerlink" href="#fahrzeuge" title="Permanent link">&para;</a></h2>
+<p>Im Tab &ldquo;Fahrzeuge&rdquo; können alle Fahrzeuge angelegt werden, für die das Fahrtenbuch gelten soll. Dabei kann der Filter &ldquo;auch inaktive&rdquo; gesetzt werden, um aktive und inaktive Fahrtzeuge anzuzeigen.</p>
+<h3 id="neues-fahrzeug-anlegen">Neues Fahrzeug anlegen<a class="headerlink" href="#neues-fahrzeug-anlegen" title="Permanent link">&para;</a></h3>
+<p>Um ein neues Fahrzeug anzulegen, sind die Felder bei &ldquo;Anlegen&rdquo; oben rechts auszufüllen und auf die Schaltfläche „Anlegen“ zu klicken.</p>
+<p>Dabei sind diese Angabe zum Fahrzeug zu machen:</p>
+<ul>
+<li>Bezeichnung/Name → Die Bezeichnung des Fahrzeugs ist einzugeben. Diese wird auf dem Auswertungs-PDF dargestellt</li>
+<li>Kilometersatz → Der Kilometersatz wird für die Berechnung des Fahrtgelds/ der Reisekosten in der Auswertung verwendet, falls ein Privatfahrzeug vorliegt</li>
+<li>Kennzeichen → Das Kennzeichen des Fahrzeugs ist einzugeben, dieses wird für die Zeiterfassung, die Auswertung und für den Filter benötigt</li>
+<li>Privatfahrzeug → Durch Anhaken wird das Fahrzeug als Privatfahrzeug markiert. In der Auswertung wird für Privatfahrzeuge das Kilometergeld anhand des Kilometersatzes berechnet und auf dem PDF ausgegeben</li>
+<li>Startwert KM → Es ist anzugeben, welchen Kilometerstand das Fahrzeug vor den ersten Fahrten hatte</li>
+<li>aktiv → Nur aktive Fahrzeuge können erfasst werden, d.h. der Haken ist in jedem Fall zu setzencase</li>
+</ul>
+<h2 id="auswertung">Auswertung<a class="headerlink" href="#auswertung" title="Permanent link">&para;</a></h2>
+<p>Unter dem Tab &ldquo;Auswertung“ kann für ein bestimmtes Fahrzeug eine Auswertung in einem angegebenen Zeitraum durchgeführt werden.</p>
+<p>Für die Auswertung sind folgende Daten einzugeben:</p>
+<ul>
+<li>Datum von bis→ Es ist auszuwählen, für welchen Zeitraum die Auswertung stattfinden sollplace</li>
+<li>Kennzeichen→ Über den Klick auf das &ldquo;Lupe&rdquo;-Icon ist das auszuwertende Fahrzeugkennzeichen auszuwählenevaluated</li>
+</ul>
+<p>Mit einem Klick auf die Schaltfläche „PDF erstellen“, wird ein PDF mit den gebuchten Fahrten im angegebenen Zeitraum und Fahrzeug heruntergeladen. Falls das Fahrzeug als Privatfahrzeug gekennzeichnet wurde, zeigt eine zusätzliche Spalte das Kilometergeld an:</p>
+<h2 id="vorlagen">Vorlagen<a class="headerlink" href="#vorlagen" title="Permanent link">&para;</a></h2>
+<p>Im Tab &ldquo;Vorlagen&rdquo; können wiederkehrende Strecken definieren werden, die dann beim Buchen der Fahrt in der Zeiterfassung direkt ausgewählt werden können. In der Übersicht werden die bereits angelegten Vorlagen inkl. Strecke, Kilometer angezeigt und ob die jeweiligen Vorlagen buchbar und aktiv sind. Vorlagen können zudem über das &ldquo;Stift&rdquo;-Icon bearbeitet oder über das &ldquo;Kreuz&rdquo;-Icon in der Menü-Spalte gelöscht werden.</p>
+<h3 id="neue-vorlage-anlegen">Neue Vorlage anlegen<a class="headerlink" href="#neue-vorlage-anlegen" title="Permanent link">&para;</a></h3>
+<p>Mit einem Klick auf die „+Neue Vorlage eintragen“-Schaltfläche kann eine neue Vorlage definiert werden:</p>
+<p>Bei der Anlage einer neuen Vorlage können folgende Informationen eingetragen werden:</p>
+<ul>
+<li>Strecke → Hier ist die Strecke, die gefahren wird, einzugeben</li>
+<li>Kilometer → Die Länge der Strecke ist in km anzugeben</li>
+<li>Buchen → Durch Anhaken wird die Vorlage buchbar</li>
+<li>Aktiv → Durch Anhaken wird die Vorlage aktiviert</li>
+</ul>
+<h2 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h2>
+<p>Im Tab &ldquo;Einstellungen&rdquo; können für die Standort- und Distanzbestimmungen der Strecken ein API Account von openroutes und Geo-Daten des Startorts hinterlegt werden.</p>
+<p>Folgende Einstellungen können vorgenommen werden:</p>
+<p>Zugangsdaten Openstreetmap</p>
+<ul>
+<li>API Key → Der API Key ist nach Erstellung eines API Accounts einzugeben</li>
+<li>Logging → Das Logging-Kästchen ist anzuhaken</li>
+</ul>
+<p>Über Openstreetmap</p>
+<p>Um die Entfernungsberechnung nutzen zu können, muss ein API Account erstellt werden. Das ist über einen Klick auf das Feld &ldquo;Zum Portal für API-Key&rdquo; möglich.</p>
+<p>Optional Geodaten Startort</p>
+<ul>
+<li>Breitengrad → Der Breitengrad des Startorts ist einzugeben, um die Distanz zu berechnen</li>
+<li>Längengrad → Der Längengrad des Startorts ist einzugeben, um die Distanz zu berechnen</li>
+</ul>
+<p>Die Breiten- und Längengrade eines Standorts sind über das Internet herauszufinden. Wenn nichts hinterlegt wurde, wird als Ausgangspunkt die Firmenanschrift in den Grundeinstellungen genommen.</p>
+<h3 id="api-account-erstellen">API Account erstellen<a class="headerlink" href="#api-account-erstellen" title="Permanent link">&para;</a></h3>
+<p>Im Folgenden ist nachzulesen, wie ein API Account erstellt werden kann. Folgende Vorgehensweise ist einzuhalten:</p>
+<ol>
+<li>Profil erstellen unter <a href="https://openrouteservice.org/sign-up/">https://openrouteservice.org/sign-up/</a></li>
+<li>Plan (Free) und Name auswählen. Danach auf „Create Token“-Schaltfläche klicken:</li>
+</ol>
+<ul>
+<li>Den erstellten API Key in Xentral eintragen</li>
+</ul>
+<h3 id="prozessstarter-fur-geodaten-erstellen">Prozessstarter für Geodaten erstellen<a class="headerlink" href="#prozessstarter-fur-geodaten-erstellen" title="Permanent link">&para;</a></h3>
+<p>Sollen die Geodaten der Kunden für die automatische Berechnung der Kilometer einer Fahrt benutzt werden, wird ein Hintergrundprozess benötigt, der die Stammdaten mit den Geodaten befüllt. Dazu ist unter Administration → Einstellungen → System → Prozessstarter ein neuer Prozessstarter mit folgenden Werten zu erstellen:</p>
+<ul>
+<li>Bezeichnung→ Als Bezeichnung ist &ldquo;Openstreetmap&rdquo; einzugeben</li>
+<li>Art→ Aus dem Drop-Down-Menü ist als Art &ldquo;periodisch&rdquo; auszuwählen</li>
+<li>Wochentag→ Aus dem Drop-Down-Menü ist &ldquo;Jeden Tag&rdquo; auszuwählen</li>
+<li>Startzeit→ Es ist die vorgegebene Startzeit zu belassen</li>
+<li>Letzte Ausführung→ Es ist die vorgegebene Endzeit zu belassen</li>
+<li>Periode→ Als Periode ist 1500 in min. anzugeben</li>
+<li>Typ→ Als Typ ist &ldquo;Cronjob&rdquo; aus dem Drop-Down-Menü auszuwählen</li>
+<li>Parameter→ Als Parameter ist &ldquo;openstreetmap&rdquo; einzugeben</li>
+<li>Aktiv→ Durch Anhaken wird der Prozessstarter aktiviert</li>
+</ul>
+<p>Der Prozessstarter füllt nach und nach die beiden Felder &ldquo;Geodaten&rdquo; unter Adressen → Details → Sonstige Daten.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es werden pro Tag maximal 2500 Adressen mit dem Prozessstarter verarbeitet, da die API von Openstreetmap nur diese Anzahl erlaubt. Daher sollte der Prozessstarter auf 25 Stunden (Periode = 1500 Minuten) gestellt sein.</p>
+</blockquote>
+<h2 id="fahrten-buchen-uber-die-zeiterfassung">Fahrten buchen über die Zeiterfassung<a class="headerlink" href="#fahrten-buchen-uber-die-zeiterfassung" title="Permanent link">&para;</a></h2>
+<p>Unter Team → Zeiterfassung kann eine Zeit für die Fahrt gebucht werden, indem alle relevanten und zusätzlichen Felder für die Fahrt im unteren Bereich der Seite befüllt werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bis Version 21.1 unter Mein Bereich → Zeiterfassung.</p>
+</blockquote>
+<p>Um die Fahrt buchen zu können, sind folgende Angaben zu tätigen:</p>
+<ul>
+<li>Buchen → Der Haken muss bei &ldquo;Buchen&rdquo; gesetzt sein, um sicherzustellen, dass die Fahrt im Fahrtenbuch gebucht wird</li>
+<li>Fahrzeug → Aus der Liste ist das Fahrzeug auszuwählen, alternativ ist ein anderes einzugeben. Jedoch sollten hier eingetragene Fahrzeuge zuvor in xentral angelegt worden sein</li>
+<li>Strecke → Die gefahrene Strecke mit den jeweiligen Destinationen ist einzugeben</li>
+<li>Kilometer → Die gefahrene Kilometerzahl ist einzugeben</li>
+</ul>
+<h3 id="vorlagen-in-der-zeiterfassung-verwenden">Vorlagen in der Zeiterfassung verwenden<a class="headerlink" href="#vorlagen-in-der-zeiterfassung-verwenden" title="Permanent link">&para;</a></h3>
+<p>Wenn im Modul &ldquo;Fahrtenbuch&rdquo; im Tab &ldquo;Vorlagen&rdquo; Einträge hinterlegt wurden, dann können diese im Feld „Strecke“ gesucht und ausgewählt werden.</p>
+<h3 id="strecke-automatisch-durch-geodaten-laden">Strecke automatisch durch Geodaten laden<a class="headerlink" href="#strecke-automatisch-durch-geodaten-laden" title="Permanent link">&para;</a></h3>
+<p>Wenn ein Kunde mit vollständiger Adressangabe hinterlegt wurde, können mit einem Klick auf die „Strecke und Kilometer laden“-Schaltfläche die Strecke und Kilometeranzahl automatisch ausgefüllt werden. Voraussetzung hierfür ist, dass in den Adressdaten die entsprechenden Längen- und Breitengrade gefüllt sind.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<p>Problem: Die Tabelle unter Fahrten bleibt leer, obwohl Fahrten gebucht wurden.</p>
+<p>Lösung: Falls dieser Fehler auftritt, fülle bitte einmal die Felder &ldquo;von&rdquo;, &ldquo;bis&rdquo;, &ldquo;Kunde&rdquo;, &ldquo;Fahrer&rdquo; und &ldquo;Kennzeichen&rdquo; und leere diese wieder komplett. Danach sollte die Tabelle gefüllt sein. Dies muss pro Benutzer erfolgen.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7317606468636 Webhooks Erstellen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>7317606468636 Webhooks Erstellen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>7317606468636 Webhooks Erstellen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das Webhooks-Feature ist ab Version 23.2.3 für alle Nutzer verfügbar.</p>
+<p>Da sich das Feature momentan in der Beta-Phase befindet, beobachten wir es genau und möchten sicherstellen, dass alle Events korrekt ausgelöst werden. Sind dir Probleme aufgefallen? Dann kontaktiere uns unter: api[at]xentral.com.</p>
+</blockquote>
+<p>Ein Webhook erlaubt es dir, Informationen über Ereignisse in Xentral, sogenannte Events, in einem externen System zu empfangen. Du kannst zum Beispiel eine Benachrichtigung in deiner Anwendung erhalten, sobald ein neuer Auftrag erstellt wird. Diese Information wird über eine HTTP POST-Anfrage an dein externes System gesendet.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Zusätzliche technische Informationen zu Webhooks und möglichen Events findest du in derEntwicklerdokumentation.</p>
+</blockquote>
+<h2 id="webhooks-erstellen">Webhooks erstellen<a class="headerlink" href="#webhooks-erstellen" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das Erstellen von Webhooks erfordert Administrator-Rechte.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um einen Webhook zu erstellen:</p>
+<ol>
+<li>Navigiere zu Einstellungen &gt; Integrationen &gt; Webhooks. Eine Liste aller aktiv verwendeten Webhooks wird angezeigt.</li>
+<li>Klicke auf + Webhook erstellen. Sind keine Webhooks aktiv, findest du die Schaltfläche in der Mitte des Bildschirms. Ansonsten findest du sie auf der rechten Seite über deiner Liste.</li>
+<li>Gib einen eindeutigen Namen für deinen Webhook ein. Der Name darf aus maximal 100 Zeichen bestehen.</li>
+<li>Gib den URL-Endpunkt ein, der Informationen vom Webhook erhalten soll. Es sind nur sichere https-URLs erlaubt. Die URL darf aus maximal 255 Zeichen bestehen.</li>
+<li>Achte auf den Signaturschlüssel. Er wird in deine Zwischenablage kopiert, sobald du die Erstellung des Webhooks abgeschlossen hast. Dieses Feld wird automatisch mit einer zufälligen 20-stelligen Zeichenfolge gefüllt, welche als Signaturschlüssel dient. Wenn du möchtest, kannst du ihn mit einer eigenen Zeichenfolge von 20 bis 255 Zeichen überschreiben oder den Schlüssel selbst in die Zwischenablage kopieren, indem du auf im Feld Signaturschlüssel klickst und die Zeichenfolge kopierst.</li>
+<li>Wähle ein Event aus. Du kannst bei Bedarf auch mehrere Events auswählen. Der Webhook sendet immer dann Informationen an den Endpunkt, sobald eines der Events eintritt.</li>
+<li>Klicke auf Erstellen. Der Signaturschlüssel wird in die Zwischenablage kopiert und erscheint ein letztes Mal auf dem Bildschirm. Klicke auf, um sicher zu stellen, dass der Schlüssel kopiert wurde.</li>
+<li>Schließe das Fenster.</li>
+</ol>
+<p>Dein neuer Webhook wird in der Liste der aktiven Webhooks angezeigt. In der Übersicht kannst du die URL-Endpunkte und zugehörigen Events deiner Webhooks schnell erkennen</p>
+<h2 id="webhooks-bearbeiten-und-loschen">Webhooks bearbeiten und löschen<a class="headerlink" href="#webhooks-bearbeiten-und-loschen" title="Permanent link">&para;</a></h2>
+<p>Alle Webhooks sind unter<img alt="createbookmark_x21.png" src="https://help.xentral.com/hc/article_attachments/7952128515356" /></p>
+<p>Einstellungen &gt; Integrationen &gt; Webhooksgelistet. Wenn du auf<img alt="PenIcon.png" src="https://help.xentral.com/hc/article_attachments/7952128603676" /></p>
+<p>Bearbeitenklickst, hast du zwei Optionen:</p>
+<ul>
+<li>Einstellungen bearbeiten - Du kannst den Namen, URL-Endpunkt und Signaturschlüssel ändern sowie Events zum Webhook hinzufügen oder entfernen. Falls du den Signaturschlüssel änderst, musst du ihn auch in deiner externen Anwendung anpassen.</li>
+<li>Webhook löschen - Klicke auf Webhook löschen unterhalb der Liste von Events und bestätige die Löschung. Das externe System wird nun keine neuen Informationen mehr über Events in Xentral erhalten.</li>
+</ul>
+<h2 id="signatur-des-webhooks-uberprufen">Signatur des Webhooks überprüfen<a class="headerlink" href="#signatur-des-webhooks-uberprufen" title="Permanent link">&para;</a></h2>
+<p>Der Header des HTTP-Requests des Webhooks besteht aus der <code>xentral-signature</code> und dem <code>xentral-request-timestamp</code>.</p>
+<p>Die <code>xentral-signature</code> kannst du wie folgt überprüfen:</p>
+<ol>
+<li>Bilde die Nachricht aus dem <code>RequestBody</code> und dem<code>xentral-request-timestamp</code>. Hierzu gibst du den<code>RequestBody</code>ein und fügst diesem den<code>xentral-request-timestamp</code> ohne Leerzeichen oder ähnliches direkt an.</li>
+<li>Generiere einen <code>HMAC</code> aus der Nachricht und dem Signaturschlüssel mithilfe einer<code>SHA-256</code> Hashfunktion. DerSignaturschlüssel dient hierbei als<code>Secret Key</code>.</li>
+<li>Vergleiche den hexadezimalen Output des HMAC mit der <code>xentral-signature</code> im Header des HTTP-Requests. Diese sollten identisch sein.</li>
+</ol>
+<p>Wir können dies an einem Beispiel mit den folgenden Werten nachvollziehen:</p>
+<ul>
+<li><code>RequestBody</code>: <em>{&ldquo;type&rdquo;:&rdquo;com.xentral.salesOrder.protocolCreated.v1&rdquo;,&rdquo;body&rdquo;:{&ldquo;createdAt&rdquo;:&rdquo;2024-05-28T17:30:07+02:00&rdquo;,&rdquo;salesOrderId&rdquo;:169,&rdquo;salesOrderProtocolId&rdquo;:586}}</em>-<code>xentral-request-timestamp</code>: * 1716910210 <em>-<code>Secret Key</code>: * e4nRJ04Ss2m3EkQxn19V</em></li>
+</ul>
+<p>Dies führt zur folgenden Nachricht:</p>
+<p>Nachricht: <em>{&ldquo;type&rdquo;:&rdquo;com.xentral.salesOrder.protocolCreated.v1&rdquo;,&rdquo;body&rdquo;:{&ldquo;createdAt&rdquo;:&rdquo;2024-05-28T17:30:07+02:00&rdquo;,&rdquo;salesOrderId&rdquo;:169,&rdquo;salesOrderProtocolId&rdquo;:586}}1716910210 * Nachricht und <code>Secret Key</code> ergeben die folgende <code>xentral-signature</code> im Hexadezimal-Code bei Benutzung eines <code>HMAC</code> mit <code>SHA-256</code>: </em>67b9db5fbe8add6c5b073f42091f593e994de32c83741573015442c154214bcf*.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

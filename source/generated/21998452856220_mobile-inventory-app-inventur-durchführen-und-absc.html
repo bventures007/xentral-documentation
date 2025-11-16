@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21998452856220 Mobile Inventory App Inventur Durchführen Und Absc - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>21998452856220 Mobile Inventory App Inventur Durchführen Und Absc</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>21998452856220 Mobile Inventory App Inventur Durchführen Und Absc</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Dieser Artikel beschreibt Schritt für Schritt, wie du die Inventur mithilfe der Mobile Inventory App durchführst.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Vor der eigentlichen Durchführung der Inventur solltest du einige vorbereitende Arbeitsschritte erledigen.<strong>Am wichtigsten</strong>: Alle Operations in Xentral sollten bei Start der Inventur still stehen, die globalen Prozessstarter deaktiviert und alle Aufträge im Versandzentrum und Logistikprozessen abgearbeitet sein.</p>
+<p>Schau dir den ArtikelMobile Inventory App: Prozessempfehlungen und Vorbereitung der Inventuran und befolge die Anweisungen sorgfältig, bevor du mit der Inventur startest. So vermeidest du Komplikationen während und nach der Inventur.</p>
+</blockquote>
+<h2 id="schritt-1-in-die-app-einloggen">Schritt 1: In die App einloggen<a class="headerlink" href="#schritt-1-in-die-app-einloggen" title="Permanent link">&para;</a></h2>
+<p>Logge dich zunächst auf deinem MDE-Gerät in die Mobile Inventory App ein.</p>
+<ol>
+<li>Scanne mit deinem Gerät den QR-Code unter <strong>Einstellungen &gt; Grundeinstellungen &gt; Benutzerverwaltung &gt; Benutzer verwalten &gt; Benutzer öffnen &gt; Tab: Mobile Apps</strong>.</li>
+<li>Gib den vierstelligen PIN für den App-Login ein.</li>
+<li>In der App siehst du nun folgende Ansicht:</li>
+</ol>
+<h2 id="schritt-2-inventurlauf-anlegen-und-starten">Schritt 2: Inventurlauf anlegen und starten<a class="headerlink" href="#schritt-2-inventurlauf-anlegen-und-starten" title="Permanent link">&para;</a></h2>
+<p>Im zweiten Schritt erstellst du einen so genannten Inventurlauf. Damit legst du ganz genau nach deinen Wünschen fest, welche Lagerplätze in welchem Lager von welchen Mitarbeitern gezählt werden sollen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Je nachdem, ob du als Inventurleiter fungierst oder Lagermitarbeiter bist, unterscheidet sich der Ablauf:</p>
+<p>-<strong>Als Inventurleiter </strong>: Im Tab <strong>Neuen Lauf starten </strong> kannst du beliebig viele Inventurläufe anlegen. Die Lagermitarbeiter, die die Inventur durchführen, sehen die vorbereiteten Inventurläufe dann später im Tab <strong>Meine Läufe</strong>, sobald sie sich mit ihren Geräten einloggen.
+-<strong>Als Lagermitarbeiter </strong>: Im Tab <strong>Meine Läufe</strong> kannst du die Inventurläufe sehen, die der Inventurleiter im Vorfeld angelegt und dir zugewiesen hat. Du kannst die Läufe von hier aus direkt starten.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um einen neuen Inventurlauf anzulegen:</p>
+<ol>
+<li>Stelle sicher, dass du dich im Tab <strong>Neuen Lauf</strong> der App befindest.</li>
+<li>Tippe auf das Lager, in dem die Inventur durchgeführt werden soll.</li>
+<li>Gib zunächst die Namen des Zählers und des Controllers (Prüfers) ein. Dazu kannst du ihre Namen manuell im entsprechenden Feld eingeben oder rechts auf das Aktions-Menü tippen, um eine Liste aller in deiner Xentral-Instanz vorhandenen Benutzer anzuzeigen und den gewünschten Eintrag auszuwählen.</li>
+<li>Wähle nun die Lagerplätze aus, deren Bestände gezählt werden sollen. Tippe dazu auf das Aktions-Menü rechts.</li>
+<li>Tippe auf <strong>Ok</strong>, nachdem du alle gewünschten Lagerplätze ausgewählt hast.</li>
+</ol>
+<p>Nachdem du wie oben beschrieben einen Inventurlauf angelegt hast, können du und deine Lagermitarbeiter die Inventur starten.</p>
+<h2 id="schritt-3-zahlung-pro-lagerplatz-durchfuhren">Schritt 3: Zählung pro Lagerplatz durchführen<a class="headerlink" href="#schritt-3-zahlung-pro-lagerplatz-durchfuhren" title="Permanent link">&para;</a></h2>
+<p>Nun beginnst du die Inventur, indem du den Inventurlauf in der App öffnest.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Ab jetzt kann die App auch offline verwendet werden. Sobald wieder eine Internetverbindung besteht, werden die Zählergebnisse automatisch an den Server übertragen und gesichert. Dabei finden noch keine Anpassungen der Lagerbestände statt. Bitte stelle daher sicher, in regelmäßigen Abständen einen Bereich im Lager aufzusuchen, in dem gute Netzabdeckung herrscht. Im Fall von kurzfristig defekten MDE-Geräten sind dann Zwischenergebnisse in Xentral gespeichert.</p>
+</blockquote>
+<p>In der Liste der Lagerplätze siehst du am oberen Eintrag, welchen Lagerplatz du zuerst zählst.</p>
+<p><img alt="inventory_list_storage_locations-de.jpg" src="https://help.xentral.com/hc/article_attachments/21998465164188" /></p>
+<p>Gehe zu diesem Lagerplatz und scanne den Barcode des Lagerplatzes. Nach diesem Schritt kannst du die Zählung der Produkte beginnen. Scanne dazu ein Artikelexemplar nach dem anderen. Der Prüfer steht dabei neben dir und stellt sicher, dass alle vorhandenen Artikelexemplare vollständig erfasst werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Möchtest du Artikel mitSeriennummernerfassen? Die Option <strong>Seriennummern</strong> in den App-Einstellungen ist standardmäßig aktiviert. Bevor du einen Artikel mit Seriennummer für die Inventur scannst, aktiviere zusätzlich die Serienerfassung über den Button, der rechts neben dem Artikel in der Zähl-Ansicht angezeigt wird.</p>
+<p><strong>Achtung</strong>: Wenn du diese Einstellung nicht aktivierst und trotzdem Artikel mit Seriennummern in der App scannst, werden die die im System vorhandenen Seriennummern-Informationen unwiderruflich gelöscht!</p>
+</blockquote>
+<p>Nach Erfassung aller Artikel scannst du erneut den Lagerplatz-Barcode, um die Zählung für diesen Lagerplatz abzuschließen. Die App aktualisiert nun die Liste der Lagerplätze und du kannst genauso mit dem nächsten Lagerplatz in der Liste fortfahren.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Mit dem abschließenden Scan des Lagerplatzes bestätigst du diesen Lagerplatz als fertig gezählt. Das bedeutet, dass du die gezählten Bestände ab diesem Zeitpunkt nicht mehr korrigieren oder anpassen kannst!</p>
+</blockquote>
+<h2 id="schritt-4-inventurlauf-abschlieen">Schritt 4: Inventurlauf abschließen<a class="headerlink" href="#schritt-4-inventurlauf-abschlieen" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Um den Inventurlauf abzuschließen, musst du wieder über eine Internetverbindung verfügen!</p>
+</blockquote>
+<p>Nachdem die Zählung aller Lagerplätze abgeschlossen ist, zeigt die App dir automatisch einen Abschluss-Screen an. Alternativ kannst du in der Liste der Lagerplätze oben rechts auf die <strong>drei Punkte </strong> und dann auf <strong>Abschließen &amp; unterschreiben</strong> tippen.</p>
+<p><img alt="mia-end-run-button-de.jpg" src="https://help.xentral.com/hc/article_attachments/21998465165724" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst den Lauf auch abschließen, wenn nicht alle Lagerorte vollständig gezählt wurden. Beachte jedoch, dass dieser Schritt nicht umkehrbar ist. Du kannst einen beendeten Lauf später nicht erneut öffnen, um die Zählung fortzusetzen, sondern musst einen neuen Inventurlauf starten.</p>
+<p>Möchtest du einen Lauf trotz unvollständiger Zählung abschließen, zeigt die App dir folgende Warnung an, die du mit <strong>Abschließen</strong> bestätigen musst:</p>
+</blockquote>
+<p>Nun fordert die App nacheinander den Zähler und Prüfer auf, den Abschluss der Zählung per Unterschrift zu bestätigen.</p>
+<p><img alt="mia-signature-counter-de.jpg" src="https://help.xentral.com/hc/article_attachments/21998465173404" /></p>
+<p><img alt="mia-signature-controller-de.jpg" src="https://help.xentral.com/hc/article_attachments/21998465174940" /></p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Sobald die Unterschriften in der App vorgenommen werden, werden die gezählten Bestände final in Xentral festgeschrieben und damit die gezählten Bestände für die gezählten Lagerplätze übernommen. Dieser Schritt ist nicht mehr umkehrbar! Wenn also beispielsweise weniger oder mehr Artikel bei der Inventur gezählt wurden, als zuvor lagernd waren, siehst du demnach in solchen Fällen auch abweichende Bestände in Xentral. Eine Übersicht über die Bestandsabweichungen, die sich durch die Inventur ergeben, erhältst du mit dem so genannten Delta Report. Weitere Informationen zu dieser Auswertung findest du im ArtikelMobile Inventory App: Mobiler Inventurbericht und Delta Report.</p>
+<p>Falls Lagerplätze beim Abschluss der Inventur in der App als <strong>nicht abgeschlossen</strong> angezeigt werden, weil keine oder keine vollständige Zählung durchgeführt wurde, werden deren Bestände nicht in Xentral angepasst, sondern bleiben logischerweise unverändert.</p>
+</blockquote>
+<h2 id="schritt-5-arbeiten-in-xentral-wieder-aufnehmen">Schritt 5: Arbeiten in Xentral wieder aufnehmen<a class="headerlink" href="#schritt-5-arbeiten-in-xentral-wieder-aufnehmen" title="Permanent link">&para;</a></h2>
+<p>Nach dem Abschluss des Inventurlaufs kannst du deine täglichen Arbeiten in Xentral wieder aufnehmen. Dazu reaktivierst du zuerst alle Prozessstarter, um jegliche durch das System automatisierten Vorgänge wieder zu starten. Anschließend kannst du wieder wie zuvor Aufträge abwickeln, das Versandzentrum nutzen und mit deinen gewohnten Logistik- und Versandprozesse wieder aufnehmen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Ein Inventurlauf ist erst abgeschlossen, wenn alle im Rahmen des Laufs zu zählenden Lagerplätze als <strong>abgeschlossen </strong> markiert wurden. Dies erkennst du in der App an dem grünen Symbol links neben den Lagerplätzen in der Lagerplatzübersicht des Laufs. Außerdem kannst du den Status der Zählung im Menü <strong>Lager &gt; Mobile Inventurberichte</strong> in Xentral nachverfolgen. Genauere Informationen zum Inventurbericht findest du im ArtikelMobile Inventory App: Mobiler Inventurbericht und Delta Report.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um die Prozessstarter in Xentral zu aktivieren.</p>
+<ol>
+<li>Nutze die Smart Search, um das Modul <strong>Prozessstarter</strong> zu öffnen.</li>
+<li>Klicke oben rechts auf <strong>Prozessstarter global aktivieren</strong>.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

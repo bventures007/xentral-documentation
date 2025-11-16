@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016760739 Kassenbuch Geschäftskonto - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016760739 Kassenbuch Geschäftskonto</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016760739 Kassenbuch Geschäftskonto</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Es ist möglich, auch direkt in xentral ein Kassenbuch zu pflegen, um Bar-Transaktionen revisionssicher für die Buchhaltung abzubilden. Außerdem kannst du über das Modul Kassenbuch laufende Buchungen sowie die regelmäßigen Kassenabschlüsse jederzeit schnell tätigen.</p>
+<p>Dieses Modul ist besonders relevant, wenn ein Kassenbuch in xentral gepflegt wird oder werden soll.</p>
+<h2 id="kassenbuch-anlegen">Kassenbuch anlegen<a class="headerlink" href="#kassenbuch-anlegen" title="Permanent link">&para;</a></h2>
+<p>Hierzu wird zunächst unter <strong>Administration &gt; Einstellungen &gt; Buchhaltung &gt; Geschäftskonten <strong>das neue Konto mit einer beliebigen Bezeichnung angelegt und als aktiv markiert. Hierbei muss der Typ </strong> Kasse <strong>ausgewählt und durch das entsprechende Häkchen verhindert werden, dass Kunden unnötige E-Mails erhalten. Außerdem besteht die Möglichkeit das neue Konto einem Projekt zuzuordnen. Ist zudem bekannt, welcher Kontenrahmen verwendet wird, kann das korrekte Konto in das Feld</strong> DATEV</strong> eingetragen werden, um der Buchhaltung bzw. der Steuerkanzlei dadurch künftig die Arbeit zu erleichtern.</p>
+<p><img alt="cashbook_settings.png" src="https://help.xentral.com/hc/article_attachments/15492895917596" /></p>
+<h3 id="anfangsbestand-anlegen">Anfangsbestand anlegen<a class="headerlink" href="#anfangsbestand-anlegen" title="Permanent link">&para;</a></h3>
+<p>Wenn das Kassenbuch angelegt wurde und das erste mal in das Kassenbuch reingegangen wird, kann ein Kassenanfangsbestand gebucht werden. Es erscheint die Meldung: &ldquo;Es gibt noch keinen Anfangsbestand in der Kasse! Bevor eine Buchung gemacht wird, kann jetzt ein Anfangsbestand definiert werden.&rdquo;</p>
+<p><img alt="cashbook_openingbalance1.png" src="https://help.xentral.com/hc/article_attachments/15492895954844" /></p>
+<p>Durch klicken auf die Schaltfläche <strong>Anfangsbestand eintragen </strong>, kann der Anfangsbestand der Kasse angegeben werden. Über die Editor-Schaltfläche kann fortan eine Auflistung aller aktuell gebuchten Transaktionen angezeigt werden. Über die Schaltfläche <strong>+NEU</strong> können über das folgende Menü Buchungen manuell erfasst werden.</p>
+<p><img alt="cashbook_openingbalance2.png" src="https://help.xentral.com/hc/article_attachments/15492862564380" /></p>
+<p>Die Feldnamen mit einem Sternchen geben Aufschluss darüber, welche Mindestangaben verpflichtend vorgenommen werden müssen, damit das System die Buchung akzeptiert. Neben dem Buchungsdatum und dem Belegfeld ist hier der Buchungsbetrag anzugeben, welcher sich aus drei Einzelfeldern zusammensetzt:</p>
+<p>-<strong>Buchungshöhe</strong>: Hier ist in jedem Fall eine positive Zahl einzutragen, welche die Höhe der Buchung widerspiegelt
+-<strong>Buchungstyp</strong>: Über das Dropdown Menü wird angegeben, ob es sich bei der Buchung um eine Einnahme oder Ausgabe handelt
+-<strong>Steuersatz</strong>: In Abhängigkeit der Voreinstellungen kann zudem ausgewählt werden, mit welchem Steuersatz die Buchung zu besteuern ist, wobei auch die Angabe von 0% zulässig ist. Sofern Buchungspositionen mit unterschiedlicher Besteuerung erfasst werden soll, sind diese als separate Buchungen zu erfassen</p>
+<p>Zu beachten ist, dass ein negatives Vorzeichen im Belegfeld grundsätzlich ignoriert wird, da der Buchungstyp gesondert auszuweisen ist. Ein negativer Betrag mit dem Typ Einnahme wird demnach vom System als &ldquo;echte&rdquo; und damit positive Einnahme gehandhabt. Im Belegfeld ist eine eindeutige Kennung einzugeben, anhand derer Rückschlüsse auf den zugrunde liegenden Geschäftsvorfall gezogen werden kann.</p>
+<p>Zusätzlich zu diesen Pflichtangaben können einige weitere Einträge vorgenommen werden, wodurch in höherem Umfang von der Anwendung profitiert werden kann. Steht die Buchung in Zusammenhang mit einem Kunden des Unternehmens, so kann dies aus den Stammdaten direkt in das Adressfeld übernommen werden. Bei bekanntem DATEV Konto kann auch dieses angegeben sowie angelegte Projekte verknüpft und Bemerkungen (in der Buchungsübersicht sichtbare oder rein interne) eingefügt werden.</p>
+<p>Da die Buchungsnummern fortlaufend vergeben werden, empfiehlt es sich, möglichst von Beginn an auf eine korrekte Erfassungsreihenfolge zu achten, um den nachträglichen Arbeitsaufwand zu minimieren. Solange jedoch noch kein Kassenabschluss durchgeführt wurde, ist es jederzeit möglich, Buchungen auch für ein zurückliegendes Datum vorzunehmen.</p>
+<p><img alt="CashBook1.png" src="https://help.xentral.com/hc/article_attachments/15492875125404" /></p>
+<p>Wie in dem Screenshot ersichtlich ist, wurde hier eine Buchung auf ein zurückliegendes Datum vorgenommen, wodurch die Reihenfolge des Kassenbuches korrigiert werden muss. Dies lässt sich am einfachsten in der Übersicht des Kassenbuchs ändern. Über die Pfeiltasten hoch bzw. runter im rechten Menübereich können einzelne Buchungen verschoben werden. Während die Buchung mithilfe der Schaltflächen an die gewünschte Position verschoben wird, wird die entsprechende Buchungsnummer automatisch korrigiert. Sollten einmal eine Buchung auf ein falsches Datum vorgenommen worden sein, kann auch dies problemlos mithilfe der Pfeiltasten korrigiert werden. Soll eine Buchung zurückdatiert werden, bewirkt ein Klick auf den Pfeil nach unten in dem entsprechenden Eintrag, dass die Buchung unter die unmittelbar vorhergehende gerückt wird.</p>
+<p><img alt="cashbook_openingbalance3.png" src="https://help.xentral.com/hc/article_attachments/15492830434460" /></p>
+<p>Ein Kassenabschluss kann durch einen Klick auf <strong>Kassenabschluss durchführen</strong> veranlasst werden. Es folgt eine Aufforderung, in der die letzte Buchung auszuwählen ist, die im Rahmen des Abschlusses noch berücksichtigt werden soll.</p>
+<p><img alt="cashbook_openingbalance4.png" src="https://help.xentral.com/hc/article_attachments/15492830497436" /></p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Nach Kassenabschluss kann das Kassenbuch nicht mehr bearbeitet werden! Es gibt keine Möglichkeit den Schreibschutz aufzuheben und Buchungen nachträglich zu ändern. Wird das Kassenbuch mit einer zukünftigen Zahlung abgeschlossen, so können keine weiteren Buchungen abgeschlossen werden, die sich vor diesem Datum befinden.</p>
+</blockquote>
+<p>Sollte der Saldo des Kassenbuchs zu einem beliebigen Zeitpunkt innerhalb des ausgewählten Festschreibungszeitpunkts einen negativen Saldo aufweisen, wird das System mit einer Fehlermeldung reagieren und keinen Kassenabschluss für den fraglichen Zeitraum durchführen, solange der Fehler nicht berichtigt worden ist. Auf diese Weise wird vor nachgelagerten Schwierigkeiten geschützt, da das Finanzamt Minusbestände in der Barkasse als schwerwiegenden Mangel wertet und als Indiz dahingehend interpretiert, dass das Kassenbuch insgesamt nicht ordnungsgemäß geführt worden sein kann.</p>
+<p>Wurden alle Einträge korrigiert und der Kassenabschluss erfolgreich durchgeführt, befinden sich die festgeschriebenen Einträge fortan unter dem Reiter <strong>Archiv</strong>. Je nach Bedarf kann in dieser Ansicht sowohl nach Einnahmen, Ausgaben und Bemerkungen gefiltert, gezielt nach Begriffen gesucht oder mit einem Klick auf das Stiftsymbol sämtliche Details einer spezifischen Einzelbuchung angesehen werden.</p>
+<p><img alt="cashbook_openingbalance5.png" src="https://help.xentral.com/hc/article_attachments/15492879603996" /></p>
+<h2 id="kassenbuch-exportieren">Kassenbuch exportieren<a class="headerlink" href="#kassenbuch-exportieren" title="Permanent link">&para;</a></h2>
+<p>Soll das Kassenbuch exportiert werden, kann dies über den Reiter <strong>Export</strong> veranlasst werden.</p>
+<p><img alt="cashbook_export1.png" src="https://help.xentral.com/hc/article_attachments/15492846750364" /></p>
+<p>Hier kann zunächst der Datumsbereich ausgewählt werden, der exportiert werden soll, bevor eine entsprechende CSV-Datei erzeugt wird. Zu beachten ist, dass hierbei nur die Buchungen exportiert werden können, nachdem für diese bereits ein Kassenabschluss durchgeführt wurde.</p>
+<p><img alt="cashbook_export2.png" src="https://help.xentral.com/hc/article_attachments/15492830597660" /></p>
+<p>Die exportierte CSV-Datei enthält dann neben der Überschrift &ldquo;Kasse&rdquo; folgende Angaben:</p>
+<ul>
+<li>Erste Zeile → Anfangsbestand</li>
+<li>Erste Spalte → Fortlaufend vergebene Buchungsnummer</li>
+<li>Zweite Spalte → Buchungsdatum</li>
+<li>Dritte Spalte → Verwendungszweck (bei Buchungen aus der POS bildet dies der Kundenname in Verbindung mit der Rechnungsnummer</li>
+<li>Vierte Spalte → Art der Buchung (Einnahme oder Ausgabe)</li>
+<li>Fünfte Spalte → Betrag</li>
+<li>Sechste Spalte → Währung</li>
+<li>Siebte Spalte → Kassenbestand</li>
+</ul>
+<h2 id="kassenbuch-im-neuen-datev-format-exportieren">Kassenbuch im &ldquo;neuen Datev-Format&rdquo; exportieren<a class="headerlink" href="#kassenbuch-im-neuen-datev-format-exportieren" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst Dateien, wie Kassenbelege, in den Kassenbuchungen hinterlegen. Sie werden jedoch nicht per DATEV übermittelt. Falls du eine Übermittlung per DATEV wünschst, musst du eine Verbindlichkeit im Zahlungseingang anlegen.</p>
+</blockquote>
+<p>Es ist möglich, das Kassenbuch auch im neuen Datev-Format zu exportieren. Dazu müssen folgende drei Schritte getätigt werden:</p>
+<p>1.<strong>Kassenabschluss für den Exportbereich durchführen </strong> Durch Drücken der Schaltfläche <strong>Kassenabschluss durchführen </strong>, muss angegeben werden, bis zu welcher Buchung der Kassenabschluss durchgeführt werden soll. Danach verschwinden die Buchungen aus dem Reiter <strong>Aktuelle Buchungen </strong> und erscheinen nun im <strong>Archiv</strong>.</p>
+<p>1.<strong>Zahlungseingang für das Kassenbuch durchführen </strong> Als nächstes ist im Zahlungseingang (<strong>Buchhaltung &gt; Zahlungseingang &gt; Kassenbuch auswählen <strong>) die Schaltfläche </strong> Live-Import</strong> auszuwählen, damit alle Buchungen geladen werden, bis zu denen ein Kassenabschluss durchgeführt wurde.</p>
+<p>Nach dem &ldquo;Live-Import&rdquo; kann nochmals der &ldquo;Buchungstext, Konto&rdquo; etc. editiert werden.</p>
+<p>Mit der Schaltfläche <strong>Buchung fertigstellen</strong> werden alle Buchungen die auf der Seite verbucht wurden fertiggestellt.</p>
+<p>1.<strong>Export der Daten im neuen Datev-Format </strong> Danach kann in den Finanzbuchhaltungsexport (<strong>Buchhaltung &gt; Finanzbuchhaltung Export &gt; Buchhaltung Konten</strong>) gewechselt werden. Hier lässt sich das entsprechende Kassenbuch nun als Konto auswählen und für den verbuchten Bereich exportieren.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

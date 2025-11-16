@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016728560 Zeiterfassung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016728560 Zeiterfassung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016728560 Zeiterfassung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="arten-der-zeiterfassung">Arten der Zeiterfassung<a class="headerlink" href="#arten-der-zeiterfassung" title="Permanent link">&para;</a></h2>
+<p>Die Zeiterfassung in xentral kann auf verschiedene Arten und Weisen verwendet werden:</p>
+<ul>
+<li>Stechuhr</li>
+<li>Zeiterfassung mit SOLL-Vorgabe buchen</li>
+<li>Zeiten ohne SOLL-Vorgabe buchen (Standard)</li>
+</ul>
+<h3 id="stechuhr">Stechuhr<a class="headerlink" href="#stechuhr" title="Permanent link">&para;</a></h3>
+<p>ÜberTeam &gt; Stechuhrkönnen die Arbeitszeiten per Stechuhr gebucht werden.</p>
+<p>Mit der Stechuhr wird die Arbeitszeit um einen Tag herum gebucht. D.h. Kommen, Gehen und Pause Start und Pause Stop. Zudem kann in der Stechuhr Urlaub und Krankheit gepflegt werden. Die Stechuhr kann auch kombiniert mit den nachfolgenden Zeiterfassungen verwendet werden. Damit können die Zeiten tagsüber auf Kunden, Projekte, Produktionen etc. gebucht werden.</p>
+<p>Die Mitarbeiterzeiterfassung mit Stechuhr ermöglicht eine Buchung auch mit Zeitvorgaben. Geeignet ist diese auch als Zeiterfassung für die Lohnabrechnung sowie ein Verbuchen von Arbeitsschritten in der Produktion. Die Stechuhr kann mit oder ohne Stechkarte genutzt werden und bietet eine detaillierte Stundenerfassung mit Übersicht pro Mitarbeiter.</p>
+<p>Wird bei der Erfassung der Arbeitsschritte kein Barcodescanner genutzt, müssen die Codes zuerst manuell ausgelesen werden, z.B. über eine Handyapp. Anschließend muss die so erhaltene Zahlenkombination händisch nach Xentral übertragen werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Stechuhr kann mit den Stempelkarten (QR-Code-Karte + QR-Scanner + Tablet) oder über die Software-Oberfläche (vom PC/Laptop aus, mit dem normalen Login) verwendet werden.</p>
+</blockquote>
+<p><a href="https://help.xentral.com/hc/de/articles/360016757839#UUID-9962561b-48ee-5e7a-8105-aa5a9d17e1d1">Stechuhr verwenden</a></p>
+<h3 id="zeiterfassung-mit-soll-vorgabe-buchen">Zeiterfassung mit SOLL-Vorgabe buchen<a class="headerlink" href="#zeiterfassung-mit-soll-vorgabe-buchen" title="Permanent link">&para;</a></h3>
+<p>Als reiner Dienstleister soll aber oft nicht klassisch, wie ein produzierendes Gewerbe, über eine Stechuhr Zeiten gebucht werden. Daher kann in dem Fall das klassische Zeiterfassungsformular von xentral genutzt und dort Zeiten von Hand lückenlos auf Arbeit, Pause, Urlaub, Krankheit, Feiertag oder Freizeitausgleich gebucht werden.</p>
+<p>Um zu sehen wieviel Stunden noch gebucht werden müssen bzw. wieviel Urlaub bereits genommen worden ist gibt es eine AppZeiterfassung Stundenübersicht. Für jeden Mitarbeiter können für jeden Monat Sollstunden bzw. Überstundentoleranzen eingestellt werden.</p>
+<p>Folgendes Szenario kann auch sinnvoll sein, z.B. die Stechuhr nur für die Stundenabrechnung/Steuerberater zu gebrauchen. Die reguläre Zeiterfassung wird zusätzlich verwendet, um bei Kunden abzurechnen und die Stunden in Dokumente zu überführen.</p>
+<p><a href="https://help.xentral.com/hc/de/articles/360016738420#UUID-07e8c029-b0a9-c2a1-9b0e-f0d8fded98f9">Zeiterfassung Stundenübersicht</a></p>
+<h3 id="zeiten-ohne-soll-vorgabe-buchen-standard">Zeiten ohne SOLL-Vorgabe buchen (Standard)<a class="headerlink" href="#zeiten-ohne-soll-vorgabe-buchen-standard" title="Permanent link">&para;</a></h3>
+<p>Hat die Firma auch keine SOLL Vorgaben können die Zeiten einfach über dieZeiterfassunggebucht werden. Über den ReiterZeiterfassung buchenerscheint eine Wochenansicht in die direkt auf die zu buchende Uhrzeit geklickt werden kann. Es öffnet sich ein neues Dialogfeld, in der Details sowie die Dauer eingetragen werden können. Über den ButtonNeue Zeit buchenöffnet sich das Dialogfeld ebenfalls. Über den ReiterEigene Zeiterfassung Übersichtkönnen die gebuchten Stunden eingesehen und bearbeitet werden.</p>
+<p>Das Buchen auf Kunden, Aufträge, Projekte etc. ermöglicht eine Abrechnung der Zeiten für einen Kunden oder ein Projekt. Hier kann aus den Zeiten ein Auftrag/Rechnung über den Stundensatz erstellt werden. Generell: In der Standard Zeiterfassung kann jeder Mitarbeiter selbstständig seine Stunden eintragen. Dies ist besonders geeignet für Mitarbeiter mit festen Arbeitszeiten oder wenn die Zeiten bei Kunden abgerechnet werden.</p>
+<h2 id="einstellungen-zeiterfassung">Einstellungen Zeiterfassung<a class="headerlink" href="#einstellungen-zeiterfassung" title="Permanent link">&para;</a></h2>
+<p>Es können zum einen systemweite Einstellungen für die Zeiterfassung vorgenommen und zum anderen kann über eine Vorlagen App für mehr Übersicht gesorgt werden.</p>
+<h3 id="systemeinstellungen">Systemeinstellungen<a class="headerlink" href="#systemeinstellungen" title="Permanent link">&para;</a></h3>
+<p>Es besteht nun die Möglichkeit einige Einstellungen individuell zu variieren. UnterAdministration &gt; Einstellungen &gt; System &gt; Grundeinstellungen &gt; Systemkönnen diese unter dem BereichZeiterfassunggetätigt werden.</p>
+<p><img alt="Time_Recording_Basic_Settings.png" src="https://help.xentral.com/hc/article_attachments/5010425562140" /></p>
+<ul>
+<li>Buchen auf andere Mitarbeiter: Auswahl, dass es Mitarbeitern gestattet sein soll, auch für Kollegen Zeiten zu buchen</li>
+<li>Feld Interner Kommentar sichtbar: Auswahl, dass das Feld &ldquo;Interner Kommentar&rdquo; in der Oberfläche für die Zeiterfassung erscheinen soll</li>
+<li>Feld Ort sichtbar: Zeigt ein zusätzliches Textfeld für eine Ortsangabe in der Oberfläche an. Hinweis: Falls die erfassten Zeiten auch an Kunden abgerechnet werden, ist der letzte Haken zwingend zu setzen, damit Sie stets die erweiterte Oberfläche für die Zeiterfassung erhalten</li>
+<li>Erweiterte Zeitangaben: Zeigt zusätzliche Optionen in der Oberfläche an, z.B. Kunde, Auftrag, Auftragserfassung. Falls die erfassten Zeiten auch an Kunden abgerechnet werden, ist dieser Haken zwingend zu setzen</li>
+<li>abrechnen vorausgewählt: Auswahl, dass der &ldquo;Abrechnen Haken&rdquo; in der Oberfläche standardmäßig gesetzt ist</li>
+<li>Zeiterfassung schließen: Es gibt die Möglichkeit ältere Buchungen zu verbieten. Dazu ist die Option Zeiterfassung schließen auszuwählen. Hier kann eingegeben werden, wie viele Tage eine gebuchte Zeit maximal in der Vergangenheit liegen darf</li>
+<li>Zeiterfassungspflicht: Ebenfalls ist es möglich xentral prüfen zu lassen, ob die Mitarbeiter am letzten Werktag Zeiten gebucht haben. Ist dies nicht der Fall, gelangt der Mitarbeiter automatisch auf das Formular zum Zeiten buchen mit entsprechender Meldung.</li>
+</ul>
+<p><img alt="Time_Recording_Basic_Settings_Example.png" src="https://help.xentral.com/hc/article_attachments/5010421040028" /></p>
+<p>Im Beispiel oben bedeutet das: Der Mitarbeiter kann höchstens 3 Tage alte Zeitbuchungen nachtragen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Um einen Benutzer von dieser Regel auszunehmen, kann diesem imRechteblock Zeiterfassung das Rechtbearbeiten erlaubengegeben werden.</p>
+</blockquote>
+<h2 id="app-zeiterfassung-vorlagen">App &ldquo;Zeiterfassung Vorlagen&rdquo;<a class="headerlink" href="#app-zeiterfassung-vorlagen" title="Permanent link">&para;</a></h2>
+<p>Wenn verschiedene Tätigkeiten über festgelegte Bezeichnungen abgebildet werden sollen, kann das in der Zeiterfassung integriert werden. Im App Center kann die AppZeiterfassung Vorlageaufgerufen und eine neue Vorlage erzeugt werden. Über+NEUkann in das FeldBeschreibungdie gewünschte Bezeichnung eingetragen werden.</p>
+<p>Wenn Mitarbeiter künftig nun Zeiten buchen, werden durch einen Klick auf das Lupensymbol neben dem Beschreibungsfeld alle vorhandenen Vorlagen eingeblendet und können daraufhin ausgewählt werden.</p>
+<h3 id="abrechnung-von-zeiten-mit-datum-ohne-zeitangabe">Abrechnung von Zeiten mit Datum ohne Zeitangabe<a class="headerlink" href="#abrechnung-von-zeiten-mit-datum-ohne-zeitangabe" title="Permanent link">&para;</a></h3>
+<p>Bei der Abrechnung von Zeiten kann auch die Optionmarkierte Zeiten mit Datum in Rechnung oder Auftrag überführenausgewählt werden, wodurch dann zwar das Datum auf das Dokument abgedruckt wird, nicht jedoch die Zeiten.</p>
+<h2 id="erfassung-von-zeiten">Erfassung von Zeiten<a class="headerlink" href="#erfassung-von-zeiten" title="Permanent link">&para;</a></h2>
+<p>Mitarbeiter können in xentral ihre Arbeits- und Pausezeiten unterTeam &gt; Zeiterfassungregistrieren. Für die Zeiterfassung sind folgenden drei Reiter relevant:</p>
+<ul>
+<li>Zeiterfassung buchen</li>
+<li>Eigene Zeiterfassung Übersicht</li>
+<li>Stundenübersicht</li>
+</ul>
+<h2 id="zeiterfassung-buchen">Zeiterfassung buchen<a class="headerlink" href="#zeiterfassung-buchen" title="Permanent link">&para;</a></h2>
+<h3 id="kalenderansicht">Kalenderansicht<a class="headerlink" href="#kalenderansicht" title="Permanent link">&para;</a></h3>
+<p>Im TabZeiterfassung buchenkönnen Zeiten direkt in den Kalender eingetragen werden. Darüber hinaus wird hier auch das Buchen von negativen Zeiten unterbunden.</p>
+<p>Mit einem Klick in den Kalender öffnet sich ein neues Fenster. Der Tag und die Uhrzeit der Stelle auf die im Kalender geklickt wurde, ist bei der Zeitbuchung vorausgewählt, kann aber beliebig verändert werden. Klicke einen bereits bestehenden Termin an, um ihn zu bearbeiten. Das gleiche Fenster, welches bei der Erstellung erscheint, öffnet sich und der Termin kann angepasst werden. Des Weiteren kann die Länge eines Termins über das = Symbol schnell geändert werden. Hierzu ist auf das Symbol zu klicken und die Maus gedrückt zu halten, während der Balken des Termins in der Länge angepasst werden kann. Durch Drag&amp;Drop lassen sich gebuchte Zeiten einfach verschieben.</p>
+<p>In der Übersicht rechts können weitere Einstellungen und Aktionen getätigt werden:</p>
+<ul>
+<li>Termine aus Kalender: zeigt alle weiteren Termine aus dem Kalender an</li>
+<li>Stechuhrzeiten einblenden: zeigt alle Termine an, die über die Stechuhr gebucht wurden</li>
+<li>Neue Zeit buchen: einen neuen Termin erstellen</li>
+<li>Formular-Ansicht als Standard: Auswahl zwischen &ldquo;normalem&rdquo; Zeitbuchungsformular und der Kalender-Ansicht als Standard</li>
+</ul>
+<h3 id="formular">Formular<a class="headerlink" href="#formular" title="Permanent link">&para;</a></h3>
+<p>Unter dem ReiterZeiterfassung buchenkann in der AnsichtFormulardie Arbeitszeit eingetragen werden.</p>
+<p><img alt="Time_Recording_Form.png" src="https://help.xentral.com/hc/article_attachments/5010421062044" /></p>
+<ul>
+<li>Am: Angabe von Datum und Uhrzeit von wann bis wann der Termin gebucht werden soll. Für eine schnelle Buchung stehen die grünen Buttons (15 Min, 30 Min,&hellip;) zur Verfügung</li>
+<li>Art/Tätigkeit: Angabe ob es sich bei dem Termin um Arbeit, Pause, Urlaub, Krankheit, Freizeitausgleich oder Feiertag handelt. Im hinteren Feld kann die Tätigkeit spezifiziert werden. Hierbei ist zu beachten, dass Pausen als Art gesondert als Pausen gebucht werden müssen (Also nicht Art: Arbeit, Tätigkeit: Pausen), da sonst die Pausenzeit als Arbeitszeit gezählt wird.</li>
+<li>für andere Mitarbeiter Zeit buchen: soll für einen anderen Mitarbeiter eine Zeit gebucht werden, so ist dieser Haken zu setzten</li>
+<li>Auswahl Mitarbeiter: dieses Feld erscheint, wenn das Kontrollkästchenfür andere Mitarbeiter Zeit buchenaktiviert ist. Für die in diesem Feld ausgewählte Adresse ist die vorhandene Mitarbeiternummer relevant</li>
+<li>Details: genauere Angaben des Termins</li>
+<li>Interner Kommentar: Kommentar für interne Zwecke</li>
+<li>Ort: Angabe eines Ortes. Dies ist vor allem bei externen Terminen von Bedeutung</li>
+<li>GPS Daten laden: laden von GPS Daten</li>
+<li>Projekt: Zuordnung eines Projekts</li>
+<li>Teilprojekt: Zuordnung zu einem Teilprojekt</li>
+<li>Kunde: Zuordnung eines Kunden</li>
+<li>Auftrag:</li>
+<li>Auftragsposition:</li>
+<li>Produktion:</li>
+<li>Serviceauftrag:</li>
+<li>Abrechnen: Haken setzen, falls eine erfasste Arbeitszeit später beim Kunden abgerechnet werden soll</li>
+<li>Buchen: Zeit in das Fahrtenbuch buchen</li>
+<li>Fahrzeug: Angabe des Fahrzeugs</li>
+<li>Strecke: Angabe der gefahrenen Strecke</li>
+<li>Kilometer: Angabe der gefahrenen Kilometer</li>
+</ul>
+<p>Die Angabe des Datums und der Zeitspanne sind, ebenso wie eine Kurzbeschreibung, Pflicht. Optional kann eine ausführliche Beschreibung der Tätigkeit und der Ausführungsort ergänzt werden. Für die Bestimmung des Ortes können auch die GPS Daten eines Endgeräts herangezogen werden, sofern diese Funktion unterstützt wird und freigegeben ist. Das Buchen von negativen Zeiten ist nicht möglich. Das Buchen von Zeit auf Auftragspositionen ist für Artikel möglich, die als &ldquo;Dienstleistung&rdquo; markiert sind. Andere Artikel werden in der Zeiterfassung nicht vorgeschlagen. In der Zeiterfassung wird das FeldAuftragspositionverwendet.</p>
+<h3 id="besonderheit-abgeschlossene-projekte">Besonderheit abgeschlossene Projekte<a class="headerlink" href="#besonderheit-abgeschlossene-projekte" title="Permanent link">&para;</a></h3>
+<p>Es kann nicht auf bereits abgeschlossene Projekte gebucht werden. Abgeschlossene Projekte erscheinen deshalb nicht im Dropdown-Menü imProjektfeld.</p>
+<h2 id="ubersicht">Übersicht<a class="headerlink" href="#ubersicht" title="Permanent link">&para;</a></h2>
+<p>Im BereichÜbersichtauf der rechten Seite besteht die Möglichkeit das Datum auf vergangene Tage/Wochen zu stellen, um einen Überblick über die dort gearbeitete Stundenanzahl zu bekommen. Mit demzurück/vorwärtsButtons kann tageweise nach vorne/hinten gesprungen werden. Mit demDatumsfeld kann gleich ein genaues Datum ausgewählt werden.</p>
+<p><img alt="Time_Recording_Overview.png" src="https://help.xentral.com/hc/article_attachments/5010450449820" /></p>
+<p>Dadurch ist es komfortabler möglich vergangene Zeiten nachzutragen.</p>
+<h2 id="eigene-zeiterfassung-ubersicht">Eigene Zeiterfassung Übersicht<a class="headerlink" href="#eigene-zeiterfassung-ubersicht" title="Permanent link">&para;</a></h2>
+<p>Unter dem ReiterEigene Zeiterfassung Übersichtbefindet sich eine Auflistung der gebuchten Zeiten.</p>
+<p>Hierbei kann über den Filter der Zeitraum eingegrenzt werden.</p>
+<h2 id="ubersicht-uber-erfasste-zeiten">Übersicht über erfasste Zeiten<a class="headerlink" href="#ubersicht-uber-erfasste-zeiten" title="Permanent link">&para;</a></h2>
+<p>ÜberTeam &gt; Zeitkontengibt es drei unterschiedliche Übersichten über erfasste Zeiten.</p>
+<h3 id="zeitkonto-kunde">Zeitkonto Kunde<a class="headerlink" href="#zeitkonto-kunde" title="Permanent link">&para;</a></h3>
+<p>Unter dem ReiterZeitkonto Kundenbefindet sich eine Liste aller Kunden, auf die Zeiten zum Abrechnen gebucht wurden.</p>
+<h3 id="zeitkonto-mitarbeiter">Zeitkonto Mitarbeiter<a class="headerlink" href="#zeitkonto-mitarbeiter" title="Permanent link">&para;</a></h3>
+<p>Unter dem ReiterZeitkonto Mitarbeiterwerden alle durch Mitarbeiter erfasste Zeiten aufgelistet.</p>
+<h3 id="zeitkonto-kalenderansicht">Zeitkonto Kalenderansicht<a class="headerlink" href="#zeitkonto-kalenderansicht" title="Permanent link">&para;</a></h3>
+<p>Unter dem ReiterZeitkonto Kalenderansichtwerden alle gebuchten Zeiten im Kalender ersichtlich.</p>
+<h2 id="abrechnung-von-erfassten-zeiten-bei-kunden">Abrechnung von erfassten Zeiten bei Kunden<a class="headerlink" href="#abrechnung-von-erfassten-zeiten-bei-kunden" title="Permanent link">&para;</a></h2>
+<p>Über die AnsichtTeam &gt; Zeitkontenkann im ReiterZeitkonto Kundendie Abrechnung gebuchter Zeiten angestoßen werden.</p>
+<p>Hierzu ist auf das Editier-Symbol (Stift) eines Kunden in der Liste zu klicken, um die Detailansicht mit einer Auflistung der auf diesen Kunden gebuchten Zeiten zu öffnen. In dieser Ansicht kann die Rechnungsstellung über die entsprechende Schaltfläche am Ende der Seite angestoßen werden. Zeitbuchungen können in dieser Übersicht als abgerechnet oder nicht abgerechnet markiert werden.</p>
+<p>Im nächsten Schritt muss den Zeiten noch einen Artikel zugewiesen werden - das kann z.B. ein Stundensatz sein, der auf dem Beleg für die Zeiten erscheinen soll. Es kann für jede einzelne Zeit, die abgerechnet werden soll, ein eigener Stundensatz definiert werden.</p>
+<p>Es kann weiterhin ein allgemeiner Artikel unten angeben werden, der auch verwendet wird solange das FeldAbweichender Artikelnicht gefüllt wird. Es ist auch eine Kombination möglich, dass unten ein Stundensatz angegeben wird und z.B. aus 10 Zeiten nur 2 individuell belegt werden - beim Rest wird der allgemeine Artikel gezogen.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

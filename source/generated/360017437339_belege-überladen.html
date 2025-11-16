@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360017437339 Belege Überladen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360017437339 Belege Überladen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360017437339 Belege Überladen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="briefpapier-uberladen">Briefpapier überladen<a class="headerlink" href="#briefpapier-uberladen" title="Permanent link">&para;</a></h2>
+<p>Falls für das Briefpapier weitere Informationen benötigt werden, wie zum Beispiel zusätzlich bei einer Artikelposition zur Artikelbeschreibung das Gewicht oder die Höhe, so kann ein eigenes Briefpapier zum Überladen angelegt werden.</p>
+<p>Die Datei die das Briefpapier überladen soll, muss class.briefpapier_custom.php heißen. Diese Datei muss im Xentral ordner nach www/lib/dokumente hochgeladen werden und ist dann für alle Belege gültig.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Den Quellcode kannst du dir aus der Datei aus der Open Source Version holen.</p>
+</blockquote>
+<p>Im folgenden Beispiel soll zusätzlich das Gewicht sowie die Höhe, Breite, Länge und Ursprungsregion des Artikels zur Artikelbeschreibung einer Position hinzugefügt werden.</p>
+<p>Bisher gibt es noch kein Custom Briefpapier, weshalb das Briefpapier vorerst wie in den Standardeinstellungen festgelegt aussieht:</p>
+<p><img alt="Briefpapier-1.png" src="https://help.xentral.com/hc/article_attachments/4996403325212" /></p>
+<p>Als Erstes ist die Datei class.briefpapier_custom.php zu erstellen. Das Grundgerüst für das Custom Briefpapier sieht wie folgt aus:</p>
+<pre><code>?php
+
+include_once &quot;class.briefpapier.php&quot;;
+
+class BriefpapierCustom extends Briefpapier {
+
+function __construct(&amp;$app) { $this-&gt;app = $app; parent::__construct($app);} 
+
+}?&gt;
+```Als Nächstes ist die Datei class.briefpapier.php zu öffnen, die derzeit für das Layout des Briefpapiers zuständig ist und sucht sich die Funktion heraus, die überladen werden soll, kopiert und fügt diese unter der Funktion &quot;construct&quot; ein. In diesem Fall ist die Funktion renderItems zu kopieren, da diese für die Darstellung der Artikelpositionen zuständig ist. Da die Funktion renderItems recht lang ist, wird hier im Bsp. nur angedeutet, wie der Code von class.briefpapier_custom.php dann aussieht.```
+?php
+
+include_once &quot;class.briefpapier.php&quot;;
+
+class BriefpapierCustom extends Briefpapier {
+
+function __construct(&amp;$app) { $this-&gt;app = $app; parent::__construct($app);}
+
+public function renderItems() {
+
+$posWidth = $this-&gt;app-&gt;erp-&gt;Firmendaten(&quot;breite_position&quot;);
+$amWidth = $this-&gt;app-&gt;erp-&gt;Firmendaten(&quot;breite_menge&quot;);
+$itemNoWidth = $this-&gt;app-&gt;erp-&gt;Firmendaten(&quot;breite_nummer&quot;);
+
+...
+...
+...
+
+}
+
+}?&gt;
+```Unterhalb von```
+if($item['ean']!=&quot;&quot; &amp;&amp; $item['ean']!=&quot;0&quot;){
+  if($item['desc']!=&quot;&quot;){
+  $item['desc']=$item['desc'].&quot;\r\n&quot;.$this-&gt;app-&gt;erp-&gt;Beschriftung(&quot;dokument_ean&quot;).&quot;: &quot;.$item['ean'];
+}else{
+  $item['desc']=$this-&gt;app-&gt;erp-&gt;Beschriftung(&quot;dokument_ean&quot;).&quot;: &quot;.$item['ean'];
+}
+}
+</code></pre>
+<p>wird nun die Größe, sowie die Höhe, Breite, Länge und Ursprungsregion des Artikels zur Variablen $item[&lsquo;desc&rsquo;] hinzugefügt, da diese den Beschreibungstext beinhaltet und zu diesem die weiteren Werte hinzukommen sollen.</p>
+<p>Der fertige Abschnitt sieht dann so aus:</p>
+<pre><code>if($item['ean']!=&quot;&quot; &amp;&amp; $item['ean']!=&quot;0&quot;){
+  if($item['desc']!=&quot;&quot;){
+  $item['desc']=$item['desc'].&quot;\r\n&quot;.$this-&gt;app-&gt;erp-&gt;Beschriftung(&quot;dokument_ean&quot;).&quot;: &quot;.$item['ean'];
+}else{
+  $item['desc']=$this-&gt;app-&gt;erp-&gt;Beschriftung(&quot;dokument_ean&quot;).&quot;: &quot;.$item['ean'];
+}
+}
+
+$daten = $this-&gt;app-&gt;DB-&gt;SelectArr(&quot;SELECT gewicht, laenge, breite, hoehe, ursprungsregion FROM artikel WHERE id = '&quot;.$item['artikel'].&quot;'&quot;);
+$daten = reset($daten);
+
+if($item['desc']!= &quot;&quot;){
+  if($daten['gewicht']!= &quot;&quot; AND $daten['gewicht'] &gt; 0){
+  $item['desc'] = $item['desc'].&quot;\r\n&quot;.&quot;Gewicht: &quot;.$daten['gewicht'].&quot; kg&quot;;
+}
+}else{
+  if($daten['gewicht']!= &quot;&quot; AND $daten['gewicht'] &gt; 0){
+  $item['desc'] = $item['desc'].&quot;Gewicht: &quot;.$daten['gewicht'].&quot; kg&quot;;
+}
+}
+
+if($item['desc']!= &quot;&quot;){
+  if($daten['laenge']!= &quot;&quot; AND $daten['laenge'] &gt; 0){
+  $item['desc'] = $item['desc'].&quot;\r\n&quot;.&quot;Länge: &quot;.$daten['laenge'].&quot; cm&quot;;
+}
+}else{
+  if($daten['laenge']!= &quot;&quot; AND $daten['laenge'] &gt; 0){
+  $item['desc'] = $item['desc'].&quot;Länge: &quot;.$daten['laenge'].&quot; cm&quot;;
+}
+}
+
+if($item['desc']!= &quot;&quot;){
+  if($daten['breite']!= &quot;&quot; AND $daten['breite'] &gt; 0){
+  $item['desc'] = $item['desc'].&quot;\r\n&quot;.&quot;Breite: &quot;.$daten['breite'].&quot; cm&quot;;
+}
+}else{
+  if($daten['breite']!= &quot;&quot; AND $daten['breite'] &gt; 0){
+  $item['desc'] = $item['desc'].&quot;Breite: &quot;.$daten['breite'].&quot; cm&quot;;
+}
+}
+
+if($item['desc']!= &quot;&quot;){
+  if($daten['hoehe']!= &quot;&quot; AND $daten['hoehe'] &gt; 0){
+  $item['desc'] = $item['desc'].&quot;\r\n&quot;.&quot;Höhe: &quot;.$daten['hoehe'].&quot; cm&quot;;
+}
+}else{
+  if($daten['hoehe']!= &quot;&quot; AND $daten['hoehe' &gt; 0]){
+  $item['desc'] = $item['desc'].&quot;Höhe: &quot;.$daten['hoehe'].&quot; cm&quot;;
+}
+}
+
+$ursprungsregion = &quot;&quot;;
+
+switch($daten['ursprungsregion']){
+  case &quot;01&quot;:
+  $ursprungsregion = &quot;Schleswig-Holstein&quot;;
+  break;
+  case &quot;02&quot;:
+  $ursprungsregion = &quot;Hamburg&quot;;
+  break;
+  case &quot;03&quot;:
+  $ursprungsregion = &quot;Niedersachsen&quot;;
+  break;
+  case &quot;04&quot;:
+  $ursprungsregion = &quot;Bremen&quot;;
+  break;
+  case &quot;05&quot;:
+  $ursprungsregion = &quot;Nordrhein-Westfalen&quot;;
+  break;
+  case &quot;06&quot;:
+  $ursprungsregion = &quot;Hessen&quot;;
+  break;
+  case &quot;07&quot;:
+  $ursprungsregion = &quot;Rheinland-Pfalz&quot;;
+  break;
+  case &quot;08&quot;:
+  $ursprungsregion = &quot;Baden-Württemberg&quot;;
+  break;
+  case &quot;09&quot;:
+  $ursprungsregion = &quot;Bayern&quot;;
+  break;
+  case &quot;10&quot;:
+  $ursprungsregion = &quot;Saarland&quot;;
+  break;
+  case &quot;11&quot;:
+  $ursprungsregion = &quot;Berlin&quot;;
+  break;
+  case &quot;12&quot;:
+  $ursprungsregion = &quot;Brandenburg&quot;;
+  break;
+  case &quot;13&quot;:
+  $ursprungsregion = &quot;Mecklenburg-Vorpommern&quot;;
+  break;
+  case &quot;14&quot;:
+  $ursprungsregion = &quot;Sachsen&quot;;
+  break;
+  case &quot;15&quot;:
+  $ursprungsregion = &quot;Sachsen-Anhalt&quot;;
+  break;
+  case &quot;16&quot;:
+  $ursprungsregion = &quot;Thüringen&quot;;
+  break;
+  case &quot;99&quot;:
+  $ursprungsregion = &quot;ausländischer Ursprung&quot;;
+  break;
+}
+
+if($item['desc']!= &quot;&quot;){
+  if($ursprungsregion!= &quot;&quot;){
+  $item['desc'] = $item['desc'].&quot;\r\n&quot;.&quot;Ursprungsregion: &quot;.$ursprungsregion;
+}
+}else{
+  if($ursprungsregion!= &quot;&quot;){
+  $item['desc'] = $item['desc'].&quot;Ursprungsregion: &quot;.$ursprungsregion;
+}
+}
+</code></pre>
+<p>Das Ergebnis sieht nun so aus:</p>
+<p><img alt="Briefpapier-2.png" src="https://help.xentral.com/hc/article_attachments/4996448227228" /></p>
+<h2 id="nur-eine-belegart-uberladen">Nur eine Belegart überladen<a class="headerlink" href="#nur-eine-belegart-uberladen" title="Permanent link">&para;</a></h2>
+<p>Des Weiteren gibt es die Möglichkeit nur bestimmte Belege zu überladen. In folgendem Beispiel soll zur Artikelbeschreibung einer Position das nächste, also kleinste, Mindesthaltbarkeitsdatum aus dem Lager für diesen Artikel auf einem Kommissionierschein angezeigt werden. Dazu muss der Lieferschein überladen werden, da der Kommissionierschein ebenfalls mit der class.lieferschein.php erstellt wird. Um die class.lieferschein.php Datei zu überladen, wird eine Datei namens class.lieferschein_custom.php erstellt und diese in den xentralsordner nach www/lib/dokumente abgelegt. Bisher gibt es keine class.lieferschein_custom.php Datei, somit sieht der Kommissionierschein so aus:</p>
+<p><img alt="Briefpapier-3.png" src="https://help.xentral.com/hc/article_attachments/4996403383324" /></p>
+<p>Das Grundgerüst der Datei sieht wie folgt aus:</p>
+<pre><code>?php 
+if(!class_exists('BriefpapierCustom')) 
+{ 
+  class BriefpapierCustom extends Briefpapier 
+  {
+
+} 
+}
+
+class LieferscheinPDFCustom extends BriefpapierCustom {
+  public $doctype;
+
+  function __construct($app,$projekt=&quot;&quot;) 
+  { 
+  $this-&gt;app=&amp;$app; 
+  //parent::Briefpapier();
+  $this-&gt;doctype=&quot;lieferschein&quot;;
+  $this-&gt;doctypeOrig=&quot;Lieferschein&quot;;
+  parent::__construct($this-&gt;app,$projekt);
+}
+} 
+?&gt;
+```Als nächstes ist die passende Funktion zu suchen, die in der class.lieferschein.php überladen werden soll. In diesem Fall ist es die Funktion GetLieferschein. Diese Funktion wird kopiert und unter dem Konstruktor &quot;construct&quot; eingefügt. Da die Funktion GetLieferschein recht lang ist, wird hier nur angedeutet, wie die Datei derzeit aussieht:```
+?php
+if(!class_exists('BriefpapierCustom'))
+{ 
+  class BriefpapierCustom extends Briefpapier 
+  {
+
+} 
+}
+
+class LieferscheinPDFCustom extends BriefpapierCustom { 
+  public $doctype;
+  function __construct($app,$projekt=&quot;&quot;) 
+  { $this-&gt;app=&amp;$app;
+  //parent::Briefpapier();
+  $this-&gt;doctype=&quot;lieferschein&quot;;
+  $this-&gt;doctypeOrig=&quot;Lieferschein&quot;;
+  parent::__construct($this-&gt;app,$projekt);
+}
+
+  function GetLieferschein($id,$info=&quot;&quot;,$extrafreitext=&quot;&quot;)
+  {
+  $this-&gt;doctypeid = $id;
+  if(method_exists($this-&gt;app-&gt;erp,'LieferscheinSeriennummernberechnen'))$this-&gt;app-&gt;erp-&gt;LieferscheinSeriennummernberechnen($id);
+  $briefpapier_bearbeiter_ausblenden = $this-&gt;app-&gt;erp-&gt;Firmendaten('briefpapier_bearbeiter_ausblenden');
+  $briefpapier_vertrieb_ausblenden = $this-&gt;app-&gt;erp-&gt;Firmendaten('briefpapier_vertrieb_ausblenden'); 
+  $adresse = $this-&gt;app-&gt;DB-&gt;Select(&quot;SELECT adresse FROM lieferschein WHERE id='$id' LIMIT 1&quot;);
+...
+...
+...
+}
+} 
+?&gt;
+```Nun werden die Anpassungen im Code vorgenommen. Wenn diese nun einfach hinzugefügt werden würde, wären diese für Lieferscheine und Kommissionierscheine gültig. Allerdings sollen hier nur die Kommissionierscheine angepasst werden, weshalb mit einem if Statement vorher geprüft wird, ob es sich um einen Kommissionierschein handelt. Die Änderungen werden unter```
+/*
+  if(!empty($chargen)){
+  foreach($chargen as $chargen=&gt;$charge){
+  $chargenliste = $chargenliste.$charge['charge'].&quot;;&quot;;
+}
+
+  $chargenliste=substr($chargenliste, 0, -1);
+
+  $value['chargen'] = $this-&gt;app-&gt;DB-&gt;Select(&quot;SELECT chargenverwaltung FROM artikel WHERE id='&quot;.$value[artikel].&quot;' LIMIT 1&quot;);
+
+  if($value['chargen']==&quot;0&quot;){
+  $value['beschreibung'] = $value['beschreibung'];
+}else{
+  $value['beschreibung'] = $value['beschreibung'].&quot;\r\n&quot;.$this-&gt;app-&gt;erp-&gt;Beschriftung(&quot;dokument_charge&quot;).&quot;: &quot;. $chargenliste;
+}
+}
+*/
+```hinzugefügt. Das Ganze sieht dann so aus:```
+if($info==&quot;kommissionierschein&quot;){
+ if($value['freifeld1']!=&quot;&quot;){
+  //$value['beschreibung'].= &quot;\r\n&quot;.&quot;Bitte folgendes MHD wählen: &quot;.$value['freifeld1'];
+}else{
+ $mhd=$this-&gt;app-&gt;DB-&gt;Select(&quot;SELECT MIN(mhddatum) FROM lager_mindesthaltbarkeitsdatum WHERE artikel= '&quot;.$value['artikel'].&quot;' AND mhddatum &gt; CURDATE()&quot;);
+ $value['beschreibung'].=&quot;\r\n&quot;.&quot;Kleinstes MHD im Lager: &quot;.$mhd;
+}
+}
+</code></pre>
+<p>Endergebnis:</p>
+<p><img alt="Briefpapier-4.png" src="https://help.xentral.com/hc/article_attachments/4996448282268" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

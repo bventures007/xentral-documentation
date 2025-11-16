@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18870429370140 Die Xentral Produktionsübersicht - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>18870429370140 Die Xentral Produktionsübersicht</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>18870429370140 Die Xentral Produktionsübersicht</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>In diesem Artikel zeigen wir dir den grundsätzlichen Aufbau der Produktionsübersicht. Außerdem findest du detaillierte Erklärungen der Menüs und Aktionen, die dir dort zur Verfügung stehen.</p>
+<p>Um das Produktionsmodul zu erreichen, folge dem PfadLager &gt; Produktionoder suche über die Smart Search nach “Produktion”. Du befindest dich dann direkt in der Produktionsübersicht.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Das Produktionsmodul wird in Xentral NextGen standardmäßig nicht in der Navigationsleiste auf der linken Seite angezeigt. Du kannst das Modul der Navigationsleiste für deinen Benutzer hinzufügen, indem du den Anweisungen im folgenden Artikel folgst:Individuelle Navigationsleiste einrichten.</p>
+</blockquote>
+<h2 id="reiter-ubersicht">Reiter Übersicht<a class="headerlink" href="#reiter-ubersicht" title="Permanent link">&para;</a></h2>
+<p>Die sog. Produktionsübersicht, der ReiterÜbersicht, ist die tabellarische Ansicht aller Produktionen. Hierüber kannst du</p>
+<ul>
+<li>dir einen Überblick über alle Produktionen und ihren Status verschaffen</li>
+<li>eine einzelne Produktion per Aktionsmenü bearbeiten</li>
+<li>mehrere ausgewählte Produktionen über die Stapelverarbeitung bearbeiten</li>
+</ul>
+<h3 id="produktionsstatus">Produktionsstatus<a class="headerlink" href="#produktionsstatus" title="Permanent link">&para;</a></h3>
+<p>Generell sind folgende Status in der Produktion möglich:</p>
+<p><code>ANGELEGT</code>→<code>FREIGEBEN</code>→<code>GESTARTET</code>→<code>ABGESCHLOSSEN</code> (→<code>STORNIERT</code>)</p>
+<p>Angelegte, aber noch nicht freigegebene Produktionen findest du unter der Schaltflächein Bearbeitung</p>
+<p><img alt="Produktionsubersicht_InBearbeitung.png" src="https://help.xentral.com/hc/article_attachments/19368060548636" /></p>
+<p>Zur besseren Übersicht empfiehlt es sich, die Anzahl der Vorgänge in diesem Reiter gering zu halten, indem du Produktionen entweder zur weiteren Verarbeitung freigibst oder indem du verworfene Produktionen, die du z. B. nur für Planungszwecke angelegt hast, regelmäßig löschst.</p>
+<p>Alle Produktionen, die über den Status <code>ANGELEGT</code> hinaus gehen, findest du unter der SchaltflächeProduktionssuche.</p>
+<p><img alt="Produktionsubersicht_Produktionssuche.png" src="https://help.xentral.com/hc/article_attachments/19368093772188" /></p>
+<h3 id="filterfunktionen">Filterfunktionen<a class="headerlink" href="#filterfunktionen" title="Permanent link">&para;</a></h3>
+<p>Die Filterfunktionen helfen dir, die angezeigten Produktionen einzugrenzen, um dich optimal auf deinen Bearbeitungszweck fokussieren zu können. Eine Kombination der Filter ist möglich.</p>
+<p>Über den Statusfilter kannst du verschiedene Status ein- oder ausblenden. Ist kein Haken gesetzt, werden Produktionen aller Status angezeigt.</p>
+<ul>
+<li>Freigegebene: Zeigt alle Produktionen, die <code>FREIGEGEBEN</code> sind, aber noch nicht gestartet</li>
+<li>Gestartet: Zeigt alle <code>GESTARTETEN</code> Produktionen, die nicht storniert oder abgeschlossen sind</li>
+<li>Storniert: Zeigt alle <code>STORNIERTEN</code> Produktionen</li>
+<li>Abgeschlossen: Zeigt alle <code>ABGESCHLOSSENEN</code> Produktionen</li>
+</ul>
+<p>Mit dem Filter kannst du Produktionen nach dem Materialstatus ein- und ausblenden:</p>
+<ul>
+<li>Material fehlt</li>
+<li>Material fehlt auf Produktionslager</li>
+<li>Material lagernd</li>
+</ul>
+<h3 id="monitor">Monitor<a class="headerlink" href="#monitor" title="Permanent link">&para;</a></h3>
+<p>Der Monitor zeigt dir den Status aller Schritte einer Produktion an.</p>
+<table>
+<thead>
+<tr>
+<th>Status Freigabe</th>
+<th>Material-verfügbarkeit</th>
+<th>Status Material-Auslagerung</th>
+<th>Status Erzeugnis-Einlagerung</th>
+<th>Zeiterfassung</th>
+<th>Status Lieferung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>angelegt</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+<tr>
+<td>freigegeben</td>
+<td>Material fehlt</td>
+<td>Auslagerung noch nicht erfolgt</td>
+<td>Einlagerung noch nicht erfolgt</td>
+<td>keine Zeiten erfasst</td>
+<td>Versand offen</td>
+</tr>
+<tr>
+<td>gestartet</td>
+<td>Material verfügbar</td>
+<td>Auslagerung erfolgt</td>
+<td>Einlagerung erfolgt</td>
+<td>Zeiten erfasst</td>
+<td>Versand erfolgt (oder nicht mit Auftrag verknüpft)</td>
+</tr>
+<tr>
+<td>abgeschlossen</td>
+<td></td>
+<td>Teilauslagerung erfolgt</td>
+<td>Teileinlagerung erfolgt</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>storniert</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mini-detail">Mini-Detail<a class="headerlink" href="#mini-detail" title="Permanent link">&para;</a></h3>
+<p>Diese Ansicht öffnest du über den Pfeil am linken Rand jeder Produktionszeile. Über sie kannst du Details zu einem Vorgang einblenden. So kannst du z. B. auf einen Blick den Lagerbestand deines Materials für eine Produktion überblicken.</p>
+<p><img alt="Produktionsubersicht_MiniDetail.png" src="https://help.xentral.com/hc/article_attachments/19368093799836" /></p>
+<h3 id="aktionsmenu">Aktionsmenü<a class="headerlink" href="#aktionsmenu" title="Permanent link">&para;</a></h3>
+<p>Das Aktionsmenü der Produktionsübersicht befindet sich am rechten Rand jeder Produktions-Zeile.</p>
+<p><img alt="Produktionsubersicht_Aktionsmenu.png" src="https://help.xentral.com/hc/article_attachments/19368093801500" /></p>
+<p>Du kannst eine einzelne Produktion über das Aktionsmenü</p>
+<ul>
+<li>zur Bearbeitung öffnen</li>
+<li>löschen/stornieren</li>
+<li>kopieren</li>
+<li>als PDF drucken</li>
+<li>mit Labels versehen</li>
+</ul>
+<h3 id="stapelverarbeitung">Stapelverarbeitung<a class="headerlink" href="#stapelverarbeitung" title="Permanent link">&para;</a></h3>
+<p>Die Stapelverarbeitung befindet sich am unteren Ende der Seite.</p>
+<p><img alt="Produktionsubersicht_Stapelverarbeitung.png" src="https://help.xentral.com/hc/article_attachments/19368093803164" /></p>
+<p>Über sie kannst du mehrere ausgewählte Produktionen</p>
+<ul>
+<li>Starten: Hiermit änderst du den Status der ausgewählten Produktion von <code>FREIGEGEBEN</code> auf<code>GESTARTET</code>. Voraussetzung ist, dass das notwendige Material in ausreichender Menge verfügbar ist.</li>
+<li>Starten und Auslagern: Hiermit änderst du den Status der ausgewählten Produktionen von <code>FREIGEGEBEN</code> auf<code>GESTARTET</code> und gelangst zum “Artikel für Produktion”-Dialog, mit dem du Material für die Produktion auslagern kannst. Voraussetzung ist, dass das notwendige Material in ausreichender Menge verfügbar ist.</li>
+<li>Als Sammel-PDF drucken: Hiermit erzeugst du eine PDF-Datei mit allen ausgewählten Produktionen. Die Datei enthält die allgemeinen Daten, die Fertigungsstückliste und die Arbeitsanweisung.</li>
+<li>Drucken: Mit dieser Funktion sendest du für jede ausgewählte Produktion ein eigenes PDF an den Spooler.</li>
+<li>Einlagern: Mit dieser Aktion lagerst du das hergestellte Erzeugnis einer Produktion ein.</li>
+<li>Auslagern: Hier gelangst zum “Artikel für Produktion”-Dialog, mit dem du Material für die ausgewählten Produktionen auslagern kannst. Voraussetzung ist, dass das notwendige Material in ausreichender Menge verfügbar ist.</li>
+<li>Abschließen inkl. Einlagerung: Hiermit lagerst du das hergestellte Erzeugnis einer Produktion ein und schließt die eine Produktion ab.</li>
+</ul>
+<h2 id="reiter-zeitplanung">Reiter Zeitplanung<a class="headerlink" href="#reiter-zeitplanung" title="Permanent link">&para;</a></h2>
+<p>Der ReiterZeitplanunggibt dir einen Überblick über die verschiedenen Prozessschritte in Kalenderform, hier in der AnsichtWoche.</p>
+<p><img alt="Produktionsubersicht_Zeitplanung.png" src="https://help.xentral.com/hc/article_attachments/19368060584988" /></p>
+<p>Folgende Farbcodierungen werden im Kalender verwendet:</p>
+<ul>
+<li>Blau: Bereitstellungsdatum</li>
+<li>Türkis: Produktionsprozess</li>
+<li>Orange: Auslieferungsdatum</li>
+<li>Grau: Abgeschlossene Vorgänge</li>
+</ul>
+<p>Durch Klick auf einen Prozessschritt gelangst du in die Karte der betreffenden Produktion.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Zwar lassen sich Prozessschritte in der Kalenderansicht verschieben, wir empfehlen jedoch, Änderungen am Datum nur in der Produktionskarte vorzunehmen.</p>
+</blockquote>
+<h2 id="reiter-beistellungen">Reiter Beistellungen<a class="headerlink" href="#reiter-beistellungen" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Der ReiterBeistellungenist nur relevant, wenn du Produktionsschritte bei externen Dienstleistern beauftragst, denen du Material beistellst. Nähere Informationen zur externen Produktion findest zuhier.</p>
+</blockquote>
+<p><img alt="Produktionsubersicht_Beistellungen.png" src="https://help.xentral.com/hc/article_attachments/19368060586908" /></p>
+<h2 id="reiter-materialbestand-berechnen">Reiter Materialbestand berechnen<a class="headerlink" href="#reiter-materialbestand-berechnen" title="Permanent link">&para;</a></h2>
+<p>Dieser Reiter stellt dir einen Auszug aus dem<a href="https://help.xentral.com/hc/de/articles/360016757859#UUID-b36d5a57-67bd-5185-edda-fd68cadb28a5">klassischen Bestellvorschlag</a>dar.</p>
+<h3 id="tab-lieferanten">Tab Lieferanten<a class="headerlink" href="#tab-lieferanten" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab sind alle Lieferanten aufgelistet, von denen Material für die Produktion fehlt. Die Spalte Menge zeigt die Anzahl der fehlenden Artikelnummern. Rote Zahlen bedeuten eine Fehlmenge für echte Bedarfe, schwarze Zahlen beziehen sich auf eine Unterschreitung der Mindestlagermenge (Artikel → Details → Min. Lagermenge). Mit Klick auf Bestellvorschlag kannst du auf den klassischen Bestellvorschlag wechseln und von dort Bestellungen anstoßen.</p>
+<p><img alt="Produktionsubersicht_Materialbestand_Lieferanten.png" src="https://help.xentral.com/hc/article_attachments/19368093809948" /></p>
+<h3 id="tab-fehlende-artikel">Tab Fehlende Artikel<a class="headerlink" href="#tab-fehlende-artikel" title="Permanent link">&para;</a></h3>
+<p>Hier findest du eine Liste aller fehlenden Artikelnummern und den dahinter stehenden Mengen und Produktionen. Von hier kannst du durch Klick auf Produktionsnummer die Produktion und beim Klicken der Artikelnummer den Artikel öffnen.</p>
+<p><img alt="Produktionsubersicht_Materialbestand_FehlendeArtikel.png" src="https://help.xentral.com/hc/article_attachments/19368093810844" /></p>
+<h3 id="tab-nachbestellte-artikel">Tab Nachbestellte Artikel<a class="headerlink" href="#tab-nachbestellte-artikel" title="Permanent link">&para;</a></h3>
+<p>Diese Liste zeigt dir alle offenen Bestellungen, die Material für die Produktion enthalten. Von dort kannst du die jeweilige Bestellung zum Bearbeiten bzw. zum Betrachten als PDF öffnen.</p>
+<p><img alt="Produktionsubersicht_Materialbestand_NachbeestellteArtikel.png" src="https://help.xentral.com/hc/article_attachments/19368060592028" /></p>
+<h2 id="reiter-seriennummern">Reiter Seriennummern<a class="headerlink" href="#reiter-seriennummern" title="Permanent link">&para;</a></h2>
+<p>Im ReiterSeriennummernwerden nur Produktionen aufgelistet, die</p>
+<ul>
+<li>mind. den Status <code>GESTARTET</code> haben. Angelegte oder freigegebene Produktionen sind hier nicht enthalten und</li>
+<li>mind. einen seriennummern-geführten Artikel enthalten. Das kann das Fertigerzeugnis sein, das können Bauteile oder beides sein.</li>
+</ul>
+<p>Über das Aktionsmenü im Reiter Seriennummern kannst du ins Produktionszentrum wechseln und dort Seriennummern erzeugen/zuweisen/löschen:</p>
+<p><img alt="Produktionsubersicht_Seriennummern.png" src="https://help.xentral.com/hc/article_attachments/19368093814940" /></p>
+<h2 id="reiter-chargen">Reiter Chargen<a class="headerlink" href="#reiter-chargen" title="Permanent link">&para;</a></h2>
+<p>Im ReiterChargenerhälst du einen Überblick über die in der Produktion eingesetzten und produzierten Chargen. Es werden nur Produktionen aufgelistet, die</p>
+<ul>
+<li>mind. den Status <code>GESTARTET</code> haben. Angelegte oder freigegebene Produktionen sind hier nicht enthalten und</li>
+<li>mind. einen chargengeführten Artikel enthalten, für den eine Chargen zugeordnet wurde. Das kann das Fertigerzeugnis sein, das können Bauteile oder beides sein.</li>
+</ul>
+<p>Unter dem TabEingesetzte Chargensind alle chargengeführten Bauteile oder Bauteile mit Mindesthaltbarkeitsdatum aufgelistet mit der Angabe, in welcher Produktion sie verwendet wurden. Über das X am rechten Rand kannst du eine Zuweisung entfernen.</p>
+<p><img alt="Produktionsubersicht_Chargen.png" src="https://help.xentral.com/hc/article_attachments/19368060596124" /></p>
+<p>Unter dem TabProduzierte Chargenfindest du alle erzeugten Chargen bzw. Mindesthaltbarkeitsdaten der von dir produzierten Artikel. Über die Produktionsnummer kannst du zu einer betreffenden Produktion wechseln.</p>
+<h2 id="reiter-einstellungen">Reiter Einstellungen<a class="headerlink" href="#reiter-einstellungen" title="Permanent link">&para;</a></h2>
+<p>In diesem Reiter kannst du generelle Einstellungen zur Produktion und Produktionskorrektur vornehmen:</p>
+<p><img alt="Produktionsubersicht_Einstellungen.png" src="https://help.xentral.com/hc/article_attachments/19368060598684" /></p>
+<p>Wenn du im PDF der Arbeitsweisung Bilder andrucken möchtest, setze den entsprechenden Haken.</p>
+<p>Im Rahmen der Produktionskorrektur hast du die Möglichkeit, den sog. “Untermengedialog” immer anzuzeigen und Buchungstexte für Unter- bzw. Übermenge anzupassen.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

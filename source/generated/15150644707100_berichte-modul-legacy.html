@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15150644707100 Berichte Modul Legacy - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>15150644707100 Berichte Modul Legacy</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>15150644707100 Berichte Modul Legacy</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Dieses alte Berichte Modul wird ersetzt durch<a href="https://help.xentral.com/hc/de/articles/14743167748252-Berichte-neu">Berichte (neu)</a>. Stand: 07/2024.</p>
+<p>Stand 2025: Das erstellen von Berichten und Ausführung von Berichten im alten Berichtemodul wird abgekündigt zum 30.06.2025.</p>
+<p>Verwende die Funktionen im neuen Berichtemodul. Bei Fragen und Problemen melde dich gerne bei unserem Support.</p>
+<p>In NextGen:Berichtswesen &gt; Berichte</p>
+<p>Im Classic Design:Controlling &gt; Berichte</p>
+<p>Xentral bietet eine Vielzahl an Berichten, mit denen du verschiedenste Daten deiner Firma analysieren kannst, z.B. Anzahl angelegter Aufträge pro Mitarbeiter, erstellte Versandlabel in einem bestimmten Zeitraum, Umsatz pro Produkt, aktive Kundenabonnements und viele mehr.</p>
+<p>Neben der Nutzung der existierenden Berichte kannst du auf Basis deiner Anforderungen eigene Berichte anlegen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Das Anlegen eigener Berichte erfordert Erfahrung im Umgang mit SQL. Wenn du noch keine ausreichenden SQL-Kenntnisse hast, empfehlen wir dir, einen unsererPartnerzu kontaktieren. Er kann die gewünschten Berichte für dich anlegen.</p>
+</blockquote>
+<p>Berichte könnten in verschiedenen Orten in der Software angezeigt werden oder heruntergeladen werden. Beim Download stehen dir folgende Formate zur Verfügung:</p>
+<ul>
+<li>CSV</li>
+<li>PDF</li>
+</ul>
+<p>Du kannst dann mit den heruntergeladenen Daten in Drittsystemen wie Excel, Power BI oder Minubo weiterarbeiten.</p>
+<p>Berichte werden in Form von Tafeln in der Berichtsübersicht angezeigt:</p>
+<p><img alt="Report_tile.png" src="https://help.xentral.com/hc/article_attachments/15150678442780" /></p>
+<p>Eine Berichtstafel enthält die folgenden Elemente:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Klicke auf das Sternchen, um den Bericht als Favoriten zu markieren. Das Sternchen wird dann gelb angezeigt. Die Markierung als Favorit bietet die folgenden Vorteile: - Wenn du das nächste Mal die Berichtsübersicht öffnest, werden die als Favoriten markierten Berichte zuoberst angezeigt und sind somit leichter für dich zu finden.<br>- Xentral bietet ein Filter, mit dem du nach deinen Favoriten suchen kannst. Wenn du diesen Filter anwendest, werden nur deine Favoriten angezeigt, wodurch die Navigation für dich erleichtert wird.</td>
+</tr>
+<tr>
+<td></td>
+<td>Du kannst deinen Bericht einer Kategorie zuweisen, z.B. Buchhaltung &amp; Finanzen, Lager &amp; Logistik u.s.w., um ihn für einen Fachbereich zu kennzeichnen. Du kannst die Kategorie bei Anlage des Berichts auswählen oder aber auch, wenn du einen bestehenden Bericht bearbeitest.</td>
+</tr>
+<tr>
+<td></td>
+<td>Mit einem Klick auf das Bearbeiten-Symbol kannst du deinen Bericht bearbeiten. Weitere Informationen zu den verfügbaren Feldern im Bearbeitungsmodus findest du im Abschnitt <a href="#deinen-bericht-anlegen-und-pflegen">Deinen Bericht anlegen und pflegen</a>.</td>
+</tr>
+<tr>
+<td></td>
+<td>Mit einem Klick auf das Löschen-Symbol kannst du deinen Bericht löschen.</td>
+</tr>
+<tr>
+<td></td>
+<td>Mit einem Klick auf das Kopieren-Symbol kannst du eine Kopie deines Berichts anlegen. Das ist besonders dann sinnvoll, wenn du verschiedene Berichte mit ähnlichen Einstellungen hast.</td>
+</tr>
+<tr>
+<td></td>
+<td>Wenn du mit dem Mauszeiger auf das Informationssymbol gehst, wird eine Beschreibung deines Berichts angezeigt, wenn eine hinzugefügt wurde. Du kannst eine Beschreibung hinzufügen, wenn du einen Bericht anlegst oder einen bestehenden bearbeitest.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Mit einem Klick auf das Tabellen-Symbol werden die Berichtsdaten in Tabellenform im Reiter Ansicht des Berichts angezeigt.</td>
+</tr>
+<tr>
+<td></td>
+<td>Mit einem Klick auf das CSV-Symbol kannst du deinen Bericht im CSV-Format als Download erstellen.</td>
+</tr>
+<tr>
+<td></td>
+<td>Mit einem Klick auf das PDF-Symbol kannst du deinen Bericht im PDF-Format als Download erstellen.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="nach-einem-bericht-suchen">Nach einem Bericht suchen<a class="headerlink" href="#nach-einem-bericht-suchen" title="Permanent link">&para;</a></h2>
+<p>Xentral bietet verschiedene Optionen, nach einem bestimmten Bericht zu suchen oder zu filtern. Diese Optionen findest du über den Berichtskacheln in der Berichtsübersicht. Dir stehen hier die folgenden Filteroptionen zur Verfügung:</p>
+<ul>
+<li>Du kannst den Filter Nur eigene verwenden, wenn du nur von dir angelegte Berichte anzeigen möchtest. Die Xentral-Standardberichte werden ausgeblendet. Der Filter wird automatisch angewendet. Du musst zur Anwendung nicht auf Anwenden klicken.</li>
+<li>Um nur deine Favoriten anzuzeigen, klicke auf den Filter Nur Favoriten. Der Filter wird automatisch angewendet. Du musst zur Anwendung nicht auf Anwenden klicken.</li>
+<li>Möchtest du die Anzeige auf Berichte einer bestimmten Kategorie einschränken, z.B. Lager &amp; Logistik, wähle die gewünschte Kategorie im Feld Kategorie aus. Klicke auf Anwenden, um passende Berichte zu finden.</li>
+<li>Möchtest du nach einem bestimmten Begriff im Berichtstitel suchen, z.B. Konten, gib den entsprechenden Suchbegriff in das Feld Suche ein. Klicke auf Anwenden, um die passenden Berichte zu finden.</li>
+</ul>
+<p>Die vorhandenen Filter und Suchoptionen können kombiniert werden.</p>
+<h2 id="deinen-bericht-anlegen-und-pflegen">Deinen Bericht anlegen und pflegen<a class="headerlink" href="#deinen-bericht-anlegen-und-pflegen" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Das Anlegen eigener Berichte erfordert Erfahrung im Umgang mit SQL. Wenn du noch keine ausreichenden SQL-Kenntnisse hast, empfehlen wir dir, einen unsererPartnerzu kontaktieren. Er kann die gewünschten Berichte für dich anlegen.</p>
+</blockquote>
+<p>Du kannst einen neuen Bericht auf zwei Wegen anlegen - du kannst entweder einen komplett neuen Bericht anlegen oder einen ähnlichen Bericht kopieren und die Einstellungen auf Basis deiner Anforderungen anpassen. Die letztgenannte Option ist dabei die gängigere, da sie Zeit und Aufwand spart.</p>
+<table>
+<thead>
+<tr>
+<th>Einen komplett neuen Bericht anlegen</th>
+<th>Einen Bericht auf Basis eines bestehenden Berichts anlegen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Klicke im Bereich Aktionen auf +Neuer Eintrag. Das Fenster Neuer Bericht wird angezeigt. Gib einen Namen für deinen Bericht in das Feld Name ein und klicke auf Speichern. Zu diesem Zeitpunkt sind noch keine Einstellungen vorhanden. Bitte folge den nachfolgenden Anweisungen, um die erforderlichen Informationen hinzuzufügen. Suche nach deinem Bericht mit der Suchfunktion.</td>
+<td>Suche in der Berichtsübersicht nach einem Bericht, der demjenigen ähnelt, den du anlegen möchtest. Die Suchoptionen in der Übersicht sind hier beschrieben. Klicke beim gewünschten Bericht auf das Kopieren-Symbol. Passe die Felder wie gewünscht an. Die Felder sind in nachstehender Anleitung erklärt. Vergiss nicht, deinen Bericht umzubenennen. Klicke auf Speichern.</td>
+</tr>
+</tbody>
+</table>
+<p>Dein Bericht ist angelegt und wird in der Berichtsübersicht angezeigt.</p>
+<p>Du kannst nun deinen neuen oder bestehenden Bericht bearbeiten. Dieser Prozess besteht aus zwei Schritten:</p>
+<ol>
+<li><a href="#deine-berichtseinstellungen-bearbeiten">Deine Berichtseinstellungen bearbeiten</a></li>
+<li><a href="#tabellenspalten-anlegen,-pflegen-und-loeschen">Tabellenspalten anlegen, pflegen und löschen</a></li>
+</ol>
+<h3 id="deine-berichtseinstellungen-bearbeiten">Deine Berichtseinstellungen bearbeiten<a class="headerlink" href="#deine-berichtseinstellungen-bearbeiten" title="Permanent link">&para;</a></h3>
+<p>Gehe wie folgt vor, um deinen neuen oder bestehenden Bericht zu bearbeiten:</p>
+<ol>
+<li>Klicke auf bei dem Bericht, den du bearbeiten möchtest. Der Reiter Details deines Berichts wird angezeigt.</li>
+<li>Im Bereich Einstellung kannst du Folgendes hinzufügen, bearbeiten oder auswählen:
+  - Name: Bei Anlage des Berichts bekommt der Bericht automatisch einen Namen. Diesen kannst du jederzeit bei Bedarf ändern.
+  - Kategorie: Bei Bedarf kannst du deinen Bericht einer Kategorie zuweisen, das heißt einer Abteilung oder einem Bereich, für den der Bericht angelegt wird. z.B. Buchhaltung, Verkauf, etc.
+  - Beschreibung: Gib eine Beschreibung deines Berichts ein. Diese Beschreibung wird angezeigt, wenn du mit dem Mauszeiger auf das Informationszeichen in der Berichtskachel in der Berichtsübersicht gehst.
+  - Projekt: Bezieht sich dieser Bericht auf ein bestimmtes Projekt, kannst du das passende Projekt in diesem Feld auswählen.
+  - Aus Datei laden: Mit einem Klick auf Datei auswählen kannst du Informationen aus einer bestehenden JSON-Datei laden. Im Allgemeinen lädst du hier Dateien hoch, die du mittels der Schaltfläche Definitionsdatei unten im Reiter Details anderer Berichte in Xentral heraus angelegt hast.
+  - Variablen: Mehr Informationen zu Variablen und dazu, wie du diese anlegst, findest du <a href="#UUID-14597dcc-d945-c257-1864-cd30ac61a416_section-idm459181717663043342398997836">hier</a>.</li>
+<li>Im Bereich Struktur kannst du das passende SQL-Statement für deinen Bericht hinzufügen.
+  Du kannst dein SQL-Statement testen. Klicke dazu auf die Play-Schaltfläche neben dem Feld SQL Statement. Das Ergebnis findest du im Feld Ergebnis.</li>
+</ol>
+<p>Beachte dabei Folgendes:</p>
+<p><a href="#UUID-14597dcc-d945-c257-1864-cd30ac61a416_section-idm4582677074606433649711547582">Am Ende dieses Dokuments</a> findest du ein Beispiel für eine SQL-Anfrage als Referenz.</p>
+<ul>
+<li>Die SQL-Befehle UPDATE und SET können nicht verwendet werden, da diese Konflikte verursachen können.</li>
+<li>Die Benutzertabelle und andere Tabellen, die den Begriff <em>User</em> beinhalten, müssen in Backticks gesetzt werden, damit die Begriffe nicht mit einem Befehl verwechselt werden, z.B. <code>User rights</code>.
+1. Wähle im Bereich CSV Eigenschaften ein CSV-Trennzeichen und bei Bedarf ein Feldtrennzeichen aus dem Dropdown-Menü.
+1. Im Bereich Notiz kannst du bei Bedarf eine interne Bemerkung hinterlegen.
+1. Klicke auf Speichern.</li>
+</ul>
+<p>Dein Bericht mitsamt den Einstellungen wird gespeichert.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst deine Berichtseinstellungen als JSON-Datei herunterladen, um diese wiederzuverwenden, indem du aufDefinitionsdateiklickst.</p>
+</blockquote>
+<h3 id="tabellenspalten-anlegen-pflegen-und-loschen">Tabellenspalten anlegen, pflegen und löschen<a class="headerlink" href="#tabellenspalten-anlegen-pflegen-und-loschen" title="Permanent link">&para;</a></h3>
+<p>Die Tabellenspalten werden über den BereichAktionendeines Berichts gepflegt.</p>
+<p>Nach Einrichtung deiner Berichtseinstellungen, Eingabe eines gültigen SQL-Statements und Speichern deines Berichts musst du die Tabellenspalten anlegen. Diese Tabellenspalten werden dann im ReiterAnsichtdeines Berichts sowie in deinen Berichtsexporten angezeigt.</p>
+<p>Je nachdem, ob du einen komplett neuen Bericht angelegt oder einen bestehenden Bericht und SQL-Statement bearbeitet hast, führst du Folgendes aus:</p>
+<ul>
+<li>Hast du einen komplett neuen Bericht angelegt und ein neues SQL-Statement definiert, musst du nun die Tabellenspalten auf Basis deines SQL-Statements generieren. Zum Generieren der Tabellenspalten klickst du im Bereich Aktionen auf Spalten erzeugen.</li>
+<li>Hast du das SQL-Statement eines bestehenden Berichts überarbeitet, empfehlen wir dir, die bestehenden Spalten durch Klicken der Schaltfläche Alle Spalten löschen im Bereich Aktionen zu löschen und dann mit einem Klick auf Spalten erzeugen neu zu generieren. Dies ist die einfachste und schnellste Methode, die Spalten anzupassen. Alternativ kannst du mit einem Klick auf +Neue Spalte neue Spalten erstellen und so neue Spalten auf Basis des SQL-Statements hinzufügen.</li>
+</ul>
+<p>Hast du die gewünschten Spalten erzeugt, kannst du die Spalteneinstellungen bei Bedarf anpassen. Klicke dafür auf<img alt="PenIcon.png" src="https://help.xentral.com/hc/article_attachments/15150646037020" /></p>
+<p>in der jeweiligen Spalte.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Einstellungen finden nur in der Berichtsansicht im ReiterAnsichtAnwendung. Sie finden keine Anwendung beim Export des Berichts.</p>
+</blockquote>
+<p>Du kannst die folgenden Spalteneinstellungen anpassen:</p>
+<ul>
+<li>Spaltenname SQL: Der Name der Spalte wie im SQL-Statement erfasst. Ändere diesen Namen nur dann, wenn du ihn auch im SQL-Statement geändert hast.</li>
+<li>Bezeichnung: Die Bezeichnung ist der Spaltenkopf. Möchtest du einen anderen als den automatisch angelegten Spaltenkopf verwenden, kannst du diesen hier ändern.</li>
+<li>Spaltenbreite: Die Spaltenbreite wird automatisch durch das System definiert. Bei Bedarf kannst du die Spaltenbreite hier anpassen.</li>
+<li>Ausrichtung: Wähle hier aus, ob die angezeigten Werte linksbündig, mittig oder rechtsbündig in der Spalten angezeigt werden sollen.</li>
+<li>Sortierung: Hier kannst du die Sortierung deiner Aufträge definieren. Du kannst sie numerisch oder alphabetisch sortieren.</li>
+<li>Formatierung: Hier kannst du die Formatierungseinstellung für deine Werte anpassen. Ist dein Wert zum Beispiel ein Geldbetrag, kannst du die Summe in deutscher Formatierung, d.h. mit einem Komma (45,00), oder im englischen Format mit einem Punkt (45.00) anzeigen lassen. Weiterhin kannst du zwischen unterschiedlichen Datums- und Zeitformaten wählen und deine eigene Formatierung erstellen.</li>
+<li>Spalte summieren: Wenn du hier ein Häkchen setzt, wird deinem Bericht unten eine Zeile hinzugefügt, wo die Geldbeträge dieses Spalte aufsummiert werden.</li>
+<li>Reihenfolge: Du kannst eine andere Reihenfolge definieren, um die Anzeige im Bericht anders zu sortieren. Änderst du z.B. die Reihenfolgenummer von eins auf drei, ist die Spalte nicht mehr die erste Spalte von links sondern die Dritte.</li>
+</ul>
+<p>Klicke nach dem Bearbeiten der erforderlichen Spalten aufSpeichern.</p>
+<p>Bei Bedarf kannst du einzelne Spalten löschen, indem du für die jeweilige Spalte auf<img alt="CrossIcon.png" src="https://help.xentral.com/hc/article_attachments/15150646537884" /></p>
+<p>klickst.</p>
+<h2 id="variable-zu-einem-bericht-hinzufugen">Variable zu einem Bericht hinzufügen<a class="headerlink" href="#variable-zu-einem-bericht-hinzufugen" title="Permanent link">&para;</a></h2>
+<p>Du kannst Variablen als Platzhalter in SQL-Statements einfügen. Variablen haben dabei die nachfolgende Formatierung:</p>
+<p>{PROJEKTNAME}</p>
+<p>Der Variablenname muss in Großbuchstaben geschrieben sein. Derzeit sind nur deutsche Variablennamen möglich.</p>
+<p>Die Variablen, die du hier anlegst, stehen dir zusätzlich als Parameter zur Verfügung, wenn du einen Bericht im ReiterAnsichterstellst. Du kannst diese Variablen/ Parameter dazu verwenden, bestimmte Daten in deinen Bericht einzuschließen oder aus diesem auszuschließen, sowie zum Filtern.</p>
+<p>Eine neue Variable erstellst du wie folgt:</p>
+<ol>
+<li>Öffne den Bericht, dem du eine Variable hinzufügen möchtest, mit einem Klick auf.</li>
+<li>Klicke im Bereich Einstellung auf +Neue Variable. Das Formular Parameter bearbeiten wird angezeigt.</li>
+<li>Gib den Variablennamen ein.</li>
+<li>Gib einen Standardwert für deine Variable in das Feld Standardwert ein.</li>
+<li>Du kannst außerdem einen Wertebereich definieren, aus dem du bei Anlage des CSV- oder PDF-Berichts wählen kannst, z.B. bestimmte Monate, Wochen oder Jahre. Setze dafür ein Häkchen bei Manuell bearbeiten und gib Folgendes ein:
+  - Dialogtext: Name des Auswahlfeldes, welches die Werte des Feldes Werteauswahl enthält.
+  - Beschreibung: Interne Bezeichnung.
+  - Eingabe: Wähle die Art der erforderlichen Eingabe, z.B. Datumsauswahl, Dropdown-Menü, Textfeld, etc.
+  - Werteauswahl: Gib die gewünschten Werte für deine Auswahl durch Komma getrennt ein. Der finalen Variable wird automatisch ein Alias per Doppelpunkt hinzugefügt, z.B. können Projekt-Kennungen wie LP, ST zu Logistik:LP,Standard:ST werden. Dies dient der Verarbeitung im SQL-Statement.</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+<p>Die Variable ist gespeichert. Sie wird dir im ReiterDetailsdeines Berichts unter dem FeldVariablenmit ihren Standardwerten angezeigt:</p>
+<p><img alt="ReportVariables.png" src="https://help.xentral.com/hc/article_attachments/15150690154012" /></p>
+<p>Zum Bearbeiten oder Löschen einer bestimmten Variable, klicke auf die Variable und das FormularParameter bearbeitenfür die Variable wird angezeigt. Du kannst die Variable nun bearbeiten oder löschen.</p>
+<p>Neben den Variablen, die du selbst anlegst, kannst du auch noch die folgenden Variablen im SQL-Statement deines Berichts verwenden:</p>
+<ul>
+<li>{USER_ID}. Die ID des aktuellen Benutzers.</li>
+<li>{USER_PROJECTS}. Liste aller Projekte, auf die der Benutzer Zugriff hat. Mit dieser Variable kannst du die Ausgabe auf Nutzer mit Administratorrechten einschränken</li>
+<li>{USER_ADMIN → 1}. Gib eine 1 ein, um die Ausgabe nur zuzulassen, wenn der aktuelle Benutzer Admin-Rechte hat, oder eine 0, um die Ausgabe für alle Nutzer zuzulassen.</li>
+<li>{REPORT_PROJECT}. ID des Projekts, dem der aktuelle Bericht zugewiesen ist.</li>
+<li>{DOCTYPE}. Verwende diese Variable nur dann, wenn der Bericht über das Belegmenü geöffnet wird. Diese Variable zeigt die Belegart.</li>
+<li>{DOCID}. Der Wert wird nur dann angezeigt, wenn der Bericht über das Belegmenü geöffnet wird. Diese Variable zeigt die Datenbank-ID des Belegs.</li>
+</ul>
+<h2 id="freigaben-fur-die-anzeigeintegration-eines-berichts-definieren">Freigaben für die Anzeige/Integration eines Berichts definieren<a class="headerlink" href="#freigaben-fur-die-anzeigeintegration-eines-berichts-definieren" title="Permanent link">&para;</a></h2>
+<p>Neben der normalen Berichtsansicht im Reiter<a href="#UUID-14597dcc-d945-c257-1864-cd30ac61a416_section-idm4494875453336033627388461194">Ansicht</a>des Berichts bietet Xentral auch die Möglichkeit, spezifische Anzeigemethoden oder Integrationen für jeden Bericht für bestimmte Mitarbeiter freizugeben. Der Bericht kann dabei auf verschiedene Weisen in den Arbeitsablauf des Mitarbeiters integriert werden:</p>
+<table>
+<thead>
+<tr>
+<th>Anzeigemethode/Integration</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diagramm</td>
+<td>Die Berichtsdaten werden als Diagramm über die Berichtskachel in der Berichtsübersicht angezeigt (funktioniert nur für einzelne Tabellen, nicht für Joint-Tabellen).</td>
+</tr>
+<tr>
+<td>Aktionsmenü</td>
+<td>Der Bericht wird dem Aktionsmenü einer Belegart, die du in den Einstellungen definierst, hinzugefügt.</td>
+</tr>
+<tr>
+<td>Download</td>
+<td>Der Bericht kann über die Berichtsübersicht heruntergeladen werden.</td>
+</tr>
+<tr>
+<td>Reiter</td>
+<td>Der Bericht wird als separater Reiter einer Belegart, die du definierst, hinzugefügt. Das heißt, dass dir beim Öffnen eines Belegs der definierten Belegart ein zusätzlicher Reiter mit den Berichtsdaten angezeigt wird.</td>
+</tr>
+</tbody>
+</table>
+<p>Wenn du deine Freigaben zugewiesen hast, kannst du die Einstellungen der verschiedenen Anzeigemethoden/ Integrationen definieren.</p>
+<p>Freigaben für Mitarbeiter erteilst du unter folgendem Pfad:</p>
+<p>Berichtswesen &gt; Berichte &gt; Bericht öffnen<img alt="PenIcon.png" src="https://help.xentral.com/hc/article_attachments/15150646037020" /></p>
+<blockquote>
+<p>Reiter Freigaben</p>
+</blockquote>
+<p>Im ReiterFreigabenfindest du alle bestehenden Freigaben deines Berichts und du kannst neue Freigaben hinzufügen und die Einstellungen zu den Freigaben definieren.</p>
+<p>Gehe wie folgt vor, um einem Benutzer eine Freigabe für die Anzeige/ Integration der Berichtsdaten in einem bestimmten Format zu erteilen:</p>
+<ol>
+<li>Klicke im Bereich Aktionen auf +Neue Freigabe. Das Formular Integration in Xentral wird angezeigt.</li>
+<li>Wähle den Mitarbeiter, dem du Freigaben erteilen möchtest, im Feld Mitarbeiter.</li>
+<li>Wähle die Freigaben, die du erteilen möchtest.</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+<p>Der Mitarbeiter wird mit den ihm oder ihr zugewiesenen Freigaben in der Tabelle angezeigt.</p>
+<h3 id="die-diagrammeinstellungen-definieren">Die Diagrammeinstellungen definieren<a class="headerlink" href="#die-diagrammeinstellungen-definieren" title="Permanent link">&para;</a></h3>
+<p>Reiter Freigaben &gt; Bereich 1. Graph im Dashboard</p>
+<p>Du kannst die Berichtsdaten in Diagrammform bereitstellen lassen.Xentral bietet unterschiedliche Visualisierungsoptionen.</p>
+<p>Die Diagrammeinstellungen definierst du wie folgt:</p>
+<ol>
+<li>Möchtest du das Diagramm für alle Benutzer verfügbar machen und nicht nur für solche mit entsprechender Freigabe, setze ein Häkchen bei Öffentlich freigeben.</li>
+<li>Wähle die Art des Diagramms, das angezeigt werden soll (z.B. Kuchendiagramm), aus dem Typ-Dropdown-Menü.</li>
+<li>Gib deine Beschreibungen für die FelderY-Achsenbeschriftung,Achsenspalte,Daten-Spalte(n)undGruppier-Spalteein.</li>
+<li>Gib in die Datumsformat-Felder ein, wie viele Tage, Wochen oder Monate an Daten angezeigt werden sollen. Wähle dazu das entsprechende Intervall aus dem Dropdown-Menü und gib in das Feld davor die numerische Zahl ein.</li>
+<li>Scrolle ganz nach unten und klicke auf Speichern.</li>
+</ol>
+<p>Deine Diagrammeinstellungen werden gespeichert. Alle Mitarbeiter mit entsprechender Freigabe sehen nun das folgende Element in der Berichtskachel in der Berichtsübersicht:</p>
+<p><img alt="Report_chart.png" src="https://help.xentral.com/hc/article_attachments/15150682430108" /></p>
+<p>Der Benutzer öffnet die Berichtsdaten in Diagrammform, indem er darauf klickt.</p>
+<h3 id="einstellungen-fur-das-herunterladen-des-berichts-in-der-berichtsubersicht-definieren">Einstellungen für das Herunterladen des Berichts in der Berichtsübersicht definieren<a class="headerlink" href="#einstellungen-fur-das-herunterladen-des-berichts-in-der-berichtsubersicht-definieren" title="Permanent link">&para;</a></h3>
+<p>Reiter Freigaben &gt; 2. Datei-Download im Dashboard</p>
+<p>Standardmäßig steht in der Berichtsübersicht der Berichtsdownload im PDF- und CSV-Format zur Verfügung. Möchtest du eine oder beide Optionen für einen Benutzer ausschließen, gehe wie folgt vor:</p>
+<ul>
+<li>Setze ein Häkchen bei Öffentlich freigeben.</li>
+<li>Wähle das Format, in dem der Bericht nicht mehr zum Download zur Verfügung stehen soll.</li>
+<li>Klicke auf Speichern.</li>
+</ul>
+<h3 id="aktionsmenu-einstellungen-definieren">Aktionsmenü-Einstellungen definieren<a class="headerlink" href="#aktionsmenu-einstellungen-definieren" title="Permanent link">&para;</a></h3>
+<p>Reiter Freigaben &gt; 3. Bereich Aktionsmenü in Belegen</p>
+<p>Du kannst deinen Bericht als Download über das Aktionsmenü einer Belegart verfügbar machen. Dies ist hilfreich, wenn du die Berichtsdaten bei der Arbeit mit bestimmten Belegarten benötigst, z.B. Lieferscheinen.</p>
+<p>Die Aktionsmenü-Einstellungen richtest du folgendermaßen ein:</p>
+<ol>
+<li>Möchtest du den Bericht allen Benutzern per Download bereitstellen und nicht nur für solche mit den entsprechenden Freigabe, setze ein Häkchen bei Öffentlich freigeben.</li>
+<li>
+<p>Wähle die gewünschte Belegart im Auswahlfeld Beleg.
+  Die Belegart findest du auch in der URL, wenn du das gewünschte Modul öffnest.</p>
+</li>
+<li>
+<p>Wenn du eine bestimmte Beschriftung im Aktionsmenü angezeigt haben möchtest, gib diese in das Feld Menü-Beschriftung ein. Wenn du hier nichts eingibst, wird der Name des Berichts angezeigt.</p>
+</li>
+<li>Wähle das Format, in dem Bericht heruntergeladen werden soll.</li>
+<li>Klicke Speichern.</li>
+</ol>
+<p>Wenn du nun mit einem Beleg der entsprechenden Belegart arbeitest und dasAktion-Dropdown-Menü öffnest, findest du die Download-Option für deinen Bericht dort. Durch Auswahl dieser Option wird dein Bericht heruntergeladen.</p>
+<h3 id="reiter-einstellungen-definieren">Reiter-Einstellungen definieren<a class="headerlink" href="#reiter-einstellungen-definieren" title="Permanent link">&para;</a></h3>
+<p>Reiter Freigaben &gt; 4. Bereich Tab (Reiter) in Software</p>
+<p>Ist es erforderlich, die Berichte direkt in den Belegdaten anzuzeigen, kannst du die Anzeige des Berichts als separaten Reiter in den Belegdaten freigeben.</p>
+<p>Die Reiter-Einstellungen definierst du wie folgt:</p>
+<ol>
+<li>Möchtest du den Bericht allen Benutzern bereitstellen und nicht nur für solche mit der entsprechenden Freigabe, setze ein Häkchen bei Öffentlich freigeben.</li>
+<li>Wähle die Belegart, der du einen zusätzlichen Reiter für den Bericht hinzufügen möchtest, im Feld Modul aus.</li>
+<li>
+<p>Gib die Aktion, bei der der Reiter erscheinen soll, in das Feld Action ein.
+  Die Aktionen findest du in der URL, wenn du einen Beleg öffnest.</p>
+</li>
+<li>
+<p>Gib den Namen deines Reiters in das Feld Tab-Beschriftung ein.</p>
+</li>
+<li>Wähle die Anordnung deines Reiters in das Feld Position ein. Du kannst ihn vor oder hinter dem Reiter Freifeld anordnen.</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+<p>Der Berichte-Reiter wird mit dem von dir definierten Reiternamen in den ausgewählten Belegen angezeigt. Mit einem Klick auf den Reiternamen wird der Bericht in einem Pop-up-Fenster geöffnet.</p>
+<h2 id="ubertragungsoptionen-definieren">Übertragungsoptionen definieren<a class="headerlink" href="#ubertragungsoptionen-definieren" title="Permanent link">&para;</a></h2>
+<p>Berichtswesen &gt; Berichte &gt; Bericht öffnen<img alt="PenIcon.png" src="https://help.xentral.com/hc/article_attachments/15150646037020" /></p>
+<blockquote>
+<p>Reiter Übertragung</p>
+</blockquote>
+<p>Du kannst den Bericht automatisch über verschiedene Kanäle versenden oder teilen. Dir stehen hier die folgenden Optionen zur Verfügung:</p>
+<h3 id="per-ftp-ubertragen">Per FTP übertragen<a class="headerlink" href="#per-ftp-ubertragen" title="Permanent link">&para;</a></h3>
+<p>Zum Übertragen des Berichts via FTP gehe wie folgt vor:</p>
+<ol>
+<li>Setze im Bereich Per FTP übertragen ein Häkchen bei Aktivieren, um die FTP-Übertragung zu aktivieren.</li>
+<li>Wähle den zu verwendenden FTP-Typ aus dem Typ-Dropdown-Menü. Wähle zwischen den folgenden Optionen: FTP, FTP mit SSL und SFTP.</li>
+<li>Du kannst ein Häkchen bei Passiver Modus setzen, wenn der Server keine Verbindung zum Client herstellen kann, z.B. wenn eine Firewall verwendet wird. Die Firewall wird in diesem Fall die Verbindung erlauben, da die Quelle innerhalb des geschützten Bereichs liegt. Die Option ist nur dann möglich, wenn du FTP oder SFTP verwendest. Wir empfehlen die Verwendung von SFTP.</li>
+<li>Gib die passenden FTP-Informationen in die folgenden Felder ein: FTP-Host, Port, FTP-Benutzer und FTP-Passwort. Gibst du keinen Port ein, wird der Standard-Port verwendet. Der Standard-Port für FTP und FTPS ist 21, der für SFTP ist 22.</li>
+<li>Gib das Übertragungsintervall in die Übertragungsintervall-Felder ein. Wähle aus dem Dropdown-Menü das Übertragungsintervall: Alle X Tage, Wöchentlich am oder Monatlich am. Gib in das Feld rechts daneben den entsprechenden numerischen Wert ein. Beispiel: Wählst du das Übertragungsintervall Wöchentlich am aus und gibst den numerischen Wert 3 ein, erfolgt die Übertragung am dritten Tag der Woche, d.h. Mittwoch.</li>
+<li>Klicke auf das Feld Uhrzeit. Das Fenster Uhrzeit wählen wird angezeigt. Benutze die Schieber für Stunde und Minute, um die gewünschte Uhrzeit festzulegen. Möchtest du die aktuelle Zeit verwenden, klicke auf Aktuelle Zeit. Zur Bestätigung klicke auf OK.</li>
+<li>Wähle das Dateiformat für die Übertragung.</li>
+<li>Möchtest du einen anderen als den Standard-Berichtsnamen als Dateinamen verwenden, gib ihn in das Feld Dateiname ein. Du kannst die Variablen, die im Formular gelistet sind, hier verwenden.</li>
+<li>Scrolle zum unteren Ende des Reiters und klicke auf Speichern, um die Einstellungen für die FTP-Übertragung zu speichern.</li>
+</ol>
+<p>Die FTP-Übertragung erfolgt nun automatisch in dem definierten Intervall.</p>
+<h3 id="bericht-per-e-mail-versenden">Bericht per E-Mail versenden<a class="headerlink" href="#bericht-per-e-mail-versenden" title="Permanent link">&para;</a></h3>
+<p>Du kannst den Bericht per E-Mail versenden, z.B. an einen Mitarbeiter, der diesen Bericht regelmäßig bewerten muss.</p>
+<p>Gehe dazu wie folgt vor:</p>
+<ol>
+<li>Setze im Bereich E-Mail-Versand ein Häkchen bei Aktivieren, um die Übertragung per E-Mail zu erlauben.</li>
+<li>Gib den Empfänger der E-Mail sowie den E-Mail-Betreff in die entsprechenden Felder ein.</li>
+<li>Gib das Übertragungsintervall in die Übertragungsintervall-Felder ein. Wähle aus dem Dropdown-Menü das Übertragungsintervall: Alle X Tage, Wöchentlich am oder Monatlich am. Gib in das Feld rechts daneben den entsprechenden numerischen Wert ein.</li>
+<li>Mit einem Klick auf das Feld Uhrzeit wird das Fenster Uhrzeit wählen geöffnet. Benutze die Schieber Stunde und Minute, um die gewünschte Uhrzeit einzustellen oder klicke auf Aktuelle Zeit, um die aktuelle Zeit zu wählen. Bestätige deine Auswahl mit OK.</li>
+<li>Wähle das Dateiformat für die Übertragung.</li>
+<li>Möchtest du einen vom Standard-Berichtsnamen abweichenden Namen anwenden, gib diesen in das Feld Dateiname ein. Du kannst die Variablen, die im Formular gelistet sind, hier verwenden.</li>
+<li>Scrolle bis zum unteren Ende des Reiters und klicke auf Speichern, um die Einstellungen zum E-Mail-Versand zu speichern.</li>
+</ol>
+<p>Die E-Mail wird nun automatisch im definierten Intervall versendet.</p>
+<h3 id="bericht-per-url-teilen">Bericht per URL teilen<a class="headerlink" href="#bericht-per-url-teilen" title="Permanent link">&para;</a></h3>
+<p>Du kannst deinen Bericht über eine spezifische URL teilen.</p>
+<p>Gehe dazu wie folgt vor:</p>
+<ol>
+<li>Wähle im Bereich URL teilen das Format, in dem du den Bericht teilen möchtest, aus dem Format-Dropdown-Menü.</li>
+<li>Wenn du auf die Verfügbarkeit-Felder klickst, wird ein Kalender geöffnet. Wähle den Zeitraum aus, für den der Bericht über die generierte URL abrufbar sein soll. Wenn du keinen Zeitraum definierst, kann keine URL generiert werden.</li>
+<li>Klicke auf Neue URL erzeugen, um eine URL für das Teilen des Berichts zu generieren. Das Fenster wird automatisch neu geladen und die neu generierte URL wird im Feld Abruf über URL angezeigt.</li>
+<li>Um die URL zu teilen, klicke auf das Kopiersymbol.</li>
+</ol>
+<p>Die generierte URL kannst du nun in eine E-Mail oder einen Chat kopieren, um den Bericht zu teilen.</p>
+<h3 id="bericht-uber-api-teilen">Bericht über API teilen<a class="headerlink" href="#bericht-uber-api-teilen" title="Permanent link">&para;</a></h3>
+<p>Du kannst deinen Bericht über ein API-Konto teilen.</p>
+<p>Gehe dazu wie folgt vor:</p>
+<ol>
+<li>Setze im Bereich API-Zugriff freigeben ein Häkchen bei Aktivieren, um die API-Übertragung zu erlauben.</li>
+<li>Wähle das API-Konto, mit dem du den Bericht teilen möchtest, aus dem Feld API-Account. API-Konten richtest du unter Administration &gt; System &gt; API-Account ein.</li>
+<li>Wähle das Format, in dem du den Bericht teilen möchtest, aus dem Format-Dropdown-Menü.</li>
+<li>Klicke aufSpeichern.</li>
+</ol>
+<h2 id="einen-bericht-anzeigen">Einen Bericht anzeigen<a class="headerlink" href="#einen-bericht-anzeigen" title="Permanent link">&para;</a></h2>
+<p>Berichtswesen &gt; Berichte &gt; Bericht öffnen<img alt="PenIcon.png" src="https://help.xentral.com/hc/article_attachments/15150646037020" /></p>
+<blockquote>
+<p>Reiter Ansicht</p>
+</blockquote>
+<p>Der Bericht wird automatisch generiert, wenn du den ReiterAnsichtöffnest.</p>
+<p>Du kannst die angezeigten Berichtsdaten durch die Parameter im BereichParametergenauer definieren oder einschränken. Die hier angezeigten Parameter und Optionen der einzelnen Parameter sind identisch zu den<a href="#UUID-14597dcc-d945-c257-1864-cd30ac61a416_section-idm459181717663043342398997836">Variablen</a>, die du im ReiterDetailshinzugefügt hast. Um Parameter anzuwenden, wähle die entsprechenden Werte der gewünschten Parameter und klicke aufParameter festlegen. Die Berichtsdaten werden auf Basis der angezeigten Parameter aktualisiert.</p>
+<p>Du kannst zusätzlich die Spaltenfilter verwenden, um nach spezifischen Daten zu filtern, oder den Bericht als CSV-Datei oder PDF-Datei herunterladen. Klicke dazu im BereichDownloadaufExport CSVoderExport PDF, je nach Bedarf.</p>
+<h2 id="beispiel-fur-eine-sql-anfrage-anzahl-auftrage-pro-kunde-fur-zeitraum-x">Beispiel für eine SQL-Anfrage - Anzahl Aufträge pro Kunde für Zeitraum X<a class="headerlink" href="#beispiel-fur-eine-sql-anfrage-anzahl-auftrage-pro-kunde-fur-zeitraum-x" title="Permanent link">&para;</a></h2>
+<pre><code>select count(*) as Anzahl_Bestellungen,ad.kundennummer as Kundennummer, au.name as Kunde from auftrag au inner join adresse ad on ad.id=au.adresse where au.datum between '{VON}' and '{BIS}' and au.status &lt;&gt; 'angelegt' group by au.adresse&quot;,
+  &quot;columns
+</code></pre>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>&lsquo;{VON}&rsquo; und &lsquo;{BIS}&rsquo; sind Variablen.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

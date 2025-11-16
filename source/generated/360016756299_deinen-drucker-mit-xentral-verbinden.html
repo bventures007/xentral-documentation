@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016756299 Deinen Drucker Mit Xentral Verbinden - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016756299 Deinen Drucker Mit Xentral Verbinden</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016756299 Deinen Drucker Mit Xentral Verbinden</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Um Versandlabel und Belege mit Xentral zu drucken, musst du deine Instanz mit einem Drucker verbinden. Hierzu benötigst du die Druckerspooler-App, die du auf deinem Gerät installieren musst.</p>
+<p>Du kannst frei entscheiden, für welche Anwendung du einen Drucker benutzen möchtest. Du kannst zum Beispiel einen Drucker einem bestimmten Projekt oder einer Belegart zuordnen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Um den Drucker in Xentral nutzen zu können, musst du das Gerät einschalten, auf dem die Druckerspooler-App installiert ist. Du kannst die Spooler-App zum Beispiel auf einem fest zugeordneten Gerät in deinem Netzwerk installieren, so dass alle Xentral-Benutzer Zugriff auf den Drucker haben.</p>
+</blockquote>
+<p>Die folgenden Abschnitte beschreiben, wie du einen Drucker ab Version 24.4 anschließt und die aktuelle Version der Druckerspooler-App nutzt. Verwendest du eine ältere Version von Xentral und möchtest einen Drucker anschließen, findest du eine Anleitung in diesem Abschnitt:<a href="#UUID-1440617b-112e-f4eb-2b29-788c46c17996_section-idm4527382733140834133993937109">Drucker verbinden (Legacy)</a>.</p>
+<h2 id="drucker-hinzufugen">Drucker hinzufügen<a class="headerlink" href="#drucker-hinzufugen" title="Permanent link">&para;</a></h2>
+<p>Neue Drucker können über den Drucker-Wizard in den Einstellungen deiner Instanz hinzugefügt werden.</p>
+<p>Gehe wie folgt vor, um einen Drucker hinzuzufügen:</p>
+<ol>
+<li>Öffne das Menü Einstellungen &gt; Grundeinstellungen &gt; Drucker &gt; Druckerverbindungen.</li>
+<li>Klicke auf Drucker hinzufügen.</li>
+<li>Wähle einen Anwendungsfall für diesen Drucker. Dabei stehen die folgenden Optionen zur Verfügung:
+  Klicke auf Weiter, um fortzufahren.</li>
+</ol>
+<p>-<strong>Versandetiketten für Pakete</strong>: Werden üblicherweise am Packtisch in deinem Versandzentrum gedruckt und benötigen möglicherweise spezielles Papier.
+  -<strong>Paketversanddokumente</strong>: Können je nach Bedarf und Art des Belegs an mehreren Orten gedruckt werden. Verwendet normales Papier.
+  -<strong>Ich werde meinen Drucker für etwas anderes verwenden</strong>: Wähle diese Option, um deinen Drucker zu einem späteren Zeitpunkt einzurichten. Du wirst direkt zu Schritt 3 des Wizards weitergeleitet.
+1. Entscheide dich wie und wo du deine Etiketten oder Belege drucken möchtest. Wähle zwischen den folgenden Optionen:
+  Klicke auf Weiter, um fortzufahren.</p>
+<ul>
+<li>Die erste Option unterscheidet sich je nachdem, welche Option du im vorherigen Schritt ausgewählt hast.
+  -<strong>Versandetiketten für Pakete &gt; Nach Versandart</strong>: Wähle die Versandarten, für die du Versandetiketten drucken möchtest. Du kannst entweder alle Versandarten mit einem Klick auswählen oder nur bestimmte Versandarten. Solltest du z.B. ein spezielles Lager für sperrige Artikel haben, kannst du dort einen Drucker einrichten, der nur Versandetiketten für die Spedition deiner Wahl druckt.
+  -<strong>Paketversanddokumente &gt; Alle Dokumente für ein Projekt</strong>: Wähle die Projekte aus, für die du Belege drucken möchtest. Auf diese Weise kannst du z.B. zwischen Druckern für B2B und B2C unterscheiden. Außerdem kannst du auswählen, welche Belege du für dieses Projekt drucken möchtest. Du kannst also bestimmte Belege ausschließlich auf einem ausgesuchten Drucker drucken, an dem sie zuvor überprüft werden können.</li>
+<li>Für einen Kollegen: Wähle welche deiner Benutzer diesen Drucker verwenden können sollen. Möchte einer der ausgewählten Benutzer ein Versandetikett oder einen Beleg drucken, wird dieser Drucker verwendet.</li>
+<li>
+<p>Ich werde es später einrichten: Du kannst diese Option wählen, um deinen Drucker zu einem späteren Zeitpunkt einzurichten.
+1. Wähle eine Verbindungsart. Du kannst zwischen einem physischen, E-Mail und PDF-Drucker auswählen.
+  Klicke auf Beenden.</p>
+</li>
+<li>
+<p>Neuen Drucker verbinden: Gib einen Namen für den Drucker ein und öffne den Xentral Drucker-Spooler, um deinen Drucker mit der Instanz zu verbinden.
+  Hast du den Spooler noch nicht installiert, kannst du ihn durch einen Klick auf die entsprechende Download-Schaltfläche für dein Betriebssystem herunterladen. Anschließend kannst du den Spooler, wie im verlinkten Abschnitt beschrieben, installieren: <a href="#druckerspooler-verwenden">Druckerspooler verwenden</a>. Kopiere die URL deiner Instanz, da du sie für die Einrichtung des Spoolers benötigst.</p>
+</li>
+<li>
+<p>E-Mail: Du kannst die Belege und Etiketten, die du drucken möchtest, per E-Mail an einen anderen Computer oder Drucker senden. Wenn du über einen bestimmten Druckertyp verfügst, kannst du E-Mails an diesen Drucker senden und den Inhalt und die Anhänge automatisch ausdrucken lassen.
+  Gib einen Namen für den Drucker ein. Gib die E-Mail-Adresse des Empfängers, einen Betreff (Betreff des E-Mail-Druckers) und einen Text (E-Mail-Druckertext) wie bei einer normalen E-Mail ein. Auf diese Weise kannst du Druckaufträge aus Xentral markieren und so einfach von anderen Ausdrucken dieses Druckers unterscheiden.</p>
+</li>
+<li>
+<p>Herunterladen der Druckaufträge: Gib einen Namen für deinen PDF-Drucker ein. Hiermit speicherst du deine Belege als PDF auf deinem Computer ab. Diese Art zu drucken kann ausreichen, wenn du nur wenige Aufträge zu bearbeiten hast.</p>
+</li>
+</ul>
+<p>Du bist bereit zu drucken! Der neu verbundene Drucker ist unterEinstellungen &gt; Grundeinstellungen &gt; Drucker &gt; Druckerverbindungengelistet. Hier findest du alle Druckerverbindungen, egal ob sie über den neuen oder den alten Druckerspooler angebunden wurden. Verbindungen über den alten Druckerspooler sind jedoch mit einemLegacy-Markierung gekennzeichnet.</p>
+<p>Möchtest du einen physischen Drucker verwenden und hast den Druckerspooler noch nicht installiert, lies bitte hier weiter:<a href="#UUID-1440617b-112e-f4eb-2b29-788c46c17996_section-idm4597184226292834106657310601">Druckerspooler verwenden</a>.</p>
+<h2 id="druckerspooler-verwenden">Druckerspooler verwenden<a class="headerlink" href="#druckerspooler-verwenden" title="Permanent link">&para;</a></h2>
+<p>Du kannst Belege mithilfe der XentralDruckerspooler über einen physischen Drucker ausdrucken. Der Druckerspooler ist für macOS (Intel- und Apple-Chips) und für Windows verfügbar.</p>
+<h3 id="druckerspooler-herunterladen">Druckerspooler herunterladen<a class="headerlink" href="#druckerspooler-herunterladen" title="Permanent link">&para;</a></h3>
+<p>Du kannst den aktuellen Druckerspooler herunterladen, indem du unterDruckerverbindungenaufDownload Spoolerklickst, und den richtigen Spooler für dein Betriebssystem herunterlädst.</p>
+<p>Ob du den richtigen Spooler heruntergeladen hast, erkennst du an der Dateiendung:</p>
+<p>-<strong>macOS</strong>: Es sind zwei Versionen verfügbar, die für unterschiedliche Arten von Prozessoren entwickelt wurden.
+  -<strong>Intel-Chip</strong>: Dateiname endet in.dmg.
+  -<strong>Apple-Chip</strong>(M1, M2, etc.): Dateiname endet in -arm64.dmg.
+-<strong>Windows</strong>: Dateiname endet in.exe.</p>
+<h3 id="druckerspooler-aktualisieren">Druckerspooler aktualisieren<a class="headerlink" href="#druckerspooler-aktualisieren" title="Permanent link">&para;</a></h3>
+<p>Der Druckerspooler aktualisiert sich ab Version 4.5.0 der Spooler-App automatisch.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Entferne vorherige Versionen des Druckerspoolers, bevor du Version 4.5.0 oder höher nutzt!</p>
+</blockquote>
+<p>Sobald ein mögliches Update erkannt wird, erhältst du eine Nachricht, dass es im Hintergrund heruntergeladen wird. Nach Abschluss des Downloads wird eine neue Meldung angezeigt, die es dir ermöglicht, das Update sofort durchzuführen. Klicke dafür aufNeu starten. Möchtest du den Spooler zu einem späteren Zeitpunkt aktualisieren, klicke aufSpäter. Das Update wird dann beim nächsten manuellen Neustart des Spoolers durchgeführt.</p>
+<h3 id="druckerspooler-konfigurieren">Druckerspooler konfigurieren<a class="headerlink" href="#druckerspooler-konfigurieren" title="Permanent link">&para;</a></h3>
+<p>Im Druckerspooler siehst du alle auf deinem Computer verfügbaren Drucker und kannst sie mit deiner Instanz verbinden. Außerdem siehst du ob bei einem deiner Drucker ein Fehler aufgetreten ist.</p>
+<p>Gehe wie folgt vor, um den Druckerspooler zu konfigurieren:</p>
+<ol>
+<li>Öffne den Druckerspooler durch einen Doppelklick auf das Xentral Spooler Symbol. Der Spooler öffnet sich in einem neuen Fenster.</li>
+<li>Gib die URL deiner Xentral-Instanz ein (z.B. https://beispiel.xentral.biz).</li>
+<li>Melde dich mit den selben Anmeldedaten an, die du auch für deine Instanz verwendest. Du kannst dich auch mit Google über den <a href="https://help.xentral.com/hc/de/articles/21756262512924#UUID-223069ae-5ad5-480a-88e2-ab85c548a135">Social Login</a> anmelden.</li>
+<li>Klicke auf Akzeptieren, wenn die App dich nach Zugang zu deiner Instanz fragt.</li>
+<li>
+<p>Du wirst zum Tab Drucker der Spooler App weitergeleitet. Hier siehst du eine Liste aller Drucker, die auf diesem Gerät Zur Verbindung verfügbar sind.
+  Wähle die Konfiguration für deinen Drucker im Dropdown-Menü Xentral-Drucker aus. Jede Konfiguration für physische Drucker, die du über den Drucker Wizard eingerichtet hast, ist hier aufgelistet.</p>
+</li>
+<li>
+<p>Klicke für den Drucker, den du verwenden möchtest, auf Verbinden. Der Drucker wird nun im Bereich Mit deiner Instanz verbunden angezeigt.
+1.<strong>Optional</strong>: Klicke auf Einstellungen und gib einen Namen für deinen Spooler ein.
+  Ein guter Name hilft dir dabei zwischen unterschiedlichen Spoolern zu unterscheiden, falls du den Spooler auf mehreren Geräten installiert hast. Auf diese Weise kannst du nach einem bestimmten Spooler filtern, wenn du unter Einstellungen &gt; Grundeinstellungen &gt; Drucker &gt; Druckaufträge deine Druckaufträge betrachtest. Du kannst auch die Liste deiner Drucker unter Einstellungen &gt; Grundeinstellungen &gt; Drucker &gt; Druckerverbindungen nach Spooler filtern.</p>
+</li>
+</ol>
+<p>Alle Drucker, die mit diesem Spooler verbunden sind, werden im TabDruckergelistet und können durch einen Klick aufTrennenaus deiner Instanz entfernt werden. Unterhalb des Druckers siehst du seinen aktuellen Status und ob Fehlermeldungen vorliegen.</p>
+<p><img alt="printer_spooler_errormessage.png" src="https://help.xentral.com/hc/article_attachments/12656461535388" /></p>
+<h2 id="druckerverbindung-mit-einer-testseite-prufen">Druckerverbindung mit einer Testseite prüfen<a class="headerlink" href="#druckerverbindung-mit-einer-testseite-prufen" title="Permanent link">&para;</a></h2>
+<p>Nachdem du deine Druckerverbindung eingerichtet hast, kannst du mit einer Testseite überprüfen, ob du alles richtig konfiguriert hast. Bei Download- und E-Mail-Druckern kannst du dies direkt nach der Konfiguration der Verbindung über den Drucker-Wizard tun. Physische Dokumenten- und Etikettendrucker benötigen zusätzlich eine Verbindung zum Drucker-Spooler.</p>
+<p>Gehe wie folgt vor, um eine Testseite zu drucken:</p>
+<ol>
+<li>Öffne das Menü Einstellungen &gt; Grundeinstellungen &gt; Drucker &gt; Druckerverbindungen.</li>
+<li>Klicke auf die <strong>drei Punkte</strong> in der rechten Spalte der Verbindung, die du testen möchtest.</li>
+<li>Klicke aufSend test page (Testseite versenden).</li>
+</ol>
+<p>Je nachdem, welche Art der Verbindung du ausgewählt hast, erhältst du ein unterschiedliches Dokument. Beim Download-Drucker erhältst du ein PDF-Dokument, beim E-Mail-Drucker eine E-Mail und bei physischen Dokumenten- und Etikettendruckern erhältst du eine gedruckte Seite.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bei Problemen mit deinem Drucker, kannst du den Status all deiner Druckaufträge unterEinstellungen &gt; Grundeinstellungen &gt; Drucker &gt; Druckaufträgeeinsehen. Hier kannst du nach fehlerhaften Druckaufträgen filtern, sie erneut drucken und sie herunterladen. Weitere Informationen findest du hier:Druckaufträge verwalten.</p>
+</blockquote>
+<h2 id="bestehende-konfiguration-bearbeiten">Bestehende Konfiguration bearbeiten<a class="headerlink" href="#bestehende-konfiguration-bearbeiten" title="Permanent link">&para;</a></h2>
+<p>Möchtest du Veränderungen an einer bestehenden Konfiguration durchführen, klicke auf die <strong>drei Punkte</strong> in der rechten Spalte der Verbindung und dann aufEdit. Auf dem folgenden Bildschirm kannst du die folgenden Einstellungen bearbeiten.</p>
+<p>BereichEinstellungen:</p>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name / Standort</td>
+<td>Deine Druckerverbindung wird mit diesem Namen in Xentral angezeigt. Wähle einen aussagekräftigen Namen, damit du deinen Drucker leicht wiedererkennen kannst.</td>
+</tr>
+<tr>
+<td>Bezeichnung</td>
+<td>Die technische Bezeichnung deines Druckers, d.h. der Name unter dem dein Drucker im Netzwerk gelistet ist, z.B. Brother HL-2250DN. Dieses Feld wird nur benötigt, falls ein physischer Drucker über den Spooler angebunden wird und wird während der Verbindung automatisch gefüllt. Im Normalfall musst du hier keine Änderungen durchführen.</td>
+</tr>
+<tr>
+<td>Aktiv</td>
+<td>Wähle diese Option, um die Druckerverbindung zu aktivieren. Sie ist nun in allen Druckprozessen als Option wählbar. Entfernst du das Häkchen, wird die Verbindung deaktiviert. Falls die deaktivierte Verbindung in einem Druckprozess ausgewählt ist, wird sie mit der nächsten Druckerverbindung in der Liste deiner Druckerverbindungen ersetzt.</td>
+</tr>
+<tr>
+<td>Kein Hintergrund</td>
+<td>Wähle diese Option, um Belege bei Verwendung dieses Druckers ohne den Hintergrund des Briefpapiers zu drucken.</td>
+</tr>
+</tbody>
+</table>
+<p>Der BereichExperteerlaubt es dir, weitere Einstellungen wie die Geräteart anzupassen. Außerdem kannst du hier die Einstellungen deines E-Mail-Druckers vollständig ändern. Klicke aufZusätzliche Einstellungen anzeigen, um den Bereich Experte zu öffnen.</p>
+<p>BereichExperte:</p>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geräteart</td>
+<td>Wähle, ob du einen Dokumentendrucker für PDFs (Drucker (Belege und Paketmarken)) oder einen Etikettendrucker, der mit XML arbeitet (Etikettendrucker (XML Definitionen)) anbinden möchtest.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Wähle das Papierformat für deinen Drucker.</td>
+</tr>
+<tr>
+<td>Anbindung</td>
+<td>Wähle die korrekte Art der Anbindung für deinen Drucker (E-Mail,Download oder Xentral Druckerspooler für physische Drucker). Die Umwandlung des Xentral Druckerspooler zumNextGen Spooler (NEW) wird in einem<a href="#UUID-1440617b-112e-f4eb-2b29-788c46c17996_section-idm234444844768167">späteren Abschnitt dieses Artikels</a> beschrieben.</td>
+</tr>
+<tr>
+<td>E-Mail Drucker Empfänger</td>
+<td>Gib die E-Mail-Adresse ein, an die dein E-Mail-Drucker Nachrichten versenden soll.</td>
+</tr>
+<tr>
+<td>E-Mail Drucker Betreff</td>
+<td>Gib den Betreff der von deinem E-Mail-Drucker versendeten Nachrichten ein.</td>
+</tr>
+<tr>
+<td>E-Mail Drucker Text</td>
+<td>Gib den Textkörper für die von deinem E-Mail-Drucker versendeten Nachrichten ein.</td>
+</tr>
+<tr>
+<td>Seriennummer</td>
+<td>Dieses Feld ist spoolerspezifisch und kann (sollte) nicht bearbeitet werden.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="druckerverbindung-loschen">Druckerverbindung löschen<a class="headerlink" href="#druckerverbindung-loschen" title="Permanent link">&para;</a></h2>
+<p>Manche Druckerverbindungen werden nach einer gewissen Zeit möglicherweise nicht mehr benötigt. Du kannst diese Verbindungen deaktivieren, falls du sie zu einem späteren Zeitpunkt wiederverwenden möchtest. Entferne dazu das Häkchen beiAktivwie in einem<a href="#UUID-1440617b-112e-f4eb-2b29-788c46c17996_N1729505326451">vorherigen Abschnitt beschrieben</a>. Alternativ kannst du deine Druckerverbindung wie folgt löschen:</p>
+<ol>
+<li>Öffne das Menü Einstellungen &gt; Grundeinstellungen &gt; Drucker &gt; Druckerverbindungen.</li>
+<li>Klicke auf die <strong>drei Punkte</strong> in der rechten Spalte der Verbindung, die du löschen möchtest.</li>
+<li>Klicke aufLöschen.</li>
+</ol>
+<h2 id="druckerkonfigurationen-des-alten-spoolers-zum-neuen-druckerspooler-migrieren">Druckerkonfigurationen des alten Spoolers zum neuen Druckerspooler migrieren<a class="headerlink" href="#druckerkonfigurationen-des-alten-spoolers-zum-neuen-druckerspooler-migrieren" title="Permanent link">&para;</a></h2>
+<p>Du kannst bestehende Druckerkonfigurationen, die den alten Druckerspooler verwenden, zum neuen Druckerspooler migrieren, um deine Druckperformance zu verbessern. Die entsprechenden Druckerkonfigurationen findest du im MenüEinstellungen &gt; Grundeinstellungen &gt; Drucker &gt; Druckerverbindungen. Druckerkonfigurationen, die über den alten Druckerspooler angebunden wurden, sind hier alsLegacymarkiert.</p>
+<p><img alt="printer_printerconnections_legacy.png" src="https://help.xentral.com/hc/article_attachments/15159622731420" /></p>
+<p>Gehe wie folgt vor, um eine Druckerkonfiguration zum neuen Druckerspooler zu migrieren:</p>
+<ol>
+<li>Öffne den neuen Druckerspooler auf deinem Computer.</li>
+<li>Navigiere im TabDrucker im BereichZur Verbindung verfügbar zum Drucker, den du verbinden möchtest, und öffne das Dropdown-MenüXentral-Drucker. Alle möglichen Druckerkonfigurationen sind hier gelistet. Druckerkonfigurationen, die den alten Druckerspooler verwenden, sind alsLegacy markiert.</li>
+<li>Wähle dieLegacy-Konfiguration aus, die du zum neuen Spooler migrieren möchtest.</li>
+<li>Klicke aufVerbinden.</li>
+</ol>
+<p>Die Konfiguration wurde nun zum neuen Druckerspooler migriert und alle dafür nötigen Änderungen wurden automatisch im Hintergrund deiner Xentral-Instanz durchgeführt.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die Migration einer Druckerkonfiguration muss immer über den neuen Druckerspooler erfolgen! Es ist nicht möglich eine bestehende Konfiguration direkt in deiner Instanz zum neuen Druckerspooler zu migrieren. Die entsprechende Option in den Druckereinstellungen ist ausgegraut.</p>
+</blockquote>
+<h2 id="drucker-verbinden-legacy">Drucker verbinden (Legacy)<a class="headerlink" href="#drucker-verbinden-legacy" title="Permanent link">&para;</a></h2>
+<p>In diesem Abschnitt wird eine veraltete Art beschrieben, um Drucker mit Xentral zu verbinden. Bei Verwendung einer aktuellen Version von Xentral empfehlen wir dir die oben beschriebene neue Druckerspooler-App zu nutzen, da diese zahlreiche Verbesserungen enthält.</p>
+<h3 id="macos-printer-spooler-herunterladen-und-drucker-einrichten">macOS: Printer Spooler herunterladen und Drucker einrichten<a class="headerlink" href="#macos-printer-spooler-herunterladen-und-drucker-einrichten" title="Permanent link">&para;</a></h3>
+<h4 id="schritt-1-installiere-die-printer-spooler-app-auf-deinem-macos-gerat">Schritt 1: Installiere die Printer Spooler-App auf deinem macOS-Gerät<a class="headerlink" href="#schritt-1-installiere-die-printer-spooler-app-auf-deinem-macos-gerat" title="Permanent link">&para;</a></h4>
+<p>Die neueste Version der Printer Spooler-App für macOS-Geräte ist in zwei Versionen verfügbar, die für unterschiedliche Arten von Prozessoren optimiert sind:</p>
+<ul>
+<li>Apple Prozessoren (M1 und M2)</li>
+<li>Intel Prozessoren</li>
+</ul>
+<p>Gehe wie folgt vor, um denxentral-spooler3zu installieren:</p>
+<ol>
+<li>Klicke auf einen der folgenden Links, um die Printer Spooler Installationsdatei aus dem Xentral GitHub Repository herunterzuladen. Der Download beginnt ohne weitere Hinweise sofort.
+  - <a href="https://github.com/xentral/downloads/blob/master/old-xentral-spooler-versions/xentral-spooler3-3.0.3-arm64.dmg">Spooler für Apple-Prozessoren</a>
+  - <a href="https://github.com/xentral/downloads/blob/master/old-xentral-spooler-versions/xentral-spooler3-3.0.3.dmg">Spooler für Intel-Prozessoren</a></li>
+<li>Navigiere zu deinem Download-Ordner und öffne die Datei <strong>xentral-spooler3</strong> mit einem Doppelklick.</li>
+<li>Ziehe das Symbol für xentral-spooler3 auf den Ordner Applications, um die Einrichtung abzuschließen.</li>
+</ol>
+<h4 id="schritt-2-deinen-drucker-mit-xentral-verbinden">Schritt 2: Deinen Drucker mit Xentral verbinden<a class="headerlink" href="#schritt-2-deinen-drucker-mit-xentral-verbinden" title="Permanent link">&para;</a></h4>
+<p>Sobald du den Printer Spooler auf deinem macOS-Gerät installiert hast, kannst du deinen Drucker mit deiner Xentral-Instanz verbinden. Dafür benötigst du einenSecurity Keyaus deiner Xentral-Instanz.</p>
+<p>Gehe wie folgt vor, um deinen Drucker mit Xentral zu verbinden:</p>
+<ol>
+<li>Erstelle zunächst den benötigten Security Key. Navigiere zu:
+  - In Xentral NextGen: Einstellungen &gt; Administration &gt; Drucker einrichten
+  - Im Classic Design: Administration &gt; System &gt; Drucker</li>
+<li>Setze ein Häkchen bei Xentral Device API aktiviert.</li>
+<li>Klicke aufKey generierenund dann auf Kopieren, um den Key in deine Zwischenablage zu kopieren. Du benötigst ihn später in den Einstellungen der Spooler App.</li>
+<li>Öffne die App xentral-spooler3 auf deinem macOS-Gerät, um mit dem Verbinden des Druckers zu beginnen.</li>
+<li>Sobald du deinem macOS-Gerät die Freigabe zum Öffnen der App erteilt hast, öffne die App xentral-spooler3 erneut und klicke zum Bestätigen auf Öffnen.</li>
+<li>Die App xentral-spooler3 beinhaltet die folgenden Reiter:
+  - Drucker - In diesem Reiter findest du die Drucker, die mit deinem macOS-Gerät verbunden sind.
+  - Einstellungen - Dieser Reiter beinhaltet die folgenden Felder, die du ausfüllen musst:
+  - URL zu Xentral - Kopiere die URL deiner Xentral-Instanz in dieses Feld.
+  - Seriennummer - Gib 123456789 ein.
+  - Security Key - Kopiere den Security Key, den du zuvor in Xentral generiert hast, in dieses Feld.
+  - Info - In diesem Reiter findest du allgemeine Informationen zur App xentral-spooler3.</li>
+<li>Kehre nach Eingabe aller erforderlichen Informationen zum Reiter Einstellungen zurück und klicke auf Speichern.</li>
+</ol>
+<h4 id="schritt-3-deinen-drucker-in-xentral-konfigurieren">Schritt 3: Deinen Drucker in Xentral konfigurieren<a class="headerlink" href="#schritt-3-deinen-drucker-in-xentral-konfigurieren" title="Permanent link">&para;</a></h4>
+<p>Der letzte Schritt beim Verbinden deines Druckers ist die Konfiguration in Xentral.</p>
+<ol>
+<li>Navigiere zu:
+  - In Xentral NextGen: Einstellungen &gt; Administration &gt; Drucker einrichten and klicke auf + Drucker hinzufügen.
+  - Im Classic Design: Administration &gt; System &gt; Drucker und klicke auf +NEU.</li>
+<li>Trage die folgenden Grundeinstellungen ein:
+  - Name / Standort - Gib einen leicht erkennbaren Namen ein, sodass du deinen Drucker schnell in der Übersichtstabelle aller Drucker identifizieren kannst.
+  - Bezeichnung - Kopiere den Druckernamen aus dem Reiter Drucker in der xentral-spooler3 App und füge ihn in das Feld Bezeichnung ein. Der Name muss identisch sein. Andernfalls kannst du deinen Drucker nicht mit Xentral verbinden.
+  - Aktiv - Setze hier ein Häkchen, um den Drucker zu aktivieren.
+  - Kein Hintergrund - Setze hier ein Häkchen, falls du an diesem Drucker nur Briefpapier ohne Hintergrund drucken möchtest.</li>
+<li>Setze ein Häkchen im BereichExperte, um die folgenden fortgeschritteneren Einstellungen zu bearbeiten.
+  - Geräteart - Wähle die Art des Druckers, den du verbinden möchtest.
+  - Format - Wähle das Papierformat je nach Drucker.
+  - Anbindung - Wähle Xentral Druckerspooler im Dropdown-Menü aus.
+  - Optional:Email - Sende die Dokumente, die du drucken möchtest, an eine E-Mail-Adresse. Gib die Adresse in das FeldE-Mail Drucker Empfänger, den Betreff inE-Mail Drucker Betreff und den Text inE-Mail Drucker Text ein. Deine Dokumente werden als PDFs angehängt und können gesammelt zu einem späteren Zeitpunkt gedruckt werden.
+  - Seriennummer - Gib 123456789 ein.</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+<h3 id="windows-printer-spooler-herunterladen-und-drucker-einrichten">Windows: Printer Spooler herunterladen und Drucker einrichten<a class="headerlink" href="#windows-printer-spooler-herunterladen-und-drucker-einrichten" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Benutzt du eine Firewall, musst du der Firewall eine Ausnahme für die Druckerverbindung hinzufügen. Andernfalls funktioniert der Printer Spooler nicht.</p>
+</blockquote>
+<h4 id="schritt-1-installiere-die-printer-spooler-app-auf-deinem-windows-gerat">Schritt 1: Installiere die Printer Spooler-App auf deinem Windows-Gerät<a class="headerlink" href="#schritt-1-installiere-die-printer-spooler-app-auf-deinem-windows-gerat" title="Permanent link">&para;</a></h4>
+<p>Gehe wie folgt vor, um den Xentral Spooler 3.0zu installieren:</p>
+<ol>
+<li>Klicke auf<a href="https://github.com/xentral/downloads/blob/master/old-xentral-spooler-versions/xentral-spooler3%20Setup%203.0.3.exe">diesen Link</a>, um die Printer Spooler-Installationsdatei aus dem Xentral GitHub Repository herunterzuladen. Der Download beginnt ohne weitere Hinweise sofort.</li>
+<li>Navigiere zum Download-Ordner deines Computers und öffne die Datei <strong>xentral-spooler3 Setup 3.0.3.exe</strong> mit einem Doppelklick.</li>
+<li>Wird die Meldung Der Computer wurde durch Windows geschützt angezeigt, klicke auf Weitere Informationen und dann auf Trotzdem ausführen, um die Installation zu starten.</li>
+</ol>
+<h4 id="schritt-2-deinen-drucker-mit-xentral-verbinden_1">Schritt 2: Deinen Drucker mit Xentral verbinden<a class="headerlink" href="#schritt-2-deinen-drucker-mit-xentral-verbinden_1" title="Permanent link">&para;</a></h4>
+<p>Sobald du den Printer Spooler auf deinem Windows-Gerät installiert hast, kannst du deinen Drucker mit deiner Xentral-Instanz verbinden.</p>
+<p>Gehe wie folgt vor, um deinen Drucker mit Xentral zu verbinden:</p>
+<ol>
+<li>Erstelle zunächst den benötigten Security Key. Navigiere zu:
+  - In Xentral NextGen: Einstellungen &gt; Administration &gt; Drucker einrichten
+  - Im Classic Design: Administration &gt; System &gt; Drucker</li>
+<li>Setze ein Häkchen bei Xentral Device API aktiviert.</li>
+<li>Klicke aufKey generierenund dann auf Kopieren, um den Key in deine Zwischenablage zu kopieren. Du benötigst ihn später in den Einstellungen der Spooler App.</li>
+<li>Starte die App Xentral Spooler 3.0 auf deinem Gerät.</li>
+<li>Die App Xentral Spooler 3.0 beinhaltet die folgenden Reiter:
+  - Drucker - In diesem Reiter findest du die Drucker, die mit deinem Windows-Gerät verbunden sind.
+  - Einstellungen - Dieser Reiter beinhaltet die folgenden Felder, die du ausfüllen musst:
+  - URL zu Xentral - Kopiere die URL deiner Xentral-Instanz in dieses Feld.
+  - Seriennummer - Gib 123456789 ein.
+  - Security Key - Kopiere den Security Key, den du bereits in Xentral generiert hast, in dieses Feld.
+  - Abfrageintervall in Sek - Gib einen ganzzahligen Wert zwischen 1 und 5 ein, wobei 5 der Standardwert ist. Mit diesem Feld kannst du einstellen, wie oft der Drucker neue Druckaufträge bei Xentral anfragt. Bei langen Druckzeiten kannst du das Abfrageintervall verringern.
+  Bitte beachte, dass eine Verringerung des Abfrageintervalls die Auslastung deiner Instanz erhöht! Sollten nach dem Verringern des Wertes Performance-Probleme auftreten, setze das Intervall bitte auf den Standardwert von 5 zurück.</li>
+</ol>
+<ul>
+<li>Info - In diesem Reiter findest du allgemeine Informationen zur App xentral-spooler3.
+1. Kehre nach Eingabe aller erforderlichen Informationen zum Reiter Einstellungen zurück und klicke auf Speichern.</li>
+</ul>
+<h4 id="schritt-3-deinen-drucker-in-xentral-konfigurieren_1">Schritt 3: Deinen Drucker in Xentral konfigurieren<a class="headerlink" href="#schritt-3-deinen-drucker-in-xentral-konfigurieren_1" title="Permanent link">&para;</a></h4>
+<p>Der letzte Schritt beim Verbinden deines Druckers ist die Konfiguration in Xentral.</p>
+<ol>
+<li>Navigiere zu:
+  - In Xentral NextGen: Einstellungen &gt; Administration &gt; Drucker einrichten and klicke auf + Drucker hinzufügen.
+  - Im Classic Design: Administration &gt; System &gt; Drucker und klicke auf +NEU.</li>
+<li>Trage die folgenden Grundeinstellungen ein:
+  - Name / Standort - Gib einen leicht erkennbaren Namen ein, sodass du deinen Drucker schnell in der Übersichtstabelle aller Drucker identifizieren kannst.
+  - Bezeichnung - Kopiere den Druckernamen aus dem Reiter Drucker in der xentral-spooler3 App und füge ihn in das Feld Bezeichnung ein. Der Name muss identisch sein. Andernfalls kannst du deinen Drucker nicht mit Xentral verbinden.
+  - Aktiv - Setze hier ein Häkchen, um den Drucker zu aktivieren.
+  - Kein Hintergrund - Setze hier ein Häkchen, falls du an diesem Drucker nur Briefpapier ohne Hintergrund drucken möchtest.</li>
+<li>Setze ein Häkchen im BereichExperte, um die folgenden fortgeschritteneren Einstellungen zu bearbeiten.
+  - Geräteart - Wähle die Art des Druckers, den du verbinden möchtest.
+  - Format - Wähle das Papierformat je nach Drucker.
+  - Anbindung - Wähle Xentral Druckerspooler im Dropdown-Menü aus.
+  - Optional:Email - Sende die Dokumente, die du drucken möchtest, an eine E-Mail-Adresse. Gib die Adresse in das FeldE-Mail Drucker Empfänger, den Betreff inE-Mail Drucker Betreff und den Text inE-Mail Drucker Text ein. Deine Dokumente werden als PDFs angehängt und können gesammelt zu einem späteren Zeitpunkt gedruckt werden.
+  - Seriennummer - Gib 123456789 ein.</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

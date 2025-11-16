@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11739160988060 Shop Schnittstellen Und Marktplatz Integrationen E - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>11739160988060 Shop Schnittstellen Und Marktplatz Integrationen E</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>11739160988060 Shop Schnittstellen Und Marktplatz Integrationen E</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Bist du im E-Commerce tätig, bietest du deine Ware in einem Online-Shop, einem Markplatz oder in beiden an. Die beiden Vertriebsarten unterscheiden sich wie folgt:</p>
+<p>Ein Online-Shop besteht aus deiner eigenen Webseite, die du nach deinen Bedürfnissen individualisieren kannst. Dies erlaubt dir das Kundenerlebnis besser zu steuern und dich von der Masse abzuheben. Im Hintergrund arbeitet ein Shopsystem wie Shopify oder Shopware, das deine Aufträge entgegennimmt und an Xentral weiterleitet.</p>
+<p>Ein Marktplatz ist eine bestehende Plattform wie Amazon oder eBay, auf der du deine Artikel einstellen kannst. Aufgrund der hohen Nutzerzahlen dieser Plattformen, profitierst du von einer hohe Reichweite. Andererseits bist du von den Entscheidungen der Plattform abhängig und kannst deine Artikel nicht individuell präsentieren. Dies spart Zeit, macht es aber schwieriger deine eigene Marke zu etablieren.</p>
+<p><a href="https://help.xentral.com/hc/articles/360016756799#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">Online-Shops und Marktplätze</a>sind über Schnittstellen mit Xentral verbunden. Diese können z.B. Aufträge importieren, die Lagerzahlen über alle Shops/ Marktplätze abgleichen und die Trackingnummer an den Shop zurückmelden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die klassischen Shop-Schnittstellen in Xentral werden nach und nach durch neue Schnittstellen ersetzt. Du kannst die neuen Schnittstellen am Wort “Connector” erkennen, z.B. Shopify-Connector. Diese sind leichter anzubinden und bieten erweiterte Funktionalitäten. Hast du deinen Shop bereits über eine klassische Schnittstelle angebunden, kannst du diese leicht auf die neue Schnittstelle migrieren.</p>
+</blockquote>
+<h2 id="online-shops-und-marktplatze-anbinden-klassisch">Online-Shops und Marktplätze anbinden (klassisch)<a class="headerlink" href="#online-shops-und-marktplatze-anbinden-klassisch" title="Permanent link">&para;</a></h2>
+<p>Einen Shop oder Marktplatz bindest du über die klassische Schnittstelle folgendermaßen an:</p>
+<ol>
+<li>Navigiere zu <strong>Einstellungen &gt; Verkaufen &gt; Shops/ Marktplätze </strong>. Klicke auf <strong>Verbindung hinzufügen</strong>.</li>
+<li>Wähle den Shop/ Marktplatz aus, den du anbinden möchtest.</li>
+<li>Gib die Zugangsdaten deines Shops oder Marktplatzes an. Dieser Schritt unterscheidet sich je nachdem, was du anbinden möchtest. Du wirst zu den Einstellungen der Schnittstelle weitergeleitet.</li>
+<li>
+<p>Klicke auf <strong>Verbindung prüfen</strong>, um die korrekte Anbindung zu überprüfen. Hierbei werden keine Daten des Shops oder von Xentral übertragen, sondern nur geprüft, ob eine Verbindung möglich ist.
+  War die Verbindung erfolgreich, dann fahre bitte mit der Anbindung fort. Tritt ein Fehler auf, dann prüfe bitte deine Zugangsdaten.</p>
+</li>
+<li>
+<p>Wähle den Importmodus. Dieser bestimmt wie Aufträge von Xentral importiert werden:
+  1.<strong>Demo (zum Testen)</strong>: Standardmäßig eingestellt. Wir empfehlen dir die Schnittstelle ausgiebig zu testen, bevor du in den Live-Betrieb wechselst. In diesem Modus wird der Auftragsstatus im Shop nicht verändert und keine Artikel und Lagerzahlen übertragen.
+  1.<strong>Manuell (mit Importzentrale)</strong>: Importiert Aufträge nur, wenn du in deiner Schnittstelle auf der rechten Seite im <strong>Aktion </strong></p>
+</li>
+</ol>
+<p>-Menü auf <strong>Aufträge abholen</strong> klickst. Der manuelle Import bietet dir die Möglichkeit deine Aufträge vor der Freigabe zu überprüfen. Dies ist besonders im B2B-Bereich wichtig, wenn du nur wenige, aber sehr wichtige Aufträge hast.
+  1.<strong>Automatisch (per Prozessstarter)<strong>: Importiert deine Aufträge in regelmäßigen Intervallen automatisch. Den Intervall legst du im <a href="https://help.xentral.com/hc/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">Prozessstarter</a></strong> Shopimporter</strong> fest. Dies ist der typische Modus für ein E-Commerce-Unternehmen im B2C-Bereich.</p>
+<p>Die Rückmeldung der Trackingnummer an den Shop ist standardmäßig voreingestellt. Du findest die Option unter <strong>Reiter Details &gt; Unterreiter Einstellungen </strong> im Feld <strong>Auftragsstatus rückmelden</strong>.</p>
+<p>Die Synchronisierung der Lagerzahlen findet statt, wenn die folgenden Voraussetzungen erfüllt sind:</p>
+<ul>
+<li>Der Prozessstarter Lagerzahlen (Shops) mit dem Parameter lagerzahlen ist aktiv.</li>
+<li>Im <strong>Reiter Details &gt; Unterreiter Online-Shop Optionen</strong> eines Artikels sind die folgenden zwei Voraussetzungen erfüllt:</li>
+<li>Die Option <strong>Lagerzahlen Sync</strong> ist aktiviert.</li>
+<li>Der Artikel ist mit der Shop-Schnittstelle verknüpft. Klicke hierfür im Bereich <strong>Online-Shops </strong> auf <strong>Neuer Eintrag</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bei einer neuen Schnittstelle kannst du die benötigten Features, wie die Synchronisierung der Lagerzahlen und Tracking direkt in der Schnittstelle steuern.</p>
+</blockquote>
+<h3 id="artikel-aus-shop-in-xentral-zuordnen-artikel-fremdnummern-klassisch">Artikel aus Shop in Xentral zuordnen - Artikel Fremdnummern (klassisch)<a class="headerlink" href="#artikel-aus-shop-in-xentral-zuordnen-artikel-fremdnummern-klassisch" title="Permanent link">&para;</a></h3>
+<p><a href="https://help.xentral.com/hc/articles/360016758199#UUID-be6a2725-3071-98cf-ad2e-1a9016c503cc">Fremdnummern</a>dienen bei der klassischen Schnittstelle dazu eine Verbindung zwischen einem Shop oder Markplatz und Xentral herzustellen. Es gibt drei Möglichkeiten deine Fremdnummern anzupassen:</p>
+<ul>
+<li>Im entsprechenden Artikel im Reiter <strong>Fremdnummern</strong> für einen einzelnen Artikel</li>
+<li>In der <strong>Artikel Fremdnummern</strong> App für die manuelle Bearbeitung aller Artikel</li>
+<li>In der Importzentrale für mehrere Artikel gleichzeitig über eine CSV-Datei</li>
+</ul>
+<p>Bei der Zuordnung einer Fremdnummer sind drei Informationen wichtig: die Artikelnummer in Xentral, die Bezeichnung und die Fremdnummer (Artikelnummer im Shop). Die Bezeichnung unterscheidet sich je nach Shop:</p>
+<table>
+<thead>
+<tr>
+<th>Shop/ Marktplatz</th>
+<th>Art des Artikels</th>
+<th>Bezeichnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shopify</td>
+<td>Artikel</td>
+<td>shopifyproductid</td>
+</tr>
+<tr>
+<td>Shopify</td>
+<td>Variante</td>
+<td>shopifyvariantid</td>
+</tr>
+<tr>
+<td>WooCommerce</td>
+<td>Artikel</td>
+<td>SKU</td>
+</tr>
+<tr>
+<td>Amazon</td>
+<td>Artikel (Fulfillment by Amazon)</td>
+<td>SKU_FBA</td>
+</tr>
+<tr>
+<td>Amazon</td>
+<td>Artikel (Fulfillment by Merchant)</td>
+<td>SKU_FBM</td>
+</tr>
+<tr>
+<td>eBay</td>
+<td>Artikel</td>
+<td>eBayListing</td>
+</tr>
+<tr>
+<td>eBay</td>
+<td>Variante</td>
+<td>SKU, alternativ: Bestandseinheit</td>
+</tr>
+<tr>
+<td>Kaufland</td>
+<td>Artikel</td>
+<td>apiunitid</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Für Shopware werden keine Fremdnummern im Artikel benötigt. Die Artikelnummern/ SKUs in Xentral müssen jedoch identisch zu den Artikelnummern in Shopware sein.</p>
+</blockquote>
+<h2 id="online-shops-und-marktplatze-anbinden-neue-schnittstelle">Online-Shops und Marktplätze anbinden (neue Schnittstelle)<a class="headerlink" href="#online-shops-und-marktplatze-anbinden-neue-schnittstelle" title="Permanent link">&para;</a></h2>
+<p>Eine<a href="https://help.xentral.com/document/preview/77557#UUID-01f05285-a5d1-500d-fad2-4521da1df80c">neue Schnittstelle</a>(z.B. Shopify oder WooCommerce) kannst du wie folgt anbinden:</p>
+<ol>
+<li>Navigiere zu <strong>Einstellungen &gt; Verkaufen </strong> und wähle eine der neuen Schnittstellen aus, z.B.<strong>Shopify Connector</strong>.</li>
+<li>Klicke auf <strong>Install App</strong>. Dieser Schritt ist nur bei der ersten Anbindung notwendig.</li>
+<li>Klicke auf <strong>+ Neue Integration</strong>.</li>
+<li>Gib der Schnittstelle einen Namen und lasse den Schalter unter <strong>Livemodus aktivieren </strong> links (inaktiv). Dies erlaubt dir die Schnittstelle vor dem Go-live ausführlich zu testen. Klicke auf <strong>Weiter</strong>.</li>
+<li>Erzeuge in deinem externen Shop ein Zugangstoken und gib anschließend die Zugangsdaten deines Shops in Xentral ein.</li>
+<li>Klicke auf <strong>Verbindung testen </strong>, um die korrekte Anbindung zu überprüfen. Hierbei werden keine Daten des Shops oder von Xentral übertragen, sondern nur geprüft, ob eine Verbindung möglich ist. Klicke auf <strong>Weiter</strong>.</li>
+<li>Wähle aus, welche Daten zwischen Xentral und deinem Shop ausgetauscht werden sollen. Du kannst hier unter anderem entscheiden, ob du Lagerzahlen, Preise und Tracking synchronisieren möchtest. Klicke anschließend auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Die Schnittstelle wird nun angelegt. Dies dauert einen kurzen Moment. Im Anschluss kannst du über die Verwaltungsoberfläche <strong>Daten migrieren </strong>,<strong>Artikel zuordnen </strong> sowie die Details zum Datenaustausch unter <strong>Workflows einstellen </strong>. Test und Liveschaltung der Schnittstelle erfolgen ebenfalls unter <strong>Workflows</strong>.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

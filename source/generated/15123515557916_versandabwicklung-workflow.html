@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15123515557916 Versandabwicklung Workflow - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>15123515557916 Versandabwicklung Workflow</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>15123515557916 Versandabwicklung Workflow</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p><a href="#UUID-6c65d150-cca8-dacf-a997-fdc77cb54ea9_section-idm234440144389393">Single Pick (Einzelkommissionierung) - Picken von Artikeln für jeden Auftrag separat</a></p>
+<ul>
+<li><a href="#UUID-6c65d150-cca8-dacf-a997-fdc77cb54ea9_section-idm234440145052033">Einzeldruck eines Auftrags</a></li>
+<li><a href="#UUID-6c65d150-cca8-dacf-a997-fdc77cb54ea9_section-idm234440145899123">Stapeldruck mehrerer Aufträge</a></li>
+<li><a href="#UUID-6c65d150-cca8-dacf-a997-fdc77cb54ea9_section-idm234440152028697">Pack am Versandplatz (Versandzentrum)</a></li>
+</ul>
+<p>Multi-Pick (mehrere Aufträge gemeinsam picken / Rollende Kommissionierung)</p>
+<h2 id="single-pick-einzelkommissionierung-picken-von-artikeln-fur-jeden-auftrag-separat">Single Pick (Einzelkommissionierung) - Picken von Artikeln für jeden Auftrag separat<a class="headerlink" href="#single-pick-einzelkommissionierung-picken-von-artikeln-fur-jeden-auftrag-separat" title="Permanent link">&para;</a></h2>
+<p>Die Einzelkommissionierung ist die einfachste Methode, um Aufträge abzuarbeiten. Du wählst manuell einen oder mehrere Aufträge aus, die du versenden möchtest, und drückst auf &ldquo;Ausführen&rdquo;. Anschließend werden alle entsprechenden Lieferscheine ausgedruckt. Auf den Lieferscheinen kannst du die Lagerplätze angeben lassen, aus denen die Ware entnommen werden soll. Alternativ kannst du auch einen Kommissionierschein ausdrucken, der speziell für den Kommissionierprozess gedacht ist. Dieser einfache Workflow ermöglicht es dir, jeden Auftrag individuell und korrekt zu bearbeiten, indem du einmal durch das Lager gehst und die Artikel entnimmst.</p>
+<h3 id="einzeldruck-eines-auftrags">Einzeldruck eines Auftrags<a class="headerlink" href="#einzeldruck-eines-auftrags" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Auftragsauswahl</strong>: Wähle manuell einen Auftrag aus, die du versenden möchtest.
+-<strong>Ausführung</strong>: Nach der Auswahl klicke auf &ldquo;Ausführen&rdquo;.
+-<strong>Druck des Lieferscheins</strong>: Der ausgewählte Lieferschein wird an einem ausgewählten Drucker ausgedruckt.</li>
+</ul>
+<p><img alt="image-20240724-064127.png" src="https://help.xentral.com/hc/article_attachments/15124051004828" /></p>
+<h3 id="stapeldruck-mehrerer-auftrage">Stapeldruck mehrerer Aufträge<a class="headerlink" href="#stapeldruck-mehrerer-auftrage" title="Permanent link">&para;</a></h3>
+<p>-<strong>Versandübergabe Auftragsauswahl (Stapel)</strong>: Wähle über die Oberfläche ‘Versandübergabe’ mehrere Aufträge gleichzeitig aus und führe den “Stapeldruck” aus.
+-<strong>Druck von Lieferscheinen</strong>: Alle ausgewählten Lieferscheine werden an einem ausgewählten Drucker ausgedruckt.</p>
+<p><img alt="image-20240724-063957.png" src="https://help.xentral.com/hc/article_attachments/15124073257500" /></p>
+<p>Nachdem du die Artikel pro Auftrag bzw. Lieferschein aus dem Lager entnommen hast, stellt sich die Frage, wie du an die Paketmarke kommst. Dafür gibt es im Wesentlichen zwei Möglichkeiten. Du kannst die Paketmarken direkt durch &ldquo;manuellen Druck&rdquo; oder &ldquo;Stapeldruck&rdquo; mit den Lieferscheinen ausdrucken lassen. Alternativ, und das ist der von uns empfohlene Weg, nutzt du einen Computer mit Barcodescanner am Packtisch. Dort, wo du die Ware mit Füllmaterial in den Versandkarton packst, scannst du den Barcode auf dem Lieferschein. So gelangst du direkt in die Maske unseres &ldquo;Versandzentrums&rdquo; und kannst die Paketmarke drucken.</p>
+<h3 id="pack-am-versandplatz-versandzentrum">Pack am Versandplatz (Versandzentrum)<a class="headerlink" href="#pack-am-versandplatz-versandzentrum" title="Permanent link">&para;</a></h3>
+<p>-<strong>Auswahl des Versandauftrages</strong>: Im Versandzentrum kannst du den Auftrag manuell auswählen, über die Suche finden oder direkt mit dem Barcode Scanner erfassen.</p>
+<p><img alt="image-20240724-064303.png" src="https://help.xentral.com/hc/article_attachments/15124051097884" /></p>
+<p>-<strong>Qualitätsprüfung Scan (optional)</strong>: In der Ansicht des einzelnen Versandauftrages kannst du optional einen Verifizierungsscan zur Qualitätskontrolle einstellen, so das die Ware vor Paketversand nochmals gescannt wird.</p>
+<p><img alt="image-20240724-064358.png" src="https://help.xentral.com/hc/article_attachments/15124057354268" /></p>
+<p>-<strong>Label-Generierung (Paketmarke)</strong>: Nach der Auswahl des Versandauftrages oder der Qualitätsprüfung (optional) erhältst du die Ansicht für die Label-Generierung. Du kannst diese Maske auch automatisch überspringen lassen, so dass die Paketmarke direkt beim Wechsel der Softwareoberfläche automatisch gedruckt wird.</p>
+<p><img alt="image-20240724-064613.png" src="https://help.xentral.com/hc/article_attachments/15124042031644" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p><strong>Tipp für Profis</strong>: Am Versandtisch im Versandzentrum kannst du jeden Artikel erneut scannen und bestätigen. Dadurch minimierst du die Fehlerquote erheblich. Wenn ein Artikel Chargen, Mindesthaltbarkeitsdaten (MHD) oder Seriennummern hat, kannst du diese hier ebenfalls erfassen. Dies ist besonders wichtig, wenn du nicht nach dem FIFO-Prinzip (First In, First Out) arbeiten kannst oder in einer Branche tätig bist, in der es wichtig ist, genau zu wissen, welcher Kunde welche Charge, welches MHD oder welche Seriennummer erhalten hat.</p>
+<p><strong>Tipp</strong></p>
+<p><strong>Automatisierung</strong>: Du kannst diesen Logistik-Prozess so einstellen, dass bestätigte Aufträge (Auftragsübersicht, grüne Ampelschaltung) automatisch an einem Drucker im Lager ausgegeben werden. Dadurch kann das Lager autonom arbeiten, ohne dass du manuell eingreifen musst.</p>
+</blockquote>
+<h2 id="multi-pick-mehrere-auftrage-gemeinsam-picken-rollende-kommissionierung">Multi-Pick (mehrere Aufträge gemeinsam picken / Rollende Kommissionierung)<a class="headerlink" href="#multi-pick-mehrere-auftrage-gemeinsam-picken-rollende-kommissionierung" title="Permanent link">&para;</a></h2>
+<p>Bei diesem Verfahren werden Artikel für mehrere Bestellungen in einem einzigen Durchgang durch das Lager gesammelt: Beim &lsquo;Multi-Pick&rsquo; profitierst du davon, dass du nur einmal durch das Lager gehen und dabei mehrere Artikel für verschiedene Aufträge gleichzeitig picken kannst. Typischerweise sammelst du die Waren in einem speziellen Wagen, auch Kommissionierwagen. Hier gibt es zwei gängige Methoden: Du kannst einen Kommissionierwagen verwenden, auf dem du die Artikel direkt den jeweiligen Aufträgen in Boxen zuordnen kannst, oder du sammelst alle Artikel in einem großen Roll-Behälter und teilst sie dann in einem späteren Schritt den Aufträgen zu z.B. am Packtisch.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Ein Kommissionierwagen ist also ein vielseitig einsetzbarer, rollender Wagen, der in Lagern dazu dient, Artikel sicher und systematisch für den Versand zu sammeln und zu transportieren.</p>
+<p><strong>Tipp</strong></p>
+<p><strong>Ein praktischer Tipp</strong>: Wenn du Aufträge hast, die jeweils nur einen Artikel umfassen, kannst du besonders schnell vorgehen, indem du die gleiche Ware x-mal in den Wagen legst. Im Versandzentrum (Xentral) kannst du an deinem Packtisch generell einen beliebigen Artikel scannen, woraufhin bei 1-Position-Aufträgen sofort das passende Versandlabel automatisch gedruckt wird. Weitere Einzelheiten zu dieser Vorgehensweise werden wir später noch ausführlicher behandeln.</p>
+</blockquote>
+<h3 id="kommissionierlaufe-manuell-zusammenstellen">Kommissionierläufe manuell zusammenstellen<a class="headerlink" href="#kommissionierlaufe-manuell-zusammenstellen" title="Permanent link">&para;</a></h3>
+<p>Wenn du mehrere Aufträge zusammenfassen möchtest, um die Route durch dein Lager nur einmal abzulaufen, wählst du am besten manuell aus, welche Aufträge gemeinsam bearbeitet werden sollen. Diese Auswahl kannst du über die &ldquo;Versandübergabe&rdquo; steuern. Alle Aufträge, die du also über die &ldquo;Stapelverarbeitung&rdquo; gemeinsam an die Logistik übergibst, bilden dann einen ‘Kommissionierlauf’. Optional kannst du einen Namen für den ‘Kommissionierlauf’ vergeben, den der Picker im Lager sehen wird z.B. ‘B2B Edeka’.</p>
+<p>-<strong>Auftragsauswahl</strong>: Wähle manuell die Aufträge aus, die du versenden möchtest.
+-<strong>Ausführung</strong>: Nach der Auswahl ‘Auto-Versand (mit Kommissionierbez.)’ klicke auf ‘ausführen’.</p>
+<p><img alt="image-20240724-070005.png" src="https://help.xentral.com/hc/article_attachments/15262083540508" /></p>
+<p>-<strong>Benennung Kommissionierlauf (optional)</strong>: Vergabe einer Kommissionierbezeichnung für die Logistik.</p>
+<p><img alt="image-20240724-070006.png" src="https://help.xentral.com/hc/article_attachments/15262046127388" /></p>
+<p>-<strong>Übersicht Kommissionierläufe</strong>: du kannst alle Aufträge in der Übersicht “offene Lieferungen” einsehen und von dort abarbeiten. Oder die ‘Kommissionierläufe’ Übersicht verwenden, um den genauen Stapel der Versandübergabe zu erhalten.</p>
+<p><img alt="File__2___1_.jpg" src="https://help.xentral.com/hc/article_attachments/15262083664284" /></p>
+<h3 id="kommissionierlaufe-automatisch-mit-regeln-erstellen-automatisierung">Kommissionierläufe automatisch mit Regeln erstellen (Automatisierung)<a class="headerlink" href="#kommissionierlaufe-automatisch-mit-regeln-erstellen-automatisierung" title="Permanent link">&para;</a></h3>
+<p>Möchtest du die Kommissionierläufe automatisch nach bestimmten Regeln erstellen, nutze dafür die „Picklisten Profile“. In diesem Bereich kannst du mit diversen Filtern und Regeln festlegen, welche Aufträge zusammengefasst werden sollen und auch zu welchem Zeitpunkt die Versandübergabe an die Logistik stattfindet.</p>
+<p>Nutze die umfangreichen Filter- und Regeloptionen der Picklisten-Profile, um zu definieren, wie und wann Aufträge effizient zusammengefasst werden. Du kannst Aufträge automatisch gruppieren, sobald eine vordefinierte Anzahl erreicht ist, oder sie zu einem bestimmten Zeitpunkt zusammenfassen, wenn sie gewisse Voraussetzungen erfüllen. Diese Einstellungen ermöglichen es dir, deine Logistikabläufe nahtlos und angepasst an deine spezifischen Anforderungen zu optimieren.</p>
+<p>Hier sind einige Best Practice Beispiele für die Erstellung von Picklisten:</p>
+<p>-<strong>Zeitbasierte Picklisten:</strong></p>
+<ul>
+<li>Erzeuge Picklisten für mindestens fünf und maximal zehn B2B-Aufträge bis 12:00 Uhr und übergebe diese an die Logistik.</li>
+<li>
+<p>Erstelle Picklisten für alle Ein-Positionsaufträge um 11:00 Uhr zur Übergabe an die Logistik.
+-<strong>Artikel- oder kundenspezifische Picklisten:</strong></p>
+</li>
+<li>
+<p>Fasse alle B2B-Aufträge, die den &lsquo;Stuhl No. 4 Grün&rsquo; enthalten, in einer Pickliste zusammen.</p>
+</li>
+<li>Bünde alle Aufträge von Edeka Deutschland in einer eigenen Pickliste.</li>
+<li>
+<p>Erstelle eine gesonderte Pickliste für alle Aufträge des Projekts ‘Amazon’.
+-<strong>Priorisierte und schnelle Versandoptionen:</strong></p>
+</li>
+<li>
+<p>Stelle sicher, dass Amazon FBM-Aufträge, die bis 14:00 Uhr versendet werden müssen, vorrangig behandelt werden.</p>
+</li>
+<li>
+<p>Priorisiere Amazon Prime-Aufträge für die schnellste Abwicklung und Versand.
+-<strong>Standardisierte Picklisten-Routinen:</strong></p>
+</li>
+<li>
+<p>Erzeuge täglich um 12 Uhr systematisch Picklisten nur für B2B-Aufträge.</p>
+</li>
+<li>Stelle täglich Picklisten für genau 20 Aufträge zusammen, unabhängig von der Art der Aufträge.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Eine Anleitung zur Erstellung und Verwendung der Picklisten Profile findest du hier. Das Ergebnis eines Picklisten Profils ist ein standardmäßiger Kommissionierlauf, der mithilfe einer Pickliste oder Kommissionierliste verarbeitet werden kann. Diese Listen können entweder durch eine spezifische App (neue Kommissionier App), als Einzeldruck oder im Stapeldruck formatiert und ausgeführt werden.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

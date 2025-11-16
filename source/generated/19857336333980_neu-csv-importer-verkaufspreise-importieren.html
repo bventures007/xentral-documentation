@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19857336333980 Neu Csv Importer Verkaufspreise Importieren - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>19857336333980 Neu Csv Importer Verkaufspreise Importieren</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>19857336333980 Neu Csv Importer Verkaufspreise Importieren</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="uberblick">Überblick<a class="headerlink" href="#uberblick" title="Permanent link">&para;</a></h2>
+<p>Mit der hier beschriebenen Funktion kannst du Verkaufspreise, die in einer CSV-Datei vorliegen, in deinen XentralArtikelstamm hinzufügen.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Stelle sicher, dass die Artikel, zu denen du Verkaufspreise hochladen möchtest, bereits in Xentral angelegt sind. Falls du zunächst Artikel importieren möchtest, folgediesem Link, um zur Anleitung zu gelangen.</p>
+</blockquote>
+<p>Du findest den CSV-Importer im Menü <strong>Einstellungen &gt; Administration &gt; Datenaustausch &gt; CSV-Importer</strong>.</p>
+<p><img alt="CSV-Importer_Menupfad.png" src="https://help.xentral.com/hc/article_attachments/19857409184284" /></p>
+<p>Der Import von Verkaufspreisen über den CSV-Importer läuft nach folgendem Prozess ab:</p>
+<p><img alt="Preisimport_Workflow.png" src="https://help.xentral.com/hc/article_attachments/19857417862812" /></p>
+<h2 id="voraussetzungen">Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Permanent link">&para;</a></h2>
+<h3 id="pflichtfelder">Pflichtfelder<a class="headerlink" href="#pflichtfelder" title="Permanent link">&para;</a></h3>
+<p>Stelle sicher, dass deine CSV-Datei mindestens folgende <strong>Pflichtfelder</strong> enthält:</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Spaltenbenennungen können frei gewählt werden. Sie müssen nicht zwingend den hier aufgeführten Namen entsprechen, da sie im Rahmen das sog. Mappings den entsprechenden Xentral-Datenfeldern zugeordnet werden.</p>
+</blockquote>
+<ul>
+<li>Artikelnummer</li>
+<li>Preis Netto</li>
+<li>Währung</li>
+<li>Menge</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beachte, dass die hier aufgeführten Felder eine Minimal-Konfiguration darstellen. Es ist möglich, dass zusätzliche Felder erforderlich werden, sobald du weitere Spalten einfügst, die eine Abhängigkeit zur Folge haben.</p>
+<p>Beispiel: Wenn du Verkaufsaufträge mit Versandkosten importieren möchtest, benötigst du nicht nur &ldquo;Versandkosten (netto)&rdquo;, sondern auch das Feld &ldquo;Versandkosten Artikelnummer&rdquo;.</p>
+</blockquote>
+<h3 id="formatierungsregeln">Formatierungsregeln<a class="headerlink" href="#formatierungsregeln" title="Permanent link">&para;</a></h3>
+<p>Halte dich an folgende <strong>Formatierungsregeln</strong>, um ein reibungsloses Mapping zu gewährleisten:</p>
+<ul>
+<li>Preise/Kosten: Nutze einen Punkt als Trennzeichen. Beispiel: Der Betrag &ldquo;Zwei Euro und 59 Cent&rdquo; wird in der CSV-Datei als &ldquo;2.59&rdquo; eingetragen.</li>
+<li>Datum: Nutze die Struktur JJJJ-MM-TT. Formatiere z. B. das Gültig ab Datum als 2025-05-01, wenn die Gültigkeit ab dem ersten Mai 2025 starten soll.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Als Trennzeichnen, die du zwischen den einzelnen Datenfeldern in der CSV-Datei nutzt, kannst du z. B. Semikolon oder Komma verwenden. Sie werden beim Hochladen der Importdatei automatisch erkannt.</p>
+<p>Die Spaltenbenennungen können frei gewählt werden. Sie müssen nicht zwingend den oben aufgeführten Namen entsprechen, da sie im Rahmen das sog. Mappings den entsprechenden Xentral-Datenfeldern zugeordnet werden.</p>
+</blockquote>
+<h3 id="arbeiten-mit-ids">Arbeiten mit IDs<a class="headerlink" href="#arbeiten-mit-ids" title="Permanent link">&para;</a></h3>
+<p>Manchmal ist es notwendig oder sinnvoll, beim Import eine ID zu nutzen, wobei diese eine echte Referenz zur Datenbank darstellt und keine Nummer oder Bezeichnung ist. In diesem Abschnitt erklären wir dir, wie du eine ID ermitteln und beim Import verwenden kannst.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beachte, dass hier eine eindeutige Datenbank-ID gemeint ist, die nicht mit einer Nummer oder Bezeichnung verwechselt werden darf.</p>
+</blockquote>
+<p>Um die ID eines Datensatzes zu ermitteln, benötigst du nur zwei Schritte:</p>
+<ol>
+<li>Öffne den Datensatz, dessen ID du herausfinden möchtest.</li>
+<li>Lies die ID in der URL ab.</li>
+</ol>
+<h4 id="beispiel-projekt-id">Beispiel Projekt-ID<a class="headerlink" href="#beispiel-projekt-id" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Öffne das Modul Projekte, um die jeweilige Projekt-ID zu ermitteln. Das geht am Schnellsten über die Smart Search:</li>
+<li>In der Projektübersicht klickst du auf das Projekt, dessen Projekt-ID du herausfinden möchtest, um es zu öffnen. Lies anschließend die Projekt-ID in der URL ab:</li>
+</ol>
+<h4 id="beispiel-kunden-lieferanten-id">Beispiel Kunden-/ Lieferanten-ID<a class="headerlink" href="#beispiel-kunden-lieferanten-id" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Öffne das Modul Adressen.</li>
+<li>Öffne eine Adresse zum Bearbeiten und lies die Kunden- bzw. Lieferanten-ID aus der URL ab:</li>
+</ol>
+<h4 id="beispiel-artikel-id">Beispiel Artikel-ID<a class="headerlink" href="#beispiel-artikel-id" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Öffne das Modul Artikel.</li>
+<li>Öffne einen Artikel zum Bearbeiten und lies die Artikel-ID aus der URL ab:</li>
+</ol>
+<h4 id="beispiel-artikelkategorie-id">Beispiel Artikelkategorie-ID<a class="headerlink" href="#beispiel-artikelkategorie-id" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Öffne das Modul Artikelkategorien. Das geht am Schnellsten über die Smart Search.</li>
+<li>Öffne eine Kategorie zum Bearbeiten und lies die ID aus der URL ab:</li>
+</ol>
+<h2 id="csv-import-erstellen">CSV-Import erstellen<a class="headerlink" href="#csv-import-erstellen" title="Permanent link">&para;</a></h2>
+<p>Klicke auf+ CSV-Import erstellen, um einen neuen Import anzulegen:</p>
+<p><img alt="CSV-Importer_NeuenImportErstellen__1_.png" src="https://help.xentral.com/hc/article_attachments/19857417864220" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Sobald du Importe angelegt hast, kannst du sie an dieser Stelle wiederfinden, bearbeiten und erneut ausführen.</p>
+</blockquote>
+<p>Lege die allgemeinen Daten deines Imports an, um ihn später wiederfinden zu können und lade die CSV-Datei hoch:</p>
+<p><img alt="Verkaufspreisimport_DateiHochladen.png" src="https://help.xentral.com/hc/article_attachments/19857417865372" /></p>
+<ol>
+<li>Trage einen <strong>Namen</strong> und</li>
+<li>eine <strong>Beschreibung</strong> ein, die dir bei der Identifikation des Imports helfen.</li>
+<li>Wähle den Datentyp, den du importieren möchtest.</li>
+<li>Füge deine vorbereitete <strong>CSV-Datei</strong> ein.</li>
+<li>Unter den <strong>Erweiterten Einstellungen</strong> kannst du bei Bedarf Anpassungen an den Trennzeichen und Sonderzeichen vornehmen, falls die Spalten der Importdatei auf der rechten Seite nicht korrekt angezeigt werden.</li>
+<li>Wähle die Spalten aus, mit denen das System einen Datensatz eindeutig identifizieren kann (Datenbank-ID).</li>
+</ol>
+<h2 id="mapping-durchfuhren">Mapping durchführen<a class="headerlink" href="#mapping-durchfuhren" title="Permanent link">&para;</a></h2>
+<p>Sobald du auf <strong>Mit dem Mapping starten</strong> geklickt hast, werden die Daten in eine Vorschau geladen.</p>
+<h3 id="allgemeine-funktionen-der-vorschau">Allgemeine Funktionen der Vorschau<a class="headerlink" href="#allgemeine-funktionen-der-vorschau" title="Permanent link">&para;</a></h3>
+<p>In der Vorschauliste stehen dir folgende allgemeine Schaltflächen zur Verfügung:</p>
+<p><img alt="Verkaufspreisimport_Mapping_Vorschau_Schaltflachen.png" src="https://help.xentral.com/hc/article_attachments/19857417865756" /></p>
+<p>-<strong>(1) Suchfeld</strong>: Ermöglicht die Suche nach einer Artikelnummer
+-<strong>(2) Filter</strong>: Hier kannst du die Vorschauliste nach einem oder mehreren Filterkriterien einschränken.
+-<strong>(3) Anleitung öffnen</strong>: Hier bekommst du einen kurzen Überblick über die Importschritte.
+-<strong>(4) Schnellfilter</strong>: Filtert die Daten nach Spalten, die nicht zugeordnet sind oder nach Zeilen, die invalide Daten enthalten.
+-<strong>(5) Neu laden</strong>: Hiermit kannst du die Vorschau neu laden.
+-<strong>(6) Abschließen</strong>: Führt eine Validierung durch und ermöglicht den anschließenden Datenimport.</p>
+<h3 id="spalten-zuordnen-mappen">Spalten zuordnen (Mappen)<a class="headerlink" href="#spalten-zuordnen-mappen" title="Permanent link">&para;</a></h3>
+<p>In der linken Spalte der Vorschau ist der Eindeutige Bezeichner aufgeführt, in unserem Beispieleine Kombination aus mehreren Kriterien, um sicherzustellen, dass alle Preiszeilen aufgeführt werden. Daneben werden alle Spalten geladen, die im XentralDatenstamm für den zu importierenden Datentyp zur Verfügung stehen. Rot hinterlegte Felder stellen Pflichtfelder dar und müssen im nächsten Schritt zugeordnet werden. Alle weißen Spalten sind optional. Für diese nimmst du eine Zuordnung vor, nur soweit du es möchtest.</p>
+<p>Um eine Spaltenzuordnung zu konfigurieren, klicke auf die Schaltfläche neben dem Spaltentitel:</p>
+<p><img alt="Verkaufspreisimport_Mapping_Vorschau_Spaltenzuordnung.png" src="https://help.xentral.com/hc/article_attachments/19857409187612" /></p>
+<p>Im Feld <strong>Ursprünglicher Feldname</strong> werden dir die Spaltentitel aus der CSV-Datei angezeigt.</p>
+<p><img alt="Import_Spaltenkonfiguration_UrsprunglicherFeldname.png" src="https://help.xentral.com/hc/article_attachments/19857409190172" /></p>
+<p>Wähle den Feldnamen aus, der der ausgewähltenXentral-Spalte entspricht und klicke auf <strong>Anwenden</strong>. Die bereits erfolgte Zuordnung wird dir in der Vorschau angezeigt:</p>
+<p><img alt="Verkaufspreisimport_Mapping_ZuordnungErfolgt.png" src="https://help.xentral.com/hc/article_attachments/19857409192476" /></p>
+<p>Wiederhole das Vorgehen für allePflichtspalten und bei Bedarf weitere optionale Spalten.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die gelbe Kennzeichnung oben rechts zeigt dir an, dass noch Pflichtfelder zuzuordnen sind. Sobald alle verpflichtenden Spalten zugewiesen sind, verschwindet der Hinweis.</p>
+</blockquote>
+<h3 id="zuordnung-von-benutzerdefiniertem-text">Zuordnung von benutzerdefiniertem Text<a class="headerlink" href="#zuordnung-von-benutzerdefiniertem-text" title="Permanent link">&para;</a></h3>
+<p>Falls du einer Spalte Daten zuweisen möchtest, für die in der ursprünglichen CSV-Datei keine passende Spalte vorhanden ist, kannst du beim Mapping die Auswahl <strong>Benutzerdefinierter Text</strong> nutzen.</p>
+<p>Klicke auf die Schaltfläche neben dem Spaltentitel, um die Zuordnung zu öffnen. Wähle im Feld <strong>Ursprünglicher Feldname </strong> die Option <strong>Benutzerdefinierter Text</strong> aus und trage den zutreffenden Wert in das Feld daneben ein.</p>
+<p><img alt="Import_SpaltenzuordnungBenutzerdefinierterText.png" src="https://help.xentral.com/hc/article_attachments/19857417872028" /></p>
+<h3 id="andern-der-spaltenzuordnung">Ändern der Spaltenzuordnung<a class="headerlink" href="#andern-der-spaltenzuordnung" title="Permanent link">&para;</a></h3>
+<p>Wenn du eine Zuordnung nochmal anpassen möchtest, klicke erneut auf die Schaltfläche neben dem Spaltentitel und anschließend auf <strong>Startwert</strong>:</p>
+<p><img alt="Import_SpaltenzuordnungAndern.png" src="https://help.xentral.com/hc/article_attachments/19857409194012" /></p>
+<p>Nachdem du eine andere Spalte ausgewählt hast, bestätige per Klick auf <strong>Übernehmen</strong>:</p>
+<p><img alt="Artikelimport_SpaltenzuordnungUbernehmen.png" src="https://help.xentral.com/hc/article_attachments/19857409194908" /></p>
+<h2 id="daten-transformieren">Daten transformieren<a class="headerlink" href="#daten-transformieren" title="Permanent link">&para;</a></h2>
+<p>Mit Hilfe der so genannten Transformer-Funktionen kannst du Daten aus der CSV-Datei vor dem Importieren anpassen oder bereinigen.</p>
+<p>Du kannst die Daten auf Basis einer selbst definierten Regel anpassen. Die Regel trägst du einmal je Spalte ein. Sie wirkt sich dann auf alle Datenzeilen aus, für die die Regel zutrifft.</p>
+<p>Um eine Regel einzutragen, klicke erneut auf die Schaltfläche neben dem Spaltentitel und anschließend auf <strong>Schritt hinzufügen</strong>:</p>
+<p><img alt="Import_SpaltenzuordnungSchritthinzu.png" src="https://help.xentral.com/hc/article_attachments/19857417875228" /></p>
+<p>Wähle einen Konfigurationstypen aus, mit dem du die Daten anpassen möchtest und klicke auf <strong>Übernehmen</strong>:</p>
+<p><img alt="Import_SpaltenzuordnungKonfigurationstypwahlen.png" src="https://help.xentral.com/hc/article_attachments/19857417875996" /></p>
+<p>Folgende Konfigurationstypen stehen zur Verfügung:</p>
+<p>-<strong>HTML entfernen</strong>: Hiermit entfernst HTML-Tags aus einem String.
+-<strong>Weißraum entfernen</strong>: Diese Aktion entfernt Leerzeichen, die vor oder nach dem Inhalt stehen (jedoch keine Leerzeichen innerhalb der Zeichenkette).
+-<strong>Text ersetzen</strong>: Hiermit kannst du eine beliebige Zeichenkette durch eine andere ersetzen. So kannst du z. B. auch Leerzeichen innerhalb einer Zeichenkette entfernen.
+-<strong>Feld anhängen</strong>: Dies kannst du nutzen, um z. B. eine bestimmte Zeichenfolge an die im Feld vorhandenen Daten anzuhängen.
+-<strong>Wert festlegen</strong>: So kannst du einen festen Wert in die Spalte eintragen.
+-<strong>Bedingung</strong>: Auf diese Weise kannst du Daten vom System nach einer vorgegebenen Bedingung eintragen lassen.</p>
+<p>Je nach Konfigurationstyp kannst du weitere Angaben machen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Die Funktion <strong>Text ersetzen</strong> kannst du z. B. nutzen, wenn du eine Währung durch eine andere ersetzen möchtest.</p>
+</blockquote>
+<p><img alt="Import_SpaltenzuordnungKonfigurationstypText.png" src="https://help.xentral.com/hc/article_attachments/19857417877276" /></p>
+<p>Bei Bedarf kannst du weitere Konfigurationstypen ergänzen, indem du erneut auf <strong>Schritt hinzufügen</strong> klickst und das Vorgehen mit einem anderen Konfigurationstypen wiederholst. So kannst du mehrere Änderungen / Ersetzungen kombinieren:</p>
+<p><img alt="Import_SpaltenzuordnungWeitererSchritt.png" src="https://help.xentral.com/hc/article_attachments/19857409198236" /></p>
+<p>Sobald du alle gewünschten Konfigurationstypen definiert hast, bestätige per Klick auf <strong>Anwenden</strong>:</p>
+<p><img alt="Import_SpaltenzuordnungTransformationAnwenden.png" src="https://help.xentral.com/hc/article_attachments/19857409199132" /></p>
+<p>Die Vorschau zeigt dir die angepassten Daten, wie sie in Xentralübernommen werden.</p>
+<h3 id="andern-der-transformations-regeln">Ändern der Transformations-Regeln<a class="headerlink" href="#andern-der-transformations-regeln" title="Permanent link">&para;</a></h3>
+<p>Falls du eine Transformation nochmal anpassen oder wieder entfernen möchtest, klicke erneut auf die Schaltfläche neben dem Spaltentitel, um zum Transformations-Workflow zu gelangen. Dort kannst du</p>
+<ul>
+<li>(1) Schritte wieder entfernen,</li>
+<li>(2) erneut zum Bearbeiten öffnen oder</li>
+<li>(3) neue Schritte hinzufügen.</li>
+</ul>
+<p>Bestätige Änderungen per Klick auf <strong>Anwenden</strong>.</p>
+<p><img alt="Import_SpaltenkonfigurationAnpassen.png" src="https://help.xentral.com/hc/article_attachments/19857409199644" /></p>
+<h2 id="daten-uberschreiben">Daten überschreiben<a class="headerlink" href="#daten-uberschreiben" title="Permanent link">&para;</a></h2>
+<p>Ergänzend zur regelbasierten Transformation kannst du einzelne Datensätze manuell füllen. Doppelklicke dazu einfach in ein anzupassendes Datenfeld, tippe den Zielwert ein und bestätige mit der Enter-Taste oder dem grünen Haken:</p>
+<p><img alt="Verkaufspreisimport_ManuelleTransformationBestatigen.png" src="https://help.xentral.com/hc/article_attachments/19857409200156" /></p>
+<p>Eine solche Änderung kannst du ganz einfach per Klick auf den Zurück-Pfeil zurücksetzen:</p>
+<p><img alt="Verkaufspreisimport_ManuelleTransformationZurucksetzen.png" src="https://help.xentral.com/hc/article_attachments/19857417881500" /></p>
+<h2 id="daten-importieren">Daten importieren<a class="headerlink" href="#daten-importieren" title="Permanent link">&para;</a></h2>
+<p>Sobald alle Daten in der Vorschau so vorliegen, wie du es benötigst und keine invaliden Daten mehr angezeigt werden, kannst du mit dem Import starten. Klicke dazu zunächst auf <strong>Abschließen</strong>:</p>
+<p><img alt="Verkaufspreisimport_ImportStarten.png" src="https://help.xentral.com/hc/article_attachments/19857409201692" /></p>
+<p>Das System führt eine Datenvalidierung durch. Wenn keine invaliden Daten gefunden wurden, erhältst du eine grüne Erfolgsmeldung und kannst den <strong>Import starten</strong>:</p>
+<p><img alt="Import_DatenvalidierungGrun.png" src="https://help.xentral.com/hc/article_attachments/19857409202460" /></p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Sollten einzelne Datenfelder noch nicht ausreichend zugeordnet worden sein, bekommst du eine rote Meldung. Brich in diesem Fall ab und korrigiere die genannten Datensätze.</p>
+</blockquote>
+<p>Nachdem du auf <strong>Import starten</strong> geklickt hast, startet der Import im Hintergrund und du gelangst automatisch auf die Statusseite. Dort kannst du die Ansicht über die Filter oben einschränken und den Status über die Schaltfläche rechts aktualisieren:</p>
+<p><img alt="Artikelimport_ImportstatusNeuladen.png" src="https://help.xentral.com/hc/article_attachments/19857409208220" /></p>
+<p>Nach erfolgreichem Abschluss des Imports ist der Status für alle Datensätze grün:</p>
+<p><img alt="Artikelimport_ImportstatusVollstandig.png" src="https://help.xentral.com/hc/article_attachments/19857417889820" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Nach dem Start des Imports kannst Du diese Seite jederzeit schließen. Der Import läuft im Hintergrund weiter, solange noch Datensätze übrig sind. Du kannst jederzeit über dieCSV-Importer Übersichtzum Reporting zurückkehren und den Status verfolgen.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

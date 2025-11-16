@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016764099 Deine Retouren Verwalten Retouren Belege - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016764099 Deine Retouren Verwalten Retouren Belege</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016764099 Deine Retouren Verwalten Retouren Belege</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Im Modul <strong>Retouren Belege</strong> verwaltest und bearbeitest du alle deine Retouren. Zur Erinnerung: Es gibt mehrere Wege, um den Retourenprozess zu starten.</p>
+<ul>
+<li>Eine Retoure wird von deinem Endkunden über das Xentral Retourenportal angekündigt. Die Retoure wird dann automatisch in Xentral angelegt, so du sie anschließend im Modul <strong>Retouren Belege</strong> einsehen und bearbeiten kannst. Weitere Informationen zum Retourenportal findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/9726301921692#UUID-34870d61-2b30-e125-f45a-52089034af14">Xentral Retourenportal einrichten</a>.</li>
+<li>Eine Retoure wird dir angekündigt, indem sich ein Endkunde per E-Mail oder Telefon bei dir meldest. In diesem Fall solltest du manuell eine Retoure aus einem Auftrag, einer Rechnung oder einem Lieferschein erstellen.</li>
+<li>Für unangekündigte Retouren musst du manuell eine Retoure anlegen.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Eine Retoure muss im Modul <strong>Retouren Belege</strong> vorhanden sein, damit du die entsprechenden retournierten Artikel im Wareneingang akzeptieren kannst.</p>
+</blockquote>
+<p>Während des Retourenprozesses kannst du Retouren-Versandlabel, Gutschriften und kostenlose Ersatzlieferungen für deinen Endkunden erstellen. Sobald die retournierten Artikel in deinem Lager eintreffen, kannst du sie prüfen und einbuchen.</p>
+<h2 id="vorgehensweisen-zur-retourenerstellung">Vorgehensweisen zur Retourenerstellung<a class="headerlink" href="#vorgehensweisen-zur-retourenerstellung" title="Permanent link">&para;</a></h2>
+<p>Retouren können über das XentralRetourenportal, aus einem bestehenden Beleg (Auftrag, Rechnung, Lieferschein) oder manuell angelegt werden.</p>
+<p>Die schnellste und einfachste Methode, um eine Retoure anzulegen, ist über das XentralRetourenportal, gefolgt von der Anlage über einen Beleg. Die manuelle Erstellung von Retouren solltest du vermeiden, da sie zeitaufwändig und fehleranfällig ist.</p>
+<h3 id="retoure-uber-das-xentral-retourenportal-anlegen">Retoure über das Xentral Retourenportal anlegen<a class="headerlink" href="#retoure-uber-das-xentral-retourenportal-anlegen" title="Permanent link">&para;</a></h3>
+<p>Der Endkunde kündigt seine Retoure über das Retourenportal an und erhält eine automatische Antwort auf Grundlage der von dir festgelegten Regeln. So kann der Endkunde beispielsweise automatisch ein Retouren-Versandlabel erhalten und ausdrucken. Nach der Ankündigung wird die Retoure automatisch im Modul <strong>Retouren Belege</strong> registriert und ist bereit für den Wareneingang.</p>
+<p><img alt="Returnsportal_landingpage.png" src="https://help.xentral.com/hc/article_attachments/13546497049756" /></p>
+<p>Weitere Informationen zum XentralRetourenportal findest du im Artikel<a href="https://help.xentral.com/hc/de/articles/9726301921692#UUID-34870d61-2b30-e125-f45a-52089034af14">Xentral Retourenportal einrichten</a>.</p>
+<h3 id="retoure-aus-einem-beleg-anlegen-auftrag-rechnung-lieferschein">Retoure aus einem Beleg anlegen (Auftrag, Rechnung, Lieferschein)<a class="headerlink" href="#retoure-aus-einem-beleg-anlegen-auftrag-rechnung-lieferschein" title="Permanent link">&para;</a></h3>
+<p>Retouren kannst du in Xentral aus Aufträgen, Rechnungen und Lieferscheinen heraus anlegen. Dabei werden alle für die Retoure notwendigen Informationen aus dem entsprechenden Beleg übernommen.</p>
+<p>Gehe wie folgt vor, um eine Retoure aus einem Beleg anzulegen:</p>
+<ol>
+<li>Öffne den entsprechenden Auftrag, die Rechnung oder den Lieferschein.</li>
+<li>Wähle im Dropdown-Menü <strong>Aktion</strong> oben rechts die Option als Retoure weiterführen.</li>
+<li>Gib im Feld Retoure ein, wie viele Artikel zurückgesendet werden.</li>
+<li>Gib im Feld <strong>Grund</strong> den passenden Retourengrund ein.</li>
+<li>Klicke auf Retoure erzeugen.</li>
+<li>Prüfe deine Angaben und aktiviere, falls nötig, weitere Optionen.</li>
+<li>Klicke auf Freigabe.</li>
+</ol>
+<h3 id="retoure-manuell-anlegen">Retoure manuell anlegen<a class="headerlink" href="#retoure-manuell-anlegen" title="Permanent link">&para;</a></h3>
+<p>Du kannst eine Retoure ohne Bezüge zu vorherigen Lieferungen oder Aufträgen anlegen. Nutze diese Vorgehensweise, wenn du eine unangemeldete Retoure erhältst.</p>
+<p>Gehe wie folgt vor, um eine Retoure manuell anzulegen:</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Retouren</strong>.</li>
+<li>Klicke oben rechts auf +NEU.</li>
+<li>Wähle aus dem Dropdown-Menü <strong>Kunde </strong> den Kunden aus, von dem dich die Retoure erreicht hat, und klicke auf <strong>übernehmen</strong>.
+  Ist der Kunde ein Lieferant, aktiviere die Option an Lieferanten.</li>
+</ol>
+<p>1.<strong>Optional</strong>: Wähle ein Projekt aus.
+1.<strong>Optional</strong>: Wähle Belege, die mit der Retoure in Verbindung stehen, in den entsprechenden Feldern für Auftrag, Lieferschein, Gutschrift und Ersatz-Auftrag aus.
+1.<strong>Optional</strong>: Gib deine Bestellnummer unter Ihre Bestellnummer ein. Bei manchen Online-Verkaufsplattformen kannst du eine abweichende Bestellnummer erhalten, die du hier eintragen kannst.
+1. Wähle den aktuellen Fortschritt aus dem gleichnamigen Dropdown-Menü. Beispielsweise kann die Retoure angekündigt worden oder bereits eingegangen sein. Du kannst deine Retouren später auf Grundlage dieser Information filtern.
+1. Öffne das Tab Positionen und gib im Feld Retoure ein, wie viele Artikel zurückgesendet werden.
+1. Gib im Feld <strong>Grund</strong> den passenden Retourengrund ein.
+1. Prüfe deine Angaben und aktiviere, falls nötig, weitere Optionen.
+1. Klicke auf Freigabe.</p>
+<h2 id="optionale-einstellungen-fur-retouren">Optionale Einstellungen für Retouren<a class="headerlink" href="#optionale-einstellungen-fur-retouren" title="Permanent link">&para;</a></h2>
+<p>Bei der Anlage von Retouren über einen bestehenden Beleg oder manuell im Menü <strong>Lager &gt; Retouren</strong> gibt es einige Einstellungsmöglichkeiten, die nicht verpflichtend für die Retourenanlage sind, aber in manchen Fällen nützlich sein können. Die folgende Tabelle enthält nähere Informationen über diese Einstellungsmöglichkeiten.</p>
+<table>
+<thead>
+<tr>
+<th>Einstellung</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Schreibschutz <strong></td>
+<td>Diese Option findest du im Bereich</strong> Allgemein</strong> der Retoure. Wenn du diese Option aktivierst, kann die Retoure nicht mehr bearbeitet werden.</td>
+</tr>
+<tr>
+<td><strong>UST ID <strong></td>
+<td>Diese Option findest du im Bereich</strong> UST-Prüfung</strong> der Retoure. Falls du eine Servicegebühr für deine Retouren berechnest, musst du in diesem Feld deine Umsatzsteuernummer und die korrekte Besteuerung hinterlegen.</td>
+</tr>
+<tr>
+<td><strong>Sprache</strong></td>
+<td>Wähle rechts unten eine Sprache für den Retourenbeleg, falls dich die Retoure aus dem Ausland erreicht. Hierfür musst du eine Übersetzung im Modul <a href="https://help.xentral.com/hc/de/articles/360018755960#UUID-33aa426f-6d3b-9b74-1720-37db387d73bc">Übersetzungen</a> hinterlegen.</td>
+</tr>
+<tr>
+<td><strong>Interne Bezeichnung </strong> und <strong>Interne Bemerkung</strong></td>
+<td>Diese Optionen kannst du für die interne Kommunikation nutzen. Die interne Bezeichnung wird angezeigt, wenn du die Option Abweichende Bezeichnung aktivierst. Die interne Bemerkung erlaubt es dir, einen Text zu hinterlegen, der nur innerhalb deines Unternehmens für deine Mitarbeiter sichtbar ist.</td>
+</tr>
+<tr>
+<td><strong>Freitext </strong> und <strong>Kopftext</strong></td>
+<td>Diese Felder kannst du nutzen, um frei und ohne Beschränkungen einen Text einzugeben, der auf dem Retourenbeleg angezeigt wird.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lagerungsprozess-einrichten">Lagerungsprozess einrichten<a class="headerlink" href="#lagerungsprozess-einrichten" title="Permanent link">&para;</a></h2>
+<p>Sobald dich die retournierten Artikel von deinem Endkunden erreichen, musst du sicherstellen, dass die Retoure an den richtigen Ort geliefert und eingelagert wird. Dazu musst du das korrekte Lager bei der Erstellung der Retoure angeben.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Zur Erinnerung: Bei diesem Schritt befindest du dich nach wie vor im Menü <strong>Lager &gt; Retoure &gt; + NEU </strong> oder in einem <strong>Beleg (Auftrag, Lieferschein, Rechnung &gt; Aktions-Menü &gt; als Retoure weiterführen</strong>.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um den Lagerungsprozess einzurichten:</p>
+<ol>
+<li>Wähle im Bereich Retouren Empfängeradresse ein Lager im Feld Retourenzentrum oder bearbeite die Adressfelder manuell.</li>
+<li>Wähle im Bereich <strong>Allgemein</strong> ein Bevorzugtes Lager aus. Diese Angabe hilft dir dabei herauszufinden, wo die retournierten Artikel eingelagert werden sollen.</li>
+<li>Scrolle nach unten, bis du den Bereich Retoure erreichst. Wähle eine Versandart aus. Das Retouren-Versandlabel wird dann für diese Versandart erstellt.</li>
+<li>Lege eine Lieferbedingung fest, z.B. das die Lieferung vollständig oder nur teilweise geliefert werden soll. Hierbei wird die Retoure in ein Verteilzentrum geliefert und erneut versendet.
+1.<strong>Optional</strong>: Gib im Feld Vertrieb den Verkäufer an, der für zurückgesendete Artikel ursprünglich eine Provision erhalten hat.
+1.<strong>Optional </strong>: Im Feld <strong>Bearbeiter</strong> wird dir der Name des Xentral-Nutzers angezeigt, der die Retoure zuletzt bearbeitet hat. Bei Bedarf kannst du hier einen neuen Bearbeiter auswählen.</li>
+<li>Gib an, ob eine Rechnung, Briefpapier und Artikeltexte angezeigt werden sollen, indem du die Keine Rechnung, Kein Briefpapier und Logo und/oder Artikeltexte ausblenden aktivierst.
+1.<strong>Optional </strong>: Gib im Bereich <strong>Sonstiges</strong> eine GLN (Global Location Number) an. Diese Nummer hilft bei der Identifizierung eines Standorts und ist wichtig für den elektronischen Datenaustausch (EDI).</li>
+</ol>
+<h2 id="informationen-zur-retoure-prufen">Informationen zur Retoure prüfen<a class="headerlink" href="#informationen-zur-retoure-prufen" title="Permanent link">&para;</a></h2>
+<p>Es gibt mehrere Bereiche in der Retoure, in denen du weitere Informationen finden kannst:</p>
+<p><img alt="returns_tabs.png" src="https://help.xentral.com/hc/article_attachments/13546521629980" /></p>
+<ul>
+<li>Im Tab Retoure findest du das Feld Status. Es zeigt den aktuellen Status des Belegs an, wie &ldquo;angelegt&rdquo; oder &ldquo;freigegeben&rdquo;. Das Feld Datum zeigt das Erstellungsdatum der Retoure an.</li>
+<li>Im Tab Positionen findest du alle Informationen zu den zurückgesendeten Artikeln und deren Menge.</li>
+<li>Im Tab Vorschau kannst du eine Vorschau des Retourenbelegs als PDF einsehen.</li>
+<li>Im Tab Protokoll sind alle Handlungen im Bezug auf die Retoure protokolliert.</li>
+<li>Im Tab Dateien kannst du Dateien hochladen und einsehen, die die Retoure dokumentieren, z.B. ein Foto eines beschädigten Artikels, der zurückgesendet wurde.</li>
+</ul>
+<h2 id="retouren-verarbeiten">Retouren verarbeiten<a class="headerlink" href="#retouren-verarbeiten" title="Permanent link">&para;</a></h2>
+<p>Auf der rechten Seite im Bereich <strong>Aktion</strong> gibt es fünf Schaltflächen. Diese können nur ausgewählt werden, nachdem die Retoure freigegeben wurde.</p>
+<p><img alt="returns_actionmenu.png" src="https://help.xentral.com/hc/article_attachments/13546537392668" /></p>
+<ul>
+<li>(1) Retourenlabel erstellen: Diese Schaltfläche öffnet das Tab Paketmarke, in dem du ein Retouren-Versandlabel für den Kunden erzeugen kannst.</li>
+<li>(2) Wareneingangsbeleg erstellen und einlagern: Über diese Schaltfläche lagerst du die retournierten Artikel ein und erstellst den entsprechenden Wareneingangsbeleg. Alternativ kannst du retournierte Artikel im Menü <strong>Lager &gt; Ein- und Auslagern &gt; Tab: Einlagern</strong> einlargern. Bei beiden Vorgehensweisen musst du, falls zutreffend, noch Serien- und Chargennummern sowie die Mindesthaltbarkeitsdaten der retournierten Artikel ergänzt werden, bevor du die Artikel einlagern kannst.</li>
+<li>(3) Gutschrift erstellen: Über diese Schaltfläche kannst du eine Gutschrift für die retournierten Artikel erstellen. Dabei werden automatisch alle Daten der Retoure übernommen.</li>
+<li>(4) Stornorechnung erstellen: Über diese Schaltfläche kannst du eine Stornorechnung zur Retoure erstellen. Dabei werden automatisch alle Daten der Retoure übernommen.</li>
+<li>(5) Kostenlose Ersatzlieferung: Über diese Schaltfläche kannst du eine kostenlose Ersatzlieferung erstellen. Ein neuer Auftrag wird angezeigt, bei dem alle Daten aus der Retoure übernommen und die retournierten Artikel mit einem Betrag von <strong>0</strong> eingetragen werden. Dieser Auftrag ist losgelöst von vorherigen Belegen. Es wird jedoch im Tab Protokoll vermerkt, aus welcher Retoure dieser Auftrag entstanden ist.</li>
+</ul>
+<p>Hast du die Retoure fertig bearbeitet, solltest du sie als abgeschlossen markieren, indem duRetoure als erledigt markierenwählst. Du kannst dies oben rechts im Dropdown-MenüAktionauswählen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Es ist nicht möglich, eine Gutschrift oder Stornorechnung und gleichzeitig eine Ersatzlieferung für eine Retoure zu erstellen. Du musst dich für eine der beiden Möglichkeiten entscheiden.</p>
+</blockquote>
+<h2 id="retouren-im-wareneingang-erkennen">Retouren im Wareneingang erkennen<a class="headerlink" href="#retouren-im-wareneingang-erkennen" title="Permanent link">&para;</a></h2>
+<p>Wenn retournierte Artikel dein Lager erreichen, gehst du wie folgt vor:</p>
+<ol>
+<li>Öffne das Menü <strong>Lager &gt; Retouren</strong>.</li>
+<li>Platziere den Cursor oben rechts im Feld <strong>Scan Eingabe</strong>.</li>
+<li>Scanne eine der folgenden Informationen oder gib sie alternativ manuell in das Feld <strong>Suche</strong> links ein:
+  - Retourennummer
+  - Nummer des Lieferscheins, aus dem die Retoure erzeugt wurde
+  - Nummer des Auftrags, aus dem die Retoure erzeugt wurde
+  - Trackingnummer des zuvor erstellten Retouren-Versandlabels</li>
+</ol>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Bitte deine Kunden, den Retourenbeleg ihrer Retoure beizulegen, damit sie beim Wareneingang leichter identifiziert werden kann.</p>
+</blockquote>
+<h2 id="retournierte-artikel-einlagern">Retournierte Artikel einlagern<a class="headerlink" href="#retournierte-artikel-einlagern" title="Permanent link">&para;</a></h2>
+<p>Gehe wie folgt vor, um retournierte Artikel auf einen Lagerplatz einzubuchen, nachdem sie dein Lage erreicht haben:</p>
+<ol>
+<li>Öffne zunächst <a href="#UUID-7d6e48fa-434c-01df-f6fe-f1f4589f2f89_section-idm4658096342390433603562019583">wie oben beschrieben</a> die Retoure im Menü <strong>Lager &gt; Retoure</strong>.</li>
+<li>Klicke rechts im Bereich <strong>Aktion </strong> auf <strong> (2) Wareneingangsbeleg erstellen und einlagern</strong>.</li>
+<li>Wähle manuell oder per Scan einen Lagerplatz im Feld <strong>Einlagern in</strong> aus.</li>
+<li>Klicke auf <strong>Artikel einlagern</strong>.</li>
+<li>Fahre nun damit fort, entweder eine Gutschrift/Stornorechnung oder eine kostenlose Ersatzlieferung zu erstellen. Wie du dabei jeweils vorgehst, ist im Kapitel <a href="#UUID-7d6e48fa-434c-01df-f6fe-f1f4589f2f89_id_360016764099_id_h_01FA5A70ZH12WY29XJKX2RZ4D6">Retouren verarbeiten</a> näher beschrieben.</li>
+</ol>
+<h2 id="anwendungsfall-retoure-einer-just-in-time-jit-stuckliste">Anwendungsfall: Retoure einer Just-in-Time (JIT) Stückliste<a class="headerlink" href="#anwendungsfall-retoure-einer-just-in-time-jit-stuckliste" title="Permanent link">&para;</a></h2>
+<p>Eine Just-in-Time (JIT) Stückliste ist eine spezielle Art der Stückliste, die aus einem Stücklistenkopf ohne Lagerplatz besteht sowie mehreren Komponenten mit Lagerplatz, die mit dem Kopf verbunden sind. Eine JIT-Stückliste kannst du folgendermaßen retournieren:</p>
+<p>-<strong>Nur der Stücklistenkopf</strong>
+  Der Stücklistenkopf ist der Artikel, den du in deinem Shop verkaufst. Er besteht nur aus einem Preis und hat keine Lagerführung. Buchst du bei einer Retoure nur den Stücklistenkopf, so wird keine Lagerbewegung ausgelöst. Du erhältst nur eine Gutschrift im Wert der gesamten Stückliste.</p>
+<p>Du kannst diese Option nutzen, falls du die retournierten Artikel nicht wieder einlagern möchtest.</p>
+<p>-<strong>Nur Komponenten</strong>
+  Die JIT-Komponenten haben einen Lagerplatz und können auch einen Preis haben. Beachte jedoch, dass der Artikel in einer Stückliste möglicherweise günstiger verkauft wird, als einzeln. Wird der Artikel nicht seperat verkauft, kann der Preis auch vollständig fehlen.</p>
+<p>Werden nur Komponenten zurück gegeben, wird das Lager korrekt angepasst. Es kann jedoch zu Problemen bei den Preisen und der korrekten Anzeige der Artikel auf der Gutschrift kommen.</p>
+<p>-<strong>Stücklistenkopf + Komponenten (empfohlen)</strong>
+  Wir empfehlen diese Art der Retoure, da sie dir die Kontrolle der Preise, der Lagerführung und der Anzeige in Belegen erlaubt. Erlaubst du Teilretouren, musst du in der Gutschrift manuell den Wert der Retoure anpassen.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

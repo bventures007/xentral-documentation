@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16164850902428 3Pl Arbeiten Mit Dem Übertragungen Modul Fulfillme - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>16164850902428 3Pl Arbeiten Mit Dem Übertragungen Modul Fulfillme</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>16164850902428 3Pl Arbeiten Mit Dem Übertragungen Modul Fulfillme</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Sobald du die<a href="https://help.xentral.com/hc/de/articles/360018710420#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc">vorbereitenden Einstellungen</a>vorgenommen und<a href="https://help.xentral.com/hc/de/articles/360018710420#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt5bertragungen-Accountanlegen">eine Übertragung angelegt</a>hast, läuft der Datenaustausch zwischen deinem XentralSystem und deinem Fulfillment-Dienstleister automatisiert ab. In der Regel musst du dich nur noch in ganz bestimmten Fällen aktiv mit dem Übertragungen Modul beschäftigen. Es kann zum Beispiel zu Fehlern beim Datenaustausch kommen, oder du möchtest ganz einfach den Status der Übertragung oder einzelner Dateien prüfen. All dies und einiges mehr kannst du im Übertragungen Modul tun. Dieser Artikel zeigt dir, welche Informationen du an welcher Stelle einsehen kannst.</p>
+<h2 id="ubertragungen-mit-dem-monitor-uberwachen">Übertragungen mit dem Monitor überwachen<a class="headerlink" href="#ubertragungen-mit-dem-monitor-uberwachen" title="Permanent link">&para;</a></h2>
+<p>Der so genannte <strong>Monitor</strong> ist das Allererste, das du siehst, wenn du das Übertragungen Modul in deinem XentralSystem öffnest. Er funktioniert als eine Art Schaltzentrale, der dir den aktuellen Status aller bestehenden Übertragungen zeigt. Für jede einzelne ein- und ausgehende Datei findest du einen separaten Eintrag im Monitor. Dementsprechend findest du hier zahlreiche Einträge. Um trotzdem den Überblick zu behalten, bietet der Monitor einige Filtermöglichkeiten, sodass du relevante Einträge wie zum Beispiel fehlerhafte Übertragungen schnell identifizieren und die notwendigen Maßnahmen ergreifen kannst. Im Folgenden erklären wir, wie du die Filter optimal nutzt.</p>
+<h3 id="informationen-im-monitor-filtern">Informationen im Monitor filtern<a class="headerlink" href="#informationen-im-monitor-filtern" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Öffne das Menü <strong>Einstellungen &gt; Administration &gt; Datenaustausch &gt; Übertragungen (CSV/XML/EDI/PDF)</strong>. * Oder:*Suche mit der Smart Search nach dem Begriff <strong>Übertragungen</strong>.</p>
+</li>
+<li>
+<p>Du befindest dich nun im Monitor. Direkt oberhalb der Übersichtstabelle werden dir verschiedene Filteroptionen angezeigt. Nutze einen oder mehrere der unten beschriebenen Filter, um die Einträge im Monitor nach dem gewünschten Kriterium zu sortieren.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Erläuterung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nur Fehler anzeigen <strong></td>
+<td>Klicke auf diesen Filter, um nur Belege anzuzeigen, bei denen Fehler beim Senden oder Empfangen aufgetreten sind. im Falle eines Fehlers wird die Spalte</strong> Letzter</strong><strong>Status <strong>rot markiert angezeigt und enthält den Hinweis auf den Fehler. In der Spalte </strong> Meldung</strong> siehst du genauere Informationen zur Fehlerursache.</td>
+</tr>
+<tr>
+<td><strong>Lagerzahlen</strong></td>
+<td>Dieser Filter ermöglicht es dir, nur übertragene Lagerzahlen anzuzeigen, die Xentral vom Fremdsystem erreichen. Beachte, dass dieser Filter nur Ergebnisse liefert, wenn entsprechende Übertragungen in deinem System angelegt und aktiviert sind. Weitere Informationen zum Empfang von Lagerbeständen und wie du diesen einrichtest findest du <a href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0_id_Praxisbeispielefrbertragungen-Lagerbestndeempfangen">hier</a>.</td>
+</tr>
+<tr>
+<td><strong>Tracking</strong></td>
+<td>Dieser Filter ermöglicht es dir, nur die Tracking-Informationen anzuzeigen, die vom Fremdsysten an Xentral gemeldet werden. Beachte, dass dieser Filter nur Ergebnisse liefert, wenn entsprechende Übertragungen in deinem System angelegt und aktiviert sind. Weitere Informationen zum Empfang von Tracking-Informationen und wie du diesen einrichtest findest du <a href="https://help.xentral.com/hc/de/articles/16169504579868#UUID-9582360d-b71b-d673-bcb6-d0146d02aaf0_id_Praxisbeispielefrbertragungen-Tracking-Informationenempfangen">hier</a>.</td>
+</tr>
+<tr>
+<td><strong>Artikel <strong>/</strong> Aufträge <strong>/</strong> Bestellung <strong>/</strong> andere <strong></td>
+<td>Die vier verbleibenden Filter erlauben dir, nach Artikeln, Aufträgen und Bestellungen zu filtern, die du an deinen Fulfillment-Dienstleister übermittelst. Mit dem Filter </strong> andere</strong> zeigst du gezielt Datentypen an, die in den anderen Filtern nicht genannt sind. Erwähnenswert sind vor allem die Lieferscheine, die mit diesem Filter angezeigt werden können. Beachte auch bei all diesen Filtern die Bedingung, dass zur Anzeige von Einträgen entsprechende Übertragungen in deinem System eingerichtet und aktiviert sein müssen. Andernfalls bleibt die Ergebnisliste leer.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datenspalten-sortieren-und-durchsuchen">Datenspalten sortieren und durchsuchen<a class="headerlink" href="#datenspalten-sortieren-und-durchsuchen" title="Permanent link">&para;</a></h3>
+<p>Zusätzlich zu den<a href="#UUID-2e4e5ae1-18e2-8825-e29e-b9ecc181152a_id_ArbeitenmitdembertragungenModul-InformationenimMonitorfiltern">oben beschriebenen Filtermöglichkeiten</a>kannst du die Inhalte in der Übersichtstabelle nach spezifischen Daten durchsuchen und anordnen. Das funktioniert, indem du rechts an der gewünschten Spaltenüberschrift auf die Pfeil-Symbole klickst und somit die Einträge auf- oder absteigend sortierst. Diese Möglichkeit hast du für sämtliche Spalten der Tabelle - du kannst also sowohl die Einträge in der Spalte <strong>Datum </strong> entsprechend sortieren als auch die restlichen Angaben zum <strong>Account</strong>(hier ist die Übertragung gemeint), <strong> Datei <strong>(Dateiname im Fremdsystem), </strong> Datei Xentral <strong>(Dateiname in Xentral), </strong> Beleg <strong>(Belegart), </strong> Beleg Nr.<strong>,</strong> Projekt <strong>,</strong> Letzter Status </strong> und <strong>Meldung</strong>.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wenn du gezielt fehlerhaften Dateien aller existierenden Übertragungen im Blick behalten möchtest, beachte dazu dieInformationen im vorherigen Kapitelund nutze den dafür vorgesehenen Filter <strong>Nur Fehler anzeigen</strong>.</p>
+<p>Suchst du nach ganz bestimmten Fehlermeldungen, Belegarten oder Sonstigem, beispielsweise um Einzelfälle nachzuprüfen? Dann trage die gewünschten Informationen in den Feldern namens <strong>Suche</strong> ein, die direkt unterhalb jeder Spaltenüberschrift angezeigt werden.</p>
+</blockquote>
+<h2 id="informationen-zu-einzelnen-ubertragungen-einsehen">Informationen zu einzelnen Übertragungen einsehen<a class="headerlink" href="#informationen-zu-einzelnen-ubertragungen-einsehen" title="Permanent link">&para;</a></h2>
+<p>Um den Status einer bestimmten Übertragung zu prüfen und weitere Informationen einzusehen, navigierst du zum Übertragungen Modul und öffnest dann die gewünschte Übertragung. Gehe dazu wie im Folgenden beschrieben vor.</p>
+<ol>
+<li>
+<p>Öffne das Menü <strong>Einstellungen &gt; Administration &gt; Datenaustausch &gt; Übertragungen (CSV/XML/EDI/PDF)</strong>. * Oder:*Suche mit der Smart Search nach dem Begriff <strong>Übertragungen</strong>.</p>
+</li>
+<li>
+<p>Öffne das Tab <strong>Accounts</strong>, um eine Übersicht aller Übertragungen-Accounts zu sehen, die du angelegt hast.</p>
+</li>
+<li>Klicke bei der Übertragung, die du prüfen möchtest, auf das Stift-Symbol ganz rechts.</li>
+</ol>
+<p>Du befindest dich nun im Tab <strong>Details</strong>, wo du die Einstellungen der Übertragung einsehen und bei Bedarf ändern kannst. Zusätzlich kannst du weitere Tabs sehen und öffnen. Genauere Informationen dazu findest du in den folgenden Kapiteln.</p>
+<h3 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Dieses Tab ist veraltet und wird künftig aus allen XentralInstanzen entfernt. Das bedeutet, dass es für deine Arbeitsabläufe nicht relevant und in Teilen ohne Funktion ist.</p>
+</blockquote>
+<h3 id="nicht-freigegeben">Nicht freigegeben<a class="headerlink" href="#nicht-freigegeben" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab findest du nur Inhalte, wenn du im Tab <strong>Details </strong> die Option <strong>Manuelle Freigabe erforderlich</strong> aktiviert hast. Ist dies der Fall, wird eine Liste von ausgehenden Belegen angezeigt, die noch nicht an deinen Fulfillment-Dienstleister übertragen wurden. Du musst jeden Beleg mithilfe der entsprechenden Option einzeln freigeben, damit sie an deinen Fulfillment-Dienstleister übermittelt werden.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Gut zu wissen: Wir empfehlen, die Option <strong>Manuelle Freigabe erforderlich</strong> bei der Einrichtung der Übertragungen zunächst zu aktivieren. So kannst du die ersten Belege testweise manuell übertragen, um sicherzustellen, dass alles korrekt funktioniert und genau die gewünschten Daten bei deinem Fulfillment-Dienstleister ankommen.</p>
+</blockquote>
+<h3 id="zu-ubertragen">Zu übertragen<a class="headerlink" href="#zu-ubertragen" title="Permanent link">&para;</a></h3>
+<p>Wenn eine große Anzahl von Belegen gleichzeitig aus deinem XentralSystem übermittelt werden soll, werden die noch nicht übertragenen Belege hier in einer Art Warteschlange dargestellt.</p>
+<p>Dies bedeutet jedoch in den meisten Fällen nicht, dass für dich Handlungsbedarf besteht oder du eingreifen musst. Die angezeigten Belege werden nach und nach vom Prozessstarter abgearbeitet und automatisch übertragen. Falls du dir einmal nicht sicher bist, kannst du den Erfolg der Übertragung anschließend<a href="#UUID-2e4e5ae1-18e2-8825-e29e-b9ecc181152a_id_ArbeitenmitdembertragungenModul-bertragen">im Tab Übertragen</a>oder<a href="#UUID-2e4e5ae1-18e2-8825-e29e-b9ecc181152a_id_ArbeitenmitdembertragungenModul-bertragungenmitdemMonitorberwachen">im Monitor</a>überprüfen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die Anzahl der Belege, die gleichzeitig übertragen werden, bestimmst du selbst mithilfe der Einstellung <strong>Maximal gleichzeitige Übertragungen </strong> im Tab <strong>Details</strong> der jeweiligen Übertragung. Das Zeitintervall, in dem Belege übertragen werden, legst du in den Einstellungen des Prozesses * api_uebertragungen*fest. Weitere Informationen zum Prozessstarter findest duhier.</p>
+</blockquote>
+<h3 id="ubertragen">Übertragen<a class="headerlink" href="#ubertragen" title="Permanent link">&para;</a></h3>
+<p>Hier findest du eine Auflistung aller Belege, die von Xentral an ein Fremdsystem übertragen wurden. Dementsprechend verfügt dieser Tab nur über Inhalt, wenn es sich um eine ausgehende Übertragung handelt.</p>
+<p>Im Tab <strong>Übertragen</strong> kannst du folgende Aktionen durchführen:</p>
+<ul>
+<li>Zentrale Informationen zu übertragenen Belegen auf einen Blick sehen: Du kannst transparent nachverfolgen, welcher Beleg wann erstellt (Spalte <strong>Vom </strong>) und zu welchem Zeitpunkt die Übertragung stattgefunden hat (Spalte <strong>Übertragen am </strong>). Die Spalten <strong>Projekt </strong> und <strong>Status</strong> beinhalten dementsprechend weitere Informationen.</li>
+<li>Belege erneut übertragen, falls es bei der Datenübertragung zu einem Fehler kam: Markiere dazu die Checkboxen links neben jedem Eintrag und klicke anschließend unten auf <strong>Auswahl erneut übertragen</strong>.</li>
+<li>Den übertragenen Beleg direkt aufrufen: Klicke auf den fett gedruckten Eintrag in der Spalte <strong>Nummer</strong>, um den Beleg direkt zu öffnen und ihm weitere Informationen zu entnehmen.</li>
+<li>Die Adresse des Kunden oder Lieferanten direkt aufrufen: Möchtest du den Addressdatensatz eines Endkunden oder Lieferanten öffnen, klicke einfach auf den fett gedruckten Eintrag in der Spalte <strong>KD-Nr. / Lief.-Nr.</strong>.</li>
+</ul>
+<h3 id="dateien">Dateien<a class="headerlink" href="#dateien" title="Permanent link">&para;</a></h3>
+<p>In diesem Tab findest du eine Auflistung der eigentlichen Dateien, die von Xentral an das Fremdsystem übertragen wurden. In der Spalte <strong>Status</strong> des Tabs sind sie entsprechend mit dem Vermerk * hochgeladen<em>gekennzeichnet; im System des Fulfillment-Dienstleisters als * heruntergeladen</em>oder ähnlich. In den meisten Fällen liegen diese Dateien im XML-Format vor. Diese Übersicht bleibt dir stets erhalten und du kannst sie über das Download-Symbol rechts neben jeder Datei nutzen, um Belege bei Bedarf erneut herunterzuladen - auch, wenn sie eventuell bereits vom Server gelöscht wurden.</p>
+<p>In den einzelnen Spalten kannst du Informationen zum <strong>Zeitstempel <strong>der Übertragung und zur </strong> Größe <strong>der einzelnen Dateien einsehen. Falls die Datei vom Server gelöscht oder schon einmal über das Tab </strong> Dateien <strong>heruntergeladen wurde, findest du die Angabe “ja” in den Spalten </strong> Download <strong>und</strong> Gelöscht auf Server</strong>.</p>
+<h3 id="tracking">Tracking<a class="headerlink" href="#tracking" title="Permanent link">&para;</a></h3>
+<p>Wenn dein Fulfillment-Dienstleister dir Tracking-Informationen übermittelt, findest du in diesem Tab die Trackingnummer für jeden einzelnen Auftrag. Bei Übertragungen, bei denen keine Tracking-Informationen übermittelt werden, bleibt dieses Tab folglich leer.</p>
+<p>Im Tab <strong>Tracking</strong> kannst du folgende Aktionen ausführen:</p>
+<ul>
+<li>Lieferscheine direkt aufrufen: Klicke in der Spalte <strong>Lieferschein</strong> auf die fett gedruckte Lieferscheinnummer, um den übertragenen Lieferschein anzuzeigen</li>
+<li>Trackingnummern einsehen: Die Trackingnummern der Lieferscheine werden angezeigt, sobald deren Positionen erfolgreich vom externen System an den Versanddienstleister übergeben wurden.</li>
+<li>Datum der Lieferscheinerstellung und der Rückmeldung der Tracking-Informationen genau nachvollziehen: Diese Informationen findest du in den Spalten <strong>LS-Datum </strong> und <strong>Zeitstempel</strong>.</li>
+</ul>
+<h3 id="lagerzahlen">Lagerzahlen<a class="headerlink" href="#lagerzahlen" title="Permanent link">&para;</a></h3>
+<p>Bei Übertragungen, die Lagerbestände von deinem Fulfillment-Dienstleister in dein XentralSystem importieren, findest du in diesem Tab eine Auflistung des Lagerbestands, getrennt nach Artikelnummer. So entsteht eine vollständige Übersicht aller eingelagerten Artikel und ihrer aktuellen Bestände. Beachte, dass dieses Tab ohne Inhalt ist, falls die Option <strong>Lagerzahlen empfangen </strong> im Tab <strong>Details</strong> der Übertragung nicht aktiviert ist und es sich nicht um eine Übertragung handelt, bei der Lagerzahlen gemeldet werden.</p>
+<p>Die folgenden Informationen sind im Tab <strong>Lagerzahlen</strong> verfügbar:</p>
+<p>-<strong>Artikel-Nr.:</strong> Nummer des Artikels, der im Bestand geführt wird. Dieser Eintrag ist jeweils fett gedruckt - das bedeutet, dass du auf die Nummer klicken kannst, um direkt zum Datensatz des jeweiligen Artikels in deinem Xentral System zu gelangen.
+-<strong>Artikel:</strong> Name des Artikels, der im Bestand geführt wird.
+-<strong>Lager:</strong> Anzahl an Artikeln, die aktuell eingelagert sind.
+-<strong>Zeitstempel:</strong> Zeitpunkt, an dem die Lagerzahlen zuletzt an Xentral übermittelt wurden. Die Häufigkeit des Datenabgleichs richtet sich nach deinen <a href="https://help.xentral.com/hc/de/articles/360018710420#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc_id_VorbereitendeEinstellungeninXentral-Schritt1Prozessaktivieren">Einstellungen im Modul Prozessstarter</a>.</p>
+<h3 id="fehler">Fehler<a class="headerlink" href="#fehler" title="Permanent link">&para;</a></h3>
+<p>Bei der Datenübertragung kann es hin und wieder zu Fehlern kommen, die sich entweder auf eine Übertragung als Ganzes oder auch einzelne Belege auswirken können. Generell werden dir Fehler auch im<a href="#UUID-2e4e5ae1-18e2-8825-e29e-b9ecc181152a_id_ArbeitenmitdembertragungenModul-bertragungenmitdemMonitorberwachen">Monitor</a>angezeigt. Dort kannst du am Schnellsten etwaige Fehler ausfindig machen, indem du den Filter <strong>Nur Fehler anzeigen </strong> aktivierst. Falls du doch einmal eine spezifische Übertragung näher auf Fehler prüfen möchtest, kannst du auch die Übertragung öffnen und das Tab <strong>Fehler</strong> nutzen. Aufgetretene Fehler werden hier - genau wie im Monitor - mit einer entsprechenden Fehlermeldung und einem präzisen Zeitstempel aufgeführt. So kannst du anhand der Fehlermeldung identifizieren, was zu tun ist. In vielen Fällen handelt es sich um fehlerhafte Zugangsdaten zum Server oder sonstigen Änderungen an den Verbindungswegen, die du leicht mit der Hilfe deines Fulfillment-Dienstleisters beheben kannst.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Wenn du eine Übertragung nutzt, um Artikeldaten von einem Fremdsystem in Xentral zu importieren, solltest du im Tab <strong>Details </strong> der entsprechenden Übertragung die Einstellung <strong>Artikel empfangen Nicht gefundene Artikel </strong> aktivieren. So stellst du sicher, dass im Tab <strong>Fehler</strong> der Übertragung eine eindeutige Fehlermeldung erscheint, falls vom Fulfillment-Dienstleister Artikel zurückgemeldet haben, die in deinem XentralSystem nicht gepflegt sind. Andernfalls wird aufgrund dieser unbekannten Artikel der Import des kompletten Auftrags verweigert, was zu Folgefehlern führt.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

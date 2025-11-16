@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10912483628316 Verkauf Übersicht - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>10912483628316 Verkauf Übersicht</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>10912483628316 Verkauf Übersicht</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Hier findest du alles Wissenswerte zu den Aufträgen, vom Anlegen und Pflegen bis zum Import und Export. Wir gehen auch auf spezielle Features ein, wie die Fast-Lane-Funktionalität zur Auftragspriorisierung oder die Nutzung der Auftragsampel. Du lernst zudem, wie du Serviceaufträge, Angebote und sogar erweiterte Rabattsysteme effizient handhaben kannst.</p>
+<p>Im Folgenden findest du alle Themen in diesem Bereich:</p>
+<h2 id="standard-workflows-verkauf">Standard Workflows: Verkauf<a class="headerlink" href="#standard-workflows-verkauf" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>-<strong>Angebot</strong>: Verwaltung vonAngebotenund Kundenanfragen als Basis für Aufträge.Wiedervorlageals Sales-Unterstützung.
+-<strong>Auftrag</strong>: - Einführung in das Auftragswesen: Einführung in die Aufgaben und Bedeutung des Auftragsmoduls. - Auftragserfassung und Datenpflege: Manuelle Erstellung und Verwaltung von Aufträgen sowie Pflege von Auftragsdetails. - Auftragsstatus verwenden - Auftragsampel: Nutzung der Statusanzeige, um den Bearbeitungsstand von Aufträgen zu verfolgen. - Aufträge importieren und exportieren: Schnittstellen für die Integration von Aufträgen aus externen Systemen. - Prozessschritte zur Auftragsverarbeitung: Übergang von Aufträgen in nachgelagerte Prozesse wie Logistik oder Rechnungswesen. - Automatische Auftragsübergabe an Versandprozesse (Auto-Versand): Integration mit dem Auto-Versand zur Abwicklung versandfertiger Aufträge.
+-<strong>POS (Point of Sale)</strong>: Nutzung vonPOS- und Kassensystemenim Auftragsprozess.</p>
+</blockquote>
+<h2 id="mit-auftragen-arbeiten">Mit Aufträgen arbeiten<a class="headerlink" href="#mit-auftragen-arbeiten" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360016758399#UUID-1d7a5afb-0d94-6204-5ea3-7ff9f26ba2ba">Auftragserfassung und Datenpflege</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/6113604302620#UUID-617166e2-b2b3-d635-19c1-d246610de200">Einführung in das Auftragswesen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/6113621941916#UUID-f09e5d06-3e8d-e1f9-e056-08af4233bb39">Aufträge importieren und exportieren</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360018083500#UUID-ba8b3e43-92c5-5263-1ed3-b87e0efb39c2">Aufträge priorisieren - Die Fast-Lane-Funktionalität</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/6113651676444#UUID-7360cd09-b92e-dc32-06ab-2ac365128a3f">Zusammenführung von Aufträgen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016759019#UUID-05678f04-2622-6307-953f-87c9c17d96f8">Auftragsstatus verwenden - Auftragsampel</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/6113578070556#UUID-41993cc5-c4a2-6a1e-350b-895a22dc088e">Weitere Auftragsampel-Symbole hinzufügen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/6113558323740#UUID-f118e740-c8e0-1848-d397-426de46181a4">Prozessschritte zur Auftragsverarbeitung</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/6113588370204#UUID-9eeb1c14-7855-ffb7-de1f-ac194e0e639e">Zentrale Auftragsübersicht</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/6113578120092#UUID-d9ce4c66-b4ed-5121-ace3-a2be70b43b4e">Automatische Auftragsübergabe an Versandprozesse (Auto-Versand)</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016717260#UUID-413f6cf9-263e-a7e1-5ea0-5d51696e24e8">Verwaltung offener Auftragspositionen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016721120#UUID-40e0615f-2274-6b7a-83aa-40089394cc2d">Serviceauftrag</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016758319#UUID-947cf161-a389-a978-6274-0aee13135766">Serviceauftrag Scan</a></li>
+</ul>
+<h2 id="angebote-und-anfragen">Angebote und Anfragen<a class="headerlink" href="#angebote-und-anfragen" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360016719740#UUID-75f76228-befb-1a25-0a58-7b28c6477854">Anfrage</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016722640#UUID-85aa4719-0583-26f0-9b6b-0364c5f824a2">Angebot</a></li>
+</ul>
+<h2 id="rabatte-gutscheine-kostenlose-artikel-verleih">Rabatte, Gutscheine, kostenlose Artikel, Verleih<a class="headerlink" href="#rabatte-gutscheine-kostenlose-artikel-verleih" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360016724940#UUID-f3a7a88a-0974-cf6c-3a89-b3d5a1c5f5e8">Erweiterte Rabatte</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016721420#UUID-08812516-b79f-2649-624b-6a70a7a05be0">Gutscheine</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016759559#UUID-db98a18c-f3fb-f425-84d5-6006a255ee73">Werbegeschenk, Gratisartikel oder Promotionsartikel für Neukunden (Xentral Kostenloser Artikel)</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016724720#UUID-0d25dd36-220c-5360-05a9-b28c8daf5276">Verleih</a></li>
+</ul>
+<h2 id="mit-pos-und-kasse-arbeiten">Mit POS und Kasse arbeiten<a class="headerlink" href="#mit-pos-und-kasse-arbeiten" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360021356660#UUID-1697c2f7-1864-3aef-2ee5-1a6fdb64b89a">Einrichten der Kassensicherung (TSE) für POS</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016756919#UUID-f9c2fd56-fc63-9774-4412-2e05d54d7338">POS-Funktionen und Bedienung</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016758359#UUID-3e786329-72d8-2127-72cf-db6f23a57223">Einrichtung des POS</a></li>
+</ul>
+<h2 id="zusatzfunktionen-fur-den-verkauf">Zusatzfunktionen für den Verkauf<a class="headerlink" href="#zusatzfunktionen-fur-den-verkauf" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360016756879#UUID-65860b78-2bce-de28-878a-caa6b1e13e2c">Positionen aktualisieren (Belege)</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016759419#UUID-7c8d09e2-bdd3-e221-d99f-187b480931c9">Wiedervorlage</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360017929500#UUID-a043336e-2895-b5e8-3894-4ad7db97f03c">Sales Funnel</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016764439#UUID-a7f14922-af85-f810-4110-191565ec9586">Rahmenvertrag (Kunden)</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016757059#UUID-3b675639-8080-d9e2-0112-464bfae6af42">Belege Importer</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016721960#UUID-de72623d-51ec-1c11-e468-bf94eb4a67f2">Belege Vorlagen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016770300#UUID-794eee7f-c836-5995-bbdd-99083c20560a">Kopie Belege Empfänger</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016761479#UUID-fecaa384-49b1-d527-6978-5820db91f4e7">Bundesstaaten</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016770440#UUID-de12ea0e-f488-2c35-b82e-3944d95e4da3">Länderliste</a></li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

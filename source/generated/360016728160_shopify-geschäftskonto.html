@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016728160 Shopify Geschäftskonto - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016728160 Shopify Geschäftskonto</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016728160 Shopify Geschäftskonto</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="shopify-payments-per-api">Shopify Payments per API<a class="headerlink" href="#shopify-payments-per-api" title="Permanent link">&para;</a></h2>
+<p>Die Zahlungen von Shopify Payments können direkt über eine API-Schnittstelle via Live-import abgeholt werden. Trage hierzu die Shopify-Zugangsdaten in das Bankkonto ein. Das Konto muss den Typ Konto: Shopify (API) erhalten.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Damit das Shopify Payments Geschäftskonto korrekt funktioniert, muss es schon mindestens einen Payout (Überweisung von Shopify Payments auf das eigene Bankkonto) gegeben haben. Einzelne Transaktionen reichen nicht aus.</p>
+<p>Wenn die Zahlungen über die API importiert werden, werden die Zahlungen über die Auftragsnummer (Internetnummer in xentral) abgebildet.</p>
+</blockquote>
+<p><img alt="AccountShopify1.png" src="https://help.xentral.com/hc/article_attachments/6577131545500" /></p>
+<h3 id="live-import-zugangsdaten">Live Import Zugangsdaten<a class="headerlink" href="#live-import-zugangsdaten" title="Permanent link">&para;</a></h3>
+<p>Bei den Live-import Zugangsdaten folgende Felder eingeben und mit Ihren Shopify Zugangsdaten befüllen:</p>
+<ul>
+<li>SHOP=&gt;https://shop.myshopifyshop.de;**&gt; bitte hier die eigene Shop-URL Ihres Shopify Shops eintragen.</li>
+</ul>
+<p>Bei der Anbindung von mehreren Shopify Payments musst du darauf achten, dass du die Konfiguration &ldquo;Zu Zeiten&rdquo; versetzt machst, ansonsten spricht die API nur mit der Ersten.</p>
+<p>Beispiel:</p>
+<p>Konto_1 zu Zeiten 00,02,04,06,08,10,12,14,16,18,20,22</p>
+<p>Konto_2 zu Zeiten 01,03,05,07,09,11,13,15,17,19,21,23</p>
+<ul>
+<li>USER=&gt;Benutzername; &gt; bitte hier den API KEY aus Ihrem Shopify Shop eintragen</li>
+<li>DAYS=&gt;2; &gt; optional, die Anzahl der Tage, die abgeholt werden sollen. Ansonsten werden standardmäßig 5 Tage abgeholt, aber dieser Wert kann auch angegeben werden: DAYS=&gt;5;</li>
+</ul>
+<p><img alt="AccountShopify2.png" src="https://help.xentral.com/hc/article_attachments/6577115299100" /></p>
+<p>Folgende Keys können verwendet werden.- SHOP: SHOP, URL</p>
+<ul>
+<li>SHOP: SHOP, URL</li>
+<li>USER: USER, USERNAME, USER_NAME</li>
+<li>DAYS: DAYS, TAGE</li>
+</ul>
+<h3 id="einstellungen-in-shopify">Einstellungen in Shopify<a class="headerlink" href="#einstellungen-in-shopify" title="Permanent link">&para;</a></h3>
+<p>Damit Zahlungen für Shopify in Xentral abgerufen werden können, müssen einige Berechtigungen in Shopify Payments erteilt sein. Xentral benötigt Lesezugriffe für Auszahlungen, Bankkonten und Konten auf Shopify Payments.</p>
+<p><img alt="AccShopify3.png" src="https://help.xentral.com/hc/article_attachments/15492810701980" /></p>
+<p>Außerdem sind noch weitere Lesezugriffe notwendig. Dazu muss auf “Inaktive Admin-API-Berechtigungen anzeigen” geklickt werden und dort allen Rechten Leserechte gegeben werden.</p>
+<p><img alt="AccShopify4.png" src="https://help.xentral.com/hc/article_attachments/15492810743068" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Damit das Shopify Payments Geschäftskonto korrekt funktioniert, muss es schon mindestens ein Paypot, d.h. eine Überweisung von Shopify Payments auf das eigene Bankkonto, gegeben haben. Einzelne Transaktionen reichen hier nicht aus.</p>
+</blockquote>
+<h3 id="status-abgeholter-buchungen">Status abgeholter Buchungen<a class="headerlink" href="#status-abgeholter-buchungen" title="Permanent link">&para;</a></h3>
+<p>Der Live Import von Shopify Payments-Buchungen importiert ausschließlich Buchungen mit dem Status &ldquo;paid&rdquo;, da die API nur den Import eines bestimmten Status erlaubt. Vorgemerkte Buchungen (&ldquo;scheduled&rdquo;, &ldquo;in transit&rdquo;) oder stornierte (&ldquo;canceled&rdquo;) Buchungen werden nicht abgeholt.</p>
+<h3 id="fehlermeldung-bei-live-import-verbindungsprobleme">Fehlermeldung bei Live-Import (Verbindungsprobleme)<a class="headerlink" href="#fehlermeldung-bei-live-import-verbindungsprobleme" title="Permanent link">&para;</a></h3>
+<p>Bitte prüfen Sie, ob die Daten korrekt eingegeben wurden oder sich ggf. bei Shopify ein User oder ein Passwort etc. geändert hat. Ggf. hat der User auch die Berechtigung nicht zuzugreifen.</p>
+<h2 id="shopify-payments-per-csv">Shopify Payments per CSV<a class="headerlink" href="#shopify-payments-per-csv" title="Permanent link">&para;</a></h2>
+<p>Alternativ können die Buchungen von Shopify Payments manuell per CSV-Datei eingespielt werden. Beispiel für eine Shopify Payments CSV:</p>
+<p><img alt="AccShopify6.png" src="https://help.xentral.com/hc/article_attachments/15492873077148" /></p>
+<h2 id="kontoauszug-import">Kontoauszug Import<a class="headerlink" href="#kontoauszug-import" title="Permanent link">&para;</a></h2>
+<p>Der Import der Shopify Payments ist sowohl als Live Import als auch als CSV-Import möglich. Die Order Nummer wird zur Zuordnung der Shopbestellungen verwendet.</p>
+<h2 id="bekannte-probleme">Bekannte Probleme<a class="headerlink" href="#bekannte-probleme" title="Permanent link">&para;</a></h2>
+<p>Shopify bietet die Möglichkeit die Einnahmen sowohl wöchentlich als täglich auszahlen zu lassen. Bei einer monatlichen Auszahlung kann der Live Import auf Fehler laufen, da die zu abholende Datenmenge zu groß ist. Daher ist eine tägliche Auszahlung empfohlen.</p>
+<h2 id="mit-gebuhren-umgehen">Mit Gebühren umgehen<a class="headerlink" href="#mit-gebuhren-umgehen" title="Permanent link">&para;</a></h2>
+<p>Beim Live-Import werden die Gebühren im Zahlungseingang nicht angezeigt. Auch beim CSV-Import werden die Gebühren nur zu Informationszwecken angezeigt und nicht automatisch addiert und mit berechnet. Im Buchhaltungsexport fehlen deshalb die Gebühren.</p>
+<p>Die Gebühren findest du auf dem Shopify Kontoauszug in einer Summe. Diese kann z.B. als separate Buchung von Hand monatlich gebucht werden. Die Buchung kannst du unterZahlungseingang &gt; Kontenblattim BereichBuchungam unteren Ende der Seite vornehmen.</p>
+<p>Du siehst im Anschluss eine neue Zeile unterZahlungseingang &gt; Konto: Shopify &gt; Import, die du dann mitBuchungen fertigstellenabschließen kannst.</p>
+<h2 id="shopify-refund-ruckzahlungen-mit-shopify">Shopify Refund (Rückzahlungen mit Shopify)<a class="headerlink" href="#shopify-refund-ruckzahlungen-mit-shopify" title="Permanent link">&para;</a></h2>
+<p>Über unsere Connect-Schnittstelle ist es möglich, Gutschriften nach Freigabe automatisch als Rückzahlung an Shopify Pay zu übergeben und dem Kunden auszuzahlen. Mehr Informationen, wie du die Rückzahlungs-Funktion im Shopify Connector einrichtest und aktivierst, findest du<a href="https://help.xentral.com/hc/de/articles/13235060220444-Shopify-Connector-Workflows-konfigurieren#UUID-55e1cf94-dd5f-eb68-4337-cabda5e7ee49_UUID-601e9bbb-690a-13c9-0176-7ba5c3dd1da8">hier</a>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Beachte: Shopify Refund steht nur in Xentral Connect, nicht im klassischen Shop-Importer, zur Verfügung.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

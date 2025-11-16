@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13921840987036 Woocommerce Connector Journal - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>13921840987036 Woocommerce Connector Journal</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>13921840987036 Woocommerce Connector Journal</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="uberblick">Überblick<a class="headerlink" href="#uberblick" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Funktionserweiterung 02/2025:</strong> Ab sofort kannst du dich aktiv über den Auftragsimport-Status per e-Mail benachrichtigen lassen. Richte einfach über die Systemstatus-Seite &gt; Alarms verwalten &gt; Alarm erstellen ein Abo ein. Du kannst deine Schnittstelle(n) und die Häufigkeit der Benachrichtigung wählen und festlegen, ob eine Benachrichtigung bei Warnung und/oder im Fehlerfall erfolgen soll. Mehr Infos zum Systemstatus findest du unterSystemstatus</p>
+</blockquote>
+<p>Das Journal unterstützt dich dabei, den aktuellen Status deiner Anbindung zu überprüfen und mögliche Fehlerquellen bei der Einrichtung oder im laufenden Betrieb einzugrenzen.</p>
+<p>Du erreichst das Journal unter dem Pfad <strong>Einstellungen &gt; Verkaufen &gt; Shops/Marktplätze &gt; WooCommerce Connector &gt; Journal</strong>:</p>
+<p><img alt="Shopware_Journal_Ubersicht.png" src="https://help.xentral.com/hc/article_attachments/18671721005212" /></p>
+<p>Dieser Bereich umfasst folgende Funktionen:</p>
+<ul>
+<li>Testen der Workflow-Konfiguration vor der Produktivschaltung mit einzelnen Datensätzen</li>
+<li>Überwachen der Datensynchronisation im Produktivbetrieb</li>
+<li>Manuelles Anstoßen der Übertragung einzelner Datensätze im laufenden Betrieb</li>
+</ul>
+<h2 id="artikel">Artikel<a class="headerlink" href="#artikel" title="Permanent link">&para;</a></h2>
+<h3 id="statusansicht">Statusansicht<a class="headerlink" href="#statusansicht" title="Permanent link">&para;</a></h3>
+<p>Im Reiter Artikel bekommst du einen Detailüberblick zum Synchronisierungsstatus der Artikeldaten zwischen Shop und Xentral. Dies umfasst die Artikelstammdaten, Bestände und Preise.</p>
+<p><img alt="connect_reportingstatus.png" src="https://help.xentral.com/hc/article_attachments/18671721009308" /></p>
+<p>Die farbcodierten Felder in der Mitte zeigen dir den Synchronisierungsstatus der einzelnen Artikel. Beim ersten Aufruf ist der Status grau. Folgende Status sind generell möglich:</p>
+<p><img alt="Shared_Journal_Status.png" src="https://help.xentral.com/hc/article_attachments/18671721013916" /></p>
+<p>Ist der Export fehlerhaft, wird dir eine Fehlermeldung angezeigt, die bei der Suche nach der Fehlerursache helfen kann. Nutze die<a href="#UUID-24f64971-99da-b968-5ba9-ff6a97dfabb5_section-idm234565914622809">Filterfunktionen</a>(siehe unten), um nach fehlerhaften Datensätzen zu suchen und diese nach der Fehlerbehebung erneut zum Austausch anzustoßen.</p>
+<h3 id="manuelle-synchronisation">Manuelle Synchronisation<a class="headerlink" href="#manuelle-synchronisation" title="Permanent link">&para;</a></h3>
+<p>Um Daten manuell zu synchronisieren, nutze die Aktions-Schaltflächen auf der rechten Seite:</p>
+<p><img alt="connect_manuelle-synchronisation_aktions-schaltflachen.png" src="https://help.xentral.com/hc/article_attachments/18671721015324" /></p>
+<p><strong>(1)</strong> Verwende <strong> Artikel synchronisieren &gt; Artikel-Synchronisierung starten</strong>, um einen bestimmten Artikel von Xentral an den Shop zu senden. Es werden dann die Stammdaten dieses Artikels übertragen.</p>
+<p><img alt="Shopify_ReportingArtikelSync_0404p.png" src="https://help.xentral.com/hc/article_attachments/18671721019164" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es werden hier nur diejenigen Datentypen übertragen, die in den Workflows aktiviert wurden. Hast du z. B. unter <strong>Workflows &gt; Artikel </strong> den Datentyp “Freifelder” nicht aktiviert, so werden hier keine Freifelder synchronisiert.<strong> (2)</strong> Verwende <strong> Bestand synchronisieren &gt; Bestand-Synchronisierung starten</strong>, um den Bestand eines bestimmten Artikels von Xentral an den Shop zu senden.</p>
+</blockquote>
+<p><img alt="Shopify_ReportingBestandSync_0404p.png" src="https://help.xentral.com/hc/article_attachments/18671721020316" /></p>
+<p><strong>(3)</strong> Verwende <strong> Preise synchronisieren &gt; Preis-Synchronisierung starten</strong>, um die Preise eines bestimmten Artikels von Xentral an den Shop zu senden.</p>
+<p><img alt="Shopify_ReportingPreisSync_0404p.png" src="https://help.xentral.com/hc/article_attachments/18671708490780" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Durch Anhaken mehrerer Datensätze kannst du die oben genannten Funktionen gleichzeitig für alle ausgewählten Datensätze durchführen:</p>
+<p>(1) Alle darunter liegende Datensätze markieren. Einzelne können bei Bedarf wieder abgewählt werden.</p>
+<p>(2) Markiert alle Datensätze, die den Filterkriterien entsprechen - auch die Einträge, die auf Seite zwei, drei usw. aufgelistet sind.</p>
+<p>(3) Startet die Synchronisierung für alle markierten Datensätze.</p>
+</blockquote>
+<p>Nachdem du eine Synchronisierung gestartet hast, kannst du den Verlauf verfolgen, indem du auf <strong>Neu Laden</strong> klickst.</p>
+<p><img alt="connect_journal_neu-laden.png" src="https://help.xentral.com/hc/article_attachments/18671708493212" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Produktivbetrieb werden die Artikel-, Bestands- und Preis-Daten zwischen Shop und Xentral ereignisbasiert ausgetauscht, also immer nur dann, wenn ein Datensatz geändert wird. Wenn du einzelne Datensätze unabhängig von Änderungen manuell anstoßen möchtest, kannst du die in diesem Abschnitt beschriebenen Aktionen nutzen.</p>
+</blockquote>
+<h4 id="such-und-filtermoglichkeiten-artikel">Such- und Filtermöglichkeiten Artikel<a class="headerlink" href="#such-und-filtermoglichkeiten-artikel" title="Permanent link">&para;</a></h4>
+<p>Zur einfachen und übersichtlichen Analyse stehen dir im Artikel-Journal verschiedene Such- und Filtermöglichkeiten zur Verfügung:</p>
+<p>-<strong>Freitextsuche</strong>: Du kannst die angezeigten Einträge über einen Freitext im Suchfeld einschränken:
+-<strong>Filter nach Status und/oder Zeitraum</strong>: Klicke auf “Stammdaten”, “Bestand” bzw. “Preis”, um z.B. nur fehlerhafte Exporte in einem bestimmten Zeitraum anzeigen zu lassen:
+-<strong>Filter nach Typ</strong>: Diesen Filter kannst du nutzen, um nach Matrixprodukten oder Varianten zu filtern. Dies unterstützt bei der Performanceoptimierung des manuellen Datenaustauschs.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn ein übergeordnetes Matrixprodukt zur Synchronisierung angestoßen wird, werden dazugehörige Varianten automatisch mit synchronisiert. Wenn du Matrixprodukte hast, empfiehlt es sich daher,</p>
+<ul>
+<li>auf “Keine Varianten” zu filtern und auf dieser Ebene zu triggern, um Varianten nicht doppelt in die Warteschlange zu bringen.</li>
+<li>“Nur Varianten” dann zu verwenden, wenn nachträglich neue Varianten dazukommen, die manuell angestoßen werden sollen.</li>
+</ul>
+</blockquote>
+<h2 id="auftrage">Aufträge<a class="headerlink" href="#auftrage" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Funktionserweiterung 02/2025: Ab sofort kannst du dich aktiv über den Auftragsimport-Status per e-Mail benachrichtigen lassen. Richte einfach über die Systemstatus-Seite &gt; Alarms verwalten &gt; Alarm erstellen ein Abo ein. Du kannst deine Schnittstelle(n) und die Häufigkeit der Benachrichtigung wählen und festlegen, ob eine Benachrichtigung bei Warnung und/oder im Fehlerfall erfolgen soll. Mehr Infos zum Systemstatus findest du unterSystemstatus</p>
+</blockquote>
+<p>Im Reiter <strong>Aufträge</strong> kannst du den Synchronisierungsstatus deiner Aufträge zwischenShopund Xentral verfolgen.</p>
+<p>Klicke auf <strong>Aufträge importieren</strong>…</p>
+<p><img alt="connect_journal_testworkflow.png" src="https://help.xentral.com/hc/article_attachments/18671708496284" /></p>
+<p>&hellip; und gib eine Auftragsnummer ein und bestätige mit <strong>Importieren</strong>.</p>
+<p><img alt="Shopify_ReportingWorkflowsAuftr01_0502p.png" src="https://help.xentral.com/hc/article_attachments/18671708496924" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Du kannst mehrere Aufträge importieren, indem du die Auftragsnummern durch Komma getrennt eingibst.</p>
+</blockquote>
+<p>Ein Auftrag wird zunächst zu Connect geladen und von dort im zweiten Schritt in Xentral importiert. Mit <strong>Neu Laden </strong>(1) kannst du den Status aktualisieren, über <strong> Verlauf anzeigen</strong>(2) die Statushistorie ansehen. Der Tooltipp gibt dir ggf. Hinweise, weshalb Daten nicht übertragen werden konnten, z. B. wegen fehlender Steuerangaben im Shop. Mit Schaltfläche (3) kannst du Datensätze erneut ausführen, nachdem du die entsprechenden Korrekturen vorgenommen hast.</p>
+<p><img alt="Shopify_ReportingWorkflowsAuftr02_0502p.png" src="https://help.xentral.com/hc/article_attachments/18671721028892" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Bereits vorhandene Aufträge werden nicht erneut importiert, um Duplikate zu vermeiden.</p>
+</blockquote>
+<p>Auch in der Statushistorie kannst du den Status <strong>Neu Laden</strong>:</p>
+<p><img alt="Shopify_ReportingWorkflowsAuftr03_0502p.png" src="https://help.xentral.com/hc/article_attachments/18671708497820" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Produktivbetrieb werden die Auftrags-Daten zwischen Shop und Xentral alle 15 Minuten automatisiert ausgetauscht. Wenn du einzelne Datensätze vorher manuell anstoßen möchtest, kannst du die in diesem Abschnitt beschriebenen Aktionen nutzen.</p>
+</blockquote>
+<h3 id="such-und-filtermoglichkeiten-auftrage">Such- und Filtermöglichkeiten Aufträge<a class="headerlink" href="#such-und-filtermoglichkeiten-auftrage" title="Permanent link">&para;</a></h3>
+<p>Zur einfachen und übersichtlichen Analyse stehen dir im Auftrags-Journal verschiedene Such- und Filtermöglichkeiten zur Verfügung:</p>
+<p>-<strong>Freitextsuche</strong>: Du kannst die angezeigten Einträge über einen Freitext im Suchfeld einschränken:
+-<strong>Filter nach Status</strong>: Klicke auf “Status”, um z. B. nur fehlerhafte Exporte anzeigen zu lassen:
+-<strong>Filter nach Auftragsdatum</strong>: Diesen Filter kannst du nutzen, um nach einem bestimmten Auftragsdatum zu filtern:</p>
+<h2 id="auftragsstatus-und-tracking">Auftragsstatus und Tracking<a class="headerlink" href="#auftragsstatus-und-tracking" title="Permanent link">&para;</a></h2>
+<p>Im Reiter <strong>Auftragsstatus &amp; Tracking</strong> siehst du den Synchronisierungsstatus deiner Auftragsstatus- und Tracking-Daten zwischenShopund Xentral.</p>
+<p>Klicke auf <strong>Auftragsstatus &amp; Tracking exportieren</strong>…</p>
+<p><img alt="connect_journal_salesorderstatus.png" src="https://help.xentral.com/hc/article_attachments/18671721033500" /></p>
+<p>&hellip; und gib eine Auftragsnummer ein und bestätige mit <strong>Exportieren</strong>.</p>
+<p><img alt="Shopify_ReportingWorkflowsAuftrStatus01_0502p.png" src="https://help.xentral.com/hc/article_attachments/18671721034908" /></p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Du kannst mehrere Aufträge importieren, wenn du die Auftragsnummern durch Komma getrennt eingibst.</p>
+</blockquote>
+<p>Mit <strong>Neu Laden </strong>(1) kannst du den Status aktualisieren, über <strong> Verlauf anzeigen</strong>(2) die Statushistorie ansehen. Mit Schaltfläche (3) kannst du Datensätze erneut ausführen, nachdem du ggf. Korrekturen vorgenommen hast</p>
+<p><img alt="Shopify_ReportingWorkflowsAuftrStatus02_0502p.png" src="https://help.xentral.com/hc/article_attachments/18671721035804" /></p>
+<p>Auch in der Statushistorie kannst du den Status <strong>Neu Laden</strong>:</p>
+<p><img alt="connect_reporting_salesorderstatus.png" src="https://help.xentral.com/hc/article_attachments/13921887744412" /></p>
+<p>Sobald du alle Daten erfolgreich getestet hast, ist dein System bereit für die Liveschaltung.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Im Produktivbetrieb werden die Auftragsstatus- &amp; Tracking-Daten zwischen Shop und Xentral ereignisbasiert ausgetauscht, also immer nur dann, wenn ein Datensatz geändert wird. Wenn du einzelne Datensätze unabhängig von Änderungen manuell anstoßen möchtest, kannst du die in diesem Abschnitt beschriebenen Aktionen nutzen.</p>
+</blockquote>
+<h3 id="such-und-filtermoglichkeiten-auftragsstatus-tracking">Such- und Filtermöglichkeiten Auftragsstatus &amp; Tracking<a class="headerlink" href="#such-und-filtermoglichkeiten-auftragsstatus-tracking" title="Permanent link">&para;</a></h3>
+<p>Zur einfachen und übersichtlichen Analyse stehen dir im Auftragsstatus-Journal verschiedene Such- und Filtermöglichkeiten zur Verfügung:</p>
+<p>-<strong>Freitextsuche</strong>: Du kannst die angezeigten Einträge über einen Freitext im Suchfeld einschränken:
+-<strong>Filter nach Status</strong>: Klicke auf “Status”, um z. B. nur fehlerhafte Exporte anzeigen zu lassen:
+-<strong>Filter nach Auftragsdatum</strong>: Diesen Filter kannst du nutzen, um nach einem bestimmten Auftragsdatum zu filtern:
+-<strong>Filter nach Tracking</strong>: Mit diesem Filter kannst du Vorgänge bzgl. des Tracking-Exportstatus einschränken:</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18870429568924 Faqs - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>18870429568924 Faqs</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>18870429568924 Faqs</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="was-ist-die-ursache-fur-eine-diskrepanz-zwischen-lagerbestand-und-chargenbestand-und-wie-konnen-wir-dies-vermeiden">Was ist die Ursache für eine Diskrepanz zwischen Lagerbestand und “Chargenbestand” und wie können wir dies vermeiden?<a class="headerlink" href="#was-ist-die-ursache-fur-eine-diskrepanz-zwischen-lagerbestand-und-chargenbestand-und-wie-konnen-wir-dies-vermeiden" title="Permanent link">&para;</a></h2>
+<p>Bei Artikeln mit Chargenverwaltung kann es durch die Systemarchitektur dazu kommen, dass der Lagerbestand von der im ReiterChargenangezeigten Menge abweicht. Eine präzises Buchungsvorgehen vermeidet Diskrepanzen.</p>
+<p>Eine Ursache für Abweichungen ist, dass keine Chargen bei der Auslagerung in der Produktion angegeben werden können, so dass bei Nutzung dieser Funktion der Bestand einer Produktionskomponente, aber nicht deren Charge reduziert würde. Falls du Komponenten mit Chargenverwaltung in deiner Produktion einsetzt, empfehlen wir dir folgendes Vorgehen:</p>
+<ol>
+<li>Plane und starte deine Produktion wie gewohnt: Einkauf &gt; Produktion &gt; Übersicht: Produktion anhaken &gt; Aktionsmenü: Produktion starten. (Alternativ aus der Produktion selbst, Reiter Details &gt; Produktion starten).</li>
+<li>Öffne die Produktion und gehe zum Reiter Chargen.</li>
+<li>Füge deine eingesetzten Chargen ein. Sobald du nun zum Reiter Details wechselst, wird dir der Status Produktion ausgelagert zur Hälfte grün angezeigt. Sowohl deine Charge(n) als auch der Lagerbestand deiner chargen-geführten Artikel wurde in einem Schritt reduziert.</li>
+<li>Lagere nun den Rest des Materials, z.B. nicht chargen-geführte Kleinteile, über die Funktion Produktion auslagern aus. Der Status Produktion ausgelagert wechselt nun auf vollständig grün. Der Lagerbestand aller Komponenten wurde nun reduziert.</li>
+</ol>
+<p>Eine weitere Ursache liegt darin, dass die Einlagerung in der Produktion keine Chargenzuweisung vorsieht, so dass bei Nutzung dieser Funktion der Bestand eines erzeugten Produkts erhöht, aber nicht deren Charge erfasst wird. Falls du Erzeugnisse mit Chargen produzierst, empfehlen wir dir folgendes Vorgehen:</p>
+<ol>
+<li>Gehe zum Beenden deiner Produktion in den Reiter Abschluss und trage dort die erzeugte Charge ein.</li>
+<li>Klicke auf Einlagern + Produktion abschließen (bzw. auf Teilmenge einlagern).</li>
+</ol>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Vermeide bei solchen Produkten unbedingt die FunktionProduktion einlagern, die dir im Aktionsmenü der Produktionsübersicht oder im ReiterDetailszur Verfügung steht!</p>
+<h2 id="wo-weise-ich-seriennummern-zu-die-in-der-produktion-als-komponente-eingesetzt-bzw-als-produkt-erzeugt-werden">Wo weise ich Seriennummern zu, die in der Produktion als Komponente eingesetzt bzw. als Produkt erzeugt werden?<a class="headerlink" href="#wo-weise-ich-seriennummern-zu-die-in-der-produktion-als-komponente-eingesetzt-bzw-als-produkt-erzeugt-werden" title="Permanent link">&para;</a></h2>
+<p>Sowohl die verwendeten Seriennummern von Komponenten, als auch Seriennummern von in der Produktion erzeugten Produkten werden im Produktionszentrum erfasst. Hier erfolgt auch eine eindeutige Zuordnung Komponentenseriennummer(n) - Produktseriennummer, falls du in einer Produktion eine Produktmenge &gt; 1 herstellst.</p>
+<p>Das Produktionszentrum beinhaltet alle gestarteten Produktionen. Du erreichst es z. B. über folgende Pfade:</p>
+<ul>
+<li>Einkauf &gt; Produktionszentrum</li>
+<li>Einkauf &gt; Produktion &gt; gestartete Produktion öffnen &gt; Zum Produktionszentrum</li>
+<li>oder wenn du in der gestarteten Produktion im Reiter Seriennummern auf das Bearbeitungsmenü (Stiftsymbol) klickst.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Produktionen, die noch nicht gestartet wurden, werden im Produktionszentrum noch nicht aufgeführt.</p>
+</blockquote>
+<p>Im ReiterEinzelproduktionen erfassenkannst du nun sowohl erzeugte (1) als auch verwendete (2) Seriennummern eintragen:</p>
+<p><img alt="production_faq_serialnumbers.png" src="https://help.xentral.com/hc/article_attachments/19368094303516" /></p>
+<h2 id="wie-konnen-wir-eine-ruckverfolgbarkeit-beim-produktionsausschuss-sicherstellen">Wie können wir eine Rückverfolgbarkeit beim Produktionsausschuss sicherstellen?<a class="headerlink" href="#wie-konnen-wir-eine-ruckverfolgbarkeit-beim-produktionsausschuss-sicherstellen" title="Permanent link">&para;</a></h2>
+<p>Trägst du die Ausschussmenge einer Produktion Abschluss inMenge Ausschussein, verlierst du die Rückverfolgbarkeit über die betroffene Ware, da sie nirgends mehr lagerverwaltet wird. Dies kannst du ganz einfach vermeiden und so auch bei Ausschussware eine Nachvollziehbarkeit gewährleisten. Wir erklären dir im Folgenden wie du dabei vorgehst.</p>
+<p>Generelle Einrichtung:</p>
+<ul>
+<li>Lege dir einen Lagerplatz für Ausschussware an. Wir empfehlen, beim Lagertyp den Haken bei Kein Auto-Versand (Sperrlager) Lager zu setzen.</li>
+</ul>
+<p>Gehe beim Abschließen einer Produktion mit Ausschuss in zwei Schritten vor:</p>
+<ol>
+<li>Lagere die Gut-Menge ein:</li>
+<li>Lagere nun die Ausschussmenge ein:</li>
+</ol>
+<p>Nach einem solchen Vorgehen liegen nun gute Waren in deinem normalen Lager, schlechte Waren in deinem Ausschusslager. Von dort aus kannst du dann entscheiden, wie du die Ausschussware weiter behandelst (interne Nacharbeit, Abwertung, Verschrottung…) und entsprechend manuell verbuchen.</p>
+<h2 id="welche-moglichkeiten-haben-wir-wenn-wir-eine-produktion-starten-wollen-obwohl-noch-nicht-alle-komponenten-an-lager-verfugbar-sind">Welche Möglichkeiten haben wir, wenn wir eine Produktion starten wollen, obwohl noch nicht alle Komponenten an Lager verfügbar sind?<a class="headerlink" href="#welche-moglichkeiten-haben-wir-wenn-wir-eine-produktion-starten-wollen-obwohl-noch-nicht-alle-komponenten-an-lager-verfugbar-sind" title="Permanent link">&para;</a></h2>
+<p>Für eine effiziente Produktion möchte man sicherstellen, dass Produktionsaufträge die Fertigung oder Montage reibungslos und zügig durchlaufen können. Fehlendes Material ist ein wesentlicher Grund, weshalb eine Produktion zum Stocken kommen kann. Deswegen prüft Xentral vorm Starten einer Produktion für dich, ob ausreichend Material für den Produktionsauftrag verfügbar ist. Falls nicht, kann eine Produktion grundsätzlich nicht gestartet werden.</p>
+<p>Falls du in deiner Produktion Situationen hast, in denen bestimmte Arbeitsschritte ohne Material oder mit einem Teil des Materials, das bereits verfügbar ist, möglich sind, und du diese Arbeitsschritte bereits in die Produktion einlasten möchtest, hast du folgende Möglichkeiten:</p>
+<ul>
+<li>Gestalte die Stückliste von deinem Erzeugnis mit Unterbaugruppen. Die Unterbaugruppen sollten nach Arbeitsschritten strukturiert werden. Plane deine Produktion mit Unterproduktionen und starte sie nach Arbeitsschritten getrennt. Dies bietet sich insbesondere an, wenn regelmäßig die gleichen Komponenten betroffen sind.</li>
+<li>Ist nur eine oder wenige Komponenten betroffen und es handelt sich um einen Einzelfall, könntest du die betroffene Position aus der Produktion löschen, die Produktion ohne diese Komponente starten und dir eine Aufgabe einplanen, die Materialentnahme manuell nachzubuchen, sobald die Komponente verfügbar ist und an die Produktion nachgereicht wurde.</li>
+</ul>
+<h2 id="wir-haben-beim-fertigen-produkt-eine-falsche-seriennummer-zugewiesen-wie-konnen-wir-das-korrigieren">Wir haben beim fertigen Produkt eine falsche Seriennummer zugewiesen. Wie können wir das korrigieren?<a class="headerlink" href="#wir-haben-beim-fertigen-produkt-eine-falsche-seriennummer-zugewiesen-wie-konnen-wir-das-korrigieren" title="Permanent link">&para;</a></h2>
+<p>Wenn du falsche Seriennummern zugewiesen oder die Zuordnung ganz vergessen hast, öffne die abgeschlossene Produktion und trage die Seriennummern wie folgt nach:</p>
+<ol>
+<li>Gehe zu Einkauf &gt; Produktion.</li>
+<li>Filtere auf Abgeschlossene Produktionen.</li>
+<li>Öffne die betroffene Produktion zur Bearbeitung und gehe auf den Reiter Seriennummern.</li>
+<li>Klicke dort auf das Bearbeitungsmenü (Stiftsymbol) und korrigiere die Seriennummern bzw. trage sie nach.</li>
+</ol>
+<h2 id="die-etiketten-aus-der-produktion-enthalten-keine-chargenangabe-obwohl-dies-im-etikettenlayout-eingerichtet-ist-woran-liegt-es-und-wie-konnen-wir-es-beheben">Die Etiketten aus der Produktion enthalten keine Chargenangabe, obwohl dies im Etikettenlayout eingerichtet ist. Woran liegt es und wie können wir es beheben?<a class="headerlink" href="#die-etiketten-aus-der-produktion-enthalten-keine-chargenangabe-obwohl-dies-im-etikettenlayout-eingerichtet-ist-woran-liegt-es-und-wie-konnen-wir-es-beheben" title="Permanent link">&para;</a></h2>
+<p>Damit Chargen auf den Etiketten ausgegeben werden können, müssen sie zugeordnet und die Produktion abgeschlossen worden sein. Gehe daher wie folgt vor:</p>
+<ol>
+<li>Öffne eine gestartete Produktion und gehe zum Reiter Chargen, um Chargen zuzuordnen.</li>
+<li>Lagere ggf. weiteres nicht chargengeführtes Material über Produktion auslagern aus.</li>
+<li>Produziere und gehe anschließend zum Beenden deiner Produktion in den Reiter Abschluss und trage dort die erzeugte Charge ein. Klicke auf Einlagern + Produktion abschließen.</li>
+<li>Gehe auf den Reiter Details und klicke auf Etikettensets für alle Produkte, um die Etiketten mit Chargennummer zu generieren.</li>
+</ol>
+<h2 id="wie-unterstutzt-mich-xentral-bei-der-produktion">Wie unterstützt mich Xentral bei der Produktion?<a class="headerlink" href="#wie-unterstutzt-mich-xentral-bei-der-produktion" title="Permanent link">&para;</a></h2>
+<ul>
+<li>In Xentral ist die <strong>Produktion </strong> ein eigener Beleg, sodass du Aufträge und Bestellungen direkt zu Produktionen weiterführen kannst. Übernommen werden dann alle Artikel, die im Artikelstamm als <strong>Produktionsartikel</strong> markiert sind.</li>
+<li>Die Produktion erfolgt immer auf Basis einer <strong>Stückliste </strong>. Der Kopfartikel wird aus den Unterartikeln (in die Produktion eingehenden Artikel) produziert. Werden Unterartikel selbst wiederum aus anderen Artikeln produziert (sind also Kopfartikel einer Unterstückliste), kannst du mit einem Klick eine <strong>Unterproduktion</strong> anlegen. Dabei wird einfach ein weiterer Produktionsbeleg erstellt.</li>
+<li>Während des Produktionsprozesses ermöglicht der Produktionsbeleg die Auslagerung der eingehenden Artikel samt Seriennummern, Chargen und MHDs und die Einlagerung des fertigen Endproduktes in den gewünschten Lagerplatz. Dabei kannst du auch einen Ausschuss abziehen.</li>
+<li>Noch mehr Möglichkeiten bietet das <strong>Produktionszentrum</strong>. Unter Lager → Produktionszentrum kannst du die einzeln angelegten Produktionen öffnen, um mehrere Arbeitsschritte durchzuarbeiten.</li>
+<li>Während der Produktion werden die in den Artikeln hinterlegten <strong>Funktionsprotokolle</strong> abgefragt. Dabei können die Mitarbeiter der Produktion mit wenigen Klicks bestätigen, dass die Funktionstests erfolgreich waren.</li>
+<li>Ebenso kannst du zu produzierenden Artikeln <strong>Arbeitsanweisungen</strong> hinterlegen, die mit Textinformationen sowie Bildern anzeigt werden, wenn die Produktion in xentral bearbeitet wird.</li>
+<li>Um Seriennummern, Chargen und MHDs einzeln einzubuchen oder für produzierte neue Artikel Seriennummern, Chargen und MHDs neu festzulegen und mit ins Lager zu buchen, eignet sich ebenfalls das Produktionszentrum.</li>
+</ul>
+<h2 id="wie-ist-das-richtige-setup-der-artikel-bei-produktion-als-produktionsartikel-oder-als-stuckliste">Wie ist das richtige Setup der Artikel bei Produktion - als Produktionsartikel oder als Stückliste?<a class="headerlink" href="#wie-ist-das-richtige-setup-der-artikel-bei-produktion-als-produktionsartikel-oder-als-stuckliste" title="Permanent link">&para;</a></h2>
+<p>Wir bitten um Verständnis, dass wir hierzu keine finale Aussage treffen, da dies von Kunde zu Kunde dann doch abweichen kann.</p>
+<p>Wir haben jedoch im Nachfolgenden noch einmal die wichtigsten Punkte aus den HelpDesk-Einträgen zur Beantwortung dieser Frage zusammengetragen.</p>
+<p>In xentral gibt es zwei Stücklistenarten:</p>
+<p>-<strong>Stückliste</strong>→ wird als ganzes Set eingelagert mit einer Nummer und diese wird im Versand auch ausgebucht
+-<strong>Just-in-Time Stückliste</strong>(Setartikel) → Komponenten werden als Einzelartikel eingelagert und auch einzeln ausgebucht im Versand</p>
+<p><a href="https://help.xentral.com/hc/de/articles/360019652739#UUID-443f8048-37aa-3974-fc46-63cd8ad757d1">Just-in-Time Stückliste</a></p>
+<p>Eine Stückliste, die als <strong>fertiges Produkt mit einer Artikelnummer im Lager liegt </strong>(hat also einen Bestand). Das Produkt, bestehend aus den einzelnen Komponenten der Stückliste, wird beim Versand als ein Produkt ausgelagert.<strong>Die Komponenten wurden im Rahmen der Produktion bereits dem Lager entnommen <strong>. Somit ist z.B. ein USB-Kabel in einer Stückliste Teil dieser Stückliste und ab dem Moment des Einlagerung an diese Stückliste gebunden (</strong> also nicht mehr als einzelnes Kabel für andere Stücklisten verfügbar</strong>).</p>
+<p>Stückliste, die als <strong>Einzelteile mit je einer eigenen Artikelnummer im Lager </strong> liegen. Die in dieser Stücklistenart enthaltenen Teile <strong>werden in anderen Just-In-Time Stücklisten evtl. ebenfalls verwendet <strong>. Diese Stückliste wird als mehrere Produkte beim Versand </strong> ausgelagert <strong>und gescannt. Auf diese Weise wird eine </strong> doppelte Lagerhaltung verschiedenster Produkte vermieden</strong>.</p>
+<p>Somit kann z.B. ein USB-Kabel in vielen Just-In-Time Stücklisten verwendet werden, ohne dass das Material im Lager an diese Stückliste gebunden ist.</p>
+<p><a href="https://help.xentral.com/document/preview/25841#UUID-c5c2af4d-468b-cc9e-c77c-ef9bd6d80483">Produktionsartikel</a></p>
+<p>Produktionsartikel sind Artikel, die in der Produktion verwendet werden, die also in den Produktionsbeleg übernommen werden sollen, wenn ein Auftrag zur Produktion weitergeführt wird.<strong>Zu produzierende Artikel sind immer auch eine &ldquo;Stückliste&rdquo;. Artikel, die in die Produktion eines anderen Artikels eingehen, sind nur &ldquo;Produktionsartikel&rdquo;</strong>.</p>
+<p>Die Rohstoffliste dient als extra Information für einen Artikel.<strong>In der Regel werden für Rezepte, Produkte etc. Stücklisten angelegt. Vor allem dann wenn die Artikel aus der Stückliste oder dem Rezept selbst bestellt oder diese ein- und auslagert werden</strong>.</p>
+<h2 id="auf-basis-welcher-werte-wird-der-deckungsbeitrag-im-protokoll-pro-produktion-berechnet">Auf Basis welcher Werte wird der Deckungsbeitrag im Protokoll pro Produktion berechnet?<a class="headerlink" href="#auf-basis-welcher-werte-wird-der-deckungsbeitrag-im-protokoll-pro-produktion-berechnet" title="Permanent link">&para;</a></h2>
+<p>Der Deckungsbeitrag in dieser Anzeige basiert auf den zuletzt definierten Einkaufs- und Verkaufspreisen in den Artikeln (unabhängig von der Staffel). Langfristig wirst du diesen wahrscheinlich genauer definieren können.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016756559 Layoutvorlagen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016756559 Layoutvorlagen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016756559 Layoutvorlagen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>DieLayoutvorlagenkönnen Sie für Serienbriefe, Ausdrucke oder als Grundlage für den Zertifikatsgenerator nutzen.</p>
+<h2 id="erstellen-einer-layoutvorlage">Erstellen einer Layoutvorlage<a class="headerlink" href="#erstellen-einer-layoutvorlage" title="Permanent link">&para;</a></h2>
+<p>Als Ausgangspunkt für eine Layoutvorlage empfiehlt sich eine vorher erstellte Office Datei (z.B. Word, Open Office Writer), die als PDF exportiert wird. Auf diesem PDF können dann dynamische Variablen aus xentral, wie z.B. Adressdaten geladen werden.</p>
+<p>Mit einem Klick auf den+NEU-Button können Sie eine neue Layoutvorlage anlegen. UnterHintergrundkönnen Sie sich das in Office erstellte PDF hochladen.</p>
+<p>Klicken Sie aufSpeichernum die Vorlage zu sichern. Danach können Sie unterPositionen / ElementeTexte, Bilder und andere Elemente dynamisch mit Variablen hinzufügen. Dazu wählen Sie mindestens eine Beschreibung, den Typ, die Positionen des Elements und den Inhalt aus.</p>
+<p><img alt="layoutvorlagen_3.png" src="https://help.xentral.com/hc/article_attachments/5078191104284" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die gewünschte Position des Elements kann auch auf dem Papier abgemessen werden, um Zeit zu sparen. Unter Vorschau können Sie die Anordnung der Elemente begutachten. Hier wäre es der Adressblock in geschweiften Klammern (Variablen) unter der Adresse.</p>
+</blockquote>
+<h2 id="workflow-layoutvorlagen-und-layoutvorlagen-anhang">Workflow Layoutvorlagen und Layoutvorlagen Anhang<a class="headerlink" href="#workflow-layoutvorlagen-und-layoutvorlagen-anhang" title="Permanent link">&para;</a></h2>
+<p>Um zum Beispiel ein Deckblatt zu einem Angebot hinzuzufügen, musst du die Module Layoutvorlagen und Layoutvorlagen Anhang nutzen.</p>
+<p>Du kannst mit dem Layoutvorlagen Modul (Suchleiste &gt; Layoutvorlagen) dein Deckblatt hochladen:</p>
+<p>Anschließend kannst du unter Positionen/Elemente in der erstellten Vorlage Elemente hinzufügen, wie z.B. den Namen. Anschließend kannst du die Position des Namens (über Variablen) einstellen:</p>
+<p><img alt="mceclip2.png" src="https://help.xentral.com/hc/article_attachments/5078154866204" /></p>
+<p>Anschließend musst Du in das Modul Layoutvorlagen Anhang (Suchleiste &gt; Layoutvorlagen Anhang) und dort das erstellte Layout dem Angebot zuordnen:</p>
+<p><img alt="mceclip3.png" src="https://help.xentral.com/hc/article_attachments/5078138645660" /></p>
+<p>Wenn dann im entsprechenden Projekt (Stammdaten &gt; Projekte &gt; &lsquo;Dein Projekt XY&rsquo; &gt; Einstellungen &gt; Logistik/Versand) dann der &lsquo;PDF Anhang&rsquo; aktiviert ist, wird das Deckblatt jedes Mal mit ausgedruckt. Beim E-Mail Versand wird das Deckblatt als zusätzliche PDF-Datei angehängt:</p>
+<p><img alt="mceclip4.png" src="https://help.xentral.com/hc/article_attachments/5078191274908" /></p>
+<h2 id="layoutvorlagen-herunterladen">Layoutvorlagen herunterladen<a class="headerlink" href="#layoutvorlagen-herunterladen" title="Permanent link">&para;</a></h2>
+<p>Wenn Sie besonders große / komplizierte Layoutvorlagen erstellen, kann es Sinn machen diese zu sichern um sie beliebig auszutauschen oder wiederzuverwenden. Klicken Sie dazu einfach in der Übersicht auf das Download-Symbol<img alt="mceclip1.png" src="https://help.xentral.com/hc/article_attachments/5078144568732" /></p>
+<p>.</p>
+<h3 id="variablen">Variablen<a class="headerlink" href="#variablen" title="Permanent link">&para;</a></h3>
+<p>Eine Liste aller Variablen, die sie im Moment in denLayoutvorlagenverwenden können:</p>
+<ul>
+<li>{NAME}</li>
+<li>{STRASSE}</li>
+<li>{PLZ}</li>
+<li>{ORT}</li>
+<li>{ANSCHREIBEN}</li>
+</ul>
+<p>Weitere Variablen stehen Ihnen in der App<a href="https://help.xentral.com/hc/de/articles/360016754659-Layoutvorlagen-Anhang">Layoutvorlagen Anhang</a>zur Verfügung.</p>
+<h2 id="serienbriefe">Serienbriefe<a class="headerlink" href="#serienbriefe" title="Permanent link">&para;</a></h2>
+<p>Folgende Variablen können als Elemente für Serienbriefe verwendet werden:</p>
+<ul>
+<li>{TITEL}: Titel der Adresse</li>
+<li>{NAME}: Name der Adresse</li>
+<li>{ABTEILUNG}: Abteilung der Adresse</li>
+<li>{ANSPRECHPARTNER}: Ansprechpartner der Adresse</li>
+<li>{STRASSE}: Straße der Adresse</li>
+<li>{ADRESSZUSATZ}: Adresszusatz der Adresse</li>
+<li>{PLZ}: PLZ der Adresse</li>
+<li>{ORT}: Ort der Adresse</li>
+<li>{LAND}: Land der Adresse</li>
+<li>{TELEFON}: Telefonnummer der Adresse</li>
+<li>{TELEFAX}: Telefax der Adresse</li>
+<li>{MOBIL}: Mobilnummer der Adresse</li>
+<li>{EMAIL}: E-Mail Adresse der Adresse</li>
+<li>{USTID}: USt ID der Adresse</li>
+<li>{KUNDENNUMMER}: Kundennummer der Adresse</li>
+<li>{LIEFERANTENNUMMER}: Lieferantennummer der Adresse</li>
+<li>{BANK}: Bankname der Adresse</li>
+<li>{INHABER}: Kontoinhaber der Adresse</li>
+<li>{IBAN}: IBAN der Adresse</li>
+<li>{BIC}: BIC der Adresse</li>
+<li>{WAEHRUNG}: Währung der Adresse</li>
+<li>{ANREDE}: Anrede der Adresse</li>
+<li>{FREIFELD1}: Freifeld1 der Adresse, die Zahl 1 kann mit den Zahlen von 1 bis 20 ersetzt werden</li>
+<li>{DATUM_HEUTE}: Heutiges Datum im Format dd.mm.jjjj</li>
+</ul>
+<h2 id="geburtstagskarten-grukarten">Geburtstagskarten / Grußkarten<a class="headerlink" href="#geburtstagskarten-grukarten" title="Permanent link">&para;</a></h2>
+<p>Es ist auch möglich verschiedenste Karten über die Layoutvorlage zu erstellen. Wie z.B. eine Geburtstagskarte, hier kann auch ein Hintergrund hochgeladen werden. Man kann aber auch bereits von einer Druckerei benutztes Druckpapier für verschiedenste Karten verwenden. Diese Layoutvorlagen können gespeichert und benutzt werden um Serienbriefe zu drucken.</p>
+<p>Zu den Serienbriefen gelangt man über App Center &gt; Serienbriefe.</p>
+<p>Hier ist es möglich über den Filter Button z.B. nach dem Geburtstag von Personen (Geburtstag von Personen muss in den Adressen angelegt werden) zu filtern. Danach lassen sich ganz bequem für diese ausgewählten Personen Geburtstagskarten (oder auch andere Karten) drucken.</p>
+<h2 id="besuchsbericht">Besuchsbericht<a class="headerlink" href="#besuchsbericht" title="Permanent link">&para;</a></h2>
+<p>Über die Layoutvorlagen können Sie auch einen Besuchsbericht anlegen. Diesen können Sie dann in Adressen &gt; Edit &gt; Korrespondenz &gt; Termine per Knopfdruck für den Kunden erstellen und drucken. In den Layoutvorlagen legen Sie eine Vorlage mit der Kategorie Besuchsbericht an.</p>
+<p>Danach erscheint ein Button Besuchsbericht unter einem bestehenden Termin in der Adresse:</p>
+<p><img alt="layoutvorlagen_9.png" src="https://help.xentral.com/hc/article_attachments/5078144589724" /></p>
+<p>Nach einem Klick darauf, wird der Besuchsbericht mit den in der Layoutvorlage angelegten Variablen zum Kunden gedruckt.</p>
+<h3 id="variablen-fur-besuchsbericht">Variablen für Besuchsbericht<a class="headerlink" href="#variablen-fur-besuchsbericht" title="Permanent link">&para;</a></h3>
+<p>Adresse: Alle möglichen Felder aus der Kundenadresse (Tabelle adresse), z.B:</p>
+<ul>
+<li>{ADRESSE_NAME}</li>
+<li>{ADRESSE_ANSPRECHPARTNER}</li>
+<li>{ADRESSE_STRASSE}</li>
+<li>{ADRESSE_ORT}</li>
+<li>{ADRESSE_PLZ}</li>
+<li>{ADRESSE_TELEFON}{ADRESSE_MOBIL}</li>
+<li>{ADRESSE_EMAIL}</li>
+</ul>
+<p>Kalender: Alle möglichen Felder aus einem Kalendereintrag (Tabelle kalender_event), z.B:</p>
+<ul>
+<li>{DATUM}</li>
+<li>{DATUMBIS}</li>
+<li>{UHRZEIT}</li>
+<li>{UHRZEITBIS}</li>
+<li>{BEZEICHNUNG}</li>
+<li>{BESCHREIBUNG}</li>
+<li>{BEARBEITER}</li>
+</ul>
+<h2 id="multilabelprint">Multilabelprint<a class="headerlink" href="#multilabelprint" title="Permanent link">&para;</a></h2>
+<p>Um das Modul Multilabelprint nutzen zu können, müssen Sie zuerst in den Layoutvorlagen ein neues Layout dazu anlegen.</p>
+<p>Um verschiedene Artikel auf einen PDF-Bogen zu bekommen, werden die Variablen für den Inhalt der Layout-Elemente durchnummeriert. Z.B. {1_NUMMER}, {2_NUMMER} für die Artikelnummern der ersten beiden Artikel.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es muss immer nur die Nummerierung auf Seite 1 unterschieden werden. Ab Seite 2 wird dann wieder am Anfang der Nummerierung begonnen.</p>
+</blockquote>
+<p>Beispiel: 4 Artikel passen auf 1 Seite. Wir markieren aber 7 Artikel im Modul Multilabelprint. Trotzdem müssen wir für die Artikelnummern nur {1_NUMMER}, {2_NUMMER}, {3_NUMMER} und {4_NUMMER} verwenden. Ab Seite 2 benutzt der 5. Artikel wieder die erste Variable, aber trotzdem seine richtige Artikelnummer.</p>
+<h3 id="variablen_1">Variablen<a class="headerlink" href="#variablen_1" title="Permanent link">&para;</a></h3>
+<p>Folgende Variablen können als Elemente für den Multilabelprint verwendet werden (X steht hierbei immer für die Nummerierung):</p>
+<ul>
+<li>{X_NUMMER}: Artikelnummer</li>
+<li>{X_NAME_DE}: Artikelbezeichnung</li>
+<li>{X_NAME_EN}: Artikelbezeichnung englisch</li>
+<li>{X_ANABREGS_TEXT}: Artikelbeschreibung</li>
+<li>{X_ANABREGS_TEXT_EN}: Artikelbeschreibung englisch</li>
+<li>{X_HERSTELLER}: Hersteller des Artikels</li>
+<li>{X_EAN}: EAN des Artikels</li>
+<li>{X_ZOLLTARIFNUMMER}: Zolltarifnummer des Artikels</li>
+<li>{X_GEWICHT}: Gewicht des Artikels</li>
+<li>{X_VERKAUFSPREIS}: Verkaufspreis des Artikels</li>
+<li>{X_EIGENSCHAFT_Y}: Eigenschaft des Artikels, Y muss hierbei mit dem Eigenschaftsnamen ersetzt werden, wie er unter Stammdaten &gt; Artikel &gt; Edit &gt; Eigenschaften eingetragen wurde.</li>
+<li>{X_FREIFELD1}: Freifeld1 des Artikels, Zahl 1 kann durch beliebige Zahl von 1 bis 40 ersetzt werden</li>
+<li>{X_EINHEIT}: Einheit des Artikels</li>
+<li>{X_LAENGE}: Länge des Artikels</li>
+<li>{X_BREITE}: Breite des Artikels</li>
+<li>{X_HOEHE}: Höhe des Artikels</li>
+<li>{X_HERKUNFTSLAND}: Herkunftsland des Artikels</li>
+<li>{X_URSPRUNGSREGION}: Ursprungsregion des Artikels</li>
+</ul>
+<p>Beispiel für einen PDF Bogen</p>
+<p>In unserem Beispiel bilden wir folgendes ab:</p>
+<ul>
+<li>Artikelnummer</li>
+<li>Artikelname</li>
+<li>Verkaufspreis</li>
+<li>2 Eigenschaftswerte</li>
+<li>Artikelbild</li>
+</ul>
+<p>Als Elemente für 1 Seite erstellen wir 6 Beschreibungen und 6 Bilder:</p>
+<p><img alt="layoutvorlagen_10.png" src="https://help.xentral.com/hc/article_attachments/5078138771484" /></p>
+<p>Der Inhalt eines Beschreibungsfelds sieht z.B. so aus (3. Element):</p>
+<p><img alt="layoutvorlagen_11.png" src="https://help.xentral.com/hc/article_attachments/5078191478172" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Für die Eigenschaften geben Sie bitte als Variable am Schluss den Eigenschaftsnamen an, wie er unter Stammdaten &gt; Artikel &gt; Edit &gt; Eigenschaften eingetragen wurde. Groß/Kleinschreibung, Umlaute müssen dabei nicht genau beachtet werden. Als Vorschau im Mulitlabelprint Modul bekommen wir dann diesen PDF Bogen.</p>
+</blockquote>
+<p><img alt="layoutvorlagen_12.png" src="https://help.xentral.com/hc/article_attachments/5078138842012" /></p>
+<p>Sie können das Layout auch als JSON Datei hochladen. Den Code kopieren Sie in einen Texteditor und speichern die Datei als.json Datei. Danach laden Sie diese in den Layoutgenerator.</p>
+<p><code>{"Layout":{"id":"1","name":"Artikellabels","typ":"pdf","pdf_hintergrund":"","format":"A4","kategorie":""},"Layoutpositionen":[{"id":"1","layoutvorlage":"1","name":"beschreibung-1","beschreibung":"Beschreibung 1","typ":"textfeld","position_typ":"absolute","position_x":"10","position_y":"10","position_parent":"0","breite":"60","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"{1_NUMMER}\r\n{1_NAME_DE}\r\n{1_VERKAUFSPREIS} \u20ac\r\nFarbe: {1_EIGENSCHAFT_FARBE}\r\nGr\u00f6\u00dfe: {1_EIGENSCHAFT_GROESSE}","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"8"},{"id":"2","layoutvorlage":"1","name":"beschreibung-2","beschreibung":"Beschreibung 2","typ":"textfeld","position_typ":"absolute","position_x":"100","position_y":"10","position_parent":"0","breite":"60","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"{2_NUMMER}\r\n{2_NAME_DE}\r\n{2_VERKAUFSPREIS} \u20ac\r\nFarbe: {2_EIGENSCHAFT_FARBE}\r\nGr\u00f6\u00dfe: {2_EIGENSCHAFT_GROESSE}","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"7"},{"id":"3","layoutvorlage":"1","name":"beschreibung-3","beschreibung":"Beschreibung 3","typ":"textfeld","position_typ":"absolute","position_x":"10","position_y":"100","position_parent":"0","breite":"60","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"{3_NUMMER}\r\n{3_NAME_DE}\r\n{3_VERKAUFSPREIS} \u20ac\r\nFarbe: {3_EIGENSCHAFT_FARBE}\r\nGr\u00f6\u00dfe: {3_EIGENSCHAFT_GROESSE}","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"6"},{"id":"4","layoutvorlage":"1","name":"beschreibung-4","beschreibung":"Beschreibung 4","typ":"textfeld","position_typ":"absolute","position_x":"100","position_y":"100","position_parent":"0","breite":"60","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"{4_NUMMER}\r\n{4_NAME_DE}\r\n{4_VERKAUFSPREIS} \u20ac\r\nFarbe: {4_EIGENSCHAFT_FARBE}\r\nGr\u00f6\u00dfe: {4_EIGENSCHAFT_GROESSE}","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"5"},{"id":"5","layoutvorlage":"1","name":"beschreibung-5","beschreibung":"Beschreibung 5","typ":"textfeld","position_typ":"absolute","position_x":"10","position_y":"190","position_parent":"0","breite":"60","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"{5_NUMMER}\r\n{5_NAME_DE}\r\n{5_VERKAUFSPREIS} \u20ac\r\nFarbe: {5_EIGENSCHAFT_FARBE}\r\nGr\u00f6\u00dfe: {5_EIGENSCHAFT_GROESSE}","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"5"},{"id":"6","layoutvorlage":"1","name":"beschreibung-6","beschreibung":"Beschreibung 6","typ":"textfeld","position_typ":"absolute","position_x":"100","position_y":"190","position_parent":"0","breite":"60","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"{6_NUMMER}\r\n{6_NAME_DE}\r\n{6_VERKAUFSPREIS} \u20ac\r\nFarbe: {6_EIGENSCHAFT_FARBE}\r\nGr\u00f6\u00dfe: {6_EIGENSCHAFT_GROESSE}","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"5"},{"id":"7","layoutvorlage":"1","name":"1-produktbild","beschreibung":"1_produktbild","typ":"bild","position_typ":"absolute","position_x":"10","position_y":"40","position_parent":"0","breite":"50","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"4"},{"id":"8","layoutvorlage":"1","name":"2-produktbild","beschreibung":"2_produktbild","typ":"bild","position_typ":"absolute","position_x":"100","position_y":"40","position_parent":"0","breite":"50","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"3"},{"id":"9","layoutvorlage":"1","name":"3-produktbild","beschreibung":"3_produktbild","typ":"bild","position_typ":"absolute","position_x":"10","position_y":"130","position_parent":"0","breite":"50","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"2"},{"id":"10","layoutvorlage":"1","name":"4-produktbild","beschreibung":"4_produktbild","typ":"bild","position_typ":"absolute","position_x":"100","position_y":"130","position_parent":"0","breite":"50","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"1"},{"id":"11","layoutvorlage":"1","name":"5-produktbild","beschreibung":"5_produktbild","typ":"bild","position_typ":"absolute","position_x":"10","position_y":"220","position_parent":"0","breite":"50","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"1"},{"id":"12","layoutvorlage":"1","name":"6-produktbild","beschreibung":"6_produktbild","typ":"bild","position_typ":"absolute","position_x":"100","position_y":"220","position_parent":"0","breite":"50","hoehe":"40","schrift_art":"times","zeilen_hoehe":"5","schrift_groesse":"12","schrift_farbe":"#000000","schrift_align":"left","hintergrund_farbe":"#FFFFFF","rahmen":"0","rahmen_farbe":"#FFFFFF","sichtbar":"1","inhalt_deutsch":"","inhalt_englisch":"","bild_deutsch":"","bild_englisch":"","schrift_fett":"0","schrift_kursiv":"0","schrift_underline":"0","bild_deutsch_typ":"","bild_englisch_typ":"","sort":"1"}]}</code></p>
+<h2 id="scheck">Scheck<a class="headerlink" href="#scheck" title="Permanent link">&para;</a></h2>
+<p>Layoutvorlagen werden auch benötigt um in dem Extra-Modul<a href="https://help.xentral.com/hc/de/articles/360016721360#UUID-e3b50722-8679-8b26-0d69-bf1f6a628df9">Scheck</a>eine Scheckvorlage zu erstellen.</p>
+<p><img alt="layoutvorlagen_13.png" src="https://help.xentral.com/hc/article_attachments/5078191579292" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wichtig ist die Kategoriescheck. Ob ein Blanko-Scheck der Bank als PDF hinterlegt werden darf, sollten Sie mit Ihrer Bank abklären.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

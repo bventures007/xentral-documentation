@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016756379 Abschlagsrechnung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016756379 Abschlagsrechnung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016756379 Abschlagsrechnung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Die <strong>Abschlagsrechnung <strong>ist ein Rechnungsdokument, das genutzt wird, wenn Teilzahlungen wie Anzahlungen, Vorschüsse oder Abschlagszahlungen für einen</strong> Auftrag</strong> berechnet werden. Statt eine Rechnung erst am Ende eines Projekts oder einer Lieferung zu stellen, ermöglicht dieses Verfahren eine schrittweise Abrechnung über mehrere Rechnungen hinweg.</p>
+<p>Mit dem Modul Abschlagsrechnung in Xentral können aus einem Auftrag heraus mehrere <strong>Abschlagsrechnungen </strong> erstellt und später in eine <strong>Schlussrechnung</strong> überführt werden. Dabei bleiben die steuerrechtlichen Besonderheiten gewahrt, indem die bereits geleisteten Teilzahlungen transparent in einer Tabelle unterhalb der Artikeltabelle aufgeführt werden.</p>
+<p>Dieses Modul ist besonders relevant für Unternehmen, die ihre Leistungen über einen längeren Zeitraum abrechnen und Kunden die Möglichkeit geben möchten, in mehreren Raten zu zahlen. Es sorgt für mehr Transparenz für beide Seiten und stellt sicher, dass alle Teilzahlungen bis zur endgültigen Rechnungsstellung korrekt dokumentiert sind.</p>
+<h2 id="funktionsweise-des-moduls-abschlagsrechnung">Funktionsweise des Moduls Abschlagsrechnung<a class="headerlink" href="#funktionsweise-des-moduls-abschlagsrechnung" title="Permanent link">&para;</a></h2>
+<p>Das Modul Abschlagsrechnung in Xentral bietet folgende Funktionen:</p>
+<ul>
+<li>Erstellen von <strong>Abschlagsrechnungen</strong> direkt aus einem Auftrag.</li>
+<li>Erfassen mehrerer <strong>Teilzahlungen</strong> mit detaillierter Auflistung.</li>
+<li>Automatische Erstellung der <strong>Schlussrechnung </strong>, die alle geleisteten <strong>Teilzahlungen</strong> berücksichtigt.</li>
+<li>Steuerrechtliche <strong>Übersicht </strong> über bereits <strong>gezahlte Beträge </strong> und verbleibenden <strong>Restbetrag</strong>.</li>
+</ul>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Eine Abschlagsrechnung allein ist keine vollständige Rechnung, sondern eine Auflistung einer Teilzahlung, die in der Schlussrechnung final verrechnet wird.</p>
+<p>Bevor du mit der Abschlagsrechnung beginnst, stelle sicher, welche steuerrechtlichen Vorgaben für dein Geschäft gelten, indem du dich an dein lokales Steuerbüro oder das Finanzamt/Steuerbehörde wendest.</p>
+<h2 id="erstellung-einer-abschlagsrechnung">Erstellung einer Abschlagsrechnung<a class="headerlink" href="#erstellung-einer-abschlagsrechnung" title="Permanent link">&para;</a></h2>
+<p>Eine Abschlagsrechnung basiert auf einem bestehenden Auftrag und ermöglicht dir die Abrechnung von Teilzahlungen. Je nach Anwendungsfall können Artikel aus dem Auftrag übernommen oder spezielle Artikel für die Abschlagszahlung definiert werden. Im Folgenden wird der Ablauf zur Erstellung einer Abschlagsrechnung Schritt für Schritt erklärt.</p>
+<h3 id="artikel-fur-abschlagsrechnung-verwenden-erstellen">Artikel für Abschlagsrechnung verwenden/ erstellen<a class="headerlink" href="#artikel-fur-abschlagsrechnung-verwenden-erstellen" title="Permanent link">&para;</a></h3>
+<p>Bei einer Abschlagsrechnung können entweder Artikel aus dem Auftrag übernommen oder ein neuer Artikel für die Teilzahlung angelegt werden (z. B. &lsquo;Abschlagszahlung 50%&rsquo;). Menge und Preis sind anpassbar. Die Wahl hängt vom Geschäftsmodell ab – ob Stückzahlen, Maschinen oder Sonderanfertigungen abgerechnet werden.</p>
+<h3 id="auftrag-fur-abschlagsrechnung-erstellen">Auftrag für Abschlagsrechnung erstellen<a class="headerlink" href="#auftrag-fur-abschlagsrechnung-erstellen" title="Permanent link">&para;</a></h3>
+<p>Die Abschlagsrechnung basiert auf einem Auftrag. Daher muss zuerst ein Auftrag für den Kunden angelegt werden.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Gehe zu <strong>Verkauf &gt; Auftrag &gt; +NEU</strong>.</li>
+<li>Wähle den Kunden aus und füge die Artikel für die Lieferung oder Leistung hinzu.</li>
+<li>Speichere den Auftrag und gib ihn frei.</li>
+<li>Im Tab &lsquo;<strong>Abschlagsrechnung</strong>&rsquo; wird dir später eine Übersicht über alle zugehörigen Teilrechnungen angezeigt. Von dort aus kannst du die Abschlagsrechnungen und die Schlussrechnung erstellen.</li>
+</ol>
+<p><img alt="abschlagsrechnung_auftrag_anlegen_001.png" src="https://help.xentral.com/hc/article_attachments/18682952891036" /></p>
+<h3 id="abschlagsrechnung-erstellen">Abschlagsrechnung erstellen<a class="headerlink" href="#abschlagsrechnung-erstellen" title="Permanent link">&para;</a></h3>
+<p>Sobald der Auftrag erstellt und freigegeben ist, kann eine erste Abschlagsrechnung daraus generiert werden.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Öffne den Auftrag und klicke auf „Teilrechnung erzeugen“.</li>
+<li>Wähle die Bezeichnung für die Abschlagsrechnung (z. B. „Anzahlung 1“ oder „Teilzahlung Projekt XY“).</li>
+<li>Entscheide, ob die Positionen aus dem Auftrag übernommen werden sollen. Diese erscheinen mit Menge 0, um eine vorzeitige Umsatzsteuer-Abrechnung zu vermeiden.</li>
+<li>Wähle den Artikel für die Teilzahlung, der auf der Abschlagsrechnung erscheinen soll.</li>
+<li>Optional: Passe Artikelbezeichnung, Artikelbeschreibung, Menge und Preis an.</li>
+<li>Klicke auf „Erstellen“, um die Abschlagsrechnung zu generieren.</li>
+<li>Über „Vorschau“ kann der Rechnungs-Entwurf eingesehen werden.</li>
+<li>Versende die Abschlagsrechnung an den Kunden.</li>
+</ol>
+<p><img alt="abschlagsrechnung_auftrag_1_abschlagsrechnung_001.png" src="https://help.xentral.com/hc/article_attachments/18682969384732" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bezeichnung für Teilzahlung-Rechnung</td>
+<td>Bezeichnung, die auf der Abschlagsrechnung erscheint. Z.B. &lsquo;1. Abschlagsrechnung&rsquo;, &lsquo;2. Abschlagsrechnung&rsquo;,&hellip; Achtung Bevor du mit der Abschlagsrechnung beginnst, stelle sicher, welche steuerrechtlichen Vorgaben für dein Geschäft gelten, indem du dich an dein lokales Steuerbüro oder das Finanzamt/Steuerbehörde wendest.</td>
+</tr>
+<tr>
+<td>Positionen übernehmen: alle Positionen mit Menge 0 aus Ursprungsrechnung übernehmen</td>
+<td>Die Positionen aus dem Auftrag werden mit ihrem Preis, aber einer Menge von 0 übernommen. Dadurch wird die Umsatzsteuer noch nicht ausgewiesen, während die Artikel zur besseren Übersicht in der Teilrechnung sichtbar bleiben.</td>
+</tr>
+<tr>
+<td>Artikel für Teilzahlung</td>
+<td>Auswahl eines Artikels, der als Position für die Teilzahlung in der Abschlagsrechnung aufgeführt wird.</td>
+</tr>
+<tr>
+<td>Artikelbezeichnung</td>
+<td>Optional wenn abweichend: Name des Artikels, der auf der Abschlagsrechnung angezeigt wird.</td>
+</tr>
+<tr>
+<td>Artikelbeschreibung</td>
+<td>Optional wenn abweichend: Beschreibung des Artikels, wie sie auf der Abschlagsrechnung erscheinen soll.</td>
+</tr>
+<tr>
+<td>Menge</td>
+<td>Optional wenn abweichend: Anzahl des Artikels, die in der Abschlagsrechnung ausgewiesen wird.</td>
+</tr>
+<tr>
+<td>Preis</td>
+<td>Optional wenn abweichend: Betrag des Artikels, der in der Abschlagsrechnung berechnet wird.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="schlussrechnung-erstellen">Schlussrechnung erstellen<a class="headerlink" href="#schlussrechnung-erstellen" title="Permanent link">&para;</a></h2>
+<p>Die Schlussrechnung fasst alle bisher erstellten Abschlagsrechnungen zusammen und stellt den finalen Rechnungsbetrag dar. Nachdem alle Abschlagsrechnungen erstellt wurden, kann die Schlussrechnung generiert werden.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Öffne den zugehörigen Auftrag und dort das Tab &lsquo;Abschlagsrechnung&rsquo;.</li>
+<li>Klicke auf &lsquo;Schlussrechnung erstellen&rsquo;.</li>
+<li>Die Schlussrechnung enthält eine Übersicht aller vorher geleisteten Teilzahlungen sowie den verbleibenden Restbetrag.</li>
+<li>Speichere und überprüfe die Rechnung in der Vorschau.</li>
+<li>Versende die Schlussrechnung an den Kunden.</li>
+</ol>
+<p><img alt="abschlagsrechnung_schlussrechnung_erstellen_001.png" src="https://help.xentral.com/hc/article_attachments/18682952897948" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schlussrechnung erstellen: Bezeichnung für Schlussrechnung</td>
+<td>Bezeichnung, die auf der Schlussrechnung erscheint. Z.B. &lsquo;Schlussrechnung&rsquo;. Achtung Bevor du mit der Schlussrechnung beginnst, stelle sicher, welche steuerrechtlichen Vorgaben für dein Geschäft gelten, indem du dich an dein lokales Steuerbüro oder das Finanzamt/Steuerbehörde wendest.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="anzeige-auf-der-schlussrechnung">Anzeige auf der Schlussrechnung<a class="headerlink" href="#anzeige-auf-der-schlussrechnung" title="Permanent link">&para;</a></h3>
+<p>Die Schlussrechnung enthält eine Übersicht der bisherigen Teilzahlungen, damit der Kunde genau sehen kann, welche Beträge bereits gezahlt wurden und welche noch offen sind.</p>
+<p><img alt="abschlagsrechnung_schlussrechnung_PDF_bezahlt_001.png" src="https://help.xentral.com/hc/article_attachments/18682952899228" /></p>
+<p>Beispielhafte Darstellung auf einer Abschlagsrechnung:</p>
+<table>
+<thead>
+<tr>
+<th>Belegnummer</th>
+<th>bezahlt</th>
+<th>ent. MwSt.</th>
+<th>offen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Abschlagsrechnung 400056 vom 20.01.2025</td>
+<td>71,39</td>
+<td>11,40</td>
+<td></td>
+</tr>
+<tr>
+<td>2. Abschlagsrechnung 400159 vom 22.02.2025</td>
+<td>35,70</td>
+<td>5,70</td>
+<td></td>
+</tr>
+<tr>
+<td>alle Beträge in EUR</td>
+<td>107,09</td>
+<td><strong>17,10 <strong></td>
+<td></strong> 178,46</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>In der Schlussrechnung werden:</p>
+<p>-<strong>alle bisherigen Abschlagszahlungen aufgelistet</strong>, sodass die Gesamtzahlung und die finale Restzahlung transparent bleibt.
+- werden die Zahlungen auf die Teilrechnungen zum <strong>Zeitpunkt der Erstellung</strong> der Schlussrechnung aufgelistet.</p>
+</blockquote>
+<h3 id="achtung_1">Achtung<a class="headerlink" href="#achtung_1" title="Permanent link">&para;</a></h3>
+<p>Falls nach der Schlussrechnung noch Zahlungen auf offene Beträge aus den vorherigen Abschlagsrechnungen eingehen, sollten diese direkt auf die Schlussrechnung verbucht werden – nicht rückwirkend auf die Abschlagsrechnungen.</p>
+<h3 id="zahlungen-auf-teilrechnungen-verbuchen">Zahlungen auf Teilrechnungen verbuchen<a class="headerlink" href="#zahlungen-auf-teilrechnungen-verbuchen" title="Permanent link">&para;</a></h3>
+<p>Teilrechnungen können auf zwei Arten als bezahlt markiert werden:</p>
+<p>1.<strong>Zahlungseingang verbuchen</strong>: Wenn eine Zahlung auf das Bankkonto eingeht, kann diese direkt auf die entsprechende Teilrechnung gebucht werden. Dies erfolgt über die reguläre Zahlungsverbuchung, sodass die Rechnung als bezahlt gekennzeichnet wird. Siehe auch <a href="https://help.xentral.com/hc/de/articles/360016758959#UUID-49ed70ab-a286-4305-202f-d317f265f31f">Zahlungseingang</a>.
+1.<strong>Zahlungsstatus manuell setzen</strong>: Falls die Zahlung bereits anderweitig erfasst wurde oder kein automatischer Abgleich erfolgt, kann die Teilrechnung manuell als bezahlt markiert werden. Dazu in der Rechnung den Zahlungsstatus auf „Manuell auf bezahlt setzen“ ändern und speichern.</p>
+<p>Alle erfolgten Zahlungen werden in der Schlussrechnung zusammengefasst und berücksichtigt. Offene Beträge sind für deinen Kunden erst in der Schlussrechnung sichtbar, nicht in den Teilrechnungen.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

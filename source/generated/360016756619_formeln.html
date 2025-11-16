@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016756619 Formeln - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016756619 Formeln</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016756619 Formeln</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit der Anwendung von Formeln in Xentralkönnen Sie mathematische Operationen mit den verschiedensten Feldern aus Ihren Belegen durchführen. Im Folgenden erläutern wir Ihnen die grundlegenden Einstellungen zur Vorbereitung und zur Anwendung des Formelkonzeptes in Xentral.</p>
+<h2 id="vorbereitende-einstellungen-zur-verwendung-von-formeln-in-xentral">Vorbereitende Einstellungen zur Verwendung von Formeln in Xentral<a class="headerlink" href="#vorbereitende-einstellungen-zur-verwendung-von-formeln-in-xentral" title="Permanent link">&para;</a></h2>
+<p>Grundsätzlich sollten Sie sich im Vorfeld Gedanken machen, welche Felder Sie in die Formeln einbeziehen wollen.</p>
+<p>Hier bietet Xentral eine Vielzahl von Möglichkeiten. Stellen Sie bitte sicher, dass die benötigten Bereiche entsprechend gepflegt sind. So sollte ein Freifeld mit numerischen Werten gefüllt sein, damit auch mathematische Operationen durchgeführt werden können.</p>
+<p>InXentralkönnen Sie grundsätzlich den Preis und die Menge in den Belegen ansprechen. Wenn Sie Freifelder nutzen, bietet sich Ihnen die Möglichkeit Ihre individuellen Ansprüche abzubilden und in Berechnungen mit einzubeziehen. Allgemeine Informationen zu Freifeldern finden Sie im Artikel<a href="https://help.xentral.com/hc/de/articles/360017612120#UUID-dfa23e64-d4d3-3d8b-4e17-843cc0b0dfb9">Freifelder</a>.</p>
+<p>Um Freifelder in Formeln nutzen zu können, beachten Sie bitte Folgendes:</p>
+<ul>
+<li>Grundsätzlich wird in den Freifeldern der Inhalt aus den Stammdaten gezogen, sofern diese gepflegt sind.</li>
+<li>Manuelle Anpassungen sind möglich, müssen dann aber in der Positionsliste des Belegs vorgenommen werden.</li>
+</ul>
+<p>Damit können Sie jederzeit auf die Freifelder des Artikels zugreifen und müssen diese nicht zwingend im Beleg neu anlegen.</p>
+<p>UnterAdministration &gt; Einstellungen &gt; System &gt; Grundeinstellungen &gt; Freifeldermüssen folgende Felder beachtet werden:</p>
+<ul>
+<li>Der Haken bei Freifelder im Artikel einblenden muss gesetzt sein.</li>
+<li>Anzeige im PDF: Hier können Sie bestimmen wo die Freifelder ausgegeben werden sollen.</li>
+</ul>
+<p><img alt="formeln_1.png" src="https://help.xentral.com/hc/article_attachments/5078144788636" /></p>
+<p>Das ist für die Berechnung relevant, weil nur die angezeigten Freifelder in die Berechnung miteinbezogen werden.</p>
+<p><img alt="mceclip0.png" src="https://help.xentral.com/hc/article_attachments/5078191692316" /></p>
+<p>Soll der Name des Freifeldes nicht angezeigt werden, so muss die Checkbox bei Positionen mit Freifelder leer bleiben (Grundeinstellungen &gt; Einstellungen &gt; System). Damit können Sie verhindern, dass zu viel Text in die Beschreibung aufgenommen wird. Brauchen Sie die Beschreibung dennoch, bitte den Haken setzen.</p>
+<p>Anzeige ohne Haken in der Checkbox Positionen mit Freifelder:</p>
+<p><img alt="formeln_3.png" src="https://help.xentral.com/hc/article_attachments/5078191725980" /></p>
+<p>Anzeige mit Haken in der Checkbox Positionen mit Freifelder:</p>
+<p><img alt="formeln_4.png" src="https://help.xentral.com/hc/article_attachments/5078138942876" /></p>
+<h2 id="arbeitsweise-mit-formeln">Arbeitsweise mit Formeln<a class="headerlink" href="#arbeitsweise-mit-formeln" title="Permanent link">&para;</a></h2>
+<h3 id="formeln-in-den-belegen">Formeln in den Belegen<a class="headerlink" href="#formeln-in-den-belegen" title="Permanent link">&para;</a></h3>
+<p>Sie haben die Möglichkeit eine Formel im Editor zu erstellen und dann als Kürzel zu verwenden. Das dient der Übersichtlichkeit und erlaubt Ihnen die Formeln zentral zu verwalten. Allerdings können Sie die Berechnungen auch direkt in der Artikelbeschreibung durchführen. Grundsätzlich sind die Freifelder, Menge und Preis ansprechbar.</p>
+<p>Im App Center finden Sie die App Formeln. Hier können Sie für verschiedene Zwecke Formeln definieren, die Sie über die dazugehörige ID im folgenden als Variable in Xentral nutzen können: {FORMELID} z.B {FORMEL1}</p>
+<p><img alt="formeln_5.png" src="https://help.xentral.com/hc/article_attachments/5078138964124" /></p>
+<p>Nachdem man eine Kennung und einen Namen für die Formel vergeben hat, kann man die Formel über dasStift-Iconhinterlegen.</p>
+<p><img alt="formeln_6.png" src="https://help.xentral.com/hc/article_attachments/5078176824860" /></p>
+<p>Interpretation: In diesem Beispiel soll der eingetragene Wert des Artikels aus Freifeld 1 mit der Menge der Position1 aus dem Beleg multipliziert und letztlich durch 1000 geteilt werden, um die Zieleinheit (kW) auszugeben. Hier können die üblichen Rechenoperatoren &ldquo;*&rdquo;, &rdquo; / &ldquo;, &rdquo; + &rdquo; und &ldquo;-&rdquo; als auch &ldquo;sin&rdquo; und &ldquo;cos&rdquo; genutzt werden. Bei verschachtelten Formeln ist die Verwendung von Klammern &ldquo;()&rdquo; gemäß den mathematischen Rechengesetzen zu beachten.</p>
+<p>Die Formel kann dann wie folgt im Angebot, zum Beispiel im Artikelfreitext, hinterlegt und entsprechend ausgegeben werden.</p>
+<p><img alt="formeln_7.png" src="https://help.xentral.com/hc/article_attachments/5078124688412" /></p>
+<p>Dabei wird der Wert dann wie folgt auf dem Beleg, hier im Angebot, ausgegeben.</p>
+<p><img alt="formeln_8.png" src="https://help.xentral.com/hc/article_attachments/5078155403164" /></p>
+<p>Eine Verwendung in den Textvorlagen unter Administration &gt;Einstellungen &gt;System &gt;Grundeinstellungen &gt;System im Reiter Textvorlagen kann analog erfolgen.</p>
+<p>Um in der Positionsansicht der Belege auch auf Mengen und Preise der anderen Positionen zugreifen zu können, ist es nun unter Stammdaten &gt; Artikel in den Details möglich, Formeln auf Preise und Mengen (weiterhin auch Freifelder) zu beziehen:</p>
+<p><img alt="formeln_10.png" src="https://help.xentral.com/hc/article_attachments/5078124769180" /></p>
+<p>In dem folgenden Beispiel wurde der Artikel als dritte Angebotsposition hinzugefügt und die obenstehende Berechnung für die Menge und den Preis der Position durchgeführt.</p>
+<p><img alt="formeln_11.png" src="https://help.xentral.com/hc/article_attachments/5078139162140" /></p>
+<p>Interpretation: Menge der Position1 = 15* Preis der Position1 = 62 = Menge von Position3 (hinzugefügter Pos mit Formeln) geteilt durch 10 → Ergebnis auf 2 Stellen gerundet = 93</p>
+<h2 id="rechnen-mit-einer-oder-mehreren-variablen">Rechnen mit einer oder mehreren Variablen<a class="headerlink" href="#rechnen-mit-einer-oder-mehreren-variablen" title="Permanent link">&para;</a></h2>
+<p>Grundsätzlich ist es in Xentralmöglich einzelne Felder aus dem Artikelstamm anzusprechen.Die Syntax dafür ist: {{ARTIKEL:&lt;FELDNAME&gt;}} Ein Feldname kann beispielsweise eine Position im Artikelstamm sein. Hier könnten Sie die Höhe des Artikels verwenden. Die dazugehörige Formel sieht dann so aus {{ARTIKEL:HOEHE}}:</p>
+<p><img alt="formeln_12.png" src="https://help.xentral.com/hc/article_attachments/5078124840988" /></p>
+<p>Ein möglicher Anwendungsfall wäre die Berechnung des Verkaufspreises aufgrund der Fläche eines Artikels. Damit kann man die verschiedenen Felder gemäß der Rechenregeln verarbeiten. In unserem Beispiel muss folgende Formel verwendet werden: {{ARTIKEL:LAENGE*ARTIKEL:BREITE/100}}</p>
+<p>Diese kann man direkt im Artikelstamm hinterlegen und damit sofort den Preis im Beleg berechnen lassen (Artikel &gt;Details)</p>
+<p><img alt="formeln_13.png" src="https://help.xentral.com/hc/article_attachments/5078145111068" /></p>
+<p>Und erzeugt folgendes Ergebnis:</p>
+<p><img alt="formeln_14.png" src="https://help.xentral.com/hc/article_attachments/5078139237276" /></p>
+<h2 id="sonderfunktionen">Sonderfunktionen<a class="headerlink" href="#sonderfunktionen" title="Permanent link">&para;</a></h2>
+<p>In dieser Rubrik möchten wir Ihnen weitere Möglichkeiten vorstellen, wie Sie mit Formeln arbeiten können. Wenn Ihnen der Umgang mit Spaltenoperationen bekannt ist, wie z.B. aus Excel, haben Sie ausreichende Vorkenntnisse um die Sonderfunktionen zu nutzen. Zu Beginn zeigen wir Ihnen die grundlegenden Formatierungsmöglichkeiten, mit denen Sie das Ergebnis anpassen können. Zum Beispiel können Sie das Ergebnis einer Rechenoperation so ausgeben lassen, dass nur zwei Nachkommastellenangezeigt werden.</p>
+<p>Die Zahlen sind exemplarisch aufgeführt und können sinngemäß verändert werden:</p>
+<ul>
+<li>{{format(Zahl,4)}}: zeigt immer 4 Nachkommastellen an</li>
+<li>{{round(Zahl,2)}}: rundet auf 2 Nachkommastellen</li>
+<li>{{abs(Zahl)}}: schneidet alle Nachkommastellen ab ohne zu runden</li>
+</ul>
+<p>Für spezielle Anwendungen stellen wir diese mathematischen Operationen zur Verfügung:</p>
+<ul>
+<li>{{sin(Bogenmaß)}}: gibt den Sinuswert des eingegeben Bogenmaß zurück</li>
+<li>{{cos(Bogenmaß)}}: gibt den Cosinuswert des eingegeben Bogenmaß zurück</li>
+<li>{{sqrt(Zahl)}}: zieht die Quadratwurzel</li>
+<li>{{wurzel(Radikant, Wurzelexponent}}: zieht die Wurzel mit beliebigem Radikant und Wurzelexponent</li>
+</ul>
+<p>InXentralkönnen Sie erweiterte Spaltenoperationen durchführen. Die Position, in der Formel POS: erwartet als Bezug ein Feld mit dem Sie operieren möchten. Im unteren Beispiel haben wir die Position Preis verwendet. Analog verhält es sich zur Position Menge. Folgende Regeln helfen Ihnen alle Möglichkeiten effizient auszuschöpfen:</p>
+<ul>
+<li>die Schreibweise POS: enthält keine Einschränkungen bezüglich der Position. Alle Positionen werden durchlaufen</li>
+<li>die Schreibweise POS1: bezieht sich nur auf die Position 1</li>
+<li>{{spaltensumme(POS:preis <em>POS:menge)}}: Liefert die Summe aus (POS1:preis * POS1:menge) + (POS2:preis</em>POS2:menge) + (POS3:preis* POS3:menge) etc. Diese Formel läuft über jedes Element in einem Beleg. Mit diesem Beispiel wäre die Summe das &ldquo;Gesamt Netto&rdquo;</li>
+<li>{{spaltensummebis(POS:preis * POS:menge)}}: Verhält sich wie obige Formel aber liefert die Summe der Spaltenpositionen bis zur eigenen Zeile. Es werden also nicht alle Positionen durchlaufen, sondern nur bis zur eigenen Position (exklusive)</li>
+<li>{{zwischensumme(POS:preis * POS:menge)}}: Liefert die Summe aller Positionen zwischen zwei Spezialfeldern</li>
+</ul>
+<p>Als Spezialfelder können Sie folgende Auswahl vornehmen:</p>
+<p><img alt="formeln_15.png" src="https://help.xentral.com/hc/article_attachments/5078177335068" /></p>
+<p>Beispiel: In Freifeld 1 haben Sie die jeweilige Eingangsspannung eines Servers hinterlegt. Um die Gesamtspannung in der Gruppe auszuwerten, können Sie die Freifelder 1 über alle Positionen addieren. Da Sie Sich aber nur für die Gruppe Sonderausstattung interessieren, benutzen Sie bitte die Formel &ldquo;zwischensumme(POS:freifeld1)&rdquo;.Tragen Sie wie auf dem Bild die Formel in die Position des Beleges ein.</p>
+<p><img alt="formeln_17.png" src="https://help.xentral.com/hc/article_attachments/5078145213596" /></p>
+<p>Das Ergebnis sieht auf dem Beleg wie folgt aus:</p>
+<p><img alt="formeln_18.png" src="https://help.xentral.com/hc/article_attachments/5078155772700" /></p>
+<h2 id="verfugbare-variablen">Verfügbare Variablen<a class="headerlink" href="#verfugbare-variablen" title="Permanent link">&para;</a></h2>
+<p>Die folgenden Variablen sind im Formelmodul verfügbar*.</p>
+<p>Bitte ersetzen Sie jeweils das X durch eine Zahl (bei Referenzierung einer bestimmten Zeile) oder lassen es weg (bei Anwendung der Formel auf die aktuelle Zeile. Alternativ verwenden Sie statt &ldquo;posX&rdquo; das Wort &ldquo;artikel&rdquo; wenn Sie direkt auf die Artikelstammdaten zugreifen wollen ohne positionsspezifische Modifikationen zu berücksichtigen.</p>
+<ul>
+<li>posX:id</li>
+<li>posX:auftrag</li>
+<li>posX:artikel</li>
+<li>posX:projekt</li>
+<li>posX:bezeichnung</li>
+<li>posX:beschreibung</li>
+<li>posX:internerkommentar</li>
+<li>posX:nummer</li>
+<li>posX:menge</li>
+<li>posX:preis</li>
+<li>posX:waehrung</li>
+<li>posX:lieferdatum</li>
+<li>posX:vpe</li>
+<li>posX:sort</li>
+<li>posX:status</li>
+<li>posX:umsatzsteuer</li>
+<li>posX:bemerkung</li>
+<li>posX:geliefert</li>
+<li>posX:geliefert_menge</li>
+<li>posX:explodiert</li>
+<li>posX:explodiert_parent</li>
+<li>posX:logdatei</li>
+<li>posX:punkte</li>
+<li>posX:bonuspunkte</li>
+<li>posX:mlmdirektpraemie</li>
+<li>posX:keinrabatterlaubt</li>
+<li>posX:grundrabatt</li>
+<li>posX:rabattsync</li>
+<li>posX:rabatt1&hellip; posX:rabatt5</li>
+<li>posX:einheit</li>
+<li>posX:webid</li>
+<li>posX:rabatt</li>
+<li>posX:nachbestelltexternereinkauf</li>
+<li>posX:zolltarifnummer</li>
+<li>posX:herkunftsland</li>
+<li>posX:artikelnummerkunde</li>
+<li>posX:freifeld1&hellip; posX:freifeld40</li>
+<li>posX:lieferdatumkw</li>
+<li>posX:teilprojekt</li>
+<li>posX:steuersatz</li>
+<li>posX:steuertext</li>
+<li>posX:erloese</li>
+<li>posX:erloesefestschreiben</li>
+<li>posX:einkaufspreiswaehrung</li>
+<li>posX:einkaufspreis</li>
+<li>posX:einkaufspreisurspruenglich</li>
+<li>posX:einkaufspreisid</li>
+<li>posX:ekwaehrung</li>
+<li>posX:deckungsbeitrag</li>
+<li>posX:formelmenge</li>
+<li>posX:formelpreis</li>
+<li>posX:ohnepreis</li>
+<li>posX:potentiellerliefertermin</li>
+<li>posX:skontobetrag</li>
+<li>posX:steuerbetrag</li>
+<li>posX:skontosperre</li>
+<li>posX:ausblenden_im_pdf</li>
+<li>posX:kostenstelle</li>
+<li>posX:umsatz_netto_einzeln</li>
+<li>posX:umsatz_netto_gesamt</li>
+<li>posX:umsatz_brutto_einzeln</li>
+<li>posX:umsatz_brutto_gesamt</li>
+<li>posX:zolleinzelwert</li>
+<li>posX:zollgesamtwert</li>
+<li>posX:zollwaehrung</li>
+<li>posX:zolleinzelgewicht</li>
+<li>posX:zollgesamtgewicht</li>
+</ul>
+<p>Sollte einer der Werte durch das Formelmodul nicht gefüllt werden, kann das an der Belegart liegen - nicht alle Werte sind in allen Belegen verfügbar.</p>
+<h2 id="anwendungsbeispiele">Anwendungsbeispiele<a class="headerlink" href="#anwendungsbeispiele" title="Permanent link">&para;</a></h2>
+<h3 id="formel-fur-die-umrechnung-der-stuckzahl-aus-gropackung-fur-die-produktionsanweisung">Formel für die Umrechnung der Stückzahl aus Großpackung für die Produktionsanweisung<a class="headerlink" href="#formel-fur-die-umrechnung-der-stuckzahl-aus-gropackung-fur-die-produktionsanweisung" title="Permanent link">&para;</a></h3>
+<p>Ich habe eine Produktions-Stückliste in der verschiedene Artikel hinterlegt sind, u.a. ein Artikel den es nur als Großpackung (Stifte) im 12er Pck gibt. Für den Produktionsartikel werden nur 8 Stück aus der Großpackung benötigt, wie kann die Stückliste angelegt werden, damit der Mitarbeiter aus dem Lager weiß, dass er 8 Stück entnehmen muss. Würde &ldquo;8&rdquo; in die Stückliste eingetragen werden, wären es 8 x 12er Packs statt 8 einzelne Stifte. In der Stückliste selbst müsste für den entsprechende Anteil von einem Pack für das Beispiel 0,666 Stück der Großpackung eingetragen werden. Damit der Lagermitarbeiter sich die tatsächliche Stückzahl nicht ausrechnen muss, kann diese Information mit einer Formel in einem Freifeld zusätzlich im Produktionszettel ausgegeben werden.</p>
+<p>Hierzu zunächst zwei Artikel Freifelder anlegen, einen für die VPE-Menge des Artikel und einen für die Formel welcher auf dem Produktionszettel ausgegeben werden soll. In dem Großpackungsartikel muss in das eine Feld die untenstehende Formel eingetragen werden und in das andere Freifeld die VPE Menge, welche zur Berechnung in die Formel einfließt.</p>
+<p>Freifelder anlegen (Administration &gt;Einstellungen &gt;System &gt;Grundeinstellungen &gt;Freifelder):</p>
+<p><img alt="formeln_19.png" src="https://help.xentral.com/hc/article_attachments/5078125036956" /></p>
+<p>Formel anlegen: Folgende Formel kann dafür verwendet werden. Formel mit Rundung auf eine ganze Zahl: round(pos:menge*artikel:freifeld1,0)</p>
+<p>Freifeld Nummer entsprechend durch die Nummer des Freifelds ersetzen</p>
+<p>Artikel Freifelder befüllen:</p>
+<p><img alt="formeln_20.png" src="https://help.xentral.com/hc/article_attachments/5078139408668" /></p>
+<p>Ansicht der Produktionsanweisung mit entsprechender Stückzahl (aufgerundet):</p>
+<p><img alt="formeln_21.png" src="https://help.xentral.com/hc/article_attachments/5078139431964" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8795453398044 Taxdoo En Quick Dirty 2 - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>8795453398044 Taxdoo En Quick Dirty 2</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>8795453398044 Taxdoo En Quick Dirty 2</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>With xentral you can automatically transfer your sales to Taxdoo. Taxdoo monitors on a daily basis whether delivery thresholds abroad have been exceeded. Exchange rates and different tax rates in the respective country are automatically taken into account and you can manage the sales centrally and transfer them to your tax office.</p>
+<p>Schritte</p>
+<ol>
+<li>Step 1</li>
+<li>Step2 asfsdfdsa</li>
+<li>Schritt 3</li>
+</ol>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p><strong>Warning</strong></p>
+<p>Text von der Warning</p>
+<p><strong>Anmerkung</strong></p>
+<p>Make sure that the data is complete. Otherwise the first transfer may fail!</p>
+<p><strong>Anmerkung</strong></p>
+<p>The &ldquo;Seller data&rdquo; is so to speak your business and designates you as the &ldquo;owner of the store&rdquo; The business on whose behalf data is transferred to Taxdoo.</p>
+</blockquote>
+<ol start="3">
+<li>Choose the start date from when you want to export sales to Taxdoo.</li>
+</ol>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<p>After you have connected xentral to Taxdoo, the following options are available to you:</p>
+<ul>
+<li>xentral automatically transfers completed sales and credits based on orders and invoices</li>
+<li>Transfer via the Taxdoo API possible until the beginning of the following month - here Taxdoo closes the current month and you should have transferred all receipts</li>
+<li>Log of transferred sales and credit notes/cancellations</li>
+<li>Projects (sales channels) can be included or excluded</li>
+<li>Start date for transfers to Taxdoo is adjustable</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Note</strong></p>
+<p>This is a note!</p>
+</blockquote>
+<h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Click in the App Center &gt; Taxdoo &gt; Settings. Here you will find the settings to connect your xentral with Taxdoo. (See for example data the image)</li>
+<li>Number 2</li>
+</ul>
+<h2 id="connect-taxdoo-with-xentral">Connect Taxdoo with xentral<a class="headerlink" href="#connect-taxdoo-with-xentral" title="Permanent link">&para;</a></h2>
+<h3 id="steps_1">Steps<a class="headerlink" href="#steps_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Click in the App Center &gt; Taxdoo &gt; Settings. Here you will find the settings to connect your xentral with Taxdoo. (See for example data the image)</li>
+</ul>
+<ol start="2">
+<li>Fill in the access data</li>
+</ol>
+<ul>
+<li>Taxdoo Token. You can get this from the customer area in your Taxdoo backend via Settings &gt; API.</li>
+<li>Enter your &ldquo;seller data&rdquo;. These are mandatory fields in xentral, which Taxdoo needs to accept a transfer.
+  The following has to be entered:</li>
+</ul>
+<p>Seller name* → Your company name e.g. &ldquo;Musterfirma GmbH &ldquo;</p>
+<p>Seller street → Street + HNr. of the company</p>
+<p>Seller zip code* → Postal code of the company</p>
+<p>addressSeller city → City of the company</p>
+<p>addressSeller federal state* → Federal state of the company address e.g. &ldquo;Bavaria &ldquo;</p>
+<p>Seller country (ISO-2)* → ISO country code e.g. &ldquo;DE&rdquo; for Germany</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Make sure that the data is complete. Otherwise the first transfer may fail!</p>
+<p><strong>Anmerkung</strong></p>
+<p>The &ldquo;Seller data&rdquo; is so to speak your business and designates you as the &ldquo;owner of the store&rdquo; The business on whose behalf data is transferred to Taxdoo.</p>
+</blockquote>
+<ol start="3">
+<li>Choose the start date from when you want to export sales to Taxdoo.</li>
+</ol>
+<p><strong>Note</strong></p>
+<p>Best practice</p>
+<p>Start with the current month to import or for the month overlap with the last day of the previous month e.g.: 30.03. or 1.4. to pick up April.</p>
+<p><strong>Info</strong></p>
+<p>Without this date there is no limit in the export, i.e. if the receipts are further back than the last month, please set a start date. Once the transfer is ongoing, it will always be exported regularly by status until Taxdoo closes the batch on the 7th of the following month. This is then only a problem if receipts flow into an ERP subsequently or retroactively.</p>
+<ol start="4">
+<li>The following settings are special settings for special cases that you probably don&rsquo;t need in the first step.</li>
+</ol>
+<p>This information will help you to check whether the settings are required for your use case:</p>
+<p>Exclude the following projects.</p>
+<p>Projects can be excluded from export to Taxdoo. The function must be activated and the project to be excluded must also be entered in the list below via &ldquo;new entry&rdquo;.</p>
+<p>(Logging. For xentral internal for error detection in data transfer)</p>
+<p>Sandbox. Needed for a test with the Taxdoo sandbox (needed for testing, test instance, preview etc., it is possible to get a test version of Taxdoo)</p>
+<p>Exclude Amainvoice receipts. The Amazon receipts will not be sent to Taxdoo in this case to avoid duplicate transfers from two systems. The receipts that are created via Amainvoice will be excluded.</p>
+<h2 id="transferring-the-sales">Transferring the sales<a class="headerlink" href="#transferring-the-sales" title="Permanent link">&para;</a></h2>
+<p>You can transfer the following sales and receipts to Taxdoo via xentral:</p>
+<ul>
+<li>Sales (orders with invoice)</li>
+<li>Credit notes / cancellations</li>
+</ul>
+<h3 id="sales">Sales<a class="headerlink" href="#sales" title="Permanent link">&para;</a></h3>
+<p>xentral transfers completed sales with invoice document. This means orders with status &ldquo;completed&rdquo; that have been forwarded to an invoice. The invoice must have the status &ldquo;sent&rdquo;.</p>
+<p>Sales without positions or with order value 0,00 Euro will not be transferred.</p>
+<h3 id="credit-notes-cancellations">Credit notes / cancellations<a class="headerlink" href="#credit-notes-cancellations" title="Permanent link">&para;</a></h3>
+<p>xentral transfers credit notes / cancellation invoices that have been forwarded from an invoice. Make sure that your credit note / cancellation invoice has the status &ldquo;released&rdquo; or &ldquo;sent&rdquo;. The corresponding invoice must have at least one invoice number and must not be in draft mode.</p>
+<p>So that your credit note is transferred you must ensure the following:</p>
+<ul>
+<li>You have entered a date in the &ldquo;completed on&rdquo; field in the credit memo.</li>
+<li>OR: you use the incoming payment and have linked a money transfer to the credit note and have a total cleared balance.Example: a customer pays you 100 EUR, cancels 25 EUR and you pay your customer back the 25 EUR. In this case you have continued the invoice as a credit note and linked the 25 EUR refund to your credit note. The total balance is therefore balanced (and ACTUAL &gt;= TARGET).</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Info</p>
+<p>Orders with invoice status &ldquo;cancelled&rdquo; are also transferred. I.e. if you continue an invoice to a credit note or cancellation invoice, the turnover (order) is reported to Taxdoo of course. The credit note / cancellation invoice is also transferred.</p>
+</blockquote>
+<h3 id="activate-process-starter-for-the-transfer">Activate process starter for the transfer<a class="headerlink" href="#activate-process-starter-for-the-transfer" title="Permanent link">&para;</a></h3>
+<p>In order to transfer your sales to Taxdoo automatically, activate the process starter in xentral via the button &ldquo;Activate process starter&rdquo; (Alternatively you can click on the link in the status message, it has the same function).</p>
+<p>The transfer will now start automatically in the time frame set in your process starter (once per day is sufficient).</p>
+<p><img alt="2521006091.png" src="https://help.xentral.com/hc/article_attachments/8795387976092" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Due to a limitation on the part of Taxdoo, a maximum of 100 orders per minute can be transferred. Please note that data delivered to Taxdoo via API is visible in the Taxdoo dashboard after 24 hours at the earliest (i.e. the timing of the process starter on the xentral side has no influence on this. Once or twice a day is sufficient).</p>
+<p><strong>Warnung</strong></p>
+<p>If the process starter does not transfer or you want to check the parameters, you can do this directly in the &ldquo;Process starter&rdquo; module. In the list you can also find the recommended default parameters that you should use.</p>
+</blockquote>
+<h2 id="functions-in-xentral-tabs">Functions in xentral - Tabs<a class="headerlink" href="#functions-in-xentral-tabs" title="Permanent link">&para;</a></h2>
+<h3 id="transfer">Transfer<a class="headerlink" href="#transfer" title="Permanent link">&para;</a></h3>
+<p>The Transfer tab displays the orders that have already been transferred to Taxdoo.</p>
+<p>In the info message in this tab you can see how many orders are currently ready to be transferred.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Invoices created without an order in xentral are not taken into account. The central document is the completed order, from which the invoice usually follows. If the transfer does not work automatically, you can mark the invoice as &ldquo;sent&rdquo;. Then the orders will be queued for transmission.</p>
+</blockquote>
+<h3 id="failed">Failed<a class="headerlink" href="#failed" title="Permanent link">&para;</a></h3>
+<p>The Failed tab displays the failed orders that have not been transferred to Taxdoo. Here you can also see the reasons why a transfer failed.</p>
+<p>If one of your sales has not been transferred to Taxdoo because Taxdoo has rejected an order, it is possible to retrigger it in xentral.</p>
+<p>However, if this sale has been transferred and is incorrect, a new transfer from xentral is not possible, the transaction is rejected by Taxdoo. The reason for this is a duplicate recognition on the part of Taxdoo.</p>
+<h2 id="faq-i-send-my-orders-from-another-time-zone-to-taxdoo">FAQ I send my orders from another time zone to Taxdoo<a class="headerlink" href="#faq-i-send-my-orders-from-another-time-zone-to-taxdoo" title="Permanent link">&para;</a></h2>
+<p>Note that there may be a time zone shift and that the German time zone may be displayed differently for your orders in xentral. Taxdoo always interprets the data in the time zone Coordinated universal time (UTC+0). Timezone Berlin would be UTC+2.</p>
+<p>I.e. for the transfer. to Taxdoo takes xentral not by date, but the possible sales.</p>
+<p>For the date representation in Taxdoo, however, a day shift can result.</p>
+<p><img alt="grey_arrow_down.png" src="https://help.xentral.com/hc/article_attachments/8795387991196" /></p>
+<p>I send my orders from another time zone to Taxdoo</p>
+<p>Note that there may be a time zone shift and that the German time zone may be displayed differently for your orders in xentral. Taxdoo always interprets the data in the time zone Coordinated universal time (UTC+0). Timezone Berlin would be UTC+2.</p>
+<p>I.e. for the transfer. to Taxdoo takes xentral not by date, but the possible sales.</p>
+<p>For the date representation in Taxdoo, however, a day shift can result.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

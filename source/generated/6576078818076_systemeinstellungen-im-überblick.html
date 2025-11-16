@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6576078818076 Systemeinstellungen Im Überblick - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>6576078818076 Systemeinstellungen Im Überblick</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>6576078818076 Systemeinstellungen Im Überblick</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Die Einstellungen beherbergen alle allgemeinen Einstellungen, die in Xentral verfügbar sind. Dabei handelt es sich um wichtige Einstellungen, die nicht regelmäßig angepasst werden müssen, z.B. Firmendaten oder die Verbindung zu einem Online-Shop.</p>
+<p>Du kannst die Einstellungen jederzeit öffnen, indem du auf das Zahnrad-Symbol<img alt="createbookmark_x21.png" src="https://help.xentral.com/hc/article_attachments/6576079623580" /></p>
+<p>oben rechts klickst.</p>
+<p><img alt="settings_001.png" src="https://help.xentral.com/hc/article_attachments/14881429401244" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Einstellungen sind standardmäßig nur für Nutzer mit Administratorrechten verfügbar. Du kannst aber auch anderen Nutzern Zugriff gewähren, indem du ihnen die entsprechenden Rechte erteilst. Die notwendigen Rechte findest du in den Tabellen im AbschnittVerfügbare Einstellungen.</p>
+</blockquote>
+<h2 id="verfugbare-einstellungen">Verfügbare Einstellungen<a class="headerlink" href="#verfugbare-einstellungen" title="Permanent link">&para;</a></h2>
+<p>Die Einstellungen sind entsprechend der Kernfunktionen von Xentral in acht Gruppen unterteilt. Jede Gruppe enthält mehrere Einstellungen, die in den folgenden Abschnitten aufgelistet und beschrieben werden.</p>
+<h3 id="grundeinstellungen">Grundeinstellungen<a class="headerlink" href="#grundeinstellungen" title="Permanent link">&para;</a></h3>
+<p>Dies sind die grundlegenden Einstellungen, die du zuerst einrichten musst. Dazu gehören die Firmendaten, Nummernkreise, die Anbindung von E-Mails, das Design von Geschäftsbriefen und die Verwaltung deiner Xentral-Benutzer.</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Einstellung</th>
+<th>Beschreibung</th>
+<th>Notwendige Berechtigung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016760679#UUID-84937f94-55de-df2d-2b9e-379734f4a3c6">Firmendaten</a></td>
+<td>Hinterlege deine Firmenadresse, USt-ID und SEPA-Gläubiger ID.</td>
+<td>Firmendaten &gt; edit</td>
+</tr>
+<tr>
+<td>Nummernkreise</td>
+<td><a href="https://help.xentral.com/hc/de/articles/5697692402204#UUID-400d130b-3d3e-1afb-97bf-87d0d87403e9">Zentrale Nummernkreise</a></td>
+<td>Lege Nummernkreise fest, die eine eindeutige Identifikation deiner Belege ermöglichen.</td>
+<td>Firmendaten &gt; edit</td>
+</tr>
+<tr>
+<td>Nummernkreise</td>
+<td><a href="https://help.xentral.com/hc/en-us/articles/5697692402204-Using-Number-Ranges#UUID-60882715-2b41-8cdd-67e7-b5b1c9c38dcc_id_UsingNumberRanges-Project-relatedNumberRanges">Nummernkreise pro Projekt</a></td>
+<td>Definiere abweichende Nummernkreise für bestimmte Projekte.</td>
+<td>Projekt &gt; edit</td>
+</tr>
+<tr>
+<td>E-Mail</td>
+<td><a href="https://help.xentral.com/hc/de/articles/8718596261532#UUID-584abf89-832e-ed3d-8601-336d809de512">E-Mail-Konten</a></td>
+<td>Hinterlege neue und verwalte bestehende E-Mail-Konten.</td>
+<td>Emailbackup &gt; list/ show</td>
+</tr>
+<tr>
+<td>E-Mail</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016769320#UUID-e16cfc81-1c42-23c1-223b-dd8af0023a31">E-Mail-Vorlagen</a></td>
+<td>Bearbeite und erstelle Textvorlagen für deine Geschäftsbriefe.</td>
+<td>Firmendaten &gt; edit</td>
+</tr>
+<tr>
+<td>E-Mail</td>
+<td><a href="https://help.xentral.com/hc/de/articles/8718596261532#UUID-584abf89-832e-ed3d-8601-336d809de512">Standard-E-Mail-Einstellungen</a></td>
+<td>Richte ein Standard-E-Mail-Konto ein, das für die meisten automatischen E-Mails von Xentral verwendet wird.</td>
+<td>Firmendaten &gt; edit</td>
+</tr>
+<tr>
+<td>Belege</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360017518360#UUID-95dcea4e-5bdf-c38b-ad25-9b775764f562">Briefkopf</a></td>
+<td>Erstelle das Layout deiner Geschäftsbriefe.</td>
+<td>Firmendaten &gt; edit</td>
+</tr>
+<tr>
+<td>Belege</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360021418600#UUID-249f32de-8d9f-e1e3-086f-a1da086c6e49">Belege Infoboxen</a></td>
+<td>Erweitere die Informationen deiner Belege durch zusätzliche Infoboxen.</td>
+<td>Firmendaten &gt; documentsettings</td>
+</tr>
+<tr>
+<td>Belege</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360021441799#UUID-7f7f61af-1277-f484-2138-07f5c0f301be">Textvorlagen</a></td>
+<td>Definiere Textvorlagen für verschiedene Arten von Geschäftsbriefen.</td>
+<td>Firmendaten &gt; edit</td>
+</tr>
+<tr>
+<td>Belege</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360018755960#UUID-33aa426f-6d3b-9b74-1720-37db387d73bc">Übersetzungen</a></td>
+<td>Gib Übersetzungen ein, um Belege wie Aufträge und Lieferscheine in einer anderen Sprache anbieten zu können.</td>
+<td>Übersetzungen &gt; list</td>
+</tr>
+<tr>
+<td>Belege</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016721960#UUID-838f5c0a-2156-0993-06c8-2826b252fb32">Belege Vorlagen</a></td>
+<td>Erstelle eine Vorlage für Belege, um schnell eine Reihe von Positionen in einen Beleg einzufügen.</td>
+<td>Belegevorlagen -&gt; list</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016723620#UUID-47d62f4f-3eac-f7b6-5144-f2353584abd5">Projekte</a></td>
+<td>Trenne verschiedene Bereiche deines Unternehmens, indem du ihnen z.B. ihre eigenen Logistikprozesse oder Nummernkreise zuweist.</td>
+<td>Projekt &gt; list</td>
+</tr>
+<tr>
+<td>Benutzer</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016724780#UUID-9acb0680-6ff5-a807-490a-c0e1ddaa9692">Benutzer verwalten</a></td>
+<td>Behalte den Überblick über deine Benutzer, füge neue Benutzer hinzu und verwalte ihre Rechte.</td>
+<td>Benutzer &gt; list</td>
+</tr>
+<tr>
+<td>Benutzer</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360020065779#UUID-f82083c5-aa41-1709-1700-484672c27946">Benutzervorlagen</a></td>
+<td>Erstelle Vorlagen, mit denen du Benutzerrechte schneller zuweisen kannst.</td>
+<td>Uservorlage &gt; list</td>
+</tr>
+<tr>
+<td>Drucker</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016756299#UUID-24ed3a57-a4df-da7a-08f6-141949df3855">Drucker einrichten (NextGen)</a></td>
+<td>Verbinde deinen Drucker in NextGen.</td>
+<td>Drucker &gt; list</td>
+</tr>
+<tr>
+<td>Drucker</td>
+<td><a href="https://help.xentral.com/hc/en-us/articles/360016756299-Connecting-your-printer-to-Xentral#UUID-1440617b-112e-f4eb-2b29-788c46c17996_section-idm4527382733140834133993937109">Druckereinrichtung</a></td>
+<td>Verbinde deinen Drucker.</td>
+<td>Drucker &gt; list</td>
+</tr>
+<tr>
+<td>Drucker</td>
+<td><a href="https://help.xentral.com/hc/en-us/articles/360016756299-Connecting-your-printer-to-Xentral#UUID-1440617b-112e-f4eb-2b29-788c46c17996_section-idm4548710892224034132549796352">Druckaufträge</a></td>
+<td>Zeige die Druckaufträge aller deiner Druckerspooler an.</td>
+<td>Drucker &gt; list</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stammdaten">Stammdaten<a class="headerlink" href="#stammdaten" title="Permanent link">&para;</a></h3>
+<p>Alles über deine Adress- und Artikelstammdaten sowie Einstellungen für Freifelder.</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Einstellung</th>
+<th>Beschreibung</th>
+<th>Notwendige Berechtigung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adressen</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016722000#UUID-27c9f5ac-bebe-bc23-79b2-b19285784cfc">Gruppen</a></td>
+<td>Gruppiere deine Kunden, um ihnen spezielle Preise oder Zahlungsbedingungen anzubieten.</td>
+<td>Gruppen &gt; list</td>
+</tr>
+<tr>
+<td>Adressen</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360017663439#UUID-b03577d6-29ae-331c-12fa-916d7af5529e">Sprachliste</a></td>
+<td>Lege die Sprachen an, die du für übersetzte Belege verwenden möchtest.</td>
+<td>Sprachen &gt; list</td>
+</tr>
+<tr>
+<td>Adressen</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016757779#UUID-14339ce0-1a91-04da-79fc-5f416379f49a">Adresse Typ</a></td>
+<td>Definiere Adresstypen, die es dir ermöglichen, zwischen B2B- und B2C-Kunden zu unterscheiden.</td>
+<td>adresse_typ &gt; list</td>
+</tr>
+<tr>
+<td>Artikel</td>
+<td><a href="https://help.xentral.com/document/preview/5912#UUID-c7523de3-fdb8-3c0c-1312-9ada7a0c9bc9">Kategorien</a></td>
+<td>Gruppiere Artikel nach Kategorien und weise ihnen eigene Nummernkreise zu oder verknüpfe sie mit einem Projekt.</td>
+<td>Artikelkategorien &gt; list</td>
+</tr>
+<tr>
+<td>Artikel</td>
+<td><a href="https://help.xentral.com/document/preview/5918#UUID-30bab1ff-5313-02b4-da6b-483dad83db51">Artikelbaum</a></td>
+<td>Erstelle eine strukturierte Übersicht deiner Artikel basierend auf Kategorien.</td>
+<td>Artikelbaum &gt; list</td>
+</tr>
+<tr>
+<td>Artikel</td>
+<td><a href="https://help.xentral.com/document/preview/5918#UUID-30bab1ff-5313-02b4-da6b-483dad83db51">Einheiten</a></td>
+<td>Erstelle Einheiten für deine Artikel, z.B. kg für Kilogramm.</td>
+<td>Artikeleinheit &gt; list</td>
+</tr>
+<tr>
+<td>Artikel &gt; Eigenschaften</td>
+<td><a href="https://help.xentral.com/hc/de/articles/5355878386972#UUID-bb260612-382f-b566-be3a-2e89d58f3b8f">Eigenschaften verwalten</a></td>
+<td>Definiere Artikeleigenschaften wie Farbe oder Bildschirmgröße.</td>
+<td>Artikeleigenschaften &gt; list</td>
+</tr>
+<tr>
+<td>Artikel &gt; Eigenschaften</td>
+<td><a href="https://help.xentral.com/hc/de/articles/5355878386972#UUID-bb260612-382f-b566-be3a-2e89d58f3b8f">Eigenschaften Vorlagen</a></td>
+<td>Erstelle Vorlagen, um Eigenschaften schnell einer Gruppe von Artikeln, z.B. Smartphones, zuzuweisen.</td>
+<td>Eigenschaften_vorlagen &gt; list</td>
+</tr>
+<tr>
+<td>Artikel &gt; Eigenschaften</td>
+<td><a href="https://help.xentral.com/hc/de/articles/5355878386972#UUID-bb260612-382f-b566-be3a-2e89d58f3b8f">Eigenschaften Übersetzungen</a></td>
+<td>Übersetze Eigenschaften in verschiedene Sprachen</td>
+<td>propertytranslation &gt; list</td>
+</tr>
+<tr>
+<td>Artikel</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016724940#UUID-4a193945-b70e-1c01-e435-098456319be5">Erweiterte Rabatte</a></td>
+<td>Definiere prozentuale Rabatte sowie Preisnachlässe für spezifische Kunden oder Gruppen.</td>
+<td>Rabatte &gt; list</td>
+</tr>
+<tr>
+<td>Artikel</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016719640#UUID-67331c0f-dc9f-341b-81d4-0393b154f96e">Crossselling</a></td>
+<td>Verknüpfe ähnliche Artikel oder Zubehörartikel mit einem Quellartikel.</td>
+<td>Rabatte &gt; list</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360017612120#UUID-f5e6761f-c5ea-14bd-a6df-670042e64518">Freifelder</a></td>
+<td>Hinterlege benutzerdefinierte Felder (Freifelder), die du in deinen Dokumenten anzeigen kannst.</td>
+<td>Firmendaten &gt; edit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="verkaufen">Verkaufen<a class="headerlink" href="#verkaufen" title="Permanent link">&para;</a></h3>
+<p>Verbinde Online-Shops/ Marktplätze und richte deinen Point of Sale (POS) ein.</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Einstellung</th>
+<th>Beschreibung</th>
+<th>Notwendige Berechtigung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shops &amp; Marktplätze</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016756799#UUID-9f183a72-7906-0ad5-3f24-f4eeabc42c07">Shops/ Marktplätze Übersicht</a></td>
+<td>Pflege die Verbindung zu deinen Online-Shops.</td>
+<td>Onlineshops &gt; list</td>
+</tr>
+<tr>
+<td>Shops &amp; Marktplätze</td>
+<td><a href="https://help.xentral.com/hc/de/articles/13235060016796#UUID-a23ebbc4-4e6d-a2cc-d900-3b260c92c3d2">Shopify Connector</a></td>
+<td>Neue Shop-Schnittstelle für Shopify.</td>
+<td>Onlineshops &gt; create</td>
+</tr>
+<tr>
+<td>Shops &amp; Marktplätze</td>
+<td><a href="https://help.xentral.com/hc/de/articles/13235023397404#UUID-3bb50feb-91f8-02a2-531d-40911db575a6">WooCommerce Connector</a></td>
+<td>Neue Shop-Schnittstelle für WooCommerce.</td>
+<td>Onlineshops &gt; create</td>
+</tr>
+<tr>
+<td>Shops &amp; Marktplätze</td>
+<td><a href="https://help.xentral.com/document/preview/42509#UUID-a18af4a3-2a6f-d399-8fe3-5298c747e569">Amazon Seller App</a></td>
+<td>Bestimme den Shop und das Lager, die für die Amazon Seller App verwendet werden.</td>
+<td>Amazon &gt; list</td>
+</tr>
+<tr>
+<td>Shops &amp; Marktplätze</td>
+<td><a href="https://help.xentral.com/hc/de/articles/18589749660316#UUID-e409be78-b9ce-0186-b03a-a98c9ec90f3c">eBay App</a></td>
+<td>Verwalte deine eBay-Angebote.</td>
+<td>Ebay &gt; einstellungen</td>
+</tr>
+<tr>
+<td>Kassenfunktion (POS)</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016756919#UUID-7d8931a1-dea7-dafd-377d-f65233011462">POS Einstellungen pro Projekt</a></td>
+<td>Verwalte die Einstellungen, Schaltflächen und Drucker deiner Kasse/ POS.</td>
+<td>Projekt &gt; list</td>
+</tr>
+<tr>
+<td>Kassenfunktion (POS)</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016758359#UUID-3f6a9d76-b4bf-9875-a975-4084a2840143">POS Konfiguration (Kassierer)</a></td>
+<td>Füge einen Kassierer zu deinem Point-of-Sale (POS) hinzu.</td>
+<td>Pos_kassierer &gt; list</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lager-logistik">Lager &amp; Logistik<a class="headerlink" href="#lager-logistik" title="Permanent link">&para;</a></h3>
+<p>Sorge für die Lieferung deiner Waren, indem du dein Lager, Logistikprozesse und Versand einrichtest. Zusätzlich kannst du Workflows für deine Produktion einrichten.</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Einstellung</th>
+<th>Beschreibung</th>
+<th>Notwendige Berechtigung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lager</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016722900#UUID-527055ed-8627-f35b-455b-32892ca8d5ce">Lagerverwaltung</a></td>
+<td>Erstelle digitale Repräsentationen deiner Läger und behalte den Überblick über deinen Bestand.</td>
+<td>Lager &gt; list</td>
+</tr>
+<tr>
+<td>Lager</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016763959#UUID-f3eadbf9-8f35-62af-1a6f-6bdc4ace44d9">Wareneingang</a></td>
+<td>Entscheide, ob Retouren mit einem Retourenbeleg bearbeitet werden sollen und richte eine fortlaufende Nummer für den Wareneingang ein.</td>
+<td>Wareneingang &gt; settings</td>
+</tr>
+<tr>
+<td>Lager</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016809179#UUID-197b3aa5-1ada-b1a0-897b-23f6799bf5c7">Retouren Gründe</a></td>
+<td>Erfasse Gründe, warum ein Artikel zurückgegeben werden kann.</td>
+<td>Rma_vorlagen &gt; list</td>
+</tr>
+<tr>
+<td>Lager</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360017573119#UUID-fe2f31f1-3109-8b78-4b73-57cb4e78138d">Etiketten</a></td>
+<td>Erstelle Etiketten für deine Lagerware</td>
+<td>Etiketten &gt; list</td>
+</tr>
+<tr>
+<td>Lager</td>
+<td><a href="https://help.xentral.com/hc/de/articles/15209373703324#UUID-a533c5b5-b29d-c469-266f-bccf009194c4">Lagerbewegungsarten</a></td>
+<td>Lege Lagerbewegungsarten fest, um die Gründe für Warenbewegungen nachzuvollziehen</td>
+<td></td>
+</tr>
+<tr>
+<td>Logistik</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360017571259#UUID-b3f7ea2e-7364-f4b2-cfc3-8566fa73cd0b">Logistik Einstellungen pro Projekt</a></td>
+<td>Verwalte deine Logistik, indem du bestimmst, wie Aufträge kommissioniert und verpackt werden.</td>
+<td>Projekt &gt; list</td>
+</tr>
+<tr>
+<td>Logistik</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016722600#UUID-a3288421-c888-8d23-a2a3-e7de468d630b">Picklisten Profile</a></td>
+<td>Kontrolliere den Prozess der Kommissionierung genauer.</td>
+<td>Batches &gt; list</td>
+</tr>
+<tr>
+<td>Logistik</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016757139#UUID-8ee2b6e8-1c6c-8f2e-1259-35d3532701b0">Klärungsfälle für das Versandzentrum</a></td>
+<td>Definiere Gründe, weshalb ein Auftrag nicht aus dem Versandzentrum verschickt werden kann.</td>
+<td>Versanderzeugen &gt; einstellungen</td>
+</tr>
+<tr>
+<td>Versand</td>
+<td><a href="https://help.xentral.com/hc/de/articles/18567521362332#UUID-7d97af0c-3e39-6798-67c6-50f26028c174">Paketmarken</a></td>
+<td>Binde deine Versanddienstleister an und bestimme, wie Versandlabel gedruckt werden.</td>
+<td>Versandarten &gt; list</td>
+</tr>
+<tr>
+<td>Versand</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360021241459#UUID-eae175eb-c113-a22c-f143-f346af8355da">Versandregeln</a></td>
+<td>Lege fest, unter welchen Bedingungen bestimmte Versanddienstleister verwendet werden.</td>
+<td>Carrierselect &gt; list</td>
+</tr>
+<tr>
+<td>Versand</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016756459#UUID-9c2adda6-be53-f646-6a65-4689c949f9cc">Versand aufsplitten</a></td>
+<td>Definiere, in welchen Fällen der Versand aufgeteilt werden soll.</td>
+<td></td>
+</tr>
+<tr>
+<td>Versand</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360021241459#UUID-eae175eb-c113-a22c-f143-f346af8355da">Lieferbedingungen</a></td>
+<td>Richte Lieferbedingungen für Kunden oder bestimmte Belege ein.</td>
+<td>Lieferbedingungen &gt; list</td>
+</tr>
+<tr>
+<td>Produktion</td>
+<td><a href="https://help.xentral.com/document/preview/25841#UUID-c5c2af4d-468b-cc9e-c77c-ef9bd6d80483">Produktion Workflow</a></td>
+<td>Verwalte deine Produktion.</td>
+<td>Produktion &gt; list</td>
+</tr>
+<tr>
+<td>Produktion</td>
+<td><a href="https://help.xentral.com/document/preview/25846#UUID-b186b782-206f-6960-9796-cdebb7cc9398">Produktionszentrum</a></td>
+<td>Verwalte deine Produktionsprozesse.</td>
+<td>Produktionszentrum &gt; list</td>
+</tr>
+<tr>
+<td>Produktion</td>
+<td><a href="https://help.xentral.com/document/preview/25853#UUID-8ed7cfaf-8f3d-03b1-425e-171a8c571969">Artikel Arbeitsanweisung Vorlagen</a></td>
+<td>Erstelle Vorlagen mit Arbeitsanweisungen für die Produktion.</td>
+<td>Artikelarbeitsanweisung_vorlagen &gt; list</td>
+</tr>
+<tr>
+<td>Produktion</td>
+<td><a href="https://help.xentral.com/document/preview/25853#UUID-8ed7cfaf-8f3d-03b1-425e-171a8c571969">Artikel Funktionsprotokoll Vorlagen</a></td>
+<td>Erstelle Vorlagen zur Überprüfung, ob ein Artikel in der Produktion korrekt funktioniert.</td>
+<td>Artikelarbeitsanweisung_vorlagen &gt; list</td>
+</tr>
+</tbody>
+</table>
+<h3 id="einkauf">Einkauf<a class="headerlink" href="#einkauf" title="Permanent link">&para;</a></h3>
+<p>Richte deine automatischen Bestellvorschläge ein.</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Einstellung</th>
+<th>Beschreibung</th>
+<th>Notwendige Berechtigung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016719720#UUID-76b4af30-85c4-6c9c-2594-36a4880ff4a2">Erweiterter Bestellvorschlag</a></td>
+<td>Definiere Zeiträume für den erweiterten Bestellvorschlag.</td>
+<td>Bestellvorschlag &gt; einstellungen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="buchhaltung">Buchhaltung<a class="headerlink" href="#buchhaltung" title="Permanent link">&para;</a></h3>
+<p>Alles, was du brauchst, um deinen Buchhaltungsprozess korrekt einzurichten: Verbinde deine Bankkonten, lege Währungen und Steuern an, lade deinen Kontenrahmen hoch und verbinde dich mit DATEV.</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Einstellung</th>
+<th>Beschreibung</th>
+<th>Notwendige Berechtigung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zahlungen und Geschäftskonten</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016722680#UUID-96599490-8dbc-54ef-b3f3-ea8e27cc732e">Bank &amp; Zahlungskonten</a></td>
+<td>Richte deine Bank- und Zahlungskonten ein.</td>
+<td>Konten &gt; list</td>
+</tr>
+<tr>
+<td>Zahlungen und Geschäftskonten</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016722120#UUID-433e20cc-ea89-69c7-82d9-a0d724052c90">Zahlungsweisen</a></td>
+<td>Pflege deine Zahlungsarten.</td>
+<td>Zahlungsweisen &gt; list</td>
+</tr>
+<tr>
+<td>Zahlungen und Geschäftskonten</td>
+<td>Zahlungsbedingungen</td>
+<td>Konfiguriere Standardzahlungsbedingungen und Rabatte.</td>
+<td>Firmendaten &gt; edit</td>
+</tr>
+<tr>
+<td>Zahlungen und Geschäftskonten</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016721760#UUID-bbe70f43-de1c-d644-40c9-a2ade5a3c5cf">Mahnwesen</a></td>
+<td>Richte dein Mahnwesen ein und bestimme, wann Zahlungserinnerungen verschickt werden und wie hoch die Mahngebühren sein sollen.</td>
+<td>Mahnwesen &gt; mahnweseneinstellungen</td>
+</tr>
+<tr>
+<td>Zahlungen und Geschäftskonten</td>
+<td><a href="https://help.xentral.com/hc/de/articles/12095566656028#UUID-89170c99-1afb-a04e-e60f-79d81674176c">Swiss QR</a></td>
+<td>Aktiviere und konfiguriere den verpflichtenden QR-Code für Schweizer Rechnungen, wenn du ein Schweizer Bankkonto hast.</td>
+<td>Swissqrinvoice &gt; list</td>
+</tr>
+<tr>
+<td>Steuer und Währung</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360021442099#UUID-470c8a49-f068-06c3-da99-0aabea721d66">Steuer/ Währung</a></td>
+<td>Konfiguriere systemweite Steuer- und Währungseinstellungen.</td>
+<td>Projekt &gt; list</td>
+</tr>
+<tr>
+<td>Steuer und Währung</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016774199#UUID-343c04c9-96f1-468c-fb8a-ed0a1a1f524e">Steuersätze</a></td>
+<td>Füge neue Steuersätze hinzu, welche du anschließend unter Kontoeinstellungen pro Verkaufskanal auswählen kannst.</td>
+<td>Steuersätze &gt; list</td>
+</tr>
+<tr>
+<td>Steuer und Währung</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016806879#UUID-0f1fff5c-dab3-dd82-a76e-9b96991feb1d">Währungen</a></td>
+<td>Prüfe den aktuellen Wechselkurs anderer Währungen zum Euro.</td>
+<td>Waehrungsumrechnung &gt; list</td>
+</tr>
+<tr>
+<td>Steuer und Währung</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016761099#UUID-6237681c-243a-c50e-832e-48dff58c0430">Lieferschwelle</a></td>
+<td>Definiere Lieferschwellen für bestimmte Länder oder spezifische Artikel.</td>
+<td>Lieferschwelle &gt; list</td>
+</tr>
+<tr>
+<td>DATEV</td>
+<td><a href="https://help.xentral.com/document/preview/32568#UUID-51154d8c-fc15-a5e9-f5c5-27480b8d1a23">DATEV Connect Online</a></td>
+<td>Verwalte einige DATEV-Einstellungen wie den Datumsfilter für Verbindlichkeiten.</td>
+<td>Datev &gt; config</td>
+</tr>
+<tr>
+<td>DATEV</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016725100#UUID-ab78107e-071f-f5f8-0eec-571c0ab86efe">DATEV ASCII Format</a></td>
+<td>Pflege Einträge für das DATEV ASCII Format.</td>
+<td>Buchhaltungexport &gt; einstellungen</td>
+</tr>
+<tr>
+<td>Hauptbuchkonten</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016775339#UUID-92298972-2029-3a2c-00ce-a5bdd614203c">Kontenrahmen</a></td>
+<td>Erstelle und pflege deinen Kontenrahmen. Der Kontenrahmen ist ein Verzeichnis aller Konten in deiner Buchhaltung.</td>
+<td>Kontorahmen &gt; list</td>
+</tr>
+<tr>
+<td>Hauptbuchkonten</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016932279#UUID-dd44067a-867b-a298-c198-82ab6b2239b3">Kostenstellen</a></td>
+<td>Erstelle Kostenstellen für deine Artikel und Verbindlichkeiten und zeige sie in deinen Belegen an.</td>
+<td>Kostenstellen &gt; list</td>
+</tr>
+<tr>
+<td>Hauptbuchkonten</td>
+<td><a href="#UUID-3a3caf99-b4d1-05e3-6473-195d17ae19f9_UUID-f4e7b963-408d-67bd-f3f9-35cabf81946e">Verbindlichkeiten</a></td>
+<td>Lege Steuersätze für deine Verbindlichkeiten fest.</td>
+<td>Verbindlichkeit &gt; einstellungen</td>
+</tr>
+<tr>
+<td>Hauptbuchkonten</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360021442099#UUID-470c8a49-f068-06c3-da99-0aabea721d66">Sammeldebitoren</a></td>
+<td>Lege Kriterien fest, wann eine abweichende Debitorennummer für eine Gruppe oder einen Kunden verwendet werden soll.</td>
+<td>Collectivedebitors &gt; list</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360021442099#UUID-470c8a49-f068-06c3-da99-0aabea721d66">Buchhaltung Einstellungen pro Projekt</a></td>
+<td>Lege Steuersätze und Währungen für deine Verkaufskanäle fest.</td>
+<td>Projekt &gt; list</td>
+</tr>
+</tbody>
+</table>
+<h3 id="team">Team<a class="headerlink" href="#team" title="Permanent link">&para;</a></h3>
+<p>Richte dein Ticketsystem und die Wiedervorlagen für dein Team ein und konfiguriere Vorlagen für die Zeiterfassung.</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Einstellung</th>
+<th>Beschreibung</th>
+<th>Notwendige Berechtigung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ticketsystem</td>
+<td><a href="https://help.xentral.com/document/preview/36534#UUID-7d837c1a-e695-daa7-778a-3d4036332382">Inbox - Vorlagen</a></td>
+<td>Definiere Standardantworten auf Kundenanfragen.</td>
+<td>Ticket_vorlage &gt; list</td>
+</tr>
+<tr>
+<td>Ticketsystem</td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016721620#UUID-aba3d440-6762-84ff-b6de-cb2a452a65e2">Inbox - Warteschlangen</a></td>
+<td>Richte Warteschlangen für dein Ticketsystem ein.</td>
+<td>Warteschlangen &gt; list</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016759419#UUID-48adaafa-70ea-05f2-422c-234b65d0a90a">Wiedervorlage</a></td>
+<td>Füge der Adresstabelle zusätzliche Felder hinzu und bestimme Details des Wiedervorlage-Dashboards.</td>
+<td>Wiedervorlage &gt; settings</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016723140#UUID-70bc8a71-1e64-01ec-1d84-e707077ef5d0">Zeiterfassung - Vorlagen</a></td>
+<td>Erstelle Vorlagen, die du zur schnelleren Zeiterfassung von wiederkehrenden Aufgaben nutzen kannst.</td>
+<td>Zeiterfassungvorlage &gt; list</td>
+</tr>
+</tbody>
+</table>
+<h3 id="administration">Administration<a class="headerlink" href="#administration" title="Permanent link">&para;</a></h3>
+<p>Hier findest du die Einstellungen, auf die dein Systemadministrator achten sollte.</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Einstellung</th>
+<th>Beschreibung</th>
+<th>Notwendige Berechtigung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/14331596874652#UUID-719115a8-d58f-ce67-6f57-bbe79cb4dce8">System update</a></td>
+<td>Lege fest, wann dein System aktualisiert wird.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">Prozessstarter</a></td>
+<td>Richte neue Automatisierungen ein, verändere das Intervall, in dem Prozesse ausgeführt werden, oder starte einen Prozess neu.</td>
+<td>Prozessstarter &gt; list</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360021442299#UUID-01e6f15a-0842-8062-543b-7e9dbeea74cc">Systemeinstellungen</a></td>
+<td>Ändere systemweite Einstellungen.</td>
+<td>Firmendaten &gt; edit</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016721480#UUID-e92d6610-dc35-5d62-a77b-8f11ba3fbf3a">Labels</a></td>
+<td>Erstelle Labels, um wichtige Vorgänge oder Belege in Übersichten zu kennzeichnen.</td>
+<td>Datatablelabels &gt; list</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://help.xentral.com/hc/de/articles/360016759499#UUID-829c3dd7-6e4d-e1b2-ba6d-1c9656d37fde">Pflichtfelder</a></td>
+<td>Definiere Felder im Benutzerinterface, die ausgefüllt werden müssen, z.B. ein Mindesthaltbarkeitsdatum.</td>
+<td>Mandatoryfields &gt; list</td>
+</tr>
+<tr>
+<td>Datenaustausch</td>
+<td><a href="https://help.xentral.com/hc/de/articles/21695115043612#UUID-72f37f06-2871-0785-7286-1f7a2707c88d">Übertragungsmodul</a></td>
+<td>Richte die Übertragung von Daten in unterschiedlichen Formaten zwischen und einem anderen System ein.</td>
+<td>Uebertragungen &gt; list</td>
+</tr>
+<tr>
+<td>Datenaustausch</td>
+<td><a href="https://help.xentral.com/hc/en-us/articles/360016738020-Transfers-CSV-XML-EDI-PDF#UUID-b5241f40-f7c5-2595-dcc9-6824f63e6930_id_360016738020_id_h_01FAFX977K5T6PWEPPV60GG253">APIs</a></td>
+<td>Verwalte deine API-Konten.</td>
+<td>Api_account &gt; list</td>
+</tr>
+<tr>
+<td>Datenaustausch</td>
+<td><a href="https://help.xentral.com/hc/de/articles/5749717690268#UUID-5b2e9d41-fdbf-c9a6-684c-6313e2157c13">OAuth</a></td>
+<td>Verwalte deine OAuth-Verbindungen zu Tools von Drittanbietern.</td>
+<td>nur für Administratoren sichtbar</td>
+</tr>
+<tr>
+<td>Datenaustausch</td>
+<td><a href="https://help.xentral.com/hc/de/articles/7317606468636#UUID-ed16af47-65b2-ce7e-ef5d-680d3f9931c9">Webhooks</a></td>
+<td>Erstelle und verwalte Webhooks, die externe Systeme über Events in Xentral informieren.</td>
+<td>Webhooks &gt; settings</td>
+</tr>
+</tbody>
+</table>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

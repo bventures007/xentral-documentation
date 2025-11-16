@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21036407616924 Carrier Integration Service Service Zur Einbindung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>21036407616924 Carrier Integration Service Service Zur Einbindung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>21036407616924 Carrier Integration Service Service Zur Einbindung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit dem Carrier Integration Service können Partner eigene Versanddienstleister (Carrier) direkt mit Xentral integrieren. Dies ermöglicht Unternehmen, maßgeschneiderte Logistiklösungen zu schaffen und spezifische Anforderungen an Versand, Steuerregeln und internationale Lieferungen abzubilden.</p>
+<h2 id="uberblick-moglichkeiten-der-carrier-integration">Überblick &amp; Möglichkeiten der Carrier-Integration<a class="headerlink" href="#uberblick-moglichkeiten-der-carrier-integration" title="Permanent link">&para;</a></h2>
+<p>Es gibt zwei Wege, um Carrier ausserhalb des Xentral Standards zu integrieren:</p>
+<ul>
+<li><strong>API-Integration</strong>(Direkte Anbindung über individuelle Schnittstellen)
+-<strong>Connect-Integration</strong>(Geplante Erweiterung für native Carrier-Implementierungen in Xentral)</li>
+</ul>
+<p>Beide Methoden ermöglichen es, Versandlabel zu generieren, Carrier-Services zu nutzen und Xentral um individuelle Versandoptionen zu erweitern.</p>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Die Carrier-Integration deckt nicht alle Felder und Anforderungen sämtlicher Usecases ab. Je nach Zielsetzung – ob lediglich ein Versandlabel erzeugt oder ein komplexerer Prozess abgebildet werden soll – kann es notwendig sein, bestimmte Systemwerte an anderer Stelle über die API abzurufen.</p>
+<p>Du solltest im Vorfeld entscheiden, ob du den gewünschten Workflow eher mit Connect innerhalb des Frameworks modellieren oder stattdessen ein eigenes Konstrukt über die API umsetzen möchtest. Beide Ansätze sind möglich – abhängig vom konkreten Usecase, aber auch davon, welche Technologie dir als Developer mehr liegt.</p>
+<h2 id="technischer-ablauf-einer-carrier-integration">Technischer Ablauf einer Carrier-Integration<a class="headerlink" href="#technischer-ablauf-einer-carrier-integration" title="Permanent link">&para;</a></h2>
+<p>Ein neu angebundener Carrier verhält sich wie ein bestehender Xentral-Carrier:</p>
+<p>-<strong>Authentifizierung</strong>– Partner-Credentials werden hinterlegt, um die Carrier-API anzusprechen.
+-<strong>Konfiguration</strong>– Nach der Authentifizierung werden Carrier-spezifische Felder automatisch geladen (z. B. Versandlabel-Optionen, Altersprüfung, zusätzliche Services).
+-<strong>Aufruf des Partner-Services</strong>– Xentral sendet eine Anfrage an den Partner-Service, dieser generiert die Versanddaten (z. B. für UPS, Post Swiss).
+-<strong>Rückgabe der Versandinformationen</strong>– Das Label und Tracking-Informationen werden an Xentral übermittelt und für den Kunden verfügbar gemacht.</p>
+<p>Je nach Carrier können unterschiedliche Services (z. B. Expressversand, internationale Optionen) hinterlegt werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>In der Xentral Entwicklerdokumentation findest du alle Informationen zurCarrier-Integration.</p>
+</blockquote>
+<h2 id="nutzung-fur-endkunden">Nutzung für Endkunden<a class="headerlink" href="#nutzung-fur-endkunden" title="Permanent link">&para;</a></h2>
+<p>Sobald ein Partner einen Carrier erfolgreich integriert hat, funktioniert dieser nahtlos in Xentral:</p>
+<ul>
+<li>Carrier kann in Verkaufsaufträgen als Versanddienstleister gewählt werden.</li>
+<li>Automatische Label-Erstellung &amp; Tracking-Informationen sind möglich.</li>
+<li>Je nach Anwendungsfall kann der Partner weitere Carrier-spezifische Funktionen bereitstellen.</li>
+</ul>
+<p>Kunden, die einen bestimmten Carrier wünschen, können diesen über einen Partner-Request anfragen oder im Xentral Marketplace nach einer passenden Lösung suchen.</p>
+<h2 id="connect-integration-fur-eine-skalierbare-losung">Connect-Integration für eine skalierbare Lösung<a class="headerlink" href="#connect-integration-fur-eine-skalierbare-losung" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Während aktuell individuelle API-Integrationen umgesetzt werden, wird die Carrier-Integration mit Connect in Q2 getestet. Ziel ist es, dass Carrier direkt in Xentral als native Lösung eingebunden werden können, ohne manuelle Konfiguration von Service-URLs und Tokens.</p>
+<p>Dies bedeutet:</p>
+<ul>
+<li>Bessere Skalierbarkeit für Partner</li>
+<li>Einheitliche Carrier-Verwaltung in Xentral</li>
+<li>Integration über den Xentral Marketplace</li>
+</ul>
+</blockquote>
+<h2 id="entwicklung-zeithorizont-stand-062025">Entwicklung &amp; Zeithorizont (Stand 06/2025)<a class="headerlink" href="#entwicklung-zeithorizont-stand-062025" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Manuelle API-Integration ist bereits möglich – erste Carrier können in wenigen Wochen angebunden werden.</li>
+<li>Connect-Integration &amp; native Carrier sind für Ende Q2/Q3 geplant.</li>
+</ul>
+<h3 id="achtung_1">Achtung<a class="headerlink" href="#achtung_1" title="Permanent link">&para;</a></h3>
+<p>Die Implementierung einer neuen Carrier-Anbindung erfordert technisches Know-how und kann je nach Komplexität variieren. Ein detailliertes Kickoff-Gespräch hilft, den Aufwand realistisch einzuschätzen.</p>
+<h2 id="fazit-carrier-service-fur-partner-kunden">Fazit: Carrier-Service für Partner &amp; Kunden<a class="headerlink" href="#fazit-carrier-service-fur-partner-kunden" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Partner können eigene Carrier über API oder Connect in Xentral integrieren.</li>
+<li>Kunden erhalten eine erweiterte Carrier-Auswahl &amp; flexible Versandoptionen.</li>
+<li>Die zukünftige Integration in den Xentral Marketplace erleichtert die Verwaltung und Nutzung.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>🚀 Interesse an einer eigenen Carrier-Anbindung? Jetzt mit Xentral oder einem Partner abstimmen!</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

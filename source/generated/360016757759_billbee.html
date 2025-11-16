@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016757759 Billbee - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016757759 Billbee</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016757759 Billbee</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit der Schnittstelle Billbee Importer kannst du Aufträge aus dem Warenwirtschaftssystem Billbee zu xentral importieren. Der Importer funktioniert genau wie eine Schnittstelle zu einem Online-Shop.</p>
+<h2 id="features-der-schnittstelle">Features der Schnittstelle<a class="headerlink" href="#features-der-schnittstelle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Import von Aufträgen</li>
+<li>Rückmeldung des Auftragsstatus an Billbee</li>
+<li>Rückmeldung von Lagerzahlen an Billbee</li>
+</ul>
+<h2 id="anbindung">Anbindung<a class="headerlink" href="#anbindung" title="Permanent link">&para;</a></h2>
+<h3 id="zugangsdaten-in-billbee-finden">Zugangsdaten in Billbee finden<a class="headerlink" href="#zugangsdaten-in-billbee-finden" title="Permanent link">&para;</a></h3>
+<p>In den Einstellungen der Schnittstelle eintragen zu können, musst du zunächst den Benutzernamen und das API-Passwort in Billbee finden. Der Account, zu dem der Benutzername gehört, muss in Billbee ein Administrator sein. Das API-Passwort findest du in Billbee unter Einstellungen → System → Billbee API.</p>
+<p><img alt="Billbee-1.png" src="https://help.xentral.com/hc/article_attachments/4996450975772" /></p>
+<h3 id="schnittstelle-in-xentral-anlegen">Schnittstelle in xentral anlegen<a class="headerlink" href="#schnittstelle-in-xentral-anlegen" title="Permanent link">&para;</a></h3>
+<p>Unter <strong>Administration → Shop Schnittstelle → Übersicht → NEU</strong> legst du einen neuen Shop an und wählst das Modul Billbee aus.</p>
+<p><img alt="Billbee-2.png" src="https://help.xentral.com/hc/article_attachments/4996371172892" /></p>
+<p>Nachdem du Billbee ausgewählt hast, kannst du im nächsten Schritt die nötigen Daten für die Verbindung der beiden Systeme eintragen. Dies ist der Benutzername, mit dem du dich in Billbee anmeldest und das API-Passwort, welches in Billbee für die API vergeben wurde.</p>
+<p><img alt="Billbee-3.png" src="https://help.xentral.com/hc/article_attachments/4996451031068" /></p>
+<p>Sobald du die Daten eingetragen hast, kannst du die Verbindung zwischen beiden System über die Schaltfläche <strong>Verbindung prüfen</strong> prüfen.</p>
+<p>Sobald die Verbindung erfolgreich war, erhältst du die Meldung &ldquo;success&rdquo;. Sollte die Verbindung nicht erfolgreich hergestellt werden, wird dir in einer roten Meldung die Ursache mitgeteilt.</p>
+<h4 id="schnellstart">Schnellstart<a class="headerlink" href="#schnellstart" title="Permanent link">&para;</a></h4>
+<p>Um schnellstmöglich loszulegen sind nur ein paar Einstellungen und Aktionen erforderlich. Was für einen Quickstart mit Auftragsimport, Lagerzahlenabgleich und Rückmeldung von Trackingnummern notwendig ist erfährst du hier.</p>
+<h2 id="shop-einstellungen">Shop Einstellungen<a class="headerlink" href="#shop-einstellungen" title="Permanent link">&para;</a></h2>
+<p>In diesem Abschnitt werden dir die möglichen Einstellungen in der Shop-Schnittstelle erklärt.</p>
+<h3 id="schnittstelle">Schnittstelle<a class="headerlink" href="#schnittstelle" title="Permanent link">&para;</a></h3>
+<p>Wenn du die Einstellungen der Billbee Schnittstelle öffnest, landest du zunächst im Tab Details → Schnittstelle.</p>
+<p><img alt="Billlbee-4.png" src="https://help.xentral.com/hc/article_attachments/4996395397020" /></p>
+<p><strong>Einstellungen</strong></p>
+<ul>
+<li>Bezeichnung → Name frei wählbar für den Shop (wird z.B. im Artikel und im Import-Menü angezeigt)</li>
+<li>Aktiv → Haken setzen, damit die Schnittstelle aktiv ist. Nicht mehr benötigte Schnittstellen kannst du auf inaktiv setzen</li>
+<li>Projekt → Verknüpfung des Shops auf ein Projekt. Im Projekt kannst du die Logistikeinstellungen vornehmen</li>
+<li>Abholmodus → Bei Shopify kannst du hier nach einem bestimmten Status abholen</li>
+<li>Start der Schnittstelle → Es werden keine Aufträge vor diesem Datum abgeholt</li>
+<li>Import-Modus → Legt fest, ob die Aufträge aus dem Shop manuell (per Knopfdruck) oder automatisch importiert werden sollen</li>
+<li>Demo (zum Testen) → Der Auftragsstatus im Shop nicht umgestellt, keine Artikel oder Lagerzahlen übertragen</li>
+<li>Manuell (mit Importzentrale) → Die Aufträge werden erst abgeholt, wenn der Button Aufträge abholen geklickt wird</li>
+<li>Automatisch (per Prozessstarter) → Die Aufträge werden regelmäßig automatisch vom Shop abgeholt. Hierfür wird der Prozessstarter Shopimporter benötigt</li>
+<li>Nur 1 Auftrag pro Anfrage → Es wird nur 1 Auftrag pro Anfrage vom Shop übertragen</li>
+<li>Aufträge in Zwischentabelle → Beim Abholen der Aufträge werden die Aufträge nicht direkt angelegt, sondern erstmal zum Durchschauen in einer Zwischentabelle gespeichert. Hier kannst du entscheiden, welche Aufträge angelegt und welche erst später importiert werden sollen</li>
+<li>Anzahl abholen begrenzen → Möglichkeit, um eingehende Aufträge auf einmal zu begrenzen Steht nichts (0) drin gilt die Default-Begrenzung von 100</li>
+<li>Protokollierung im Logfile → Legt beim Arbeiten mit der Shop-Schnittstelle Daten zur Fehlersuche in einem Log ab</li>
+<li>Benutzername → Der Account, zu dem der Benutzername gehört, muss in Billbee ein Administrator sein</li>
+<li>API Passwort → Hier trägst du das entsprechende Passwort für die API aus Billbee ein</li>
+<li>&lsquo;Offen&rsquo; Status ID → Diese Information bekommst du aus dem Billbee Shop</li>
+<li>&lsquo;In Bearbeitung&rsquo; Status ID → Diese Information bekommst du aus dem Billbee Shop</li>
+<li>&lsquo;Versendet&rsquo; Status ID → Diese Information bekommst du aus dem Billbee Shop</li>
+</ul>
+<p>Aktion</p>
+<ul>
+<li>Verbindung prüfen → Hier kannst du die korrekte Verbindung zu Gambio prüfen. Bitte beachte, dass die Verbindung nicht klappt, wenn der Shop sich im Wartungsmodus befindet</li>
+<li>Aufträge abholen → Holt die Aufträge aus deinem Shop ab. Das ist notwendig, wenn du den Importmodus der Schnittstelle auf manuell gestellt hast.</li>
+<li>
+<p>Shopimport Zwischentabelle → Springt zur Zwischentabelle der Aufträge vom Shop. Die Zwischentabelle wird nur im manuellen Importmodus befüllt und wenn die Option &lsquo;Aufträge in Zwischentabelle&rsquo; aktiviert ist.
+  In der Zwischentabelle wählst du in der linken Spalte zwischen &ldquo;Import&rdquo;, &ldquo;Müll&rdquo; und &ldquo;Später&rdquo; aus.</p>
+</li>
+<li>
+<p>Import: Auftrag wird direkt importiert</p>
+</li>
+<li>Müll: Auftrag landet im Müll und kann kein zweites Mal importiert werden</li>
+<li>Später: Auftrag kann zu einem späteren Zeitpunkt importiert werden</li>
+</ul>
+<h3 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h3>
+<p>Informationen zu diesem Tab findest du im Online Shops Artikel.</p>
+<h3 id="zahlweisen">Zahlweisen<a class="headerlink" href="#zahlweisen" title="Permanent link">&para;</a></h3>
+<p>Informationen zu diesem Tab findest du im Online Shop Artikel.</p>
+<h3 id="versandarten">Versandarten<a class="headerlink" href="#versandarten" title="Permanent link">&para;</a></h3>
+<p>Beim Klick auf <strong>Verbindung prüfen</strong>(Details → Schnittstelle) importiert die Schnittstelle alle Versanddienstleister (Carrier), die in Billbee verfügbar sind. Zusätzlich zum Mapping mit Carrier hat xentral mittlerweile auch noch ein Mapping für das Produkt. Es werden also die Versanddienstleister angezeigt und zusätzlich noch die jeweilige Produkt-ID.</p>
+<p><img alt="blobid2.png" src="https://help.xentral.com/hc/article_attachments/4996433302428" /></p>
+<p>Im Anschluss musst du die angelegten Versandarten im Reiter Versandarten auf die entsprechenden Versandarten mappen. Nähere Informationen zum Versandarten Mapping findest du<a href="#">hier</a>. Dieses Mapping musst du in <strong>jeder</strong> angelegten Billbee-Schnittstelle vornehmen. Es gibt dort ein neues Mapping Feld mit dem Namen &ldquo;Produkt Ausgehend&rdquo;. Hier kannst du die entsprechende Produkt-ID zur Versandart für das Mapping eintragen.</p>
+<p><img alt="Billbee-8.png" src="https://help.xentral.com/hc/article_attachments/4996433316636" /></p>
+<p>Dass du das Mapping in <strong>jeder</strong> Billbee-Schnittstelle vornimmst ist notwendig, damit bei der Rückmeldung der Trackingnummer von abgefertigten Aufträgen auch eine Information über den verwendeten Versanddienstleister an Billbee zurückgegeben werden kann.</p>
+<p>Sollten sich die Versanddienstleister-Daten seitens Billbee ändern, kannst du die aktualisierten Daten jederzeit über die Schaltfläche Verbindung prüfen abrufen.</p>
+<p>Im Logfile der Shopschnittstelle werden etwaige Fehlermeldungen zum Versandarten-Mapping aufgeführt. Die Meldung &ldquo;Carrier wurden noch nicht aus dem Shop abgerufen&rdquo; wird ausgeworfen, wenn die Versanddienstleister noch nicht über die Verbindung prüfen Schaltfläche hinzugefügt wurden.</p>
+<h3 id="freifelder">Freifelder<a class="headerlink" href="#freifelder" title="Permanent link">&para;</a></h3>
+<p>Freifelder sind für Billbee derzeit nicht verfügbar.</p>
+<h3 id="subshop">Subshop<a class="headerlink" href="#subshop" title="Permanent link">&para;</a></h3>
+<p>Subshopmapping ist für Billbee derzeit nicht verfügbar.</p>
+<h3 id="sprache-lieferland">Sprache-/Lieferland<a class="headerlink" href="#sprache-lieferland" title="Permanent link">&para;</a></h3>
+<p>Informationen zu diesem Tab findest du im Online Shop Artikel.</p>
+<h3 id="gruppenmapping">Gruppenmapping<a class="headerlink" href="#gruppenmapping" title="Permanent link">&para;</a></h3>
+<p>Gruppenmapping ist für Billbee derzeit nicht verfügbar.</p>
+<h3 id="smarty">Smarty<a class="headerlink" href="#smarty" title="Permanent link">&para;</a></h3>
+<p>Über die Verwendung von Smarty erfährst du mehr in diesem Helpdesk Artikel:<a href="https://help.xentral.com/document/preview/13979#UUID-e55a4c1d-d861-ef5d-741d-94856c3b5b50">Smarty im Shopimporter</a>.</p>
+<h2 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h2>
+<p>Informiere dich im Online Shop Artikel für weitere Informationen zu folgenden Themen:</p>
+<ul>
+<li>Artikel importieren</li>
+<li>Artikel exportieren</li>
+<li>Lagerzahlen synchronisieren</li>
+</ul>
+<h3 id="auftrage-importieren">Aufträge importieren<a class="headerlink" href="#auftrage-importieren" title="Permanent link">&para;</a></h3>
+<p>In Billbee gibt es verschiedene Statusmeldungen mit dazugehörigen IDs. Durch Angabe der Billbee-ID in den Shopeinstellungen kannst du festlegen, welche Art von Aufträgen über die Schnittstelle angesprochen werden sollen.</p>
+<p><img alt="Billbee-9.png" src="https://help.xentral.com/hc/article_attachments/4996371329180" /></p>
+<p>Um herauszufinden, welche Billbee-IDs sich hinter den Statusbezeichnungen verbergen, musst du dich der Konsole deines Browsers im Billbee-Backend bedienen. Mit Rechtsklick → &ldquo;Element untersuchen&rdquo; kannst du diese öffnen. Wie im untenstehenden Bild gezeigt, kannst du so die Billbee-IDs ermitteln.</p>
+<p><img alt="Billbee-10.png" src="https://help.xentral.com/hc/article_attachments/4996410575004" /></p>
+<p>Die ermittelten IDs musst du anschließend in die Shopeinstellungen eintragen.</p>
+<p>Billbee ist zwar kein Online-Shop, aber die Einstellungen des Billbee Importers funktionieren analog zu den Shopimportern von xentral. Nähere Informationen zum Auftragsimport findest du im Online Shop Artikel.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

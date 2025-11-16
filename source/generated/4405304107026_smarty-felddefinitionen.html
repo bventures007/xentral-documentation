@@ -1,0 +1,2724 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4405304107026 Smarty Felddefinitionen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>4405304107026 Smarty Felddefinitionen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>4405304107026 Smarty Felddefinitionen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>In diesem Artikel findest du eine vollständige Auflistung der verfügbaren Felder inkl. einer Übersetzung der Feldnamen und einer Beschreibung der Inhalte in Englisch.</p>
+<h2 id="smarty-im-ubertragen-modul">Smarty im Übertragen-Modul<a class="headerlink" href="#smarty-im-ubertragen-modul" title="Permanent link">&para;</a></h2>
+<h3 id="lieferschein">Lieferschein<a class="headerlink" href="#lieferschein" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>XML Tag</th>
+<th>XML Tag Translated</th>
+<th>Required</th>
+<th>Data type</th>
+<th>Business description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><?xml version="1.0" encoding="UTF-8"?></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><response></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><xml></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><lieferschein_list></td>
+<td>delivery note list</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><lieferschein></td>
+<td>delivery note</td>
+<td>(x)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><id>68</id></td>
+<td>id</td>
+<td>(x)</td>
+<td>integer(11)</td>
+<td>Internal ID</td>
+</tr>
+<tr>
+<td><datum>2020-10-22</datum></td>
+<td>date</td>
+<td></td>
+<td>Date</td>
+<td>Document date in format yyyy-mm-dd</td>
+</tr>
+<tr>
+<td><projekt>6</projekt></td>
+<td>project</td>
+<td></td>
+<td>alphanumeric(222)</td>
+<td>Internal ID of the project the document is assigned to.</td>
+</tr>
+<tr>
+<td><lieferscheinart/></td>
+<td>delivery note type</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Dispatch note type</td>
+</tr>
+<tr>
+<td><belegnr>300065</belegnr></td>
+<td>voucher number</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Document number</td>
+</tr>
+<tr>
+<td><bearbeiter>Firstname Lastname</bearbeiter></td>
+<td>processor</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Accountant</td>
+</tr>
+<tr>
+<td><auftrag>200063</auftrag></td>
+<td>order</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order number</td>
+</tr>
+<tr>
+<td><auftragid>67</auftragid></td>
+<td>orderid</td>
+<td></td>
+<td>integer(11)</td>
+<td>Internal order number</td>
+</tr>
+<tr>
+<td><freitext/></td>
+<td>free text</td>
+<td></td>
+<td>text</td>
+<td>Free text field</td>
+</tr>
+<tr>
+<td><status>versendet</status></td>
+<td>status</td>
+<td></td>
+<td>alphanumeric(64)</td>
+<td>Status, possible values: versendet, freigegeben</td>
+</tr>
+<tr>
+<td><adresse>47</adresse></td>
+<td>address</td>
+<td></td>
+<td>integer(11)</td>
+<td>Referenced address ID</td>
+</tr>
+<tr>
+<td><name>Test Adresse</name></td>
+<td>name</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient name</td>
+</tr>
+<tr>
+<td><abteilung/></td>
+<td>department</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient department</td>
+</tr>
+<tr>
+<td><unterabteilung/></td>
+<td>sub department</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient sub department</td>
+</tr>
+<tr>
+<td><strasse>Teststraße 11</strasse></td>
+<td>street</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient street</td>
+</tr>
+<tr>
+<td><adresszusatz/></td>
+<td>address</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient address amendment</td>
+</tr>
+<tr>
+<td><ansprechpartner/></td>
+<td>contact person</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient contact person</td>
+</tr>
+<tr>
+<td><plz>86150</plz></td>
+<td>plz</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient ZIP code</td>
+</tr>
+<tr>
+<td><ort>Augsburg</ort></td>
+<td>location</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient city</td>
+</tr>
+<tr>
+<td><land>DE</land></td>
+<td>country</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient country</td>
+</tr>
+<tr>
+<td><ustid/></td>
+<td>ustid</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient VAT no.</td>
+</tr>
+<tr>
+<td><email>name@example.com</email></td>
+<td>email</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient mail address</td>
+</tr>
+<tr>
+<td><telefon/></td>
+<td>phone</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient phone number</td>
+</tr>
+<tr>
+<td><telefax/></td>
+<td>telefax</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient fax number</td>
+</tr>
+<tr>
+<td><betreff/></td>
+<td>subject</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Recipient subject</td>
+</tr>
+<tr>
+<td><kundennummer>10032</kundennummer></td>
+<td>customer number</td>
+<td></td>
+<td>alphanumeric(64)</td>
+<td>Recipient customer number</td>
+</tr>
+<tr>
+<td><versandart>versandunternehmen</versandart></td>
+<td>shipping method</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Shipping method</td>
+</tr>
+<tr>
+<td><versand>Firstname Lastname</versand></td>
+<td>shipping</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Individual field</td>
+</tr>
+<tr>
+<td><firma>1</firma></td>
+<td>company</td>
+<td></td>
+<td>integer(11)</td>
+<td>Flag, if customer is a company</td>
+</tr>
+<tr>
+<td><versendet>1</versendet></td>
+<td>shipped</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Flag, if document was sent via email/printed</td>
+</tr>
+<tr>
+<td><versendet_am>0000-00-00 00:00:00</versendet_am></td>
+<td>versendet am</td>
+<td></td>
+<td>Datetime</td>
+<td>Document delivery date in format yyyy-mm-dd hh24:MM:SS</td>
+</tr>
+<tr>
+<td><versendet_per/></td>
+<td>sent by</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Delivered with</td>
+</tr>
+<tr>
+<td><versendet_durch/></td>
+<td>sent by</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Delivered by</td>
+</tr>
+<tr>
+<td><inbearbeitung_user>0 </inbearbeitung_user></td>
+<td>editing user</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Individual field</td>
+</tr>
+<tr>
+<td><logdatei>2020-10-27 14:56:39</logdatei></td>
+<td>logdatei</td>
+<td></td>
+<td>timestamp</td>
+<td>Date and time of log file in format yyyy-mm-dd HH24:MI:SS</td>
+</tr>
+<tr>
+<td><vertriebid>10</vertriebid></td>
+<td>salesid</td>
+<td></td>
+<td>integer(11)</td>
+<td>Internal sales ID</td>
+</tr>
+<tr>
+<td><vertrieb>Firstname Lastname</vertrieb></td>
+<td>sales</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Internal sales person</td>
+</tr>
+<tr>
+<td><ust_befreit>0</ust_befreit></td>
+<td>ust exempt</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Flag, if customer is VAT-free</td>
+</tr>
+<tr>
+<td><ihrebestellnummer/></td>
+<td>your order number</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order number of the customer</td>
+</tr>
+<tr>
+<td><anschreiben/></td>
+<td>letter</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>title of the person, e.g. Dear Mr. Max Muster</td>
+</tr>
+<tr>
+<td><usereditid>1</usereditid></td>
+<td>useredit id</td>
+<td></td>
+<td>integer(11)</td>
+<td>User ID, who edited the document at last</td>
+</tr>
+<tr>
+<td><useredittimestamp>2020-10-27 14:56:39</useredittimestamp></td>
+<td>useredit timestamp</td>
+<td></td>
+<td>timestamp</td>
+<td>Timestamp of last of last user edit in format yyyy-mm-dd HH24:MI:SS</td>
+</tr>
+<tr>
+<td><lieferantenretoure>0</lieferantenretoure></td>
+<td>vendor return</td>
+<td></td>
+<td>tinyint(1)</td>
+<td>Flag, if it is a return delivery</td>
+</tr>
+<tr>
+<td><lieferantenretoureinfo/></td>
+<td>vendor return info</td>
+<td></td>
+<td>text</td>
+<td>Description of return delivery</td>
+</tr>
+<tr>
+<td><lieferant>0</lieferant></td>
+<td>vendor</td>
+<td></td>
+<td>integer(11)</td>
+<td>Internal distributor ID</td>
+</tr>
+<tr>
+<td><schreibschutz>1</schreibschutz></td>
+<td>writeprotect</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Flag, if document is write protected</td>
+</tr>
+<tr>
+<td><pdfarchiviert>0</pdfarchiviert></td>
+<td>pdf archived</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Flag, if document PDF has been archived</td>
+</tr>
+<tr>
+<td><pdfarchiviertversion>0 </pdfarchiviertversion></td>
+<td>pdf archived version</td>
+<td></td>
+<td>integer(11)</td>
+<td>Version number of archived Pdf</td>
+</tr>
+<tr>
+<td><typ>firma</typ></td>
+<td>type</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Type</td>
+</tr>
+<tr>
+<td><internebemerkung/></td>
+<td>internal note</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Internal remark</td>
+</tr>
+<tr>
+<td><ohne_briefpapier>0</ohne_briefpapier></td>
+<td>without stationery</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Flag, if document is printed with/without letterhead</td>
+</tr>
+<tr>
+<td><lieferid>0</lieferid></td>
+<td>delivery id</td>
+<td></td>
+<td>integer(11)</td>
+<td>Internal delivery ID</td>
+</tr>
+<tr>
+<td><ansprechpartnerid>0</ansprechpartnerid></td>
+<td>contact id</td>
+<td></td>
+<td>integer(11)</td>
+<td>ID of the contact person</td>
+</tr>
+<tr>
+<td><projektfiliale>0</projektfiliale></td>
+<td>project branch</td>
+<td></td>
+<td>integer(11)</td>
+<td>Project branch</td>
+</tr>
+<tr>
+<td><projektfiliale_eingelagert>0 </projektfiliale_eingelagert></td>
+<td>project filial stored</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>In stock at project branch</td>
+</tr>
+<tr>
+<td><zuarchivieren>0</zuarchivieren></td>
+<td>to archive</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Flag, if to be archived</td>
+</tr>
+<tr>
+<td><internebezeichnung/></td>
+<td>internal designation</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Internal name</td>
+</tr>
+<tr>
+<td><angelegtam/></td>
+<td>createdon</td>
+<td></td>
+<td>datetime</td>
+<td>Document issue date in format yyyy-mm-dd hh24:mi:ss</td>
+</tr>
+<tr>
+<td><kommissionierung>26</kommissionierung></td>
+<td>picking</td>
+<td></td>
+<td>integer(11)</td>
+<td>Commissioning</td>
+</tr>
+<tr>
+<td><sprache>deutsch</sprache></td>
+<td>language</td>
+<td></td>
+<td>alphanumeric(32)</td>
+<td>Language</td>
+</tr>
+<tr>
+<td><bundesland/></td>
+<td>state</td>
+<td></td>
+<td>alphanumeric(64)</td>
+<td>Federal province in Germany</td>
+</tr>
+<tr>
+<td><gln/></td>
+<td>gln</td>
+<td></td>
+<td>alphanumeric(64)</td>
+<td>Global Location Number</td>
+</tr>
+<tr>
+<td><rechnungid>30</rechnungid></td>
+<td>invoice id</td>
+<td></td>
+<td>integer(11)</td>
+<td>Internal invoice ID</td>
+</tr>
+<tr>
+<td><bearbeiterid>10</bearbeiterid></td>
+<td>agent id</td>
+<td></td>
+<td>integer(11)</td>
+<td>Internal accountant ID</td>
+</tr>
+<tr>
+<td><keinerechnung>0</keinerechnung></td>
+<td>no invoice</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Invoice / no invoice-Flag</td>
+</tr>
+<tr>
+<td><ohne_artikeltext>0</ohne_artikeltext></td>
+<td>without itemtext</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Flag, if product has a name or not</td>
+</tr>
+<tr>
+<td><abweichendebezeichnung>0 </abweichendebezeichnung></td>
+<td>different name</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Flag, if product has a different name</td>
+</tr>
+<tr>
+<td><kostenstelle/></td>
+<td>cost center</td>
+<td></td>
+<td>alphanumeric(10)</td>
+<td>Cost center</td>
+</tr>
+<tr>
+<td><bodyzusatz/></td>
+<td>body addendum</td>
+<td></td>
+<td>text</td>
+<td>Amendment of the body</td>
+</tr>
+<tr>
+<td><lieferbedingung/></td>
+<td>delivery condition</td>
+<td></td>
+<td>text</td>
+<td>Delivery condition</td>
+</tr>
+<tr>
+<td><titel/></td>
+<td>title</td>
+<td></td>
+<td>alphanumeric(64)</td>
+<td>Title</td>
+</tr>
+<tr>
+<td><standardlager>0</standardlager></td>
+<td>standard warehouse</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Default warehouse ID</td>
+</tr>
+<tr>
+<td><kommissionskonsignationslager>0 </kommissionskonsignationslager></td>
+<td>commission consignment warehouse</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Consignment warehouse ID for commissioning</td>
+</tr>
+<tr>
+<td><bundesstaat/></td>
+<td>state</td>
+<td></td>
+<td>alphanumeric(32)</td>
+<td>Recipient federal state</td>
+</tr>
+<tr>
+<td><teillieferungvon>0</teillieferungvon></td>
+<td>part deliveryof</td>
+<td></td>
+<td>integer(11)</td>
+<td>Partial delivery</td>
+</tr>
+<tr>
+<td><teillieferungnummer>0</teillieferungnummer></td>
+<td>part deliverynumber</td>
+<td></td>
+<td>integer(11)</td>
+<td>Position number of partial delivery</td>
+</tr>
+<tr>
+<td><kiste>1</kiste></td>
+<td>box</td>
+<td></td>
+<td>integer(11)</td>
+<td>Box number</td>
+</tr>
+<tr>
+<td><id_ext/></td>
+<td>id ext</td>
+<td></td>
+<td>alphanumeric</td>
+<td>External ID</td>
+</tr>
+<tr>
+<td><anzahluebertragungen>1</anzahluebertragungen></td>
+<td>numberofdeliveries</td>
+<td></td>
+<td>numeric</td>
+<td>Number of transmissions</td>
+</tr>
+<tr>
+<td><tatsaechlicheslieferdatum/></td>
+<td>actual delivery date</td>
+<td></td>
+<td>date</td>
+<td>Effective delivery date in format yyyy-mm-dd</td>
+</tr>
+<tr>
+<td><lieferdatum/></td>
+<td>delivery date</td>
+<td></td>
+<td>date</td>
+<td>Delivery date in format yyyy-mm-dd</td>
+</tr>
+<tr>
+<td><lieferdatumkw>0</lieferdatumkw></td>
+<td>delivery datekw</td>
+<td></td>
+<td>tinyint(1)</td>
+<td>Calendar week of delivery date</td>
+</tr>
+<tr>
+<td><rechnung_name>HC Test Adresse</rechnung_name></td>
+<td>invoice name</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Invoice name</td>
+</tr>
+<tr>
+<td><auftrag_name>HC Test Adresse</auftrag_name></td>
+<td>order name</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order name</td>
+</tr>
+<tr>
+<td><rechnung_anrede/></td>
+<td>invoice address</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Invoice salutation</td>
+</tr>
+<tr>
+<td><auftrag_anrede/></td>
+<td>order address</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order salutation</td>
+</tr>
+<tr>
+<td><rechnung_strasse>Teststraße 11</rechnung_strasse></td>
+<td>invoice street</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Invoice street</td>
+</tr>
+<tr>
+<td><auftrag_strasse>Teststraße 11</auftrag_strasse></td>
+<td>order street</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order street</td>
+</tr>
+<tr>
+<td><rechnung_adresszusatz/></td>
+<td>invoice address</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Invoice address amendment</td>
+</tr>
+<tr>
+<td><auftrag_adresszusatz/></td>
+<td>order address address</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order address amendment</td>
+</tr>
+<tr>
+<td><rechnung_ansprechpartner/></td>
+<td>invoice address address</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Invoice contact person</td>
+</tr>
+<tr>
+<td><auftrag_ansprechpartner/></td>
+<td>order address address</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order contact person</td>
+</tr>
+<tr>
+<td><rechnung_abteilung/></td>
+<td>invoice department</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Invoice department</td>
+</tr>
+<tr>
+<td><auftrag_abteilung/></td>
+<td>order department</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order department</td>
+</tr>
+<tr>
+<td><rechnung_unterabteilung/></td>
+<td>invoice subdepartment</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Invoice sub department</td>
+</tr>
+<tr>
+<td><auftrag_unterabteilung/></td>
+<td>order subdepartment</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order sub department</td>
+</tr>
+<tr>
+<td><rechnung_plz>86150</rechnung_plz></td>
+<td>invoice plz</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Invoice ZIP code</td>
+</tr>
+<tr>
+<td><auftrag_plz>86150</auftrag_plz></td>
+<td>invoice plz</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order ZIP code</td>
+</tr>
+<tr>
+<td><rechnung_ort>Augsburg</rechnung_ort></td>
+<td>invoice location</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Invoice city</td>
+</tr>
+<tr>
+<td><auftrag_ort>Augsburg</auftrag_ort></td>
+<td>order place</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order city</td>
+</tr>
+<tr>
+<td><rechnung_land>DE</rechnung_land></td>
+<td>invoice country</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Invoice country</td>
+</tr>
+<tr>
+<td><auftrag_land>DE</auftrag_land></td>
+<td>order country</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Order country</td>
+</tr>
+<tr>
+<td><rechnung_gln/></td>
+<td>invoice gln</td>
+<td></td>
+<td>alphanumeric(64)</td>
+<td>Invoice GLN</td>
+</tr>
+<tr>
+<td><auftrag_gln/></td>
+<td>order gln</td>
+<td></td>
+<td>alphanumeric(64)</td>
+<td>Order GLN</td>
+</tr>
+<tr>
+<td><internet/></td>
+<td>internet</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Internet ID, e.g. order no. of online shop</td>
+</tr>
+<tr>
+<td><shopextid/></td>
+<td>shopextid</td>
+<td></td>
+<td>alphanumeric(1024)</td>
+<td>External shop ID</td>
+</tr>
+<tr>
+<td><auftragextid/></td>
+<td>order xtid</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Reference of the connected order</td>
+</tr>
+<tr>
+<td><tracking>TESTDN-300065</tracking></td>
+<td>tracking</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Tracking ID of shipment</td>
+</tr>
+<tr>
+<td><lieferschein_position_list></td>
+<td>delivery note item list</td>
+<td>(x)</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><lieferschein_position></td>
+<td>delivery note item</td>
+<td>(x)</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><id>74</id></td>
+<td>id</td>
+<td>(x)</td>
+<td>integer(10)</td>
+<td>Internal dispatch note position ID</td>
+</tr>
+<tr>
+<td><lieferschein>68</lieferschein></td>
+<td>delivery note</td>
+<td></td>
+<td>integer(11)</td>
+<td>Dispatch note ID</td>
+</tr>
+<tr>
+<td><artikel>17</artikel></td>
+<td>article</td>
+<td></td>
+<td>integer(11)</td>
+<td>Internal product number</td>
+</tr>
+<tr>
+<td><projekt>1</projekt></td>
+<td>project</td>
+<td></td>
+<td>integer(11)</td>
+<td>Internal ID of the project the document is assigned to.</td>
+</tr>
+<tr>
+<td><bezeichnung>MHD/Charge Test</bezeichnung></td>
+<td>article name</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Product name</td>
+</tr>
+<tr>
+<td><beschreibung/></td>
+<td>article description</td>
+<td></td>
+<td>text</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><internerkommentar/></td>
+<td>internal comment</td>
+<td></td>
+<td>text</td>
+<td>Internal comment</td>
+</tr>
+<tr>
+<td><nummer>1000003</nummer></td>
+<td>nummer</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Product number within Xentral</td>
+</tr>
+<tr>
+<td><seriennummer/></td>
+<td>serial number</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Serial number</td>
+</tr>
+<tr>
+<td><menge>1.0000</menge></td>
+<td>quantity</td>
+<td></td>
+<td>decimal(14)</td>
+<td>Amount</td>
+</tr>
+<tr>
+<td><lieferdatum>0000-00-00</lieferdatum></td>
+<td>delivery date</td>
+<td></td>
+<td>date</td>
+<td>Delivery date in format: yyyy-mm-dd</td>
+</tr>
+<tr>
+<td><vpe>1</vpe></td>
+<td>vpe</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Packing unit</td>
+</tr>
+<tr>
+<td><sort>1</sort></td>
+<td>sort</td>
+<td></td>
+<td>integer(10)</td>
+<td>Sorting number</td>
+</tr>
+<tr>
+<td><status>angelegt</status></td>
+<td>status</td>
+<td></td>
+<td>alphanumeric(64)</td>
+<td>Status: Possible values:</td>
+</tr>
+<tr>
+<td><bemerkung/></td>
+<td>note</td>
+<td></td>
+<td>text</td>
+<td>Remark</td>
+</tr>
+<tr>
+<td><geliefert>1.0000</geliefert></td>
+<td>delivered</td>
+<td></td>
+<td>decimal(14)</td>
+<td>Delivered amount</td>
+</tr>
+<tr>
+<td><abgerechnet>0</abgerechnet></td>
+<td>accounted</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Billed-flag</td>
+</tr>
+<tr>
+<td><logdatei>2020-10-22 10:16:08</logdatei></td>
+<td>logdatei</td>
+<td></td>
+<td>timestamp</td>
+<td>Logfile datime</td>
+</tr>
+<tr>
+<td><explodiert_parent_artikel>0</explodiert_parent_artikel></td>
+<td>exploded parent item</td>
+<td></td>
+<td>integer(11)</td>
+<td>Flag if article is a part of a set-article</td>
+</tr>
+<tr>
+<td><einheit/></td>
+<td>unit</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Packaging unit</td>
+</tr>
+<tr>
+<td><zolltarifnummer/></td>
+<td>customs tariff number</td>
+<td></td>
+<td>alphanumeric(128)</td>
+<td>Customs tariff number</td>
+</tr>
+<tr>
+<td><herkunftsland/></td>
+<td>country of origin</td>
+<td></td>
+<td>alphanumeric(128)</td>
+<td>Country of origination</td>
+</tr>
+<tr>
+<td><artikelnummerkunde/></td>
+<td>article number customer</td>
+<td></td>
+<td>alphanumeric(128)</td>
+<td>Customer article number</td>
+</tr>
+<tr>
+<td><freifeld1>1</freifeld1></td>
+<td>freefield1</td>
+<td></td>
+<td>text</td>
+<td>Free field 1</td>
+</tr>
+<tr>
+<td><freifeld2>Tsubashi</freifeld2></td>
+<td>freefield2</td>
+<td></td>
+<td>text</td>
+<td>Free field 2</td>
+</tr>
+<tr>
+<td><freifeld3/></td>
+<td>freefield3</td>
+<td></td>
+<td>text</td>
+<td>Free field 3</td>
+</tr>
+<tr>
+<td><freifeld4/></td>
+<td>freefield4</td>
+<td></td>
+<td>text</td>
+<td>Free field 4</td>
+</tr>
+<tr>
+<td><freifeld5/></td>
+<td>freefield5</td>
+<td></td>
+<td>text</td>
+<td>Free field 5</td>
+</tr>
+<tr>
+<td><freifeld6/></td>
+<td>freefield6</td>
+<td></td>
+<td>text</td>
+<td>Free field 6</td>
+</tr>
+<tr>
+<td><freifeld7/></td>
+<td>freefield7</td>
+<td></td>
+<td>text</td>
+<td>Free field 7</td>
+</tr>
+<tr>
+<td><freifeld8/></td>
+<td>freefield8</td>
+<td></td>
+<td>text</td>
+<td>Free field 8</td>
+</tr>
+<tr>
+<td><freifeld9/></td>
+<td>freefield9</td>
+<td></td>
+<td>text</td>
+<td>Free field 9</td>
+</tr>
+<tr>
+<td><freifeld10/></td>
+<td>freefield10</td>
+<td></td>
+<td>text</td>
+<td>Free field 10</td>
+</tr>
+<tr>
+<td><lieferdatumkw>0</lieferdatumkw></td>
+<td>delivery date week</td>
+<td></td>
+<td>tinyint(1)</td>
+<td>Calendar week of delivery date</td>
+</tr>
+<tr>
+<td><auftrag_position_id>143</auftrag_position_id></td>
+<td>order item id</td>
+<td></td>
+<td>integer(11)</td>
+<td>Order position number</td>
+</tr>
+<tr>
+<td><kostenlos>0</kostenlos></td>
+<td>free</td>
+<td></td>
+<td>tinyint(1)</td>
+<td>Free of charge flag</td>
+</tr>
+<tr>
+<td><lagertext>PLANZER (1)</lagertext></td>
+<td>stock text</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Warehouse name</td>
+</tr>
+<tr>
+<td><teilprojekt>0</teilprojekt></td>
+<td>part project</td>
+<td></td>
+<td>integer(11)</td>
+<td>Internal sub project ID</td>
+</tr>
+<tr>
+<td><explodiert_parent>0</explodiert_parent></td>
+<td>exploded parent</td>
+<td></td>
+<td>integer(11)</td>
+<td>Flag if article is a part of a set-article</td>
+</tr>
+<tr>
+<td><freifeld11/></td>
+<td>freefield11</td>
+<td></td>
+<td>text</td>
+<td>Free field 11</td>
+</tr>
+<tr>
+<td><freifeld12/></td>
+<td>freefield12</td>
+<td></td>
+<td>text</td>
+<td>Free field 12</td>
+</tr>
+<tr>
+<td><freifeld13/></td>
+<td>freefield13</td>
+<td></td>
+<td>text</td>
+<td>Free field 13</td>
+</tr>
+<tr>
+<td><freifeld14/></td>
+<td>freefield14</td>
+<td></td>
+<td>text</td>
+<td>Free field 14</td>
+</tr>
+<tr>
+<td><freifeld15/></td>
+<td>freefield15</td>
+<td></td>
+<td>text</td>
+<td>Free field 15</td>
+</tr>
+<tr>
+<td><freifeld16/></td>
+<td>freefield16</td>
+<td></td>
+<td>text</td>
+<td>Free field 16</td>
+</tr>
+<tr>
+<td><freifeld17/></td>
+<td>freefield17</td>
+<td></td>
+<td>text</td>
+<td>Free field 17</td>
+</tr>
+<tr>
+<td><freifeld18/></td>
+<td>freefield18</td>
+<td></td>
+<td>text</td>
+<td>Free field 18</td>
+</tr>
+<tr>
+<td><freifeld19/></td>
+<td>freefield19</td>
+<td></td>
+<td>text</td>
+<td>Free field 19</td>
+</tr>
+<tr>
+<td><freifeld20/></td>
+<td>freefield20</td>
+<td></td>
+<td>text</td>
+<td>Free field 20</td>
+</tr>
+<tr>
+<td><freifeld21/></td>
+<td>freefield21</td>
+<td></td>
+<td>text</td>
+<td>Free field 21</td>
+</tr>
+<tr>
+<td><freifeld22/></td>
+<td>freefield22</td>
+<td></td>
+<td>text</td>
+<td>Free field 22</td>
+</tr>
+<tr>
+<td><freifeld23/></td>
+<td>freefield23</td>
+<td></td>
+<td>text</td>
+<td>Free field 23</td>
+</tr>
+<tr>
+<td><freifeld24/></td>
+<td>freefield24</td>
+<td></td>
+<td>text</td>
+<td>Free field 24</td>
+</tr>
+<tr>
+<td><freifeld25/></td>
+<td>freefield25</td>
+<td></td>
+<td>text</td>
+<td>Free field 25</td>
+</tr>
+<tr>
+<td><freifeld26/></td>
+<td>freefield26</td>
+<td></td>
+<td>text</td>
+<td>Free field 26</td>
+</tr>
+<tr>
+<td><freifeld27/></td>
+<td>freefield27</td>
+<td></td>
+<td>text</td>
+<td>Free field 27</td>
+</tr>
+<tr>
+<td><freifeld28/></td>
+<td>freefield28</td>
+<td></td>
+<td>text</td>
+<td>Free field 28</td>
+</tr>
+<tr>
+<td><freifeld29/></td>
+<td>freefield29</td>
+<td></td>
+<td>text</td>
+<td>Free field 29</td>
+</tr>
+<tr>
+<td><freifeld30/></td>
+<td>freefield30</td>
+<td></td>
+<td>text</td>
+<td>Free field 30</td>
+</tr>
+<tr>
+<td><freifeld31/></td>
+<td>freefield31</td>
+<td></td>
+<td>text</td>
+<td>Free field 31</td>
+</tr>
+<tr>
+<td><freifeld32/></td>
+<td>freefield32</td>
+<td></td>
+<td>text</td>
+<td>Free field 32</td>
+</tr>
+<tr>
+<td><freifeld33/></td>
+<td>freefield33</td>
+<td></td>
+<td>text</td>
+<td>Free field 33</td>
+</tr>
+<tr>
+<td><freifeld34/></td>
+<td>freefield34</td>
+<td></td>
+<td>text</td>
+<td>Free field 34</td>
+</tr>
+<tr>
+<td><freifeld35/></td>
+<td>freefield35</td>
+<td></td>
+<td>text</td>
+<td>Free field 35</td>
+</tr>
+<tr>
+<td><freifeld36/></td>
+<td>freefield36</td>
+<td></td>
+<td>text</td>
+<td>Free field 36</td>
+</tr>
+<tr>
+<td><freifeld37/></td>
+<td>freefield37</td>
+<td></td>
+<td>text</td>
+<td>Free field 37</td>
+</tr>
+<tr>
+<td><freifeld38/></td>
+<td>freefield38</td>
+<td></td>
+<td>text</td>
+<td>Free field 38</td>
+</tr>
+<tr>
+<td><freifeld39/></td>
+<td>freefield39</td>
+<td></td>
+<td>text</td>
+<td>Free field 39</td>
+</tr>
+<tr>
+<td><freifeld40/></td>
+<td>freefield40</td>
+<td></td>
+<td>text</td>
+<td>Free field 40</td>
+</tr>
+<tr>
+<td><zolleinzelwert>0.00000000</zolleinzelwert></td>
+<td>customs single value</td>
+<td></td>
+<td>decimal(18)</td>
+<td>Customs detail value</td>
+</tr>
+<tr>
+<td><zollgesamtwert>0.00000000</zollgesamtwert></td>
+<td>total customs value</td>
+<td></td>
+<td>decimal(18)</td>
+<td>Customs overall value</td>
+</tr>
+<tr>
+<td><zollwaehrung/></td>
+<td>customs currency</td>
+<td></td>
+<td>alphanumeric(3)</td>
+<td>Customs currency</td>
+</tr>
+<tr>
+<td><zolleinzelgewicht>0.00000000</zolleinzelgewicht></td>
+<td>customs weight</td>
+<td></td>
+<td>decimal(18)</td>
+<td>Customs detail weight</td>
+</tr>
+<tr>
+<td><zollgesamtgewicht>0.00000000</zollgesamtgewicht></td>
+<td>customs total weight</td>
+<td></td>
+<td>decimal(18)</td>
+<td>Customs overall weight</td>
+</tr>
+<tr>
+<td><nve/></td>
+<td>nve</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Globally unique Serial Shipping Container Code</td>
+</tr>
+<tr>
+<td><packstueck/></td>
+<td>package</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Packaging item</td>
+</tr>
+<tr>
+<td><vpemenge>0.0000</vpemenge></td>
+<td>vpe quantity</td>
+<td></td>
+<td>decimal(14)</td>
+<td>Amount of packaging units</td>
+</tr>
+<tr>
+<td><einzelstueckmenge>0.0000</einzelstueckmenge></td>
+<td>item quantity</td>
+<td></td>
+<td>decimal(14)</td>
+<td>Amount of individual items</td>
+</tr>
+<tr>
+<td><ausblenden_im_pdf>0</ausblenden_im_pdf></td>
+<td>hide in pdf</td>
+<td></td>
+<td>tinyint1)</td>
+<td>Flag to hide product in the PDF document</td>
+</tr>
+<tr>
+<td><id_ext/></td>
+<td>id ext</td>
+<td></td>
+<td>alphanumeric</td>
+<td>External ID</td>
+</tr>
+<tr>
+<td><ean/></td>
+<td>ean</td>
+<td></td>
+<td>alphanumeric(1024)</td>
+<td>EAN</td>
+</tr>
+<tr>
+<td><gewicht/></td>
+<td>weight</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Weight</td>
+</tr>
+<tr>
+<td><herstellernummer/></td>
+<td>manufacturer number</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Manufacturer number</td>
+</tr>
+<tr>
+<td><altersfreigabe/></td>
+<td>age rating</td>
+<td></td>
+<td>alphanumeric(3)</td>
+<td>Age restriction flag (0, 16, 18)</td>
+</tr>
+<tr>
+<td><lagerartikel>1</lagerartikel></td>
+<td>stock item</td>
+<td></td>
+<td>int(1)/boolean</td>
+<td>Flag if article is on stock</td>
+</tr>
+<tr>
+<td></lieferschein_position></td>
+<td>/delivery note item</td>
+<td>(x)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></lieferschein_position_list></td>
+<td>/delivery note item list</td>
+<td>(x)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></lieferschein></td>
+<td>/delivery note</td>
+<td>(x)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></lieferschein_list></td>
+<td>/delivery note list</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></xml></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><status></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><action>belege</action></td>
+<td></td>
+<td>x</td>
+<td>alphanumeric</td>
+<td>Static value</td>
+</tr>
+<tr>
+<td><message>OK</message></td>
+<td></td>
+<td>x</td>
+<td>alphanumeric</td>
+<td>Message text: Possible values: OK,</td>
+</tr>
+<tr>
+<td><messageCode>1</messageCode></td>
+<td></td>
+<td>x</td>
+<td>numeric</td>
+<td>Message Code</td>
+</tr>
+<tr>
+<td></status></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></response></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Unter <strong>Übertragungsspezifische Einstellungen</strong> steht für den Dateinamen nur {BELEGNR}.csv zur Verfügung.</p>
+</blockquote>
+<h3 id="tracking-ruckmeldung">Tracking Rückmeldung<a class="headerlink" href="#tracking-ruckmeldung" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>XML Tag</th>
+<th>XML Tag Translated</th>
+<th>Required</th>
+<th>Data type</th>
+<th>Business description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><?xml version="1.0" encoding="UTF-8"?></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><response></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><xml></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><lieferschein_list></td>
+<td>delivery note list</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><lieferschein></td>
+<td>delivery note</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><belegnr>121212</belegnr></td>
+<td>document number</td>
+<td>x</td>
+<td>alphanumeric(255)</td>
+<td>Document number</td>
+</tr>
+<tr>
+<td><tracking>1234567890</tracking></td>
+<td>tracking number</td>
+<td>x</td>
+<td>alphanumeric(255)</td>
+<td>Tracking number of the actual carrier</td>
+</tr>
+<tr>
+<td><tracking_link>http://dhl.de/sendungsverfolgung?tracking=123456</tracking_link></td>
+<td>tracking link</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Tracking-Link</td>
+</tr>
+<tr>
+<td><tracking_sprache>english</tracking_sprache></td>
+<td>tracking language</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Language flag of the tracking(number)</td>
+</tr>
+<tr>
+<td><versandart>DPD</versandart></td>
+<td>carrier or shipment type</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Carrier name (Typ) that is used in Xentral</td>
+</tr>
+<tr>
+<td><lieferschein_position_list></td>
+<td>delivery note position list</td>
+<td>(x)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><lieferschein_position></td>
+<td>delivery note position</td>
+<td>(x)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><id>105</id></td>
+<td>id</td>
+<td>(x)</td>
+<td>numeric(10)</td>
+<td>Database-ID of the products position within the document. Needed for pro</td>
+</tr>
+<tr>
+<td><geliefert>3</geliefert></td>
+<td>shipped</td>
+<td></td>
+<td>decimal(14)</td>
+<td>Amount/pieces</td>
+</tr>
+<tr>
+<td><serial>SN-123456</serial></td>
+<td>serial</td>
+<td>(x)</td>
+<td>alphanumeric(255)</td>
+<td>Serial number, can be one or multiple lines</td>
+</tr>
+<tr>
+<td><mhd_charge_block></td>
+<td>block containing charge or lot</td>
+<td>(x)</td>
+<td></td>
+<td>Block containing charge or lot information, can be one or multiple lines</td>
+</tr>
+<tr>
+<td><mhd>2020-12-31</mhd></td>
+<td>bbd (best before date)</td>
+<td>(x)</td>
+<td>alphanumeric(255)</td>
+<td>Best-Before-Date</td>
+</tr>
+<tr>
+<td><charge>ABC123</charge></td>
+<td>charge or lot</td>
+<td>(x)</td>
+<td>alphanumeric(255)</td>
+<td>Batch number</td>
+</tr>
+<tr>
+<td><menge>2</menge></td>
+<td>quantity</td>
+<td></td>
+<td>decimal(14)</td>
+<td>Amount/pieces</td>
+</tr>
+<tr>
+<td></mhd_charge_block></td>
+<td>/block containing charge or lot</td>
+<td>(x)</td>
+<td></td>
+<td>End of block</td>
+</tr>
+<tr>
+<td></lieferschein_position></td>
+<td>/delivery note position</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></lieferschein_position_list></td>
+<td>/delivery note position list</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></lieferschein></td>
+<td>/delivery note</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></lieferschein_list></td>
+<td>/delivery note list</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></xml></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></response></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lagerzahlen-ruckmeldung">Lagerzahlen-Rückmeldung<a class="headerlink" href="#lagerzahlen-ruckmeldung" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>XML Tag</th>
+<th>XML Tag Translated</th>
+<th>Required</th>
+<th>Data type</th>
+<th>Business description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><?xml version="1.0" encoding="UTF-8" standalone="yes"?></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><response xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><xml></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><artikel_list></td>
+<td>artikel list</td>
+<td>x</td>
+<td></td>
+<td>Product list tag open</td>
+</tr>
+<tr>
+<td><artikel></td>
+<td>artikel</td>
+<td>x</td>
+<td></td>
+<td>Product tag open</td>
+</tr>
+<tr>
+<td><nummer>1000012</nummer></td>
+<td>number</td>
+<td>x</td>
+<td>alphanumeric(255)</td>
+<td>Xentral product number</td>
+</tr>
+<tr>
+<td><lagerzahl>3</lagerzahl></td>
+<td>stock inventory quantity</td>
+<td>x</td>
+<td>decimal(14)</td>
+<td>Amount of products picked from the storage location</td>
+</tr>
+<tr>
+<td><lager_platz>Lagerplatz1</lager_platz></td>
+<td>stock inventory bin</td>
+<td>(x)</td>
+<td>alphanumeric(255)</td>
+<td>Name of the storage location that is connected with the product</td>
+</tr>
+<tr>
+<td><mhd>30.10.2018</mhd></td>
+<td>bbd (best before date)</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Use-by date in format dd.mm.yyyy</td>
+</tr>
+<tr>
+<td><charge>TEST1</charge></td>
+<td>charge or lot</td>
+<td></td>
+<td>alphanumeric(255)</td>
+<td>Batch name</td>
+</tr>
+<tr>
+<td></artikel></td>
+<td>/article</td>
+<td>x</td>
+<td></td>
+<td>Product tag close</td>
+</tr>
+<tr>
+<td></artikel_list></td>
+<td>/article list</td>
+<td>x</td>
+<td></td>
+<td>Product list tag close</td>
+</tr>
+<tr>
+<td></xml></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></response></td>
+<td></td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="smarty-im-shopimporter">Smarty im Shopimporter<a class="headerlink" href="#smarty-im-shopimporter" title="Permanent link">&para;</a></h2>
+<h3 id="headerdaten">Headerdaten<a class="headerlink" href="#headerdaten" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Field Name Translated</th>
+<th>Example Value</th>
+<th>Required</th>
+<th>Business Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zeitstempel</td>
+<td>timestamp</td>
+<td>2020-10-10 12:00:00</td>
+<td></td>
+<td>For importers which use the „Ab Datum“ mode this field sets the exact value of the orders date. If the field is missing, the process uses the current date as the order date which may cause orders to be skipped</td>
+</tr>
+<tr>
+<td>bestelldatum</td>
+<td>order date</td>
+<td>2020-10-10</td>
+<td></td>
+<td>The actual date the order was made in the shop. This gets displayed in the Xentral orders as the “ordering date”</td>
+</tr>
+<tr>
+<td>lieferdatum</td>
+<td>delivery date</td>
+<td>2020-10-10</td>
+<td></td>
+<td>The (expected) delivery date of the order</td>
+</tr>
+<tr>
+<td>auftrag</td>
+<td>order</td>
+<td>100</td>
+<td>x</td>
+<td>The technical ID (not the number) of the order. This information is relevant for order updates, e.g. by using the functions ImportDeleteAuftrag() or ImportUpdateAuftrag()</td>
+</tr>
+<tr>
+<td>onlinebestellnummer</td>
+<td>online order number</td>
+<td>#UK12345</td>
+<td>x</td>
+<td>The order number visible in the shop - occasionally it may be identical to the order ID</td>
+</tr>
+<tr>
+<td>subshop</td>
+<td>subshop</td>
+<td>1</td>
+<td></td>
+<td>The ID of the subshop this order originated from. On occasions it may be a string</td>
+</tr>
+<tr>
+<td>useorderid</td>
+<td>useorderid</td>
+<td>1</td>
+<td></td>
+<td>If this field is set and the import mode is set to “Ab Nummer” then the number which gets incremented after an import is not the value in the “auftrag” field but instead the value in the “onlinebestellnummer” field</td>
+</tr>
+<tr>
+<td>onlinebestellnummerueberschreiben</td>
+<td>overwrite online order number</td>
+<td>1</td>
+<td></td>
+<td>Gets used by the process “shopimport_auftragarchiv”. Has the same effect for it as the field “userorderid” for the regular import</td>
+</tr>
+<tr>
+<td>benutzergruppe</td>
+<td>user group</td>
+<td>Powerseller</td>
+<td></td>
+<td>If the address this order gets mapped to is supposed to be added to a certain group in Xentral this field holds the name of the target group</td>
+</tr>
+<tr>
+<td>benutzergruppekuerzel</td>
+<td>user group code</td>
+<td>PS</td>
+<td></td>
+<td>If the address this order gets mapped to is supposed to be added to a certain group in Xentral this field holds the shorthand of the target group</td>
+</tr>
+<tr>
+<td>benutzergruppeanlegen</td>
+<td>create user group</td>
+<td>1</td>
+<td></td>
+<td>If the group given in the above fields does not exist a value of 1 in this field will create it in Xentral and the cause the address to added to it, 0 otherwise</td>
+</tr>
+<tr>
+<td>geburtstag</td>
+<td>birthday</td>
+<td>2000-12-20</td>
+<td></td>
+<td>The buyers birthday</td>
+</tr>
+<tr>
+<td>telefon</td>
+<td>phone</td>
+<td>123456789</td>
+<td></td>
+<td>The phone number which is to be saved to the address</td>
+</tr>
+<tr>
+<td>name</td>
+<td>name</td>
+<td>Max Power / Compuglobal</td>
+<td>x</td>
+<td>Name of the person who should receive the invoice. If the invoice goes out to a company, the company name gets saved in this field</td>
+</tr>
+<tr>
+<td>anrede</td>
+<td>salutation</td>
+<td>firma / herr / frau</td>
+<td></td>
+<td>Type of the address, whether it is a company, man, or woman. If more types are defined in the general settings those can be used as well</td>
+</tr>
+<tr>
+<td>ansprechpartner</td>
+<td>contact</td>
+<td>Max Mustermann</td>
+<td></td>
+<td>If the address is for a company, this field holds the information which person in the company is to receive the invoice. If the order is not for a company, this field can be left blank</td>
+</tr>
+<tr>
+<td>strasse</td>
+<td>street</td>
+<td>Musterweg 3</td>
+<td></td>
+<td>The street for the invoice address</td>
+</tr>
+<tr>
+<td>plz</td>
+<td>zip code</td>
+<td>86111</td>
+<td></td>
+<td>Postal code for the invoice address</td>
+</tr>
+<tr>
+<td>ort</td>
+<td>city</td>
+<td>Musterdorf</td>
+<td></td>
+<td>City for the invoice address</td>
+</tr>
+<tr>
+<td>land</td>
+<td>country</td>
+<td>DE</td>
+<td></td>
+<td>Country for the invoice address</td>
+</tr>
+<tr>
+<td>email</td>
+<td>email</td>
+<td>max@muster.mann</td>
+<td></td>
+<td>Email</td>
+</tr>
+<tr>
+<td>abteilung</td>
+<td>department</td>
+<td>Vertrieb</td>
+<td></td>
+<td>Department of the address</td>
+</tr>
+<tr>
+<td>unterabteilung</td>
+<td>subdivision</td>
+<td>Büroartikel</td>
+<td></td>
+<td>Subdepartment of the address</td>
+</tr>
+<tr>
+<td>adresszusatz</td>
+<td>address addition</td>
+<td>Postfach 17</td>
+<td></td>
+<td>Additional address information for the invoice address</td>
+</tr>
+<tr>
+<td>bundesstaat</td>
+<td>state</td>
+<td>Bayern</td>
+<td></td>
+<td>State for the invoice address</td>
+</tr>
+<tr>
+<td>ustid</td>
+<td>ustid</td>
+<td>DE11001100</td>
+<td></td>
+<td>The VAT ID of the one receiving the invoice</td>
+</tr>
+<tr>
+<td>projekt</td>
+<td>project</td>
+<td>9</td>
+<td></td>
+<td>ID of the project</td>
+</tr>
+<tr>
+<td>lieferung</td>
+<td>Shipping method</td>
+<td>dhlversenden</td>
+<td></td>
+<td>type of shipping method</td>
+</tr>
+<tr>
+<td>abweichende_lieferadresse</td>
+<td>different delivery address</td>
+<td>1</td>
+<td></td>
+<td>If both invoice and delivery address are identical for the order this field can be omitted. If they differ this field needs to be filled with a 1 and the field for the delivery address data need to be filled, 0 otherwise</td>
+</tr>
+<tr>
+<td>lieferadresse_name</td>
+<td>delivery address name</td>
+<td>Eva Musterfrau</td>
+<td></td>
+<td>Name of the person or company receiving the delivery</td>
+</tr>
+<tr>
+<td>lieferadresse_ansprechpartner</td>
+<td>delivery address contact</td>
+<td></td>
+<td></td>
+<td>If the receiver of the delivery is a company this field holds the name of the person in the company receiving it</td>
+</tr>
+<tr>
+<td>lieferadresse_strasse</td>
+<td>delivery address street</td>
+<td>Andersstrasse 22b</td>
+<td></td>
+<td>Street of the delivery address</td>
+</tr>
+<tr>
+<td>lieferadresse_plz</td>
+<td>delivery address plz</td>
+<td>74522</td>
+<td></td>
+<td>Zip code of the delivery address</td>
+</tr>
+<tr>
+<td>lieferadresse_ort</td>
+<td>delivery address location</td>
+<td>Andersstadt</td>
+<td></td>
+<td>City of the delivery address</td>
+</tr>
+<tr>
+<td>lieferadresse_land</td>
+<td>delivery address country</td>
+<td>DE</td>
+<td></td>
+<td>Country of the delivery address</td>
+</tr>
+<tr>
+<td>lieferadresse_abteilung</td>
+<td>delivery address department</td>
+<td>Vertrieb</td>
+<td></td>
+<td>Department of the delivery address</td>
+</tr>
+<tr>
+<td>lieferadresse_unterabteilung</td>
+<td>delivery address subdivision</td>
+<td>Büroartikel</td>
+<td></td>
+<td>Subdepartment of the delivery address</td>
+</tr>
+<tr>
+<td>lieferadresse_adresszusatz</td>
+<td>delivery address addition</td>
+<td>Postfach 17</td>
+<td></td>
+<td>Additional address information of the delivery address</td>
+</tr>
+<tr>
+<td>lieferadresse_bundesstaat</td>
+<td>delivery address state</td>
+<td>Bayern</td>
+<td></td>
+<td>State of the delivery address</td>
+</tr>
+<tr>
+<td>lieferadresse_ustid</td>
+<td>delivery address ustide</td>
+<td>DE11001101</td>
+<td></td>
+<td>The VAT ID of the delivery address</td>
+</tr>
+<tr>
+<td>freitext</td>
+<td>freetext</td>
+<td>Beliebiger Text</td>
+<td></td>
+<td>A free text which will be saved in the “Freitext” field of the order. Please do not set any preferences on what should happen to the Freitext in the Shop settings in xentral, otherwise this will override the Smarty template information</td>
+</tr>
+<tr>
+<td>internebemerkung</td>
+<td>internal remark</td>
+<td>Beliebiger Text</td>
+<td></td>
+<td>Free text which will be saved in the “Interne Bemerkung” field of the order. Please do not set any preferences on what should happen to the Freitext in the Shop settings in xentral, otherwise this will override the Smarty template information</td>
+</tr>
+<tr>
+<td>internebezeichnung</td>
+<td>internal name</td>
+<td>Nur zu Sonderzwecken</td>
+<td></td>
+<td>Adds additional information to the imported order. This information is also visible in &ldquo;Versandübergabe&rdquo; in Xentral</td>
+</tr>
+<tr>
+<td>gesamtsumme</td>
+<td>grand total</td>
+<td>250.15</td>
+<td>x</td>
+<td>Gross sum of the order. Is used to countercheck with the total costs of all the positions in the original order. If the total cost of the order gets calculated to a different sum than provided in this field the order protocol will hold the message “Online-Shop Differenz erkannt“ and the autoversand option gets deactivated</td>
+</tr>
+<tr>
+<td>waehrung</td>
+<td>currency</td>
+<td>EUR</td>
+<td></td>
+<td>Currency the order is being submitted in</td>
+</tr>
+<tr>
+<td>lieferung</td>
+<td>delivery</td>
+<td>dhl_express</td>
+<td>x</td>
+<td>The carrier chosen in the order. Must be mapped in the importer settings</td>
+</tr>
+<tr>
+<td>zahlungsweise</td>
+<td>method of payment</td>
+<td>paypal</td>
+<td>x</td>
+<td>The payment type chosen in the order. Must be mapped in the importer settings</td>
+</tr>
+<tr>
+<td>vorabbezahltmarkieren</td>
+<td>prepaid mark</td>
+<td>1</td>
+<td></td>
+<td>Marks the order as already paid, 0 otherwise</td>
+</tr>
+<tr>
+<td>transaktionsnummer</td>
+<td>transaction number</td>
+<td>12 1254215 055421</td>
+<td></td>
+<td>Transaction number for payments made by PayPal</td>
+</tr>
+<tr>
+<td>versandkostenbrutto</td>
+<td>shipping cost gross</td>
+<td>11.9</td>
+<td></td>
+<td>Gross delivery cost</td>
+</tr>
+<tr>
+<td>versandkostennetto</td>
+<td>shipping cost net</td>
+<td>10.0</td>
+<td></td>
+<td>Net delivery cost. If possible, this field is to be preferred</td>
+</tr>
+<tr>
+<td>portosteuersatz</td>
+<td>postage rate</td>
+<td>19.0</td>
+<td></td>
+<td>If the delivery cost has a special tax rate this field holds the information</td>
+</tr>
+<tr>
+<td>rabattbrutto</td>
+<td>discount gross</td>
+<td>11.9</td>
+<td></td>
+<td>Gross discount</td>
+</tr>
+<tr>
+<td>rabattnetto</td>
+<td>discount net</td>
+<td>10.0</td>
+<td></td>
+<td>Net discount</td>
+</tr>
+<tr>
+<td>rabattsteuer</td>
+<td>discount tax</td>
+<td>19.0</td>
+<td></td>
+<td>If the discount has a special tax rate this field holds the information</td>
+</tr>
+<tr>
+<td>nachnahmepreisnetto</td>
+<td>cash on delivery net</td>
+<td>10.0</td>
+<td></td>
+<td>Gross cash on delivery value</td>
+</tr>
+<tr>
+<td>nachnahmepreisbrutto</td>
+<td>cash on delivery price gross</td>
+<td>19.0</td>
+<td></td>
+<td>Net cash on delivery value</td>
+</tr>
+<tr>
+<td>steuerfrei</td>
+<td>tax exempt</td>
+<td>1</td>
+<td></td>
+<td>Marks the order as tax free, otherwise 0</td>
+</tr>
+<tr>
+<td>ust_befreit</td>
+<td>VAT exempt</td>
+<td>3</td>
+<td></td>
+<td>Marks the order with having a special tax exemption case: 1: tax free EU 2: tax free foreign country 3: tax free within country</td>
+</tr>
+<tr>
+<td>steuersatz_normal</td>
+<td>tax rate normal</td>
+<td>20.0</td>
+<td></td>
+<td>Sets the tax rate for “normal” tax rate products</td>
+</tr>
+<tr>
+<td>steuersatz_ermaessigt</td>
+<td>tax rate reduced</td>
+<td>10.0</td>
+<td></td>
+<td>Sets the tax rate for “reduced” tax rate products</td>
+</tr>
+<tr>
+<td>autoversand</td>
+<td>auto shipping</td>
+<td>0</td>
+<td></td>
+<td>Can actively activate or deactivate the autoversand option for orders</td>
+</tr>
+<tr>
+<td>fastlane</td>
+<td>fastlane</td>
+<td>1</td>
+<td></td>
+<td>Marks the order as prioritized (fast lane), 0 otherwise (e.g. for Prime delivery)</td>
+</tr>
+<tr>
+<td>auftragsart</td>
+<td>order type</td>
+<td>lieferung</td>
+<td></td>
+<td>Controls the way the order is to be processed: standardauftrag - Creates an invoice and delivery note rechnung: Creates an invoice only lieferung: Creates a delivery note only</td>
+</tr>
+<tr>
+<td>lastschriftdatenueberschreiben</td>
+<td>overwrite direct debit data</td>
+<td>1</td>
+<td></td>
+<td>This field enables the bank account information to be overwritten by the information in the following fields, 0 otherwise</td>
+</tr>
+<tr>
+<td>bankverbindung-&gt;inhaber</td>
+<td>bank connection-&gt;accountholder</td>
+<td>Max Mustermann</td>
+<td></td>
+<td>Name of the account holder</td>
+</tr>
+<tr>
+<td>bankverbindung-&gt;bank</td>
+<td>bank connection-&gt;bank</td>
+<td>Sparkasse Zollernalb</td>
+<td></td>
+<td>Name of the Bank</td>
+</tr>
+<tr>
+<td>bankverbindung-&gt;iban</td>
+<td>bank connection-&gt;iban</td>
+<td>DE9715001254451</td>
+<td></td>
+<td>IBAN</td>
+</tr>
+<tr>
+<td>bankverbindung-&gt;bic</td>
+<td>bank connection-&gt;bic</td>
+<td>SOLADESBAL1</td>
+<td></td>
+<td>BIC</td>
+</tr>
+<tr>
+<td>bankverbindung-&gt;firmensepa</td>
+<td>bank connection-&gt;company sepa</td>
+<td>1</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>bankverbindung-&gt;mandatsreferenzhinweis</td>
+<td>bank connection-&gt;mandate reference text</td>
+<td>Hinweis</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td>&mdash;</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>bankverbindung-&gt;mandatsreferenzdatum</td>
+<td>bank connection-&gt;mandate reference date</td>
+<td>2020-10-10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>bankverbindung-&gt;mandatsreferenz</td>
+<td>bank connection-&gt;mandate reference</td>
+<td>123</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="artikelliste">Artikelliste<a class="headerlink" href="#artikelliste" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Field Name Translated</th>
+<th>Example Value</th>
+<th>Required</th>
+<th>Business Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>articlelist</td>
+<td>articlelist</td>
+<td>[]</td>
+<td>x</td>
+<td>An array holding the items of the order</td>
+</tr>
+<tr>
+<td>articleid</td>
+<td>articleid</td>
+<td>Schraube-100</td>
+<td>x</td>
+<td>Despite the name the field does not hold the ID of the item but instead the SKU</td>
+</tr>
+<tr>
+<td>price</td>
+<td>price</td>
+<td>1.19</td>
+<td>(x)</td>
+<td>Gross price of the item. Might be used instead of price net.</td>
+</tr>
+<tr>
+<td>price_netto</td>
+<td>price net</td>
+<td>1.0</td>
+<td>(x)</td>
+<td>Net price of the item. Preferred field to use</td>
+</tr>
+<tr>
+<td>name</td>
+<td>name</td>
+<td>Rote Schraube</td>
+<td>x</td>
+<td>Name of the line item</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>quantity</td>
+<td>1</td>
+<td>x</td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td>umsatzsteuer</td>
+<td>sales tax (VAT)</td>
+<td>normal</td>
+<td></td>
+<td>Describes which tax rate the product holds: normal, ermaessigt, befreit</td>
+</tr>
+<tr>
+<td>steuersatz</td>
+<td>tax rate</td>
+<td>19.0</td>
+<td></td>
+<td>Sets an explicit tax rate for the line item</td>
+</tr>
+<tr>
+<td>fremdnummer</td>
+<td>foreign number</td>
+<td>ST-500-100</td>
+<td></td>
+<td>Alternative reference number for which the item is supposed to be searched in the foreign numbers. Mapping occurs for the according shop only using the shopid as reference</td>
+</tr>
+<tr>
+<td>rabatt</td>
+<td>discount (percentage)</td>
+<td>10.0</td>
+<td></td>
+<td>Discount in percent for this line</td>
+</tr>
+<tr>
+<td>options</td>
+<td>options</td>
+<td>Schraube mit rotem Kopf und blauem Gewinde</td>
+<td></td>
+<td>Description which can be shown in the order, will be interpreted as a single text and added to the PDF output in order and following documents</td>
+</tr>
+</tbody>
+</table>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17467558761372 Neu Csv Importer Überblick - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>17467558761372 Neu Csv Importer Überblick</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>17467558761372 Neu Csv Importer Überblick</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Schnittstelle befindet sich in der Einführungsphase und steht allen Kunden auf Anfrage zur Verfügung. Wenn du vorzeitig Zugriff haben möchtest, wende dich gerne an deinen Solution Consultant.</p>
+</blockquote>
+<h2 id="uberblick">Überblick<a class="headerlink" href="#uberblick" title="Permanent link">&para;</a></h2>
+<p>Der neue CSV-Importer ermöglicht es, Datenbestände aus anderen Systemen in die XentralDatenbank einzufügen. Dazu müssen die Daten aus den Fremdsystemen als CSV-Datei exportiert bzw. in Excel aufbereitet und als CSV-Datei abgespeichert werden. Wenn du Unterstützung bei der Vorbereitung der Fremddaten benötigst, schau gerne in<a href="https://help.xentral.com/hc/de/articles/360016758939#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574">diesen Artikel</a>. Dort findest du Hilfestellung im Abschnitt <strong>Tipps im Umgang mit Excel und CSV-Dateien</strong>.</p>
+<h2 id="funktionsumfang-des-neuen-csv-importers">Funktionsumfang des neuen CSV-Importers<a class="headerlink" href="#funktionsumfang-des-neuen-csv-importers" title="Permanent link">&para;</a></h2>
+<p>Mit dem neuen CSV-Importer von Xentral kannst du auf einfache und übersichtliche Weise Daten aus CSV-Dateien in Xentral importieren. Der CSV-Importer bietet aktuell folgende Hauptfunktionen:</p>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/19857384088348#UUID-361e9146-d218-1c27-1993-f17796604275">Artikeldaten importieren</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/19857336333980#UUID-d19c6535-89a2-e066-cf41-c0bc2ff8efa7">Verkaufspreise importieren</a>: Du kannst zu bestehenden Artikeln Verkaufspreise (Standardpreise, kundenspezifische Preise, Gruppenpreise) importieren.</li>
+<li><a href="https://help.xentral.com/hc/de/articles/19857367677724#UUID-53c62d01-fd81-b842-8008-ecdc4aad2d86">Einkaufspreise importieren</a>: Du kannst zu bestehenden Artikeln Einkaufspreise (Standardpreise, lieferantenspezifische Preise) importieren.</li>
+<li><a href="https://help.xentral.com/hc/de/articles/19861120858140#UUID-bdf97c49-e951-e133-516e-9f043ff88d47">Medien importieren</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/19860038849820#UUID-2feefb7c-6e23-1f25-4d7f-8073e55e535c">Stückliste importieren</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/19859219300380#UUID-2e98b163-b74c-aaa2-d3d6-3e1a8ae34716">Freifelder importieren</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/19984028262556#UUID-7dadf684-0e12-6fe4-b3e5-4b3e136bde97">Aufträge importieren</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/20107585914140#UUID-77e86c5d-302f-ab14-c742-6863a3b2839d">Kategorien importieren</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/17467558830108#UUID-97d61bdb-1bde-b669-0b96-9dc4acd8cef0">Daten über einen Custom-Workflow importieren</a>: Mit einem so genannten Custom-Workflow kannst du beliebige Daten importieren und individuell anpassen.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Der Funktionsumfang des neuen CSV-Imports wird schrittweise erweitert. Zukünftige Versionen des CSV-Importers werden es ermöglichen, weitere Datentypen wie z. B. Kundendaten über einen Standardprozess zu importieren. Für solche Daten kannst du bis auf Weiteres die bekannte Import-/Exportzentrale weiterhin nutzen.</p>
+</blockquote>
+<h2 id="csv-importer-ubersicht">CSV-Importer Übersicht<a class="headerlink" href="#csv-importer-ubersicht" title="Permanent link">&para;</a></h2>
+<p>Du findest den CSV-Importer im Menü <strong>Einstellungen &gt; Administration &gt; Datenaustausch &gt; CSV-Importer</strong>. Du befindest dich dann in der so genannten CSV-Importer Übersicht. Beim ersten Aufruf ist die Übersicht leer und dir steht nur die Funktion zum Erstellen eines neuen CSV-Imports zur Verfügung:</p>
+<p><img alt="CSV-Importer_NeuenImportErstellen.png" src="https://help.xentral.com/hc/article_attachments/18704795609244" /></p>
+<p>Nachdem du einen Import angelegt hast, wird er dir in der Übersicht angezeigt. Du kannst dort folgende Aktionen durchführen:</p>
+<p><img alt="CSV-ImporterUbersichtAktionsschaltflachen.png" src="https://help.xentral.com/hc/article_attachments/18704809707420" /></p>
+<p>(1) Durch Klick auf das Stift-Symbol öffnest du den Import in der Mapping-Vorschau.</p>
+<p>(2) Die zweite Schaltfläche führt dich zum Reporting. Dort kannst du den Importstatus aller in diesem Import enthaltenen Datensätze verfolgen.</p>
+<p>(3) Hinter der dritten Schaltfläche stehen folgende Funktionen zur Verfügung:</p>
+<p><img alt="CSV-ImporterUbersichtWeitereAktionen.png" src="https://help.xentral.com/hc/article_attachments/18704809710620" /></p>
+<p>-<strong>Ursprüngliche Daten herunterladen</strong>: Diese Funktion ermöglicht dir, die ursprünglichen Daten in einer CSV-Datei herunterzuladen.
+-<strong>Als Vorlage wiederverwenden</strong>: Hiermit kannst du eine vorhandene Importvorlage duplizieren. Diese Funktion kannst du nutzen, um einen bestehenden Import mit einer neuen Datei noch einmal auszuführen. Sobald du diese Schaltfläche betätigst, gelangst du zu der Seite, auf der du eine CSV-Datei hochladen kannst. Das Mapping aus der kopierten Vorlage wird geladen. Du kannst es beibe-halten oder Anpassungen vornehmen. Sobald du die Mapping-Seite verlässt, steht dir die zusätzliche Importvorlage in der Übersicht zur Verfügung.
+-<strong>Import löschen</strong>: Löscht die Importvorlage.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

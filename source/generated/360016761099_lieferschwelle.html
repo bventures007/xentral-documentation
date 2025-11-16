@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016761099 Lieferschwelle - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016761099 Lieferschwelle</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016761099 Lieferschwelle</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit dem Modul „Lieferschwelle“ besteht die Möglichkeit Lieferschwellen für ein bestimmtes Land generell oder für einen bestimmten Artikel zu hinterlegen. Es kann eingestellt werden, ob sich der Steuersatz beim Erreichen eines gewissen Umsatzes automatisch anpasst und ob über das Erreichen der Lieferschwelle per E-Mail benachrichtigt werden soll.</p>
+<p>Das One-Stop-Shop Verfahren stellt ab 01.07.2021 die Basis für die Umsetzung der EU-Mehrwertsteuerreform dar. Für B2C Geschäfte innerhalb Europas gilt damit eine einheitliche Lieferschwelle von 10.000€. Sobald Waren von insgesamt 10.000€ ins EU Ausland geliefert wurden, ist in allen EU Ländern der Steuersatz des Bestimungslandes auszuweisen und abzuführen. Informationen dazu findest du<a href="https://help.xentral.com/hc/de/articles/4402395359890#UUID-9db3d441-a701-4c55-b1fc-cc9e7313f28b">hier</a>.</p>
+<h2 id="ubersicht">Übersicht<a class="headerlink" href="#ubersicht" title="Permanent link">&para;</a></h2>
+<p>In der Übersicht werden alle hinterlegten Lieferschwellen aufgelistet.</p>
+<p>Über &ldquo;+ Neue Lieferschwelle&rdquo; kann eine neue Lieferschwelle erstellt werden.</p>
+<p>Es ist möglich, verschiedene Lieferschwellen auch in Bezug auf ein Lagerland einzustellen. Das heißt es können verschiedene Länder hinterlegt werden, in denen Sie ein Lager besitzen. Dadurch kann die Lieferschwelle entweder direkt gezogen oder die Einstellung für eine spezielle Lieferschwellenhöhe getätigt werden.</p>
+<p>Trage in der Übersicht &ldquo;Lieferschwelle&rdquo; folgendes ein:</p>
+<ul>
+<li>Empfängerland:Land, für das die Lieferschwelle gelten soll</li>
+<li>Lager:Kann aufLageroderHauptlagergesetzt werden, um dem System mitzuteilen, dass man im Empfängerland selbst ein Lager besitzt und somit für jeden Auftrag in das Empfängerland der dort geltende Umsatzsteuersatz zu verwenden ist. SobaldLageroderHauptlagerausgewählt ist, berücksichtigt xentral, dass dieser Umsatz nach lokalen MwSt.-Sätzen auf der Rechnung abgebildet werden muss. Der Umsatz wird aber nicht in die Summe von 10.000 € eingerechnet.</li>
+<li>Lieferschwelle in EUR:Wert der verkauften Waren im Zielland bis zum Erreichen der Lieferschwelle.</li>
+<li>Ust-ID:Ihre USt.-ID im Zielland. In den Geschäftsbriefvorlagen als Variable {DELIVERYTHRESHOLDVATID} verfügbar. Die Variablemuss zwingendgroß geschrieben werden</li>
+<li>Steuersatz normal:Normaler USt.-Satz im Zielland</li>
+<li>Steuersatz ermäßigt:Ermäßigter USt.-Satz im Zielland</li>
+<li>Steuersatz spezial:Spezieller USt.-Satz im Zielland</li>
+<li>in Ursprungsland:Spezieller USt.-Vergleichssatz im Ursprungsland</li>
+<li>Überschreitung ab:Datum der Überschreitung der Lieferschwelle - wird vom System gesetzt</li>
+<li>Aktueller Umsatz:Aktueller Gesamtumsatz im Zielland - wird mit der Überschreitung der Lieferschwelle nicht weiter aufaddiert. Hier werden freigegebene Rechnungen als Grundlage genommen. Gutschriften mindern den Umsatz nicht</li>
+<li>Netto Preise anpassen:Du hast folgende Optionen für die Übertragung von Nettopreisen vom Online-Shop:</li>
+<li>Keine Anpassung: Die Nettopreise vom Online-Shop werden ohne Anpassung in den Auftrag übernommen. Der Bruttopreis für den Kunden kann dadurch abweichen.</li>
+<li>Nur mit Lieferschwelle-Artikeln: Die Nettopreise von Artikeln, die als Lieferschwelle-Artikel gekennzeichnet sind, werden beim Auftragsimport aus einem Online-Shop ggf. angepasst. Der Bruttobetrag dieser Artikel bleibt für den Kunden gleich.</li>
+<li>Immer anpassen: Die Nettopreise aller Artikel werden beim Auftragsimport aus einem Online-Shop ggf. angepasst. Der Bruttobetrag der Artikel bleibt für den Kunden gleich.</li>
+<li>Lieferschwelle aktiv:Die Lieferschwelle ist aktiv und der eingestellte Steuersatz wird verwendet. Dieser Haken wird automatisch gesetzt, wenn die &ldquo;Lieferschwelle in EUR&rdquo;, also die Gesamtumsätze in das Land, überschritten wurden. Als Messgröße dienen die Beträge freigegebener Rechnungen</li>
+</ul>
+<p>Trage in der Übersicht &ldquo;Erlöskonten&rdquo; folgendes ein:</p>
+<ul>
+<li>Erlöskonto normal:Erlöskonto normal für die Buchung von Erlösen nach der Überschreitung der Lieferschwelle</li>
+<li>Erlöskonto ermäßigt:Erlöskonto ermäßigt für die Buchung von Erlösen nach der Überschreitung der Lieferschwelle</li>
+<li>Erlöskonto befreit:Erlöskonto befreit für die Buchung von Erlösen nach der Überschreitung der Lieferschwelle</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Für eine erfolgreiche DATEV-Übertragung müssen die Konten zuvor hinterlegt sein.</p>
+</blockquote>
+<p>Weitere Informationen findest du<a href="https://help.xentral.com/hc/de/articles/4402395359890#UUID-9db3d441-a701-4c55-b1fc-cc9e7313f28b">hier</a>.</p>
+<h2 id="artikel">Artikel<a class="headerlink" href="#artikel" title="Permanent link">&para;</a></h2>
+<p>Im Reiter &ldquo;Artikel&rdquo; kann Ware hinterlegt werden, die im Zielland einer anderen Steuerklasse zugeordnet ist, als im Ursprungsland.</p>
+<h3 id="artikel-hinzufugen">Artikel hinzufügen<a class="headerlink" href="#artikel-hinzufugen" title="Permanent link">&para;</a></h3>
+<p>Mit der Schaltfläche „Neuer Artikel“ lässt sich ein neuer Artikel hinzufügen.</p>
+<ul>
+<li>Artikel:Artikel, der im Zielland in eine andere USt.-Klasse eingruppiert wird als im Ursprungsland</li>
+<li>Empfängerland:Zielland</li>
+<li>Steuersatz:Veränderter USt.-Satz im Zielland</li>
+<li>Bemerkung:Interne Anmerkung</li>
+<li>Aktiv:Nur aktive Artikel werden berücksichtig</li>
+</ul>
+<p>Artikeleinstellungen sind nur dann aktiv, wenn unterLieferschwellefür das zugehörige Land im FeldNetto-Preise anpassendie OptionNur mit Lieferschwelle-Artikelnausgewählt wurde.</p>
+<h2 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h2>
+<p>In den Einstellungen wird das Verhalten beim Erreichen der Lieferschwelle festgelegt.</p>
+<ul>
+<li>E-Mail bei Überschreitung:Bei der Überschreitung der Lieferschwelle wird eine E-Mail an einen oder mehrere Empfänger verschickt</li>
+<li>Umsatzzähler erhöhen:Wenn &ldquo;beim Freigeben&rdquo;: Bei der Freigabe von Rechnungen wird der Betrag hochgezählt. Bei der Überschreitung der Lieferschwelle werden automatisch die USt.-Sätze des Ziellandes verwendet</li>
+<li>Bei Überschreitung neue Steuer verwenden:Bei der Überschreitung der Lieferschwelle werden automatisch die USt.-Sätze des Ziellandes verwendet</li>
+<li>E-Mail Empfänger:Empfänger (mehrere Empfänger können per; getrennt eingegeben werden: pers1@example.com;pers2@example.com)</li>
+<li>Empfängername:Empfänger (mehrere Empfänger können per; getrennt eingegeben werden)</li>
+<li>Betreff:Betreff der gesendeten E-Mail</li>
+<li>Text:Inhalt der gesendeten E-Mail. Verwenden der angegebenen Variablen in geschweiften Klammern, um die E-Mail mit Informationen zur überschrittenen Lieferschwelle anzureichern</li>
+<li>Projekte ausschließen:In diesem Bereich kannst du Projekte vom Einfluss des Moduls Lieferschwelle ausschließen. Klicke dazu auf +Neuer Eintrag, gib den Namen des jeweiligen Projekts ein und speichere</li>
+</ul>
+<p>Hinweis bzgl. EU Lieferung:Für die Lieferschwelle wird die Besteuerung und die UST-ID ausgewertet, nicht der Typ einer Adresse (Herr/Frau/Firma).</p>
+<p><strong>Hinweis:</strong> Bei aktiver Lieferschwelle kann die Besteuerung im Auftrag nicht nachträglich geändert werden. Einstellungen für die Lieferschwelle werden bei Auftragsanlage übernommen, Änderungen des Felds &ldquo;Besteuerung&rdquo; im Auftrag wirken sich nicht aus. Wenn ein Auftrag mit Lieferung in ein Land, für das eine Lieferschwelle aktiv ist, ohne Lieferschwelle abgewickelt werden soll, weil z.B. der Kunde die Ware im Inland abholt, musst du vor Auftragsanlage in der Adresse den Haken bei &ldquo;Lieferschwelle nicht anwenden&rdquo;(Tab: Zahlungskonditionen/Besteuerung) setzen.</p>
+<h2 id="erloskonten-pflegen">Erlöskonten pflegen<a class="headerlink" href="#erloskonten-pflegen" title="Permanent link">&para;</a></h2>
+<p>In Xentral gibt es verschiedene Module, in welchen Erlöskonten hinterlegt werden können. Nachfolgend siehst du die Reihenfolge der unterschiedlichen Möglichkeiten nach Relevanz. Das bedeutet, die Einstellungen in den Lieferschwellen stechen beispielsweise die anderen Einstellungen immer aus, da sie für jedes Land unterschiedlich sind.</p>
+<p>Du hast die folgenden Möglichkeiten:</p>
+<ol>
+<li>Einstellungen der angelegten Lieferschwellen (Lieferschwelle &gt; Übersicht)</li>
+<li>Einstellungen im betroffenen Artikel (Stammdaten &gt; Artikel &gt; Details &gt; Finanzbuchhaltung)</li>
+<li>Einstellungen in der betroffenen Artikelkategorie (Artikel Kategorien &gt; Übersicht &gt; Details)</li>
+<li>Einstellungen im Projekt (Stammdaten &gt; Projekt &gt; Einstellungen &gt; Steuer / Währung)</li>
+<li>Grundeinstellungen (Administration &gt; System &gt; Grundeinstellungen)</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

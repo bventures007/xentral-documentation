@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16853851788572 Datev Rechnungsdatenservice 10 Unternehmen Online - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>16853851788572 Datev Rechnungsdatenservice 10 Unternehmen Online</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>16853851788572 Datev Rechnungsdatenservice 10 Unternehmen Online</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Der DATEV Rechnungsdatenservice 1.0 ermöglicht dir, Belege wie Rechnungen und Gutschriften direkt und automatisch aus deinem Xentral-System in DATEV Unternehmen online zu übertragen. Dabei werden sowohl Belegbilder als auch wichtige Daten (z. B. Betrag, Datum, Lieferant) ohne manuellen Aufwand übermittelt.</p>
+<p>Für dich bedeutet das eine große Zeitersparnis: Alle relevanten Rechnungsdaten landen strukturiert und korrekt im DATEV-System und stehen dort direkt für die Buchhaltung bereit. So sparst du Aufwand und minimierst Fehler bei der Dateneingabe.</p>
+<p><img alt="DATEV_unternehmenonline_xml_Workflow_kurzueberblick.png" src="https://help.xentral.com/hc/article_attachments/18155702396956" /></p>
+<p>Der DATEV Rechnungsdatenservice 1.0 ermöglicht dir, deine Buchhaltungsbelege (Rechnungen, Gutschriften, Verbindlichkeiten) direkt per API zu DATEV zu exportieren. Der Export wird dabei automatisch von Xentral an DATEV übertragen. Alle Exporte werden in einer Übersichtstabelle angezeigt.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Xentral unterstützt die Verbindung mit dem <strong>DATEV Rechnungsdatenservice in Version 1.0</strong>. Die neuere Version 2.0 wird aktuell nicht unterstützt.</p>
+</blockquote>
+<h2 id="schnellstart-einrichtung-und-export-mit-rechnungsdatenservice-10-schnellstart-schritte">Schnellstart: Einrichtung und Export mit Rechnungsdatenservice 1.0 <strong>Schnellstart Schritte:</strong><a class="headerlink" href="#schnellstart-einrichtung-und-export-mit-rechnungsdatenservice-10-schnellstart-schritte" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Gib die Daten für die <a href="https://help.xentral.com/hc/de/articles/360016725100#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e_section-idm2346058023653">Initiale Stammdaten-Einrichtung</a> für die Übertragung ein und speichere sie ab. Z.B. Mandanten und Beraternummer.</li>
+<li>Verbinde Xentral mit DATEV über<a href="#UUID-a0703471-aeb2-3876-7f6a-6b407c12941d_section-idm23462696315916"><strong>SmartLogin <strong>oder</strong> DATEV SmartCard / DATEV mIDentity</strong>.</a></li>
+<li><a href="#UUID-a0703471-aeb2-3876-7f6a-6b407c12941d_section-idm234628144591797"><strong>Exportiere <strong>die Daten zu DATEV Unternehmen Online</a> indem du einen</strong> Belegtyp </strong> auswählst und einen <strong>Datumsbereich </strong> angibst und den <strong>Export startest</strong>.</li>
+<li><a href="#UUID-a0703471-aeb2-3876-7f6a-6b407c12941d_section-idm234628128546799">Erweiterte Einstellungen</a>: Wähle den Account aus, wähle für Verbindlichkeiten das Eingangs- oder Rechnungsdatum des Belegs aus.</li>
+</ol>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Dein Steuerberater benötigt Administrationsrechte in DATEV, damit die Verbindung reibungslos funktioniert. Eine Anleitung zur Konfiguration in DATEV findest du im folgenden Artikel im <strong>DATEV Hilfe-Center</strong>: &lsquo;<a href="https://apps.datev.de/help-center/documents/1007329">Rechnungswesen 1.0 als Steuerberater in DATEV einrichten</a>&rsquo;.</p>
+<h2 id="verbindung-mit-datev-rechnungsdatenservice-10">Verbindung mit DATEV Rechnungsdatenservice 1.0<a class="headerlink" href="#verbindung-mit-datev-rechnungsdatenservice-10" title="Permanent link">&para;</a></h2>
+<p>Das Modul <strong>DATEV Rechnungsdatenservice 1.0 </strong> findest du über die Smart-Suche über <strong> DATEV Rechnungsdatenservice 1.0</strong> oder im Menü unter <strong> Buchhaltung &gt; DATEV Rechnungsdatenservice 1.0.</strong>### Verbindung zu DATEV über SmartLogin oder DATEV SmartCard/ DATEV mIDentity <strong>Schritte:</strong></p>
+<ol>
+<li>Klicke im Modul <strong>DATEV Rechnungsdatenservice 1.0 <strong>auf den Reiter:</strong> Einstellungen</strong>.</li>
+<li>Klicke auf <strong>Authentifizieren</strong>. Ein neuer Reiter öffnet sich in deinem Browser. Logge dich bei DATEV ein.</li>
+<li>Wähle dein verwendetes <strong>Anmeldeverfahren</strong> aus:</li>
+<li>Klicke auf <strong>Weiter</strong> und melde dich mit dem ausgewählten Anmeldeverfahren an.</li>
+<li>Klicke auf <strong>Ich stimme zu</strong> um Xentral die Erlaubnis zu erteilen, Daten mit DATEV auszutauschen.</li>
+<li>Die <strong>Authentifizierung wird nun abgeschlossen </strong> und ein Authentifizierungstoken in Xentral hinterlegt. Du wirst zurück zum Reiter:<strong>Einstellungen </strong> des Moduls <strong>DATEV Rechnungsdatenservice 1.0</strong> in deiner Xentral-Instanz weitergeleitet.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Person, die sich in DATEV eingeloggt hat, wird im Reiter Einstellungen als <strong>Token-Ersteller </strong> angezeigt. Die Gültigkeit des Tokens wird im Feld:<strong>Token gültig bis</strong> angezeigt.</p>
+</blockquote>
+<h2 id="datenubertragung-zu-datev-uber-rechnungsdatenservice-10">Datenübertragung zu DATEV über Rechnungsdatenservice 1.0<a class="headerlink" href="#datenubertragung-zu-datev-uber-rechnungsdatenservice-10" title="Permanent link">&para;</a></h2>
+<h3 id="datenubertragung-an-datev-konfigurieren-einstellungen">Datenübertragung an DATEV konfigurieren (= Einstellungen)<a class="headerlink" href="#datenubertragung-an-datev-konfigurieren-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Nachdem du die Verbindung zu DATEV hergestellt hast, kannst du im Reiter:<strong>Einstellungen</strong> die folgenden Kofigurationen vornehmen:</p>
+<p><img alt="DATEV_rechnungsdatenservice1_0_xentral_einstellungen_erweitert.png" src="https://help.xentral.com/hc/article_attachments/18155686018588" /></p>
+<table>
+<thead>
+<tr>
+<th>Feld</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Import Benutzer</strong></td>
+<td>Wenn du mehrerer Benutzer oder Firmen hast: Alle Benutzer, die mit dem genutzten DATEV-Konto verbunden sind, werden hier aufgelistet. Wähle hier das Unternehmen aus, für das du deine Belege exportieren möchtest.</td>
+</tr>
+<tr>
+<td>Testzugang</td>
+<td>Optional: Wähle diese Option, wenn du deine Belege testweise in die DATEV Sandbox exportieren möchtest, bevor du live gehst.</td>
+</tr>
+<tr>
+<td><strong>Verbindlichkeit Datumsfilter <strong></td>
+<td>Wähle aus, ob deine Verbindlichkeiten nach Eingangsdatum oder nach Rechnungsdatum exportiert werden sollen: -</strong> Nach Eingangsdatum <strong>: Eingangsdatumsfeld im Modul Verbindlichkeiten (Eingangsdatum in der Belegeingabe)<br>-</strong> Nach Rechnungsdatum</strong>: Rechnungsdatumsfeld im Modul Verbindlichkeiten (Rechnungsdatum in der Belegeingabe)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="belege-an-datev-ubertragen-export">Belege an DATEV übertragen (= Export)<a class="headerlink" href="#belege-an-datev-ubertragen-export" title="Permanent link">&para;</a></h3>
+<p>Du kannst deine Rechnungen, Gutschriften und Verbindlichkeiten direkt per API an DATEV exportieren – und das für einen <strong>Zeitraum von bis zu einem Monat </strong>.<strong>Schritte, um deine Belege via API zu DATEV zu exportieren:</strong></p>
+<ol>
+<li>Klicke im Modul <strong>DATEV Rechnungsdatenservice 1.0</strong> auf den Reiter:<strong> Export</strong>.</li>
+<li>Wähle den <strong>Typ </strong> des Belegs, den du exportieren möchtest:<strong>Rechnungen <strong>,</strong> Gutschriften </strong> und <strong>Verbindlichkeiten</strong> kannst du im Dropdown-Menü anwählen. Es kann jeweils nur ein Belegtyp gleichzeitig exportiert werden.</li>
+<li>Wähle <strong>Startdatum </strong> und <strong>Enddatum</strong> deines Exports. Achte darauf, dass sich der Exportzeitraum im selben Monat befindet. Z.B. 01.10.2024 bis 31.10.2024.</li>
+<li>Klicke auf <strong>Export</strong>.</li>
+<li>Der Export wird nun zu DATEV übertragen und mit einem <strong>Zeitstempel </strong> und einem <strong>Status</strong>(Fehler oder Erfolgreich) in der untenstehenden Tabelle protokolliert.</li>
+</ol>
+<p>Für j <strong>eden erfolgten Export </strong> wird der <strong>Zeitraum </strong> mit <strong>Zeitstempel </strong> und <strong>Status</strong> in den Belegtabellen protokolliert. Zusätzlich kannst du eine CSV-Datei des Exports durch einen Klick auf Protokoll im jeweiligen Eintrag herunterladen. Diese Datei enthält Informationen zum Status der im Export enthaltenen Belege in DATEV.</p>
+<p><img alt="DATEV_Rechnungsdatenservice1_0_export_protokoll.png" src="https://help.xentral.com/hc/article_attachments/18155702433180" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das Protokoll ist nur für Xentral-Instanzen ab Version 24.14.6 verfügbar und nur für Exporte, die nach Update auf diese oder eine neuere Version durchgeführt wurden.</p>
+</blockquote>
+<p><strong>Export Optionen auf einen Blick:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feld</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Typ <strong></td>
+<td>Definiere, welche Datenkategorien exportiert werden sollen, z. B.</strong> Rechnungen <strong>,</strong> Gutschriften <strong>,</strong> Verbindlichkeiten</strong>. Es kann jeweils nur ein Belegtyp gleichzeitig exportiert werden.</td>
+</tr>
+<tr>
+<td>Projekt</td>
+<td>Optional / Standardmäßig leer lassen: Das Projekt nur angeben, wenn du ausschliesslich einen Kanal exportieren möchtest.</td>
+</tr>
+<tr>
+<td><strong>Startdatum <strong></td>
+<td>Wähle einen Exportbereich aus, indem du ein</strong> Datum von ‘TT.MM.JJJJ</strong>’ bis ‘TT.MM.JJJJ&rsquo; angibst. Exportiere für DATEV z.B. den Zeitraum eines Monats für den Monatsabschluss.</td>
+</tr>
+<tr>
+<td><strong>Enddatum <strong></td>
+<td>Wähle einen Exportbereich aus, indem du ein</strong> Datum </strong> von ‘TT.MM.JJJJ’<strong>bis ‘TT.MM.JJJJ&rsquo;</strong> angibst. Exportiere für DATEV z.B. den Zeitraum eines Monats für den Monatsabschluss.</td>
+</tr>
+<tr>
+<td>Bereits exportierte Dokumente ignorieren</td>
+<td>Optional/ Besonderer Workflow: Ignoriert die bereits gezogenen Daten z.B. wenn du täglich exportierst kannst du die Daten von gestern ausschliessen.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fehlerbehebung">Fehlerbehebung<a class="headerlink" href="#fehlerbehebung" title="Permanent link">&para;</a></h2>
+<p>Wenn eine Fehlermeldung angezeigt wird, stehen dir verschiedene Maßnahmen zur Verfügung. Weitere Informationen findest du in den<a href="https://help.xentral.com/hc/de/articles/10692093278492-FAQ-Finanzbuchhaltung-Export">FAQ zum Buchhaltungsexport</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Fehler</th>
+<th>Fehlerbehebung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Prüfe Beraternummer und Mandantennummer unter Finanzbuchhaltungsexport &amp; Einstellungen. Authentifiziere anschließend erneut und versuche dich mit dem DATEV Rechnungsservice zu verbinden.</td>
+</tr>
+<tr>
+<td></td>
+<td>Prüfe die Einstellungen in DATEV selbst. Hier sollten alle Berechtigungen korrekt gesetzt sein (z.B. Steuerberater). Manchmal hilft es auch wenn du die Berechtigungen in DATEV löschst und erneut vergibst.</td>
+</tr>
+<tr>
+<td></td>
+<td>Kürze den Exportzeitraum, z.B. auf einen Tag. Manchmal können bei längeren Zeiträumen Probleme auftreten.</td>
+</tr>
+<tr>
+<td>&lsquo;Error: invalid Grant&rsquo;</td>
+<td>Erneuere den Access Token. Der Token der DATEV API ist aus Gründen der Datensicherheit nur wenige Stunden gültig. Daher kann die Fehlermeldung angezeigt werden, dass die Zugangsdaten nicht korrekt sind (bzw. &lsquo;Error: invalid Grant&rsquo;).</td>
+</tr>
+<tr>
+<td>Fehler: In DATEV Unternehmen online ist kein Bestand angelegt oder Wirtschaftsjahr vorhanden</td>
+<td>Erhältst du die Fehlermeldung: &ldquo;Fehler: In DATEV Unternehmen online ist kein Bestand angelegt oder Wirtschaftsjahr vorhanden&rdquo;, sollte der für DATEV verantwortliche Mitarbeiter oder dein Steuerberater den DATEV Rechnungsservice 1.0 für Xentral aktivieren. In DATEV können sie dies auf die folgende Weise umsetzen: Deaktiviere DATEV Unternehmen online compact. Stelle die Bearbeitungsform von Standard auf Erweitert um. Schalte die Buchungsjahre für das jeweilige Jahr frei. Richte Rechnungsdatenservice 1.0 für den Xentral-Nutzer ein.</td>
+</tr>
+<tr>
+<td></td>
+<td>DATEV akzeptiert bis zu 5000 Dateien pro Export mit einer maximalen Dateigröße von 20 MB. Der kleinste Zeitraum der aus Xentral exportiert werden kann, ist ein Tag. Daraus folgt, dass du maximal 5000 Dateien pro Tag zu DATEV hochladen kannst. Exportierst du deine Belege in mehrere Dateiformate, wie XML und PDF, verringert dies die Anzahl der Belege, die du hochladen kannst, da pro Beleg mehrere Dateien benötigt werden. Ein Workaround für dieses Problem ist, die Belege herunterzuladen, in Gruppen kleiner als 5000 einzuteilen und sie manuell über<a href="#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6ehttps://help.xentral.com/hc/de/articles/360016725100-Finanzbuchhaltung-Export-DATEV-Export-Einstellungen#UUID-a322c08d-1f79-6bbe-adfe-2ca542c4bd6e">Finanzbuchhaltung Export</a> hochzuladen. Du kannst die Belege in der App im Bereich Datev Unternehmen Online links unten hochladen.</td>
+</tr>
+</tbody>
+</table>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

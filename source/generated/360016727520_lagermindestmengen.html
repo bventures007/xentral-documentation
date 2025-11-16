@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016727520 Lagermindestmengen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016727520 Lagermindestmengen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016727520 Lagermindestmengen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit dem Modul &ldquo;Filiallieferung&rdquo; kann über eine extra Oberfläche ein Auftrag auf eine Filialadresse mit einem Klick eingelagert werden. Dadurch muss man nicht manuell alle einzelnen Positionen der Filiallieferung erfassen und einlagern, was bei großen Lieferungen eine erhebliche Zeitersparnis bedeutet. Voraussetzung ist, dass sich im Auftrag eine Adresse befindet, die man zuvor mit einer Filiale verknüpft hat. Die Filiallieferung setzt sich aus folgenden Schritten zusammen:</p>
+<ul>
+<li>Filialen und Zentrale definieren</li>
+<li>Lagermindestmengen für Artikel auf Filialläger festlegen</li>
+<li>Alternativ zur Lagermindestmenge können auch direkt Aufträge angelegt werden</li>
+<li>Filialen von Zentrale aus beliefern und Lagermengen als Filialauftrag ohne Rechnungsstellung anlegen und über den Autoversand abwickeln</li>
+</ul>
+<h2 id="filiallieferung-workflow">Filiallieferung (Workflow)<a class="headerlink" href="#filiallieferung-workflow" title="Permanent link">&para;</a></h2>
+<p>Folgende Schritte sind für die Filiallieferung mit Lagermindestmengen einzustellen:</p>
+<ol>
+<li>Adresse für die Filiale anlegen (im Beispiel: Filiale München)</li>
+<li>Projekt für diese Filiale anlegen (im Beispiel: POSMUENCHEN → oder bestehendes Projekt verwenden); im Projekt die Filialadresse und das Projekt, auf das der Filialauftrag angelegt werden soll (im Beispiel: &ldquo;ONLINESHOP&rdquo;)</li>
+<li>Lager für die Filiale anlegen (im Beispiel: MUENCHEN_001 → das Lager auf das Projekt &ldquo;POSMUENCHEN&rdquo; buchen)</li>
+<li>Lagerartikel anlegen und für diesen ein Mindestlager bestimmen (Lager &amp; Logistik → Lagermindestmengen)</li>
+<li>Im Modul &ldquo;Lagermindestmengen&rdquo; über &ldquo;Aktion&rdquo; eine Filiallieferung auslösen</li>
+</ol>
+<p>Folgende Schritte sind für die Filiallieferung ohne Lagermindestmengen einzustellen:</p>
+<ol>
+<li>Schritte 1-3 identisch zur Filiallieferung mit Lagermindestmengen. Es ist eine zusätzliche Einstellung in den Stammdaten der Filialadresse notwendig, damit bei den Belegen im Autoversand nur Lieferscheine erstellt werden und keine Rechnungen</li>
+<li>Auftrag anlegen mit der Filial-Adresse und die Artikel welche an die Filiale/ Lager geliefert werden sollen, dem Auftrag zufügen</li>
+<li>Auftrag an Versandzentrum übergeben zur Lieferung (bspw. per Autoversand)</li>
+</ol>
+<h2 id="filiallieferung-mit-lagermindestmengen">Filiallieferung mit Lagermindestmengen<a class="headerlink" href="#filiallieferung-mit-lagermindestmengen" title="Permanent link">&para;</a></h2>
+<h3 id="1-adresse-fur-filiale">1. Adresse für Filiale<a class="headerlink" href="#1-adresse-fur-filiale" title="Permanent link">&para;</a></h3>
+<p>Eine Adresse im Adressstamm für die Filiale anlegen: Stammdaten → Adresse → +NEU.</p>
+<p>Eine neue Adresse für die Filiale anlegen. Hier wird eine Kundennummer vergeben. Für diese Kundennummer wird bei der Filiallieferung ein Auftrag angelegt (die Lieferung erfolgt an die Filialadresse).</p>
+<p>Im Beispiel ist die Adresse eine Filiale in München &ldquo;POS München&rdquo;, die von Augsburg (Zentrale) aus beliefert werden soll.</p>
+<h3 id="2-projekt-fur-filiale">2. Projekt für Filiale<a class="headerlink" href="#2-projekt-fur-filiale" title="Permanent link">&para;</a></h3>
+<p>Für diese Filiale &ldquo;POS München&rdquo; ein Projekt anlegen unter &ldquo;Stammdaten → Projekte → NEU&rdquo;. Das Projekt wird im Beispiel &ldquo;POSMUENCHEN&rdquo; bezeichnet. Dieses Projekt hat einen Ladenverkauf, es kann aber auch einfach eine andere Filiale mit einem Büro oder einem eigenen Logistikprozess sein.</p>
+<p>Sofern es bereits ein Projekt für diese Filiale gibt, kann das bereits bestehende Projekt verwendet werden (gilt auch für das Lager im nächsten Punkt).</p>
+<p>In diesem neuen Projekt wird im Tab &ldquo;Filiale&rdquo; folgendes eingetragen:</p>
+<ul>
+<li>Adresse aus Stammdaten → Die Filialadresse muss die Rolle Kunde haben (s.o.) (Filialadresse für die Filiale, die zu diesem Projekt gehört: in diesem Beispiel ist das für das Projekt &ldquo;POSMUENCHEN&rdquo; auch die oben angelegte Adresse &ldquo;Pos München&rdquo; mit der Kundennummer &ldquo;10011&rdquo;</li>
+<li>Projekt für Lieferung der Zentrale an Filiale → Lieferungen werden über dieses Projekt versendet (Der Auftrag für die Lieferung an die Filiale wird auf dieses Projekt gebucht. Idealerweise sollte hier das Projekt verwendet werden, das einen Logistikprozess eingestellt hat, über den die Zentrale versenden kann. Alternativ kann auch ein neues Projekt angelegt werden, das auf alle Läger in der Zentrale Zugriff hat) → im Beispiel wird das Projekt &ldquo;ONLINESHOP&rdquo; verwendet. Dieses Projekt ist das Projekt für die Zentrale in Augsburg.</li>
+</ul>
+<h3 id="3-lager-fur-filiale">3. Lager für Filiale<a class="headerlink" href="#3-lager-fur-filiale" title="Permanent link">&para;</a></h3>
+<p>Für die Filiale in München wird ein neues Lager angelegt: Lager &ldquo;München&rdquo;, Regal: &ldquo;MUENCHEN_001&rdquo;. Diesem Lager wird das Projekt &ldquo;POSMUENCHEN&rdquo; zugeordnet und wird somit zu einem Projektlager. In dieses Lager wird die Filiallieferung später von der Zentrale aus eingebucht.</p>
+<p>Lager: Muenchen → Projekt &ldquo;MUENCHENPOS&rdquo; vergeben</p>
+<p><img alt="filiallieferung_3.png" src="https://help.xentral.com/hc/article_attachments/5080760502812" /></p>
+<p>Regal: MUENCHEN_001</p>
+<p><img alt="filiallieferung_4.png" src="https://help.xentral.com/hc/article_attachments/5080760523164" /></p>
+<h3 id="4-artikel-mindestlagermenge-fur-filiallager">4. Artikel Mindestlagermenge für Filiallager<a class="headerlink" href="#4-artikel-mindestlagermenge-fur-filiallager" title="Permanent link">&para;</a></h3>
+<p>Für einen Artikel (Lagerartikel) wird nun ein Mindestbestand für das Filiallager &ldquo;MUENCHEN_001&rdquo; vergeben:</p>
+<p>Lager → Lagermindestmengen → Mindestmengen pro Artikel</p>
+<p>Artikel, Lagerplatz und Menge eingeben und speichern</p>
+<p>Im Beispiel soll der Artikel &ldquo;Tasse Xentral&rdquo; mit der Artikelnummer &ldquo;1000005&rdquo; die Mindestmenge &ldquo;20&rdquo; für das Lager &ldquo;MUENCHEN_001&rdquo; erhalten.</p>
+<p>Beispiel für eingetragene Mengen bei den &ldquo;Mindestmengen&rdquo;:</p>
+<p><img alt="filiallieferung_6.png" src="https://help.xentral.com/hc/article_attachments/5080822984860" /></p>
+<h3 id="5-filialbestellung-auslosen">5. Filialbestellung auslösen<a class="headerlink" href="#5-filialbestellung-auslosen" title="Permanent link">&para;</a></h3>
+<p>Um eine Filialbestellung von Augsburg nach München auszulösen, wird im nächsten Tab &ldquo;Aktionen&rdquo; die Filiale ausgewählt:</p>
+<p>Manuelle Umlagerliste um Mindestmengen auffüllen zu können (PDF)</p>
+<p>Lieferung für Projekt / Filiale / Außenlager anlegen</p>
+<p>Im Anschluss die zu beliefernde Filiale aus der Liste auswählen.</p>
+<p>Im nächsten Schritt werden die fehlenden Artikel aufgelistet, um die Mindestmenge in der Filiale aufzufüllen. Im Beispiel ist die &ldquo;Tasse Xentral&rdquo; im Augsburger Lager 300-mal vorrätig und es sollen von dort aus 20 Stück nach München geliefert werden. Hier kann die Menge nochmals verändert werden. Über &ldquo;Auftrag erstellen&rdquo; wird auf das im Projekt &ldquo;POSMUENCHEN&rdquo; hinterlegte Projekt für die Zentrale der Auftrag erstellt. Im Beispiel ist das der &ldquo;ONLINESHOP&rdquo; der Zentrale in Augsburg.</p>
+<p>Angelegt wird der Auftrag auf die Münchner Adresse &ldquo;Pos München&rdquo; und auf die Kundennummer der Filiale. Den Auftrag kann man nun freigeben und im Anschluss kann dieser ganz normal in die Logistik übergeben werden.</p>
+<p>Der Auftrag für die Filiallieferung wird im Standard immer ohne Rechnungserstellung voreingestellt. Somit erfolgt bei der Lieferung keine Rechnungsstellung über den Logistikprozess. Es wird lediglich ein Lieferschein erstellt:</p>
+<p>Die Nummernvergabe für die Auftragsnummer erfolgt aus dem Nummernkreis des im Filialprojekt angegebenen Projekt der Zentrale in Augsburg im Projekt &ldquo;ONLINESHOP&rdquo; ganz normal wie bei der manuellen Anlage eines Auftrages auf das Projekt &ldquo;ONLINESHOP&rdquo;.</p>
+<p>Gekennzeichnet werden Filialaufträge über ein (F) in der Auftragsübersicht. Nach dem &ldquo;(F)&rdquo; kann ebenso in der Suche gesucht werden.</p>
+<p>Im Modul Filiallieferung unter &ldquo;offene Lieferungen&rdquo; können Sie den angelieferten Artikel dann im Filiallager einlagern.</p>
+<h2 id="filiallieferung-ohne-lagermindestmengen">Filiallieferung ohne Lagermindestmengen<a class="headerlink" href="#filiallieferung-ohne-lagermindestmengen" title="Permanent link">&para;</a></h2>
+<h3 id="1-adresse-fur-die-filiale-anlegen">1. Adresse für die Filiale anlegen<a class="headerlink" href="#1-adresse-fur-die-filiale-anlegen" title="Permanent link">&para;</a></h3>
+<p>Nachdem Sie die Adresse für die Filiale wie zuvor beschrieben angelegt haben, ist dort noch eine zusätzliche Einstellung notwendig, damit bei der Weiterverarbeitung im Autoversand automatisch nur der Lieferschein erstellt und keine Rechnung erzeugt wird. Gehen Sie hierzu in den Stammdaten der Filialadresse unter den Reiter &ldquo;Zahlungskonditionen/ Besteuerung&rdquo; und stellen dort bei Belege im Auto-Versand erstellen auf &ldquo;nur Lieferschein erstellen&rdquo;</p>
+<h3 id="2-manuell-auftrag-fur-das-filiallager-anlegen">2. Manuell Auftrag für das Filiallager anlegen<a class="headerlink" href="#2-manuell-auftrag-fur-das-filiallager-anlegen" title="Permanent link">&para;</a></h3>
+<p>Wenn Sie nicht mit Mindestbeständen für Artikel (Lagerartikel) arbeiten möchten, können Sie auch direkt einen Auftrag anlegen. Sie wählen dazu Ihre Filialadresse aus und ergänzen Ihre Artikel die Sie an die Filiale liefern möchten. Durch die Auswahl der Filialadresse wird der Auftrag auch entsprechend mit (F) für Filiallieferung in der Auftragsübersicht gekennzeichnet.</p>
+<h3 id="3-auftrag-an-versandzentrum-ubergeben">3. Auftrag an Versandzentrum übergeben<a class="headerlink" href="#3-auftrag-an-versandzentrum-ubergeben" title="Permanent link">&para;</a></h3>
+<p>Der Auftrag auf die Münchner Adresse &ldquo;Pos München&rdquo;, Kundennummer &ldquo;10011&rdquo; kann im Anschluss ganz normal in die Logistik übergeben werden.</p>
+<h2 id="modul-filiallieferung">Modul Filiallieferung<a class="headerlink" href="#modul-filiallieferung" title="Permanent link">&para;</a></h2>
+<p>Nachdem der Filialauftrag über die Logistik abgewickelt wurde, wird dieser in der Liste aller offenen Filiallieferungen angezeigt: Im Modul Filiallieferung werden die Lieferinhalte pro Filiale und Lieferung in einer Übersicht angezeigt. Über das Edit-Icon gelangen Sie in die Inhalte der Lieferung und können dort die Regale der Filiale zum Einlagern der Ware auswählen.</p>
+<h3 id="filiallieferung-offene">Filiallieferung offene<a class="headerlink" href="#filiallieferung-offene" title="Permanent link">&para;</a></h3>
+<p>Administration → Appstore → Filiallieferung. Hier sind die versendeten Filialaufträge sichtbar.</p>
+<p><img alt="filiallieferung_15.png" src="https://help.xentral.com/hc/article_attachments/5080838371612" /></p>
+<p><img alt="filiallieferung_16.png" src="https://help.xentral.com/hc/article_attachments/5080792890268" /></p>
+<h3 id="wareneingang-fur-filiallieferung">Wareneingang für Filiallieferung<a class="headerlink" href="#wareneingang-fur-filiallieferung" title="Permanent link">&para;</a></h3>
+<p>Mit dem Stift-Icon kann die Menge in das Filiallager eingebucht werden. Die Buchung in die Filiale &ldquo;POSMUENCHEN&rdquo; erfolgt von der Zentrale aus (aus Augsburg):</p>
+<p>Der Artikel &ldquo;Tasse Xentral&rdquo; ist nun 280-mal im Lager Augsburg und 20-mal im Lager München lagernd.</p>
+<h2 id="filiallieferung-benutzerrechte">Filiallieferung Benutzerrechte<a class="headerlink" href="#filiallieferung-benutzerrechte" title="Permanent link">&para;</a></h2>
+<p>Bitte beachten Sie, dass für die Filiallieferung folgende Modulrechte zu &ldquo;Filiallieferung&rdquo; mit berührt und ggf. benötigt werden:</p>
+<ul>
+<li>Artikel</li>
+<li>Auftrag</li>
+<li>Bestellvorschlag Filiale</li>
+<li>Adresse</li>
+<li>Lager</li>
+<li>Lieferschein</li>
+</ul>
+<h3 id="bestand-aus-hauptlager-berucksichtigen">Bestand aus Hauptlager berücksichtigen<a class="headerlink" href="#bestand-aus-hauptlager-berucksichtigen" title="Permanent link">&para;</a></h3>
+<p>Beim Erstellen des Auftrags für die Fililallieferung kann mit der Option der Bestand im Quellager auf die umzulagernde Mindestmenge geprüft werden.</p>
+<p>Im Anschluss wird nach Auswahl der Filiale eine Gegenüberstellung des verfügbaren Bestands des Hauptlagers mit der Mindestlagermenge des Artikels bei der Filiale vorgenommen.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

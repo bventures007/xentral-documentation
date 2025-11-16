@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10913839563036 Systemeinstellungen Übersicht - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>10913839563036 Systemeinstellungen Übersicht</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>10913839563036 Systemeinstellungen Übersicht</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>In dieser Kategorie bekommst du alle Infos, wie du die ERP-Software individuell an deine Geschäftsprozesse anpasst. Du lernst, wie du Firmendaten einpflegst, Module und Pflichtfelder verwendest und deine Belege bis ins Detail personalisierst. Auch das Einrichten von Druckern und E-Mail-Konten sowie das Anwenden von Datenschutzrichtlinien sind hier Thema.</p>
+<p>Im Folgenden findest du alle Themen in diesem Bereich:</p>
+<h2 id="standardkonfigurationen-system-einstellungen">Standardkonfigurationen: System &amp; Einstellungen<a class="headerlink" href="#standardkonfigurationen-system-einstellungen" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<ul>
+<li>Grundeinstellungen: - Firmendaten in den Grundeinstellungen anlegen: Verwaltung zentraler Unternehmensinformationen wie Name, Adresse und Steuerdaten. - Freifelder für Artikel, Adressen und Projekte: Erstellung benutzerdefinierter Felder für Artikel, Adressen und Projekte zur Erfassung zusätzlicher Informationen. - Übersetzungen: Verwaltung von Sprachvarianten für Felder und Bezeichnungen zur Unterstützung mehrsprachiger Inhalte.</li>
+<li>Belege Einstellungen: - Belegvorlage (Briefkopf) und Briefpapier: Anpassung des Briefpapier-Layouts mit Logos, Absenderinformationen und Unternehmensdaten. - Textvorlagen in Belegen: Erstellung und Verwaltung von Standardtexten und Textbausteinen für Belege zur Vereinfachung der Kommunikation. - Geschäftsbrief Vorlagen: Definition formatierter E-Mail Vorlagen für Geschäftsbriefe zur einheitlichen Nutzung im Unternehmen. - Belegsprache (Sprachenliste): Auswahl der Sprache für Belege zur Ansprache internationaler Kunden.</li>
+<li>Drucker anbinden: Belegdrucker, Labeldrucker: Konfiguration von Druckern für den automatischen Ausdruck von Rechnungen, Lieferscheinen oder Versandetiketten.</li>
+<li>E-Mail-Konten anbinden: Verknüpfung geschäftlicher E-Mail-Konten für den direkten Versand von Belegen, Angeboten und Kundenkommunikation.</li>
+<li>System: - System (Systemeinstellungen - globale Settings): Verwaltung grundlegender systemweiter Konfigurationen für die gesamte Software. - Prozesstarter &amp; Automatisierung: Einrichtung automatisierter Abläufe zur Optimierung wiederkehrender Prozesse wie Importe oder Logistikabwicklung und Belegversand. - System Status: Überwachung des aktuellen Systemstatus und laufender Prozesse.</li>
+</ul>
+</blockquote>
+<h2 id="grundeinstellungen">Grundeinstellungen<a class="headerlink" href="#grundeinstellungen" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360016760679#UUID-4db2e116-e3ba-3180-307a-2b17c8a74cf1">Firmendaten in den Grundeinstellungen anlegen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360017612120#UUID-dfa23e64-d4d3-3d8b-4e17-843cc0b0dfb9">Freifelder für Artikel, Adressen und Projekte</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016721480#UUID-1cd03e07-9243-7a51-c00b-11c1245f1033">Labels</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016759499#UUID-aa633907-0dbc-8950-18f8-799c76146c4d">Pflichtfelder</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360021418300#UUID-51eaa1e8-34f7-0e51-d884-0737e130e63b">Module</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360018755960#UUID-0ebab809-b36c-8e41-5bf2-9e38eb001f73">Übersetzungen</a></li>
+</ul>
+<h2 id="belege-einstellungen">Belege Einstellungen<a class="headerlink" href="#belege-einstellungen" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360021418600#UUID-c0069dbd-d9a5-fdc3-8bcf-78a9e89d48c0">Belege Infoboxen - Beleginformationen im Briefpapier erweitern</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360017518360#UUID-0b7213b7-fa63-f6b0-ae99-a31132d1a92e">Belegvorlage (Briefkopf) und Briefpapier</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016769320#UUID-77845fbc-b215-b40f-d443-1ead2a9f4dff">Geschäftsbrief Vorlagen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360021441799#UUID-ab584d16-af80-8e3d-0237-865c576c38c9">Textvorlagen in Belegen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360017663439#UUID-805dda94-058e-0e34-72a2-1b5b24fbe545">Belegsprache (Sprachenliste)</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016728180#UUID-11df5b96-3a06-2e7c-4c27-1b7b4c187c95">Dokumenten Stapelverarbeitung</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360021632199#UUID-bd75ea92-cad8-3302-81ab-b9e69ca063a2">Textbausteine</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016756619#UUID-0b2d1b15-5dcc-3304-05f8-4d8006a8c380">Formeln</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360017573119#UUID-516667d0-709c-4079-3643-52ec2603d0b3">Etikettenlayout erstellen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016756559#UUID-278ae585-199c-e7aa-b25a-3d5c4cb07aa2">Layoutvorlagen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016754659#UUID-c9dcf708-2da3-9c0d-7f38-d762e7486152">Layoutvorlagen Anhang</a></li>
+</ul>
+<h2 id="drucker">Drucker<a class="headerlink" href="#drucker" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360016756299#UUID-1440617b-112e-f4eb-2b29-788c46c17996">Deinen Drucker mit Xentral verbinden</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360017382100#UUID-7093d366-0a7d-c197-44f6-08cb948daefa">Etikettendrucker einrichten</a></li>
+</ul>
+<h2 id="e-mails">E-Mails<a class="headerlink" href="#e-mails" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/document/preview/8126#UUID-8b0a668e-1a4e-ddae-70f0-e83532c07364">E-Mail-Konten anbinden</a></li>
+</ul>
+<h2 id="tickets">Tickets<a class="headerlink" href="#tickets" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360016722980#UUID-a94bd24a-7f62-ec33-2341-33aca2a1bd5c">Ticketvorlagen verwenden</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016721620#UUID-b352e666-1c92-a00d-1c1f-af4f150272b7">Ticketsystem einrichten</a></li>
+</ul>
+<h2 id="cloud-sicherheit-und-infrastruktur">Cloud Sicherheit und Infrastruktur<a class="headerlink" href="#cloud-sicherheit-und-infrastruktur" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360020650839#UUID-deb2d957-c7d6-d828-3d09-cc344131ed28">Infos zur AWS Cloud</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360019729280#UUID-ba3869d6-79fd-b412-d363-4c5f8ad7bd10">DSGVO</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360019771499#UUID-06f3520e-b380-4706-3602-9f9a5cec8312">Data Protect</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016763919#UUID-860d6e71-1c5c-fdd0-351f-cacce40a3504">Backup</a></li>
+</ul>
+<h2 id="system">System<a class="headerlink" href="#system" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360016760599#UUID-90d7b13f-2e36-1fc7-8eb6-1c4615dc892a">Prozessstarter Einstellungen</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360021418240#UUID-df1572f5-a9ab-6983-3cb4-1ef4af1cb50b">Lizenz</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/8019521254300#UUID-19444a47-ada2-0d86-745c-00d0565c63fb">Logger inXentral</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360021442299#UUID-c98b4192-8525-b2a6-c64b-c0158eb87d89">System (Systemeinstellungen - globale Settings)</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016725020#UUID-c4d97aa6-3ed1-272b-146c-bf5f28819ff3">System Status</a></li>
+</ul>
+<h2 id="faq-systemeinstellungen">FAQ Systemeinstellungen<a class="headerlink" href="#faq-systemeinstellungen" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/4403662820242#UUID-c2a32dc7-80a7-2812-23ef-9330bf1a6d1f">Wie gehe ich vor, wenn die Inhalte in der Infobox abgeschnitten werden bzw. zeilenversetzt umbrechen?</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/4402982131474#UUID-820daace-ac09-a742-e753-eda8d183b6e7">Wie kann ich ein Backup machen bzw. wie genau funktioniert die Datensicherung?</a></li>
+<li><a href="https://help.xentral.com/hc/de/articles/360021454139#UUID-e2740992-0cd8-daeb-b7b8-02820723e543">Wie gehe ich bei der Fehlermeldung: &ldquo;Database connection to host &ldquo;localhost&rdquo; failed. Error code #1040. Error message: Too many connections&rdquo; vor?</a></li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

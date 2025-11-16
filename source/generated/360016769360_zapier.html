@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016769360 Zapier - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016769360 Zapier</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016769360 Zapier</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Artikel beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>Zapier: Task-Automatisierung ohne Programmierung</p>
+<h2 id="brauchen-sie-mehr-zeit-fur-sich-und-ihr-business">Brauchen Sie mehr Zeit für sich und Ihr Business?<a class="headerlink" href="#brauchen-sie-mehr-zeit-fur-sich-und-ihr-business" title="Permanent link">&para;</a></h2>
+<p>Automatisieren Sie sich mit Webservices wie Zapier wiederholende Aufgaben. Die Vorgehensweise ist vergleichbar mit der Einrichtung einer E-Mail-Regel bei einem Webmailer. So könnte eine Folge von Schritten der Automatisierung aussehen:</p>
+<p>Wenn (dies oder jenes),</p>
+<ul>
+<li>nehme die Daten und verarbeite (in dieser Form).</li>
+<li>Dann sende die Daten / die Datei an (einen Dienst) und</li>
+<li>an (einen zweiten Dienst).</li>
+</ul>
+<p>Die versendeten Daten können Sie sich dabei als Excel-Dateien vorstellen, die aus vielen Spalten bestehen und alle Informationen beinhalten können, die Sie auch Ihrem Xentral kennen. Die meisten Tools bringen darüberhinaus für den Testzeitraum (oder auch längerfristig kostenlos) fertige Beispiele mit, die oftmals mit wenigen Klicks einzurichten sind.</p>
+<p>Es ist wirklich einfach - probieren Sie es einfach mal aus! Dabei brauchen Sie Xentral noch nicht technisch perfekt anzubinden. Es genügt für den Anfang einen Datenexport einiger Aufträge über das<a href="#">Berichte-Modul</a>in Xentral zu verwenden oder ein paar vorhanden Adressdaten zum Test zu verwenden.</p>
+<h2 id="flexibel-durch-externe-dienste">Flexibel durch externe Dienste<a class="headerlink" href="#flexibel-durch-externe-dienste" title="Permanent link">&para;</a></h2>
+<p>Als Key User haben Sie Ihren Prozess im Kopf und wollen vielleicht auch einmal die Anbindung an neue Plattformen ausprobieren, wollen Daten mit externen Datenquellen anreichern oder verändern. Die Möglichkeiten in Xentral zur Anbindung solcher Tools werden in diesem Artikel beschrieben.</p>
+<p>Auch die Ausgabe von Xentral Daten in Schaubildern oder die Analyse durch Business-Intelligence-Tools (sog. BI-Tools) ist sicher für viele Geschäftsinhaber von Interesse. Diesem Thema widmen wir uns in einem anderen Artikel:<a href="https://xentral.com/helpdesk/kurzanleitung-tableau">Individuelle Statistiken: Tableau &amp; Co.</a>Xentral aggregiert die Daten des gesamten Unternehmens, vom Vertrieb, den Umsatzzahlen und CRM-Daten wie z.B. Touchpoints, bis hin zur Auftragsbearbeitung, Lager und Logistik. Darüber hinaus werden durch die Buchhaltungsvorbereitung auch Verbindlichkeiten oder laufende Kosten erfasst. Zahlungseingänge und Gutschriften vervollständigen den Datenbestand und bieten so eine hervorragende Grundlage zur Analyse und zur Anbindung externer Tools.</p>
+<h2 id="was-bedeutet-automatisierung">Was bedeutet Automatisierung?<a class="headerlink" href="#was-bedeutet-automatisierung" title="Permanent link">&para;</a></h2>
+<p>Im Grunde arbeiten die hier beschriebenen Tools alle ähnlich: In einzelnen Schritten werden eingehende Daten verarbeitet und an den nächsten Prozessschritt weitergereicht. Jeder, der mit Excel Daten bearbeiten kann, kann mit diesen Programmen bereits umgehen. Es lohnt also, sich einmal ein paar Stunden mit dem Thema zu beschäftigen.</p>
+<h3 id="beispiel">Beispiel<a class="headerlink" href="#beispiel" title="Permanent link">&para;</a></h3>
+<p>Zur Anschauung ein kleines Beispiel: Ein neuer Auftrag ist in Xentral eingegangen, das Übertragen-Modul schreibt die Auftragsdaten als CSV-Datei per FTP auf einen Server. Damit beginnt eine Kette der Automatisierung und Verteilung. Die Datei wird vom Dienst eingelesen und die folgenden hinterlegten Schritte bearbeitet:</p>
+<ul>
+<li>Schreibe die Kundendaten in ein Google Spreadsheet für den Vertrieb</li>
+<li>Melde Name und E-Mail-Adresse an das Newsletter-Tool sofern der Nutzer zugestimmt hat.</li>
+<li>Ergänze die Gesamtsumme in der eigenen Umsatzstatistik auf dem Google-Drive.</li>
+<li>Bei bestimmten Artikeln, schicke eine E-Mail an einen Lieferanten.</li>
+<li>Schicke die wichtigsten Kontaktdaten in einem Slack-Kanal zu CustomerCare.</li>
+</ul>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Alle hier beschriebenen Tools stehen beispielhaft für viele verfügbare Dienste und Programme. Diese variieren nach Funktionsumfang, Komplexität, Betriebssystem, Preismodellen und sind u.a. Cloud- oder OnPremises betriebene Systeme bzw. die zugehörigen Clients.</p>
+</blockquote>
+<h2 id="verfugbare-tools">Verfügbare Tools<a class="headerlink" href="#verfugbare-tools" title="Permanent link">&para;</a></h2>
+<p>Beispielhaft sind im Folgenden einige der bekanntesten Tools gelistet (Stand: 02/2020):</p>
+<ul>
+<li>Parabola: <a href="http://https://parabola.io/sources">https://parabola.io/sources</a></li>
+<li>Synesty: <a href="https://synesty.com/">https://synesty.com/</a></li>
+<li>Integromat: <a href="https://www.integromat.com/en/">https://www.integromat.com/en/</a></li>
+<li>Zapier: <a href="https://zapier.com/app/dashboard">https://zapier.com/app/dashboard</a></li>
+<li>IFTTT <a href="https://ifttt.com/">https://ifttt.com/</a> bzw. IFTTT for business <a href="https://platform.ifttt.com">https://platform.ifttt.com</a></li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Tools wurden nicht alle im Zusammenspiel mit Xentral getestet, sondern stellen einen Startpunkt für eigene Recherchen dar.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

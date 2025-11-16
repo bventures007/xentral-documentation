@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4402393972242 Einführung Smarty - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>4402393972242 Einführung Smarty</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>4402393972242 Einführung Smarty</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Hinter Smarty verbirgt sich eine Technik, die es dir ermöglicht, schnell und übersichtlich Daten zu konvertieren. Du kannst dabei alle textbasierten Formate konvertieren, gleich ob es sich um CSV-, XML, JSON- oder anders strukturierte Dateien handelt.</p>
+<p>Smarty kannst du an verschiedenen Stellen in xentral nutzen:</p>
+<ul>
+<li>Smarty im Übertragen-Modul</li>
+<li>Smarty in Shop-Schnittstellen</li>
+</ul>
+<p>Die verfügbaren Funktionen und dazugehörigen Modifier sind zum großen Teil identisch. Auf Besonderheiten weisen wir daher in den entsprechenden Abschnitten der Dokumentation hin. Smarty ist in xentral an den entsprechenden Stellen bereits enthalten. Das herunterladen von Libraries ist nicht notwendig.</p>
+<h2 id="vorgehensweise">Vorgehensweise<a class="headerlink" href="#vorgehensweise" title="Permanent link">&para;</a></h2>
+<p>Basis der Umwandlung ist immer das sog. Smarty Template. Darin wird das Format und die Struktur des ausgehenden Dokumentes definiert. Dazu kannst du einfach das Zielformat in Form einer Beispieldatei in den Template-Editor kopieren. Anschließend werden die Beispieldaten durch Variablen ersetzt und können dann vom System gefüllt werden.</p>
+<p>Am Beispiel eines Auftrages als XML-Datei wird hier verdeutlicht, wie diese Umwandlung stattfinden kann.</p>
+<p>Das folgende Format soll ausgegeben werden:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;auftrag&gt;
+  &lt;belegnr&gt;200259&lt;/belegnr&gt;
+  &lt;kundennummer&gt;100112&lt;/kundennummer&gt;
+  &lt;name&gt;Max Musterman&lt;/name&gt;
+  &lt;strasse&gt;Beispielstrasse 13&lt;/strasse&gt;
+  &lt;plz&gt;86150&lt;/plz&gt;
+  &lt;ort&gt;Augsburg&lt;/ort&gt;
+  &lt;positionen&gt;
+&lt;position&gt;
+&lt;nummer&gt;Art_001&lt;/nummer&gt;
+  &lt;bezeichnung&gt;Beispielartikel 1&lt;/bezeichnung&gt;
+  &lt;menge&gt;3&lt;/menge&gt;
+  &lt;preis&gt;7.96&lt;/preis&gt;
+&lt;/position&gt;
+&lt;position&gt;
+&lt;nummer&gt;Art_002&lt;/nummer&gt;
+  &lt;bezeichnung&gt;Beispielartikel 2&lt;/bezeichnung&gt;
+  &lt;menge&gt;10&lt;/menge&gt;
+  &lt;preis&gt;399.99&lt;/preis&gt;
+&lt;/position&gt;
+  &lt;/positionen&gt;
+&lt;/auftrag&gt;
+```Diese Beispieldatei wird in den Template-Editor kopiert. Anschließend werden die Beispielwerte mit den zugehörigen Variablen ersetzt.```
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;auftrag&gt;
+  &lt;belegnr&gt;{$beleg-&gt;belegnr}&lt;/belegnr&gt;
+  &lt;kundennummer&gt;{$beleg-&gt;kundennummer}&lt;/kundennummer&gt;
+  &lt;name&gt;{$beleg-&gt;name}&lt;/name&gt;
+  &lt;strasse&gt;{$beleg-&gt;strasse}&lt;/strasse&gt;
+  &lt;plz&gt;{$beleg-&gt;plz}&lt;/plz&gt;
+  &lt;ort&gt;{$beleg-&gt;ort}&lt;/ort&gt;
+  &lt;positionen&gt;
+  {foreach from=$beleg-&gt;positionen key=keyrow item=position}{*Positionen*}
+  &lt;position&gt;
+&lt;nummer&gt;{$position-&gt;nummer}&lt;/nummer&gt;
+  &lt;bezeichnung&gt;{$position-&gt;bezeichnung}&lt;/bezeichnung&gt;
+  &lt;beschreibung&gt;{$position-&gt;beschreibung}&lt;/beschreibung&gt;
+  &lt;menge&gt;{$position-&gt;menge}&lt;/menge&gt;
+  &lt;preis&gt;{$position-&gt;preis}&lt;/preis&gt;
+  &lt;einheit&gt;{$position-&gt;einheit}&lt;/einheit&gt;
+&lt;/position&gt;
+  {/foreach}
+  &lt;/positionen&gt;
+&lt;/auftrag&gt;
+</code></pre>
+<p>Dabei wird je nach Bereich ein Basisobjekt verwendet, um auf die Werte zuzugreifen. Je nach Einsatzgebiet ist das ein anderes Objekt:</p>
+<ul>
+<li><strong>$beleg</strong>→ Übertragen-Modul: Ausgehende Belegdaten verarbeiten
+-<strong>$artikelliste</strong>→ Übertragen-Modul: Ausgehende Artikel oder Lagerbestände (Lagerzahlen) verarbeiten
+-<strong>$trackingliste</strong>→ Übertragen-Modul: Ausgehende Trackinginformationen verarbeiten
+-<strong>$salesreportlist</strong>→ Übertragen-Modul: Ausgehende Belegdaten verarbeiten
+-<strong>$object</strong>→ Übertragen-Modul: Eingehende Daten verarbeiten
+-<strong>$cart</strong> → Shop-Schnittstelle: Warenkorb verarbeiten</li>
+</ul>
+<h2 id="funktionen-und-modifier">Funktionen und Modifier<a class="headerlink" href="#funktionen-und-modifier" title="Permanent link">&para;</a></h2>
+<p>Die meisten der hier beschriebenen Beispiele stammen aus dem Standard-Umfang der verwendeten Template-Engine Smarty. Weitere Funktionen findest du daher in der offiziellen<a href="https://www.smarty.net/docs/en/language.modifiers.tpl">Smarty-Dokumentation</a>.</p>
+<p>Grundsätzlich werden Funktionen oder Modifier nach dem Pipe-Zeichen ( |) in der Variable geschrieben, ggf. mit nachfolgenden Parametern, abgetrennt durch einen Doppelpunkt.</p>
+<p>Template: { Wert oder $Variable | Modifier oder Funktion: Weitere Parameter}</p>
+<h3 id="beispiele">Beispiele<a class="headerlink" href="#beispiele" title="Permanent link">&para;</a></h3>
+<p>Das folgende Script zeigt dir beispielhaft die Verwendung von Smarty mit Konstanten, Wertzuweisungen, Variablen, Funktionen und Modifiern. Einige davon werden im Folgenden genauer beschrieben.</p>
+<pre><code>&lt;xml&gt;
+
+{*0. Statisch*}
+&lt;auftragsdaten&gt;&lt;/auftragsdaten&gt;
+&lt;transactions/&gt;
+&lt;anrede&gt;herr&lt;/anrede&gt;
+
+{*1. Wertzuweisung*}
+&lt;waehrung&gt;{$cart-&gt;auftragsdaten-&gt;currency}&lt;/waehrung&gt;
+
+{*2. Rechnen*}
+&lt;gesamtsumme&gt;{($cart-&gt;auftragsdaten-&gt;total_price - 5)}&lt;/gesamtsumme&gt;
+
+{*3. Variablenzuweisung*}
+{assign var=data value=$cart-&gt;auftragsdaten}
+&lt;email&gt;{$data-&gt;email}&lt;/email&gt;
+
+{*4. Funktionen*}
+&lt;bestelldatum&gt;{$cart-&gt;auftragsdaten-&gt;processed_at|truncate:10:''}&lt;/bestelldatum&gt;
+
+{*5. Verzweigungen*}
+{if $cart-&gt;auftragsdaten-&gt;total_tip_received &gt; 0}
+ &lt;freitext&gt;Danke für die Spende von {$cart-&gt;auftragsdaten-&gt;total_tip_received} {$cart-&gt;auftragsdaten-&gt;currency}!!!&lt;/freitext&gt;
+{else}
+ &lt;freitext&gt;Geiz ist geil!&lt;/freitext&gt;
+{/if}
+
+{*6. Schleifen*}
+{foreach key=key item=item from=$cart-&gt;auftragsdaten-&gt;note_attributes}
+  {if $item-&gt;name == &quot;google-clientID&quot;}
+&lt;internebemerkung&gt;Google ClientID: {$item-&gt;value}&lt;/internebemerkung&gt;
+  {/if}
+{/foreach}
+&lt;/xml&gt;
+</code></pre>
+<h3 id="script-funktionen">Script-Funktionen<a class="headerlink" href="#script-funktionen" title="Permanent link">&para;</a></h3>
+<h4 id="assign-variablen-und-inhalte-zuweisen">Assign / Variablen und Inhalte zuweisen<a class="headerlink" href="#assign-variablen-und-inhalte-zuweisen" title="Permanent link">&para;</a></h4>
+<p>Durch den Befehl assign können Variablen erstellt und ihnen Werte zugewiesen werden. Dies kann zur Vereinfachung der Lesbarkeit im Template verwendet werden.</p>
+<p>Template:</p>
+<p><code>{assign var=order value=$cart-&gt;auftragsdaten}</code></p>
+<p>Ergebnis: Der Wert von $cart-&gt;auftragsdaten-&gt;datum ist verkürzt erreichbar unter $order-&gt;datum.</p>
+<p>Weitere Definitionen findest du in der Dokumentation der<a href="https://www.smarty.net/docs/en/language.function.assign.tpl">Smarty Funktion assign</a>.</p>
+<h3 id="zahlenbearbeitung">Zahlenbearbeitung<a class="headerlink" href="#zahlenbearbeitung" title="Permanent link">&para;</a></h3>
+<p>Hier erfährst du, wie du Zahlen bearbeiten kannst.</p>
+<h4 id="nachkommastellen-kurzen">Nachkommastellen kürzen<a class="headerlink" href="#nachkommastellen-kurzen" title="Permanent link">&para;</a></h4>
+<p>Eine Zahl soll auf drei Nachkommastellen gekürzt werden. Anschließend soll der Punkt durch ein Komma ersetzt werden. Anstelle einer Zahl kann es natürlich auch eine Variable oder das Ergebnis einer Berechnung sein.</p>
+<p>Template:</p>
+<p><code>{1.12345|string_format:"%1\$.3f"|replace:".":","}</code></p>
+<p>Ergebnis: 1,123</p>
+<p>Weitere Definitionen findest du in der Dokumentation des<a href="https://www.smarty.net/docs/en/language.modifier.string.format.tpl">Smarty Modifiers string_format</a>.</p>
+<h4 id="einfache-berechnungen">Einfache Berechnungen<a class="headerlink" href="#einfache-berechnungen" title="Permanent link">&para;</a></h4>
+<p>Neben komplexeren Berechnungen kannst du auch einfache Berechnungen direkt in der Ausgabe der Variablen vornehmen. Dazu musst du lediglich eine Klammer () um den Ausdruck setzen.</p>
+<p>Template:</p>
+<p><code>{($cart-&gt;versandkostenbrutto-0.95)}</code></p>
+<p>Ergebnis: Ausgabe des Restwertes, z.B. bei 4,95 = 4</p>
+<h3 id="textbearbeitung">Textbearbeitung<a class="headerlink" href="#textbearbeitung" title="Permanent link">&para;</a></h3>
+<p>Hier erfährst du, wie du Texte bearbeiten kannst.</p>
+<h4 id="textlange-begrenzen">Textlänge begrenzen<a class="headerlink" href="#textlange-begrenzen" title="Permanent link">&para;</a></h4>
+<p>Sollte beispielsweise im Warenkorb ein langer Textwert für den Namen (order =&gt; name =&gt;) “Max Mustermann” importiert werden, könnte dieser auch mit Hilfe von Smarty auf eine feste Textlänge (in Zeichen) gekürzt werden.</p>
+<p>Template:</p>
+<p><code>{$cart-&gt;order-&gt;name|truncate:3}</code></p>
+<p>Ergebnis: Max…</p>
+<p>oder:</p>
+<p><code>{$cart-&gt;order-&gt;name|truncate:3,””}</code></p>
+<p>Ergebnis: Max</p>
+<p>Weitere Definitionen findest du in der Dokumentation des<a href="https://www.smarty.net/docsv2/de/language.modifier.truncate.tpl">Smarty Modifiers truncate</a>.</p>
+<p>Alternativ kannst du auch mit Hilfe der String-Formatierung arbeiten:</p>
+<p>Template:</p>
+<p><code>{$cart-&gt;order-&gt;name|string_format:"%s{3}"}</code></p>
+<p>Weitere Definitionen findest du in der Dokumentation des<a href="https://www.smarty.net/docs/en/language.modifier.string.format.tpl">Smarty Modifiers string_format</a></p>
+<h4 id="textenden-bereinigen">Textenden bereinigen<a class="headerlink" href="#textenden-bereinigen" title="Permanent link">&para;</a></h4>
+<p>Ersetzt mehrfache Leerzeichen, Zeilenumbrüche und Tabulatoren im Inhalt der Variable durch ein Leerzeichen oder eine alternative Zeichenkette (im zweiten Beispiel &nbsp;).</p>
+<p>Template:</p>
+<p><code>{$cart-&gt;order-&gt;name|strip}</code>oder<code>{$cart-&gt;order-&gt;name|strip:&amp;nbsp;}</code></p>
+<p>Weitere Definitionen findest du in der Dokumentation des<a href="https://www.smarty.net/docsv2/de/language.modifier.strip.tpl">Smarty Modifiers strip</a>.</p>
+<h4 id="text-suchen-und-ersetzen">Text suchen und ersetzen<a class="headerlink" href="#text-suchen-und-ersetzen" title="Permanent link">&para;</a></h4>
+<p>Template:</p>
+<p><code>{$original|replace:“foo":“bar”|getxml assign=“newxml”}</code></p>
+<p>Ersetzt alle Strings foo zu bar und speichert / wandelt es in ein neues Objekt $newxml um.</p>
+<h4 id="text-mit-regular-expression-suchen-und-ersetzen">Text mit Regular Expression suchen und ersetzen<a class="headerlink" href="#text-mit-regular-expression-suchen-und-ersetzen" title="Permanent link">&para;</a></h4>
+<p>Template:</p>
+<p><code>{$position-&gt;nummer|pregreplace:‘/[^0-9]/‘:’’}</code></p>
+<p>Führt eine reguläre Ersetzung auf dem Element aus.</p>
+<p>Weitere Definitionen findest du in der Dokumentation des<a href="https://www.smarty.net/docsv2/de/language.modifier.regex.replace.tpl">Smarty Modifiers regex/replace</a>.</p>
+<h3 id="fehlerbearbeitung-logging">Fehlerbearbeitung / Logging<a class="headerlink" href="#fehlerbearbeitung-logging" title="Permanent link">&para;</a></h3>
+<p>Hier erfährst du, wie du Log-Einträge erstellst.</p>
+<h4 id="logging-im-ubertragen-modul">Logging im Übertragen-Modul<a class="headerlink" href="#logging-im-ubertragen-modul" title="Permanent link">&para;</a></h4>
+<p>template:</p>
+<p><code>{“Der Auftrag enthält keine Positionen”|error}</code></p>
+<p>Gibt einen Fehler an Smarty aus, der geloggt und im Monitor des Übertragung-Moduls ausgegeben wird.</p>
+<h3 id="ausgabe-von-daten">Ausgabe von Daten<a class="headerlink" href="#ausgabe-von-daten" title="Permanent link">&para;</a></h3>
+<p>Template:</p>
+<p><code>{$orderData|@debug_print_var}</code></p>
+<p>Gibt die Daten des vorangestellten Elements im Output-Fenster aus.</p>
+<h2 id="bedingungen">Bedingungen<a class="headerlink" href="#bedingungen" title="Permanent link">&para;</a></h2>
+<p>Mit Hilfe von Bedingungen kann bereits im Template mit Logik gearbeitet werden, um kundenspezifische Entscheidungen bereits beim Ex- oder Import von Daten in verschiedene Ergebnisse zu überführen.</p>
+<p>Im folgenden Beispiel wird beim Import eines Auftrages über eine Shop-Schnittstelle der englische Wert “mr” in die Anrede “herr” überführt, die in xentral für den Adresstyp und die Anrede “Herr” steht.</p>
+<p>Beispiel Shopimporter:</p>
+<pre><code>&lt;xml&gt;
+  &lt;name&gt;Max Mustermann&lt;/name&gt;
+  {if $cart-&gt;order-&gt;salutation == “mr”}
+  &lt;anrede&gt;herr&lt;/anrede&gt;
+  {else}
+  &lt;anrede&gt;frau&lt;/anrede&gt;
+  {/if}
+&lt;/xml&gt;
+```Alternative Schreibweise (Shopimporter)```
+&lt;xml&gt;
+  &lt;name&gt;Max Mustermann&lt;/name&gt;
+  &lt;anrede&gt;
+  {if $cart-&gt;order-&gt;Salutation == “mr”}
+  herr{else}frau{/if}
+  &lt;/anrede&gt;
+&lt;/xml&gt;
+```Weitere alternative Schreibweise zum Überschreiben eines Knotens (Shopimporter)```
+&lt;xml&gt;
+  &lt;name&gt;Max Mustermann&lt;/name&gt;
+  &lt;anrede&gt;frau&lt;/anrede&gt;
+  {if $cart-&gt;order-&gt;salutation == “mr”}
+  &lt;anrede&gt;herr&lt;/anrede&gt;
+  {/if}
+&lt;/xml&gt;
+</code></pre>
+<p>In diesem Beispiel überschreibt der zweite gleichlautende Knoten (anrede) bei Zutreffen der Bedingung den vollständigen ersten Knoten inkl. Wert und ersetzt so den Inhalt.</p>
+<p>Weitere Definitionen findest du in der Dokumentation<a href="https://www.smarty.net/docs/en/language.function.if.tpl">Smarty if/else</a>.</p>
+<h2 id="schleifen">Schleifen<a class="headerlink" href="#schleifen" title="Permanent link">&para;</a></h2>
+<p>Schleifen ermöglichen die Abarbeitung von Wertelisten (Arrays), z.B. Auftragspositionen, Steuersätze, o.ä. Ergebnis sind meist Key-Value-Pairs, die dann im zweiten Schritt ausgewertet werden können. Dazu werden diese Listen in einer Schleife durchlaufen und bearbeitet.</p>
+<p>Im folgenden Beispiel wird für eine gegebene Struktur der Rechnungsadresse ein beliebiges Element herausgegriffen, um z.B. eine gesonderte Einstellung für das Land zu setzen.</p>
+<p>Beispiel Shopimporter</p>
+<p>Warenkorb:</p>
+<pre><code>...
+billing =&gt; [
+  0 =&gt; [name =&gt; country, value =&gt; DE],
+  1 =&gt; [name =&gt; street, value =&gt; Musterweg],
+  2 =&gt; [name =&gt; house_no, value =&gt; 2],
+  3 =&gt; [name =&gt; phone, value =&gt; 123456789],
+  4 =&gt; [name =&gt; first_name, value =&gt; Max],
+...
+```Template:```
+&lt;xml&gt;
+  {foreach key=billingKey item=billingData from=$cart-&gt;billing}
+  {if $billingData-&gt;name == ”country”}
+  &lt;land&gt;{$billingData-&gt;value}&lt;/land&gt;
+  {/if}
+  {/foreach}
+&lt;/xml&gt;
+</code></pre>
+<p>Weitere Definitionen findest du in der<a href="https://www.smarty.net/docs/en/language.function.foreach.tpl">Dokumentation von Smarty zu Schleifen am Beispiel foreach</a></p>
+<h2 id="tipps-und-tricks">Tipps und Tricks<a class="headerlink" href="#tipps-und-tricks" title="Permanent link">&para;</a></h2>
+<p>Hier findest du einige Tipps und Tricks, die dir eventuell weiterhelfen können.</p>
+<h3 id="strings-mit-cdata-escapen">Strings mit CDATA escapen<a class="headerlink" href="#strings-mit-cdata-escapen" title="Permanent link">&para;</a></h3>
+<p>Viele Daten, die in Smarty übermittelt oder eingelesen werden können, beinhalten Zeichen, die durch die Weiterverarbeitung fehlinterpretiert werden können. Daher ist es wichtig, die übermittelten Inhalte von den strukturellen Daten zu unterscheiden. Dazu kannst du die Daten durch einem CDATA-Block umschließen und somit “escapen”.</p>
+<p>Template:</p>
+<p><code>&lt;![CDATA[{$orderData-&gt;total_price}]]&gt;</code></p>
+<p>Weitere Informationen zu<a href="https://en.wikipedia.org/wiki/CDATA">CDATA und dessen Verwendung</a>.</p>
+<h3 id="letztes-element-einer-schleife">Letztes Element einer Schleife<a class="headerlink" href="#letztes-element-einer-schleife" title="Permanent link">&para;</a></h3>
+<p>Gerade bei der Ausgabe von JSON oder XML-Listen kann es wichtig sein, das Listenelement sauber abzuschließen. Um invalide Datenstrukturen zu erhalten, müssen alle Elemente mit einem Komma abgeschlossen werden, die nicht am Schluss der Liste stehen. Dazu kannst du die Syntax $item@last verwenden.</p>
+<p>Beispiel</p>
+<p>Ausgabe einer JSON-Datei mit dem Artikelbestand:</p>
+<pre><code>{&quot;SELECT *... &quot;|assignsql assign=&quot;stock&quot;}
+{
+  &quot;stock&quot;: [
+  {foreach from=$stock key=keyrow item=st}
+  {
+  &quot;materialId&quot;: &quot;{$st-&gt;nummer}&quot;,
+  &quot;quantity&quot;: &quot;{$st-&gt;menge}&quot;,
+  &quot;warehouse&quot;: &quot;{$st-&gt;kurzbezeichnung}&quot;
+},
+
+  {if $st@last}
+  {
+  &quot;materialId&quot;: &quot;{$st-&gt;nummer}&quot;,
+  &quot;quantity&quot;: &quot;{$st-&gt;menge}&quot;,
+  &quot;warehouse&quot;: &quot;{$st-&gt;kurzbezeichnung}&quot;
+}
+  {/if}
+  {/foreach}
+]}
+</code></pre>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

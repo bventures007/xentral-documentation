@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016719700 Spedition - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016719700 Spedition</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016719700 Spedition</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Mit dem Modul <strong>Spedition</strong> kannst du für beliebige Speditionen Palettenbeschriftungen bzw. Speditionsscheine erstellen, ausdrucken und anschließend mit einem Avis der Spedition melden bzw. als CSV Datei an diese übermitteln. Das Modul unterstützt NVE&rsquo;s, MHDs und Chargen bzw. kannst du, wenn nötig, GS1 Barcodes erstellen.</p>
+<h2 id="neue-versandart-anlegen">Neue Versandart anlegen<a class="headerlink" href="#neue-versandart-anlegen" title="Permanent link">&para;</a></h2>
+<p>Neben den Schnittstellen zu den bekannten Paketdienstleistern kannst du unter <strong>Administration &gt; Einstellungen &gt; Lager und Logistik &gt; Versandarten &gt; Spedition</strong> eine Spedition hinterlegen. Diese Versandart kann dann im Auftrag oder Lieferschein wie gewohnt gewählt werden. Weitere Informationen findest du<a href="https://help.xentral.com/hc/de/articles/360016758239#UUID-8b414cdf-1e60-e35e-4ae8-09a99af65122">hier</a>.</p>
+<h2 id="speditionsauftrag-fur-packstucke">Speditionsauftrag für Packstücke<a class="headerlink" href="#speditionsauftrag-fur-packstucke" title="Permanent link">&para;</a></h2>
+<p>Im Appstore findest du das Speditions-Modul. In diesem Modul kannst du Lieferaufträge für das Speditionsunternehmen erzeugen und die wesentlichen Charakteristika bezüglich Frankatur u.ä. hinterlegen. Im Reiter <strong>Offene Packstücke</strong> kannst du die Packstücke für einen Speditionsauftrag an die Spedition auswählen und im Anschluss als CSV/PDF übertragen.</p>
+<h3 id="packstucke-in-speditionsauftrag-einfugen">Packstücke in Speditionsauftrag einfügen<a class="headerlink" href="#packstucke-in-speditionsauftrag-einfugen" title="Permanent link">&para;</a></h3>
+<p>Um Packstücke in einen Speditionsauftrag einzufügen, hast du im Reiter <strong>Offene Packstücke</strong> zwei Möglichkeiten:</p>
+<p><img alt="carrier_1.png" src="https://help.xentral.com/hc/article_attachments/13075217098524" /></p>
+<p>Um einen Speditionsauftrag anzulegen, erstellst du zunächst einen Lieferschein mit der Versandart &ldquo;Spedition&rdquo; (<strong>Lager &amp; Logistik &gt; Lieferschein &gt; +NEU <strong>). Wechsle dann in den Reiter </strong> Paketmarke <strong>und erstelle die Paketmarken, indem du </strong> NVE erzeugen <strong>anhakst. Mit jeder Paketmarke wird im Speditionsmodul unter offene Packstücke ein Speditionsauftrag erstellt. In der Spalte &ldquo;NVE&rdquo; kannst du diese einsehen. Ebenso beim Erstellen einer Paketmarke mit Klick auf den die Schaltfläche </strong> NVEs</strong> rechts unten.</p>
+<h2 id="abgeschlossene-packstucke">Abgeschlossene Packstücke<a class="headerlink" href="#abgeschlossene-packstucke" title="Permanent link">&para;</a></h2>
+<p>Im Reiter <strong>Abgeschlossene Packstücke </strong> siehst du eine Übersicht über alle Packstücke, die du zuvor im Reiter <strong>Offene Packstücke </strong> über die Schaltfläche unten in einen neuen oder in einen bestehenden Speditionsauftrag eingefügt hast. Angezeigt werden kundenspezifische Daten wie Name und PLZ, Angaben zum Lieferschein (LS) und den Packstücken sowie NVEs. Über den <strong>PDF</strong></p>
+<p>-Button kannst du dir das dazugehörige Etikett ausdrucken lassen, dazu verwendest du den im Anschluss erscheinenden Druckerspooler. Ein Klick auf das <strong>Kreuz</strong></p>
+<p>-Icon löscht bzw. storniert den Eintrag.</p>
+<p>Über das Mini-Detail hast du die Möglichkeit, den Speditionsauftrag anzusehen und sämtliche Details zum Ablauf zu überprüfen:</p>
+<p><img alt="carrier_2.png" src="https://help.xentral.com/hc/article_attachments/13075231073436" /></p>
+<p><strong>Filter <strong>Als Filter kannst du </strong> Stornierte</strong> setzen, welcher dir dann nur stornierte Packstücke anzeigt.</p>
+<h2 id="speditionsauftrage">Speditionsaufträge<a class="headerlink" href="#speditionsauftrage" title="Permanent link">&para;</a></h2>
+<p>Im Reiter <strong>Speditionsaufträge </strong> findest du eine Übersicht über alle Speditionsaufträge, die bereits in Speditionsaufträge über den Reiter <strong>Offene Packstücke</strong> übernommen wurden.</p>
+<p>In der Menü-Spalte kannst du mit dem <strong>Stift </strong></p>
+<p>-Icon den Speditionsauftrag bearbeiten. Ein Klick auf das <strong>PDF </strong></p>
+<p>-Icon lädt das PDF-Dokument zum Speditionsauftrag herunter. Ein Klick auf das <strong>Kreuz</strong></p>
+<p>-Icon löscht bzw. storniert den Eintrag.</p>
+<h2 id="geplante-packstucke">Geplante Packstücke<a class="headerlink" href="#geplante-packstucke" title="Permanent link">&para;</a></h2>
+<p>Im Reiter <strong>Geplante Packstücke</strong> siehst du eine Übersicht über alle Packstücke, die geplant sind.  Sie sind aber noch nicht abgeschlossen oder als Speditionsauftrag eingefügt.</p>
+<p>In der Menü-Spalte nutzt du das <strong>Stift </strong></p>
+<p>-Icon zur Bearbeitung eines einzelnen Packstücks, ein Klick auf das <strong>PDF </strong></p>
+<p>-Icon lädt den Speditionsauftrag als PDF herunter und das <strong>Kreuz</strong></p>
+<p>-Icon löscht bzw. storniert den Eintrag.</p>
+<h3 id="neues-packstuck">Neues Packstück<a class="headerlink" href="#neues-packstuck" title="Permanent link">&para;</a></h3>
+<p>Um ein neues Packstück einzufügen, klickst du auf den <strong>+Neuer Eintrag</strong></p>
+<p>-Button. Es erscheint ein Feld.</p>
+<p>Diese Details kannst du eintragen:</p>
+<p>-<strong>Lieferschein: </strong> Trage entweder eine neue Lieferscheinnummer ein oder wähle eine aus der Liste aus, die du durch einen Klick auf das <strong> Lupe</strong></p>
+<p>-Icon einsehen kannst
+-<strong>Abholdatum:</strong> Gib das Abholdatum des Packstücks im angegebenen Format ein</p>
+<p>Klicke abschließend auf <strong>Speichern</strong>.</p>
+<h2 id="einstellungen-fur-die-spedition">Einstellungen für die Spedition<a class="headerlink" href="#einstellungen-fur-die-spedition" title="Permanent link">&para;</a></h2>
+<p>Im Reiter <strong>Einstellungen</strong> kannst du diverse Informationen wie folgt pro Spedition definieren.</p>
+<h3 id="spezialfelder-fur-spedition">Spezialfelder für Spedition<a class="headerlink" href="#spezialfelder-fur-spedition" title="Permanent link">&para;</a></h3>
+<p>Um Spezialfelder für eine bestimmte Spedition anzulegen, kannst du das Feld <strong>Spezialfelder für Spedition</strong> verwenden.</p>
+<p>Folgende Angaben kannst du machen:</p>
+<p>-<strong>Spedition: </strong> Gib die Spedition ein oder du wählst eine aus der erscheinenden Liste über das <strong> Lupe</strong></p>
+<p>-Icon aus
+-<strong>Feld:</strong> Gib die Bezeichnung des Feldes ein
+-<strong>Wert:</strong> Diese Angabe ist optional. Trage den Wert, der das Feld näher beschreibt ein
+-<strong>aktiv:</strong> Der Haken muss immer gesetzt sein, damit das Spezialfeld auf der Paketmarke abgebildet werden kann</p>
+<p>Klicke abschließend auf <strong>anlegen</strong>.</p>
+<p>Die angelegten Spezialfelder der Spedition siehst du dann in der Übersicht auf der linken Seite.</p>
+<h4 id="einstellungen-zu-nve-barcode-lieferschein-und-packstuck">Einstellungen zu NVE, Barcode, Lieferschein und Packstück<a class="headerlink" href="#einstellungen-zu-nve-barcode-lieferschein-und-packstuck" title="Permanent link">&para;</a></h4>
+<p>Im Reiter <strong>Einstellungen</strong> kannst du zunächst Einstellungen zu NVE, Barcode, Lieferschein und Packstück vornehmen, welche für den Paketmarkendruck relevant sind. Dabei kannst du eine fortlaufende NVE vergeben, auf die durch eine Variable zugegriffen werden kann.</p>
+<p>Folgende Informationen kannst du eintragen:</p>
+<p>-<strong>Nächste NVE:</strong> Trage die NVE fortlaufend ein
+-<strong>extra Barcode:</strong> Durch Anhaken wird ein extra Barcode erstellt und gedruckt
+-<strong>Inhalt extra Barcode:</strong> Wenn du das Feld &ldquo;extra Barcode&rdquo; angehakt hast, gib hier den Inhalt des Barcodes ein
+-<strong>URL für GS1 Barcode:</strong> Wenn du das Feld &ldquo;extra Barcode&rdquo; angehakt hast, gib hier die URL für den GS1 Barcode ein
+-<strong>URL für NVE Barcode:</strong> Gib die URL für den NVE Barcode ein
+-<strong>Lieferschein erst nach Abschluss drucken:</strong> Durch Anhaken wird der Lieferschein erst nach Abschluss des Speditionsauftrags gedruckt
+-<strong>Etikettenvorlage verwenden:</strong> Durch Anhaken verwendest du eine zuvor erstellte Etikettenvorlage
+-<strong>Vorlage Master / Palette:</strong> Wenn du das Feld &ldquo;Etikettenvorlage verwenden&rdquo; angehakt hast, kannst du jetzt aus dem Drop-Down Menü die Vorlage für das Etikett auf der Palette auswählen
+-<strong>Packstück:</strong> Durch Anhaken wird deutlich, dass es sich um ein einzelnes Packstück handelt
+-<strong>Vorlage Slave / Packstück: </strong> Wenn du das Feld <strong> Etikettenvorlage</strong> verwenden angehakt hast, kannst du jetzt aus dem Drop-Down Menü die Vorlage für das Etikett auf dem Packstück auswählen</p>
+<h4 id="verfugbare-variablen">Verfügbare Variablen<a class="headerlink" href="#verfugbare-variablen" title="Permanent link">&para;</a></h4>
+<p>Um die Angaben für die Paketmarke weiter zu spezifizieren, kannst du auf folgende Variablen zurückgreifen:</p>
+<ul>
+<li>{LIEFERSCHEIN}</li>
+<li>{TELEFONNUMMER}</li>
+<li>{PROJEKT}</li>
+<li>{AUFTRAG}</li>
+<li>{NVE}</li>
+<li>{MHD}</li>
+<li>{EAN}</li>
+<li>{HERSTELLERNUMMER}</li>
+<li>{ANZAHLPACKSTUECKE}</li>
+<li>{ARTIKELNAME}</li>
+<li>{NUMMER}</li>
+<li>{MENGE}</li>
+<li>{CHARGE}</li>
+<li>{PACKSTUECKNUMMER}</li>
+</ul>
+<h2 id="versandlabel">Versandlabel<a class="headerlink" href="#versandlabel" title="Permanent link">&para;</a></h2>
+<p>Informationen zum Erstellen und Drucken von Versandlabels findest du<a href="https://help.xentral.com/hc/de/articles/360016758239#UUID-8b414cdf-1e60-e35e-4ae8-09a99af65122">hier</a>.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

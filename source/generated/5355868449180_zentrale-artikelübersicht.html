@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5355868449180 Zentrale Artikelübersicht - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>5355868449180 Zentrale Artikelübersicht</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>5355868449180 Zentrale Artikelübersicht</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Die Übersicht aller vorhandenen Artikel in Xentral findest du im Menü <strong>Verkaufen &gt; Artikel</strong>.</p>
+<p>In der Übersicht werden alle Artikel angezeigt, die du<a href="https://help.xentral.com/hc/de/articles/5355868375324#UUID-c9cdd935-de37-0d83-e09e-9583c906530b">manuell angelegt</a>oder die du<a href="https://help.xentral.com/hc/de/articles/360016758199#UUID-af5d8ee2-07dd-16dd-7655-bfa265d5cd7c">aus einem Fremdsystem importiert</a>hast.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die im Menü <strong>Verkaufen &gt; Artikel </strong> angezeigten Daten werden durch Prozessstarterartikelcacheaktualisiert. Falls dir einmal veraltete Artikeldaten auffallen, überprüfe im Modul <strong>Prozessstarter</strong>, ob der Prozessstarter ordnungsgemäß aktiviert ist. Weitere Informationen zum Prozessstarter findest duin diesem Artikel.</p>
+<p><strong>Anmerkung</strong></p>
+<p>Die Artikelübersicht bietet dir folgende Features für dein Tagesgeschäft:</p>
+<ul>
+<li>Vielfältige Filteroptionen für deine Artikel</li>
+<li>Suche nach bestimmten Begriffen innerhalb von Artikelstammdaten</li>
+<li>Kurzübersicht bestimmter Artikelinformationen</li>
+<li>Bearbeitung mehrerer Artikel per Stapelverarbeitung</li>
+</ul>
+</blockquote>
+<h2 id="artikel-filtern">Artikel filtern<a class="headerlink" href="#artikel-filtern" title="Permanent link">&para;</a></h2>
+<p>In der Artikelübersicht findest du diverse Filter, mit denen du deine Artikel auf Basis verschiedener Kriterien und Anforderungen sortieren und anzeigen lassen kannst.</p>
+<p>Sobald du das Menü <strong>Verkaufen &gt; Artikel </strong> öffnest, findest du direkt oberhalb der Artikeltabelle eine Reihe an Filtern, die du mit einem Klick bedienen kannst. Aktiviere diese Filter, um die Einträge in der Artikeltabelle sofort nach dem entsprechenden Kriterium zu sortieren. Dabei werden alle Artikel, die dem aktivierten Filter <strong>nicht</strong> entsprechen, in der Tabelle ausgeblendet.</p>
+<p><img alt="artikeluebersicht_filter_oben-de.png" src="https://help.xentral.com/hc/article_attachments/18740432929308" /></p>
+<p>Eine weitere Filterfunktion findest du links oben neben dem Feld <strong>Suchen </strong>. Klicke auf das <strong>Filter-Symbol</strong>, um zu komplexeren Filtereinstellungen für deine Artikel zu gelangen.</p>
+<p><img alt="artikeluebersicht_filter_button-de.png" src="https://help.xentral.com/hc/article_attachments/18740479145244" /></p>
+<p>Lege anschließend deine Filterkriterien fest. Dabei kannst du ein oder mehrere Filterkriterien zugleich festlegen. Klicke danach auf <strong>Filter anwenden</strong>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Artikelfilter bleiben immer so lange aktiv, bis du sie per Klick auf <strong>Alles zurücksetzen</strong> wieder entfernst.</p>
+</blockquote>
+<h2 id="artikelsuche-nutzen">Artikelsuche nutzen<a class="headerlink" href="#artikelsuche-nutzen" title="Permanent link">&para;</a></h2>
+<p>Die Artikelübersicht bietet dir verschiedene Möglichkeiten, um anhand eines bestimmten Begriffs gezielt nach Artikeln zu suchen.</p>
+<p>-<strong>Möglichkeit 1 </strong>: Gib deinen Suchbegriff in das Feld <strong>Suche</strong> links oberhalb der Tabelle ein. Die Suche funktioniert auch, wenn du nur einen Teil des Suchbegriffs eingibst.
+-<strong>Möglichkeit 2</strong>: Gib deinen Suchbegriff im Suchfeld der jeweiligen Tabellenspalte ein.</p>
+<h2 id="artikel-bearbeiten-oder-loschen">Artikel bearbeiten oder löschen<a class="headerlink" href="#artikel-bearbeiten-oder-loschen" title="Permanent link">&para;</a></h2>
+<p>Über die Schaltflächen in der TabellenspalteMenüganz rechts im Menü <strong>Verkaufen &gt; Artikel</strong> kannst du deine Artikel wie folgt bearbeiten oder auch löschen.</p>
+<ul>
+<li>Klicke auf dasStift-Symbol, um einen Artikel zur Bearbeitung zu öffnen.</li>
+<li>Mit demKreuz-Symbolkannst du einen Artikel löschen.</li>
+<li>Über das <strong>Kopieren-Symbol</strong> kannst du einen Artikel kopieren.</li>
+<li>Über dasEtiketten-Symbol kannst du einem Artikel ein Tag hinzufügen.</li>
+</ul>
+<h2 id="stapelverarbeitung-fur-artikel-nutzen">Stapelverarbeitung für Artikel nutzen<a class="headerlink" href="#stapelverarbeitung-fur-artikel-nutzen" title="Permanent link">&para;</a></h2>
+<p>In der Übersicht kannst du mithilfe der <strong>Stapelverarbeitung</strong> mehrere Artikel auf einmal bearbeiten.</p>
+<p>Gehe wie folgt vor, um mehrere Artikel gleichzeitig zu bearbeiten.</p>
+<p>1.<strong>Optional</strong>: Wende nach Bedarf die oben beschriebenen Filter an, um die Artikel anzuzeigen, die du per Stapelverarbeitung bearbeiten möchtest.
+1. Wähle links in der Tabelle die gewünschten Artikel aus, in dem du die Checkbox aktivierst. Wenn du alle angezeigten Artikel per Stapelverarbeitung verarbeiten möchtest, aktiviere die Option <strong>alle markieren </strong> im Abschnitt <strong>Stapelverarbeitung</strong>.
+1. Wähle im linken Dropdown-Menü die Aktion aus, die du für die ausgewählten Artikel durchführen möchtest.
+  In der Stapelverarbeitung stehen die folgenden Aktionen zur Verfügung:</p>
+<p>-<strong>Massenbearbeitung</strong>: Die ausgewählten Artikel werden in einer separaten Ansicht zur Bearbeitung geöffnet. Diese Option ist sinnvoll, wenn du beispielsweise bei mehreren Artikel die Artikelbezeichnung oder sonstige Informationen ändern möchtest, ohne jeden Artikel einzeln zur Bearbeitung zu öffnen.
+  -<strong>Shopübertragung</strong>: Die ausgewählten Artikel werden an deinen Online-Shop übertragen. Nutze diese Option, wenn du neue Artikel in Xentral angelegt hast, die du nun in deinem angebundenen Online-Shop zum Kauf anbieten, also listen möchtest.
+  -<strong>Artikel löschen</strong>: Die ausgewählten Artikel werden gelöscht.
+1. Klicke auf <strong>Ausführen</strong>.</p>
+<h2 id="detailansicht-fur-artikel-anzeigen">Detailansicht für Artikel anzeigen<a class="headerlink" href="#detailansicht-fur-artikel-anzeigen" title="Permanent link">&para;</a></h2>
+<p>In der Übersicht kannst du die wichtigsten Informationen zu einem Artikel anzeigen lassen, ohne den Artikel selbst zu öffnen.</p>
+<p>Gehe wie folgt vor, um eine Kurzübersicht deines Artikels anzuzeigen.</p>
+<ul>
+<li>Klicke links in der Artikeltabelle auf bei dem Artikel, dessen Detailansicht du öffnen möchtest.</li>
+</ul>
+<p>Die Detailansicht enthält die folgenden Informationen:</p>
+<ul>
+<li>Artikelname</li>
+<li>Verkaufspreise</li>
+<li>Einkaufspreise</li>
+<li>Eigenschaften</li>
+<li>Stückliste</li>
+<li>Lager</li>
+<li>Reservierungen</li>
+<li>Laufende Produktionen</li>
+<li>Offene Aufträge</li>
+<li>Offene Bestellungen</li>
+</ul>
+<p>Schließe die Detailansicht, indem auf<img alt="CloseQuickPreview.png" src="https://help.xentral.com/hc/article_attachments/13926317760028" /></p>
+<p>links in der Tabelle neben dem Artikel klickst.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

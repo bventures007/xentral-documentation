@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016757119 Proformarechnung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016757119 Proformarechnung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016757119 Proformarechnung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Eine <strong>Proformarechnung <strong>ist ein vorläufiges Handelsdokument, das vor allem im</strong> Export <strong>, </strong> internationalen Handel <strong>und bei</strong> Zollformalitäten <strong>eingesetzt wird. Anders als eine reguläre Rechnung stellt sie </strong> keine Zahlungsaufforderung <strong>dar, sondern dient als Nachweis über </strong> Warenwert <strong>, </strong> Lieferbedingungen <strong>, </strong> Transportangaben <strong>und</strong> Zollinformationen <strong>. Typische Einsatzbereiche sind die </strong> Zollabfertigung <strong>, </strong> Akkreditivbeantragung <strong>, </strong> Bankgeschäfte <strong>oder die</strong> Absicherung von Vorauszahlungen <strong>. Damit ist die Proformarechnung ein zentrales Dokument in der </strong> Exportabwicklung <strong>und unterstützt Unternehmen dabei, ihre </strong> Liefer- und Verzollungsprozesse</strong> effizient zu steuern.</p>
+<p>Damit eine Proformarechnung rechtssicher und praktikabel ist, enthält sie typischerweise Angaben zu Absender, Empfänger, Warenbeschreibung, Warenwert, Incoterms, Gewicht, Maße sowie optional Bank- und Zahlungsinformationen. Sie ist damit ein zentrales Dokument in der Exportabwicklung und unterstützt Unternehmen, ihre Liefer- und Verzollungsprozesse effizient zu steuern.</p>
+<h2 id="wesentliche-inhalte-einer-proformarechnung">Wesentliche Inhalte einer Proformarechnung<a class="headerlink" href="#wesentliche-inhalte-einer-proformarechnung" title="Permanent link">&para;</a></h2>
+<p>Damit eine Proformarechnung für Zoll, Kunden oder Banken verwendbar ist, sollte sie folgende Angaben enthalten:</p>
+<p>-<strong>Absender/Verkäufer</strong>: Name, Anschrift, Unternehmensdaten
+-<strong>Empfänger/Kunde</strong>: Name, Anschrift, ggf. Steuer- oder USt-IdNr.
+-<strong>Dokumentenangaben</strong>: Ausstellungsdatum, eindeutige Nummer, Kennzeichnung als Proformarechnung
+-<strong>Waren-/Leistungsbeschreibung</strong>: Artikelbezeichnung, Menge, ggf. Artikelnummer, HS-Code (Zolltarifnummer)
+-<strong>Warenwert</strong>: Einzel- und Gesamtpreise, Währung (z. B. EUR, USD)
+-<strong>Lieferbedingungen</strong>: Incoterms, Lieferdatum/-zeitraum
+-<strong>Transportangaben</strong>: Gewicht, Maße, Anzahl der Packstücke, Transportmittel
+-<strong>Zahlungsinformationen (optional)</strong>: Bankverbindung, Zahlungsweise (z. B. Vorkasse, Akkreditiv)
+-<strong>Zollangaben (optional)</strong>: Herkunftsland, Zolltarifnummer, Nettogewicht</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Auf Proformarechnungen sollte immer deutlich vermerkt sein, dass es sich nicht um eine reguläre Handelsrechnung handelt. Eine gängige Formulierung lautet z.B.: „<strong>Nur für Zollzwecke – keine Handelsrechnung <strong>“ / „</strong> For customs purposes only – no commercial value</strong>“.</p>
+</blockquote>
+<h2 id="proformarechnung-aus-einem-auftrag-erstellen">Proformarechnung aus einem Auftrag erstellen<a class="headerlink" href="#proformarechnung-aus-einem-auftrag-erstellen" title="Permanent link">&para;</a></h2>
+<p>In Xentral gibt es zwei Möglichkeiten, eine Proformarechnung zu erstellen:</p>
+<ol>
+<li>als <strong>eigenständigen Beleg </strong> im Modul <strong>Proformarechnung</strong>, oder</li>
+<li>über eine <strong>Checkbox im Auftrag</strong>, wenn nur in Ausnahmefällen eine Proformarechnung benötigt wird.</li>
+</ol>
+<p>Welche Variante sinnvoll ist, hängt davon ab, wie häufig du Proformarechnungen nutzt und ob du eine saubere Trennung in einem eigenen Nummernkreis benötigst.</p>
+<h3 id="proformarechnung-als-eigenstandigen-beleg-erstellen-modul-proformarechnung">Proformarechnung als eigenständigen Beleg erstellen (Modul Proformarechnung)<a class="headerlink" href="#proformarechnung-als-eigenstandigen-beleg-erstellen-modul-proformarechnung" title="Permanent link">&para;</a></h3>
+<p>Wenn Proformarechnungen regelmäßig benötigt werden (z. B. im Export oder für Zollzwecke), empfiehlt es sich, das Modul <strong>Proformarechnung </strong> zu verwenden.<strong>Schritte:</strong></p>
+<ol>
+<li>Öffne einen Auftrag im Menü <strong>Verkaufen &gt; Auftrag</strong>.</li>
+<li>Wähle im <strong>Aktionsmenü</strong>&lsquo;als Proformarechnung weiterführen&rsquo;.</li>
+<li>Wähle im Popup Fenster aus, ob du die Proformarechnung mit <strong>allen Artikeln </strong> oder <strong>nur mit Lagerartikeln</strong> weiterführen willst.</li>
+<li>Speichere den Beleg.</li>
+<li>Die Proformarechnung wird als <strong>eigenständiges Dokument</strong> mit eigenem Nummernkreis erstellt und ist damit separat nachvollziehbar.</li>
+</ol>
+<p><img alt="proformarechnung_vorschau.png" src="https://help.xentral.com/hc/article_attachments/22099415312668" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Wann diese Variante nutzen?</p>
+<ul>
+<li>Wenn Proformarechnungen regelmäßig gebraucht werden.</li>
+<li>Wenn die Dokumente separat verwaltet, archiviert oder nachverfolgt werden sollen.</li>
+<li>Wenn du unterschiedliche Nummernkreise für Rechnungen und Proformarechnungen benötigst.</li>
+</ul>
+</blockquote>
+<h3 id="proformarechnung-uber-checkbox-im-auftrag-erstellen">Proformarechnung über Checkbox im Auftrag erstellen<a class="headerlink" href="#proformarechnung-uber-checkbox-im-auftrag-erstellen" title="Permanent link">&para;</a></h3>
+<p>Für seltene Sonderfälle kannst du im Auftrag einfach die Option <strong>Proformarechnung </strong> aktivieren, ohne das Modul separat zu verwenden.<strong>Schritte:</strong></p>
+<ol>
+<li>Öffne den gewünschten Auftrag.</li>
+<li>Setze im Bereich Allgemein die Checkbox <strong>Proformarechnung</strong>.</li>
+<li>Speichere den Auftrag.</li>
+<li>Der Begriff &lsquo;<em>Rechnung </em>&rsquo; wird im Dokument durch &lsquo;<em> Proformarechnung</em>&rsquo; ersetzt.</li>
+<li>Lade den Beleg im Tab <strong>Vorschau</strong> herunter oder versende ihn direkt an den Kunden.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wichtiger Hinweis:</p>
+<ul>
+<li>Es wird <strong>kein separater Beleg</strong> angelegt.</li>
+<li>Der Auftrag mit gesetzter Checkbox wird lediglich im <strong>Archiv</strong> abgelegt, sofern er über „Abschicken“ versendet wurde.</li>
+</ul>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Wann diese Variante nutzen?</p>
+<ul>
+<li>Wenn Proformarechnungen nur selten benötigt werden.</li>
+<li>Für Einzelfälle, bei denen keine separate Dokumentation oder Nummernkreis erforderlich ist.</li>
+</ul>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Einstellung in den <strong>Systemeinstellungen</strong>: Option: &lsquo;Beschriftung abweichend Auftrag&rsquo;</p>
+<p>Mit dieser Einstellung kannst du den Standard-Betreff des Auftrags ändern. Im Auftrag selbst gibt es eine Checkbox, mit der du den Betreff des Belegs auf eine alternative Bezeichnung umstellen kannst. Den Namen dieser alternativen Bezeichnung legst du hier in den Systemeinstellungen fest.</p>
+</blockquote>
+<h2 id="modul-proformarechnung-verwaltung-und-erstellung-von-belegen">Modul Proformarechnung – Verwaltung und Erstellung von Belegen<a class="headerlink" href="#modul-proformarechnung-verwaltung-und-erstellung-von-belegen" title="Permanent link">&para;</a></h2>
+<p>Das Modul Proformarechnung bietet dir die Möglichkeit, Proformarechnungen unabhängig von Aufträgen zu erstellen oder aus vorhandenen Lieferscheinen zusammenzuführen. Dadurch hast du maximale Flexibilität – sowohl für Einzelfälle als auch für gebündelte Versandvorgänge.</p>
+<p>Über die Smart Search gelangst du ins Modul und kannst vorhandene Dokumente:</p>
+<p>-<strong>bearbeiten</strong>(Stift-Symbol),
+-<strong>löschen</strong>(X-Symbol, endgültig – keine Stornierung),
+-<strong>kopieren</strong>(Kopier-Symbol),
+- oder als <strong>PDF exportieren</strong>(PDF-Symbol).</p>
+<h3 id="funktionen-modul-proformarechnung">Funktionen (Modul Proformarechnung)<a class="headerlink" href="#funktionen-modul-proformarechnung" title="Permanent link">&para;</a></h3>
+<p>Die erweiterte Proformarechnung zeichnet sich aus durch:</p>
+<p>-<strong>Erstellungsgrundlage</strong>: Aus Auftrag, Lieferscheine oder freie Erstellung möglich
+-<strong>Nummernkreis</strong>: Eigenständiger Nummernkreis
+-<strong>Belegtext</strong>: Eigene Textvorlagen definierbar
+-<strong>Abweichende Bezeichnung</strong>: Frei wählbare, globale Bezeichnung möglich</p>
+<h3 id="neue-proformarechnung-unabhangig-erstellen">Neue Proformarechnung unabhängig erstellen<a class="headerlink" href="#neue-proformarechnung-unabhangig-erstellen" title="Permanent link">&para;</a></h3>
+<p>Wenn du eine Proformarechnung benötigst, die nicht direkt aus einem Auftrag oder Lieferschein entsteht, kannst du sie komplett eigenständig im Modul anlegen, Kunde und Positionen auswählen und das Dokument nach Vorschau versenden. Diese Variante ist nicht mit anderen Belegen verknüpft.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Öffne das Modul <strong>Proformarechnung</strong>.</li>
+<li>Klicke oben rechts auf <strong>+NEU</strong>.</li>
+<li>Wähle den gewünschten Kunden.</li>
+<li>Füge die Artikelpositionen hinzu, die in die Proformarechnung aufgenommen werden sollen.</li>
+<li>Wechsle in das Tab <strong>Vorschau</strong>, um das Dokument zu prüfen.</li>
+<li>Versende die Proformarechnung über das <strong>Aktionsfeld</strong> oder speichere sie ab.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Variante ist <strong>nicht mit anderen Dokumenten </strong> wie Lieferscheinen <strong>verknüpft</strong>. Die Proformarechnung steht somit als eigenständiger Beleg im System.</p>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Wann sinnvoll?</p>
+<ul>
+<li>Für Sonderfälle ohne zugrunde liegenden Auftrag.</li>
+<li>Wenn du eine Proformarechnung individuell zusammenstellen möchtest.</li>
+<li>Wenn keine automatische Verknüpfung zu Lieferscheinen oder Aufträgen erforderlich ist.</li>
+</ul>
+</blockquote>
+<h3 id="proformarechnung-aus-lieferscheinen-erzeugen">Proformarechnung aus Lieferscheinen erzeugen<a class="headerlink" href="#proformarechnung-aus-lieferscheinen-erzeugen" title="Permanent link">&para;</a></h3>
+<p>Falls du bereits Lieferscheine erstellt hast, kannst du diese in einer gemeinsamen Proformarechnung zusammenführen: Im Tab Lieferscheine laden wählst du freigegebene oder versendete Lieferscheine aus und fasst sie mit Sammelproforma in einer Proformarechnung zusammen.</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Öffne über die Smart Search das Modul <strong>Proformarechnung</strong>.</li>
+<li>Wechsle in das Tab <strong>Lieferscheine laden</strong>.</li>
+<li>In der Liste siehst du alle Lieferscheine mit dem Status „freigegeben“ oder „versendet“.</li>
+<li>Nutze das <strong>Suchfeld</strong> oben rechts, um Lieferscheine gezielt nach Kunde oder Projekt zu filtern.</li>
+<li>Über das Symbol mit dem <strong>Pfeil</strong> kannst du einzelne Lieferscheine erneut aufrufen und prüfen.</li>
+<li>Markiere alle gewünschten Lieferscheine, die in einer Proformarechnung zusammengefasst werden sollen.</li>
+<li>Klicke auf <strong>Sammelproforma</strong>, um eine kombinierte Proformarechnung zu erzeugen.</li>
+</ol>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Wann sinnvoll?</p>
+<ul>
+<li>Wenn mehrere Lieferungen für denselben Kunden zusammengefasst werden sollen.</li>
+<li>Für Exportprozesse, bei denen Zollbehörden eine Übersicht über mehrere Lieferscheine verlangen.</li>
+<li>Wenn du konsolidierte Unterlagen für den Versand benötigst.</li>
+</ul>
+</blockquote>
+<h3 id="proformarechnung-aus-angebot-erzeugen">Proformarechnung aus Angebot erzeugen<a class="headerlink" href="#proformarechnung-aus-angebot-erzeugen" title="Permanent link">&para;</a></h3>
+<p>Neben Aufträgen lassen sich auch <strong>Angebote </strong> direkt in eine Proformarechnung umwandeln. Wähle dazu im <strong>Aktionsmenü </strong> des gewünschten Angebots die Option <strong>als Proformarechnung weiterführen</strong>. So kannst du bereits in der Angebotsphase eine Proformarechnung erzeugen und für Kunden oder Zollzwecke nutzen.</p>
+<h3 id="alternative-bezeichnung-fur-proformarechnungen-modul-proformarechnung">Alternative Bezeichnung für Proformarechnungen (Modul Proformarechnung)<a class="headerlink" href="#alternative-bezeichnung-fur-proformarechnungen-modul-proformarechnung" title="Permanent link">&para;</a></h3>
+<p>Falls du für deine Proformarechnungen eine abweichende Bezeichnung verwenden möchtest (z. B. Handelsdokument oder Exportrechnung), kannst du dies in den Systemeinstellungen festlegen:</p>
+<p><strong>Schritte:</strong></p>
+<ol>
+<li>Öffne <strong>Einstellungen &gt; Administration &gt; Systemeinstellungen</strong>.</li>
+<li>Trage im im Bereich <strong>Belege </strong> im Feld <strong>Beschriftung abweichend Proformarechnung</strong> die gewünschte Bezeichnung ein.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Die eingetragene Bezeichnung wird anschließend automatisch in den Proformarechnungen verwendet – egal, ob du eine unabhängige Proformarechnung erstellst oder mehrere Lieferscheine zusammenführst.</p>
+<h3 id="variablen-und-zollinformationen">Variablen und Zollinformationen<a class="headerlink" href="#variablen-und-zollinformationen" title="Permanent link">&para;</a></h3>
+<p>Über Variablen lassen sich in Proformarechnungen zusätzliche Angaben wie Zollinformationen, Lieferbedingungen und eine separate Verzollungsadresse dynamisch einfügen und automatisch ausgeben.</p>
+<h4 id="verfugbare-variablen">Verfügbare Variablen<a class="headerlink" href="#verfugbare-variablen" title="Permanent link">&para;</a></h4>
+<p>Für Proformarechnungen stehen folgende Variablen zur Verfügung, die automatisch mit den passenden Werten befüllt werden:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{ANZAHLTEILE}</td>
+<td>Anzahl der Teile</td>
+</tr>
+<tr>
+<td>{NETTOGEWICHT}</td>
+<td>Nettogewicht in Summe über alle Artikel</td>
+</tr>
+<tr>
+<td>{LIEFERBEDINGUNG}</td>
+<td>Lieferbedingung</td>
+</tr>
+</tbody>
+</table>
+<h4 id="verzollung-proformarechnung">Verzollung - Proformarechnung<a class="headerlink" href="#verzollung-proformarechnung" title="Permanent link">&para;</a></h4>
+<p>In Proformarechnungen können zusätzliche Zollinformationen wie Tarifnummer, Herkunftsland, Gewicht oder eine separate Verzollungsadresse hinterlegt und ausgegeben werden.</p>
+<h5 id="zollinformationen-hinzufugen">Zollinformationen hinzufügen<a class="headerlink" href="#zollinformationen-hinzufugen" title="Permanent link">&para;</a></h5>
+<p>Aktiviere in einer geöffneten Proformarechnung im Abschnitt <strong>Proformarechnung </strong> die Option <strong>inkl. Zollinformationen</strong>, um folgende Angaben je Position anzuzeigen:</p>
+<ul>
+<li>Zolltarifnummer</li>
+<li>Herkunftsland</li>
+<li>Gewicht</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Weitere Zollinformationen lassen sich unter <strong>Adressen &gt; Adresse &gt; Details &gt; Tab: Zahlungskonditionen/Besteuerung</strong> pflegen. Sie können über die Variable {VERZOLLUNGINFORMATION} eingebunden werden.</p>
+</blockquote>
+<h5 id="verzollungsadresse-hinterlegen">Verzollungsadresse hinterlegen<a class="headerlink" href="#verzollungsadresse-hinterlegen" title="Permanent link">&para;</a></h5>
+<p>Aktiviere die Option <strong>extra Verzollungsadresse </strong>, um eine spezielle Adresse für Zollzwecke zu erfassen.<strong>Schritte:</strong></p>
+<ol>
+<li>Öffne die gewünschte Proformarechnung.</li>
+<li>Aktiviere bei den Stammdaten die Option <strong>extra Verzollungsadresse</strong>.</li>
+<li>Trage im neuen Bereich <strong>Verzollung </strong> die gewünschten Adressdaten für die Verzollung ein. (Optional: Wähle über <strong>aus Stammdaten</strong> eine Adresse aus deinem Adresstamm aus.)</li>
+<li>Optional: Weitere Zollinformationen kannst du im Textfeld <strong>Zollinformationen</strong> eingeben.</li>
+<li>Klicke auf <strong>Speichern</strong>.</li>
+</ol>
+<p>Für die Ausgabe auf dem Briefpapier (Textvorlagen) stehen diese Variablen zur Verfügung:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{VERZOLLUNGNAME}</td>
+<td>(Firmen-) Name der hinterlegten Verzollungsadresse</td>
+</tr>
+<tr>
+<td>{VERZOLLUNGSTRASSE}</td>
+<td>Straßenname und Hausnummer der Verzollungsadresse</td>
+</tr>
+<tr>
+<td>{VERZOLLUNGPLZ}</td>
+<td>Postleitzahl der Verzollungsadresse</td>
+</tr>
+<tr>
+<td>{VERZOLLUNGORT}</td>
+<td>Ort/Stadt der Verzollungsadresse</td>
+</tr>
+<tr>
+<td>{VERZOLLUNGLAND}</td>
+<td>Land der Verzollungsadresse</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Mit <strong>IF-Bedingungen</strong> kannst du steuern, dass die Felder nur erscheinen, wenn eine Verzollungsadresse vorhanden ist.</p>
+</blockquote>
+<h4 id="beispiel-fur-variablen-auf-dem-proformarechnungs-beleg-einfugen-in-textvorlagen">Beispiel für Variablen auf dem Proformarechnungs-Beleg (Einfügen in Textvorlagen)<a class="headerlink" href="#beispiel-fur-variablen-auf-dem-proformarechnungs-beleg-einfugen-in-textvorlagen" title="Permanent link">&para;</a></h4>
+<p><strong>Proformarechnung Text vor Artikeltabelle:<strong>&gt;</strong> Anmerkung</strong></p>
+<blockquote>
+<p><strong>Hinweis</strong></p>
+<p>{IF}{USTID}{THEN}Ihre USt-ID:{USTID}{ELSE}{ENDIF}</p>
+<p>Lieferadresse: {LIEFERADRESSELANG}</p>
+</blockquote>
+<p><strong>Proformarechnung Text am Ende (nach Freitext):<strong>&gt;</strong> Anmerkung</strong></p>
+<blockquote>
+<p><strong>Hinweis</strong></p>
+<p>Anzahl der Teile: {ANZAHLTEILE}</p>
+<p>Nettogewicht in Summe in kg: {NETTOGEWICHT}</p>
+<p>Lieferbedingung: {LIEFERBEDINGUNG}</p>
+<p>Verzollungsadresse: {VERZOLLUNGNAME}, {VERZOLLUNGSTRASSE}, {VERZOLLUNGPLZ}, {VERZOLLUNGORT}, {VERZOLLUNGLAND}</p>
+<p>Dieses Formular wurde maschinell erstellt und ist ohne Unterschrift gültig.</p>
+</blockquote>
+<p><img alt="proformarechnung_briefpapier_verzollung_und_gewicht.png" src="https://help.xentral.com/hc/article_attachments/22099429943324" /></p>
+<h3 id="nur-lagerartikel-in-proformarechnung-ubernehmen">Nur Lagerartikel in Proformarechnung übernehmen<a class="headerlink" href="#nur-lagerartikel-in-proformarechnung-ubernehmen" title="Permanent link">&para;</a></h3>
+<p>Unter <strong>Einstellungen &gt; Administration &gt; Systemeinstellungen &gt; Sonstiges </strong> kannst du die Option <strong>Auto. Proformarechnung bei Export <strong>„</strong> nur Lagerartikel</strong>“ aktivieren. Damit legst du fest, dass automatisch erzeugte Proformarechnungen in der Versandübergabe (Autoversand) ausschließlich Lagerartikel aus dem Auftrag enthalten.</p>
+<p>Hinweis zur Verwendung:</p>
+<ul>
+<li>Arbeitest du mit <strong>JIT-Stücklisten</strong>(= Just-In-Time Stücklisten), sollten diese unbedingt in die Proformarechnung übernommen werden – auch wenn der Kopfartikel selbst kein Lagerartikel ist, jedoch den Verkaufspreis enthält.</li>
+<li>Versendest du hingegen nur <strong>Einzelartikel </strong>, kann es sinnvoll sein, nicht-materielle Artikel (z. B. Dienstleistungen) von der Proformarechnung auszuschließen. Dies ist besonders hilfreich, wenn die Proformarechnung beim Export <strong>für den Zoll</strong> ins Paket gelegt oder außen am Paket angebracht wird.</li>
+</ul>
+<h3 id="automatische-proformarechnung-erstellung-druck-logistik-im-projekt-fur-export">Automatische Proformarechnung Erstellung+ Druck (Logistik im Projekt für Export)<a class="headerlink" href="#automatische-proformarechnung-erstellung-druck-logistik-im-projekt-fur-export" title="Permanent link">&para;</a></h3>
+<p>Im Projekt kann folgende Option für einen Logistikprozess eingestellt werden:</p>
+<ul>
+<li>Projekt, Logistik: Optionen:<strong>Automatisch Proformarechnung bei Export anlegen</strong>: Für Aufträge mit Besteuerung ‘Export’ wird automatisch eine Proformarechnung angelegt.</li>
+<li>Projekt, Logistik: Stufe 2 (Pack) an Versandstation:<strong>Auto. Proformarechnung bei Export</strong>, Anzahl der Exemplare + Druckoption: Für Aufträge mit Besteuerung Export wird die Proformarechnung am Packtisch x-mal ausgedruckt.</li>
+</ul>
+<h3 id="kontodaten-fur-proformarechnung-hinterlegen">Kontodaten für Proformarechnung hinterlegen<a class="headerlink" href="#kontodaten-fur-proformarechnung-hinterlegen" title="Permanent link">&para;</a></h3>
+<p>Bei Vorauszahlung oder als Angebotsgrundlage sind Bankverbindung sinnvoll, damit der Kunde die Zahlung vornehmen kann. Deine Bankdaten können in einer Proformarechnung über dein Standard Briefpapier - wie bei allen Belegen - angezeigt werden. Alternativ kannst du deine Bankverbindung auch in den <strong>Textvorlagen </strong> für die Belegart <strong>Proformarechnung</strong> hinterlegen.</p>
+<p>Beispiel: Textvorlagen:</p>
+<p><strong>Proformarechnung Text am Ende (nach Freitext):<strong>&gt;</strong> Anmerkung</strong></p>
+<blockquote>
+<p><strong>Hinweis</strong></p>
+<p>Bitte überweisen Sie den Betrag der <strong>Proformarechnung</strong> auf folgendes Konto:</p>
+<p>Kontoinhaber: Muster GmbH &amp; Söhne</p>
+<p>Bank: Musterbank AG</p>
+<p>IBAN: DE12 3456 7890 1234 5678 90</p>
+<p>BIC/SWIFT: MUSTDEFFXXX</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

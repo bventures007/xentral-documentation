@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016721160 Klarna Geschäftskonto - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016721160 Klarna Geschäftskonto</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016721160 Klarna Geschäftskonto</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Der Zahlungsanbieter Klarna steht in verschiedenen Shops und Marktplätzen als Zahlungsweise zur Verfügung und kann für Verkäufer das Erstellen der Rechnung übernehmen. Neben der häufigen Zahlungsweise Klarna Rechnung gibt es auch Klarna Vorkasse für Vorkasse-Bestellungen.</p>
+<p>Mit dem Modul Klarna im Xentral AppStore können Sie eine direkte Anbindung an Klarna vornehmen. Damit ist es möglich, die Trackingnummer des Auftrags als Auslieferbestätigung über die API an Klarna zu übertragen, sobald der Auftrag in Xentral versendet wird. Klarna wird dann die Zahlung vom Kunden einfordern.</p>
+<p>Alternativ können Sie Klarna auch als Zahlungsweise anlegen, ohne Ihren Account anzubinden. Dann muss man manuell vorgehen, d.h. den Status der Aufträge in Klarna manuell als &lsquo;verschickt&rsquo; markieren und in Klarna ggf. die Trackingnummer hinterlegen. Für manche Shops gibt es Plugins, die die Kommunikation an Klarna vollständig übernehmen. Dann muss eine Anbindung in Xentral nicht mehr vorgenommen werden.</p>
+<p>Zusätzlich kann Klarna als Geschäftskonto angebunden werden, um die Zahlungen per Live-Import zu importieren.</p>
+<h2 id="klarna-als-zahlungsweise-anbinden">Klarna als Zahlungsweise anbinden<a class="headerlink" href="#klarna-als-zahlungsweise-anbinden" title="Permanent link">&para;</a></h2>
+<h3 id="credentials-eintragen">Credentials eintragen<a class="headerlink" href="#credentials-eintragen" title="Permanent link">&para;</a></h3>
+<p>Um Klarna direkt per API anzubinden, müssen die Zugangsdaten (Credentials) im System hinterlegt werden. Unter Administration → Einstellungen → Zahlungsweisen können Sie über den Button +NEU eine weitere Zahlungsweise in Xentral definieren. Als Modul muss dabei Klarna gewählt werden.</p>
+<p>Im Anschluss können Sie die Zahlungsweise aktiv setzen und Ihre Klarna-Accountdaten hinterlegen.</p>
+<p><img alt="Klarna1.png" src="https://help.xentral.com/hc/article_attachments/15492829149084" /></p>
+<p>Benötigt wird der <strong>Benutzername/Username <strong>(ehemals Merchant-ID) und das </strong> Passwort</strong>(ehemals Shared Secret), welche du beide in deinem Klarna-Account findest. Benutzername und Passwort dienen für Anbindungen an Klarna als API Credentials, sie sind eine Form der Authentifizierung.</p>
+<p>Wo diese im Klarna-Backend gefunden werden, wird<a href="https://developers.klarna.com/api/#authenticationhttp://">hier im Entwicklerportal von Klarna</a>erläutert.</p>
+<p>Bitte beachten Sie dass der Typ eindeutig sein muss, am besten kleingeschrieben klarna.</p>
+<p>In Xentral können Sie die Aufträge vorab als bezahlt markieren, damit diese nicht im Mahnwesen landen. Die Zahlungsabwicklung übernimmt Klarna.</p>
+<h3 id="kontrolle-der-ruckmeldung">Kontrolle der Rückmeldung<a class="headerlink" href="#kontrolle-der-ruckmeldung" title="Permanent link">&para;</a></h3>
+<p>Nachdem Sie die Daten erfolgreich hinterlegt haben, können Sie sich einen Auftrag in Xentral mit Zahlungsweise Klarna aussuchen, den Sie bis zum Versand, sprich bis zum Druck der Paketmarke und dem Erfassen der Trackingnummer, verfolgen.</p>
+<p>Sobald die Trackingnummer erfasst wurde, wird ein Request an Klarna übermittelt. Wenn dieser erfolgreich zurückgemeldet wurde, erhalten Sie im Auftrag einen Protokolleintrag zur Klarna Rückmeldung, den Sie über das Minidetail einsehen können.</p>
+<h3 id="beispiel-ruckmeldung-des-zahlungsstatus-von-klarna">Beispiel: Rückmeldung des Zahlungsstatus von Klarna<a class="headerlink" href="#beispiel-ruckmeldung-des-zahlungsstatus-von-klarna" title="Permanent link">&para;</a></h3>
+<p>In diesem Beispiel wird Klarna Rechnung direkt per API angebunden. Weil die Zahlungabwicklung vollständig von Klarna durchgeführt wird, werden die Aufträge in Xentral bereits vorab als bezahlt markiert.</p>
+<p>Im Autoversand erstellt Xentral für diesen Auftrag nur einen Lieferschein, da die Rechnung von Klarna gestellt und an den Kunden geschickt wird.</p>
+<p><img alt="Klarna2.png" src="https://help.xentral.com/hc/article_attachments/15492845162908" /></p>
+<p>Im Protokoll des Auftrags finden Sie die Rückmeldung von Klarna. Wurden Rechnung und Zahlungsrisiko positiv zurückgemeldet, so erhalten Sie eine solche Meldung.</p>
+<p><img alt="Klarna3.png" src="https://help.xentral.com/hc/article_attachments/15492873928604" /></p>
+<p>Sollte die Rückmeldung fehlschlagen, erhalten Sie an selber Stelle eine Fehlermeldung und können die Rechnung in Klarna von Hand prüfen.</p>
+<p><img alt="Klarna4.png" src="https://help.xentral.com/hc/article_attachments/15492829293084" /></p>
+<h3 id="stornos">Stornos<a class="headerlink" href="#stornos" title="Permanent link">&para;</a></h3>
+<p>Bei Stornierungen über Klarna werden keine Einträge zurückgemeldet, und auch keine Stornos in das Rechnungsprotokoll mit aufgenommen.</p>
+<h2 id="anbindung-als-geschaftskonto">Anbindung als Geschäftskonto<a class="headerlink" href="#anbindung-als-geschaftskonto" title="Permanent link">&para;</a></h2>
+<p>Eine weitere Möglichkeit ist es, Klarna als Geschäftskonto anzubinden, um Zahlungen per Live-Import holen zu können. Dazu werden die API-Credentials von Klarna (API_USER, API_KEY, API_DAYS) benötigt.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Klarna kann im Live Import die Zahlungen nur alle 7 Tage abholen.</p>
+</blockquote>
+<p>Die API-Credentials können auf der Seite von Klarna gefunden werden. Dazu wird in die Einstellungen-App im Händlerportal navigiert und dort auf &ldquo;neue API-Credentials generieren&rdquo; geklickt. Die neu erzeugten API-Anmeldeinformationen sollten unbedingt gespeichert werden, da diese nur einmal gesehen werden können.</p>
+<p>Das Modul &ldquo;Geschäftskonten&rdquo; findet sich unter Administration → Einstellungen → Buchhaltung → Geschäftskonten und zum Anlegen eines neuen Kontos wird auf &ldquo;Neu&rdquo; geklickt. Dort wird &ldquo;Custom&rdquo; ausgewählt und als Bezeichnung Klarna. Der Typ ist Konto:Klarna. Die API-Credentials werden in das Feld &ldquo;Zugangsdaten&rdquo; in folgender Form eingegeben:</p>
+<pre><code>API_USER=&gt;XX;
+API_KEY=&gt;XX;
+API_DAYS=&gt;X;
+</code></pre>
+<p>Zum Hinzufügen des Geschäftskontos wird nun gespeichert.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

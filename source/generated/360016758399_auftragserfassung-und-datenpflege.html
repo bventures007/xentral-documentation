@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016758399 Auftragserfassung Und Datenpflege - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016758399 Auftragserfassung Und Datenpflege</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016758399 Auftragserfassung Und Datenpflege</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Alle in diesem Artikel beschriebenen Felder sind optional, soweit sie nicht ausdrücklich als verpflichtend gekennzeichnet sind. Wir empfehlen jedoch, alle für dich relevanten Felder bestmöglich auszufüllen, da viele Felder auch im Kontext anderer Funktionalitäten angewendet werden. Dies erleichtert dir die Arbeit im Nachgang.</p>
+</blockquote>
+<p>Du kannst Aufträge in Xentral auf folgende Arten anlegen:</p>
+<ul>
+<li>Per CSV-Import oder durch Import aus deinen Onlineshops. Weitere Informationen zu den Auftragsimport-Optionen findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/6113621941916#UUID-f09e5d06-3e8d-e1f9-e056-08af4233bb39">Aufträge importieren und exportieren</a>. Bei einem Import werden die Auftragsfelder automatisch mit den importierten Informationen gefüllt.</li>
+<li>Über die Kundenstammdaten im Menü Verkaufen &gt; Adressen &gt; Kundenadresse öffnen. Klicke dort im Bereich Neu anlegen auf Auftrag. Das Auftragsformular wird geöffnet und automatisch mit den Kundeninformationen befüllt.</li>
+<li>Durch manuelle Anlage im Menü Verkaufen &gt; Auftrag &gt; + NEU.</li>
+<li>Aus einem bestehenden Angebot im Menü <strong>Verkaufen &gt; Angebot </strong>. Öffne dort das gewünschte Angebot und wähle die Option <strong>Als Auftrag weiterführen </strong> im Dropdown-Menü <strong>Aktion</strong> oben rechts aus.</li>
+</ul>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Wenn du einen Auftrag manuell in Xentral anlegst, wird der Auftrag zunächst im Entwurfsmodus angelegt. So kannst du ihn leicht anpassen oder löschen. Um einen Auftrag weiter zu verarbeiten, klicke im geöffneten Auftrag auf <strong>Freigeben</strong>. Durch diese Freigabe erhält der Auftrag eine Auftragsnummer. Außerdem kann der Auftrag nun nicht mehr gelöscht, sondern nur noch storniert werden.</p>
+</blockquote>
+<h2 id="allgemeine-auftragsinformationen-eingeben-und-pflegen">Allgemeine Auftragsinformationen eingeben und pflegen<a class="headerlink" href="#allgemeine-auftragsinformationen-eingeben-und-pflegen" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Das FeldStatusim BereichAllgemeinwird automatisch mit dem aktuellen Status des Auftrags gefüllt. Du kannst diesen Status nicht manuell ändern.</p>
+</blockquote>
+<p>Zum Hinzufügen oder Pflegen der allgemeinen Auftragsinformationen gehst du wie folgt vor:</p>
+<ol>
+<li>Ist das Feld Kunde nicht bereits mit Kundendaten gefüllt, wähle den gewünschten Kunden und klicke auf übernehmen (verpflichtend). Dadurch wird der Bereich Stammdaten mit den vorhandenen Kundenstammdaten gefüllt.</li>
+<li>Aktiviere die Option an Lieferanten, wenn es sich um einen Auftrag für einen deiner Lieferanten handelt. In diesem Fall wird das Feld Kunde zum Feld Lieferant.</li>
+<li>Wähle das passende Projekt im Feld Projekt. Weitere Informationen zum Thema Projekte findest du im Artikel <a href="https://help.xentral.com/hc/de/articles/360016723620#UUID-47d62f4f-3eac-f7b6-5144-f2353584abd5">Projekte: Nutzung und Einstellungen</a>.</li>
+<li>Gib gegebenenfalls einen numerischen Aktionscode in das Feld Aktionscode ein. Dieser Code kann für Analysezwecke verwendet werden, beispielsweise um einzusehen, in welchen Aufträgen oder wie oft ein bestimmter Code angewendet wurde.</li>
+<li>Wurde ein Auftrag aus einem Online-Shop importiert, enthält das Feld Internet die Auftrags-ID aus deinem Online-Shop. Alternativ kannst du diese ID aus deinem Online-Shop auch manuell nachträglich eingeben.</li>
+<li>Wurde der Auftrag aus einem Angebot heraus erstellt, wird die Angebotsnummer automatisch übernommen. Ist dies nicht der Fall und möchtest du den Auftrag mit einem Angebot verknüpfen, gib die Angebotsnummer manuell ein.</li>
+<li>Bei Kunden, für die eine abweichende Debitorennummer existiert, kann du diese in das Feld Abw. Debitorennummer eintragen. Diese Nummer ist besonders dann relevant, wenn du das Modul Sammeldebitoren verwendest.</li>
+<li>Hat dein Kunde analog zum vorliegenden Auftrag eine Bestellung bei sich angelegt, gib diese Nummer, soweit bekannt, in das Feld Ihre Bestellnummer/Kommission ein.</li>
+<li>Bei Bedarf kannst du eine eigene kurze Kennung im Feld Interne Bezeichnung hinzufügen. Diese Kennung wird in der Auftragsübersicht in der Spalte Kunde unter dem Kundennamen angezeigt.</li>
+<li>Das Feld Auftragsdatum wird automatisch mit dem Erstellungsdatum des Auftrags gefüllt. Du kannst das Auftragsdatum manuell ändern. Klicke dazu auf das Datum und wähle das gewünschte Datum aus dem Kalender. Wähle im Dropdown-Menü per den Kanal aus, über den du den Auftrag angenommen hast, z.B. Internet, E-Mail oder Telefon.</li>
+<li>Möchte der Kunde die Lieferung zu einem bestimmten Termin erhalten, wähle das entsprechende Datum im Feld Wunsch Liefertermin.</li>
+<li>Wähle bei Bedarf das Datum, an dem der Auftrag an das Lager übertragen werden sollen, im Feld Auslieferung Lager aus. Auf diese Weise kannst du Vorlaufzeiten für die Verarbeitung des Auftrags im Lager und Versand mit einberechnen.</li>
+<li>Soll der Artikel im Lager für deinen Kunden reserviert werden, wähle im Feld Reservierungs Datum das Datum aus, an dem die Reservierung erfolgen soll.</li>
+<li>Nur relevant, wenn du die App Kommissions-/Konsignationslager verwendest: Das Feld Kommissions-/Konsignationslager wird automatisch mit dem passenden Lager gefüllt, wenn ein solches in den Kundenstammdaten hinterlegt wurde. Alternativ kannst du über die Lupe nach dem passenden Lager suchen.</li>
+<li>Xentral aktiviert automatisch die OptionSchreibschutz, sobald eine Rechnung für diesen Auftrag erstellt order archiviert wurde. Du kannst diese Option auch manuell aktivieren, wenn du den Schreibschutz aus irgendeinem Grund setzten möchtest.</li>
+<li>Gib zusätzlichen Text, der in der Auftragsbestätigung angezeigt werden soll, in den Freitext-Editor ein. Im Allgemeinen definierst du jedoch den Standardtext deiner Belege im Menü Einstellungen &gt; Grundeinstellungen &gt; Belege &gt; Textvorlagen ein.</li>
+</ol>
+<h2 id="abweichende-lieferadresse-hinzufugen">Abweichende Lieferadresse hinzufügen<a class="headerlink" href="#abweichende-lieferadresse-hinzufugen" title="Permanent link">&para;</a></h2>
+<p>Soll der Auftrag an eine abweichende Lieferadresse versendet werden, aktiviere im BereichAbweichende Lieferadressedie OptionAbweichende Lieferadresse. Du kannst dann zwischen den folgenden Optionen wählen:</p>
+<ul>
+<li>Gib manuell eine abweichende Lieferadresse ein.</li>
+<li>
+<p>Klicke auf Lieferadresse. Scrolle nach unten, bis du die Tabelle mit alternativen Lieferadressen aus dem Reiter Lieferadressen in den Kundenstammdaten ereichst. Wähle die gewünschte Adresse per Klick auf das <strong>Stift-Symbol</strong> in der Spalte Menü aus.
+  Alternativ kannst du eine neue Lieferadresse eingeben und auf Lieferadresse speichern klicken. Scrolle dann nach unten, bis du die Tabelle erreichst. Wähle dann die neue Adresse per Klick auf das <strong>Stift-Symbol </strong> in der Spalte <strong>Menü</strong> aus.</p>
+</li>
+<li>
+<p>Klicke auf Ansprechpartner. Scrolle nach unten, bis du die Tabelle mit Ansprechpartnern aus dem Tab Ansprechpartner in den Kundenstammdaten erreichst. Wähle die gewünschte Adresse per Klick auf das <strong>Stift-Symbol</strong> aus.</p>
+</li>
+<li>Klicke auf aus Stammdaten. Scrolle nach unten, bis du die Tabelle mit allen in Xentral erfassten Kunden erreichst. Wähle die gewünschte Adresse mit einem Klick auf das <strong>Stift-Symbol </strong> in der Spalte <strong>Menü</strong>.</li>
+</ul>
+<h2 id="kundendaten-im-auftrag-pflegen">Kundendaten im Auftrag pflegen<a class="headerlink" href="#kundendaten-im-auftrag-pflegen" title="Permanent link">&para;</a></h2>
+<p>Der BereichStammdatendes Auftrags wird automatisch mit den Kundenstammdaten gefüllt. Du kannst fehlende Informationen hinzufügen oder vorhandene Informationen bearbeiten.</p>
+<p><img alt="stammdaten-en.png" src="https://help.xentral.com/hc/article_attachments/19436553135004" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Informationen, die du hier eingibst oder änderst, gelten nur für diesen spezifischen Auftrag. Die neuen oder geänderten Daten werden nicht in die Kundenstammdaten übernommen.</p>
+</blockquote>
+<p>Du kannst einen bestehenden Ansprechpartner auf Seiten des Kunden hinzufügen oder einen neuen Ansprechpartner anlegen, indem du aufAnsprechpartnerklickst. Das FormularAnsprechpartner einfügenwird angezeigt. Dieses Formular ist mit dem ReiterAnsprechpart.in den Kundenstammdaten verknüpft. Das heißt, dass alle Ansprechpartner, die hier angelegt werden, dem ReiterAnsprechpart.hinzugefügt werden. Wenn du hier Daten änderst oder löscht, werden die Änderungen in dem Reiter übernommen.</p>
+<ul>
+<li>Um dem Auftrag einen bestehenden Ansprechpartner hinzuzufügen, scrolle im Formular Ansprechpartner einfügen nach unten, bis du die Tabelle mit den bestehenden Ansprechpartnern erreichst. Wähle den gewünschten Ansprechpartner aus. Der gewählte Ansprechpartner wird im Feld Ansprechpartner des Auftrags angezeigt.</li>
+<li>Wenn du einen neuen Ansprechpartner anlegen möchtest, gib die entsprechenden Informationen in die passenden Felder ein und klicke auf Ansprechpartner speichern. Scrolle im Formular nach unten und dein neuer Ansprechpartner wird in der Tabelle angezeigt. Du kannst diesen Ansprechpartner nun wie oben beschrieben dem Auftrag hinzufügen. Ansprechpartner, die du auf diese Weise anlegst, werden den Kundenstammdaten im Reiter Ansprechpart. hinzugefügt.</li>
+</ul>
+<p>Das FeldInfo für Angebots- und Auftragserfassungneben dem BereichStammdatenwird automatisch mit den Informationen des FeldesInfo für Auftragserfassungder Kundenstammdaten gefüllt.</p>
+<h2 id="versand-zahlungsinformationen-zum-auftrag-hinzufugen-und-pflegen">Versand-/Zahlungsinformationen zum Auftrag hinzufügen und pflegen<a class="headerlink" href="#versand-zahlungsinformationen-zum-auftrag-hinzufugen-und-pflegen" title="Permanent link">&para;</a></h2>
+<p>Wenn du deine Versand- und Zahlungsinformationen bereits bei Auftragsanlage hinzufügst und pflegst, macht es dies dem Lager einfacher, die Versandbedingungen zu identifizieren und bietet Unterstützung bei Erstellung einer korrekten Rechnung. Du kannst diese Informationen auch später im Verkaufsprozess pflegen. Wir empfehlen jedoch, diese Informationen direkt zu Beginn einzugeben, da der Auftrag die Basis für den Versand und die Rechnungsstellung ist.</p>
+<p>Gehe wie folgt vor, um Zahlungsinformationen hinzuzufügen und zu pflegen:</p>
+<ol>
+<li>Scrolle im Auftrag nach unten, bis du den Bereich Auftrag erreichst.</li>
+<li>Die Zahlungsweise ist automatisch vorausgewählt. Die Auswahl entspricht dabei der gewählten Zahlungsweise im Dropdown-Menü Zahlungsweise der Kundenstammdaten. Möchtest du für deinen Auftrag eine andere Zahlungsweise verwenden, wähle die gewünschte Zahlungsweise aus dem Dropdown-Menü <strong>Zahlungsweise</strong> im Auftrag. Ist die Zahlungsweise eine Vorauszahlung, aktiviere die Option manuell Zahlungsfreigabe erteilen, damit das entsprechende Symbol der Auftragsampel automatisch auf grün gestellt und der Schritt als abgeschlossen markiert wird. Dies ist besonders wichtig für den Auto-Versand.</li>
+<li>Die Versandart ist automatisch vorausgewählt. Die Auswahl entspricht dabei der gewählten Versandart im Dropdown-Menü Versandart der Kundenstammdaten, wenn der Auftrag manuell angelegt wird. Möchtest du für deinen Auftrag eine andere Versandart verwenden, wähle die gewünschte Versandart aus dem Dropdown-Menü <strong>Versandart</strong> im Auftrag.</li>
+<li>Im Feld Lieferbedingung kannst du eine Lieferbedingung auswählen. Lieferbedingungen kannst du im Modul Lieferbedingungen definieren.</li>
+<li>Die FelderVertriebundBearbeiterwerden automatisch vom System gefüllt. Ist im FeldVertriebin den Kundenstammdaten ein Mitarbeiter ausgewählt, wird dieser Mitarbeiter in das FeldVertriebim Auftrag übernommen. Ist in den Kundenstammdaten kein Mitarbeiter ausgewählt, enthält das FeldVertriebden Mitarbeiter, der den Auftrag angelegt hat. Das FeldBearbeiterenthält automatisch den Mitarbeiter, der den Auftrag angelegt hat. Möchtest du denVertrieb oderBearbeiter ändern, klicke auf das <strong>Stift-Symbol</strong> und wähle die Person, die du verknüpfen möchtest.</li>
+<li>Aktiviere die Option Portoprüfung ausschließen, um das Portoprüfungssymbol der Auftragsampel auf grün zu stellen, wenn die Portoprüfung im ausgewählten Projekt aktiviert ist.</li>
+<li>Aktiviere die Option Artikeltexte ausblenden, wenn die Artikeltexte nicht auf den Belegen angezeigt werden sollen.</li>
+<li>Aktiviere die Option Kein Briefpapier und Logo, wenn dein Briefpapier, das du im PDF-Format in den Grundeinstellungen hochgeladen hast, nicht verwendet werden soll.</li>
+<li>Gib, wenn erforderlich, die Global Location Nummer deines Kunden in das Feld GLN im Bereich Sonstiges rechts ein.</li>
+<li>Der Bereich Rechnung enthält die Zahlungsbedingungen für den Auftrag. Die Zahlungsbedingungen werden automatisch mit den in den Kundenstammdaten erfassten Zahlungsbedingungen gefüllt. Du kannst die Zahlungsbedingungen manuell ändern. Wenn du das Zahlungsziel ändern möchtest, gib die gewünschte Anzahl an Tagen in das Feld Zahlungsziel (in Tagen) ein. Wenn du Skonto bei vorzeitiger Zahlung gibst, gib die entsprechende Anzahl an Tagen für den Skontoabzug in das Feld Zahlungsziel Skonto (in Tagen) ein.</li>
+<li>Gib den Skontorabatt in das Feld Skonto im Bereich Skonto (nur bei Rechnung und Lastschrift) ein.</li>
+</ol>
+<p>Gehe wie folgt vor, um die Versandoptionen zu pflegen:</p>
+<p>Die Checkboxen im BereichVersandzentrum Optionendes Auftrags sind auf Basis der Projekteinstellungen des gewählten Projekts aus- oder abgewählt. Du kannst die vordefinierten Einstellungen in diesem Bereich manuell ändern.</p>
+<p><img alt="versandzentrum-optionen.png" src="https://help.xentral.com/hc/article_attachments/19436559515420" /></p>
+<ol>
+<li>Aktiviere die Option Für den Auto-Versand freigeben, damit das Auftragsampel-Symbol für den Auto-Versand automatisch auf grün gesetzt wird.</li>
+<li>Aktiviere die Option Fast-Lane, um diesen Auftrag als Fast-Lane zu markieren und ihn somit zu priorisieren. Du kannst die Filter in den Reitern Übersicht, Versandübergabe und Offene Positionen unter Verkauf &gt; Auftrag sowie die Filteroptionen unter Lager&amp;Logistik &gt; Versandzentrum verwenden, um nach priorisierten Aufträgen zu suchen. So findest du schnell die Aufträge, die vorrangig verarbeitet werden sollen.</li>
+<li>Im Feld Belege im Auto-Versand erstellen definierst du, welche Belege im Auto-Versand erstellt werden. Wähle aus den folgenden Optionen:
+  - Rechnung und Lieferschein erstellen
+  - nur Lieferschein erstellen
+  - nur Rechnung erstellen</li>
+<li>Aktiviere die Option Lieferung trotz Liefersperre, wenn der Auftrag trotz Liefersperre des Kunden ausgeliefert werden soll. Dies wäre z.B. bei garantierten Lieferungen der Fall. Ist diese Option nicht gewählt und es besteht eine Liefersperre für den Kunden, kann der Auftrag nicht ausgeführt werden.</li>
+<li>Aktiviere die Option Keine Stornomail wenn der Kunde bei Stornierung seines Auftrags keine entsprechende E-Mail erhalten soll. Ist diese Option deaktiviert, bekommt er dazu eine E-Mail.</li>
+<li>Aktiviere die Option Keine Trackingmail, wenn der Kunde keine Trackingmail bekommen soll, d.h. Bestätigung des Versands inklusive Nachverfolgungsnummer vom Versanddienstleister. Ist diese Option deaktiviert, erhält der Kunde eine Trackingmail zu seiner Sendung.</li>
+<li>Aktiviere die Option Keine Zahlungseingangsmail, wenn der Kunde keine Benachrichtigung über den Eingang seiner Zahlung erhalten soll. Ist diese Option nicht aktiviert, erhält der Kunde eine E-Mail, sobald seine Zahlung erfasst ist.</li>
+</ol>
+<h2 id="umsatzsteuer-wahrungs-und-spracheinstellungen-definieren-und-pflegen">Umsatzsteuer-, Währungs- und Spracheinstellungen definieren und pflegen<a class="headerlink" href="#umsatzsteuer-wahrungs-und-spracheinstellungen-definieren-und-pflegen" title="Permanent link">&para;</a></h2>
+<p>Die Umsatzsteuerinformationen sowie die Währungs- und Spracheinstellungen werden automatisch mit den Informationen des Kundenstammdatensatzes gefüllt. Du kannst diese jedoch manuell im Auftrag ändern.</p>
+<p><img alt="ust-pruefung.png" src="https://help.xentral.com/hc/article_attachments/19436559567260" /></p>
+<p>Um die Umsatzsteuerinformationen zu pflegen, gehst du wie folgt vor:</p>
+<ol>
+<li>Handelt es sich bei deinem Kunden um einen Geschäftskunden (B2B), sollte das Feld UST ID im Bereich UST-Prüfung die Umsatzsteuer-ID deines Kunden enthalten. Ist in den Kundenstammdaten keine Umsatzsteuer-ID deines Kunden hinterlegt, kannst du diese hier nachträglich eingeben.</li>
+<li>Das Feld Besteuerung enthält die Art der Besteuerung, die für den Auftrag gilt. Wenn die vordefinierte Besteuerung ändern möchtest, wähle die passende Besteuerung aus:
+  - Inland
+  - EU-Lieferung/Lieferschwelle
+  - Export
+  - Steuerfrei Inland</li>
+<li>Aktiviere die Option ohne Hinweis bei EU oder Export, um den Standardtext für EU- oder Export-Lieferscheine auszublenden. Dies ist der Text, der in Einstellungen &gt; Grundeinstellungen &gt; Belege &gt; EU-Lieferung Vermerk hinterlegt ist.</li>
+<li>Aktiviere die Option UST-ID geprüft, um das Umsatzsteuerprüfungssymbol der Auftragsampel auf grün zu setzen. Diese Option wird automatisch aktiviert, wenn du Inland als Besteuerung ausgewählt hast.</li>
+<li>Im Feld Anzeige Steuer im Bereich Einstellung kannst du auswählen, ob die Umsatzsteuer angezeigt wird oder nicht. Dir stehen folgende Optionen zur Auswahl:
+  - automatisch (Daten werden primär aus den Kundenstammdaten gezogen, sekundär aus den Projekteinstellungen und zuletzt aus den Grundeinstellungen.)
+  - netto
+  - brutto</li>
+</ol>
+<p>Deine Sprach- und Währungseinstellungen pflegst du im BereichEinstellung:</p>
+<p><img alt="einstellung.png" src="https://help.xentral.com/hc/article_attachments/19436559627932" /></p>
+<ol>
+<li>Wähle die Währung für diesen Auftrag aus dem Dropdown-MenüWährung.</li>
+<li>Wähle die Sprache der Belege zu diesem Auftrag aus dem Dropdown-MenüSprache. Aktuell ist die Auswahl der Sprache auf einige wenige Sprachen beschränkt.</li>
+<li>Hast du eine ausländische Währung ausgewählt, kannst du den Wechselkurs in das FeldWechselkurseingeben.</li>
+<li>Möchtest du deinen Auftrag mit einer bestimmten Kostenstelle verknüpfen, wähle die entspreche Kostenstelle im FeldKostenstelle.</li>
+</ol>
+<h2 id="artikel-zum-auftrag-hinzufugen">Artikel zum Auftrag hinzufügen<a class="headerlink" href="#artikel-zum-auftrag-hinzufugen" title="Permanent link">&para;</a></h2>
+<p>Gehe wie folgt vor, um deinem Auftrag Artikel hinzuzufügen:</p>
+<p><img alt="auftragspositionen-hinzufuegen.png" src="https://help.xentral.com/hc/article_attachments/19436559693468" /></p>
+<ol>
+<li>Öffne das Tab Positionen in deinem Auftrag.</li>
+<li>Du kannst deinem Auftrag Artikel auf zwei Arten hinzufügen:
+  - Gib den Artikel oder die Artikelnummer, die dem Auftrag hinzugefügt werden soll, in das FeldArtikelein. Die FelderNummer,Menge,PreisundWährungwerden automatisch durch das System gefüllt. Wurde ein Artikel mehr als einmal bestellt, kannst du die Menge anpassen. Ebenso kannst du den Preis ändern.
+  - Klicke aufArtikel manuell suchen/neu anlegenunterhalb der Artikeltabelle. Es wird ein Formular angezeigt. Hier kannst du nach Artikelinformationen suchen oder einen neuen Artikel anlegen.</li>
+<li>Sind alle Informationen korrekt, klicke auf einfügen in der Artikeltabellenzeile.</li>
+<li>Wiederhole die Schritte für alle Artikel, die du dem Auftrag hinzufügen willst.</li>
+</ol>
+<p>Die ausgewählten Artikel werden dem Auftrag hinzugefügt.</p>
+<p>Du kannst die angezeigte Reihenfolge der Artikel in der Auftragsbestätigung ändern, indem du auf die Pfeilsymbole in der SpalteMenüklickst.</p>
+<p>Du kannst die Artikel mit einem Klick auf das <strong>Stift-Symbol</strong> in der SpalteMenübearbeiten. Alternativ kannst du direkt auf den Wert klicken, den du ändern möchtest, z.B. auf den Artikelpreis, die Währung oder dasLieferdatum, und diesen dann ändern.</p>
+<p>Sobald du den Auftrag komplettiert hast, das heißt alle relevanten Kunden-, Versand- und Zahlungsinformationen eingegeben und Artikel hinzugefügt hast, kannst du den Auftrag verarbeiten. Alle Verarbeitungsoptionen sind im Artikel<a href="https://help.xentral.com/hc/de/articles/6113558323740#UUID-f118e740-c8e0-1848-d397-426de46181a4">Schritte der manuellen Auftragsbearbeitung</a>beschrieben.</p>
+<h3 id="vorlage-fur-wiederkehrende-artikelkombinationen-anlegen-belegvorlagen">Vorlage für wiederkehrende Artikelkombinationen anlegen (Belegvorlagen)<a class="headerlink" href="#vorlage-fur-wiederkehrende-artikelkombinationen-anlegen-belegvorlagen" title="Permanent link">&para;</a></h3>
+<p>Gibt es Artikelkombinationen, die bei dir häufig gemeinsam verkauft werden, kannst du eine Vorlage erstellen. Über diese Vorlage kannst du diese Artikel und Einstellungen (Spezialfelder) in einem Schritt zu einem Auftrag hinzufügen - und musst du diese nicht immer wieder einzeln hinzufügen.</p>
+<p>Um eine Belegvorlage hinzuzufügen oder zu erstellen, klicke aufBelegevorlagenunter der Artikeltabelle im untergeordneten ReiterPositionen. Das FormularBelege Vorlagenwird angezeigt.</p>
+<p><img alt="belegevorlage.png" src="https://help.xentral.com/hc/article_attachments/19436559746972" /></p>
+<ul>
+<li>Du kannst eine bestehende Belegvorlage zu deinem Auftrag hinzufügen, indem du auf das <strong>Pfeilsymbol nach rechts</strong> in der Spalte Menü der entsprechenden Belegvorlage klickst. Die Artikel und Spezialfelder der Vorlage werden deinem Auftrag in derselben Reihenfolge hinzugefügt, wie sie in der Vorlage vorhanden sind.</li>
+<li>Erstelle eine Belegvorlage auf Basis der Artikel in deinem aktuellen Auftrag durch Auswahl der Option als Vorlage anlegen und gib einen Namen für deine Vorlage in das entsprechende Feld ein. Klicke auf Speichern, um die neue Vorlage zu speichern.</li>
+</ul>
+<p>Weitere Information zu Belegvorlagen findest du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016721960#UUID-de72623d-51ec-1c11-e468-bf94eb4a67f2">Belege Vorlagen</a>.</p>
+<h3 id="teillieferungen-fur-einen-auftrag-erstellen">Teillieferungen für einen Auftrag erstellen<a class="headerlink" href="#teillieferungen-fur-einen-auftrag-erstellen" title="Permanent link">&para;</a></h3>
+<p>Möchtest du die Lieferung deines Auftrags splitten, z.B. weil ein Teil der Artikel nicht auf Lager ist, andere Artikel aber sofort verschickt werden müssen, stehen dir dafür zwei Optionen zur Verfügung:</p>
+<ul>
+<li>Wähle die Artikel aus, die du direkt versenden möchtest, indem du die entsprechenden Artikel in der Spalte Pos. markierst. Wähle dann die Option als Lieferschein weiterführen aus dem Dropdown-Menü links unterhalb der Tabelle. Daraufhin wird ein Lieferschein für die ausgewählten Artikel erstellt und die Lieferung gesplittet.</li>
+<li>Klicke auf Versandsplitting. Gib die notwendigen Informationen in das nun angezeigte Formular ein und klicke auf <strong>Versandartikelbetrag ändern</strong>.</li>
+</ul>
+<h3 id="rabatt-auf-alle-artikel-anwenden">Rabatt auf alle Artikel anwenden<a class="headerlink" href="#rabatt-auf-alle-artikel-anwenden" title="Permanent link">&para;</a></h3>
+<p>Du kannst einen Rabatt in Prozent auf alle Artikel deines Auftrags anwenden, z.B. wenn du im Schlussverkauf einen Extra-Rabatt anbietest.</p>
+<p>Klicke aufRabatt in % auf alle Positionen, um einen Rabatt auf alle Artikel anzuwenden. Gib den gewünschten Rabatt in Prozent in den angezeigten Dialog ein und klicke aufOK. Der Rabatt wird in der SpalteRabattangezeigt.</p>
+<h3 id="gutschein-anwenden">Gutschein anwenden<a class="headerlink" href="#gutschein-anwenden" title="Permanent link">&para;</a></h3>
+<p>Du kannst vorhandene Gutscheine auf einen Auftrag anwenden. Gutscheine kannst du im ModulGutscheineerfassen.</p>
+<p>Gehe wie folgt vor, um einen Gutschein auf den Auftrag anzuwenden:</p>
+<ol>
+<li>Klicke auf Gutschein. Das Formular Gutschein wird angezeigt.</li>
+<li>Wähle den Gutschein, den du anwenden möchtest, indem auf auf <strong>Pfeil nach rechts</strong> in der Spalte Menü des jeweiligen Gutscheins klickst.</li>
+</ol>
+<p>Der Gutschein wird auf den Auftrag angewendet und als Negativposition in der Artikelliste angezeigt. Ist der Gutscheinwert höher als der Gesamtwert des Auftrags, wird der ganze Auftrag damit ausgeglichen. Deckt der Gutscheinwert nur einen Teil des Auftragswerts, wird der restliche Betrag später fakturiert.</p>
+<h2 id="layout-der-auftragsbestatigung-anpassen">Layout der Auftragsbestätigung anpassen<a class="headerlink" href="#layout-der-auftragsbestatigung-anpassen" title="Permanent link">&para;</a></h2>
+<p>Die grundlegende Struktur deiner Auftragsbestätigung, d.h. der Text in der Auftragsbestätigung oberhalb der Artikelliste wird im MenüEinstellungen &gt; Grundeinstellungen &gt; Belege &gt; Textvorlagen &gt; Auftrag Text vor Artikeltabelledefiniert. Dies ist der Standardtext, der in all deinen Auftragsbestätigungen verwendet wird.Xentral bietet dir jedoch die Möglichkeit, zusätzlichen Text hinzuzufügen oder Spezialfelder zu nutzen, um die Artikelliste in deiner Auftragsbestätigung anzupassen.</p>
+<p><img alt="text-artikeltabelle.png" src="https://help.xentral.com/hc/article_attachments/19436529687068" /></p>
+<h2 id="vorschau-der-auftragsbestatigung-aufrufen">Vorschau der Auftragsbestätigung aufrufen<a class="headerlink" href="#vorschau-der-auftragsbestatigung-aufrufen" title="Permanent link">&para;</a></h2>
+<p>Wenn du alle notwendigen Informationen erfasst und die gewünschten Artikel zum Auftrag hinzugefügt hast, kannst du dir eine Vorschau der Auftragsbestätigung anzeigen lassen. So kannst du den Auftrag final prüfen, bevor du ihn freigibst.</p>
+<p>Die Auftragsvorschau kannst auf zwei verschiedenen Wegen aufrufen:</p>
+<ul>
+<li>Navigiere zu Verkaufen &gt; Auftrag &gt; Auftrag öffnen &gt; Tab: Details &gt; Tab: Vorschau. Die Auftragsbestätigung wird in Xentral angezeigt.</li>
+<li>Navigiere zu Verkaufen &gt; Auftrag &gt; Auftrag öffnen &gt; Tab: Details und wähle die Option PDF öffnen aus dem Dropdown-Menü Aktion. Die Auftragsbestätigung wird im PDF-Format heruntergeladen und in einem neuen Fenster geöffnet.</li>
+</ul>
+<h2 id="protokolldatei-prufen">Protokolldatei prüfen<a class="headerlink" href="#protokolldatei-prufen" title="Permanent link">&para;</a></h2>
+<p>Navigiere zuVerkaufen &gt; Auftrag &gt; Auftrag öffnen &gt; Tab: Details &gt; Tab: Protokollund prüfe die Protokolldatei zu deinem Auftrag.</p>
+<p>Die Protokolldatei enthält alle relevanten Informationen zum Auftrag sowie die erfassten Aktionen. Du findest hier auch eine Übersicht der zum Auftrag erstellten Dokumente und kannst diese öffnen. Du findest außerdem Informationen zu Zahlungen, Rücksendungen und zum Fortschritt des Auftrags.</p>
+<h2 id="dateien-zum-auftrag-hinzufugen">Dateien zum Auftrag hinzufügen<a class="headerlink" href="#dateien-zum-auftrag-hinzufugen" title="Permanent link">&para;</a></h2>
+<p>Öffne das MenüVerkaufen &gt; Auftrag &gt; Auftrag öffnen &gt; Tab: Dateien, um Dateien zu deinem Auftrag hinzuzufügen.</p>
+<p><img alt="auftrag-datei-1.png" src="https://help.xentral.com/hc/article_attachments/19436581643292" /></p>
+<p><img alt="auftrag-datei-2.png" src="https://help.xentral.com/hc/article_attachments/19436565530140" /></p>
+<p>Gehe wie folgt vor, um eine neue Datei hinzuzufügen:</p>
+<ol>
+<li>Klicke aufneue Datei anlegen.</li>
+<li>Verschiebe deine Datei per Drag&amp;Drop in den Bereich Dateien hier einfügen oder klicke auf Datei auswählen, um die entsprechende Datei auf deinem Computer auszuwählen.</li>
+<li>Gib eine eindeutige Bezeichnung deiner Datei in das Feld <strong>Titel</strong> ein.</li>
+<li>Gib eine Beschreibung deiner Datei in das Feld <strong>Beschreibung</strong> ein.</li>
+<li>Wähle ein Stichwort aus dem Dropdown-Menü Stichwort aus. Folgende Optionen stehen dir hier zur Verfügung:
+  - Sonstige Datei
+  - Deckblatt
+  - Anhang</li>
+<li>Klicke auf Speichern.</li>
+</ol>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

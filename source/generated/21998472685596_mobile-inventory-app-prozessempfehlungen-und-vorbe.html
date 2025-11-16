@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21998472685596 Mobile Inventory App Prozessempfehlungen Und Vorbe - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>21998472685596 Mobile Inventory App Prozessempfehlungen Und Vorbe</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>21998472685596 Mobile Inventory App Prozessempfehlungen Und Vorbe</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Bevor du deine erste Inventur mit der Mobile Inventory App von Xentral durchführst, soll dir dieser Artikel einen Überblick darüber geben, wie der Inventurprozess grob abläuft und was du im Vorfeld beachten solltest, um einen korrekten und effizienten Ablauf zu gewährleisten.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Beachte die Hinweise in diesem Artikel sorgfältig und stelle sicher, dass du alle Punkte bedacht hast,<strong>bevor</strong> du mit der Inventur in deinem Lager startest.</p>
+<p>Vor allem die vorbereitenden Schritte in Xentral solltest du gewissenhaft durchführen, da es sonst zu gravierenden Bestandsabweichungen kommen kann und somit andere wichtige Geschäftsabläufe, wie beispielsweise der Versand, gestört werden können. Die vorbereitenden Schritte werden im KapitelNotwendige Arbeitsschritte vor der Inventureingehend beschrieben. Am Ende des Artikels findest du auch eine Checkliste, die du nutzen kannst, um sicherzustellen, dass du alles erledigt hast.</p>
+</blockquote>
+<h2 id="allgemeiner-ablauf-und-empfehlungen">Allgemeiner Ablauf und Empfehlungen<a class="headerlink" href="#allgemeiner-ablauf-und-empfehlungen" title="Permanent link">&para;</a></h2>
+<p>Mit der Mobile Inventory App folgt die Inventur folgendem groben Ablauf:</p>
+<p>-<strong>Lagerplätze nacheinander zählen</strong>: Das Lagerpersonal bewegt sich von einem Lagerplatz zum nächsten. Sobald die Bestände eines Lagerplatzes final gezählt wurden, wird die Zählung am nächsten Lagerplatz fortgesetzt.
+-<strong>Inventurläufe organisieren</strong>: Vor der Inventur wird in der App festgelegt, in welchem Lager die Zählung stattfindet, welche Lagerplätze gezählt werden sollen, welche Person die Bestände zählt, welche Person die Zählergebnisse prüft und (optional) welcher Namen der Inventurlauf zugewiesen werden soll, damit er später im Rahmen der Auswertung in Xentral möglichst leicht zu identifizieren ist.
+-<strong>Arbeit in Zweier-Teams</strong>: Idealerweise wird die Inventur in Zweier-Teams durchgeführt. Dabei bedient eine Person (der * Zähler<em>) die Mobile Inventory App auf dem MDE-Gerät. Eine zweite Person (der * Prüfer</em>) überwacht den Prozess um sicherzustellen, dass Bestände nicht doppelt gezählt oder vergessen werden.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Mit zunehmender Anzahl an Artikeln innerhalb eines Lagerplatzes kann sich die Performance der Inventory App spürbar verlangsamen. Erfahrungsgemäß betrifft dies Konstellationen, in denen pro Regal <strong>mehr als 300 Artikel</strong> vorhanden sind.</p>
+<p>Daher empfehlen wir, Lagerplätze mit besonders vielen Artikeln in mehrere (ggf. virtuelle) Regale zu unterteilen. Das betrifft insbesondere POS-Lager, bei denen z. B. ein gesamter Store als ein Lagerplatz geführt wird. Durch die Aufteilung in mehrere Regale innerhalb des Lagerplatzes könnt ihr die gezählten Artikelmengen besser strukturieren und gleichzeitig sicherstellen, dass die App flüssig und zuverlässig bleibt. Schau dir bei Bedarf den ArtikelLagerstruktur erstellen (XentralLagerverwaltung)an, um zu erfahren, wie du Änderungen an deiner Lagerstruktur vornimmst.</p>
+</blockquote>
+<h2 id="notwendige-arbeitsschritte-vor-der-inventur">Notwendige Arbeitsschritte vor der Inventur<a class="headerlink" href="#notwendige-arbeitsschritte-vor-der-inventur" title="Permanent link">&para;</a></h2>
+<p>Vor der Inventur müssen mehrere Arbeitsschritte durchgeführt werden. Das ist einerseits wichtig, um sicherzustellen, dass die Mobile Inventory App alle Artikel und Lagerplätze korrekt erfassen kann und die dafür benötigten Informationen vollständig in deiner Xentral-Instanz gepflegt sind. Andererseits gibt es konkrete Aktionen, die direkt vor Inventurbeginn durchgeführt werden müssen, wie die globale Deaktivierung deiner Prozessstarter und die Abarbeitung aller noch offenen Aufträge, damit es nicht zu Bestandsfehlern kommt.</p>
+<h3 id="artikelstammdaten-in-xentral-kontrollieren">Artikelstammdaten in Xentral kontrollieren<a class="headerlink" href="#artikelstammdaten-in-xentral-kontrollieren" title="Permanent link">&para;</a></h3>
+<p>Vor der Inventur muss sichergestellt sein, dass deine Artikelstammdaten aktuell und vollständig sind. Nur so können die Artikel von der App korrekt erfasst und identifiziert werden.</p>
+<p>Kontrolliere unter <strong>Verkaufen &gt; Artikel &gt; Artikel öffnen &gt; Details</strong> die folgenden Punkte:</p>
+<ul>
+<li>Korrekte Artikelnummern und EANs</li>
+<li>Korrekte Artikelbezeichnung
+-<strong>Keine</strong> mehrfach vergebenen Artikelnummern oder EANs</li>
+</ul>
+<p>Falls deine Artikel über Fremdnummern aus Online-Shops oder anderen Verkaufsplattformen verfügen, muss sichergestellt sein, dass dein MDE-Gerät diese Fremdnummern auch während des Inventurvorgangs korrekt erfassen und zuordnen kann.</p>
+<p>Die relevante Einstellung dazu findest du unter <strong>Verkaufen &gt; Artikel &gt; Artikel öffnen &gt; Tab: Fremdnummern </strong>. Stelle sicher, dass die Optionen <strong>Barcode </strong> und <strong>Aktiv</strong> aktiviert sind, also beide Häkchen gesetzt sind. Achte auch bei der Anlage neuer Fremdnummern darauf, dass diese Optionen aktiviert werden.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Für bereits bestehende Fremdnummern kannst du noch einfacher prüfen, ob die Checkboxen aktiviert sind, indem du über die Smart Search das Modul <strong>Artikel Fremdnummern</strong> öffnest und die dort angezeigte Liste prüfst.</p>
+</blockquote>
+<h3 id="prozessstarter-in-xentral-global-deaktivieren">Prozessstarter in Xentral global deaktivieren<a class="headerlink" href="#prozessstarter-in-xentral-global-deaktivieren" title="Permanent link">&para;</a></h3>
+<p>Die globale Deaktivierung der Prozessstarter in Xentral ist essentiell, damit während der Inventur keine Aufträge an das Versandzentrum übergeben werden oder sonstige Aktionen, die sich auf Bestände auswirken, automatisiert weiterlaufen, während die Bestände gezählt werden. Führe diesen Schritt also besonders gewissenhaft durch, um fehlerhafte Bestandszahlen und mühsame Nacharbeiten zu vermeiden. Erst nach Abschluss aller Inventur aktivierst du die Prozessstarter wieder.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Arbeitest du mit einem Fulfillment-Dienstleister zusammen? Dann stimmt euch vorab über das genaue Datum und den Zeitraum der Inventur ab. Während die Prozessstarter deaktiviert sind, finden keine Datenübertragungen mehr ab. Dies kann im schlimmsten Fall den Arbeitsablauf bei deinem Logistiker erheblich stören oder die Versandabwicklung durcheinander bringen. Informiere deinen Fulfillment-Dienstleister und sonstige Anbieter, die per Prozessstarter mit Daten versorgt werden, daher im Voraus.</p>
+</blockquote>
+<p>Gehe wie folgt vor, um die Prozessstarter global zu deaktivieren:</p>
+<ol>
+<li>Nutze die Smart Search, um das Modul <strong>Prozessstarter</strong> zu öffnen.</li>
+<li>Klicke oben rechts unter <strong>Aktion </strong> auf <strong>Prozessstarter global deaktivieren</strong>.</li>
+</ol>
+<p>Alle Prozessstarter werden deaktiviert. Ab diesem Zeitpunkt finden keine automatisierten Aktionen, Datenübertragungen, Picklisten-Erstellungen, Autoversand etc.</p>
+<h3 id="offene-auftrage-in-logistikprozessen-abschlieen">Offene Aufträge in Logistikprozessen abschließen<a class="headerlink" href="#offene-auftrage-in-logistikprozessen-abschlieen" title="Permanent link">&para;</a></h3>
+<p>Nachdem du die Prozessstarter in Xentral deaktiviert hast, musst du im nächsten Schritt alle noch offenen Aufträge, die sich noch innerhalb des Logistikprozesses befinden, abschließen. So stellst du sicher, dass unmittelbar für Kundenbestellungen benötigte Artikel noch dein Lager verlassen, also ausgebucht und versendet werden, damit diese Bestände nicht fälschlicherweise bei der Inventur mit erfasst werden.</p>
+<p>Auf folgende Module solltest du achten und ganz genau prüfen, welche Aufträge, Picklisten und Kommissionierläufe sich bereits aktiv im Logistikprozess finden und diese zum Abschluss bringen:</p>
+<ul>
+<li><a href="https://help.xentral.com/hc/de/articles/360016757139#UUID-4a4119b7-84ae-169f-4a72-a56040f24881">Versandzentrum</a> (<strong>Lager &gt; Versandzentrum <strong>) inklusive aktiver Kommissionierläufe (zu finden im Tab </strong> Kommissionierläufe <strong>im Modul </strong> Versandzentrum</strong>)</li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016722600#UUID-639a7179-6df9-467b-1821-cda20df3f8be">Picklisten-Profile</a> (<strong>Lager &gt; Picklisten-Profile</strong>)</li>
+<li><a href="https://help.xentral.com/hc/de/articles/360016721080#UUID-956d8415-1374-323b-6023-f9a789a6e245">Multi-Order-Picking</a></li>
+</ul>
+<h3 id="alle-arbeiten-in-xentral-einstellen">Alle Arbeiten in Xentral einstellen<a class="headerlink" href="#alle-arbeiten-in-xentral-einstellen" title="Permanent link">&para;</a></h3>
+<p>Ab dem Zeitpunkt, an dem du die Prozessstarter global deaktiviert und alle offenen Aufträge abgeschlossen hat, sollten <strong>keine Aktionen</strong> mehr in Xentral durchgeführt werden. Sprich dich also gut mit deinen Mitarbeitern ab und informiere dein Team, vor allem auch die Versandabteilung.</p>
+<blockquote>
+<p><strong>Warnung</strong></p>
+<p>Während die Inventur durchgeführt wird, dürfen keine Aufträge bearbeitet und keine Bestände angepasst werden. Am Besten stoppt ihr alle Arbeiten im System und achtet darauf, die Inventur möglichst schnell abzuschließen.</p>
+<p>Wird diese Warnung nicht beachtet und werden trotzdem manuell Aufträge bearbeitet oder Bestände angepasst, müsst ihr im Nachgang mühsam die Bestände korrigieren und könnt nicht effizient direkt ins Tagesgeschäft zurückkehren.</p>
+</blockquote>
+<h2 id="checkliste-fur-die-inventurvorbereitung">Checkliste für die Inventurvorbereitung<a class="headerlink" href="#checkliste-fur-die-inventurvorbereitung" title="Permanent link">&para;</a></h2>
+<p>Gehe jetzt die folgende Checkliste durch, um sicherzustellen, dass du alle notwendigen Vorbereitungen für die Inventur getroffen hast:</p>
+<ul>
+<li><a href="#UUID-badddbbc-9058-15cb-8736-56e991dfc0fc_section-idm235111917376211">Artikelstammdaten in Xentral kontrolliert</a></li>
+<li><a href="#UUID-badddbbc-9058-15cb-8736-56e991dfc0fc_section-idm235111921105906">Prozessstarter global deaktiviert</a></li>
+<li><a href="#UUID-badddbbc-9058-15cb-8736-56e991dfc0fc_section-idm235111921460604">Offene Aufträge in Logistikprozessen abgeschlossen</a></li>
+<li>Fulfillment-Dienstleister oder Logistikpartner über die Inventur informiert</li>
+<li>Interne Abteilungen über die Inventur informiert</li>
+<li><a href="https://help.xentral.com/hc/de/articles/21998472676252#UUID-32630639-9f22-b6e2-b021-26a264f6f6f7_section-idm235110542006543">Benötigte Benutzerzugänge inklusive QR-Codes und PINs für die Mobile Inventory App angelegt</a></li>
+<li>Alle Arbeiten in Xentral final eingestellt</li>
+</ul>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

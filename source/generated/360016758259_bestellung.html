@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016758259 Bestellung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016758259 Bestellung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016758259 Bestellung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Eine Bestellung ist ein zentraler Bestandteil des Einkaufsprozesses und dient der Anforderung von Waren oder Dienstleistungen bei Lieferanten. Sie bildet die Grundlage für die Organisation des Materialflusses und stellt sicher, dass die benötigten Ressourcen zur richtigen Zeit, in der richtigen Menge und zu den vereinbarten Konditionen geliefert werden.</p>
+<p>Die Bestellung ermöglicht es, Einkaufsvorgänge zu verwalten, indem sie alle relevanten Informationen wie Artikel, Mengen, Preise, Lieferbedingungen und Zahlungskonditionen in einem einzigen Dokument zusammenfasst. Darüber hinaus ist sie oft mit anderen Modulen wie Lagerverwaltung, Wareneingang oder Buchhaltung verknüpft, um eine nahtlose Integration in den gesamten Geschäftsprozess zu gewährleisten.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Die wichtigsten Vorteile des Bestellmoduls auf einen Blick:</p>
+<p>-<strong>Zentrale Datenerfassung und Integration</strong>: Alle Bestellinformationen in einem Dokument, verknüpft mit Lager, Wareneingang und Buchhaltung.
+-<strong>Flexible Anpassung</strong>: Konfiguration von Formularen, Artikelnummern und Einkaufspreisen.
+-<strong>Transparente Übersicht</strong>: Filter- und Stapelbearbeitungsoptionen zur einfachen Verwaltung.
+-<strong>Automatisierung und Export</strong>: Unterstützung für Bestellvorschläge, CSV-Export und Prozessstarter.
+-<strong>Statusüberwachung</strong>: Nachverfolgung von Lieferterminen mit Warnmeldungen.</p>
+</blockquote>
+<h2 id="eine-neue-bestellung-erstellen">Eine neue Bestellung erstellen<a class="headerlink" href="#eine-neue-bestellung-erstellen" title="Permanent link">&para;</a></h2>
+<p>Zur Erstellung einer neuen Bestellung wählst du zunächst einen Lieferanten aus dem Adressstamm aus und übernimmst dessen Daten. Anschließend trägst du Bestelldetails wie Artikel, Mengen, Preise, Lieferbedingungen sowie Wunsch- oder bestätigtes Lieferdatum ein. Nachdem die Bestellung gespeichert wurde, kannst du sie freigeben, um eine fortlaufende Bestellnummer zuzuweisen.</p>
+<p>Gehe wie folgt vor, um eine neue Bestellung anzulegen:</p>
+<ol>
+<li>Öffne das Menü <strong>Einkauf &gt; Bestellungen</strong>.</li>
+<li>Klicke oben rechts auf <strong>+ NEU</strong>.</li>
+<li>Klicke in das Feld <strong>Lieferant</strong> und wähle einen Lieferanten aus deinem Adressstamm aus.</li>
+<li>Klicke auf <strong>Übernehmen</strong>, um die Adressdaten des Lieferanten automatisch zu laden.</li>
+<li>Fülle die erforderlichen Felder der Bestellung aus: Artikel und Mengen, Preise (Brutto/Netto), Lieferbedingungen, Wunsch- oder bestätigtes Lieferdatum, Bezahlungsmethode (z. B. Überweisung, Vorkasse).</li>
+<li><em>Optionale Schritte:</em></li>
+<li>Zusätzliche Informationen: Trage weitere Details wie Bestellnotizen oder Projektreferenzen ein.</li>
+<li>Artikeloptionen: Nutze die Optionen wie <strong>Keine Preise anzeigen <strong>oder </strong> Eigene Artikelnummer in die erste Spalte</strong>.</li>
+<li>Klicke auf <strong>Speichern</strong>.
+1.<strong>Freigabe der Bestellung</strong>:</li>
+<li>Klicke auf <strong>Freigeben</strong>, um der Bestellung eine fortlaufende Nummer zuzuweisen und sie zur weiteren Verarbeitung freizugeben.</li>
+<li>Ab dem Status <strong>Freigegeben</strong> kann die Bestellung an den Lieferanten weitergeleitet werden.</li>
+</ol>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Nach der Freigabe kannst du die Bestellung digital per E-Mail an den Lieferanten versenden, als PDF herunterladen, ausdrucken oder im CSV-Format exportieren. Zusätzlich kannst du die Bestellung mit Projekten verknüpfen, Einkaufspreise direkt anpassen oder Lieferantenhinweise hinzufügen, um individuelle Anforderungen abzubilden.</p>
+</blockquote>
+<h2 id="erfassungsinformationen-fur-bestellungen-in-xentral">Erfassungsinformationen für Bestellungen in Xentral<a class="headerlink" href="#erfassungsinformationen-fur-bestellungen-in-xentral" title="Permanent link">&para;</a></h2>
+<p>Diese Felder stehen dir zur Erfassung der Informationen deiner Bestellungen zur Verfügung, wobei du folgende Felder als Pflichtfelder auf jeden Fall pflegen solltest:</p>
+<p><strong>Lieferant <strong>, </strong> Artikel <strong>und</strong> Mengen <strong>, </strong> Preise (Netto oder Brutto)<strong>,</strong> Lieferbedingungen <strong>,</strong> Zahlweise</strong>.</p>
+<p>Zusätzlich kannst du weitere Informationen wie Projektreferenzen, abweichende Artikelnummern oder Lieferantenhinweise hinzufügen.<strong>Wunsch </strong></p>
+<ul>
+<li>und <strong>bestätigte</strong><strong>Liefertermine</strong> kannst du direkt im Tab Positionen pro Artikel hinterlegen.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Für spezifische Anforderungen kannst du im Bestellprozess auch benutzerdefinierte Einstellungen vornehmen, wie das Ausblenden von Artikelnummern oder das Anpassen von Artikeldetails. Diese Optionen bieten Flexibilität, um individuelle Bestellszenarien abzubilden.</p>
+</blockquote>
+<p><img alt="bestellung_standard_daten_002.png" src="https://help.xentral.com/hc/article_attachments/18187907225372" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lieferant</td>
+<td>Die eindeutige ID oder Nummer des Lieferanten, bei dem die Bestellung getätigt wurde (z. B. &ldquo;70000&rdquo;). Diese Nummer verweist auf den entsprechenden Eintrag im Adressstamm</td>
+</tr>
+<tr>
+<td>Projekt</td>
+<td>Das Projekt, dem die Bestellung zugeordnet ist (z. B. &ldquo;STANDARD&rdquo;). Dies ermöglicht die Trennung und Organisation von Bestellungen nach Geschäftsbereichen, Vertriebskanälen oder Projekten.</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Der aktuelle Bearbeitungsstatus der Bestellung (z. B. &ldquo;versendet&rdquo;). Typische Status sind &ldquo;angelegt&rdquo;, &ldquo;freigegeben&rdquo;, &ldquo;versendet&rdquo;, &ldquo;abgeschlossen&rdquo; oder &ldquo;storniert&rdquo;.</td>
+</tr>
+<tr>
+<td>Preisanfrage</td>
+<td>Gibt an, ob die Bestellung auf einer vorherigen Preisanfrage basiert. Dies ist relevant für die Nachverfolgung von Angeboten und verhandelten Konditionen.</td>
+</tr>
+<tr>
+<td>Ihr Angebot</td>
+<td>Die Angebotsnummer, auf der die Bestellung basiert (z. B. &ldquo;2005-67834542&rdquo;). Dies ermöglicht die Verknüpfung zwischen dem ursprünglichen Angebot und der Bestellung.</td>
+</tr>
+<tr>
+<td>Interne Bezeichnung</td>
+<td>Eine interne Referenz oder Bezeichnung für die Bestellung (z. B. &ldquo;Internal_123456&rdquo;). Diese kann zur besseren Nachverfolgbarkeit oder für interne Dokumentationen genutzt werden.</td>
+</tr>
+<tr>
+<td>Bestellungsdatum</td>
+<td>Das Datum, an dem die Bestellung erstellt wurde (z. B. &ldquo;28.01.2025&rdquo;). Dieses Feld ist wichtig für die zeitliche Nachverfolgung und Berichterstattung.</td>
+</tr>
+<tr>
+<td>Wunsch Liefertermin</td>
+<td>Der gewünschte Liefertermin für die bestellten Artikel (z. B. &ldquo;26.02.2025&rdquo;). Dieses Datum dient als Ziel für die Lieferung und kann als Hinweis für den Lieferanten verwendet werden.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="bestellung_standard_daten_001.png" src="https://help.xentral.com/hc/article_attachments/18187892020636" /></p>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bestellung bestätigt</td>
+<td>Kennzeichnet, ob der Lieferant die Bestellung offiziell bestätigt hat. Diese Bestätigung signalisiert, dass der Lieferant die Bestellung akzeptiert und weiterbearbeitet.</td>
+</tr>
+<tr>
+<td>Bestätigtes Lieferdatum</td>
+<td>Das vom Lieferanten bestätigte Datum, an dem die bestellten Artikel geliefert werden sollen (z. B. &ldquo;20.02.2025&rdquo;). Dieses Datum ist bindend für die Planung und Überwachung der Lieferung.</td>
+</tr>
+<tr>
+<td>per</td>
+<td>Gibt die Kommunikationsmethode an, über die die Bestellbestätigung vom Lieferanten übermittelt wurde (z. B. &ldquo;E-Mail&rdquo;). Alternativ können Methoden wie Fax oder Telefon angegeben sein.</td>
+</tr>
+<tr>
+<td>AB Nummer von Lieferant</td>
+<td>Die Auftragsbestätigungsnummer (AB-Nummer), die der Lieferant der Bestellung zugewiesen hat (z. B. &ldquo;200015-001&rdquo;). Diese Nummer dient der eindeutigen Zuordnung und Nachverfolgung der Bestellung beim Lieferanten.</td>
+</tr>
+<tr>
+<td>Schreibschutz</td>
+<td>Aktiviert einen Schutz, der verhindert, dass die Bestellung nachträglich bearbeitet oder geändert wird. Dies ist sinnvoll, sobald eine Bestellung abgeschlossen oder freigegeben ist.</td>
+</tr>
+<tr>
+<td>Alternative Beschriftung</td>
+<td>Eine angepasste Beschriftung für die Bestellung, die auf dem Bestellbeleg verwendet wird.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Feldbezeichnung</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bezahlung per</td>
+<td>Legt die Zahlungsweise fest, mit der die Verbindlichkeit der Bestellung beglichen wird (z. B. Überweisung, Kreditkarte).</td>
+</tr>
+<tr>
+<td>Bearbeiter</td>
+<td>Gibt den Benutzer an, der für die Erstellung oder Bearbeitung der Bestellung verantwortlich ist.</td>
+</tr>
+<tr>
+<td>Lieferbedingung</td>
+<td>Definiert die Konditionen für die Lieferung, z. B. Mindestbestellwert oder spezielle Lieferanforderungen.</td>
+</tr>
+<tr>
+<td>Bestellbestätigung</td>
+<td>Fügt einen Hinweis auf dem Bestellbeleg ein, der den Lieferanten zur Bestätigung der Bestellung auffordert. Anpassbar unter Administration &gt; Einstellungen &gt; Übersetzungen über die Variable dokument_bestellung_bestaetigung.</td>
+</tr>
+<tr>
+<td>Keine Artikelnummern</td>
+<td>Unterdrückt die Anzeige der Artikelnummern auf dem Bestellbeleg.</td>
+</tr>
+<tr>
+<td>Keine Preise anzeigen</td>
+<td>Deaktiviert die Anzeige der Preise auf dem Bestellbeleg.</td>
+</tr>
+<tr>
+<td>Eigene Artikelnummer in erste Spalte</td>
+<td>Zeigt eigene Artikelnummern anstelle der Lieferantennummern in der ersten Spalte des Bestellbelegs an.</td>
+</tr>
+<tr>
+<td>Lange Artikelnummern</td>
+<td>Unterstützt die korrekte Darstellung besonders langer Artikelnummern.</td>
+</tr>
+<tr>
+<td>Kein Briefpapier und Logo</td>
+<td>Entfernt das standardmäßige Briefpapier und Logo vom Bestellbeleg.</td>
+</tr>
+<tr>
+<td>Artikeltexte ausblenden</td>
+<td>Verhindert die Ausgabe der Artikelbeschreibungen auf dem Bestellbeleg.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="besteuerung-bestellung">Besteuerung - Bestellung<a class="headerlink" href="#besteuerung-bestellung" title="Permanent link">&para;</a></h2>
+<p>Die Besteuerung dieser Bestellung richtet sich nach der ausgewählten Option in den USt-Einstellungen:</p>
+<p>-<strong>Inland</strong>: Es gelten die nationalen Umsatzsteuervorschriften. Die Umsatzsteuer wird auf den Nettobetrag berechnet und in der Bestellung separat ausgewiesen.
+-<strong>EU-Lieferung</strong>: Bei innergemeinschaftlichen Lieferungen an Unternehmen mit gültiger USt-IdNr. erfolgt keine Berechnung der Umsatzsteuer (steuerfreie innergemeinschaftliche Lieferung gemäß § 4 Nr. 1 b UStG i.V.m. § 6a UStG).
+-<strong>Import</strong>: Bei Lieferungen aus Drittländern wird keine inländische Umsatzsteuer erhoben. Stattdessen unterliegt die Ware der Einfuhrumsatzsteuer und ggf. Zollabgaben, die beim Zoll entrichtet werden müssen.
+-<strong>Steuerfrei im Inland</strong>: Diese Option gilt für inländische Vorgänge, die aufgrund besonderer gesetzlicher Regelungen von der Umsatzsteuer befreit sind (z. B. Ausfuhrlieferungen oder bestimmte steuerbefreite Leistungen gemäß § 4 UStG).</p>
+<h2 id="aktionsmenu-bestellung">Aktionsmenü Bestellung<a class="headerlink" href="#aktionsmenu-bestellung" title="Permanent link">&para;</a></h2>
+<p><img alt="bestellung_aktionen_001.png" src="https://help.xentral.com/hc/article_attachments/18187883964700" /></p>
+<table>
+<thead>
+<tr>
+<th>Aktion</th>
+<th>Prozessbeschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bestellung stornieren</td>
+<td>Markiert die Bestellung als storniert.</td>
+</tr>
+<tr>
+<td>Bestellung kopieren</td>
+<td>Erstellt eine Kopie der bestehenden Bestellung im Entwurfsmodus.</td>
+</tr>
+<tr>
+<td>Bestellung abschicken</td>
+<td>Sendet die Bestellung an den Lieferanten über die gewählte Versandmethode (z. B. E-Mail, Drucker).</td>
+</tr>
+<tr>
+<td>als versendet markieren</td>
+<td>Setzt den Status der Bestellung auf &lsquo;versendet&rsquo; und kennzeichnet sie entsprechend.</td>
+</tr>
+<tr>
+<td>Bestellung abschließen</td>
+<td>Markiert die Bestellung als abgeschlossen und entfernt offene Positionen aus dem Wareneingang.</td>
+</tr>
+<tr>
+<td>Bestellung einlagern</td>
+<td>Weist die gelieferten Artikel der Bestellung einem Lagerplatz zu.</td>
+</tr>
+<tr>
+<td>Bestellung freigeben</td>
+<td>Vergibt eine fortlaufende Bestellnummer und erlaubt die weitere Verarbeitung.</td>
+</tr>
+<tr>
+<td>als Verbindlichkeit weiterführen</td>
+<td>Überträgt die Bestellung in die Buchhaltung zur Erfassung als Verbindlichkeit.</td>
+</tr>
+<tr>
+<td>als Produktion weiterführen</td>
+<td>Wandelt die Bestellung in einen Produktionsauftrag um.</td>
+</tr>
+<tr>
+<td>Wareneingangsbeleg erstellen</td>
+<td>Erstellt einen Beleg zur Erfassung der gelieferten Artikel im Wareneingang.</td>
+</tr>
+<tr>
+<td>Export als CSV</td>
+<td>Exportiert die Bestellpositionen als CSV-Datei, wobei die Lieferantenartikelnummer verwendet wird.</td>
+</tr>
+<tr>
+<td>PDF öffnen</td>
+<td>Öffnet die Bestellung als PDF-Dokument zur Ansicht oder zum Druck.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ubersicht-alle-bestellungen-filter-und-funktionen">Übersicht alle Bestellungen, Filter und Funktionen<a class="headerlink" href="#ubersicht-alle-bestellungen-filter-und-funktionen" title="Permanent link">&para;</a></h2>
+<p><img alt="bestellung_filter_001.png" src="https://help.xentral.com/hc/article_attachments/21713984869916" /></p>
+<table>
+<thead>
+<tr>
+<th>Filter</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offene</td>
+<td>Zeigt nur Bestellungen an, die in Xentral angelegt wurden, aber noch nicht freigegeben wurden.</td>
+</tr>
+<tr>
+<td>nicht bestätigt</td>
+<td>Zeigt nur Bestellungen an, die vom Lieferanten noch nicht bestätigt wurden.</td>
+</tr>
+<tr>
+<td>Lieferung fehlt</td>
+<td>Zeigt nur Bestellungen an, zu denen noch keine Lieferung eingegangen ist.</td>
+</tr>
+<tr>
+<td>versendet</td>
+<td>Zeigt nur Bestellungen an, deren Artikel versendet wurden.</td>
+</tr>
+<tr>
+<td>stornierte</td>
+<td>Zeigt nur stornierte Bestellungen an.</td>
+</tr>
+<tr>
+<td>Lieferdatum überschritten</td>
+<td>Zeigt nur Bestellungen an, bei denen das Lieferdatum überschritten wurde.</td>
+</tr>
+<tr>
+<td>ohne Verbindlichkeiten</td>
+<td>Zeigt nur Bestellungen an, für die keine Verbindlichkeit in Xentral existiert.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bestellung-erklarung-der-felder">Bestellung: Erklärung der Felder<a class="headerlink" href="#bestellung-erklarung-der-felder" title="Permanent link">&para;</a></h2>
+<p><img alt="Bestellung1.png" src="https://help.xentral.com/hc/article_attachments/5037960808732" /></p>
+<ul>
+<li>Bezahlung per→ Zahlungsweise, mit der die Verbindlichkeit später beglichen werden soll.</li>
+<li>Bearbeiter→ Benutzer, der diese Bestellung bearbeitet bzw. als ihr Bearbeiter eingetragen wurde.</li>
+<li>Lieferbedingung→ Bedingung für die Lieferung, z.B. Mindestbestellwert von 100€</li>
+<li>Bestellbestätigung→ Durch Setzen des Hakens wird ein Text unter der Artikeltabelle auf dem Bestellbeleg eingefügt, der den Lieferanten auffordert, die Bestellung zu bestätigen. Ansonsten verfällt diese. Der Text ist übersetzbar (Administration → Einstellungen → Übersetzungen) durch die Variable: dokument_bestellung_bestaetigung</li>
+<li>Keine Artikelnummern→ Artikelnummern werden auf dem Bestellbeleg ausgeblendet</li>
+<li>Keine Preise anzeigen→ Preise werden auf dem Bestellbeleg ausgeblendet</li>
+<li>Eigene Artikelnummer in erste Spalte→ Setzt Xentral anstelle der Lieferantennummern in die erste Spalte (Kann in den Systemeinstellungen als Standard gesetzt werden: &ldquo;Bestellung: Eigene Artikelnummer erste Spalte&rdquo;)</li>
+<li>Lange Artikelnummern→ Artikelnummern, die besonders lang sind</li>
+<li>Kein Briefpapier und Logo→ Das global angelegte Briefpapier wird nicht für den Bestellbeleg verwendet und das Logo nicht auf dem Bestellbeleg angezeigt</li>
+<li>Artikeltexte ausblenden→ Die Artikelbeschreibung in allen Belegpositionen wird auf dem Beleg ausgeblendet</li>
+</ul>
+<h2 id="aktionsmenu">Aktionsmenü<a class="headerlink" href="#aktionsmenu" title="Permanent link">&para;</a></h2>
+<p><img alt="Bestellung2.png" src="https://help.xentral.com/hc/article_attachments/5037963146652" /></p>
+<ul>
+<li>Bestellung stornieren→ Die Bestellung wird storniert</li>
+<li>Bestellung kopieren→ Die Bestellung wird kopiert</li>
+<li>Bestellung abschicken→ Die Bestellung wird abgeschickt</li>
+<li>als versendet markieren→ Die Bestellung wird als versendet markiert</li>
+<li>Bestellung abschließen→ Die Bestellung wird abgeschlossen</li>
+<li>Bestellung einlagern→ Die Bestellung wird eingelagert</li>
+<li>Bestellung freigeben→ Die Bestellung wird freigegeben</li>
+<li>als Verbindlichkeit weiterführen→ Die Bestellung wird als Verbindlichkeit weitergeführt</li>
+<li>als Produktion weiterführen→ Die Bestellung wird als Produktion weitergeführt</li>
+<li>Wareneingangsbeleg erstellen→ Es wird ein Wareneingangsbeleg erstellt</li>
+<li>Export als CSV→ Die Bestellung wird als CSV Datei exportiert. Als Artikelnummer wird die Lieferanten Artikelnummer exportiert</li>
+<li>PDF öffnen→ Bestellung wird als PDF geöffnet</li>
+</ul>
+<h2 id="export-als-csv">Export als CSV<a class="headerlink" href="#export-als-csv" title="Permanent link">&para;</a></h2>
+<p>Erhalt der Bestellungs-Positionen als CSV:</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Als Artikelnummer wird die Lieferanten Artikelnummer exportiert.</p>
+</blockquote>
+<p><img alt="bestellung_2.png" src="https://help.xentral.com/hc/article_attachments/5037944224412" /></p>
+<p>Der Belegexport ist für die Belege gleich/ähnlich. Es ist möglich, dass auch Spalten ausgegeben werden, die bei der Bestellung keine Relevanz haben.Beispiel: beleg_lieferdatum ist nur relevant auf Kundenseite (z.B. Auftrag)</p>
+<h2 id="einkaufspreise-direkt-aus-der-bestellung-im-artikel-andern">Einkaufspreise direkt aus der Bestellung im Artikel ändern<a class="headerlink" href="#einkaufspreise-direkt-aus-der-bestellung-im-artikel-andern" title="Permanent link">&para;</a></h2>
+<p>Es ist möglich, direkt aus der Bestellung den Einkaufspreis des Artikels dauerhaft zu ändern. Dazu gibt es im Mini-Detail und im Protokoll-Tab der Bestellung hinter jedem Artikel das Edit-Icon:</p>
+<p><img alt="Bestellung3.png" src="https://help.xentral.com/hc/article_attachments/5037944247708" /></p>
+<p>Durch einen Klick auf das Edit-Icon erscheint ein Pop-up:</p>
+<p><img alt="Bestellung4.png" src="https://help.xentral.com/hc/article_attachments/5037887719452" /></p>
+<p>Wenn der Haken &ldquo;In Stammdaten anpassen&rdquo; gesetzt ist, wird der Preis auch im Artikel in den Stammdaten angepasst und nicht nur in der einzelnen Bestellung.</p>
+<p><img alt="Bestellung5.png" src="https://help.xentral.com/hc/article_attachments/5037946445852" /></p>
+<p>Sollte die Bestellmenge von der im Einkaufspreis hinterlegten Menge abweichen, wird gefragt, ob ein Einkaufspreis für die neue Menge erstellt oder der Einkaufspreis mit der nächst niedrigen Menge angepasst werden soll.</p>
+<p>Wenn bereits ein anderer Preis ab der gleichen Menge besteht, wird dieser bei der oben beschriebenen Anpassung auf inaktiv (Gültig bis) gesetzt und der neue Preis wird in den Stammdaten aktiv.</p>
+<h2 id="ubersicht-aller-bestellungen">Übersicht aller Bestellungen<a class="headerlink" href="#ubersicht-aller-bestellungen" title="Permanent link">&para;</a></h2>
+<p><img alt="bestellung_3113.png" src="https://help.xentral.com/hc/article_attachments/5037867824924" /></p>
+<p>In der Übersicht werden alle Bestellungen angezeigt. Im Unterreiter &ldquo;in Bearbeitung&rdquo; befinden sich alle Bestellungen, die noch im Entwurfsmodus sind.</p>
+<h2 id="filter">Filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Offene→ Bestellungen, die noch nicht abgeschlossen sind</li>
+<li>Nicht bestätigt→ Bestellungen ohne bestätigtes Lieferdatum</li>
+<li>Lieferung fehlt→ Bestellungen, bei denen die Lieferung fehlt</li>
+<li>versendet→ Bestellungen, die abgeschickt wurden</li>
+<li>stornierte→ Bestellungen, die storniert wurden</li>
+<li>Lieferdatum überschritten→ Bestellungen, bei denen das Lieferdatum überschritten worden ist</li>
+<li>ohne Verbindlichkeiten→ Bestellungen, die ohne Verbindlichkeiten auftreten</li>
+</ul>
+<h2 id="filter-lieferdatum-uberschritten">Filter: Lieferdatum überschritten<a class="headerlink" href="#filter-lieferdatum-uberschritten" title="Permanent link">&para;</a></h2>
+<p>Dieser Filter wird durch vier mögliche Felder angesprochen, mit absteigender Priorität:</p>
+<ul>
+<li>Bestätigtes Lieferdatum der Bestellung</li>
+<li>Wunschlieferdatum der Bestellung</li>
+<li>Höchstes bestätigtes Lieferdatum aller Positionen</li>
+<li>Höchstes Wunschlieferdatum der Positionen</li>
+</ul>
+<p>Die ersten zwei Punkte beziehen sich auf folgende Felder in der Bestellung selbst:</p>
+<p><img alt="bestellung_3114.png" src="https://help.xentral.com/hc/article_attachments/5037944340636" /></p>
+<p>Die letzten zwei Punkte beziehen sich auf die Felder im Reiter &ldquo;Positionen&rdquo; bei der Editierung einer Position:</p>
+<p><img alt="bestellung_3115.png" src="https://help.xentral.com/hc/article_attachments/5037867840412" /></p>
+<p>Beispiel: Der Liefertermin wird als überschritten angezeigt, wenn:</p>
+<ul>
+<li>der Wunschliefertermin in der Vergangenheit liegt</li>
+<li>das bestätigte Lieferdatum in der Vergangenheit liegt</li>
+<li>der Wunschliefertermin in der Zukunft liegt, aber das bestätigte Datum auf gestern</li>
+</ul>
+<p>Der Liefertermin wird nicht als überschritten angezeigt, wenn:</p>
+<ul>
+<li>der Wunschliefertermin für gestern, in allen Positionen aber das Lieferdatum auf morgen eingetragen ist</li>
+</ul>
+<h2 id="stapelbearbeitung-von-bestellungen">Stapelbearbeitung von Bestellungen<a class="headerlink" href="#stapelbearbeitung-von-bestellungen" title="Permanent link">&para;</a></h2>
+<p>Es ist möglich, durch eine Massenbearbeitung mehrere Bestellungen auf einmal zu bearbeiten:</p>
+<p><img alt="bestellung_3116.png" src="https://help.xentral.com/hc/article_attachments/5037946541596" /></p>
+<ul>
+<li>per Mail versenden→ Versendet die ausgewählten Bestellungen per Mail an die hinterlegte E-Mail-Adresse</li>
+<li>als freigegeben markieren→ Setzt die ausgewählten Bestellungen auf den Status &lsquo;freigegeben&rsquo;. Funktioniert nur mit abgeschlossenen Bestellungen</li>
+<li>als versendet markieren→ Setzt die ausgewählten Bestellungen auf den Status &lsquo;versendet&rsquo;</li>
+<li>als abgeschlossen markieren→ Setzt die ausgewählten Bestellungen auf den Status &lsquo;abgeschlossen&rsquo;</li>
+<li>Sammel-PDF→ Druckt ein Sammel-PDF der ausgewählten Bestellungen mit dem eingestellten Drucker</li>
+<li>drucken→ Druckt alle ausgewählten Bestellungen mit dem eingestellten Drucker</li>
+</ul>
+<h2 id="offene-positionen">Offene Positionen<a class="headerlink" href="#offene-positionen" title="Permanent link">&para;</a></h2>
+<p>Im Tab &ldquo;Offene Positionen&rdquo; sind alle bestellten und noch nicht gelieferten Positionen inkl. bestätigtem Lieferdatum bzw. bestätigtem Liefertermin auf Positionsebene einzusehen:</p>
+<p><img alt="bestellung_3117.png" src="https://help.xentral.com/hc/article_attachments/5037963367196" /></p>
+<h2 id="einzelne-bestellung">Einzelne Bestellung<a class="headerlink" href="#einzelne-bestellung" title="Permanent link">&para;</a></h2>
+<p>Über das Edit-Icon können Bestelldaten einer bestimmten Bestellung angepasst sowie Positionen hinzugefügt werden:</p>
+<p><img alt="bestellung_3118.png" src="https://help.xentral.com/hc/article_attachments/5037867866780" /></p>
+<h2 id="protokoll">Protokoll<a class="headerlink" href="#protokoll" title="Permanent link">&para;</a></h2>
+<p>Wie in jedem Beleg sind auch in der Bestellung viele Informationen auf einen Blick im Protokoll ersichtlich. Das Aktionsmenü ist ebenfalls vorhanden. Rechts gibt es einen Überblick, wie viele Einheiten des Artikels bereits geliefert wurden, bei wie vielen die Lieferung noch aussteht und wie viele sich bereits im Lager befinden:</p>
+<p><img alt="bestellung_3119.png" src="https://help.xentral.com/hc/article_attachments/5037946607644" /></p>
+<p>Hinweis bei zu langen Bestellnummern:</p>
+<p>Sind Bestellnummern zu lang, ist es möglich, dass diese sich mit anderen Spalten im Beleg überschneiden:</p>
+<p><img alt="bestellung_3121.png" src="https://help.xentral.com/hc/article_attachments/5037961090844" /></p>
+<p><img alt="bestellung_3120.png" src="https://help.xentral.com/hc/article_attachments/5037887792028" /></p>
+<p><img alt="bestellung_3122.png" src="https://help.xentral.com/hc/article_attachments/5037867890332" /></p>
+<h2 id="belege-ein-und-auslagern">Belege ein- und auslagern<a class="headerlink" href="#belege-ein-und-auslagern" title="Permanent link">&para;</a></h2>
+<p>Damit du bei einer Bestellung den Überblick behältst, kannst du<a href="https://help.xentral.com/hc/de/articles/360016721280#UUID-5a6cafce-14d0-1453-6d2d-e12d1a02b6ca">Belege ein- und auslagern</a>. Du kannst mit der Nutzung dieses Moduls genau pro Position in der Bestellung definieren, aus welchem Regal welche Mengen ein- oder ausgelagert werden.</p>
+<h2 id="bestellung-automatisch-abschlieen">Bestellung automatisch abschließen<a class="headerlink" href="#bestellung-automatisch-abschlieen" title="Permanent link">&para;</a></h2>
+<p>In den Systemeinstellungen steht dir die Option <strong>Bestellung automatisch abschließen </strong> zur Verfügung. Du findest sie unter <strong>Einstellungen &gt; Administration &gt; Systemeinstellungen</strong>. Wenn diese Option aktiviert ist, werden Bestellungen in Xentral automatisch abgeschlossen, sobald alle Artikel geliefert wurden. Die Aktualisierung der offenen Bestellungen findet statt, sobald du die Bestellübersicht aktualisierst.</p>
+<p><img alt="bestellung_3123.png" src="https://help.xentral.com/hc/article_attachments/5037961153692" /></p>
+<p>Außerdem kannst du den Prozessstarter<a href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">bestellungabschliessen</a>nutzen. Dieser schließt Bestellungen ebenfalls automatisch ab.</p>
+<p>Wenn die Bestellung abgeschlossen wurde, können Belege ein- bzw. ausgelagert werden. Weitere Informationen dazu findest du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016721280#UUID-5a6cafce-14d0-1453-6d2d-e12d1a02b6ca">Belege ein- und auslagern</a>.</p>
+<h2 id="alternative-beschriftung-fur-eine-bestellung">Alternative Beschriftung für eine Bestellung<a class="headerlink" href="#alternative-beschriftung-fur-eine-bestellung" title="Permanent link">&para;</a></h2>
+<p>Es ist möglich, für eine Bestellung eine alternative Beschriftung in den Systemeinstellungen einzugeben.</p>
+<p><img alt="bestellung_3124.png" src="https://help.xentral.com/hc/article_attachments/5037867902620" /></p>
+<p>Das hat zur Folge, das in den Bestellungsdetails der Haken aktiviert werden kann, um auf dem Beleg die Beschriftung auszutauschen.</p>
+<p><img alt="bestellung_3125.png" src="https://help.xentral.com/hc/article_attachments/5037961190172" /></p>
+<h2 id="bestellung-lieferdatum">Bestellung Lieferdatum<a class="headerlink" href="#bestellung-lieferdatum" title="Permanent link">&para;</a></h2>
+<p>Das Bestelldokument kann mit einem Wunschlieferdatum als Hinweis für den Lieferanten, entweder für das ganze Dokument oder pro Position, versehen werden. Die Belegsprache bestimmt, ob eine Übersetzung gezogen wird. Für jede Bestellung kann ein Lieferdatum angegeben werden.</p>
+<ul>
+<li>Wunschliefertermin für die komplette Bestellung</li>
+<li>zusätzlich kann pro Position ein abweichendes Datum angegeben werden (ohne Datumsangabe wird nichts gedruckt)</li>
+</ul>
+<h2 id="wunschliefertermin-fur-die-gesamte-bestellung">Wunschliefertermin für die gesamte Bestellung:<a class="headerlink" href="#wunschliefertermin-fur-die-gesamte-bestellung" title="Permanent link">&para;</a></h2>
+<p><img alt="bestellung_3126.png" src="https://help.xentral.com/hc/article_attachments/5037946749724" /></p>
+<p><img alt="bestellung_3127.png" src="https://help.xentral.com/hc/article_attachments/5037944632476" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Texte können in den Dokumentenvorlagen geändert oder um IF Blöcke ergänzt werdenWird kein Lieferdatum angegeben, wird das Wort &ldquo;Sofort&rdquo; gedruckt. Dies kann über die Übersetzungsvariable &ldquo;dokument_lieferdatum_sofort&rdquo; geändert werden. Zu beachten ist, dass dies eine globale Variable für alle Belege ist und dann ggf. auch auf Aufträgen etc. geändert wird.</p>
+</blockquote>
+<h2 id="wunschliefertermin-fur-die-einzelne-position">Wunschliefertermin für die einzelne Position:<a class="headerlink" href="#wunschliefertermin-fur-die-einzelne-position" title="Permanent link">&para;</a></h2>
+<p><img alt="bestellung_3128.png" src="https://help.xentral.com/hc/article_attachments/5037946774940" /></p>
+<p><img alt="bestellung_3129.png" src="https://help.xentral.com/hc/article_attachments/5037867943196" /></p>
+<h2 id="hinweis-bei-einem-speziellen-lieferanten">Hinweis bei einem speziellen Lieferanten<a class="headerlink" href="#hinweis-bei-einem-speziellen-lieferanten" title="Permanent link">&para;</a></h2>
+<p>Falls bei einem bestimmten Lieferanten beim Einfügen der Bestellungs-Positionen immer ein Hinweis als Popup eingeblendet werden soll, ist das mit dem Feld &ldquo;Lieferant Hinweis-Text&rdquo; in der Lieferanten-Adresse im Zahlungskonditionen/Besteuerung-Tab möglich.</p>
+<p><img alt="bestellung_3130.png" src="https://help.xentral.com/hc/article_attachments/5037944672540" /></p>
+<p>Sobald ein Artikel, der diesen Lieferanten als Standardlieferanten in den Einkaufspreisen hinterlegt hat, wird das Popup angezeigt.</p>
+<p><img alt="bestellung_3131.png" src="https://help.xentral.com/hc/article_attachments/5037961300764" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

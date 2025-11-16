@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15762744730652 Übersicht Der Logistikprozesse - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>15762744730652 Übersicht Der Logistikprozesse</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>15762744730652 Übersicht Der Logistikprozesse</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Xentral bietet dir eine Auswahl an verschiedenen Kommissionierverfahren und Individuelle Konfigurationen für jedes dieser Verfahren.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Du kannst Kommissionierverfahren zentral für dein Unternehmen oder auch parallel für mehrere Verkaufskanäle verwenden. Beispielsweise kannst du pro Vertriebskanal verschiedene Verfahrennutzen: B2B-Palettenversand über Einzelkommissionierung, B2C-Vertrieb Shopify über Multi-Order-Picking und Sammelkommissionierung für Plattformen wie Amazon und eBay.</p>
+<p>Zudem hast du auch die Möglichkeit, in der Übergabe der Aufträge im Versandzentrum zu filtern oder feste Picklisten profile zu erstellen, die dir erlauben Priorisierungen, Artikelabmessungen, Stückzahlen, spezielle Artikel in Aufträgen und vieles mehr zu automatisieren,</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Kommissionierungsart</th>
+<th>Prozess &amp; Konfiguration</th>
+<th>Kommissionierstufen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><a href="#einzelkommissionierung-(auftragsbezogene-kommissionierung)">Einzelkommissionierung (Auftragsbezogene Kommissionierung)</a></td>
+<td>- <a href="https://help.xentral.com/hc/de/articles/15827736020380#UUID-8efb9fea-ac90-40e8-31bd-acca5319b3a8">Einzelkommissionierung mit Lieferschein</a></td>
+<td>Einstufig oder Zweistufig anwendbar. Im Standard wird meist die einstufige Variante eingesetzt.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#UUID-17d4fa15-02ce-2778-66e3-81f814ad8d70_N1725538809438">Sammelkommissionierung (Batch-Kommissionierung)</a></td>
+<td>- <a href="#sammelkommissionierung-mit-pickliste">Sammelkommissionierung mit Pickliste</a><br>- <a href="#zweistufige-kommissionierung-(mit-digitaler-pickliste-und-lagerplatz-scan)">Zweistufige-Kommissionierung (mit digitaler Pickliste und Lagerplatz-Scan)</a><br>- <a href="#batch-kommissionierung">Batch-Kommissionierung</a></td>
+<td>Einstufig oder Zweistufig anwendbar. Im Standard wird meist die zweistufige Variante eingesetzt.</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#UUID-17d4fa15-02ce-2778-66e3-81f814ad8d70_N1725538819857">Rollende Kommissionierung (Kontinuierliche Kommissionierung)</a></td>
+<td>- <a href="https://help.xentral.com/hc/de/articles/360016721080#UUID-956d8415-1374-323b-6023-f9a789a6e245">Multi-Order-Picking mit mobilen Geräten</a></td>
+<td>Einstufig oder Zweistufig verwendbar. Je nach Gegebenheiten wird die einstufige oder zweistufige Variante eingesetzt.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Weitere Themen:</p>
+<ul>
+<li>Weitere Möglichkeiten zur Abwicklung einzelner Aufträge findest du hier:Auftragsabwicklung im Backoffice</li>
+<li>Automatisierung der Kommissionierverfahren, z.B. durch Picklisten profile findest du hier:Automatisierung und Prozessschritte</li>
+<li>Das Prinzip der Logistikprozesse in Xentral findest du hier:Prinzip der Logistikprozesse: Versandübergabe, Pick- und Packprozesse</li>
+<li>Eine Anbindung zum Datenaustausch mit Fulfillment-Dienstleistern findest du hier:Anbindung einen Fulfillment-Dienstleister (3PL)</li>
+</ul>
+</blockquote>
+<h2 id="einzelkommissionierung-auftragsbezogene-kommissionierung">Einzelkommissionierung (Auftragsbezogene Kommissionierung)<a class="headerlink" href="#einzelkommissionierung-auftragsbezogene-kommissionierung" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Bei der Einzelkommissionierung sammelst du die Artikel für jeden Auftrag separat im Lager ein. Dieser Prozess erfordert, dass du für jeden Auftrag individuell durch das Lager gehst und die Artikel direkt nach ihrer Entnahme verpackst, bevor du mit dem nächsten Auftrag beginnst. Diese Methode minimiert Fehler und Verwechslungen und ist besonders effektiv bei der Handhabung hochwertiger oder spezifischer Produkte.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Merkmale der Einzelkommissionierung:</strong></p>
+<p>-<strong>Sequentielle Abwicklung:</strong> Jeder Auftrag wird nacheinander abgewickelt, wobei der Kommissionierer die Artikel für einen Auftrag komplett sammelt, bevor er mit dem nächsten beginnt.
+-<strong>Minimierung von Fehlern:</strong> Da sich der Kommissionierer auf einen einzigen Auftrag konzentriert, ist die Wahrscheinlichkeit von Fehlern geringer als bei Methoden, bei denen Artikel für mehrere Aufträge gleichzeitig gesammelt werden.
+-<strong>Einfache Durchführung:</strong> Diese Methode erfordert in der Regel keine komplexe Technologie oder spezielle Schulung, da der Prozess direkt und einfach ist.
+-<strong>Flexibilität:</strong> Einzelkommissionierung kann in fast jedem Lagerumfeld angewendet werden, unabhängig von der Größe oder der Komplexität des Lagerbestands.</p>
+<table>
+<thead>
+<tr>
+<th>Vorteile:</th>
+<th>Nachteile:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-<strong>Hohe Genauigkeit: </strong> Indem sich der Kommissionierer auf einen Auftrag nach dem anderen konzentriert, werden Mischungen und Fehler minimiert.<br>-<strong> Einfache Implementierung:</strong> Diese Methode erfordert keine spezialisierte Software oder komplizierte logistische Planung.<br>-<strong> Ideal für spezielle oder hochwertige Artikel:</strong> Einzelkommissionierung eignet sich besonders gut für Aufträge mit hochwertigen, großen oder sehr spezifischen Produkten, bei denen eine genaue Handhabung entscheidend ist.</td>
+<td>-<strong> Zeitaufwand:</strong> Die Einzelkommissionierung kann zeitaufwändiger sein als andere Methoden wie Batch- oder Cluster-Picking, insbesondere in großen Lagern mit vielen kleinen Aufträgen.<br>-<strong> Weniger effizient bei hoher Auftragsdichte:</strong> In Umgebungen, in denen viele kleine Aufträge schnell bearbeitet werden müssen, können effizientere Methoden wie das Sammelkommissionieren oder das Multi-Order-Picking vorteilhafter sein.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p><strong>Anwendungsbereich:</strong></p>
+<p>Insgesamt ist die Einzelkommissionierung eine zuverlässige und genaue Methode, die sich besonders für Lageroperationen eignet, bei denen die Präzision der Auftragsabwicklung oberste Priorität hat, das Lager kleine Abmessungen und kurze Wege hat oder die Augtragsmengen für dieses Lager geringer sind.</p>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Zum Logistikprozess: Einzelkommissionierung</p>
+</blockquote>
+<h2 id="sammelkommissionierung-batch-kommissionierung">Sammelkommissionierung (Batch-Kommissionierung)<a class="headerlink" href="#sammelkommissionierung-batch-kommissionierung" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Die Sammelkommissionierung ist ein effizientes Lagerlogistikverfahren, bei dem du Artikel für mehrere Aufträge gleichzeitig in einem einzigen Durchgang durch das Lager sammelst. Nachdem alle Artikel gesammelt sind, werden sie an einem zentralen Ort sortiert und den spezifischen Aufträgen zugeordnet, bevor sie verpackt werden. Diese Methode reduziert die Anzahl der Gänge durch das Lager und steigert die Effizienz des Kommissionierprozesses.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Mehrere Aufträge werden gleichzeitig kommissioniert, indem Artikel mit derselben Lagerposition in einem Sammelvorgang zusammen entnommen und später nach Aufträgen sortiert werden.</li>
+<li>Vorteil: Reduziert Laufwege und steigert Effizienz.</li>
+<li>Nachteil: Höheres Risiko für Fehler bei der späteren Zuordnung der Artikel zu den einzelnen Aufträgen.</li>
+</ul>
+<p><strong>Merkmale der Sammelkommissionierung:</strong></p>
+<p>-<strong>Mehrere Aufträge gleichzeitig:</strong> Anstatt jeden Auftrag einzeln abzuarbeiten, werden Artikel für mehrere Aufträge in einem Gang durch das Lager gesammelt.
+-<strong>Effizienzsteigerung:</strong> Durch die Reduzierung der Anzahl der Gänge, die ein Kommissionierer durch das Lager machen muss, werden Zeit und Energie gespart.
+-<strong>Nachträgliche Sortierung:</strong> Nach dem Sammeln der Artikel werden diese an einem zentralen Ort oder am Packplatz nach den einzelnen Aufträgen sortiert.</p>
+<table>
+<thead>
+<tr>
+<th>Vorteile:</th>
+<th>Nachteile:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-<strong>Zeiteinsparung: </strong> Die Sammelkommissionierung reduziert die Laufwege im Lager signifikant, was besonders bei einer großen Anzahl kleinerer Aufträge effizient ist.<br>-<strong> Erhöhung der Produktivität:</strong> Mehr Aufträge können in kürzerer Zeit bearbeitet werden, da Mehrfachwege für die gleichen Artikel vermieden werden.<br>-<strong> Kostenreduktion:</strong> Geringere Betriebskosten durch effizientere Nutzung der Arbeitszeit der Kommissionierer.</td>
+<td>-<strong> Komplexität bei der Sortierung:</strong> Die nachträgliche Zuordnung der gesammelten Artikel zu den einzelnen Aufträgen kann kompliziert sein und erfordert sorgfältige Planung und Organisation.<br>-<strong> Fehleranfälligkeit:</strong> Ohne geeignete technologische Unterstützung oder sorgfältige Prozesse kann es leichter zu Fehlern bei der Zuordnung der Artikel zu den richtigen Aufträgen kommen.<br>-<strong> Notwendigkeit von zusätzlicher Ausrüstung:</strong> Für die effiziente Sortierung der Artikel können zusätzliche Ausrüstungen oder spezialisierte Softwarelösungen erforderlich sein.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p><strong>Anwendungsbereich:</strong></p>
+<p>Sammelkommissionierung wird häufig in Lagern eingesetzt, die eine Vielzahl von Produkten verwalten und eine hohe Anzahl von Multi-Item-Aufträgen bearbeiten. Sie eignet sich besonders für Unternehmen, die ihre Lageroperationen optimieren und die Effizienz steigern möchten, ohne die Genauigkeit zu beeinträchtigen.</p>
+</blockquote>
+<h3 id="sammelkommissionierung-mit-pickliste">Sammelkommissionierung mit Pickliste<a class="headerlink" href="#sammelkommissionierung-mit-pickliste" title="Permanent link">&para;</a></h3>
+<p>Sammelkommissionierung ist ein Prozess, bei dem du Artikel für mehrere Aufträge gleichzeitig mithilfe einer Pickliste sammelst. Die Artikel werden danach an einem zentralen Ort - z.B. am Packtisch über das XentralVersandzentrum den jeweiligen Aufträgen zugeordnet. Optional kannst du am Packplatz einen zusätzlichen Scan pro Artikel durchführen, um die Fehlerquote zu reduzieren oder Seriennummern zu erfassen.</p>
+<h3 id="zweistufige-kommissionierung-mit-digitaler-pickliste-und-lagerplatz-scan">Zweistufige-Kommissionierung (mit digitaler Pickliste und Lagerplatz-Scan)<a class="headerlink" href="#zweistufige-kommissionierung-mit-digitaler-pickliste-und-lagerplatz-scan" title="Permanent link">&para;</a></h3>
+<p>Die zweistufige Kommissionierung ist ein Prozess, bei dem du zunächst alle Artikel für mehrere Aufträge gleichzeitig mithilfe einer digitalen Pickliste sammelst. Dabei wird jeder Lagerplatz gescannt, um sicherzustellen, dass die richtigen Artikel entnommen werden. In der zweiten Stufe erfolgt die Zuordnung der Artikel zu den einzelnen Aufträgen über das XentralVersandzentrum.</p>
+<h3 id="batch-kommissionierung">Batch-Kommissionierung<a class="headerlink" href="#batch-kommissionierung" title="Permanent link">&para;</a></h3>
+<p>InXentral kannst du Picklisten und Batches erstellen, wobei die App<a href="https://help.xentral.com/hc/de/articles/360021501800#UUID-bed72313-3924-bb89-f56f-2bb5bac5b4cf">Batch Kommissionierung</a>es ermöglicht, Artikel entlang einer optimierten Lageroute in einen Kommissionierwagen zu sammeln. Die Artikel werden dann am Ende der Pickroute durch Scannen in ein Regalsystem einsortiert, wobei jeder Artikel einem spezifischen Auftragsfach zugeordnet wird. Fertige Kisten werden am Packtisch fertiggestellt. Ein optionaler Qualitäts-Scan ist möglich.</p>
+<h2 id="rollende-kommissionierung-kontinuierliche-kommissionierung">Rollende Kommissionierung (Kontinuierliche Kommissionierung)<a class="headerlink" href="#rollende-kommissionierung-kontinuierliche-kommissionierung" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Bei der rollenden Kommissionierung nutzt du einen mobilen Wagen, um Artikel für mehrere Bestellungen gleichzeitig zu sammeln, während du dich durch das Lager bewegst. Dieser Prozess ermöglicht es dir, die Artikel unmittelbar nach ihrer Entnahme aus dem Lager direkt am Wagen zu verpacken. Dies geschieht oft „just-in-time“, sodass jede Bestellung parallel zum Picking effizient vorbereitet und sofort für den Versand fertiggestellt wird.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Die Kommissionierung erfolgt parallel zum Verpacken, das heißt, Artikel werden unmittelbar nach der Entnahme aus dem Lager verpackt. Dieser Prozess erfolgt oft „just-in-time“, während der Kommissionierer durch das Lager geht.</li>
+<li>Vorteil: Beschleunigt den gesamten Prozess und erfordert weniger Zwischenlagerung.</li>
+<li>Nachteil: Für komplexe Aufträge oder große Bestellungen ungeeignet.</li>
+</ul>
+<p><strong>Merkmale der rollenden Kommissionierung:</strong></p>
+<p>-<strong>Mobilität:</strong> Der Kommissionierer nutzt einen Wagen mit mehreren Fächern oder Behältern, der durch das Lager gerollt wird. In jedes Fach werden Artikel für verschiedene Bestellungen gelegt.
+-<strong>Simultanes Picking</strong>: Artikel für mehrere Aufträge werden in einem Durchgang durch das Lager gesammelt, wodurch die Effizienz gesteigert wird.
+-<strong>Organisierte Sortierung:</strong> Die Fächer des Wagens ermöglichen eine vorsortierte Lagerung der Artikel nach Bestellungen oder anderen Kriterien, was die nachfolgende Verpackungsphase vereinfacht.</p>
+<table>
+<thead>
+<tr>
+<th>Vorteile:</th>
+<th>Nachteile:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-<strong>Effizienzsteigerung: </strong> Durch das Sammeln mehrerer Bestellungen in einem Durchgang reduziert sich die Gesamtzahl der Lagerdurchgänge, was Zeit spart und die Produktivität erhöht.<br>-<strong> Reduzierte Fehlerquote:</strong> Die vorsortierte Zuordnung der Artikel zu den entsprechenden Bestellungen direkt am Wagen minimiert die Fehlermöglichkeiten bei der späteren Verpackung.<br>-<strong> Flexibilität:</strong> Die Methode ist flexibel einsetzbar und kann für verschiedene Arten von Produkten und Bestellgrößen angepasst werden.</td>
+<td>-<strong> Platzbedarf:</strong> Die Notwendigkeit eines größeren Wagens kann in engen Lagerumgebungen zu Einschränkungen führen.<br>-<strong> Initiale Investition:</strong> Für die Anschaffung spezieller Kommissionierwagen und deren Wartung kann eine initiale Investition erforderlich sein.<br>-<strong> Begrenzte Skalierbarkeit:</strong> Bei sehr großen Bestellvolumen oder extrem schnellen Durchlaufzeiten kann die Methode an ihre Grenzen stoßen.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p><strong>Anwendungsbereich:</strong></p>
+<p>Die rollende Kommissionierung eignet sich besonders für mittelgroße bis große Lager, die eine breite Palette von Produkten verwalten und eine hohe Anzahl von Aufträgen effizient abwickeln müssen. Sie wird häufig in Bereichen wie dem Einzelhandel, E-Commerce und anderen Branchen eingesetzt, wo Schnelligkeit und Genauigkeit im Umgang mit Kundenbestellungen entscheidend sind.</p>
+</blockquote>
+<h3 id="multi-order-picking">Multi-Order-Picking<a class="headerlink" href="#multi-order-picking" title="Permanent link">&para;</a></h3>
+<p>Das Multi-Order-Picking ist eine Kombination aus Einzel- und Sammelkommissionierung, bei der mehrere Bestellungen gleichzeitig gepickt, aber in Echtzeit den jeweiligen Aufträgen zugeordnet werden. Die Kommissionierung erfolgt entlang einer optimierten Lagerroute.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p><strong>Hinweis</strong></p>
+<p>Zum Logistikprozess: Multi-Order-Picking</p>
+</blockquote>
+<h2 id="auftragsabwicklung-im-backoffice">Auftragsabwicklung im Backoffice<a class="headerlink" href="#auftragsabwicklung-im-backoffice" title="Permanent link">&para;</a></h2>
+<h3 id="einzelauftragsbearbeitung-customer-service-einzelauftrag">Einzelauftragsbearbeitung (Customer Service Einzelauftrag)<a class="headerlink" href="#einzelauftragsbearbeitung-customer-service-einzelauftrag" title="Permanent link">&para;</a></h3>
+<p>Einzelaufträge können unabhängig vom Kommissionierprozess direkt über das Aktionsmenü an die Logistik übergeben werden. Dies ist besonders nützlich, wenn der Kundenservice einen B2B-Auftrag sofort an eine Spedition übermitteln muss. Der Auftrag wird entweder manuell abgeschlossen oder in einen Logistikprozess eingebunden.</p>
+<h3 id="lagerabzug-ohne-weiteren-prozess">Lagerabzug ohne weiteren Prozess<a class="headerlink" href="#lagerabzug-ohne-weiteren-prozess" title="Permanent link">&para;</a></h3>
+<p>Der <strong>Lagerabzug ohne weiteren Prozess</strong> ist eine schnelle Möglichkeit, Aufträge direkt vom Schreibtisch aus abzuwickeln. Dabei wird der Auftrag abgeschlossen, das Lager gebucht und automatisch ein Lieferschein sowie eine Rechnung erstellt. Besonders geeignet für Musterlager oder Versand direkt aus dem Büro, kannst du die Dokumente sofort ausdrucken.</p>
+<h2 id="automatisierung-und-prozessschritte">Automatisierung und Prozessschritte<a class="headerlink" href="#automatisierung-und-prozessschritte" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="https://help.xentral.com/hc/de/articles/360016760599#UUID-fe00da18-8f96-5958-328c-f04d36cd905a">Prozessautomatisierungen</a> in der Logistik ermöglichen die das automatische Übergeben von Aufträgen an die Logistik zu festen Uhrzeiten oder in Intervallen.</p>
+</li>
+<li>
+<p><a href="https://help.xentral.com/hc/de/articles/360016722600#UUID-639a7179-6df9-467b-1821-cda20df3f8be">Picklisten-Profile</a> ermöglichen die Festlegung unterschiedlicher Kommissionierstrategien basierend auf Produkttyp, Volumen und den Anforderungen verschiedener Vertriebskanäle wie E-Commerce, B2B und Offline-Handel u.v.m.</p>
+</li>
+<li><a href="https://help.xentral.com/hc/de/articles/360017571259#UUID-37bf805e-d626-15da-8149-48fe59854c2b">Einstellungen in den Logistikprozessen</a> ermöglichen dir die Automatisierung bestimmter Zwischenschritte z.B. Überspringen des Qualitäts-Scans am Packtisch oder automatischer Ausdruck von Versandlabels ohne direkten Bestätigungs-Trigger. Die Übersicht über Möglichkeiten findest du hier: <a href="https://help.xentral.com/hc/de/articles/15547871192092#UUID-2e832897-9d30-1bb7-a364-7fc7b1994059">Prinzip der Logistikprozesse: Versandübergabe, Pick- und Packprozesse</a>.</li>
+<li>Wenn du mehrere Packtische nebeneinander bedienen möchtest, kannst du verschiedene Einstellungen zu Drucker, Geräten, Prozesschritten, Kommissionierprozessen und Teilung von Arbeitsschritten auf zwei separate Mitarbeiter-Accounts für Pick &amp; Pack vornehmen.</li>
+</ul>
+<h2 id="anbindung-einen-fulfillment-dienstleister-3pl">Anbindung einen Fulfillment-Dienstleister (3PL)<a class="headerlink" href="#anbindung-einen-fulfillment-dienstleister-3pl" title="Permanent link">&para;</a></h2>
+<p>Mit der<a href="https://help.xentral.com/hc/de/articles/360018710420#UUID-c30cbf74-515e-8daf-43ca-5b5693f1f4fc">Fulfillment-Anbindung</a>zwischenXentral und dem Warehouse-System deines Logistikpartners kannst du Daten automatisch austauschen. Diese Verbindung ermöglicht es dir, deine Aufträge direkt an deinen Fulfiller zu senden und wichtige Updates wie Lagerbestände oder den Status von Lieferungen zurück in dein System zu bekommen. Das spart dir Zeit und reduziert Fehler, indem es die Notwendigkeit manueller Eingaben eliminiert. Zusätzlich kann dieses Modul auch genutzt werden, um Datentransfers zwischen zwei XentralSystemen oder anderen externen Systemen zu steuern, wodurch du eine flexible und umfassende Kontrolle über deine Datenströme erhältst.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360020356760 Projektmanagement - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360020356760 Projektmanagement</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360020356760 Projektmanagement</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Unter <strong>Stammdaten &gt; Projekte</strong> können nicht nur Projekte angelegt, sondern auch das Projektmanagement und -Controlling abgebildet werden.</p>
+<p>Ein neues Projekt kann entweder völlig eigenständig oder als Kopie eines bereits bestehenden Projekts angelegt werden.</p>
+<h2 id="bestehendes-projekt-kopieren">Bestehendes Projekt kopieren<a class="headerlink" href="#bestehendes-projekt-kopieren" title="Permanent link">&para;</a></h2>
+<p>Wenn bereits ähnliche Projekte zur Verfügung stehen - bspw. Projekte für denselben Kunden oder mit denselben Artikeln oder Teilprojekten vorliegen - kann nach dem Klick auf <strong>+NEU </strong> die Option <strong>bestehendes Projekt kopieren </strong> ausgewählt werden. In der darauffolgenden Übersicht ist das bestehende Projekt, das kopiert werden soll, über den <strong>Pfeil</strong></p>
+<p>-Button auszuwählen.</p>
+<p>Ein bestehendes Projekt zu kopiert wird, können Sie die folgenden Teilaspekte wahlweise übernommen werden:</p>
+<ul>
+<li>Name</li>
+<li>Kennung</li>
+<li>Teilprojekte</li>
+<li>Artikel</li>
+<li>Aufgaben</li>
+<li>Mitarbeiter</li>
+</ul>
+<h2 id="neues-projekt-erstellen">Neues Projekt erstellen<a class="headerlink" href="#neues-projekt-erstellen" title="Permanent link">&para;</a></h2>
+<p>Im ersten Schritt wird hierzu auf die Schaltfläche <strong>+NEU </strong> geklickt und die Option <strong>neues Projekt anlegen</strong> ausgewählt. Es erscheint eine Eingabemaske. Es sollte hier neben einer Bezeichnung unbedingt eine Projektkennung angegeben werden, wobei verschiedene Möglichkeiten zur Verfügung stehen:</p>
+<p>-<strong>Manuelle Vergabe</strong>: Es ist darauf zu achten, dass ausschließlich Ziffern, Großbuchstaben oder Kombinationen hieraus verwendet werden.
+-<strong>Kundennummer + Fortlaufende Nummer</strong>: In diesem Fall kann das Textfeld leer gelassen werden. xentral fügt die Kennung in dem Format &ldquo;Kundennummer. Fortlaufende Projektnummer&rdquo; automatisch ein, wobei mit einer einstelligen Nummer gestartet wird.
+-<strong>Fortlaufende Projekt Nr.</strong>: Es wird vom System eine fortlaufende Projektnummer aus dem zentralen Nummernkreis generiert.</p>
+<p>Weiterhin kann eine Beschreibung hinzugefügt, der Projektverantwortlichen festgelegt sowie ein Kunde aus den Stammdaten ausgewählt werden. Dies sind zwar keine verpflichtenden Angaben, erleichtern jedoch den Arbeitsprozess, indem bspw. bei Erstellung von Rechnungen aus dem Projektdashboard der ausgewählte Kunde bereits vorausgefüllt ist. Auch muss zu Beginn ein Status angegeben werden, wobei zwischen <strong>geplant </strong>,<strong>gestartet </strong> und <strong>abgeschlossen</strong> unterschieden werden kann. Der Status dient in erster Linie dazu, einen schnellen Überblick über die derzeitigen Projektaktivitäten in der Übersicht zu ermöglichen, wenn die Filter verwendet werden.</p>
+<h3 id="wichtige-einstellungen">Wichtige Einstellungen<a class="headerlink" href="#wichtige-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Nach dem auf <strong>Weiter </strong> geklickt wurde kommt man in die Bearbeitungsansicht des Projekts. Auf dem Reiter <strong>Einstellungen</strong> können diverse Einstellungen vorgenommen werden, die für das gesamte Projekt gelten:</p>
+<p>-<strong>Farbe</strong>: Mit dieser Farbe wird das Projekt für die Auswertungen im Management Board gekennzeichnet
+-<strong>Verkaufszahlen</strong>: Wenn hier kein Haken gesetzt wird, wird das Projekt bei den Auswertungen im Verkaufszahlendiagramm nicht berücksichtigt
+-<strong>Öffentliches Projekt</strong>: Hier kann entschieden werden, ob das Projekt für alle Mitarbeiter sichtbar sein soll oder nur Projektmitarbeiter Zugriff erhalten sollen
+-<strong>Zahlungsmail </strong></p>
+<p>-<strong>Stornomail</strong></p>
+<p>-<strong>Eigenes Briefpapier für Projekt</strong>: Es kann für jedes Projekt ein eigenes Briefpapier hinterlegt werden, indem im Reiter Dateien zwei PDF Dokumente hochgeladen werden
+-<strong>Beschriftung</strong>: Falls ein eigenes Briefpapier verwendet wird, kann angegeben werden, ob der Header und Footer der Firmendaten im System verwendet werden soll oder ob diese bereits in das Briefpapier integriert sind.</p>
+<p>Anschließend wird das Projekt gespeichert.</p>
+<h3 id="das-dashboard">Das Dashboard<a class="headerlink" href="#das-dashboard" title="Permanent link">&para;</a></h3>
+<p>Unter <strong>Stammdaten &gt; Projekte </strong> wird das gewünschte Projekt ausgewählt und entweder an einer beliebigen Stelle auf das Projekt oder den <strong>geschwungenen Pfeil</strong> im rechten Menübereich geklickt. Es öffnet sich das Projekt-Dashboard, wo die Funktionalitäten für die Projektplanung und -umsetzung gefunden werden können. In der oberen graue Leiste finden sich neben einigen allgemeinen Angaben wie Projektname oder Kunde auch einen Filter für die Teilprojekte, der sich auf alle Bereiche auswirkt, d.h. Ihnen werden in den Reitern Artikel, Belege, Zeiterfassung und Aufgaben nur noch die Einträge zu dem ausgewählten Teilprojekt angezeigt.</p>
+<p><img alt="projectmanagement_1.png" src="https://help.xentral.com/hc/article_attachments/5091298147356" /></p>
+<p>Das Dashboard ist in mehrere Teilbereiche aufgeteilt, wobei grundsätzlich gilt:</p>
+<p>-<strong>Hellgrau</strong>: Bei allen hellgrau hinterlegten Feldern handelt es sich um Angaben in Stunden, im Einzelnen
+-<strong>Zeit geplant</strong>: Wie viele Stunden sind für diesen Teilprojektschritt eingeplant? Dieses Feld kann direkt im Dashboard übertippt werden
+-<strong>Zeit gebucht</strong>: Wie viele Stunden wurden bisher auf dieses Teilprojekt über die Zeiterfassung gebucht?
+-<strong>Zeit offen</strong>: Wie viele Stunden können noch auf dieses Teilprojekt gebucht werden, ohne die zeitliche Ressourcenplanung zu überschreiten?
+-<strong>Zeit abgerechnet</strong>: Wie viele der erbrachten Stunden wurden dem Kunden bereits in Rechnung gestellt?
+-<strong>Gelb</strong>: Gelb hinterlegte Felder hingegen sind immer monetärer Natur:
+-<strong>EK Zeit geplant</strong>: Wie viel würde die aktuell geplante Arbeitszeit im Einkauf kosten?
+-<strong>EK Zeit gebucht</strong>: Wie viel kostet die bisher erbrachte Arbeitszeit tatsächlich?
+-<strong>VK Zeit geplant</strong>: Wie hoch sind die Einnahmen, mit denen ich für die aktuell geplante Arbeitszeit rechnen kann?
+-<strong>EK Artikel geplant &amp; VK Artikel geplant</strong>: Hinterlegte Ein- und Verkaufspreise Ihrer Artikel</p>
+<p>Zudem lässt sich eine Gewinnprognose bzw. ein Live-Monitoring ansehen, wobei die Planungen im Dashboard und die Zeiterfassung der Mitarbeiter die Kalkulationsgrundlage bilden:</p>
+<p>-<strong>Zeit </strong></p>
+<p>-<strong>Formel</strong>: VK Zeit geplant - EK Zeit gebucht
+-<strong>Aussage</strong>: Wie hoch wäre heute mein Gewinn aus der Arbeitszeit, wenn ich den geplanten Betrag einnehmen kann? Wurde bspw. ein festes Stundenkontingent an den Kunden verkauft, ist hier auf einen Blick ersichtlich, wie sehr Überschreitungen der Arbeitszeit sich auswirken und können rechtzeitig gegensteuern
+-<strong>Artikel </strong></p>
+<p>-<strong>Formel</strong>: VK Artikel geplant - EK Artikel geplant
+-<strong>Aussage</strong>: Hier können Sie verschiedene Szenarien durchspielen, um zu überprüfen, ob Ihre Planung realisierbar und rentabel ist
+-<strong>Gesamt</strong>: Summe aus Gewinnprognose Zeit und Artikel</p>
+<h4 id="teilprojekte">Teilprojekte<a class="headerlink" href="#teilprojekte" title="Permanent link">&para;</a></h4>
+<p>Im rechten Menübereich können beliebig viele Teil- und Unterprojekte angelegt werden. Hierzu wird auf das <strong>Plus</strong></p>
+<p>-Icon im rechten Menübereich geklickt, wodurch sich erneut eine Eingabemaske öffnet. * Allgemeine Angaben*</p>
+<p>Hier finden Sie folgende Parameter vor:</p>
+<ul>
+<li><strong>Teilprojekt</strong>: Bezeichnung
+-<strong>Beschreibung</strong>: Optionale Informationen
+-<strong>Status </strong></li>
+</ul>
+<p>-<strong>offen</strong>: das Teilprojekt ist noch in Arbeit
+  -<strong>aktiv</strong>: das aktive Teilprojekt ist im Dashboard fettgedruckt und wird in der Übersicht aller Projekte mit angezeigt
+  -<strong>abgeschlossen</strong>: dieses Teilprojekt gilt als abgeschlossen, sodass auch in der Zeiterfassung keine Stunden mehr auf dieses Teilprojekt gebucht werden können
+  -<strong>abgerechnet </strong></p>
+<p>-<strong>Vorgänger</strong>: Hier können Sie die Position festlegen, indem Sie den direkten Vorgänger angeben
+-<strong>Position: </strong></p>
+<p>-<strong>Nach</strong>: Das neue Teilprojekt wird auf der gleichen Ebene wie der direkte Vorgänger angelegt
+  -<strong>Unterprojekt</strong>: Das Teilprojekt wird als Unterprojekt des unmittelbar vorhergehenden Teilprojekts angelegt
+-<strong>Start- und Abgabe Datum</strong>: Verwendung in Projektplan und im Ampelsystem für die Teilprojekte
+-<strong>Verantwortlicher</strong>: Auswahl einer Adresse aus den Stammdaten möglich
+-<strong>Farbe</strong>: Verwendung im Projektplan
+-<strong>Im Projektplan ausblenden</strong>: optionaler Ausschluss von Teilprojekten möglich
+-<strong>Artikelnummer geplant</strong>: Stundensatz, zu dem die Zeiten dieses Teilprojekts in Rechnung gestellt werden sollen bzw. die Artikelnummer des Artikels, der hierfür genutzt werden soll * Teilprojekte anlegen: Kostenschätzung*Gelb eingefärbt findet sich hier der Bereich <strong>Kostenschätzung</strong>, der bei der Projektplanung auf Basis von Schätz- bzw. Erfahrungswerten unterstützt:</p>
+<p>-<strong>Zeit geplant</strong>: geplante Arbeitszeit in Stunden
+-<strong>Auswahl EK und VK </strong></p>
+<p>-<strong>Stundenpreis</strong>: Wählen Sie Stundenpreis aus, wenn Sie für die Kalkulation einen stündlichen Einkaufs- bzw. Verkaufspreis ansetzen möchten
+  -<strong>Pauschale</strong>: Falls Sie bspw. einen festen Abnahmepreis mit Ihrem Kunden verhandelt haben, wählen Sie Pauschale aus, um dies abzubilden
+-<strong>EK und VK geplant</strong>: Hier sind die entsprechenden Stundensätze bzw. pauschalen Größen einzutragen</p>
+<p>Es kann immer flexibel entschieden werden, ob mit Pauschalen, Stundensätzen oder einer Mischkalkulation gearbeitet werden soll. So können bspw. mit einem fixen Verkaufspreis kalkuliert, aber die Kosten jederzeit mithilfe der entsprechenden EK-Preise auf Stundenbasis im Blick behalten werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn das Modul <strong>Zeiterfassung: Kosten</strong> erworben wurde, kann unter diesem Link nachgelesen werden, wie an dieser Stelle einfach verschiedene Mitarbeiter ausgewählt werden können und berechnet werden kann, was diese im Einkauf kosten.</p>
+</blockquote>
+<h4 id="artikel">Artikel<a class="headerlink" href="#artikel" title="Permanent link">&para;</a></h4>
+<p>Zum einen kann hier eine reine Planung vorgenommen werden, zum anderen können die Artikel in Belege wie Produktionen oder Rechnungen einfließen gelassen werden und damit kontrolliert werden, wie erfolgreich das Projekt war.</p>
+<h5 id="artikel-zu-einem-teilprojekt-hinzufugen">Artikel zu einem Teilprojekt hinzufügen<a class="headerlink" href="#artikel-zu-einem-teilprojekt-hinzufugen" title="Permanent link">&para;</a></h5>
+<p>Im Bereich Artikel stehen wieder verschiedene Optionen zur Verfügung. Im Wesentlichen können hier den Teilprojekten verschiedene Artikel zugeordnet werden, bspw. weil diese im Rahmen eines Kundenprojekts produziert werden sollen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>LS steht für Lieferschein und zeigt an in wie vielen Lieferscheinen der Artikel ist und wie viele davon schon ausgeliefert wurden.</p>
+<p><strong>Anmerkung</strong></p>
+<p>Die Daten der Zeiterfassung werden im Zusatz-Modul „zeiterfassung_kosten“ gepflegt, damit die dann im Projektdashboard zur Verfügung stehen.</p>
+</blockquote>
+<p>Hierzu wird unten rechts zunächst auf den Button <strong>Artikel zu Teilprojekt hinzufügen</strong> geklickt und damit die folgende Oberfläche aufgerufen:</p>
+<p><img alt="projectmanagement_2.png" src="https://help.xentral.com/hc/article_attachments/18190399108892" /></p>
+<p>Zunächst wird ausgewählt, zu welchem Teilprojekt die Artikel hinzugefügt werden sollen. Dann wird ausgewählt, auf welche Art die Artikel hinzugefügt werden sollen:</p>
+<ol>
+<li>Neuen Artikel/ Stückliste anlegen &gt; Hier erscheint eine Schnelleingabemaske, wo Sie einige wenige Informationen erfassen können, um einen Artikel oder eine Stückliste anzulegen.</li>
+<li>Es wird aus dem Artikelstamm ein bereits bestehender Artikel ausgewählt</li>
+<li>Es wird eine Importvorlage ausgewählt, die in der Importzentrale angelegt wurde und dann eine Artikelliste im CSV Format hochgeladen. Nähere Informationen sind<a href="https://help.xentral.com/hc/de/articles/360016758939#UUID-3c5b4c7a-6650-f55b-9943-edb0ed852574">hier</a> zu finden</li>
+</ol>
+<p>Spezielle Importvariablen:</p>
+<p><strong>artikel_ek_geplant <strong>: Entspricht EK Artikel geplant, wird aber auch in die Stammdaten eingetragen </strong> artikel_vk_geplant</strong>: Entspricht VK Artikel geplant, wird aber auch in die Stammdaten eingetragen * Kalkulation mit Planzahlen*</p>
+<p>Hier gibt es grundsätzlich zwei verschiedene Möglichkeiten:</p>
+<ol>
+<li>Dummy-Artikel verwenden:</li>
+</ol>
+<ul>
+<li>Fügen Sie je Teilprojekt einen Planungsartikel hinzu (Dummy-Artikel ausreichend)</li>
+<li>Versehen Sie diesen Artikel mit einer Planmenge von 1 sowie den Planzahlen für EK und VK</li>
+<li>Wenn Sie in einem nächsten Schritt Ihre realen Artikel für den Verkauf und die Produktion hinzufügen, achten Sie darauf, dass die Werte EK und VK geplant auf 0 gesetzt sind</li>
+<li>Dann wird für die Kalkulation Ihrer Planzahlen immer der Planartikel verwendet, sobald Sie jedoch einen Beleg erzeugen, werden die Werte aus den Stammdaten Ihrer Artikel verwendet</li>
+</ul>
+<ol start="2">
+<li>Mit realen Artikeln planen:</li>
+</ol>
+<ul>
+<li>Laden Sie Ihre Artikelliste hoch bzw. fügen Sie Ihre Artikel den jeweiligen Teilprojekten hinzu</li>
+<li>Tragen Sie jeweils Planwerte für EK, VK und die Menge ein</li>
+<li>Beachten Sie, dass Sie diese Planwerte jederzeit ändern können, ohne dass dies Auswirkungen auf die Stammdaten hat</li>
+<li>Wenn Sie also Belege erzeugen, werden stets die Werte aus den Stammdaten verwendet</li>
+</ul>
+<p>Je nachdem, wie viele Artikel in Ihr Projekt einfließen, können Sie auswählen, welche Planungsart Sie verwenden möchten. Da sich Projektplanungen in der Realität ohnehin ständig ändern, können Sie auch die &ldquo;Dummy-Artikel Methode&rdquo; für die Grobplanung verwenden und im weiteren Verlauf die Planwerte für die einzelnen Artikel ersetzen, je nachdem was für Ihr Unternehmen geeigneter erscheint.</p>
+<h4 id="finanzen-einsehen">Finanzen einsehen<a class="headerlink" href="#finanzen-einsehen" title="Permanent link">&para;</a></h4>
+<p>Im Unterreiter Finanzen finden Sie einen Gesamtüberblick über Ihre Projektaktivitäten:</p>
+<p><img alt="projectmanagement_3.png" src="https://help.xentral.com/hc/article_attachments/18190399110556" /></p>
+<p>Die Zahlen sind dabei in drei Kernbereiche untergliedert: Gebucht, Geplant und Vergleich und setzen sich im Einzelnen folgendermaßen zusammen:</p>
+<p><strong>Gebuchte Werte</strong>: Diese Zahlen basieren ausschließlich auf den realen Belegen, die dem System daher vollständig vorliegen sollten</p>
+<p>-<strong>Rechnungen</strong>: Ausgangsrechnungen, die auf das Projekt verknüpft wurden oder direkt aus dem Dashboard heraus erstellt wurden
+-<strong>Gutschriften</strong>: Gegenstück zu Rechnungen
+-<strong>Kassenbuch</strong>: Einnahmen aus dem Kassenbuch, wenn das Projekt bei Buchung hinterlegt worden ist
+-<strong>Bestellungen</strong>: Bestellungen, die im Rahmen des Projekts angefallen sind
+-<strong>Verbindlichkeiten</strong>: Ausgangsrechnungen, die zwar mit dem Projekt verknüpft worden sind, zu denen jedoch keine Bestellung existiert
+-<strong>Kassenbuch</strong>: Ausgaben mit Projektverknüpfung
+-<strong>Reisekosten </strong>: Reisekosten mit Projektbezug <strong>Geplante Werte </strong></p>
+<p>-<strong>Einnahmen Zeiten</strong>: VK Zeit geplant
+-<strong>Einnahmen Artikel</strong>: VK Artikel geplant
+-<strong>Ausgaben Zeiten</strong>: EK Zeit geplant
+-<strong>Ausgaben Artikel </strong>: EK Artikel geplant <strong>Vergleich </strong></p>
+<p>-<strong>Einnahmen</strong>: Gebuchte Gesamteinnahmen - Geplante Gesamteinnahmen und damit der Betrag, der über die Planzahlen hinaus erwirtschaftet werden konnte
+-<strong>Ausgaben</strong>: Gebuchte Gesamtausgaben - Geplante Gesamtausgaben und damit der Betrag, der über die Planzahlen hinaus ausgegeben werden musste, um das Projekt zu realisieren</p>
+<h4 id="zeiten-abrechnen">Zeiten abrechnen<a class="headerlink" href="#zeiten-abrechnen" title="Permanent link">&para;</a></h4>
+<p>Weiterhin können Dienstleistungen auch direkt aus dem Dashboard heraus in Angebote, Aufträge oder Rechnungen überführt werden. Dazu wird folgendermaßen vorgegangen:</p>
+<ul>
+<li>Es wird der Bereich Teilprojekte geöffnet</li>
+<li>Es sind die gewünschten Teilprojekte zu markieren oder mit einem Klick auf <strong>Summe Gesamt</strong> alle Teilprojekte auszuwählen.</li>
+<li>Es wird auf <strong>Auf Auswahl anwenden</strong> im unteren Aktionsbereich geklickt und über das dortige Selectfeld ausgewählt, welches Dokument erzeugt werden soll</li>
+<li>Es erscheint folgende Eingabemaske:</li>
+</ul>
+<p><img alt="projectmanagement_4.png" src="https://help.xentral.com/hc/article_attachments/18190429077660" /></p>
+<p>Falls für das Projekt bereits ein Kunde hinterlegt worden ist, ist dieser als Belegempfänger vorausgefüllt, was an dieser Stelle aber auch geändert werden kann. Weiterhin kann entscheiden werden, ob die ausgewählten Teilprojekte einem bereits bestehenden Entwurf hinzugefügt oder neu erstellt werden sollen. Zusätzlich ist dann noch zu entscheiden, wie die einzelnen Teilprojekte gehandhabt werden sollen, wobei folgende Optionen zur Verfügung stehen:</p>
+<ul>
+<li>Teilprojekt als Position</li>
+<li>Teilprojekt als Position (Artikeltext verwenden)</li>
+<li>inkl. aller Unterteilprojekte als Baum in Artikeltext</li>
+<li>
+<p>inkl. aller Unterteilprojekte als eigene Position</p>
+</li>
+<li>
+<p>geplante Zeiten als Position (Artikel-Name und Artikelbeschreibung in Beleg)</p>
+</li>
+<li>
+<p>geplante Zeiten als Position (Teilprojekt Name und Beschreibung in Beleg)</p>
+</li>
+<li>
+<p>nicht abgerechnete Zeiten als eine Summe buchen (Zeiten in Beschreibungstext)</p>
+</li>
+<li>nicht abgerechnete Zeiten als einzelne Positionen (mit Angabe Teilprojekt)</li>
+<li>nicht abgerechnete Zeiten als einzelne Positionen (ohne Angabe Teilprojekt)</li>
+</ul>
+<p>Ist zudem in dem Teilprojekt bereits spezifiziert, zu welchem Stundensatz die Abrechnung erfolgen soll, so ist die <strong>Anzeige Teilprojekt </strong> als Position vorausgewählt. Mit einem Klick auf <strong>Speichern und Schließen </strong> öffnet sich unmittelbar der Entwurf des Angebots, wo die Bezeichnung des Stundensatzartikels durch die Teilprojekte überschrieben werden. Wenn dies verhindern werden soll, kann die zweite Option <strong>Teilprojekt als Position (Artikeltext verwenden)</strong> markiert werden, wodurch die Bezeichnung des Abrechnungsartikels unverändert übernommen wird.</p>
+<p>Unten links findet sich eine Frage nach dem Artikelformat, wo mittels Dropdown entweder die Nummerierung des Projekts auf die Belege übernommen oder dies ausgeschlossen werden kann. Falls noch kein Stundensatzartikel vorgegeben wurde, kann dies an dieser Stelle nachgeholt werden; es sollte in diesem Fall bedacht werden, dass sich der angegebene Stundensatz auf sämtliche Teil- bzw. Unterprojekte bezieht, denen noch kein Stundensatz zugeordnet worden ist. Handelt es sich hierbei um ein Teilprojekt, dem weitere Unterprojekte zugrunde liegen, so kann das Teilprojekt abgerechnet werden und wahlweise die zugehörigen Unterprojekte als Beschreibungstexte angezeigen werden. Alternativ können auch die Unterprojekte als eigenständige Positionen erscheinen, indem die Option <strong>inkl. aller Unterprojekte</strong> als eigene Position ausgewählt wird. Weiterhin können die geplanten Zeiten als Position erscheinen, wobei durch die entsprechende Einstellung wiederum zwischen den Bezeichnungen des Abrechnungsartikels und derer des Teilprojekts unterschieden werden kann.</p>
+<h4 id="belege-verbindlichkeiten-zeiterfassung-und-aufgaben">Belege, Verbindlichkeiten, Zeiterfassung und Aufgaben<a class="headerlink" href="#belege-verbindlichkeiten-zeiterfassung-und-aufgaben" title="Permanent link">&para;</a></h4>
+<p>-<strong>Belege</strong>: Hier können alle Belege angesehen werden, die jemals auf das ausgewählte Projekt gebucht worden sind. Dabei kann nach der Belegart gefiltert und über das Suchfeld bspw. nach einem bestimmten Status oder Kunden gesucht werden.
+-<strong>Verbindlichkeiten</strong>: Zum Projekt zugehörige Verbindlichkeiten werden angezeigt
+-<strong>Zeiterfassung</strong>: Hier stehen alle Zeiten, die über die Zeiterfassung auf das Projekt gebucht wurden. Weiterhin können auch direkt hier ausgewählte Zeiten bereits als abgerechnet markiert werden, wodurch diese auch im Dashboard nicht mehr als offen angezeigt werden.
+-<strong>Aufgaben</strong>: Hier werden zum einen sämtliche Aufgaben in Zusammenhang mit dem Projekt angezeigt, zum anderen gibt es hier aber auch die Möglichkeit, neue Aufgaben anzulegen und diese einem Mitarbeiter zuzuordnen.</p>
+<h3 id="projektplan">Projektplan<a class="headerlink" href="#projektplan" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Abschnitt des Artikels beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>Sind zu den Teilprojekten Start- und Abgabedaten definiert worden und die Teilprojekte nicht speziell von einer Anzeige im Projektplan ausgeschlossen worden, so kann hier ein GANTT-Diagramm anzeigt werden:</p>
+<p><img alt="projectmanagement_5.png" src="https://help.xentral.com/hc/article_attachments/18190399123484" /></p>
+<p>Per Klick auf den GANTT-Balken wird ein Dialog geöffnet, in dem wesentliche Einstellungen des Teilprojektes vorgenommen werden können. Meilensteine von Projekten lassen sich im Projektkalender (bzw. im Hauptkalender des Systems) erstellen, benennen und mit einer Farbe kennzeichnen.Der Inhalt eines GANTT-Diagramms lässt sich drucken oder als CSV-Datei ausgeben:</p>
+<p><img alt="projectmanagement_6.png" src="https://help.xentral.com/hc/article_attachments/18190429093020" /></p>
+<p>Die Farbe der Balken lässt sich dabei - wie oben beschrieben - im Dashboard für jedes Teilprojekt einstellen. Sind die Farben nicht manuell gesetzt, werden die GANTT-Balken (ab Version 19.3) nach folgendem Schema farbig markiert:</p>
+<ul>
+<li>Wenn eine eigene Farbe im Teilprojekt hinterlegt ist, wird diese immer angezeigt.</li>
+<li>Offene und aktive Teilprojekte die in der Vergangenheit liegen sind überfällig und werden rot markiert.</li>
+<li>Offene und aktive Teilprojekte die zeitlich im Rahmen liegen werden grün angezeigt.</li>
+<li>Abgeschlossene und abgerechnete Teilprojekte werden in Blau dargestellt.</li>
+<li>Fehlerhafte Teilprojekte (z.B. wenn ein Datum fehlt) werden orange markiert.</li>
+</ul>
+<h4 id="ubersicht-laufende-projekte">Übersicht laufende Projekte<a class="headerlink" href="#ubersicht-laufende-projekte" title="Permanent link">&para;</a></h4>
+<p>Ab Version 19.3 können in der darüberliegenden Ebene alle Projekte in einem Übersichtsplan (GANTT) angezeigt werden. Einzelne Projekte können ausgeschlossen werden, in dem sie auf <strong>abgeschlossen</strong><strong>completed <strong>gesetzt oder über die Option </strong> Im Übersichts-Projektplan ausblenden</strong> in den Projekteinstellungen manuell ausgeschlossen werden. Per Klick auf den Projektnamen der Übersicht navigiert man in den jeweiligen Einzel-Projektplan.</p>
+<h3 id="dateien">Dateien<a class="headerlink" href="#dateien" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Abschnitt des Artikels beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>Im Reiter <strong>Dateien </strong> können Sie unterschiedliche Dokumente jeden Dateiformats zu Ihrem Projekt hinzufügen, indem Sie auf <strong>neue Datei anlegen</strong> klicken.</p>
+<p>In der erscheinenden Oberfläche kann die gewünschte Datei entweder über Drop &amp; Drag in die graue obere Fläche eingefügt oder über <strong>Durchsuchen</strong> das entsprechende Dokument gefunden werden. Die Bezeichnung der einzelnen Dokumente, die im Auswahlfeld angezeigt wird, kann individuell angepasst werden.</p>
+<p>Dazu kann im App Center Datei Stichwort Vorlagen gesucht und geöffnet werden. Anschließend wird auf <strong>+NEU </strong> geklickt. Dort kann die gewünschte Bezeichnung eingegeben und als Modul Projekt angegeben werden. Es darf kein Haken bei <strong>Nicht sichtbar</strong> gesetzt werden, d.h die Checkbox bleibt leer! Künftig werden dann die eingestellten neuen Dateitypen als Vorschlag angezeigt.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Du kannst alle anderen mit deinem Projekt verknüpften Dateien über denDateibrowserfinden und herunterladen. Gib dazu deinen Projektnamen in dieSuchedes Dateibrowsers ein. Weitere Informationen zum Dateibrowser erhältst du im Artikel zumDateibrowser.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

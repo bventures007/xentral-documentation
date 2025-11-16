@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360016724800 Persönliche Einstellungen - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360016724800 Persönliche Einstellungen</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360016724800 Persönliche Einstellungen</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p><em>Mein Bereich – Einstellungen</em></p>
+<h2 id="favoriten">Favoriten<a class="headerlink" href="#favoriten" title="Permanent link">&para;</a></h2>
+<p>Über die Favoriten-App können verschiedene Modulaufrufe als Schnellansicht hinterlegt werden.</p>
+<h3 id="favoriten-hinzufugen">Favoriten hinzufügen<a class="headerlink" href="#favoriten-hinzufugen" title="Permanent link">&para;</a></h3>
+<p>Favoriten können über dasStern-Icon im jeweiligen Modul hinzugefügt werden. Mit dem aufkommenden Fenster kann festgelegt werden, mit welchem Namen der Link angezeigt werden soll und ob der Aufruf in einem neuen Tab erfolgen soll.</p>
+<h3 id="favoriten-bearbeiten">Favoriten bearbeiten<a class="headerlink" href="#favoriten-bearbeiten" title="Permanent link">&para;</a></h3>
+<p>Favoriten können über dasZahnrad-Symbol auf derStartseitebearbeitet werden. Dort können ebenfalls Favoriten hinzugefügt werden. Darüber hinaus kann der Pfad auch durch weitere “actions” angepasst werden. Die Ansicht zu den Favoriten erfolgt über dieStartseite.</p>
+<p>Ebenfalls kann die Einstellung hier geändert werden, ob der Modulaufruf über ein eigenes Modul ausgeführt wird.</p>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<p>In diesem Bereich kannst du dir deine xentral-Oberfläche anpassen, deine Zugangsdaten bearbeiten oder unsere Apps und persönliche Kalender an xentral anbinden.</p>
+<h3 id="passwort">Passwort<a class="headerlink" href="#passwort" title="Permanent link">&para;</a></h3>
+<p>Ändern das Passwort deines Benutzers, indem du ein neues Passwort in das FeldPasswortund im FeldPasswort wiederholeneingibst. Das Passwort muss mindestens aus 8 Zeichen bestehen. DerAnzeigebalkenneben dem Passwortfeld bewertet die Komplexität und somit die Sicherheit des von ihnen gewählte Passworts. Die SchaltflächePasswort ändernwird aktiviert, wenn beide Passwörter übereinstimmen. Betätigen der SchaltflächePasswort ändernändert das Passwort.</p>
+<h3 id="profilbild">Profilbild<a class="headerlink" href="#profilbild" title="Permanent link">&para;</a></h3>
+<p>Lege ein neues Profilbild für deinen Benutzer fest, indem du die SchaltflächeDatei auswählenbetätigst. Ein Dialog zur Auswahl eines Bildes auf deinem Computer öffnet sich. Wähle das gewünschte Bild aus und bestätige den Dialog zur Dateiauswahl. Mit der SchaltflächeNeues Profilbild hochladenlegst du das Bild als dein neues Profilbild fest.</p>
+<h2 id="einstellungen">Einstellungen<a class="headerlink" href="#einstellungen" title="Permanent link">&para;</a></h2>
+<p>Im Bereich Einstellungen kannst du verschiedene Einstellungen zur Personalisierung deines Benutzerkontos vornehmen. Geänderte Einstellungen werden erst durch Betätigung der SchaltflächeEinstellungen speichernaktiviert.</p>
+<h3 id="startseite">Startseite<a class="headerlink" href="#startseite" title="Permanent link">&para;</a></h3>
+<p>Mit dieser Einstellung kannst du die Seite festlegen, welche direkt nach der Anmeldung in xentral angezeigt werden soll. Möchtest du zum Beispiel die Pinnwand direkt nach der Anmeldung angezeigt bekommen, so trage: &ldquo;index.php?module=welcome&amp;action=pinwand&rdquo; in das Feld ein.</p>
+<h3 id="sprache">Sprache<a class="headerlink" href="#sprache" title="Permanent link">&para;</a></h3>
+<p>Wähle die Sprache aus der xentral Oberfläche aus. Hierbei hast du im Standard die Wahl zwischen Deutsch und Englisch. Sollte sich die Änderung der Sprache nicht sofort in der Oberfläche widerspiegelt, lade die Seite im Webbrowser neu. Weitere Sprachen lassen sich mit dem ModulOberflächen-Übersetzungaus unserem App Center einrichten und nach Bedarf selbst anpassen.</p>
+<h3 id="eigene-kalenderfarbe">Eigene Kalenderfarbe<a class="headerlink" href="#eigene-kalenderfarbe" title="Permanent link">&para;</a></h3>
+<p>Wähle die Farbe, in der deine Kalendereinträge standardmäßig eingefärbt werden. Betätige hierzu die Kachel neben dem Text. Es öffnet sich ein Dialogfeld zur Auswahl der gewünschten Farbe.</p>
+<h3 id="chat">Chat<a class="headerlink" href="#chat" title="Permanent link">&para;</a></h3>
+<p>Aktiviere diese Option wenn das Chatfenster, anstatt im derzeitigen Browser-Tab, in einem neuen Browser-Tab geöffnet werden soll.</p>
+<h3 id="telefon">Telefon<a class="headerlink" href="#telefon" title="Permanent link">&para;</a></h3>
+<p>Ein über Placetel integriertes Telefon zeigt Telefon-Benachrichtigungen direkt in xentral an. Solltest du dies für deinen Benutzer nicht wünschen, dann deaktiviere diese Option.</p>
+<h3 id="mobile-apps">Mobile Apps<a class="headerlink" href="#mobile-apps" title="Permanent link">&para;</a></h3>
+<p>Um mit der xentral Mobile App auf deine Unternehmensdaten zugreifen zu können, musst du den API Zugang aktivieren. Dieser ist aus Sicherheitsgründen standardmäßig deaktiviert. Betätige hierzu die SchaltflächeZugang aktivieren. Du bekommst im Anschluss einen QR-Code angezeigt, mit dessen Hilfe du die xentral Mobile App bequem verbinden kannst. Solltest du den Zugriff durch die xentral Mobile App wieder deaktivieren wollen, betätige hierzu die SchaltflächeZugang deaktivieren.</p>
+<h2 id="mein-google-kalender">Mein Google Kalender<a class="headerlink" href="#mein-google-kalender" title="Permanent link">&para;</a></h2>
+<p>xentral kann Termine zwischen dem internen Kalender und einem Google Kalender synchronisieren. Bevor ein Google Kalender angebunden werden kann, muss zunächst ein aktiver API Zugang zu Google angelegt werden. Die Einrichtung ist unter<a href="#">Einrichtung Google API</a>beschrieben.</p>
+<h3 id="google-konto-g-mail-adresse">Google Konto / G-Mail Adresse<a class="headerlink" href="#google-konto-g-mail-adresse" title="Permanent link">&para;</a></h3>
+<p>Benutzernamen des Google Kontos (typischerweise handelt es sich dabei um eine Google E-Mail Adresse / GMail-Adresse).</p>
+<h3 id="api-account">API Account<a class="headerlink" href="#api-account" title="Permanent link">&para;</a></h3>
+<p>Konfigurierter API Zugang für xentral in Google. Stehen mehr als eine Option zur Auswahl oder existiert keine Auswahl, sollten die eingerichteten Google API Verbindungen überprüft werden.</p>
+<h3 id="aktiv">Aktiv<a class="headerlink" href="#aktiv" title="Permanent link">&para;</a></h3>
+<p>Hier kann die gesamte Synchronisierung der Kalender des Google Kontos vorübergehend deaktiviert werden. Wenn der Haken nicht gesetzt ist, wird lediglich die xentral-seitige Synchronisierungsfunktion abgeschalten. Wurde zuvor bereits die Autorisierung durchgeführt, bleibt diese bestehen. Die Synchronisierung der Kalender kann in diesem Fall sofort fortgesetzt werden wenn der Haken wieder gesetzt wird.</p>
+<h3 id="autorisierung-der-google-kalender-api">Autorisierung der Google Kalender API<a class="headerlink" href="#autorisierung-der-google-kalender-api" title="Permanent link">&para;</a></h3>
+<p>Damit xentral die Google Termine abrufen kann, muss der Zugriff auf das Google Konto für xentral autorisiert werden:</p>
+<ol>
+<li>Google E-Mail Adresse eintragen</li>
+<li>Google API auswählen</li>
+<li>Speichern</li>
+<li>Klick auf Autorisieren</li>
+<li>Es wird zum Google Zustimmungsbildschirm weitergeleitet. Falls noch kein Login bei Google im aktuellen Browser stattgefunden hat, bitte nun mit einem Google Account einloggen.</li>
+<li>Anschließend bitte bestätigen, dass xentral auf den Google Kalender zugreifen darf.</li>
+<li>Nun wirst du nach xentral zurückgeleitet. Es erscheint eine Meldung, die aussagt, ob die Autorisierung erfolgreich war oder nicht.</li>
+<li>Durch Klick auf Termine importieren importierst du erstmalig alle Google Termine der letzten Woche und der nächsten 3 Wochen. Dieser Schritt muss nach der Autorisierung mindestens einmal durchgeführt werden.</li>
+</ol>
+<h3 id="trennen">Trennen<a class="headerlink" href="#trennen" title="Permanent link">&para;</a></h3>
+<p>Durch Klicken aufTrennenwird xentral die Autorisierung zum Zugriff auf das Google Konto entzogen. Eine Synchronisierung kann dann solange nicht mehr stattfinden, bis die Autorisierung wieder erteilt wird.  Ab der Version 21.1 entfällt der Button &ldquo;Trennen&rdquo;. Um ab dieser Version den Zugriff zu entziehen, klicke bitte einfach noch einmal auf Autorisieren. Hierdurch wird die Verbindung getrennt.</p>
+<h3 id="termine-importieren">Termine Importieren<a class="headerlink" href="#termine-importieren" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Kleiner Import: Jedesmal wenn der xentral Kalender neu geladen wird, werden die geänderten, hinzugefügten und gelöschte Termine seit der letzten Synchronisation importiert.</li>
+<li>Großer Import: Ein Prozessstarter führt regelmäßig einen großen import durch, bei dem alle Termine der letzten Woche und der nächsten 3 Wochen importiert werden. Wie häufig dieser Import durchgeführt wird, hängt von den Einstellungen des Prozessstarters ab (Standardeinstellung: jede Nacht um 00:00 Uhr).</li>
+<li>Durch Klicken aufTermine Importierenkann ein großer Import manuell gestartet werden.</li>
+</ul>
+<h3 id="hinweise-zum-import-und-exportverhalten">Hinweise zum Import- und Exportverhalten<a class="headerlink" href="#hinweise-zum-import-und-exportverhalten" title="Permanent link">&para;</a></h3>
+<p>-&hellip; wenn dieser Benutzer selbst die Google Kalender Synchronisierung nutzt
+-&hellip; oder wenn die Google E-Mail Adresse in der Adresse des Benutzers hinterlegt ist
+-&hellip; oder wenn die Google E-Mail Adresse in der Adresse des Benutzers unter &ldquo;Weitere Kontaktinfos&rdquo; als &ldquo;Google E-Mail&rdquo;, &ldquo;Google Account&rdquo;, oder &ldquo;Google Kalender&rdquo; hinterlegt ist.</p>
+<p>-&hellip; wenn die E-Mail Adresse aus dem Termin in Adressen gefunden wird
+-&hellip; oder wenn die E-Mail Adresse aus dem Termin unter &ldquo;Weitere Kontaktinfos&rdquo; als &ldquo;Google E-Mail&rdquo;, &ldquo;Google Account&rdquo;, oder &ldquo;Google Kalender&rdquo; gefunden wird
+-&hellip; oder wenn die E-Mail Adresse aus dem Termin in den Ansprechpartnern einer Adresse (z.B. einer Firma) gefunden wird.</p>
+<ul>
+<li>Folgende Informationen eines Google Termins werden importiert: Titel, Organisator, Teilnehmer, Zeitpunk, Ort, Farbe, Sichtbarkeit, Beschreibung</li>
+<li>xentral versucht alle Teilnehmer beim Import auf User (= Mitarbeiter) oder Adressen zuzuordnen.</li>
+<li>Ein Benutzer / Mitarbeiter kann nur dann verknüpft werden&hellip;</li>
+<li>Ein Externer Kontakt (=Kunde o.Ä.) kann nur dann verknüpft werden&hellip;</li>
+<li>Wenn in xentral ein Termin angelegt wird, wird dieser direkt nach dem Speichern nach Google synchronisiert und Google verschickt Termineinladungen an alle Teilnehmer.</li>
+<li>Terminserien aus Google werden beim Import in einzelne voneinander unabhängige Termine aufgeteilt.</li>
+<li>Ein Termin, der von einem Benutzer aus Google importiert wurde kann nicht von einem anderen Benutzer in xentral verändert werden.</li>
+</ul>
+<h2 id="zwei-faktor-authentifizierung">Zwei Faktor Authentifizierung<a class="headerlink" href="#zwei-faktor-authentifizierung" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p><strong>Legacy-Modul</strong></p>
+<p>Das in diesem Abschnitt des Artikels beschriebene Modul wurde als Legacy-Modul gekennzeichnet. Dies bedeutet Folgendes:</p>
+<ul>
+<li>Wir entwickeln keine neue Funktionalitäten oder beheben Bugs für dieses Modul.</li>
+<li>Das Modul ist in Xentral-Instanzen nicht mehr verfügbar, die nach dem 28. Sept. 2022 erstellt wurden. Dies gilt sowohl für Demo-Instanzen als auch für lizenzierte Instanzen. Solltest du als Neukunde spezielle Anforderungen haben, die nur durch dieses Modul erfüllbar wären, kontaktiere bitte unser Kundensupport-Team, um mögliche Lösungen zu besprechen.</li>
+</ul>
+<p>Für weitere Informationen siehe auchWarum stuft Xentral einige Module als veraltet ein (Legacy-Module) und was bedeutet das für dich?</p>
+</blockquote>
+<p>xentral ermöglicht jedem Benutzer den Login per Zwei-Faktor-Authentifizierung. Hierzu wird der TOTP-Algorithmus (Time-based One-time Password) verwendet.</p>
+<p>Mit der SchaltflächeTOTP einschaltenwird ein QR Code erstellt, der dann mit dem Google Authenticator oder einer beliebigen anderen TOTP-App gescannt werden kann. In der App wird anschließend ein Passwort oder Code gezeigt, welches beim Login in xentral eingegeben werden muss, damit sich der Benutzer anmelden kann.</p>
+<p>Ab dann meldet sich der Benutzer immer mit der Zwei-Faktor-Authentifizierung an, sprich mit Benutzername, Passwort und einem in der App jedes mal aufs Neue generierten Code. Der Code ist immer nur für einige Sekunden gültig.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

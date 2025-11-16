@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360018080940 Druckereinrichtung Unter Cups - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>360018080940 Druckereinrichtung Unter Cups</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>360018080940 Druckereinrichtung Unter Cups</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Einrichtung wird von Xentral nicht supportet.</p>
+</blockquote>
+<p>Wie Sie Drucker generell an Xentral anschließen können erfahren Sie im Drucker Schnelleinstieg.</p>
+<h2 id="installation-bzw-aktivierung-von-cups">Installation bzw. Aktivierung von CUPS<a class="headerlink" href="#installation-bzw-aktivierung-von-cups" title="Permanent link">&para;</a></h2>
+<h3 id="weboberflache-fur-cups-unter-macos-aktivieren">Weboberfläche für CUPS unter macOS aktivieren<a class="headerlink" href="#weboberflache-fur-cups-unter-macos-aktivieren" title="Permanent link">&para;</a></h3>
+<p>Aktivieren lässt sich das Interface mit folgender Eingabe im Terminal:</p>
+<p>cupsctl WebInterface=yes</p>
+<p>Deaktivieren:</p>
+<p>cupsctl WebInterface=no</p>
+<p>Quelle und weitere Dokumentation: https://www.cups.org/</p>
+<h3 id="cups-unter-linux-debian-bzw-ubuntu-installieren">CUPS unter Linux Debian bzw. Ubuntu installieren<a class="headerlink" href="#cups-unter-linux-debian-bzw-ubuntu-installieren" title="Permanent link">&para;</a></h3>
+<p>Sollte CUPS unter Linux nicht vorhanden sein (Server-Version), können Sie dies mit diesen Befehlen installieren:</p>
+<p>Server/Client Komponenten:</p>
+<p>sudo apt-get install cups cups-client cups-bsd</p>
+<p>Druckertreiber Bibliotheken:</p>
+<p>sudo apt-get install hplip hpijs printer-driver-gutenprint</p>
+<h3 id="weboberflache-fur-cups-unter-linux-aktivieren">Weboberfläche für CUPS unter Linux aktivieren<a class="headerlink" href="#weboberflache-fur-cups-unter-linux-aktivieren" title="Permanent link">&para;</a></h3>
+<p>Aktivieren lässt sich die Weboberfläche und die Freigabe der Netzwerkdrucker mit folgender Eingabe im Terminal:</p>
+<p>sudo cupsctl &ndash;share-printers &ndash;remote-admin</p>
+<p>Jetzt müssen Sie den Dienst neu starten:</p>
+<p>systemctl restart cups</p>
+<p>Quelle und weitere Informationen zu CUPS unter Linux:<a href="https://wiki.ubuntuusers.de/CUPS/">https://wiki.ubuntuusers.de/CUPS/</a></p>
+<h2 id="arbeiten-mit-cups">Arbeiten mit CUPS<a class="headerlink" href="#arbeiten-mit-cups" title="Permanent link">&para;</a></h2>
+<p>Öffnen sie einen Webbrowser und rufen Sie CUPS auf. Der Aufruf erfolgt im unseren Beispiel lokal auf dem System, in welchem CUPS installiert ist: https://127.0.0.1:631**</p>
+<p>Sollten Sie nach Benutzernamen und Passwort gefragt werden, geben Sie diesen entsprechend ein (den Benutzernamen findet man über die Kommandozeile heraus).</p>
+<h3 id="dokumentendrucker-anlegen">Dokumentendrucker anlegen<a class="headerlink" href="#dokumentendrucker-anlegen" title="Permanent link">&para;</a></h3>
+<p>Um einen neuen Drucker anzulegen, gehen Sie auf Administration und dann auf → Add Printer:</p>
+<p>Im Beispiel installieren wir den &ldquo;Brother MFC-7440N (Brother MFC-7440N)&rdquo;. Markieren Sie den Drucker und klicken Sie auf Continue:</p>
+<p><img alt="drucker-cups_3.png" src="https://help.xentral.com/hc/article_attachments/4996407937820" /></p>
+<p>Vergeben Sie den Drucker eine eindeutige Bezeichnung:</p>
+<p><img alt="drucker-cups_4.png" src="https://help.xentral.com/hc/article_attachments/4996369791260" /></p>
+<p>Wählen Sie den passenden Treiber aus:</p>
+<p><img alt="drucker-cups_5.png" src="https://help.xentral.com/hc/article_attachments/4996404318620" /></p>
+<p>Im letzten Schritt können Sie noch zusätzliche Einstellungen am Drucker vornehmen:</p>
+<p><img alt="drucker-cups_6.png" src="https://help.xentral.com/hc/article_attachments/4996408094876" /></p>
+<p>Im Bereich Printers können Sie den angelegten Drucker jetzt sehen und verwalten:</p>
+<p><img alt="drucker-cups_7.png" src="https://help.xentral.com/hc/article_attachments/4996369888284" /></p>
+<h4 id="eine-bestimmte-papierzufuhr-ansprechen">Eine bestimmte Papierzufuhr ansprechen<a class="headerlink" href="#eine-bestimmte-papierzufuhr-ansprechen" title="Permanent link">&para;</a></h4>
+<p>Um eine bestimmte Papierzufuhr bzw. Papierkassette anzusprechen, müssen Sie diesen Drucker einfach nochmals neu anlegen und entsprechend auch neu bezeichnen. Gehen Sie in der Einrichtung genau so vor wie im Punkt &ldquo;Dokumentendrucker anlegen&rdquo; beschrieben und passen Sie die Druckereinstellungen entsprechend an.</p>
+<p>Beispiel für die Bezeichnung:</p>
+<p><img alt="drucker-cups_8.png" src="https://help.xentral.com/hc/article_attachments/4996431897756" /></p>
+<p>Beispiel für eine manuelle Papierzufuhr um A5 Versandlabel zu drucken:</p>
+<p><img alt="drucker-cups_9.png" src="https://help.xentral.com/hc/article_attachments/4996369943452" /></p>
+<p>Ergebnis in der Printer Übersicht:</p>
+<p><img alt="drucker-cups_10.png" src="https://help.xentral.com/hc/article_attachments/4996369966364" /></p>
+<h3 id="versandlabel-drucker-anlegen">Versandlabel Drucker anlegen<a class="headerlink" href="#versandlabel-drucker-anlegen" title="Permanent link">&para;</a></h3>
+<p>Generell müssen ZEBRA Versandlabel Drucker immer über CUPS angelegt bzw. konfiguriert werden. Die Konfiguration über die Standard Druckerverwaltung in macOS bzw. Linux führt in 99% der Fälle nicht zum gewünschten Ergebnis.</p>
+<p>Beispiel für: ZEBRA GK420t</p>
+<p>Öffnen sie einen Webbrowser und rufen Sie CUPS auf. Der Aufruf erfolgt im unseren Beispiel lokal auf dem System wo CUPS installiert ist.</p>
+<p>{wikilink https://127.0.0.1:631 <strong>{{:entwickler:cups_01.jpg?nolink}} |https://127.0.0.1:631</strong> {{:entwickler:cups_01.jpg?nolink}}}</p>
+<p>Um einen neuen Drucker anzulegen, gehen Sie auf Administration und dann auf → Add Printer:</p>
+<p>Im Beispiel installieren wir den &ldquo;Zebra Technologies ZTC GK420t Labeldrucker“. Markieren Sie den Drucker und klicken Sie auf Continue:</p>
+<p><img alt="drucker-cups_12.png" src="https://help.xentral.com/hc/article_attachments/4996404516380" /></p>
+<p>Vergeben Sie eine eindeutige Bezeichnung für den Drucker:</p>
+<p><img alt="drucker-cups_13.png" src="https://help.xentral.com/hc/article_attachments/4996370000924" /></p>
+<p>Wählen Sie den passenden Treiber aus, als Model markieren Sie bitte &ldquo;Zebra ZPL Label Printer&rdquo;:</p>
+<p><img alt="drucker-cups_14.png" src="https://help.xentral.com/hc/article_attachments/4996393421212" /></p>
+<p>Jetzt müssen Sie noch das Papierformat für das Versandlabel einstellen. Klicken Sie hier auf die Mediengröße und stellen Sie diese auf Custom um, beachten Sie bitte auch die Umstellung der Einheiten auf mm:</p>
+<p><img alt="drucker-cups_15.png" src="https://help.xentral.com/hc/article_attachments/4996432009628" /></p>
+<p>Tragen Sie jetzt die Breite und Höhe für das von Ihnen verwendete Versandlabel ein. Für DHL-Versandlabels tragen Sie bitte 100 für die Breite ein und 200 für die Höhe ein:</p>
+<p><img alt="drucker-cups_16.png" src="https://help.xentral.com/hc/article_attachments/4996408443420" /></p>
+<p>Papierformate:</p>
+<ul>
+<li>DHL: B:100mm x H:200mm → Bitte auch entsprechend unter https://www.dhl-geschaeftskundenportal.de das Labelformat auswählen.</li>
+<li>UPS, DPD: B:100mm x H:150mm</li>
+</ul>
+<p>Nachdem der Versandlabel Drucker eingerichtet wurde, können Sie unter Maintenance eine Testseite drucken → &ldquo;Print Test Page&rdquo;:</p>
+<p><img alt="drucker-cups_17.png" src="https://help.xentral.com/hc/article_attachments/4996449546396" /></p>
+<p>Damit ist die Einrichtung der Drucker unter CUPS abgeschlossen. Die Anbindung an Xentral erfolgt hier: Drucker in Xentral</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

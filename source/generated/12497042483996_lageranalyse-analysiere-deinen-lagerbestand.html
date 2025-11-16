@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12497042483996 Lageranalyse Analysiere Deinen Lagerbestand - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>12497042483996 Lageranalyse Analysiere Deinen Lagerbestand</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>12497042483996 Lageranalyse Analysiere Deinen Lagerbestand</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p><img alt="monitor_x21.png" src="https://help.xentral.com/hc/article_attachments/12497002963228" /></p>
+<p>Berichtswesen &gt; Lageranalyse</p>
+<p>DasLageranalyseDashboard bietet dir umfassende Daten zu den wichtigsten Leistungskennzahlen (KPIs) deines Lagers. Es liefert dir Informationen über den Lagerwert, deine Abverkaufsquote und hilft dir, unter anderem, potenzielle Lagerengpässe zu identifizieren. Du kannst deine Analyse weiter verbessern, indem du einen bestimmten Zeitraum auswählst und deine KPIs mit einem vorherigen Zeitraum vergleichst. Mit diesen Daten kannst du dein Bestandsmanagement an die Nachfrage deiner Kunden anpassen und dadurch deine Geschäftsprozesse optimieren.</p>
+<p>Das Dashboard ist in drei Bereiche gegliedert:</p>
+<p>Im oberen Bereich des Dashboards findest du sechs wichtige KPIs, die als Zusammenfassung über deinen gesamten Bestand berechnet werden. Jeder KPI wird für den in den Seitenfiltern ausgewählten Zeitraum verarbeitet. Es werden die Daten des ausgewählten Hauptzeitraums angezeigt und mit dem Wert des Vergleichszeitraums verglichen.</p>
+<p><img alt="inventoryperformance_highlevelkpi.png" src="https://help.xentral.com/hc/article_attachments/12497003656860" /></p>
+<p>Der mittlere Bereich des Dashboards besteht aus fünf Kacheln, die Einblicke auf Artikelebene bieten. Jede Kachel besteht aus einem Diagramm, das den entsprechenden KPI im Verlauf der Zeit in deinem ausgewählten Hauptzeitraum anzeigt, sowie einer Tabelle mit den fünf Artikeln, die den höchsten Wert zum KPI beitragen.</p>
+<p><img alt="inventoryperformance_graph.png" src="https://help.xentral.com/hc/article_attachments/12497003754396" /></p>
+<p>Der dritte und letzte Bereich besteht aus der Tabelle zur Lagerwert Übersicht, die es dir ermöglicht, deinen Bestand nach Artikel, Lager oder Projekt zu gruppieren und dir so eine andere Perspektive auf deine Daten bietet. Du kannst so - wie bei einer Pivot-Tabelle - deinen Lagerbestand durchsuchen.</p>
+<p><img alt="inventoryperformance_table.png" src="https://help.xentral.com/hc/article_attachments/12497036733212" /></p>
+<h2 id="zeitraum-fur-die-analyse-auswahlen">Zeitraum für die Analyse auswählen<a class="headerlink" href="#zeitraum-fur-die-analyse-auswahlen" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Alle deine Daten werden langfristig gespeichert, was es dir ermöglicht, die tägliche Entwicklung deiner Lager-KPIs ab Juli 2023 zu beobachten.</p>
+</blockquote>
+<p>Du kannst einen Zeitraum auswählen, um die zu analysierenden Daten einzugrenzen.</p>
+<p>Gehe wie folgt vor, um deine Daten mit Filtern einzugrenzen:</p>
+<ol>
+<li>Klicke rechts oben auf Seitenfilter.</li>
+<li>
+<p>Wähle einen Zeitraum für die Analyse aus. Die folgenden Zeiträume und Intervalle sind verfügbar:
+  Abschließend kannst du auswählen, ob du die Ergebnisse des ausgewählten Zeitraums mit dem vorangegangenen Zeitraum oder dem gleichen Zeitraum des letzten Jahres vergleichen möchtest.</p>
+</li>
+<li>
+<p>Klicke auf Anwenden.</p>
+</li>
+</ol>
+<p>Der ausgewählte Zeitraum wird auf deine Daten angewendet und nach einer kurzen Ladezeit angezeigt.</p>
+<h3 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h3>
+<p>Beachte, dass sich einige KPIs aufgrund des von dir angewendeten Zeitraums erheblich ändern werden, da die Länge des Zeitraums, über den die Daten angesammelt werden, beeinflusst wird. Dies gilt insbesondere für die KPIs Abverkaufsquote und Lagerumschlagsquote, da deine Gesamtverkaufszahlen mit der Auswahl eines längeren Zeitraums wahrscheinlich steigen werden.</p>
+<p>Achte auf einen angemessenen Zeitraum, wenn du diese Kacheln für ein Benchmark verwendest. Zum Beispiel wird die Abverkaufsquote normalerweise über einen Monat betrachtet, während die Lagerumschlagsquote oft über einen Zeitraum von sechs Monaten oder einem Jahr bestimmt wird.</p>
+<h2 id="uber-die-ubersichtskacheln">Über die Übersichtskacheln<a class="headerlink" href="#uber-die-ubersichtskacheln" title="Permanent link">&para;</a></h2>
+<p>Die Übersichtskacheln liefern dir auf einen Blick die wichtigsten Zahlen für deine Lager-KPIs. Jede Kachel vergleicht die Daten für das Enddatum des aktuellen Zeitraums mit dem Enddatum des Vergleichszeitraums, den du in denSeitenfilternausgewählt hast. Das erleichtert es dir, Trends zu erkennen und deine Prozesse bei Bedarf anzupassen.</p>
+<p>Weitere Informationen zu vier der sechs KPIs findest du in den darunterliegenden<a href="#UUID-c0a9107a-51a3-9b89-1a14-aad1bfd4a00b_section-idm4559623434574434061428260101">Diagrammkacheln</a>. Diese KPIs sind in der folgenden Tabelle als (mit Diagramm) gekennzeichnet.</p>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>Beschreibung</th>
+<th>Hintergrund</th>
+<th>Berechnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lagerwert (mit Diagramm)</td>
+<td>Summe des Lagerwertes aller Artikel auf Lager, basierend auf ihren durchschnittlichen Einkaufspreisen</td>
+<td>Schnelle Übersicht darüber, wie viel Kapital deines Unternehmens in Form von Lagerbeständen gebunden ist</td>
+<td>Lagerwert pro Artikel = Menge auf Lager * durchschnittlicher Einkaufspreis (basierend auf bisherigen Einkaufspreisen) Gesamtlagerwert = Summe des (Lagerwerts pro Artikel) über alle Artikel</td>
+</tr>
+<tr>
+<td>Verkaufswert des Inventars</td>
+<td>Summe des Verkaufswerts aller Artikel auf Lager, basierend auf ihren durchschnittlichen Verkaufspreisen</td>
+<td>Verstehe den Gesamtwert deines Lagers, bewerte die Rentabilität deiner Artikel und triff fundierte Entscheidungen über Preise, Werbeaktionen und Artikelsortiment</td>
+<td>Verkaufswert pro Artikel = Menge auf Lager * durchschnittlicher Verkaufspreis (basierend auf bisherigen Aufträgen) Gesamter Verkaufswert = Summe des (Verkaufswerts pro Artikel) über alle Artikel</td>
+</tr>
+<tr>
+<td>Anzahl einzigartiger Produkte</td>
+<td>Anzahl unterschiedlicher Artikel, die als Lagerartikel aufgeführt sind</td>
+<td>Eine größere Artikelpalette kann die Komplexität deines Lagermanagements beeinflussen</td>
+<td>Eindeutige Anzahl an Artikel-IDs, die du im ausgewählten Zeitraum auf Lager hattest</td>
+</tr>
+<tr>
+<td>Lagerumschlagsquote (mit Diagramm)</td>
+<td>Die Rate, mit der der Lagerbestand in einem Zeitraum umgeschlagen wird.</td>
+<td>Ein Indikator dafür, wie schnell der Lagerbestand durch dein Lager bewegt wird</td>
+<td>Gesamtkosten der verkauften Waren (basierend auf dem Lagerwert und den Verkaufsmengen) / durchschnittlicher Lagerwert</td>
+</tr>
+<tr>
+<td>Abverkaufsquote (mit Diagramm)</td>
+<td>Verkaufte Stückzahl relativ zur anfänglichen Stückzahl auf Lager</td>
+<td>Überprüfe, ob die Mengen, die du auf Lager hast, an deine Verkaufszahlen angepasst sind</td>
+<td>(Verkaufte Menge / anfängliche Menge auf Lager) * 100 %</td>
+</tr>
+<tr>
+<td>Überschüssiger Lagerwert (mit Diagramm)</td>
+<td>Wert des Lagerbestands, der die erwartete Nachfrage im nächsten Monat übersteigt</td>
+<td>Vermeide Überbestände, indem du abschätzt, wie viel von deinem Lagerbestand die erwartete Nachfrage im nächsten Monat übertrifft</td>
+<td>Überschusswert pro Artikel = ((Menge auf Lager) - (erwartete Nachfrage)) * (durchschnittlicher Einkaufspreis) Gesamter Überschuss = Summe des (Überschusswerts pro Artikel) über alle Artikel</td>
+</tr>
+</tbody>
+</table>
+<h2 id="uber-die-diagrammkacheln">Über die Diagrammkacheln<a class="headerlink" href="#uber-die-diagrammkacheln" title="Permanent link">&para;</a></h2>
+<p>Die Diagrammkacheln ermöglichen dir tiefere Einblicke in deine Daten, indem sie Änderungen im Laufe der Zeit im Diagramm anzeigen. Zusätzlich werden unterhalb des Diagramm fünf Artikel aufgelistet, die am meisten zum KPI beitragen. Hierdurch bekommst du einen Einblick in die Artikel, die du besonders beachten solltest. Auf der linken Seite eines Artikels findest du außerdem seine ABC-Klassifizierung. Weitere Informationen hierzu findest du im Abschnitt<a href="#UUID-c0a9107a-51a3-9b89-1a14-aad1bfd4a00b_section-idm4646688986953634196430737577">Berechnung der ABC-Klassifizierung</a>.</p>
+<p><img alt="inventoryperformance_graphtile.png" src="https://help.xentral.com/hc/article_attachments/12982369173660" /></p>
+<p>Es gibt fünf Diagrammkacheln. Vier der fünf in diesem Bereich verfügbaren KPIs bieten zusätzliche Informationen zu KPIs, die bereits in den Übersichtskacheln enthalten sind. Du kannst in Abschnitt:<a href="#UUID-c0a9107a-51a3-9b89-1a14-aad1bfd4a00b_section-idm4559623351355234061347244768">Über die Übersichtskacheln</a>herausfinden, was sie bedeuten und wie sie berechnet werden. Der neue KPI in diesem Bereich kann wie folgt beschrieben werden:</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Bei Verwendung der Diagrammkacheln solltest du besonders auf das Intervall achten, das du bei der Auswahl einesZeitraums für die Analyseausgewählt hast, da dies die angezeigten Daten stark beeinflusst. Während die Übersichtskacheln immer die Daten für den aktuellen Tag anzeigen, basieren die angezeigten Daten in den Diagrammen auf Intervallen. Das bedeutet, dass bei einem wöchentlichen Intervall die Daten für den Durchschnittswert dieser Woche angezeigt werden.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>KPI</th>
+<th>Beschreibung</th>
+<th>Hintergrund</th>
+<th>Berechnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Niedriger Lagerbestand</td>
+<td>Potenzieller Umsatzverlust innerhalb der nächsten Woche, wenn die betroffenen Artikel nicht rechtzeitig wieder aufgefüllt werden Xentral kennzeichnet einen Artikel als &ldquo;gefährdet&rdquo;, wenn die aktuelle Menge auf Lager nicht ausreicht, um 95 Prozent der wöchentlichen Verkaufsmengen (basierend auf deinen bisherigen Aufträgen) zu erfüllen</td>
+<td>Minimiere deinen Umsatzverlust und verbessere die Kundenzufriedenheit, indem du sicherstellst, dass stark nachgefragte Artikel verfügbar sind</td>
+<td>Potenzieller Nettoumsatzverlust pro betroffenem Artikel = ((Menge auf Lager) - (95 Prozent der wöchentlichen Verkaufsmengen)) * (durchschnittlicher Verkaufspreis) Gesamter potenzieller Umsatzverlust = Summe der (potenziell verlorenen Umsätze pro gefährdetem Artikel)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="achtung_1">Achtung<a class="headerlink" href="#achtung_1" title="Permanent link">&para;</a></h3>
+<p>Für die Berechnung des Lagerwerts in allen oben genannten KPIs verwenden wir den durchschnittlichen Einkaufspreis pro Artikel aus deinen Einkaufspreisdaten. Wenn du keinen Einkaufspreis für einen bestimmten Artikel zugewiesen hast, wird der Lagerwert sowie die Umschlagshäufigkeit dieses Artikels als null betrachtet.</p>
+<h3 id="berechnung-der-abc-klassifizierung">Berechnung der ABC-Klassifizierung<a class="headerlink" href="#berechnung-der-abc-klassifizierung" title="Permanent link">&para;</a></h3>
+<p>Die ABC-Analyse kann dir helfen, das Layout deines Lagers zu optimieren, indem sie deine Artikel nach ihrer Bedeutung für den Gesamtumsatz in drei Kategorien einteilt. Artikel der Kategorie A tragen zu 80% zum Umsatz deines Unternehmens bei, Artikel der Kategorie B zu 16% und Artikel der Kategorie C zu 4%. Da die Artikel der Kategorie A für den Umsatz deines Unternehmens am wichtigsten sind und die meisten Lagerbewegungen in deinem Lager verursachen, sollten sie in leicht zugänglichen Bereichen gelagert werden. Artikel der Kategorie C hingegen können an schwer zugänglichen Stellen gelagert werden.</p>
+<p>Deine Artikel werden mithilfe der folgenden Rechnung in Kategorien eingeteilt:</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die für die Berechnung verwendeten Daten werden ab dem Datum, an dem das Dashboard für deine Instanz aktiviert wurde, aufbereitet.</p>
+</blockquote>
+<ol>
+<li>Der Umsatz für jeden deiner Artikel wird berechnet.</li>
+<li>Der Anteil jedes Artikels am Gesamtumsatz wird berechnet, indem der Umsatz des Artikels durch den Gesamtumsatz deiner Aufträge geteilt wird.</li>
+<li>Die Artikel werden dann in absteigender Reihenfolge nach ihrem Gesamtumsatz sortiert, und die Prozentsätze von oben nach unten addiert, bis Sie 80 % des Umsatzes betragen. Diese Artikel werden in Kategorie A eingeordnet.
+  Die nächsten 16 % der Artikel werden als B und die letzten 4 % als C eingestuft.</li>
+</ol>
+<p>Die folgende Tabelle zeigt dir ein Beispiel der Berechnung:</p>
+<table>
+<thead>
+<tr>
+<th>Artikel</th>
+<th>Umsatz</th>
+<th>Anteil am Gesamtumsatz</th>
+<th>Summe der Anteile</th>
+<th>Kategorie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artikel 1</td>
+<td>10</td>
+<td>42%</td>
+<td>42%</td>
+<td>A</td>
+</tr>
+<tr>
+<td>Artikel 2</td>
+<td>5</td>
+<td>21%</td>
+<td>63%</td>
+<td>A</td>
+</tr>
+<tr>
+<td>Artikel 3</td>
+<td>4</td>
+<td>17%</td>
+<td>80%</td>
+<td>A</td>
+</tr>
+<tr>
+<td>Artikel 4</td>
+<td>4</td>
+<td>17%</td>
+<td>97%</td>
+<td>B</td>
+</tr>
+<tr>
+<td>Artikel 5</td>
+<td>1</td>
+<td>3%</td>
+<td>100%</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+<h2 id="uber-die-lagerwert-ubersicht">Über die Lagerwert Übersicht<a class="headerlink" href="#uber-die-lagerwert-ubersicht" title="Permanent link">&para;</a></h2>
+<p>Am unteren Rand der Seite befindet sich eine Tabelle, die es dir ermöglicht, deine Daten nach Artikel, Projekt oder Lager zu filtern. In der Tabelle werden sowohl der Lagerwert als auch der Verkaufswert des Lagerbestands angezeigt, die jeweils auf Basis von Durchschnittspreisen sowie dem aktuellsten Preis berechnet werden. Wähle in der oberen rechten Ecke die Dimension aus, nach der du gruppieren möchtest und verwende die Suchleiste auf der linken Seite, um einen bestimmten Eintrag zu finden.</p>
+<p><img alt="inventoryperformance_table.png" src="https://help.xentral.com/hc/article_attachments/12497036733212" /></p>
+<p>Du kannst diese Tabelle nach deinen Vorlieben anpassen, indem du Spalten ausblendest, ihre Größe änderst und sie nach Belieben sortierst. Du kannst Spalten mithilfe derSpalten-Schaltfläche oben rechts in der Tabelle ausblenden, während das Ändern der Größe und das Sortieren per Drag-and-Drop erfolgt.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

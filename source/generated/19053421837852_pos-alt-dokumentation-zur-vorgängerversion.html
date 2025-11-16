@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19053421837852 Pos Alt Dokumentation Zur Vorgängerversion - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>19053421837852 Pos Alt Dokumentation Zur Vorgängerversion</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>19053421837852 Pos Alt Dokumentation Zur Vorgängerversion</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <h2 id="achtung">Achtung<a class="headerlink" href="#achtung" title="Permanent link">&para;</a></h2>
+<p>Das folgende alte Xentral Modul POS wird in Q2 durch das Redesign und weitere Funktionen ersetzt. (Stand: 17.03.2025). Du kannst die neue POS bereits im Beta Programm testen.</p>
+<h2 id="aktionen-mit-der-kasse">Aktionen mit der Kasse<a class="headerlink" href="#aktionen-mit-der-kasse" title="Permanent link">&para;</a></h2>
+<p><img alt="POS1.png" src="https://help.xentral.com/hc/article_attachments/19055658908060" /></p>
+<p>Die Kasse ermöglicht folgende Aktionen:</p>
+<ul>
+<li>Zahlung Bar</li>
+<li>Zahlung EC</li>
+<li>Zahlung Kreditkarte</li>
+<li>Zahlung Überweisung</li>
+<li>Kein Beleg oder mit Rechnung bzw. Quittung</li>
+<li>Rabatt in EUR oder Prozent</li>
+<li>Trinkgeld</li>
+<li>Entnahme</li>
+<li>Einlage</li>
+<li>Storno Funktion</li>
+<li>Belege laden</li>
+<li>Lade öffnen</li>
+<li>Vorgang speichern</li>
+</ul>
+<h2 id="einrichtung-pos">Einrichtung POS<a class="headerlink" href="#einrichtung-pos" title="Permanent link">&para;</a></h2>
+<h3 id="projekt-anlegen">Projekt anlegen<a class="headerlink" href="#projekt-anlegen" title="Permanent link">&para;</a></h3>
+<p>Legen Sie unter Stammdaten → Projekte ein eigenes Projekt für die Kasse an.</p>
+<h3 id="kassenbuch-definieren">Kassenbuch definieren<a class="headerlink" href="#kassenbuch-definieren" title="Permanent link">&para;</a></h3>
+<p>Für eine Kasse muss ein Kassenbuch hinterlegt werden, in welches die Umsätze der Kasse gebucht werden. Kassenbücher werden unter Administration → Einstellungen → Geschäftskonten angelegt. Dazu muss ein neues Geschäftskonto erstellt, und der Typ auf &ldquo;Kasse&rdquo; eingestellt werden.</p>
+<p>Das so erstellte Kassenbuch wird dann unter Buchhaltung → Kassenbuch gelistet.</p>
+<h3 id="kundennummer-fur-laufkundschaft-festlegen">Kundennummer für Laufkundschaft festlegen<a class="headerlink" href="#kundennummer-fur-laufkundschaft-festlegen" title="Permanent link">&para;</a></h3>
+<p>Legen Sie in Stammdaten → Adressen eine Adresse an, die stellvertretend für alle anonyme Kunden verwendet wird. Ein geeigneter Name könnte z.B. &ldquo;Laufkundschaft&rdquo; o. ä. lauten. Diese Adresse wird später bei den Projekteinstellungen hinterlegt (siehe Screenshot bei POS Einstellungen).</p>
+<h3 id="kassierer-anlegen">Kassierer anlegen<a class="headerlink" href="#kassierer-anlegen" title="Permanent link">&para;</a></h3>
+<p>Die Bedienung der Kassenoberfläche kann nur durch ausgewiesene Kassierer erfolgen. Die Erstellung eines Kassierers im System, setzt voraus, dass dieser Kassierer bereits als Mitarbeiter in Stammdaten → Adressen vorhanden ist. Wichtig hierbei ist, dass der Mitarbeiter explizit die Rolle &ldquo;Mitarbeiter des entsprechenden POS - Projektes ist&rdquo;, es reicht nicht wenn der Mitarbeiter nur die Rolle &ldquo;Mitarbeiter von Projekt alle&rdquo; besitzt.</p>
+<p>Ist der Datensatz für den Mitarbeiter vorhanden, kann er unter App Center → POS (Konfiguration) → Übersicht als Kassierer hinzugefügt werden.</p>
+<p>Legen Sie mit &lsquo;Neu&rsquo; einen neuen Kassierer an.</p>
+<p><img alt="POS3.png" src="https://help.xentral.com/hc/article_attachments/19055687802524" /></p>
+<h4 id="rechtevergabe-fur-kassierer">Rechtevergabe für Kassierer<a class="headerlink" href="#rechtevergabe-fur-kassierer" title="Permanent link">&para;</a></h4>
+<p>Vergeben Sie mindestens folgende Rechte für Kassierer:</p>
+<ul>
+<li>POS</li>
+<li>WELCOME: login, logout, settings, start, startseite</li>
+</ul>
+<p>Bitte überprüfen Sie direkt die fehlenden Rechte im Systemlog. Führen Sie den Workflow komplett durch und prüfen Sie im Systemlog. Vergeben Sie alle fehlenden Rechte.</p>
+<h3 id="artikel-fur-rabatt-einrichten">Artikel für Rabatt einrichten<a class="headerlink" href="#artikel-fur-rabatt-einrichten" title="Permanent link">&para;</a></h3>
+<p>Um an der Kasse einfach und schnell Rabatte an Kunden zu vergeben oder mit Gutscheinen zu arbeiten, legen Sie einen sog. Rabattartikel an, den Sie im weiteren Verlauf auch bei den Projekteinstellungen hinterlegen.</p>
+<p>Da es sich hierbei nicht um einen prozentualen Rabatt handelt, ist der Artikel auch nicht als Rabattartikel durch ein Häkchen auszuzeichnen (siehe Screenshot). Vielmehr wird der Rabattabzug über einen negativen Verkaufspreis realisiert, der jedoch auch im Verkaufsprozess flexibel verändert werden kann.</p>
+<p>Zusätzlich zu diesem &ldquo;Standard-Rabatt-Artikel&rdquo; können Sie auch beliebig viele weitere Rabattartikel dieser Art anlegen, um bspw. saisonale Gutscheine auszustellen und auf diesem Wege getätigte Umsätze anschließend auch auswerten zu können.</p>
+<h3 id="pos-einstellungen">POS Einstellungen<a class="headerlink" href="#pos-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Sie müssen für die POS kein bestimmtes Kommissionierverfahren definieren. Alle Einstellungen nehmen Sie im Projekt unter Administration → Einstellungen → Verkauf → POS Einstellungen vor:</p>
+<ul>
+<li>Lagerprozess: Definiert, ob bei einem Verkauf eine Lagerbuchung stattfindet, und wenn ja, aus welchem Lager Ware für den Verkauf entnommen werden kann</li>
+<li>POS Lager für den Verkauf: Definiert das Lager für die POS, sofern bei Lagerprozess &ldquo;Aus eingestelltem POS Lager entnehmen&rdquo; ausgewählt wurde (Zusätzlich ist unter Lager &amp; Logistik → Lagerverwaltung → Regale die Option &ldquo;POS Lager&rdquo; für jedes Regal zu aktivieren)</li>
+<li>Preisgruppe bevorzugt: es werden nur die Artikel-Verkaufspreise gezogen, die der hinterlegten Preisgruppe zugeordnet werden</li>
+<li>Kasse für Bar: Angabe des Kassenbuchs</li>
+<li>Laufkundschaft: Die für Laufkundschaft angelegte Adresse (siehe oben)</li>
+<li>Kunden aus fremden Nummernkreisen abwickeln: Die Kundenauswahl beim Verkauf ist damit auch aus anderen Projekten möglich</li>
+<li>Nur Artikel aus Projekt erlauben: Nur Artikel werden in POS angezeigt, die das selbe Projekt wie die POS besitzen.</li>
+<li>Lieferschein erstellen: Es wird zusätzlich ein Lieferschein erzeugt (Wichtig bei Nutzung von MHD und Chargen!)</li>
+<li>Kasse Beschriftung 1: Das Feld &ldquo;Interne Bemerkung&rdquo; kann hier in den Belegen umgenannt werden</li>
+<li>Kasse Beschriftung 2: Das Feld &ldquo;Freitext&rdquo; kann hier in den Belegen umbenannt werden</li>
+<li>Artikelbeschreibung in Belege übernehmen</li>
+<li>POS Anzeige in netto: Alle Preisangaben erfolgen in Netto</li>
+<li>Mehrere Aufträge pro Kassierer: Erfassung mehrerer Aufträge pro Kassierer möglich durch &ldquo;Vorgänge Speichern&rdquo; &amp; &ldquo;Laden&rdquo;</li>
+<li>Automatisches Ausloggen: Hier können Vorgaben für einen automatischen Logout vorgenommen werden. Der Zeitraum für den Logout kann dabei sowohl je Abschluss eines Kassiervorgangs als auch allgemein festgelegt werden.</li>
+</ul>
+<h3 id="schaltflachen">Schaltflächen<a class="headerlink" href="#schaltflachen" title="Permanent link">&para;</a></h3>
+<p>Folgende Schaltflächen können in den POS Einstellungen für die Kasse aktiviert werden:</p>
+<ul>
+<li>Zahlweise Bar</li>
+<li>Wahlweise EC</li>
+<li>Zahlweise Kreditkarte</li>
+<li>Zahlweise Überweisung</li>
+<li>Beleg Rechnung</li>
+<li>Beleg Quittung</li>
+<li>Rabatt in %</li>
+<li>Rabatt in EUR</li>
+<li>Einlage</li>
+<li>Entnahme</li>
+<li>Trinkgeld</li>
+<li>Lade öffnen</li>
+<li>Belege laden</li>
+<li>Storno</li>
+</ul>
+<p>Durch Betätigung der Rabatt-Schaltflächen können Sie einen Rabatt (in Euro oder Prozent) selektieren und unmittelbar auf alle Produkte im Warenkorb anwenden. Bei Auswahl des EUR Rabatts wird dabei die Artikelbezeichnung auf Ihrer Rechnung ausgewiesen, die Sie zuvor im Rabattartikel hinterlegt und in die Projekteinstellungen übertragen haben.</p>
+<p>Außerdem kann die Annahme des Trinkgelds auf die Zahlweisen EC und Kreditkarte beschränkt werden. Dadurch steht der Schaltflächen bei anderen Zahlweisen nicht zur Verfügung (ausgegraut). Hintergrund hierfür ist, dass die Trinkgeldverwaltung nicht durch die Mitarbeiter selbst erlaubt sein soll, sondern diese nur über den Steuerberater möglich sein soll.</p>
+<p>Beim Verkauf über die POS wird die Schaltfläche &ldquo;Zahlung abbuchen&rdquo; eingeblendet, wenn im POS-Projekt ein ZVT eingestellt ist.</p>
+<h3 id="weitere-einstellungen">Weitere Einstellungen<a class="headerlink" href="#weitere-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Nehmen Sie hier die für Sie zutreffenden Konfigurationen vor:</p>
+<ul>
+<li>Zwangsauswahl Zahlweise</li>
+<li>Zwangsauswahl Zahlweise</li>
+<li>Vorauswahl Anrede</li>
+</ul>
+<h3 id="drucker-einstellungen">Drucker Einstellungen<a class="headerlink" href="#drucker-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Konfigurieren Sie hier welche Dokumente bei einer Transaktion an der Kasse, wie oft, und auf welchem Drucker ausgegeben werden:</p>
+<ul>
+<li>Belege ausgeben nach Abschluss</li>
+<li>Drucker</li>
+<li>Anzahl Lieferschein</li>
+<li>Anzahl Rechnung</li>
+<li>Anzahl Lieferschein Doppel</li>
+</ul>
+<h2 id="einrichtung-der-dazugehorigen-hardware">Einrichtung der dazugehörigen Hardware<a class="headerlink" href="#einrichtung-der-dazugehorigen-hardware" title="Permanent link">&para;</a></h2>
+<p>Die einzelnen Hardwarekomponenten sollten, wie in folgender Grafik beschrieben, aufgebaut werden:</p>
+<p><img alt="POS4.png" src="https://help.xentral.com/hc/article_attachments/19055658911644" /></p>
+<p>Im Anschluss müssen Sie den POS noch in xentral einrichten, um die Kasse, wie in folgendem Video verwenden zu können:</p>
+<h3 id="bondrucker-einrichten">Bondrucker einrichten<a class="headerlink" href="#bondrucker-einrichten" title="Permanent link">&para;</a></h3>
+<p>Um zusätzlich zu den Rechnungsbelegen Bons zu drucken, können Sie einen Bondrucker einrichten.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Ein Bondruck ist nur mit per Adapterbox angebundenem Hardware, also dem Bondrucker, möglich und nicht als Download verfügbar.</p>
+</blockquote>
+<p>Zunächst müssen Sie die hierfür die Verbindung zur Adapterbox einrichten. Öffnen Sie in der Ansicht Administration → Einstellungen → System den Punkt Adapterbox.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wir empfehlen den Betrieb über ein Netzwerkkabel, da es so am besten und stabilsten läuft. Betrieb über WLAN ist prinzipiell möglich, wird aber von uns nicht supported, da dies eher fehleranfällig ist und die möglichen Probleme vor allem in Ihren Netzwerkeinstellungen zu finden sind.</p>
+</blockquote>
+<p>Wählen Sie in der Adapterbox-Ansicht &ldquo;+NEU&rdquo;. Danach werden Sie von xentral in 3 Schritten durch die Einrichtung geführt.</p>
+<p>Zunächst können Sie, falls nötig, die Netzwerkeinstellungen manuell festlegen. Sollten Sie hier Änderungen vornehmen, speichern Sie diese mit der &lsquo;Speichern&rsquo;-Schaltfläche. Um zum nächsten Schritt zu gelangen, klicken Sie auf &lsquo;weiter mit Schritt 2&rsquo;.</p>
+<p>Für diesen Schritt erhalten Sie von xentral eine Liste von durchzuführenden Aktionen. Arbeiten Sie diese Liste in der vorgegebenen Reihenfolge sorgfältig ab. Sie benötigen jetzt den FAT-formatierten USB-Stick.</p>
+<p>Wenn Sie die Liste abgearbeitet haben, drücken Sie weiter mit Schritt 3 und geben Sie eine Drucker-Bezeichnung und die Seriennummer der Adapterbox an.</p>
+<p>Im letzten Schritt kann die Einrichtung durch einen Testdruck überprüft werden. Nach erfolgreichem Testdruck können Sie den Bondrucker in den POS-Einstellungen anwählen und dem Projekt hinterlegen.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>In der POS müssen Sie die Option &ldquo;Beleg Quittung&rdquo; auswählen, damit auch ein Bon bei Rechnungsdruck mitkommt.</p>
+</blockquote>
+<p><img alt="POS5.png" src="https://help.xentral.com/hc/article_attachments/19055658911900" /></p>
+<h4 id="freifeld-auf-bon">Freifeld auf Bon<a class="headerlink" href="#freifeld-auf-bon" title="Permanent link">&para;</a></h4>
+<p>Es gibt die Möglichkeit, pro Artikel-Position auf dem Bon einen Freifeldtext des Artikels auszugeben.</p>
+<p><img alt="POS6.png" src="https://help.xentral.com/hc/article_attachments/19055687803804" /></p>
+<p>Pro Zeile können 39 Zeichen dargestellt werden. Mit einem | im Freifeld-Text können Sie bei diesem Positionstext einen Umbruch erzeugen.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Der Freifeld-Name erscheint auf dem Beleg auch, aber nur wenn er in den Freifeld-Einstellungen nicht leer ist.</p>
+</blockquote>
+<h3 id="zvt-anbindung-ec-terminal">ZVT - Anbindung EC Terminal<a class="headerlink" href="#zvt-anbindung-ec-terminal" title="Permanent link">&para;</a></h3>
+<p>Es ist möglich, ZVT-kompatible EC-Geräte anzubinden, indem man die IP-Adresse und den Port des Geräts dazu eingibt. Dadurch wird bei der Auswahl der Zahlungsweise &ldquo;EC&rdquo; der Betrag auf das Gerät übertragen.</p>
+<p>Über die Schaltfläche &ldquo;Zahlung abbuchen&rdquo; im Verkaufendialog kann ein Trinkgeld bei Verkauf mit EC-Karte gebucht werden (siehe Schaltflächen).</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Es erfolgt nur eine Rückmeldung zum Kartenlese-Gerät, nicht wieder zurück nach xentral.</p>
+</blockquote>
+<p>Felder:</p>
+<ul>
+<li>IP-Adresse: Die IP-Adresse des EC-Kartenlesers</li>
+<li>Port: Der Port an dem der EC-Kartenleser angeschlossen ist</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Diese Einstellungen finden Sie meist auf dem Gerät.</p>
+</blockquote>
+<p>Bei ZVT muss man die IP-Adresse und den Port des EC-Kartenleser in xentral angeben. Hinweis: Meist ist es so das das EC-Kartenlesegerät im lokalen Netzwerk eingebunden ist und “nur” eine lokale IP Adresse hat. Betreibt man aber xentral in der Cloud oder auf einem externen Server kann xentral natürlich nicht auf die lokale IP Adresse des EC-Kartenlesers zugreifen. In diesem Fall muss man über den Router die lokale IP Adresse bzw. den Port nach außen verfügbar machen. Bitte wenden Sie sich an Ihre Administration - das kann nur diese für Sie machen. xentral hat keine Möglichkeit interne IP Adresse nach außen zu Veröffentlichen. Bitte stellen Sie ebenfalls die Sicherheit weiter sicher. D.h. es sollte mit Firewalls oder VPN-Techniken der Zugriff geschützt werden.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>xentral unterstützt die Ausgabe des EC-Kassenbons über den Kassendrucker zur Zeit noch nicht. Deshalb muss im EC-Gerät die Einstellung für den Bon Druck nicht deaktiviert werden.</p>
+</blockquote>
+<h2 id="entnahme-einlage-konten">Entnahme/ Einlage Konten<a class="headerlink" href="#entnahme-einlage-konten" title="Permanent link">&para;</a></h2>
+<p>Sie können in xentral bestimmte Konten für die Entnahme bzw. Einlage von Geldbeträgen in der POS mit den entsprechen Steuersätzen definieren.</p>
+<p>Über die Schaltfläche &ldquo;Neuer Eintrag&rdquo; kann ein neues Konto definiert werden.</p>
+<p><img alt="POS7.png" src="https://help.xentral.com/hc/article_attachments/19055687806236" /></p>
+<p>Wenn in der POS die Schaltfläche &ldquo;Einlage&rdquo; oder &ldquo;Entnahme&rdquo; gedrückt wird, erscheint sobald man ein Konto definiert hat ein Grund, in dem man das Entnahme/ Einlage Konto auswählen kann.</p>
+<p>Im Kassenbuch der POS erscheint der Grund auch als Eintrag.</p>
+<p><img alt="POS8.png" src="https://help.xentral.com/hc/article_attachments/19055658912668" /></p>
+<p>Außerdem erfolgt zusätzlich ein Bonausdruck bei jedem Entnahme- / Einlage-Vorgang.</p>
+<h2 id="arbeiten-mit-der-kassenoberflache">Arbeiten mit der Kassenoberfläche<a class="headerlink" href="#arbeiten-mit-der-kassenoberflache" title="Permanent link">&para;</a></h2>
+<h3 id="anmelden-an-der-pos">Anmelden an der POS<a class="headerlink" href="#anmelden-an-der-pos" title="Permanent link">&para;</a></h3>
+<p>Die Anmeldung an der POS erfolgt unter Verkauf → POS mit der Kassierer-Nummer, die beim Anlegen des Kassierers vergeben wurde.</p>
+<p>Wenn die Anmeldung erfolgreich war, wird die Kassenoberfläche entsperrt. Wenn Ware verkauft werden soll, wählen sie zunächst oben in der Mitte, entweder einen konkreten Kunden aus den Stammdaten aus, oder &ldquo;Laufkundschaft&rdquo; bei einem anonymen Vorgang. Falls ein neuer Kundendatensatz angelegt werden soll, wählen Sie hier &ldquo;Neuer Kunde&rdquo;.</p>
+<p>Fügen Sie unter Warenkorb die Artikel hinzu, die der Kunde erwerben möchte. Dazu können Sie die Artikel über das im Screenshot markierte Feld suchen (Leertaste = alle verfügbaren Artikel auflisten), oder Artikel mit dem Barcodescanner erfassen (der Cursor muss dazu in dem markierten blauen Textfeld stehen).</p>
+<p>Negative Mengen werden in den POS Positionen verhindert, da diese nicht verarbeitet werden können und zu Fehlern im Lager führen würden.</p>
+<p>Wenn alle zu verkaufenden Artikel erfasst wurden, wählen Sie über die entsprechenden Schaltflächen im rechten oberen Bildschirmbereich (siehe Screenshot) die Art der Transaktion und ggf. die Bezahlart aus. Wählen Sie dort auch aus, ob eine Rechnung gedruckt werden soll oder nicht.</p>
+<p><img alt="POS9.png" src="https://help.xentral.com/hc/article_attachments/19055658912796" /></p>
+<p>Schließen Sie die Transaktion mit Hilfe der &ldquo;Verkaufen&rdquo; Schaltfläche ab. Nach dem Abschließen werden die Belege zu dieser Transaktion gedruckt.</p>
+<h3 id="seriennummern-in-der-pos">Seriennummern in der POS<a class="headerlink" href="#seriennummern-in-der-pos" title="Permanent link">&para;</a></h3>
+<p>Es ist möglich, Seriennummern direkt in der POS-Oberfläche zu erfassen.</p>
+<p>Im Artikel muss dafür folgende Option ausgewählt sein:</p>
+<p><img alt="POS10.png" src="https://help.xentral.com/hc/article_attachments/19055687807900" /></p>
+<p>Im POS-Projekt in den POS-Einstellungen muss Folgendes eingestellt sein:</p>
+<ul>
+<li>Feld &ldquo;Lagerprozess&rdquo; → Der Lagerprozess darf nicht “Keine Lagerbuchung erzeugen” sein</li>
+<li>Die Option &ldquo;Lieferschein stellen&rdquo; muss ausgewählt sein</li>
+</ul>
+<p>In den System-Einstellungen (Administration → Einstellungen → System → Grundeinstellungen → System) folgende Option auswählen:</p>
+<ul>
+<li>Positionen mit Seriennummern</li>
+</ul>
+<h3 id="mhd-chargen-in-der-pos">MHD + Chargen in der POS<a class="headerlink" href="#mhd-chargen-in-der-pos" title="Permanent link">&para;</a></h3>
+<p>Chargen und -MHD Artikel werden nach FIFO-Prinzip (first in first out) ausgebucht.</p>
+<p>Ähnliche Vorraussetzungen, wie bei Seriennummern (s.o.):</p>
+<ul>
+<li>In Artikel Einstellungen: Charge und MHD verwenden</li>
+<li>In POS Einstellungen: Lieferschein erstellen, Lagerbewegung aktiv</li>
+<li>In Systemeinstellungen: Charge + MHD auf Belegen einblenden</li>
+</ul>
+<h2 id="belege-abkassieren-stornieren-in-pos">Belege abkassieren &amp; stornieren in POS<a class="headerlink" href="#belege-abkassieren-stornieren-in-pos" title="Permanent link">&para;</a></h2>
+<p>Aufträge / Rechnungen können in die POS-Oberfläche geladen werden um diese dort abzurechnen oder zu stornieren. Auf dem Kassenbon ist das Bezahldatum abgedruckt, an dem die Bezahlung an der POS vorgenommen wurde. Unabhängig davon enthält der PDF Rechnungsbeleg in xentral das Rechnungserstellungsdatum.</p>
+<p>Dazu klickt man auf die Schaltfläche &ldquo;Beleg laden&rdquo; rechts unten.</p>
+<p>Man erhält folgende Auswahl:</p>
+<p><img alt="POS11.png" src="https://help.xentral.com/hc/article_attachments/19055687808412" /></p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du über die Schaltfläche &ldquo;Beleg laden&rdquo; ein Teilstorno (Schaltfläche &ldquo;Teilstorno&rdquo;) oder Komplettstorno (Schaltfläche &ldquo;Komplettstorno&rdquo;) anlegst, dann musst du die Artikel manuell einlagern, da diese nicht automatisch eingelagert werden.</p>
+</blockquote>
+<h3 id="belege-abrechnen">Belege abrechnen<a class="headerlink" href="#belege-abrechnen" title="Permanent link">&para;</a></h3>
+<p>Wenn man eine Auftrags- oder Rechnungsnummer im Popup oben eingegeben hat und auf &ldquo;Über Kasse abrechnen&rdquo; klickt, wird der jeweilige Beleg in der Kassenoberfläche geladen.</p>
+<p>Vom Beleg wird in der POS-Oberfläche folgendes übernommen:1. die Positionen des Belegs 2. die Adressdaten des Belegs</p>
+<p>Danach können Sie diesen wie einen normalen POS-Vorgang weiter abwickeln.</p>
+<h3 id="belege-teilstornieren">Belege teilstornieren<a class="headerlink" href="#belege-teilstornieren" title="Permanent link">&para;</a></h3>
+<p>Die Schaltfläche &ldquo;Teilstorno&rdquo; lädt alle Positionen des Auftrags / Rechnung im Popup. Danach kann man die Menge der einzelnen Positionen eingeben, die storniert werden sollen.</p>
+<p>Mit einem Klick auf die &ldquo;Übernehmen&rdquo;-Schaltfläche werden die angegebenen Positionen in die POS geladen.</p>
+<h3 id="belege-komplett-stornieren">Belege komplett stornieren<a class="headerlink" href="#belege-komplett-stornieren" title="Permanent link">&para;</a></h3>
+<p>Die Schaltfläche &ldquo;Komplettstorno&rdquo; lädt alle Positionen direkt in die POS Oberfläche. Mit einem Klick auf die rote Storno-Schaltfläche, kann daraufhin eine Gutschrift erstellt werden.</p>
+<p>Im Kassenbuch wird der Betrag der Gutschrift ausgebucht und im Tagesabschluss der POS als Entnahme gekennzeichnet. Die in xentral erstellte Rechnung wird automatisch storniert und es wird ein Gutschriftsbeleg für den Vorgang erstellt.</p>
+<h3 id="mehrere-auftrage-pro-kassierer">Mehrere Aufträge pro Kassierer<a class="headerlink" href="#mehrere-auftrage-pro-kassierer" title="Permanent link">&para;</a></h3>
+<p>Sofern in den Einstellungen des Projekts &ldquo;Mehrere Aufträge pro Kassierer&rdquo; selektiert wurde, sind in der POS Oberfläche die zwei Schaltflächen &ldquo;Vorgang Speichern&rdquo; &amp; &ldquo;Laden&rdquo; sichtbar.</p>
+<p>Mit der Schaltfläche &ldquo;Vorgang Speichern&rdquo;, kann man die bereits erfassten Artikel eines Vorgangs in einer Liste speichern (z.B. wenn der Kunde noch zusätzliche Artikel einkaufen möchte) und mit der Schaltfläche &ldquo;Laden&rdquo; können gespeicherte Vorgänge geladen und abkassiert werden.</p>
+<h2 id="kassenabschluss">Kassenabschluss<a class="headerlink" href="#kassenabschluss" title="Permanent link">&para;</a></h2>
+<p>Den Kassenabschluss finden Sie in der POS-Oberfläche unter dem Reiter &lsquo;Abschluss&rsquo;.</p>
+<h3 id="tagesabschluss">Tagesabschluss<a class="headerlink" href="#tagesabschluss" title="Permanent link">&para;</a></h3>
+<p>Der Kassenabschluss wird am Anfang des Tages automatisch erstellt.</p>
+<p>Alle Buchungen eines Tages über die POS fließen automatisch in diesen Tagesabschluss. Das bedeutet, dass dieser nicht manuell festgelegt werden muss. Nachdem Sie das Bargeld gezählt haben und &ldquo;festgeschrieben&rdquo; wurde, wird die Zählung auch in den Tagesabschluss übernommen.</p>
+<p>Mit dem PDF Icon rechts können Sie sich diesen Abschluss anschauen / herunterladen. Dort werden folgende Positionen des Tages aufgelistet:</p>
+<ul>
+<li>Alle Einnahmen pro Zahlungsweise</li>
+<li>Stornierte Belege (Wenn eine aus der POS erstellte Rechnung storniert wird)</li>
+<li>Ein- und Entnahmen aus der Kasse</li>
+<li>Summe Einnahmen (Bar) in Brutto und Netto</li>
+<li>Kasse Anfangsbestand</li>
+<li>Kasse Endbestand</li>
+<li>Gezähltes Bargeld (aufgeteilt in Münzen und Scheine)</li>
+</ul>
+<p>Hier ein Beispiel-PDF des Kassenabschlusses über mehrere Seiten:</p>
+<p><img alt="POS13.png" src="https://help.xentral.com/hc/article_attachments/19055687809180" /></p>
+<h3 id="bargeld-zahlen">Bargeld zählen<a class="headerlink" href="#bargeld-zahlen" title="Permanent link">&para;</a></h3>
+<p>Hier können Sie alle Münzen und Scheine zählen und die Anzahl jeweils in das entsprechende Feld eingeben.</p>
+<p>Die Schaltfläche &lsquo;Gezählte Werte jetzt festschreiben&rsquo; lädt die Anzahl der Münzen &amp; Scheine in den Tagesabschluss</p>
+<p>Die Schaltfläche “Gezählte Werte speichern ohne Korrekturbuchung” erzeugt eine Korrekturbuchung im Kassenbuch.</p>
+<h3 id="monatsabschluss">Monatsabschluss<a class="headerlink" href="#monatsabschluss" title="Permanent link">&para;</a></h3>
+<p>Hier wird ein Sammel-PDF für alle Tagesabschlüsse eines Monats erstellt.</p>
+<p>Hier bekommen Sie einen kumulierten Abschluss mit aufaddierten Werten aus allen Monatstagen übersichtlich und knapp dargestellt.</p>
+<h3 id="zahlungseingang">Zahlungseingang<a class="headerlink" href="#zahlungseingang" title="Permanent link">&para;</a></h3>
+<p>Im Bereich Buchhaltung → Zahlungseingang können die Buchungen der Kasse importiert werden. Hierzu die entsprechende Kasse über das Stift Icon auswählen, anschließend wird man in die Maske &ldquo;Import&rdquo; weitergeleitet. Über die Schaltfläche &ldquo;Live-Import&rdquo; können die Kassen-Buchungen abgerufen werden und durch betätigen des &ldquo;Buchung fertigstellen&rdquo; importiert werden. Sobald die Buchung importiert wurde, sind die Rechnungsbelege der Kasse auch entsprechend ausgeglichen.</p>
+<p>Es wird geprüft, ob es mehrere Buchungen mit gleichem Grundbetrag und Datum an dem Tag gibt. Falls ja wird in einer Klammer die Nummer der Kassenbuchung dran gehängt:</p>
+<h3 id="pos-berichte-einstellungen">POS Berichte Einstellungen<a class="headerlink" href="#pos-berichte-einstellungen" title="Permanent link">&para;</a></h3>
+<p>Unter Stammdaten → Projekte → Einstellungen → POS Einstellungen kann man den Umfang der Monats- bzw. der Tagesabschlüsse einstellen.</p>
+<p>Option &ldquo;Monatsberichte ohne Einzelbuchung&rdquo;: hier wird ein zusammengefasster Bericht erzeugt, in dem die Einzelbuchungen nicht angezeigt werden</p>
+<p>Option &ldquo;Einzelbuchungen ausblenden&rdquo;: dadurch werden in den Tagesabschlüssen die einzelne Buchungen ausgeblendet und es stehen nur die Ein- und Ausgänge drin.</p>
+<h2 id="trinkgeld">Trinkgeld<a class="headerlink" href="#trinkgeld" title="Permanent link">&para;</a></h2>
+<p>Im POS Modul kannst du auch den Erhalt von Trinkgeld über verschiedene Zahlungsweisen wie Bar, EC oder Kreditkarte festhalten. Du musst nur ein paar wenige Einstellungen tätigen, bevor du Trinkgeld erhalten kannst.</p>
+<h3 id="konfiguration">Konfiguration<a class="headerlink" href="#konfiguration" title="Permanent link">&para;</a></h3>
+<p>Die Trinkgeld Option für EC &amp; Kreditkarte wird zunächst nicht im POS Modul angezeigt, du musst diese zunächst in den Projekteinstellungen aktivieren (Stammdaten → Projekte → Einstellungen → POS Einstellungen).</p>
+<p>Als Nächstes legst du eine Kostenstelle für das Trinkgeld im Modul Kostenstellen (Administration → Einstellungen → Buchhaltung → Kostenstellen) an.</p>
+<p>Dann gehst du im Modul POS (Konfiguration) auf Entnahme / Einlage Konten und legst dort einen neuen Eintrag an. Dort gibst du einen Grund und die Nummer der zuvor angelegten Kostenstelle an. Je nach Zweck des Trinkgelds kannst du Arbeitgeber oder Arbeitnehmer auswählen.</p>
+<p>Für die Verwendung des POS Moduls muss bereits im Modul Kassen ein Konto Typ &ldquo;Kasse&rdquo; erstellt und aktiviert sein. In den Projekteinstellungen musst du zudem das Kassenkonto und die Laufkundschaft eintragen haben.</p>
+<h3 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h3>
+<p>Zur Nutzung der Trinkgeld Funktion gehst du wie gewohnt in das Modul POS.</p>
+<h3 id="barzahlung">Barzahlung<a class="headerlink" href="#barzahlung" title="Permanent link">&para;</a></h3>
+<p>Zunächst wählst du den Artikel aus und klickst auf &ldquo;verkaufen&rdquo;. Bei Barzahlung gibt es im Dialogfenster nicht direkt die Möglichkeit Trinkgeld einzugeben. Hier gibst du den Betrag, den der Käufer gezahlt hat ein und das Rückgeld wird automatisch berechnet. Der Abschluss der Verkaufs wird durch ein Dialogfenster bestätigt.</p>
+<p>Um Trinkgeld zu erfassen klickst du anschließend auf &ldquo;Einlage&rdquo;, gibst im Dialogfenster den Betrag ein und bestätigst mit &ldquo;Ok&rdquo;. Das Geld wird nun auf das Trinkgeldkonto gebucht.</p>
+<p>Wenn ein Mitarbeiter Trinkgeld entnimmt, wird das über die Entnahme festgehalten und der Betrag wieder im Dialogfenster eingegeben.</p>
+<h3 id="zahlung-mit-ec-oder-kreditkarte">Zahlung mit EC oder Kreditkarte<a class="headerlink" href="#zahlung-mit-ec-oder-kreditkarte" title="Permanent link">&para;</a></h3>
+<p>Etwas anders läuft das Ganze bei der Zahlung mit EC oder Kreditkarte sowie der Überweisung. Hier wird das Trinkgeld direkt beim Verkauf der Artikels festgehalten.</p>
+<p>Bei EC und Kreditkarte kann auch nach dem Verkauf noch über die Trinkgeld-Schaltfläche ein Trinkgeld gebucht werden.</p>
+<p>Während bei der Bargeldmethode das Geld zunächst eingelagert und anschließend entnommen wird. Wird die Entnahme des Trinkgeld bei Zahlung mit EC, Kreditkarte oder per Überweisung direkt mit eingerechnet. Die Veränderung erscheint auch direkt im Kassenkonto.</p>
+<p><img alt="POS14.png" src="https://help.xentral.com/hc/article_attachments/19055687810076" /></p>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>

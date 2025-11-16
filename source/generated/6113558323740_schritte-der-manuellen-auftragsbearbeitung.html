@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6113558323740 Schritte Der Manuellen Auftragsbearbeitung - Xentral Dokumentation</title>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .breadcrumbs {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+        }
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content h1, .content h2, .content h3, .content h4 {
+            color: #2d3748;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .content h1 { font-size: 2em; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        .content h2 { font-size: 1.5em; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }
+        .content h3 { font-size: 1.25em; color: #4a5568; }
+        .content img {
+            max-width: 800px;
+            width: auto;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 15px 0;
+            display: block;
+        }
+        
+        /* Responsive images on smaller screens */
+        @media (max-width: 900px) {
+            .content img {
+                max-width: 100%;
+            }
+        }
+        .content pre {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Consolas', monospace;
+        }
+        .content code {
+            background: #f7fafc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .content blockquote {
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9ff;
+            border-radius: 0 5px 5px 0;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        .content ul, .content ol {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        .content li {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-to-index {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .back-to-index:hover {
+            background: #5a67d8;
+            color: white;
+        }
+        
+        /* Xentral bunte Info-Boxen (wie im Original) */
+        .content .note, .content .tip, .content .important, .content .warning {
+            margin: 20px 0;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        /* Anmerkung - Blaue Box */
+        .content .note {
+            background: linear-gradient(135deg, #e6f3ff 0%, #f0f8ff 100%);
+            border-left-color: #4a90e2;
+            color: #1a365d;
+        }
+        .content .note .title {
+            color: #2b6cb0;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .note .title::before {
+            content: "💬";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Tipp - Grüne Box */
+        .content .tip {
+            background: linear-gradient(135deg, #e6ffee 0%, #f0fff4 100%);
+            border-left-color: #38a169;
+            color: #1a202c;
+        }
+        .content .tip .title {
+            color: #2f855a;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .tip .title::before {
+            content: "💡";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Wichtig - Orange Box */
+        .content .important {
+            background: linear-gradient(135deg, #fff7e6 0%, #fffaf0 100%);
+            border-left-color: #ed8936;
+            color: #1a202c;
+        }
+        .content .important .title {
+            color: #c05621;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .important .title::before {
+            content: "⚠️";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Warnung - Rote Box */
+        .content .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left-color: #e53e3e;
+            color: #1a202c;
+        }
+        .content .warning .title {
+            color: #c53030;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        .content .warning .title::before {
+            content: "🚨";
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Box-Inhalte */
+        .content .note p, .content .tip p, .content .important p, .content .warning p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .content .note p:last-child, .content .tip p:last-child,
+        .content .important p:last-child, .content .warning p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Listen in Boxen */
+        .content .note ul, .content .tip ul, .content .important ul, .content .warning ul,
+        .content .note ol, .content .tip ol, .content .important ol, .content .warning ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .content .note li, .content .tip li, .content .important li, .content .warning li {
+            margin: 4px 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <h1>6113558323740 Schritte Der Manuellen Auftragsbearbeitung</h1>
+        <p>Generiert aus Markdown | Kategorie: Demo</p>
+    </div>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">🏠 Startseite</a> 
+        &raquo; 
+        <a href="../index.html#demo">Demo</a>
+        &raquo; 
+        <strong>6113558323740 Schritte Der Manuellen Auftragsbearbeitung</strong>
+    </div>
+    
+    <a href="../index.html" class="back-to-index">← Zurück zur Übersicht</a>
+    
+    <div class="content">
+        <p>Es gibt viele Möglichkeiten, deine Aufträge nach der Erstellung in Xentral weiter zu verarbeiten und manuelle Bearbeitungsschritte durchzuführen. Dazu gehören Aktionen wie die Stornierung von Aufträgen, die Erstellung von Auftragsdokumenten wie Rechnungen und Lieferscheinen, die Übergabe in den Auto-Versand und vieles mehr.</p>
+<p>Im Menü <strong>Verkaufen &gt; Auftrag</strong> kannst du auf die entsprechenden Optionen zur Auftragsbearbeitung zugreifen. Im Aktionsmenü oben rechts in einem geöffneten Auftrag kannst du ebenfalls zahlreiche Arbeitsschritte für die Auftragsabwicklung durchführen.</p>
+<p><img alt="aktionsmenue_auftrag-de.png" src="https://help.xentral.com/hc/article_attachments/19450129466268" /></p>
+<h2 id="auftrag-stornieren">Auftrag stornieren<a class="headerlink" href="#auftrag-stornieren" title="Permanent link">&para;</a></h2>
+<p>Es gibt zwei Methoden zur Stornierung von Aufträgen in Xentral:</p>
+<p>-<strong>Methode 1 </strong>: Öffne das Menü <strong>Verkaufen &gt; Auftrag <strong>. Klicke auf das </strong> X-Symbol</strong> rechts in der Zeile des zu stornierenden Auftrags.
+-<strong>Methode 2 </strong>: Öffne im Menü <strong>Verkaufen &gt; Auftrag </strong> den Auftrag, den du stornieren möchtest. Öffne das Menü <strong>Aktion</strong> oben rechts und klicke auf Auftrag stornieren.</p>
+<p>In bestimmten Fällen erscheint eine Abfrage, um zu entscheiden, ob du eine E-Mail mit einer Stornierungsbestätigung an den Kunden versenden möchtest. Diese Möglichkeit besteht nur unter folgenden Bedingungen:</p>
+<ul>
+<li>Im Modul <strong>Geschäftsbriefvorlagen</strong> wurde eine Geschäftsbriefvorlage des Typs Stornierung angelegt.</li>
+<li>Im Modul <strong>Projekte </strong> wurde unter <strong>Tab: Einstellungen &gt; Tab: Grundeinstellungen &gt; Bereich: Buchhaltung </strong> die Option <strong>Stornomail</strong> aktiviert.</li>
+</ul>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Wenn du Aufträge stornierst, die sich im Entwurfsmodus befinden, werden sie nach der Stornierung automatisch gelöscht.</p>
+<p>Bereits freigegebene Aufträge können nicht gelöscht werden, sondern werden lediglich als storniert markiert. Aufträge, die bereits freigegeben wurden, können nicht gelöscht werden. Stattdessen werden sie als storniert gekennzeichnet. Über das MenüAktionoben rechts im Auftrag kannst du die Stornierung bei Bedarf wieder rückgängig machen.</p>
+</blockquote>
+<h2 id="auftrag-kopieren">Auftrag kopieren<a class="headerlink" href="#auftrag-kopieren" title="Permanent link">&para;</a></h2>
+<p>Genau wie bei der Stornierung stehen auch für das Kopieren von Aufträgen zwei verschiedene Methoden zur Verfügung.</p>
+<p>-<strong>Methode 1 </strong>: Öffne das Menü <strong>Verkaufen &gt; Auftrag <strong>. Klicke auf das </strong> Kopieren-Symbol</strong> rechts in der Zeile des kopierenden Auftrags.
+-<strong>Methode 2 </strong>: Öffne im Menü <strong>Verkaufen &gt; Auftrag </strong> den Auftrag, den du kopieren möchtest. Öffne das Menü <strong>Aktion </strong> oben rechts und klicke auf <strong>Auftrag kopieren</strong>.</p>
+<blockquote>
+<p><strong>Anmerkung</strong></p>
+<p>Die Kopie des Auftrags wird standardmäßig als Entwurf erstellt und wird erst gespeichert, wenn du sie freigibst.</p>
+</blockquote>
+<h2 id="auftrag-abschicken">Auftrag abschicken<a class="headerlink" href="#auftrag-abschicken" title="Permanent link">&para;</a></h2>
+<p>Du kannst deinen Auftrag versenden, indem du die OptionAuftrag abschickenim Aktionsmenü auswählst. Sobald du einen Auftrag um diese Weise versendest, wird eine Auftragsbestätigung an den Kunden gesendet. Nachdem du auf <strong>Auftrag abschicken</strong> klickst, wird ein neues Fenster angezeigt. Hier kannst du auswählen, wie die Auftragsbestätigung versendet werden soll, sie optional ausdrucken oder den Text sowie den Betreff der Auftragsbestätigung bei Bedarf anpassen.</p>
+<p><img alt="auftrag-abschicken.png" src="https://help.xentral.com/hc/article_attachments/19391768706716" /></p>
+<ul>
+<li>per Drucker: Wähle einen Drucker aus, um die Auftragsbestätigung auszudrucken.</li>
+<li>per E-Mail: Die E-Mail-Adresse des Kunden ist vorausgewählt. Du kannst aber auch andere Adressen auswählen. Aktiviere die Option inkl. Xentral CSV, um die Auftragsbestätigung sowohl im PDF- als auch im CSV-Format zu versenden.</li>
+<li>Telefongespräch: Aktiviere diese Option, wenn du den Kunden telefonisch kontaktierst, um den Auftrag zu bestätigen. Hierbei wird keine E-Mail versendet, sondern der Auftrag wird im Tab <strong>Protokoll</strong> des Auftrags als versendet gekennzeichnet.</li>
+<li>Sonstiges: Diese Option ist für weitere Arten der Auftragsbestätigung vorgesehen und markiert den Auftrag im Protokoll als versendet.
+-<strong>Anhang </strong>: Falls im Tab <strong>Dateien </strong> des Auftrags zusätzliche Dateien hinterlegt sind, kannst du die Option <strong>Anhang</strong> aktivieren, um diese Dateien zusammen mit der Auftragsbestätigung an den Kunden zu senden.</li>
+</ul>
+<h2 id="auftrag-als-bestellung-weiterfuhren">Auftrag als Bestellung weiterführen<a class="headerlink" href="#auftrag-als-bestellung-weiterfuhren" title="Permanent link">&para;</a></h2>
+<p>Du kannst eine Bestellung aus einem Auftrag erstellen, indem du die Optionals Bestellung weiterführenim Aktionsmenü auswählst. Auf diese Weise kannst du exakt die Artikelmenge, die du gerade an den Kunden verkauft hast, direkt bei deinem Lieferanten nachbestellen.</p>
+<p>Gehe wie folgt vor, um eine Bestellung aus einem Auftrag heraus zu erstellen.</p>
+<ol>
+<li>Öffne den Auftrag, den du als Bestellung weiterführen möchtest.</li>
+<li>Setze in der Spalte Auswahl bei den Artikeln ein Häkchen, die du bestellen möchtest. Alle Artikel deines Auftrags sind hier gelistet.</li>
+<li>Öffne das Dropdown-Menü <strong>Aktion</strong> oben rechts.</li>
+<li>Klicke auf <strong>als Bestellung weiterführen</strong>.</li>
+<li>Bestätige deine Eingabe.</li>
+<li>Wähle aus der Artikelliste die Positionen aus, die in der Bestellung enthalten sein sollen. Aktiviere dazu die entsprechende Checkbox in der Spalte <strong>Auswahl</strong>.</li>
+<li>Wähle im Suchfeld <strong>Preis</strong> den Lieferanten aus.
+1.<strong>Optional </strong>: Aktiviere die Option Freifelder übernehmen, um in den Artikelstammdaten gepflegte Freifelder in die Bestellung zu übernehmen. Ebenso kannst du optional die <strong>Artikelbeschreibungen übernehmen</strong>.
+1.<strong>Optional </strong>: Du kannst die Bestellung im PDF-Format im Tab <strong>Dateien</strong> des ursprünglichen Auftrags hinterlegen, indem du die Option Bestellung PDF als Anhang bei Auftrag anhängen aktivierst.</li>
+<li>Klicke abschließend auf Bestellung(en) erzeugen.</li>
+</ol>
+<p><img alt="auftrag-zu-bestellung.png" src="https://help.xentral.com/hc/article_attachments/19391812719260" /></p>
+<h2 id="auftrag-als-produktion-weiterfuhren">Auftrag als Produktion weiterführen<a class="headerlink" href="#auftrag-als-produktion-weiterfuhren" title="Permanent link">&para;</a></h2>
+<p>Wähle im Dropdown-Menü <strong>Aktion </strong> die Option <strong>als Produktion weiterführen</strong>, um aus einem Auftrag heraus eine Produktion zu erstellen. Produktionen in Xentral sind für dich relevant, wenn du in deinem Unternehmen einzelne Artikel oder bestimmte Bestandteile von Stücklisten selbst fertigst.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zu Produktionen findest du im ArtikelProduktion: Überblick.</p>
+</blockquote>
+<h2 id="auftrag-als-lieferschein-weiterfuhren">Auftrag als Lieferschein weiterführen<a class="headerlink" href="#auftrag-als-lieferschein-weiterfuhren" title="Permanent link">&para;</a></h2>
+<p>Du kannst einen Lieferschein aus einem Auftrag heraus erstellen, indem du im Aktionsmenü die Optionals Lieferschein weiterführenauswählst. Wenn du auf diese Weise einen Lieferschein erstellst, musst du die Artikel manuell dem Lager entnehmen. Du kannst auch nur für bestimmte Artikel des Auftrags einen Lieferschein erstellen. Dies kann hilfreich sein, wenn sich in deinem Auftrag Serviceartikel befinden, die nicht auf dem Lieferschein erscheinen sollen.</p>
+<p>Gehe wie folgt vor, um einen Lieferschein für bestimmte Artikel zu erstellen.</p>
+<ol>
+<li>Navigiere zu Verkauf &gt; Auftrag und öffne den gewünschten Auftrag.</li>
+<li>Öffne das Tab Positionen.</li>
+<li>Wähle in der Spalte <strong>Pos.</strong> die Artikel aus, die auf dem Lieferschein aufgeführt sein sollen.</li>
+<li>Wähle als Lieferschein weiterführen in der Auswahlliste unten links.</li>
+<li>Klicke auf Ok.</li>
+</ol>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zur Verarbeitung von Lieferscheinen findest du im ArtikelLieferschein (Legacy).</p>
+</blockquote>
+<h2 id="auftrag-als-rechnung-weiterfuhren">Auftrag als Rechnung weiterführen<a class="headerlink" href="#auftrag-als-rechnung-weiterfuhren" title="Permanent link">&para;</a></h2>
+<p>Eine Rechnung kannst du aus einem Auftrag heraus erstellen, indem du im Aktionsmenü die Optionals Rechnung weiterführenauswählst. Anschließend findest du die erstellte Rechning im Modul <strong>Rechnung</strong>.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zu Rechnungen findest du im ArtikelRechnung.</p>
+</blockquote>
+<h2 id="auftrag-als-proformarechnung-weiterfuhren">Auftrag als Proformarechnung weiterführen<a class="headerlink" href="#auftrag-als-proformarechnung-weiterfuhren" title="Permanent link">&para;</a></h2>
+<p>Eine Proformarechnung ist keine Rechnung im buchhalterischen Sinne. Sie ähnelt eher einer Auftragsbestätigung und gibt den Wert der Lieferung an. Sie wird oft aus steuerlichen Gründen benötigt, zum Beispiel wenn eine Lieferung durch den Zoll abgewickelt wird.</p>
+<p>Gehe wie folgt vor, um für einen Auftrag eine Proformarechnung anzulegen.</p>
+<ol>
+<li>Navigiere zu <strong>Verkaufen &gt; Auftrag</strong> und öffne den gewünschten Auftrag.</li>
+<li>Öffne das Dropdown-Menü <strong>Aktion</strong> oben rechts.</li>
+<li>Klicke auf <strong>als Proformarechnung weiterführen</strong>.
+1.<strong>Optional</strong>: Aktiviere die Option nur Lagerartikel übernehmen. Dies bedeutet, dass Lagerartikel auf der Pro-formarechnung erscheinen, während andere Artikel wie Dienstleistungen oder Porto nicht angezeigt werden.</li>
+<li>Klicke auf OK.</li>
+</ol>
+<p>Die Pro-formarechnung wird erstellt. Dieses Dokument hat eine eindeutige, vom Auftrag getrennte Rechnungsnummer. Du findest die Proformarechnung im ModulProformarechnung.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zu Proformarechnungen findest du im ArtikelProformarechnung.</p>
+</blockquote>
+<h2 id="auftrag-als-abgeschlossen-markieren">Auftrag als abgeschlossen markieren<a class="headerlink" href="#auftrag-als-abgeschlossen-markieren" title="Permanent link">&para;</a></h2>
+<p>Der Auftrag wird als abgeschlossen markiert, sobald du einen<a href="#UUID-f118e740-c8e0-1848-d397-426de46181a4_N1738923242504">Lieferschein</a>, eine<a href="#UUID-f118e740-c8e0-1848-d397-426de46181a4_N1738923259680">Rechnung</a>oder beide Belege für den Auftrag erstellst. Du kannst einen Auftrag auch manuell abschließen, indem du die Optionals abgeschlossen markierenim Dropdown-Menü <strong>Aktion</strong> auswählst.</p>
+<h2 id="teillieferung-erstellen">Teillieferung erstellen<a class="headerlink" href="#teillieferung-erstellen" title="Permanent link">&para;</a></h2>
+<p>In Xentral kannst du mit einer Teillieferung bereits verfügbare Artikel sofort aus einem Auftrag heraus versenden, während nicht lagernde Positionen im System offen bleiben und automatisch für die Nachlieferung vorgesehen sind.</p>
+<p>So stellst du sicher, dass deine Prozesse im ERP effizient ablaufen und Kunden zeitnah die verfügbaren Waren erhalten – eine detaillierte Anleitung findest du im Artikel<a href="https://help.xentral.com/hc/de/articles/22399581362716#UUID-aa7c1212-2b27-e0bf-b2ca-c7651a293936">Auftrag: Teillieferung</a>.</p>
+<h2 id="auftrag-in-den-auto-versand-ubergeben">Auftrag in den Auto-Versand übergeben<a class="headerlink" href="#auftrag-in-den-auto-versand-ubergeben" title="Permanent link">&para;</a></h2>
+<p>Du kannst den Autoversand manuell starten, indem du im Dropdown-Menü <strong>Aktion</strong> die OptionAuto-Versand: an Versandzentrum übergebenauswählst. Dadurch werden die Artikel für diesen Auftrag aus dem Lager ausgebucht. Gleichzeitig erstellt Xentral sowohl eine Rechnung als auch ein Lieferschein.</p>
+<p>Nach der Übergabe in den Auto-Versand findest du den Auftrag im Modul <strong>Versandzentrum</strong> wieder. Von dort aus greifen auch deine Mitarbeiter im Lager auf die Auftragsabwicklung zu, indem sie die im Auftrag enthaltenen Artikel kommissionieren und für den Versand vorbereiten. Weitere Informationen zum Versandzentrum findest du im Artikel<a href="https://help.xentral.com/hc/de/articles/360016757139#UUID-8ee2b6e8-1c6c-8f2e-1259-35d3532701b0">Versandzentrum</a>.</p>
+<blockquote>
+<p><strong>Wichtig</strong></p>
+<p>Die Übergabe an den Auto-Versand ist nur möglich, wenn alle Symbole der Auftragsampel auf <strong>grün</strong> stehen. Weitere Informationen zur Auftragsampel findest du im ArtikelAuftragsampel verwenden.</p>
+</blockquote>
+<p>Es gibt zwei zusätzliche Methoden, mit denen du den Auto-Versand starten kannst:</p>
+<p>-<strong>Methode 1</strong>: Öffne das Menü Verkaufen &gt; Auftrag &gt; Tab:Versandübergabe. Hier werden alle Aufträge angezeigt, die für die Übergabe in den Auto-Versand bereit sind. Du kannst den Autoversand für mehrere Aufträge über die Stapelverarbeitung unten links im Menü starten. Dazu muss der Prozessstarter autoversand_manuell aktiv sein. Wenn du diese Methode nutzt, läuft die Übergabe in den Auto-Versand also halb automatisiert ab.
+-<strong>Methode 2 </strong>: Öffne das Modul <strong>Prozessstarter </strong> und konfiguriere den Prozessstarter autoversand_plus, um Aufträge voll automatisiert and den Auto-Versand zu übergeben, sobald alle Symbole der Auftragsampel auf <strong>grün</strong> stehen.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zu den Prozessstartern findest du im ArtikelAutomatisierung per Prozessstarter.</p>
+</blockquote>
+<h2 id="artikel-ein-und-auslagern">Artikel ein- und auslagern<a class="headerlink" href="#artikel-ein-und-auslagern" title="Permanent link">&para;</a></h2>
+<p>Bei Bedarf kannst du die in einem Auftrag enthaltenen Artikel mit einem Klick ein- oder auslagern. Wähle dazu im Dropdown-Menü <strong>Aktion </strong> eine der Optionen <strong>Artikel einlagern </strong> oder <strong>Artikel auslagern</strong> aus.</p>
+<h2 id="retouren-erstellen">Retouren erstellen<a class="headerlink" href="#retouren-erstellen" title="Permanent link">&para;</a></h2>
+<p>Wenn du eine Retoure zu einem Auftrag anlegen möchtest, wähle die Optionals Retoure weiterführenaus dem Dropdown-Menü <strong>Aktion </strong> aus. Anschließend wirst du aufgefordert, die retournierten Artikel und deren Stückzahl auszuwählen und einen <strong>Grund </strong> für die Retoure zu speichern. Klicke anschließend auf <strong>Retoure erzeugen</strong>. Daraufhin wird die Retoure angelegt und kann in Xentral weiter verarbeitet werden.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zu Retouren findest du im ArtikelDeine Retouren verwalten (Retouren Belege).</p>
+</blockquote>
+<h2 id="auftrag-als-csv-oder-pdf-exportieren">Auftrag als CSV oder PDF exportieren<a class="headerlink" href="#auftrag-als-csv-oder-pdf-exportieren" title="Permanent link">&para;</a></h2>
+<p>Möchtest du Auftragsdaten in verschiedenen Formaten herunterladen, beispielsweise um sie in externen Tools weiter zu verarbeiten oder einfach lokal zu sichern? Dann kannst du die Auftragsbestätigung jederzeit als CSV- oder PDF-Datei herunterladen. Öffne dazu im Auftrag das Dropdown-Menü <strong>Aktion </strong> und klicke auf <strong>Export als CSV </strong> oder <strong>als PDF öffnen</strong>. Die Dateien werden anschließend automatisch geöffnet.</p>
+<h2 id="artikel-reservieren">Artikel reservieren<a class="headerlink" href="#artikel-reservieren" title="Permanent link">&para;</a></h2>
+<p>Du kannst Artikel aus deinem Auftrag in deinem Lager reservieren, indem du im Dropdown-Menü <strong>Aktion</strong> aufalle Artikel reservierenklickst.</p>
+<p>InXentral hast du die Möglichkeit, Artikelbestände automatisch reservieren zu lassen, sobald Artikel in einem Auftrag enthalten sind. Diesen Automatismus kannst du pro Projekt einstellen. Öffne dazu das gewünschte Projekt im Modul <strong>Projekte </strong> und aktiviere die Option <strong>Auto-Reservierung im Lager </strong> unter <strong>Tab: Einstellungen &gt; Tab: Logistik/Versand &gt; Bereich: Optionen</strong>.</p>
+<blockquote>
+<p><strong>Tipp</strong></p>
+<p>Weitere Informationen zu Reservierungen findest du im ArtikelReservierungen.</p>
+</blockquote>
+    </div>
+    
+    <div class="footer">
+        <p>Generiert am: 16.11.2025 19:17 | 
+        Quelle: Markdown zu HTML Konvertierung</p>
+    </div>
+</body>
+</html>
